@@ -1,0 +1,146 @@
+<!-- MailerLite embed: paste everything below (starting with <style>) into a Custom HTML / Embed block on your ML landing page. Page title, meta description, and viewport are already handled by your ML page settings, so they are intentionally left out here. -->
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --navy:#051C2C;--blue:#2251FF;--white:#FFFFFF;--light-gray:#F5F5F5;--text-gray:#6B7280;--border:#E5E7EB;
+  }
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:var(--navy);background:var(--white)}
+  a{text-decoration:none;color:inherit}
+  header{background:var(--white);padding:20px 0;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+  .header-content{max-width:1000px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}
+  .logo{font-size:18px;font-weight:600;color:var(--navy)}
+  .header-nav{display:flex;gap:28px;align-items:center}
+  .header-nav a{font-size:15px;color:var(--text-gray);font-weight:500}
+  .header-nav a.active,.header-nav a:hover{color:var(--navy)}
+  .cta-button{display:inline-block;background:var(--blue);color:var(--white);padding:15px 40px;border-radius:6px;font-weight:500;font-size:16px;transition:background .2s;cursor:pointer;border:none}
+  .cta-button:hover{background:#1A3FA8}
+  .hero{text-align:center;padding:72px 20px 56px}
+  .hero .pill{display:inline-block;background:#EFF2FF;border:1px solid #C9D4FF;color:var(--blue);font-size:13px;font-weight:600;padding:8px 16px;border-radius:20px;margin-bottom:18px}
+  .hero h1{font-size:42px;font-weight:600;line-height:1.18;color:var(--navy);margin:0 auto 20px;max-width:760px}
+  .hero .subtitle{font-size:17px;color:var(--text-gray);max-width:660px;margin:0 auto 32px;line-height:1.7}
+  .stats{max-width:1000px;margin:48px auto 0;padding:0 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .stat{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:22px 16px;text-align:center}
+  .stat .n{font-size:20px;font-weight:600;color:var(--blue)}
+  .stat .l{font-size:13px;color:var(--text-gray);margin-top:6px;line-height:1.5}
+  section.block{max-width:1000px;margin:0 auto;padding:70px 20px 10px}
+  .sec-head{text-align:center;margin-bottom:40px}
+  .sec-head h2{font-size:28px;font-weight:600;color:var(--navy)}
+  .sec-head p{font-size:15px;color:var(--text-gray);max-width:640px;margin:12px auto 0}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:28px 24px;transition:border-color .2s,box-shadow .2s}
+  .card:hover{border-color:#C9D4FF;box-shadow:0 4px 18px rgba(5,28,44,.06)}
+  .card .ico{font-size:24px}
+  .card h3{font-size:17px;font-weight:600;color:var(--navy);margin:12px 0 8px}
+  .card p{font-size:14px;color:var(--text-gray);line-height:1.65}
+  .models{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px}
+  .model{background:var(--light-gray);border:1px solid var(--border);border-radius:8px;padding:30px 28px}
+  .model .tag{font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px}
+  .model h3{font-size:18px;font-weight:600;color:var(--navy);margin:8px 0 8px}
+  .model p{font-size:14px;color:var(--text-gray);line-height:1.65}
+  .sector{background:var(--navy);color:var(--white);border-radius:8px;padding:48px 40px;margin:64px 0 0;text-align:center}
+  .sector h2{font-size:24px;font-weight:600;margin-bottom:12px}
+  .sector p{font-size:15px;color:#B0BEC5;max-width:720px;margin:0 auto 26px;line-height:1.7}
+  .reg-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .reg{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:6px;padding:10px 20px;font-size:14px;font-weight:600;color:var(--white)}
+  .booking{max-width:1000px;margin:80px auto 0;padding:0 20px}
+  .booking .sec-head{margin-bottom:28px}
+  .booking-frame{border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--white)}
+  .booking-frame iframe{width:100%;height:720px;border:0;display:block}
+  footer{background:var(--light-gray);padding:60px 20px;margin-top:80px}
+  .footer-content{max-width:1000px;margin:0 auto}
+  .footer-main{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;margin-bottom:40px}
+  .footer-section h4{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
+  .footer-section p{font-size:13px;color:var(--text-gray);line-height:1.8}
+  .footer-section a{display:block;font-size:13px;color:var(--text-gray);text-decoration:none;margin-bottom:8px;transition:color .2s}
+  .footer-section a:hover{color:var(--blue)}
+  .social-links{display:flex;gap:15px;margin-top:20px}
+  .social-links a{display:flex;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--white);align-items:center;justify-content:center;font-size:16px;transition:background .2s;margin:0}
+  .social-links a:hover{background:var(--blue)}
+  .footer-bottom{border-top:1px solid var(--border);padding-top:30px;text-align:center;color:var(--text-gray);font-size:13px}
+  @media(max-width:768px){
+    .hero h1{font-size:32px}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .grid,.models{grid-template-columns:1fr}
+    .sector{padding:36px 22px}
+    .booking-frame iframe{height:900px}
+  }
+</style>
+<section class="hero">
+  <span class="pill">Cybersecurity · GRC · Fractional CISO</span>
+  <h1>Cybersecurity advisory and leadership, on demand</h1>
+  <p class="subtitle">I help financial-sector and regulated organizations build and mature their cybersecurity governance, risk, and compliance, as a project-based GRC advisor or your fractional CISO. Programs run on the NIST CSF and align to local requirements in Switzerland, the US, and the UAE.</p>
+  <a href="#booking" class="cta-button">Book a Consultation</a>
+  <div class="stats">
+    <div class="stat"><div class="n">15+ yrs</div><div class="l">Cyber risk &amp; GRC leadership</div></div>
+    <div class="stat"><div class="n">Ex-Big4</div><div class="l">Cybersecurity &amp; governance leader</div></div>
+    <div class="stat"><div class="n">CISSP · CISA · CISM · PMP</div><div class="l">Certified across security, audit &amp; delivery</div></div>
+    <div class="stat"><div class="n">19,000+</div><div class="l">Professionals trained &amp; certified</div></div>
+  </div>
+</section>
+<section class="block" id="services">
+  <div class="sec-head">
+    <h2>How can I help you?</h2>
+    <p>Whatever stage your security program is at, I meet you there and take it to where your board and your regulators need it to be.</p>
+  </div>
+  <div class="grid">
+    <div class="card"><div class="ico">🧩</div><h3>Build your security program</h3><p>Stand up or mature a full cybersecurity program on the NIST CSF, with a control set your auditors and supervisors accept. You get a framework, not a folder of documents.</p></div>
+    <div class="card"><div class="ico">⚖️</div><h3>Pass your audits and exams</h3><p>Prepare for and clear regulatory examinations across Switzerland, the United States, and the UAE. I close findings, evidence controls, and get you review-ready.</p></div>
+    <div class="card"><div class="ico">🎯</div><h3>Make risk a board decision</h3><p>Quantify and prioritize your cyber risk, then present it in clear, board-ready terms with a treatment plan leadership can actually approve and fund.</p></div>
+    <div class="card"><div class="ico">📐</div><h3>Govern with real policies</h3><p>Author the policies, standards, and controls that turn intent into daily practice, mapped to your obligations and sized to your organization.</p></div>
+    <div class="card"><div class="ico">🔗</div><h3>Control third-party risk</h3><p>Put a vendor and supplier risk process in place so the partners that extend your attack surface no longer extend your exposure.</p></div>
+    <div class="card"><div class="ico">🎓</div><h3>Lead as your fractional CISO</h3><p>Ongoing security leadership: strategy, governance, team mentoring, and regulator and stakeholder engagement, without the cost of a full-time hire.</p></div>
+  </div>
+  <div class="models">
+    <div class="model">
+      <span class="tag">Project-based</span>
+      <h3>Independent GRC advisor</h3>
+      <p>A scoped engagement with clear deliverables and timelines: framework design, audit readiness, risk assessments, policy development, or a remediation roadmap. Ideal when you have a defined gap to close.</p>
+    </div>
+    <div class="model">
+      <span class="tag">Ongoing leadership</span>
+      <h3>Fractional CISO</h3>
+      <p>Senior security leadership on a retainer: I own your security strategy, governance, reporting, and program oversight on a part-time basis. Ideal when you need a CISO but not a full-time salary.</p>
+    </div>
+  </div>
+</section>
+<section class="booking" id="booking">
+  <div class="sec-head">
+    <h2>Book your consultation</h2>
+    <p>One conversation to understand your environment, your obligations, and the right way to engage. Select a time below.</p>
+  </div>
+  <div class="booking-frame">
+    <iframe src="https://cal.com/anthonytoday/consultation?embed=1" title="Book a consultation" loading="lazy"></iframe>
+  </div>
+</section>
+<!-- FOOTER — light background, exact match to Notion page -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-main">
+      <div class="footer-section">
+        <h4>Consulting</h4>
+        <a href="https://cal.com/anthonytoday/consultation">Book a Discovery Call ($79)</a>
+        <a href="https://store.anthonytoday.com/l/notion-ops-audit">Notion Ops Audit ($197)</a>
+        <a href="https://www.anthonytoday.com/notion#pricing">Pricing</a>
+        <a href="https://www.anthonytoday.com/notion#services">Services</a>
+      </div>
+      <div class="footer-section">
+        <h4>Products</h4>
+        <a href="https://store.anthonytoday.com">Gumroad Store</a>
+        <a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">Etsy Shop</a>
+        <a href="https://www.notion.com/@anthonytoday">Notion Profile</a>
+        <a href="https://www.anthonytoday.com/tools">Tools</a>
+      </div>
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <p style="margin-bottom: 15px;">Follow for updates, resources, and new templates.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/anthony-kieffer/" title="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+          <a href="mailto:info@anthonytoday.com" title="Email">@</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Anthony Today. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

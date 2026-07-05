@@ -1,0 +1,230 @@
+<!-- MailerLite embed: paste everything below (starting with <style>) into a Custom HTML / Embed block on your ML landing page. Page title, meta description, and viewport are already handled by your ML page settings, so they are intentionally left out here. -->
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --navy:#051C2C;--blue:#2251FF;--white:#FFFFFF;--light-gray:#F5F5F5;--text-gray:#6B7280;
+  }
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:var(--navy);background:var(--white)}
+  header{background:var(--white);padding:20px 0;border-bottom:1px solid #E5E7EB;position:sticky;top:0;z-index:100}
+  .header-content{max-width:1000px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}
+  .logo{font-size:18px;font-weight:600;color:var(--navy)}
+  .header-nav{display:none}
+  .hero{max-width:1000px;margin:0 auto;padding:60px 20px;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+  .hero-content h1{font-size:42px;font-weight:600;margin-bottom:20px;line-height:1.2;color:var(--navy)}
+  .hero-content .subtitle{font-size:16px;color:var(--text-gray);margin-bottom:20px;line-height:1.8}
+  .hero-content .pricing{font-size:14px;color:var(--navy);font-weight:500;margin-bottom:30px;background:#F3F4F6;padding:12px 16px;border-radius:6px;display:inline-block}
+  .hero-image{text-align:center}
+  .hero-image img{width:100%;max-width:350px;border-radius:12px;object-fit:cover}
+  .cta-button{display:inline-block;background:var(--blue);color:var(--white);padding:14px 40px;border-radius:6px;text-decoration:none;font-weight:500;font-size:15px;transition:background .2s;cursor:pointer;border:none}
+  .cta-button:hover{background:#1A3FA8}
+  .value-section{max-width:1000px;margin:20px auto 60px;padding:0 20px}
+  .value-section h2{font-size:28px;margin-bottom:30px;text-align:center;color:var(--navy)}
+  .value-grid{display:grid;grid-template-columns:repeat(2,1fr) 1fr;gap:40px}
+  .value-category-header{font-size:14px;font-weight:600;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;margin-bottom:-20px;padding-bottom:15px;border-bottom:1px solid #E5E7EB;text-align:center}
+  .value-grid>.value-category-header:first-child{grid-column:1/3}
+  .value-grid>.value-category-header:nth-of-type(2){grid-column:3}
+  .value-type{font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+  .value-item{text-align:center}
+  .value-item h3{font-size:18px;margin-bottom:12px;color:var(--navy);font-weight:600}
+  .value-item p{font-size:14px;color:var(--text-gray);line-height:1.7}
+  .process-section{max-width:1000px;margin:20px auto 80px;padding:60px 20px;background:var(--light-gray);border-radius:8px}
+  .process-section h2{font-size:28px;margin-bottom:50px;text-align:center;color:var(--navy)}
+  .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-bottom:40px}
+  .process-step{text-align:center;display:flex;flex-direction:column;align-items:center;background:#FFFFFF;border:2px solid #BFDBFE;border-radius:8px;padding:30px 20px}
+  .process-step .step-number{display:inline-block;width:48px;height:48px;background:var(--blue);color:var(--white);border-radius:50%;font-size:20px;font-weight:600;line-height:48px;margin-bottom:15px}
+  .process-step h3{font-size:16px;margin-bottom:10px;color:var(--navy);font-weight:600}
+  .process-step p{font-size:14px;color:var(--text-gray);line-height:1.6}
+  .engagement-types{margin-top:30px;padding-top:30px;border-top:1px solid #E5E7EB;text-align:center;margin-bottom:-20px;padding-bottom:0}
+  .engagement-types p{font-size:14px;color:var(--text-gray);margin-bottom:12px}
+  .engagement-badges{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+  .badge{background:var(--white);border:1px solid #E5E7EB;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:500;color:var(--navy)}
+  .booking-section{max-width:1000px;margin:20px auto 80px;padding:60px 20px;text-align:center}
+  .booking-section h2{font-size:28px;margin-bottom:12px;color:var(--navy)}
+  .booking-intro{font-size:15px;color:var(--text-gray);margin-bottom:40px}
+  .booking-embed{background:var(--white);border-radius:8px;overflow:hidden}
+  .credentials{max-width:1000px;margin:10px auto 80px;padding:0 20px;border-top:1px solid #E5E7EB;padding-top:20px}
+  .credentials h2{font-size:28px;margin-bottom:50px;text-align:center;color:var(--navy)}
+  .cred-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px}
+  .cred-item{text-align:center}
+  .cred-item .number{font-size:32px;font-weight:600;color:var(--blue);margin-bottom:10px}
+  .cred-item .rating{font-size:32px;font-weight:600;margin-bottom:10px;color:var(--blue)}
+  .cred-item .rating-text{font-size:14px;color:var(--text-gray);margin-top:5px}
+  .cred-item p{color:var(--text-gray);font-size:14px;line-height:1.6}
+  .templates-section{max-width:1000px;margin:80px auto;padding:0 20px;text-align:center}
+  .templates-section h2{font-size:28px;margin-bottom:15px;color:var(--navy)}
+  .templates-intro{color:var(--text-gray);margin-bottom:40px;font-size:15px}
+  .templates-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+  .template-card{padding:30px;border-radius:8px;text-align:center;border:2px solid transparent}
+  .template-card:nth-child(1){background:#EFF6FF;border-color:#BFDBFE}
+  .template-card:nth-child(2){background:#FEFCE8;border-color:#FDE047}
+  .template-card:nth-child(3){background:#ECFDF5;border-color:#86EFAC}
+  .template-card h4{font-size:16px;margin-bottom:12px;color:var(--navy);font-weight:600}
+  .template-card p{font-size:13px;color:var(--text-gray);margin-bottom:15px;line-height:1.6}
+  .template-card a{display:inline-block;color:var(--blue);text-decoration:none;font-size:13px;font-weight:500}
+  .cta-section{background:var(--navy);color:var(--white);padding:60px 40px;text-align:center;margin:80px 0 0 0}
+  .cta-section h2{font-size:32px;margin-bottom:20px}
+  .cta-section p{color:#B0BEC5;margin-bottom:30px;font-size:16px;max-width:600px;margin-left:auto;margin-right:auto}
+  .cta-section .cta-button{background:var(--blue);padding:14px 40px;font-size:15px}
+  footer{background:var(--light-gray);padding:60px 20px;margin-top:100px}
+  .footer-content{max-width:1000px;margin:0 auto}
+  .footer-main{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;margin-bottom:40px}
+  .footer-section h4{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
+  .footer-section p{font-size:13px;color:var(--text-gray);line-height:1.8}
+  .footer-section a{display:block;font-size:13px;color:var(--text-gray);text-decoration:none;margin-bottom:8px;transition:color .2s}
+  .footer-section a:hover{color:var(--blue)}
+  .social-links{display:flex;gap:15px;margin-top:20px}
+  .social-links a{display:inline-block;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--white);text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:16px;transition:background .2s;margin:0}
+  .social-links a:hover{background:var(--blue)}
+  .footer-bottom{border-top:1px solid #E5E7EB;padding-top:30px;text-align:center;color:var(--text-gray);font-size:13px}
+  @media (max-width:768px){
+    .hero{grid-template-columns:1fr;padding:40px 20px;gap:30px}
+    .hero-content h1{font-size:32px}
+    .process-grid{grid-template-columns:1fr}
+    .cta-section h2{font-size:24px}
+  }
+  @media (max-width:600px){
+    .hero-content h1{font-size:28px}
+    .hero-content .subtitle{font-size:14px}
+    .engagement-badges{flex-direction:column}
+    .badge{display:block}
+  }
+</style>
+<section class="hero">
+    <div class="hero-content">
+        <h1>Notion Expert & Cybersecurity Consultant</h1>
+        <p class="subtitle">I help teams and organizations build secure, scalable Notion workspaces, streamline operations, and implement governance frameworks. 15+ years designing enterprise systems.</p>
+        <a href="#booking" class="cta-button">Schedule a Consultation →</a>
+    </div>
+    <div class="hero-image">
+        <img src="https://storage.mlcdn.com/account_image/2413563/QwuLqpnjsDbMsN5h0NicXPLrMSTziwdQPMr4WMZh.png" alt="Anthony Today">
+    </div>
+</section>
+
+<section class="booking-section" id="booking">
+    <h2>Book Your Consultation</h2>
+    <p class="booking-intro">Select a time that works for you. No back-and-forth needed.</p>
+    <div class="booking-embed">
+        <iframe src="https://cal.com/anthonytoday/consultation?embed=1" style="width:100%;height:600px;border:none;border-radius:8px;"></iframe>
+    </div>
+</section>
+
+<section class="value-section">
+    <h2>Offerings</h2>
+    <div class="value-grid">
+        <div class="value-category-header">Services</div>
+        <div class="value-category-header">Products</div>
+        <div class="value-item">
+            <h3>Notion Expertise</h3>
+            <p>Custom workspace design, governance frameworks, and database optimization to scale your operations without cutting corners on control or clarity.</p>
+        </div>
+        <div class="value-item">
+            <h3>Security & Risk</h3>
+            <p>Cybersecurity audits, GRC framework design, and compliance remediation for organizations that need expert guidance on security strategy.</p>
+        </div>
+        <div class="value-item">
+            <h3>Digital Products</h3>
+            <p>Ready-made Notion templates, flashcard study systems, and resources to get you started immediately without custom consulting.</p>
+        </div>
+    </div>
+</section>
+<section class="process-section">
+    <h2>The Process</h2>
+    <div class="process-grid">
+        <div class="process-step">
+            <div class="step-number">1</div>
+            <h3>Gathering Information</h3>
+            <p>We audit your current setup, understand your goals, and identify constraints. Clear picture of where you are and where you want to go.</p>
+        </div>
+        <div class="process-step">
+            <div class="step-number">2</div>
+            <h3>Agreeing on Direction</h3>
+            <p>We outline the approach, timeline, and resources needed. Align on what success looks like before we build anything.</p>
+        </div>
+        <div class="process-step">
+            <div class="step-number">3</div>
+            <h3>Delivering Results</h3>
+            <p>Implementation, documentation, and handoff. You own the system and can maintain it with confidence.</p>
+        </div>
+    </div>
+    <div class="engagement-types">
+        <p>Open to time and materials, project-based, or fractional retainer arrangements.</p>
+        <div class="engagement-badges">
+            <span class="badge">Time & Materials</span>
+            <span class="badge">Project-Based</span>
+            <span class="badge">Retainer</span>
+        </div>
+    </div>
+</section>
+
+<section class="credentials">
+    <h2>Track Record</h2>
+    <div class="cred-grid">
+        <div class="cred-item">
+            <div class="number">15+</div>
+            <p>Years designing secure systems and Notion workspaces for enterprises and scaling teams</p>
+        </div>
+        <div class="cred-item">
+            <div class="number">60+</div>
+            <p>Completed engagements across consulting, custom development, and digital products</p>
+        </div>
+        <div class="cred-item">
+            <div class="rating">⭐ 4.92/5 stars</div>
+            <p>Client satisfaction across all platforms and feedback channels</p>
+        </div>
+    </div>
+</section>
+
+<section class="templates-section" id="templates">
+    <h2>Digital Products</h2>
+    <p class="templates-intro">Don't need consulting? Start with ready-made templates and resources you can use immediately.</p>
+    <div class="templates-grid">
+        <div class="template-card">
+            <h4>Notion Templates</h4>
+            <p>Travel planners, exam prep systems, project dashboards. Build faster with pre-built, customizable templates.</p>
+            <a href="https://store.anthonytoday.com">Browse on Gumroad →</a>
+        </div>
+        <div class="template-card">
+            <h4>Flashcard Decks</h4>
+            <p>Study systems for CompTIA Security+, CPA, and other certifications. Efficient learning with spaced repetition.</p>
+            <a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">View on Etsy →</a>
+        </div>
+        <div class="template-card">
+            <h4>Notion Marketplace</h4>
+            <p>Selected templates on the official Notion marketplace. Discover tools built for your specific workflow.</p>
+            <a href="https://www.notion.com/@anthonytoday">View Profile →</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER — light background, exact match to Notion page -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-main">
+            <div class="footer-section">
+                <h4>Consulting</h4>
+                <a href="https://cal.com/anthonytoday/consultation">Book a Discovery Call ($79)</a>
+                <a href="https://store.anthonytoday.com/l/notion-ops-audit">Notion Ops Audit ($197)</a>
+                <a href="https://www.anthonytoday.com/notion#pricing">Pricing</a>
+                <a href="https://www.anthonytoday.com/notion#services">Services</a>
+            </div>
+            <div class="footer-section">
+                <h4>Products</h4>
+                <a href="https://store.anthonytoday.com">Gumroad Store</a>
+                <a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">Etsy Shop</a>
+                <a href="https://www.notion.com/@anthonytoday">Notion Profile</a>
+                <a href="https://www.anthonytoday.com/tools">Tools</a>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <p style="margin-bottom: 15px;">Follow for updates, resources, and new templates.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/anthony-kieffer/" title="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+                    <a href="mailto:info@anthonytoday.com" title="Email">@</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Anthony Today. All rights reserved.</p>
+        </div>
+    </div>
+</footer>

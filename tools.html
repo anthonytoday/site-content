@@ -1,0 +1,246 @@
+<!-- MailerLite embed: paste everything below (starting with <style>) into a Custom HTML / Embed block on your ML landing page. Page title, meta description, and viewport are already handled by your ML page settings, so they are intentionally left out here. -->
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --navy:#051C2C;--blue:#2251FF;--blue-dark:#1A3FA8;--white:#FFFFFF;
+    --light-gray:#F5F5F5;--text-gray:#6B7280;--border:#E5E7EB;--green:#86EFAC;
+  }
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:var(--navy);background:var(--white)}
+  a{text-decoration:none;color:inherit}
+  header{background:var(--white);padding:18px 0;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+  .header-content{max-width:1080px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}
+  .logo{font-size:18px;font-weight:600;color:var(--navy)}
+  .back-link{font-size:14px;color:var(--text-gray);font-weight:500}
+  .back-link:hover{color:var(--navy)}
+  .intro{max-width:760px;margin:0 auto;padding:60px 20px 10px;text-align:center}
+  .eyebrow{text-align:center;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+  .intro h1{font-size:38px;font-weight:600;color:var(--navy);margin-bottom:16px;line-height:1.2}
+  .intro p{font-size:16px;color:var(--text-gray);line-height:1.7;max-width:600px;margin:0 auto}
+  .disclosure{display:inline-block;margin-top:20px;background:#EFF2FF;border:1px solid #C9D4FF;color:var(--blue);font-size:13px;font-weight:600;padding:8px 16px;border-radius:20px}
+  .category{max-width:1080px;margin:0 auto;padding:52px 20px 0}
+  .category h2{font-size:13px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.8px;margin-bottom:22px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+  .tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .tool-card{position:relative;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:24px 22px;display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s}
+  .tool-card:hover{border-color:#C9D4FF;box-shadow:0 6px 22px rgba(5,28,44,.06)}
+  .tool-top{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+  .tool-icon{width:44px;height:44px;border-radius:9px;background:var(--light-gray);border:1.5px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text-gray);flex-shrink:0;overflow:hidden}
+  .tool-icon img{max-width:100%;max-height:100%;object-fit:contain}
+  .tool-name{font-size:16px;font-weight:600;color:var(--navy)}
+  .tool-offer{display:inline-block;align-self:flex-start;background:#F0FDF4;border:1px solid #BBF7D0;color:#15803D;font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:12px;margin-bottom:12px}
+  .tool-desc{font-size:13.5px;color:var(--text-gray);line-height:1.6;flex:1;margin-bottom:16px}
+  .tool-cta{display:inline-block;text-align:center;background:var(--light-gray);color:var(--navy);border:1px solid var(--border);padding:10px 18px;border-radius:6px;font-size:13.5px;font-weight:600;transition:background .2s}
+  .tool-cta:hover{background:#EFF2FF;border-color:#C9D4FF;color:var(--blue)}
+  .tool-card.placeholder{border-style:dashed;background:#FAFAFA}
+  .tool-card.placeholder .tool-name{color:var(--text-gray)}
+  footer{background:var(--light-gray);padding:60px 20px;margin-top:70px}
+  .footer-content{max-width:1000px;margin:0 auto}
+  .footer-main{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-bottom:40px}
+  .footer-section h4{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
+  .footer-section p{font-size:13px;color:var(--text-gray);line-height:1.8}
+  .footer-section a{display:block;font-size:13px;color:var(--text-gray);margin-bottom:8px;transition:color .2s}
+  .footer-section a:hover{color:var(--blue)}
+  .social-links{display:flex;gap:15px;margin-top:18px}
+  .social-links a{display:flex;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--white);align-items:center;justify-content:center;font-size:15px;transition:background .2s;margin:0}
+  .social-links a:hover{background:var(--blue)}
+  .footer-bottom{border-top:1px solid var(--border);padding-top:30px;text-align:center;color:var(--text-gray);font-size:13px}
+  footer a{color:var(--text-gray)}
+  footer a:hover{color:var(--blue)}
+  @media(max-width:900px){.tool-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.tool-grid{grid-template-columns:1fr}.intro h1{font-size:28px}}
+</style>
+<div class="intro">
+  <p class="eyebrow">My stack</p>
+  <h1>Tools I actually use, every day</h1>
+  <p>The apps I run my Notion consulting practice and my own business on: for building client systems, automating work, and staying organized. Nothing here is a recommendation I don't personally rely on.</p>
+  <span class="disclosure">Some links below are affiliate links</span>
+</div>
+
+<section class="category">
+  <h2>Productivity</h2>
+  <div class="tool-grid">
+    <div class="tool-card">
+      <div class="tool-top">
+        <div class="tool-icon"><img src="REPLACE-notion-icon.png" alt="Notion" onerror="this.parentElement.textContent='Logo'"></div>
+        <span class="tool-name">Notion</span>
+      </div>
+      <p class="tool-desc">The platform I run my entire consulting practice and client delivery on. Everything in this business lives in Notion first.</p>
+      <a href="https://www.notion.com" class="tool-cta">Visit site</a>
+    </div>
+    <div class="tool-card">
+      <div class="tool-top">
+        <div class="tool-icon"><img src="REPLACE-google-workspace-icon.png" alt="Google Workspace" onerror="this.parentElement.textContent='Logo'"></div>
+        <span class="tool-name">Google Workspace</span>
+      </div>
+      <p class="tool-desc">Gmail, Calendar, and Drive: the operating layer underneath everything client-facing.</p>
+      <a href="https://workspace.google.com" class="tool-cta">Visit site</a>
+    </div>
+    <div class="tool-card placeholder">
+      <div class="tool-top">
+        <div class="tool-icon">Logo</div>
+        <span class="tool-name">Add tool</span>
+      </div>
+      <p class="tool-desc">Placeholder card. Duplicate this block and fill in name, icon, offer, description, and link.</p>
+      <a href="#" class="tool-cta">Visit site</a>
+    </div>
+  </div>
+</section>
+
+<section class="category">
+  <h2>No-Code &amp; Automation</h2>
+  <div class="tool-grid">
+    <div class="tool-card placeholder">
+      <div class="tool-top">
+        <div class="tool-icon">Logo</div>
+        <span class="tool-name">Add tool</span>
+      </div>
+      <p class="tool-desc">e.g. Make, Zapier, Softr, NoteForms. Add what you personally use with clients here.</p>
+      <a href="#" class="tool-cta">Visit site</a>
+    </div>
+  </div>
+</section>
+
+<section class="category">
+  <h2>AI</h2>
+  <div class="tool-grid">
+    <div class="tool-card">
+      <div class="tool-top">
+        <div class="tool-icon"><img src="REPLACE-claude-icon.png" alt="Claude" onerror="this.parentElement.textContent='Logo'"></div>
+        <span class="tool-name">Claude</span>
+      </div>
+      <p class="tool-desc">What I use to build and maintain this website, draft client deliverables, and run day-to-day operations.</p>
+      <a href="https://claude.ai" class="tool-cta">Visit site</a>
+    </div>
+    <div class="tool-card placeholder">
+      <div class="tool-top">
+        <div class="tool-icon">Logo</div>
+        <span class="tool-name">Add tool</span>
+      </div>
+      <p class="tool-desc">e.g. Notion AI, or another AI tool you use regularly.</p>
+      <a href="#" class="tool-cta">Visit site</a>
+    </div>
+  </div>
+</section>
+
+<section class="category">
+  <h2>Design &amp; Web</h2>
+  <div class="tool-grid">
+    <div class="tool-card placeholder">
+      <div class="tool-top">
+        <div class="tool-icon">Logo</div>
+        <span class="tool-name">Add tool</span>
+      </div>
+      <p class="tool-desc">e.g. Canva, Framer. Add what you personally use here.</p>
+      <a href="#" class="tool-cta">Visit site</a>
+    </div>
+  </div>
+</section>
+
+<section class="category">
+  <h2>Marketing &amp; Communication</h2>
+  <div class="tool-grid">
+    <div class="tool-card">
+      <div class="tool-top">
+        <div class="tool-icon"><img src="REPLACE-mailerlite-icon.png" alt="MailerLite" onerror="this.parentElement.textContent='Logo'"></div>
+        <span class="tool-name">MailerLite</span>
+      </div>
+      <span class="tool-offer">Add your affiliate offer once approved</span>
+      <p class="tool-desc">What I use to run this website, email sequences, and the setup-session follow-up funnel.</p>
+      <a href="https://www.mailerlite.com" class="tool-cta">Visit site</a>
+    </div>
+    <div class="tool-card">
+      <div class="tool-top">
+        <div class="tool-icon"><img src="REPLACE-gumroad-icon.png" alt="Gumroad" onerror="this.parentElement.textContent='Logo'"></div>
+        <span class="tool-name">Gumroad</span>
+      </div>
+      <p class="tool-desc">Where I sell Notion templates and the Notion Ops Audit.</p>
+      <a href="https://gumroad.com" class="tool-cta">Visit site</a>
+    </div>
+    <div class="tool-card placeholder">
+      <div class="tool-top">
+        <div class="tool-icon">Logo</div>
+        <span class="tool-name">Add tool</span>
+      </div>
+      <p class="tool-desc">e.g. a scheduling tool or social media manager.</p>
+      <a href="#" class="tool-cta">Visit site</a>
+    </div>
+  </div>
+</section>
+
+<section class="category">
+  <h2>Finance</h2>
+  <div class="tool-grid">
+    <div class="tool-card">
+      <div class="tool-top">
+        <div class="tool-icon"><img src="REPLACE-ibkr-icon.png" alt="Interactive Brokers" onerror="this.parentElement.textContent='Logo'"></div>
+        <span class="tool-name">Interactive Brokers</span>
+      </div>
+      <span class="tool-offer">Add your referral link once you have one</span>
+      <p class="tool-desc">My brokerage for portfolio management.</p>
+      <a href="https://www.interactivebrokers.com" class="tool-cta">Visit site</a>
+    </div>
+    <div class="tool-card">
+      <div class="tool-top">
+        <div class="tool-icon"><img src="REPLACE-okx-icon.png" alt="OKX" onerror="this.parentElement.textContent='Logo'"></div>
+        <span class="tool-name">OKX</span>
+      </div>
+      <span class="tool-offer">Add your referral code once you have one</span>
+      <p class="tool-desc">My crypto exchange.</p>
+      <a href="https://www.okx.com" class="tool-cta">Visit site</a>
+    </div>
+    <div class="tool-card placeholder">
+      <div class="tool-top">
+        <div class="tool-icon">Logo</div>
+        <span class="tool-name">Add tool</span>
+      </div>
+      <p class="tool-desc">e.g. invoicing, banking, or your accounting software.</p>
+      <a href="#" class="tool-cta">Visit site</a>
+    </div>
+  </div>
+</section>
+
+<section class="category">
+  <h2>Video</h2>
+  <div class="tool-grid">
+    <div class="tool-card placeholder">
+      <div class="tool-top">
+        <div class="tool-icon">Logo</div>
+        <span class="tool-name">Add tool</span>
+      </div>
+      <p class="tool-desc">e.g. screen recording for client walkthroughs.</p>
+      <a href="#" class="tool-cta">Visit site</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER — light background, exact match to Notion page -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-main">
+      <div class="footer-section">
+        <h4>Consulting</h4>
+        <a href="https://cal.com/anthonytoday/consultation">Book a Discovery Call ($79)</a>
+        <a href="https://store.anthonytoday.com/l/notion-ops-audit">Notion Ops Audit ($197)</a>
+        <a href="https://www.anthonytoday.com/notion#pricing">Pricing</a>
+        <a href="https://www.anthonytoday.com/notion#services">Services</a>
+      </div>
+      <div class="footer-section">
+        <h4>Products</h4>
+        <a href="https://store.anthonytoday.com">Gumroad Store</a>
+        <a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">Etsy Shop</a>
+        <a href="https://www.notion.com/@anthonytoday">Notion Profile</a>
+        <a href="https://www.anthonytoday.com/tools">Tools</a>
+      </div>
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <p style="margin-bottom:15px">Follow for updates, resources, and new templates.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/anthony-kieffer/" title="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+          <a href="mailto:info@anthonytoday.com" title="Email">@</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Anthony Today. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

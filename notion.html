@@ -1,0 +1,553 @@
+<!-- MailerLite embed: paste everything below (starting with <style>) into a Custom HTML / Embed block on your ML landing page. Page title, meta description, and viewport are already handled by your ML page settings, so they are intentionally left out here. -->
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --navy:#051C2C;--blue:#2251FF;--blue-dark:#1A3FA8;--white:#FFFFFF;
+    --light-gray:#F5F5F5;--text-gray:#6B7280;--border:#E5E7EB;--green:#86EFAC;
+  }
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:var(--navy);background:var(--white)}
+  a{text-decoration:none;color:inherit}
+  /* header */
+  header{background:var(--white);padding:18px 0;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+  .header-content{max-width:1080px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}
+  .logo{font-size:18px;font-weight:600;color:var(--navy)}
+  .header-nav{display:flex;gap:26px;align-items:center}
+  .header-nav a{font-size:15px;color:var(--text-gray);font-weight:500}
+  .header-nav a.active,.header-nav a:hover{color:var(--navy)}
+  .header-nav .cta-button{color:var(--white)}
+  /* buttons */
+  .cta-button{display:inline-block;background:var(--blue);color:var(--white);padding:13px 30px;border-radius:6px;font-weight:500;font-size:15px;transition:background .2s;cursor:pointer;border:none}
+  .cta-button:hover{background:var(--blue-dark)}
+  .cta-button.ghost{background:transparent;color:var(--navy);border:1px solid var(--border)}
+  .cta-button.ghost:hover{background:var(--light-gray)}
+  .cta-button.sm{padding:9px 20px;font-size:14px}
+  /* hero */
+  .hero{text-align:center;padding:64px 20px 10px;max-width:880px;margin:0 auto}
+  .trust-bar{display:inline-block;background:#EFF2FF;border:1px solid #C9D4FF;color:var(--blue);font-size:13px;font-weight:600;padding:8px 16px;border-radius:20px;margin-bottom:24px}
+  .hero h1{font-size:46px;font-weight:600;line-height:1.15;color:var(--navy);margin:0 auto 22px;max-width:760px}
+  .hero .subtitle{font-size:18px;color:var(--text-gray);max-width:640px;margin:0 auto 30px;line-height:1.7}
+  .hero .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  /* credibility strip (badges + logo banner, one compact block) */
+  .credibility{max-width:1000px;margin:40px auto 0;padding:28px 20px;text-align:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .badges .lead,.logo-banner .lead{font-size:12px;color:var(--text-gray);text-transform:uppercase;letter-spacing:.6px;margin-bottom:16px}
+  .badge-row{display:flex;flex-wrap:wrap;gap:22px;justify-content:center;align-items:center}
+  .badge-item{display:flex;flex-direction:column;align-items:center;gap:10px;transition:transform .2s}
+  .badge-item:hover{transform:translateY(-2px)}
+  .badge-img-placeholder{width:80px;height:80px;border-radius:12px;background:var(--light-gray);border:1.5px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text-gray);text-align:center;padding:8px;overflow:hidden}
+  .badge-img-placeholder img{max-width:100%;max-height:100%;object-fit:contain}
+  .badge-label{font-size:12.5px;font-weight:600;color:var(--navy);max-width:120px;line-height:1.4}
+  .logo-banner{margin-top:30px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .logo-track{display:flex;width:max-content;gap:56px;align-items:center;animation:logoScroll 22s linear infinite}
+  .logo-track:hover{animation-play-state:paused}
+  .logo-mark{font-size:17px;font-weight:700;color:#9CA3AF;letter-spacing:.3px;white-space:nowrap;opacity:.85;transition:opacity .2s,color .2s}
+  .logo-mark:hover{opacity:1;color:var(--navy)}
+  .logo-mark img{height:32px;width:auto;max-width:140px;object-fit:contain;filter:grayscale(1);opacity:.7;transition:opacity .2s,filter .2s;vertical-align:middle}
+  .logo-mark img:hover{opacity:1;filter:grayscale(0)}
+  @keyframes logoScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  /* stats */
+  .stats{max-width:1000px;margin:50px auto 0;padding:0 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .stat{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px 16px;text-align:center}
+  .stat .n{font-size:26px;font-weight:600;color:var(--blue)}
+  .stat .l{font-size:13px;color:var(--text-gray);margin-top:6px;line-height:1.5}
+  /* sections */
+  section.block{max-width:1000px;margin:0 auto;padding:64px 20px 0}
+  .eyebrow{text-align:center;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+  .sec-head{text-align:center;margin-bottom:42px}
+  .sec-head h2{font-size:30px;font-weight:600;color:var(--navy);max-width:720px;margin:0 auto;line-height:1.25}
+  .sec-head p{font-size:16px;color:var(--text-gray);max-width:640px;margin:16px auto 0;line-height:1.7}
+  /* problem */
+  .problem{background:var(--navy);color:var(--white);border-radius:12px;padding:54px 44px;text-align:center;margin-top:24px}
+  .problem h2{font-size:28px;font-weight:600;max-width:680px;margin:0 auto 20px;line-height:1.3}
+  .problem p{font-size:16px;color:#A9B6C2;max-width:660px;margin:0 auto 14px;line-height:1.75}
+  .problem .accent{color:var(--white);font-weight:500}
+  /* services grid */
+  .grid4{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .scard{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:30px 28px;transition:border-color .2s,box-shadow .2s}
+  .scard:hover{border-color:#C9D4FF;box-shadow:0 6px 22px rgba(5,28,44,.06)}
+  .scard-head{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+  .scard .num{font-size:12px;font-weight:700;color:var(--blue);letter-spacing:.5px}
+  .scard .ico{width:46px;height:46px;border-radius:10px;background:#EFF2FF;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+  .scard h3{font-size:19px;font-weight:600;color:var(--navy);margin-bottom:10px}
+  .scard p{font-size:14px;color:var(--text-gray);line-height:1.65;margin-bottom:16px}
+  .scard ul{list-style:none;border-top:1px solid var(--border);padding-top:14px}
+  .scard li{font-size:13px;color:var(--navy);padding:4px 0 4px 20px;position:relative}
+  .scard li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--blue)}
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .step{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:26px 22px}
+  .step .num{display:flex;width:34px;height:34px;border-radius:50%;background:#EFF2FF;color:var(--blue);font-weight:600;align-items:center;justify-content:center;font-size:14px;margin-bottom:14px}
+  .step h3{font-size:16px;font-weight:600;color:var(--navy);margin-bottom:8px}
+  .step p{font-size:13px;color:var(--text-gray);line-height:1.6}
+  /* why */
+  .why{background:var(--light-gray);border-radius:12px;padding:50px 44px;margin-top:24px}
+  .why h2{font-size:26px;font-weight:600;color:var(--navy);text-align:center;margin-bottom:24px}
+  .why-list{max-width:620px;margin:0 auto}
+  .why-list p{font-size:15px;color:var(--text-gray);line-height:1.7;margin-bottom:12px;padding-left:26px;position:relative}
+  .why-list p::before{content:"\2713";position:absolute;left:0;color:var(--blue);font-weight:700}
+  .why-punch{color:var(--navy);font-weight:600;text-align:center;margin-top:22px;font-size:17px}
+  /* case studies */
+  .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .case{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:26px 24px;display:flex;flex-direction:column}
+  .case .metric{display:flex;justify-content:space-between;align-items:baseline;background:var(--light-gray);border-radius:6px;padding:10px 14px;margin-bottom:16px}
+  .case .metric .before{font-size:13px;color:var(--text-gray);text-decoration:line-through}
+  .case .metric .arrow{color:var(--blue);font-weight:700}
+  .case .metric .after{font-size:15px;color:var(--navy);font-weight:600}
+  .case .tag{font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px}
+  .case h3{font-size:17px;font-weight:600;color:var(--navy);margin:6px 0 10px}
+  .case p{font-size:13px;color:var(--text-gray);line-height:1.6;margin-bottom:10px}
+  .case .label{font-size:12px;font-weight:600;color:var(--navy);margin-bottom:3px}
+  /* testimonial */
+  .quote{max-width:760px;margin:44px auto 0;text-align:center}
+  .quote blockquote{font-size:20px;font-weight:500;color:var(--navy);line-height:1.5;margin-bottom:16px}
+  .quote cite{font-size:14px;color:var(--text-gray);font-style:normal}
+  /* lead magnet */
+  .magnet{background:#EFF2FF;border:1px solid #C9D4FF;border-radius:12px;padding:44px;text-align:center;margin-top:24px}
+  .magnet h2{font-size:24px;font-weight:600;color:var(--navy);margin-bottom:10px}
+  .magnet p{font-size:15px;color:var(--text-gray);max-width:520px;margin:0 auto 22px}
+  .magnet .fine{font-size:12px;color:var(--text-gray);margin-top:12px}
+  /* discovery band */
+  .discovery-band{background:#EFF2FF;border:1px solid #C9D4FF;border-radius:12px;padding:34px 40px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+  .discovery-band .tag{font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.6px}
+  .discovery-text{max-width:600px}
+  .discovery-text h3{font-size:22px;font-weight:600;color:var(--navy);margin:6px 0 8px}
+  .discovery-text p{font-size:14.5px;color:var(--text-gray);line-height:1.65}
+  .discovery-cta{text-align:center;flex-shrink:0}
+  .discovery-price{font-size:26px;font-weight:700;color:var(--navy);margin-bottom:12px}
+  .discovery-price span{font-size:13px;font-weight:400;color:var(--text-gray)}
+  @media(max-width:768px){.discovery-band{padding:26px 24px;flex-direction:column;text-align:center}.discovery-text{text-align:center}}
+  /* audit section */
+  .audit-section{background:var(--navy);border-radius:14px;padding:56px 48px;margin-top:24px;color:var(--white)}
+  .audit-top{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;margin-bottom:36px}
+  .audit-top h2{font-size:28px;font-weight:600;max-width:520px;line-height:1.3}
+  .audit-top .value-tag{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:16px 22px;text-align:center;flex-shrink:0}
+  .audit-top .value-tag .price{font-size:26px;font-weight:700;color:var(--white)}
+  .audit-top .value-tag .price .was{font-size:16px;font-weight:500;color:#8FA0B8;text-decoration:line-through;margin-right:6px}
+  .offer-tag{display:inline-block;background:#DC2626;color:var(--white);font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;padding:3px 9px;border-radius:10px;margin-bottom:8px}
+  .audit-top .value-tag .worth{font-size:12.5px;color:#A9B6C2;margin-top:4px}
+  .audit-top p.desc{color:#A9B6C2;font-size:15px;max-width:560px;line-height:1.7;margin-top:10px}
+  .domains{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:34px}
+  .domain{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:16px 14px}
+  .domain .d-num{font-size:12px;font-weight:700;color:#7C97FF}
+  .domain h4{font-size:14px;font-weight:600;color:var(--white);margin-top:6px;line-height:1.35}
+  .audit-deliver{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:32px;padding-top:26px;border-top:1px solid rgba(255,255,255,.14)}
+  .audit-deliver div{flex:1;min-width:180px}
+  .audit-deliver .lbl{font-size:12px;font-weight:700;color:#7C97FF;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+  .audit-deliver p{font-size:13.5px;color:#A9B6C2;line-height:1.6}
+  .audit-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  .audit-bottom p{font-size:14px;color:#A9B6C2;max-width:420px;line-height:1.6}
+  @media(max-width:768px){.domains{grid-template-columns:repeat(2,1fr)}.audit-section{padding:36px 24px}}
+  /* pricing */
+  .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
+  .price-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:30px 26px;position:relative;display:flex;flex-direction:column}
+  .price-card.popular{border:2px solid var(--blue)}
+  .price-card .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--blue);color:var(--white);font-size:12px;font-weight:600;padding:5px 14px;border-radius:14px}
+  .price-card .badge.offer{background:#DC2626}
+  .price-card h3{font-size:18px;font-weight:600;color:var(--navy);margin-bottom:6px}
+  .price-card .amount{font-size:30px;font-weight:600;color:var(--navy);margin-bottom:4px}
+  .price-card .amount span{font-size:15px;color:var(--text-gray);font-weight:400}
+  .price-card .amount .was{font-size:17px;color:var(--text-gray);font-weight:400;text-decoration:line-through;margin-right:6px}
+  .price-card .desc{font-size:13px;color:var(--text-gray);line-height:1.6;margin-bottom:18px}
+  .price-card ul{list-style:none;margin-bottom:22px;flex:1}
+  .price-card li{font-size:13px;color:var(--navy);padding:6px 0 6px 22px;position:relative}
+  .price-card li::before{content:"\2713";position:absolute;left:0;color:var(--blue);font-weight:700}
+  .price-card .fit{font-size:12px;color:var(--text-gray);font-style:italic;margin-bottom:16px}
+  .price-card .cta-button{text-align:center;width:100%}
+  /* faq */
+  .faq{max-width:760px;margin:0 auto}
+  details{border:1px solid var(--border);border-radius:8px;padding:18px 22px;margin-bottom:12px;background:var(--white)}
+  details[open]{border-color:#C9D4FF}
+  summary{font-size:16px;font-weight:600;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";color:var(--blue);font-size:22px;font-weight:400}
+  details[open] summary::after{content:"\2212"}
+  details p{font-size:14px;color:var(--text-gray);line-height:1.7;margin-top:14px}
+  /* final cta */
+  .cta-section{background:var(--navy);color:var(--white);padding:70px 40px;text-align:center;margin-top:64px;border-radius:12px;max-width:1000px;margin-left:auto;margin-right:auto}
+  .cta-section h2{font-size:30px;font-weight:600;margin-bottom:16px;color:var(--white)}
+  .cta-section p{color:#A9B6C2;font-size:16px;max-width:560px;margin:0 auto 28px}
+  /* footer */
+  footer{background:var(--light-gray);padding:60px 20px;margin-top:64px}
+  .footer-content{max-width:1000px;margin:0 auto}
+  .footer-main{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-bottom:40px}
+  .footer-section h4{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
+  .footer-section p{font-size:13px;color:var(--text-gray);line-height:1.8}
+  .footer-section a{display:block;font-size:13px;color:var(--text-gray);margin-bottom:8px;transition:color .2s}
+  .footer-section a:hover{color:var(--blue)}
+  .social-links{display:flex;gap:15px;margin-top:18px}
+  .social-links a{display:flex;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--white);align-items:center;justify-content:center;font-size:15px;transition:background .2s;margin:0}
+  .social-links a:hover{background:var(--blue)}
+  .footer-bottom{border-top:1px solid var(--border);padding-top:30px;text-align:center;color:var(--text-gray);font-size:13px}
+  @media(max-width:768px){
+    .header-nav{display:none}
+    .hero h1{font-size:33px}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .grid4,.steps,.cases,.pricing{grid-template-columns:1fr}
+    .problem,.why,.cta-section{padding:38px 24px}
+  }
+</style>
+  <!-- HERO -->
+  <section class="hero">
+    <span class="trust-bar">Certified Notion Consultant - ⭐ 4.92/5 - 60+ Clients</span>
+    <h1>Your Notion held up with 10 people. It breaks at 50.</h1>
+    <p class="subtitle">I design and build the operational systems scaling teams actually need: workspaces that hold up, automations that do not break, and governance that keeps your data safe. One senior operator, start to finish.</p>
+    <div class="btns">
+      <a href="https://cal.com/anthonytoday/consultation" class="cta-button">Book a 30-min Discovery Call — $79</a>
+      <a href="#pricing" class="cta-button ghost">See pricing</a>
+    </div>
+  </section>
+
+  <!-- CREDIBILITY STRIP: certifications + client logo banner, one compact block -->
+  <div class="credibility">
+    <div class="badges">
+      <p class="lead">Certifications in Good Standing</p>
+      <div class="badge-row">
+        <!-- Replace src with your hosted badge image. Keep alt text descriptive for SEO. -->
+        <a href="https://www.notion.so/consulting-partners/anthonytoday" class="badge-item" target="_blank" rel="noopener noreferrer">
+          <div class="badge-img-placeholder"><img src="https://storage.mlcdn.com/account_image/2413563/QKYHnthdR9hpTzajx7fbs86GKq8aBsh4IMxz6PJc.png" alt="Notion Consulting Partner badge" onerror="this.style.display='none';this.parentElement.textContent='Notion Consulting Partner';"></div>
+          <span class="badge-label">Consulting Partner</span>
+        </a>
+        <a href="https://www.notion.so/consulting-partners/anthonytoday" class="badge-item" target="_blank" rel="noopener noreferrer">
+          <div class="badge-img-placeholder"><img src="https://storage.mlcdn.com/account_image/2413563/FXVHwQVYJ6ytHFbISCA8mITAYrhJNYphU6RRbC2G.png" alt="Notion Consulting Partner badge" onerror="this.style.display='none';this.parentElement.textContent='Notion Consulting Partner';"></div>
+          <span class="badge-label">Certified Admin</span>
+        </a>
+        <a href="#" class="badge-item" target="_blank" rel="noopener noreferrer">
+          <div class="badge-img-placeholder"><img src="https://storage.mlcdn.com/account_image/2413563/BLJojInjd1YlinAt24JbQ5DqETveBdsmBXVSHpcA.png" alt="Notion certification badge" onerror="this.style.display='none';this.parentElement.textContent='Notion Certified';"></div>
+          <span class="badge-label">Service Specialist</span>
+        </a>
+        <!-- Add more <a class="badge-item"> blocks here for additional certifications -->
+      </div>
+    </div>
+
+    <!-- CLIENT LOGO BANNER — real clients only, auto-scrolling. Swap the <span> wordmarks for actual logo <img> files as you get them (same upload pattern as the badges above); the list is duplicated once below for a seamless loop, so update both copies together. -->
+    <div class="logo-banner">
+      <p class="lead">Trusted by teams including</p>
+      <div class="logo-track">
+        <!-- Each logo-mark: once you have a hosted logo image (upload to ML same as the badges, get the mlcdn URL), set the img src and delete the text fallback. Until then it just shows the company name. -->
+        <span class="logo-mark"><img src="REPLACE-WITH-LINKTREE-LOGO-URL.png" alt="Linktree" onerror="this.remove();this.parentElement.append('Linktree')"></span>
+        <span class="logo-mark"><img src="REPLACE-WITH-DORCHESTER-LOGO-URL.png" alt="Dorchester Collection" onerror="this.remove();this.parentElement.append('Dorchester Collection')"></span>
+        <span class="logo-mark"><img src="REPLACE-WITH-ELYSIAN-LOGO-URL.png" alt="Elysian Escapes" onerror="this.remove();this.parentElement.append('Elysian Escapes')"></span>
+        <span class="logo-mark"><img src="REPLACE-WITH-DOMOD-LOGO-URL.png" alt="DOMOD" onerror="this.remove();this.parentElement.append('DOMOD')"></span>
+        <span class="logo-mark"><img src="REPLACE-WITH-VERMILLION-LOGO-URL.png" alt="The Vermillion World" onerror="this.remove();this.parentElement.append('The Vermillion World')"></span>
+        <!-- duplicate copy for seamless looping, keep identical to the row above -->
+        <span class="logo-mark" aria-hidden="true"><img src="REPLACE-WITH-LINKTREE-LOGO-URL.png" alt="" onerror="this.remove();this.parentElement.append('Linktree')"></span>
+        <span class="logo-mark" aria-hidden="true"><img src="REPLACE-WITH-DORCHESTER-LOGO-URL.png" alt="" onerror="this.remove();this.parentElement.append('Dorchester Collection')"></span>
+        <span class="logo-mark" aria-hidden="true"><img src="REPLACE-WITH-ELYSIAN-LOGO-URL.png" alt="" onerror="this.remove();this.parentElement.append('Elysian Escapes')"></span>
+        <span class="logo-mark" aria-hidden="true"><img src="REPLACE-WITH-DOMOD-LOGO-URL.png" alt="" onerror="this.remove();this.parentElement.append('DOMOD')"></span>
+        <span class="logo-mark" aria-hidden="true"><img src="REPLACE-WITH-VERMILLION-LOGO-URL.png" alt="" onerror="this.remove();this.parentElement.append('The Vermillion World')"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat"><div class="n">15+</div><div class="l">years designing secure enterprise systems</div></div>
+    <div class="stat"><div class="n">60+</div><div class="l">engagements delivered</div></div>
+    <div class="stat"><div class="n">4.92/5</div><div class="l">client satisfaction, 50+ countries</div></div>
+    <div class="stat"><div class="n">Zero</div><div class="l">vendor lock-in, you own the system</div></div>
+  </div>
+
+  <!-- PROBLEM -->
+  <section class="block">
+    <div class="problem">
+      <h2>The setup that ran fine last year is now a full-time job to maintain.</h2>
+      <p>The Notion workspace that tracked everything has become a tangle of broken relations and formulas nobody documented. The automations you built in a weekend fail silently every time something changes. And nobody is sure who can see what.</p>
+      <p class="accent">You are not bad at operations. You built systems for a smaller company. I build the system you need now, with the security lens most consultants skip.</p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="block" id="services">
+    <p class="eyebrow">What I build</p>
+    <div class="sec-head">
+      <h2>Systems that run themselves. Infrastructure you can trust.</h2>
+      <p>I diagnose the real problem, design the architecture, build it, document it, and train your team. Every engagement starts with an audit so you know what to fix before anything is rebuilt.</p>
+    </div>
+    <div class="grid4">
+      <div class="scard">
+        <div class="scard-head">
+          <div class="ico">&#127959;&#65039;</div>
+          <span class="num">01</span>
+        </div>
+        <h3>Workspace Architecture</h3>
+        <p>Replace the workspace that grew by accident with a structure that scales. Databases, relations, and views that make sense to the next person who opens them.</p>
+        <ul>
+          <li>System and process mapping</li>
+          <li>Database and relation design</li>
+          <li>Permissions and access model</li>
+          <li>Documentation and handoff</li>
+        </ul>
+      </div>
+      <div class="scard">
+        <div class="scard-head">
+          <div class="ico">&#9881;&#65039;</div>
+          <span class="num">02</span>
+        </div>
+        <h3>Workflow &amp; Automation</h3>
+        <p>Turn manual, scattered processes into clear workflows that run on their own and tell you when something is wrong instead of failing quietly for weeks.</p>
+        <ul>
+          <li>Workflow design and buildout</li>
+          <li>Tool integrations and data sync</li>
+          <li>Error handling and monitoring</li>
+          <li>No double entry, ever</li>
+        </ul>
+      </div>
+      <div class="scard">
+        <div class="scard-head">
+          <div class="ico">&#129302;</div>
+          <span class="num">03</span>
+        </div>
+        <h3>AI Workflow Engineering</h3>
+        <p>AI workflows that actually hold up, with human-in-the-loop safeguards and a clean foundation so they help your team instead of creating new mess.</p>
+        <ul>
+          <li>Notion AI setup and instruction design</li>
+          <li>Document and data processing</li>
+          <li>Automated drafting and summaries</li>
+          <li>Governance and review controls</li>
+        </ul>
+      </div>
+      <div class="scard">
+        <div class="scard-head">
+          <div class="ico">&#128737;&#65039;</div>
+          <span class="num">04</span>
+        </div>
+        <h3>Governance &amp; Security</h3>
+        <p>The part most consultants cannot do. A 15-year cybersecurity background applied to your workspace: who can see what, where you are exposed, and how to lock it down without slowing the team.</p>
+        <ul>
+          <li>Access and permissions audit</li>
+          <li>Risk and exposure review</li>
+          <li>Governance framework design</li>
+          <li>Compliance-ready documentation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW I WORK -->
+  <section class="block" id="how">
+    <p class="eyebrow">How I work</p>
+    <div class="sec-head">
+      <h2>Four steps. One person. No surprises.</h2>
+      <p>The same senior operator handles everything from the first call to the final handoff. No layers, no telephone game, no junior learning on your project.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Discovery</h3><p>I map your current systems, find what is breaking, and clarify what you actually need. You leave with a clear picture of the problem and the path.</p></div>
+      <div class="step"><div class="num">2</div><h3>Architecture</h3><p>I design the system on paper before building. You see exactly what is being built, and why, before any work starts.</p></div>
+      <div class="step"><div class="num">3</div><h3>Build</h3><p>The same person who designed it builds it. No handoffs, no miscommunication, no detail lost in translation.</p></div>
+      <div class="step"><div class="num">4</div><h3>Launch &amp; Handoff</h3><p>I test everything, write the documentation, and train your team. You know exactly how it works and how to maintain it.</p></div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="block">
+    <div class="why">
+      <h2>Pay once. Build it right.</h2>
+      <div class="why-list">
+        <p>You could hire a freelancer for less and spend the next year fixing what breaks.</p>
+        <p>You could stitch together templates and tutorials and hope they hold.</p>
+        <p>You could ask an AI to write your automations and babysit them forever.</p>
+        <p>Or you could build it properly the first time, with someone who has secured enterprise systems for 15 years and will still understand yours when something breaks at 2am six months from now.</p>
+      </div>
+      <p class="why-punch">Build it right, then go run your business.</p>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="block" id="work">
+    <p class="eyebrow">Selected work</p>
+    <div class="sec-head">
+      <h2>Problems solved. Systems built.</h2>
+      <p>A few representative engagements. Names shown with permission; others kept confidential.</p>
+    </div>
+    <div class="cases">
+      <div class="case">
+        <div class="metric"><span class="before">4 manual steps</span><span class="arrow">&rarr;</span><span class="after">1 step</span></div>
+        <span class="tag">Team Operations</span>
+        <h3>Mentoring &amp; KPI System</h3>
+        <p class="label">The problem</p>
+        <p>KPIs in spreadsheets, notes in another tool, transcripts in a third, with no connection between them. More time spent on admin than on the actual work.</p>
+        <p class="label">What I built</p>
+        <p>A single Notion operations hub with role-tailored dashboards, automated stats sync, and AI summaries that collapse a four-step routine into one.</p>
+      </div>
+      <div class="case">
+        <div class="metric"><span class="before">Excel files</span><span class="arrow">&rarr;</span><span class="after">1 system</span></div>
+        <span class="tag">CRM &amp; Governance</span>
+        <h3>Relationship &amp; Compliance Platform</h3>
+        <p class="label">The problem</p>
+        <p>A high-trust client network run on email tools and spreadsheets emailed between staff, with no deduplication and no access control over sensitive contacts.</p>
+        <p class="label">What I built</p>
+        <p>A unified, permissioned contact platform with deduplication, a structured weekly QC routine, and a governance model the team maintains on its own.</p>
+      </div>
+      <div class="case">
+        <div class="metric"><span class="before">Minutes to load</span><span class="arrow">&rarr;</span><span class="after">Instant</span></div>
+        <span class="tag">Platform Rebuild</span>
+        <h3>Analytics Workspace Rebuild</h3>
+        <p class="label">The problem</p>
+        <p>A premium analytics product choking under formula-heavy pages, unable to handle larger clients. The gap between the fees and the infrastructure was getting risky.</p>
+        <p class="label">What I built</p>
+        <p>A rebuild that moved heavy calculations to on-demand automations, added failure logging, and decoupled fragile dependencies. The fix became the operational backbone.</p>
+      </div>
+    </div>
+    <div class="quote">
+      <blockquote>"Anthony understood exactly what I needed within minutes and built a clean, connected system I can actually run myself."</blockquote>
+      <cite>Client review · Notion Marketplace, 4.92/5</cite>
+    </div>
+  </section>
+
+  <!-- AUDIT -->
+  <section class="block" id="audit">
+    <div class="audit-section">
+      <div class="audit-top">
+        <div>
+          <p class="eyebrow" style="color:#7C97FF">The entry point</p>
+          <h2>The Notion Ops Audit</h2>
+          <p class="desc">A structured, 90-minute review across 7 domains most consultants never check. You get a scorecard, ranked risks, and a roadmap, which becomes the plan for any implementation work that follows.</p>
+        </div>
+        <div class="value-tag">
+          <span class="offer-tag">Special offer</span>
+          <div class="price"><span class="was">$497</span> $197</div>
+          <div class="worth">$1,000+ in findings</div>
+        </div>
+      </div>
+      <div class="domains">
+        <div class="domain"><span class="d-num">01</span><h4>Access, Permissions &amp; Security</h4></div>
+        <div class="domain"><span class="d-num">02</span><h4>Governance &amp; Ownership</h4></div>
+        <div class="domain"><span class="d-num">03</span><h4>Data Protection &amp; Compliance</h4></div>
+        <div class="domain"><span class="d-num">04</span><h4>Workspace Architecture &amp; Structure</h4></div>
+        <div class="domain"><span class="d-num">05</span><h4>Database &amp; Data Model Health</h4></div>
+        <div class="domain"><span class="d-num">06</span><h4>Automation &amp; AI Usage</h4></div>
+        <div class="domain"><span class="d-num">07</span><h4>Adoption, Continuity &amp; Cost</h4></div>
+      </div>
+      <div class="audit-deliver">
+        <div><div class="lbl">Scorecard</div><p>Red / amber / green rating across all 7 domains, on one page.</p></div>
+        <div><div class="lbl">Top 5 risks</div><p>Ranked, plain-language, tied to business impact.</p></div>
+        <div><div class="lbl">Quick wins</div><p>Fixes your team can make this week, no build required.</p></div>
+        <div><div class="lbl">Roadmap</div><p>The larger remediation plan, and the basis of any project proposal.</p></div>
+      </div>
+      <div class="audit-bottom">
+        <p>Most clients use the audit findings to scope an Audit &amp; Design or Risk &amp; Governance Build engagement. There is no obligation either way.</p>
+        <a href="https://store.anthonytoday.com/l/notion-ops-audit" class="cta-button">Start the Audit — $197</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCOVERY CALL (separate from the pricing ladder below) -->
+  <section class="block">
+    <div class="discovery-band">
+      <div class="discovery-text">
+        <span class="tag">How to start</span>
+        <h3>Book a 30-min Discovery Call</h3>
+        <p>Not a sales call. Bring one real problem from your Notion setup and I work on it with you live, on the spot. You leave with either a fix or a clear, honest read on what to do next.</p>
+      </div>
+      <div class="discovery-cta">
+        <div class="discovery-price">$79<span>/ 30 min</span></div>
+        <a href="https://cal.com/anthonytoday/consultation" class="cta-button">Book the call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="block" id="pricing">
+    <p class="eyebrow">Pricing</p>
+    <div class="sec-head">
+      <h2>Transparent pricing. No surprise invoices.</h2>
+      <p>Every engagement starts with a clear scope and a fixed price. You know exactly what you are getting before any work begins.</p>
+    </div>
+    <div class="pricing">
+      <div class="price-card">
+        <span class="badge offer">Special offer</span>
+        <h3>Notion Ops Audit</h3>
+        <div class="amount"><span class="was">$497</span> $197</div>
+        <p class="desc">A focused, 90-minute review of your workspace. The fastest way to find out what is breaking and what to fix first.</p>
+        <ul>
+          <li>Workspace and access review</li>
+          <li>Top risks and quick wins</li>
+          <li>Prioritized action plan</li>
+          <li>Clear next-step recommendations</li>
+        </ul>
+        <p class="fit">Best for: you know something is wrong but are not sure where to start.</p>
+        <a href="https://store.anthonytoday.com/l/notion-ops-audit" class="cta-button ghost">Start the Audit</a>
+      </div>
+      <div class="price-card popular">
+        <span class="badge">Most popular</span>
+        <h3>Audit &amp; Design</h3>
+        <div class="amount">$500<span> &ndash; $2,500</span></div>
+        <p class="desc">A full system audit with architecture recommendations and a costed plan to rebuild what matters most.</p>
+        <ul>
+          <li>Complete system and security audit</li>
+          <li>Fragility and risk analysis</li>
+          <li>Architecture recommendations</li>
+          <li>Prioritized fix list and estimate</li>
+        </ul>
+        <p class="fit">Best for: you are ready to invest and want a clear plan first.</p>
+        <a href="https://cal.com/anthonytoday/consultation" class="cta-button">Start a conversation</a>
+      </div>
+      <div class="price-card">
+        <h3>Risk &amp; Governance Build</h3>
+        <div class="amount">$5K<span> &ndash; $20K+</span></div>
+        <p class="desc">I design it, build it, secure it, document it, and train your team. The full system, end to end.</p>
+        <ul>
+          <li>Discovery and scoping</li>
+          <li>Architecture and full build</li>
+          <li>Governance and access model</li>
+          <li>Documentation and team training</li>
+        </ul>
+        <p class="fit">Best for: operations are mission-critical and must be done right.</p>
+        <a href="https://cal.com/anthonytoday/consultation" class="cta-button ghost">Start a conversation</a>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:22px;font-size:14px;color:var(--text-gray)">Ongoing partnership retainers available for teams that need an operator on call.</p>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block">
+    <p class="eyebrow">Questions I hear</p>
+    <div class="sec-head"><h2>Before you start a conversation</h2></div>
+    <div class="faq">
+      <details><summary>I am not sure exactly what I need. Can you still help?</summary><p>Yes. Most clients arrive knowing something is wrong without knowing the cause. That is what the audit is for: a focused review that tells you what to fix first, before you commit to a build.</p></details>
+      <details><summary>How is this different from hiring an agency?</summary><p>At an agency you talk to sales, then a project manager, then maybe the person doing the work. Here you work with one senior operator from the first call to the final handoff. The person who designs your system is the person who builds it.</p></details>
+      <details><summary>I am not technical. Will I understand what you build?</summary><p>That is the point. Every system ships documented, and I train your team so you can run and maintain it without me. You own it.</p></details>
+      <details><summary>Why does the security and governance angle matter?</summary><p>Most Notion consultants build workflows but never check who can see what. With a 15-year cybersecurity background, I build systems that are fast and safe, which matters most for client data, finance, and regulated teams.</p></details>
+      <details><summary>What happens after the build?</summary><p>You get full documentation, team training, and a system you own outright. If you want ongoing support as you grow, a partnership retainer is available, but it is never required.</p></details>
+      <details><summary>Why do you cost more than a freelancer?</summary><p>Because the system works the first time. A cheaper build that breaks every month costs more in lost hours and rework than getting it right once.</p></details>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-section">
+    <h2>Ready to stop managing chaos and start running a business?</h2>
+    <p>Bring me one problem. In 30 minutes we work on it together and you leave knowing exactly what to do next.</p>
+    <a href="https://cal.com/anthonytoday/consultation" class="cta-button">Book a 30-min Discovery Call - $79</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-main">
+        <div class="footer-section">
+          <h4>Consulting</h4>
+          <a href="https://cal.com/anthonytoday/consultation">Book a Discovery Call ($79)</a>
+          <a href="https://store.anthonytoday.com/l/notion-ops-audit">Notion Ops Audit ($197)</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#services">Services</a>
+        </div>
+        <div class="footer-section">
+          <h4>Products</h4>
+          <a href="https://store.anthonytoday.com">Gumroad Store</a>
+          <a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">Etsy Shop</a>
+          <a href="https://www.notion.com/@anthonytoday">Notion Profile</a>
+          <a href="https://www.anthonytoday.com/tools">Tools</a>
+        </div>
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <p style="margin-bottom:15px">Follow for updates, resources, and new templates.</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/anthony-kieffer/" title="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+            <a href="mailto:info@anthonytoday.com" title="Email">@</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Anthony Today. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>

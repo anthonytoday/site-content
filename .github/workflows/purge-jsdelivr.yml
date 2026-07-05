@@ -1,0 +1,20 @@
+name: Purge jsDelivr cache
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "*.html"
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Purge jsDelivr CDN for changed HTML files
+        run: |
+          for file in home.html cyber.html tools.html notion.html; do
+            echo "Purging $file"
+            curl -s "https://purge.jsdelivr.net/gh/${{ github.repository }}@main/$file"
+            echo ""
+          done
