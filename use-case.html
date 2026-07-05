@@ -1,0 +1,174 @@
+<!-- MailerLite embed: paste everything below (starting with <style>) into a Custom HTML / Embed block on your ML landing page. Page title, meta description, and viewport are already handled by your ML page settings, so they are intentionally left out here. -->
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --navy:#051C2C;--blue:#2251FF;--blue-dark:#1A3FA8;--white:#FFFFFF;
+    --light-gray:#F5F5F5;--text-gray:#6B7280;--border:#E5E7EB;--green:#0F9D58;
+  }
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:var(--navy);background:var(--white)}
+  a{text-decoration:none;color:inherit}
+  .uc-hero{max-width:720px;margin:0 auto;padding:70px 20px 20px;text-align:center}
+  .uc-tag{display:inline-block;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+  .uc-hero h1{font-size:32px;font-weight:600;color:var(--navy);margin-bottom:16px;line-height:1.3}
+  .uc-hero p{font-size:16px;color:var(--text-gray);line-height:1.7}
+  .uc-note{max-width:640px;margin:20px auto 0;padding:14px 18px;background:var(--light-gray);border-radius:8px;font-size:13px;color:var(--text-gray);text-align:center}
+
+  .stats-row{max-width:960px;margin:50px auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px}
+  .stat-card{background:var(--light-gray);border-radius:10px;padding:26px 20px;text-align:center}
+  .stat-card .num{font-size:28px;font-weight:700;color:var(--blue-dark)}
+  .stat-card .label{font-size:13px;color:var(--text-gray);margin-top:6px}
+
+  .uc-body{max-width:720px;margin:0 auto;padding:20px 20px 30px}
+  .uc-act{padding:38px 0;border-bottom:1px solid var(--border)}
+  .uc-act:last-child{border-bottom:none}
+  .uc-act .act-label{display:inline-block;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+  .uc-act h2{font-size:22px;font-weight:600;color:var(--navy);margin-bottom:14px;line-height:1.3}
+  .uc-act p{font-size:15px;color:var(--text-gray);line-height:1.75;margin-bottom:14px}
+  .uc-act ul{margin:0 0 14px 20px;color:var(--text-gray);font-size:15px;line-height:1.9}
+
+  .benefits-section{max-width:720px;margin:0 auto;padding:10px 20px 60px}
+  .benefits-section h2{font-size:22px;font-weight:600;color:var(--navy);margin-bottom:20px;text-align:center}
+  .benefit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .benefit-card{border:1px solid var(--border);border-radius:10px;padding:22px}
+  .benefit-card h3{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:8px}
+  .benefit-card p{font-size:14px;color:var(--text-gray);line-height:1.7}
+
+  .uc-cta{max-width:640px;margin:0 auto 80px;padding:40px 30px;background:var(--navy);border-radius:14px;text-align:center}
+  .uc-cta h2{color:var(--white);font-size:22px;font-weight:600;margin-bottom:12px}
+  .uc-cta p{color:#C9D4E8;font-size:14.5px;margin-bottom:22px;line-height:1.7}
+  .uc-cta-button{display:inline-block;background:var(--blue);color:var(--white);padding:14px 32px;border-radius:6px;font-weight:500;font-size:15px}
+  .uc-cta-button:hover{background:var(--blue-dark)}
+
+  footer{background:var(--light-gray);padding:60px 20px;margin-top:20px}
+  .footer-content{max-width:1000px;margin:0 auto}
+  .footer-main{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-bottom:40px}
+  .footer-section h4{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
+  .footer-section p{font-size:13px;color:var(--text-gray);line-height:1.8}
+  .footer-section a{display:block;font-size:13px;color:var(--text-gray);margin-bottom:8px;transition:color .2s}
+  .footer-section a:hover{color:var(--blue)}
+  .social-links{display:flex;gap:15px;margin-top:18px}
+  .social-links a{display:flex;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--white);align-items:center;justify-content:center;font-size:15px;transition:background .2s;margin:0}
+  .social-links a:hover{background:var(--blue)}
+  .footer-bottom{border-top:1px solid var(--border);padding-top:30px;text-align:center;color:var(--text-gray);font-size:13px}
+  footer a{color:var(--text-gray)}
+  footer a:hover{color:var(--blue)}
+</style>
+
+<section class="uc-hero">
+  <span class="uc-tag">Use Case</span>
+  <h1>From exposed workspace to governed system: a 90-day transformation.</h1>
+  <p>How a growing company went from an accidental data-exposure scare to a Notion workspace with real access control, faster onboarding, and measurable cost savings.</p>
+  <div class="uc-note">Illustrative scenario based on the patterns I see most often in Notion Ops Audits. Company details are composite, not a specific client.</div>
+</section>
+
+<div class="stats-row">
+  <div class="stat-card"><div class="num">12</div><div class="label">unnecessary paid seats removed</div></div>
+  <div class="stat-card"><div class="num">78%</div><div class="label">faster new-hire onboarding</div></div>
+  <div class="stat-card"><div class="num">~60 hrs</div><div class="label">admin time saved per year</div></div>
+  <div class="stat-card"><div class="num">0</div><div class="label">unresolved access flags after</div></div>
+</div>
+
+<div class="uc-body">
+
+  <div class="uc-act">
+    <span class="act-label">Act 1 — The Trigger</span>
+    <h2>A near-miss forces the question nobody had asked</h2>
+    <p>A 28-person B2B SaaS company, three years old and scaling fast, ran its entire operation out of Notion: sales pipeline, product roadmap, client contracts, internal ops. The workspace had grown the way most do, one page and one shortcut at a time, with no one ever assigned to own the structure.</p>
+    <p>The trigger came when a new hire, added to a shared teamspace during onboarding, stumbled across contract terms from a different client. Nothing malicious happened. But the COO realized nobody could say with confidence who had access to what, or why. She booked a Notion Ops Audit: 90 minutes, $197.</p>
+  </div>
+
+  <div class="uc-act">
+    <span class="act-label">Act 2 — The Audit Findings</span>
+    <h2>What a structured review surfaced across all 7 domains</h2>
+    <ul>
+      <li>14 guest accounts still active from projects closed 6+ months earlier</li>
+      <li>3 teamspaces set to "everyone can edit," with no documented reason</li>
+      <li>No offboarding step to remove departed contractors' access</li>
+      <li>One 40-plus-property "Master Tracker" database nobody fully understood</li>
+      <li>No approval step before anyone could spin up a new database</li>
+    </ul>
+    <p>None of this was a single dramatic failure. It was a workspace that had accumulated small, reasonable-at-the-time decisions until the sum of them became a real exposure.</p>
+  </div>
+
+  <div class="uc-act">
+    <span class="act-label">Act 3 — Remediation</span>
+    <h2>Turning findings into a governed system</h2>
+    <p>The audit fee was credited toward a follow-on Workspace Design & Governance engagement. Over three weeks:</p>
+    <ul>
+      <li>Access rebuilt around least-privilege; guest accounts pruned from 14 to 2</li>
+      <li>The Master Tracker split into 3 purpose-built databases with role-specific views</li>
+      <li>An offboarding checklist added directly to the HR onboarding template</li>
+      <li>A lightweight approval step added before any new database goes live</li>
+      <li>12 unused paid seats identified and removed at the next billing cycle</li>
+    </ul>
+  </div>
+
+  <div class="uc-act">
+    <span class="act-label">Act 4 — The Transformation</span>
+    <h2>Where the company stood 90 days later</h2>
+    <p>New-hire onboarding dropped from two weeks to three days, since role-based views meant new employees saw only what their role required from day one. Zero unresolved permission flags remained, down from the 14 guest accounts and 3 open teamspaces found at audit. The COO could answer "who has access to what" with a single search, instead of a guessing exercise across a dozen pages.</p>
+    <p>When a prospective customer's security team sent over a vendor questionnaire, for the first time the company answered it in one sitting instead of scrambling for a week.</p>
+  </div>
+
+</div>
+
+<div class="benefits-section">
+  <h2>What changed, in numbers</h2>
+  <div class="benefit-grid">
+    <div class="benefit-card">
+      <h3>Cost saved</h3>
+      <p>12 unused paid seats removed at the next billing cycle, plus the admin hours previously spent manually tracking who still needed access.</p>
+    </div>
+    <div class="benefit-card">
+      <h3>Productivity gained</h3>
+      <p>Onboarding time cut from 2 weeks to 3 days. Roughly 60 hours a year of manager time redirected from permission cleanup to actual work.</p>
+    </div>
+    <div class="benefit-card">
+      <h3>Risk reduced</h3>
+      <p>14 stale guest accounts and 3 open teamspaces closed. Zero unresolved access flags at the 90-day mark.</p>
+    </div>
+    <div class="benefit-card">
+      <h3>Revenue protected</h3>
+      <p>A customer security questionnaire answered in one sitting instead of a week-long scramble, removing a friction point in the sales cycle.</p>
+    </div>
+  </div>
+</div>
+
+<div class="uc-cta">
+  <h2>Recognize your own workspace in this story?</h2>
+  <p>Most of what surfaced here shows up in the first 90 minutes of an audit. Start with the same first step this company did.</p>
+  <a href="https://store.anthonytoday.com/l/notion-ops-audit" class="uc-cta-button">Book the Notion Ops Audit ($197)</a>
+</div>
+
+<!-- FOOTER — light background, exact match to Notion page -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-main">
+      <div class="footer-section">
+        <h4>Consulting</h4>
+        <a href="https://cal.com/anthonytoday/consultation">Book a Discovery Call ($79)</a>
+        <a href="https://store.anthonytoday.com/l/notion-ops-audit">Notion Ops Audit ($197)</a>
+        <a href="https://www.anthonytoday.com/notion#pricing">Pricing</a>
+        <a href="https://www.anthonytoday.com/notion#services">Services</a>
+      </div>
+      <div class="footer-section">
+        <h4>Products</h4>
+        <a href="https://store.anthonytoday.com">Gumroad Store</a>
+        <a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">Etsy Shop</a>
+        <a href="https://www.notion.com/@anthonytoday">Notion Profile</a>
+        <a href="https://www.anthonytoday.com/tools">Tools</a>
+      </div>
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <p style="margin-bottom:15px">Follow for updates, resources, and new templates.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/anthony-kieffer/" title="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+          <a href="mailto:info@anthonytoday.com" title="Email">@</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Anthony Today. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
