@@ -8,6 +8,7 @@ Source of truth for the anthonytoday.com page content served through MailerLite.
 - `cyber.html` — anthonytoday.com/cyber
 - `tools.html` — anthonytoday.com/tools
 - `notion.html` — anthonytoday.com/notion
+- `contact.html` — anthonytoday.com/contact
 - `assets/logos/` — logo and icon images referenced by the pages, served via jsDelivr CDN (images change rarely, so CDN caching is fine here)
 
 ## How the sync works
@@ -60,6 +61,12 @@ var page = "tools.html";
 
 ```js
 var page = "notion.html";
+```
+
+### Contact page
+
+```js
+var page = "contact.html";
 ```
 
 ## Making an edit going forward
