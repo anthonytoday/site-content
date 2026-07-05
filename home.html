@@ -2,10 +2,10 @@
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   :root{
-    --navy:#051C2C;--blue:#2251FF;--white:#FFFFFF;--light-gray:#F5F5F5;--text-gray:#6B7280;
+    --navy:#051C2C;--blue:#2251FF;--blue-dark:#1A3FA8;--white:#FFFFFF;--light-gray:#F5F5F5;--text-gray:#6B7280;--border:#E5E7EB;
   }
   body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:var(--navy);background:var(--white)}
-  header{background:var(--white);padding:20px 0;border-bottom:1px solid #E5E7EB;position:sticky;top:0;z-index:100}
+  header{background:var(--white);padding:20px 0;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
   .header-content{max-width:1000px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}
   .logo{font-size:18px;font-weight:600;color:var(--navy)}
   .header-nav{display:none}
@@ -16,33 +16,38 @@
   .hero-image{text-align:center}
   .hero-image img{width:100%;max-width:350px;border-radius:12px;object-fit:cover}
   .cta-button{display:inline-block;background:var(--blue);color:var(--white);padding:14px 40px;border-radius:6px;text-decoration:none;font-weight:500;font-size:15px;transition:background .2s;cursor:pointer;border:none}
-  .cta-button:hover{background:#1A3FA8}
+  .cta-button:hover{background:var(--blue-dark) !important;color:var(--white) !important;text-decoration:none !important}
   .value-section{max-width:1000px;margin:20px auto 60px;padding:0 20px}
+  .value-section .eyebrow{text-align:center;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
   .value-section h2{font-size:28px;margin-bottom:30px;text-align:center;color:var(--navy)}
   .value-grid{display:grid;grid-template-columns:repeat(2,1fr) 1fr;gap:40px}
-  .value-category-header{font-size:14px;font-weight:600;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;margin-bottom:-20px;padding-bottom:15px;border-bottom:1px solid #E5E7EB;text-align:center}
+  .value-category-header{font-size:14px;font-weight:600;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;margin-bottom:-20px;padding-bottom:15px;border-bottom:1px solid var(--border);text-align:center}
   .value-grid>.value-category-header:first-child{grid-column:1/3}
   .value-grid>.value-category-header:nth-of-type(2){grid-column:3}
   .value-type{font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
-  .value-item{text-align:center}
+  .value-item{text-align:center;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:26px 22px;transition:border-color .2s,box-shadow .2s}
+  .value-item:hover{border-color:#C9D4FF;box-shadow:0 6px 22px rgba(5,28,44,.06)}
   .value-item h3{font-size:18px;margin-bottom:12px;color:var(--navy);font-weight:600}
   .value-item p{font-size:14px;color:var(--text-gray);line-height:1.7}
-  .process-section{max-width:1000px;margin:20px auto 80px;padding:60px 20px;background:var(--light-gray);border-radius:8px}
+  .process-section{max-width:1000px;margin:20px auto 80px;padding:60px 20px;background:var(--light-gray);border-radius:12px}
+  .process-section .eyebrow{text-align:center;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
   .process-section h2{font-size:28px;margin-bottom:50px;text-align:center;color:var(--navy)}
   .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-bottom:40px}
-  .process-step{text-align:center;display:flex;flex-direction:column;align-items:center;background:#FFFFFF;border:2px solid #BFDBFE;border-radius:8px;padding:30px 20px}
+  .process-step{text-align:center;display:flex;flex-direction:column;align-items:center;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:30px 20px;transition:border-color .2s,box-shadow .2s}
+  .process-step:hover{border-color:#C9D4FF;box-shadow:0 6px 22px rgba(5,28,44,.06)}
   .process-step .step-number{display:inline-block;width:48px;height:48px;background:var(--blue);color:var(--white);border-radius:50%;font-size:20px;font-weight:600;line-height:48px;margin-bottom:15px}
   .process-step h3{font-size:16px;margin-bottom:10px;color:var(--navy);font-weight:600}
   .process-step p{font-size:14px;color:var(--text-gray);line-height:1.6}
-  .engagement-types{margin-top:30px;padding-top:30px;border-top:1px solid #E5E7EB;text-align:center;margin-bottom:-20px;padding-bottom:0}
+  .engagement-types{margin-top:30px;padding-top:30px;border-top:1px solid var(--border);text-align:center;margin-bottom:-20px;padding-bottom:0}
   .engagement-types p{font-size:14px;color:var(--text-gray);margin-bottom:12px}
   .engagement-badges{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-  .badge{background:var(--white);border:1px solid #E5E7EB;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:500;color:var(--navy)}
+  .badge{background:var(--white);border:1px solid var(--border);padding:8px 16px;border-radius:20px;font-size:13px;font-weight:500;color:var(--navy)}
   .booking-section{max-width:1000px;margin:20px auto 80px;padding:60px 20px;text-align:center}
   .booking-section h2{font-size:28px;margin-bottom:12px;color:var(--navy)}
   .booking-intro{font-size:15px;color:var(--text-gray);margin-bottom:40px}
   .booking-embed{background:var(--white);border-radius:8px;overflow:hidden}
-  .credentials{max-width:1000px;margin:10px auto 80px;padding:0 20px;border-top:1px solid #E5E7EB;padding-top:20px}
+  .credentials{max-width:1000px;margin:10px auto 80px;padding:0 20px;border-top:1px solid var(--border);padding-top:20px}
+  .credentials .eyebrow{text-align:center;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
   .credentials h2{font-size:28px;margin-bottom:50px;text-align:center;color:var(--navy)}
   .cred-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px}
   .cred-item{text-align:center}
@@ -51,13 +56,12 @@
   .cred-item .rating-text{font-size:14px;color:var(--text-gray);margin-top:5px}
   .cred-item p{color:var(--text-gray);font-size:14px;line-height:1.6}
   .templates-section{max-width:1000px;margin:80px auto;padding:0 20px;text-align:center}
+  .templates-section .eyebrow{text-align:center;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
   .templates-section h2{font-size:28px;margin-bottom:15px;color:var(--navy)}
   .templates-intro{color:var(--text-gray);margin-bottom:40px;font-size:15px}
   .templates-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
-  .template-card{padding:30px;border-radius:8px;text-align:center;border:2px solid transparent}
-  .template-card:nth-child(1){background:#EFF6FF;border-color:#BFDBFE}
-  .template-card:nth-child(2){background:#FEFCE8;border-color:#FDE047}
-  .template-card:nth-child(3){background:#ECFDF5;border-color:#86EFAC}
+  .template-card{padding:30px;border-radius:10px;text-align:center;background:var(--white);border:1px solid var(--border);transition:border-color .2s,box-shadow .2s}
+  .template-card:hover{border-color:#C9D4FF;box-shadow:0 6px 22px rgba(5,28,44,.06)}
   .template-card h4{font-size:16px;margin-bottom:12px;color:var(--navy);font-weight:600}
   .template-card p{font-size:13px;color:var(--text-gray);margin-bottom:15px;line-height:1.6}
   .template-card a{display:inline-block;color:var(--blue);text-decoration:none;font-size:13px;font-weight:500}
@@ -75,7 +79,7 @@
   .social-links{display:flex;gap:15px;margin-top:20px}
   .social-links a{display:inline-block;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--white);text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:16px;transition:background .2s;margin:0}
   .social-links a:hover{background:var(--blue)}
-  .footer-bottom{border-top:1px solid #E5E7EB;padding-top:30px;text-align:center;color:var(--text-gray);font-size:13px}
+  .footer-bottom{border-top:1px solid var(--border);padding-top:30px;text-align:center;color:var(--text-gray);font-size:13px}
   @media (max-width:768px){
     .hero{grid-template-columns:1fr;padding:40px 20px;gap:30px}
     .hero-content h1{font-size:32px}
@@ -109,6 +113,7 @@
 </section>
 
 <section class="value-section">
+    <p class="eyebrow">What I offer</p>
     <h2>Offerings</h2>
     <div class="value-grid">
         <div class="value-category-header">Services</div>
@@ -128,6 +133,7 @@
     </div>
 </section>
 <section class="process-section">
+    <p class="eyebrow">How it works</p>
     <h2>The Process</h2>
     <div class="process-grid">
         <div class="process-step">
@@ -157,6 +163,7 @@
 </section>
 
 <section class="credentials">
+    <p class="eyebrow">Track record</p>
     <h2>Track Record</h2>
     <div class="cred-grid">
         <div class="cred-item">
@@ -175,6 +182,7 @@
 </section>
 
 <section class="templates-section" id="templates">
+    <p class="eyebrow">Digital products</p>
     <h2>Digital Products</h2>
     <p class="templates-intro">Don't need consulting? Start with ready-made templates and resources you can use immediately.</p>
     <div class="templates-grid">
