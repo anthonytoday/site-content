@@ -3,38 +3,63 @@
   *{margin:0;padding:0;box-sizing:border-box}
   :root{
     --navy:#051C2C;--blue:#2251FF;--blue-dark:#1A3FA8;--white:#FFFFFF;
-    --light-gray:#F5F5F5;--text-gray:#6B7280;--border:#E5E7EB;--green:#0F9D58;
+    --light-gray:#F5F5F5;--text-gray:#6B7280;--border:#E5E7EB;
+    --red:#C0392B;--amber:#B7791F;--green:#0F7A3D;
   }
   body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:var(--navy);background:var(--white)}
   a{text-decoration:none;color:inherit}
   .uc-hero{max-width:720px;margin:0 auto;padding:70px 20px 20px;text-align:center}
   .uc-tag{display:inline-block;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
-  .uc-hero h1{font-size:32px;font-weight:600;color:var(--navy);margin-bottom:16px;line-height:1.3}
+  .uc-hero h1{font-size:30px;font-weight:600;color:var(--navy);margin-bottom:16px;line-height:1.3}
   .uc-hero p{font-size:16px;color:var(--text-gray);line-height:1.7}
   .uc-note{max-width:640px;margin:20px auto 0;padding:14px 18px;background:var(--light-gray);border-radius:8px;font-size:13px;color:var(--text-gray);text-align:center}
 
   .stats-row{max-width:960px;margin:50px auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px}
   .stat-card{background:var(--light-gray);border-radius:10px;padding:26px 20px;text-align:center}
-  .stat-card .num{font-size:28px;font-weight:700;color:var(--blue-dark)}
+  .stat-card .num{font-size:26px;font-weight:700;color:var(--blue-dark)}
   .stat-card .label{font-size:13px;color:var(--text-gray);margin-top:6px}
 
-  .uc-body{max-width:720px;margin:0 auto;padding:20px 20px 30px}
+  .uc-body{max-width:760px;margin:0 auto;padding:20px 20px 30px}
   .uc-act{padding:38px 0;border-bottom:1px solid var(--border)}
   .uc-act:last-child{border-bottom:none}
   .uc-act .act-label{display:inline-block;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
-  .uc-act h2{font-size:22px;font-weight:600;color:var(--navy);margin-bottom:14px;line-height:1.3}
+  .uc-act h2{font-size:21px;font-weight:600;color:var(--navy);margin-bottom:14px;line-height:1.3}
   .uc-act p{font-size:15px;color:var(--text-gray);line-height:1.75;margin-bottom:14px}
   .uc-act ul{margin:0 0 14px 20px;color:var(--text-gray);font-size:15px;line-height:1.9}
 
-  .benefits-section{max-width:720px;margin:0 auto;padding:10px 20px 60px}
-  .benefits-section h2{font-size:22px;font-weight:600;color:var(--navy);margin-bottom:20px;text-align:center}
+  table.findings{width:100%;border-collapse:collapse;margin:18px 0 8px;font-size:14px}
+  table.findings th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--text-gray);padding:8px 10px;border-bottom:2px solid var(--border)}
+  table.findings td{padding:10px 10px;border-bottom:1px solid var(--border);color:var(--navy);vertical-align:top}
+  .risk-pill{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600;color:var(--white)}
+  .risk-critical{background:var(--red)}
+  .risk-high{background:#D9534F}
+  .risk-medium{background:var(--amber)}
+  .risk-low{background:var(--green)}
+
+  .risk-transition{display:flex;align-items:center;justify-content:center;gap:18px;margin:24px 0;flex-wrap:wrap}
+  .risk-box{flex:1;min-width:220px;border-radius:10px;padding:20px;text-align:center}
+  .risk-box.before{background:#FDECEA;border:1px solid #F5C6C0}
+  .risk-box.after{background:#E9F7EE;border:1px solid #BFE6CC}
+  .risk-box .risk-level{font-size:20px;font-weight:700}
+  .risk-box.before .risk-level{color:var(--red)}
+  .risk-box.after .risk-level{color:var(--green)}
+  .risk-box .risk-sub{font-size:12.5px;color:var(--text-gray);margin-top:4px}
+  .risk-arrow{font-size:22px;color:var(--text-gray)}
+
+  .cost-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px}
+  .cost-table th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--text-gray);padding:8px 10px;border-bottom:2px solid var(--border)}
+  .cost-table td{padding:10px;border-bottom:1px solid var(--border)}
+  .cost-table tr.total td{font-weight:700;border-bottom:none;border-top:2px solid var(--navy);padding-top:12px}
+
+  .benefits-section{max-width:760px;margin:0 auto;padding:10px 20px 60px}
+  .benefits-section h2{font-size:21px;font-weight:600;color:var(--navy);margin-bottom:20px;text-align:center}
   .benefit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
   .benefit-card{border:1px solid var(--border);border-radius:10px;padding:22px}
   .benefit-card h3{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:8px}
   .benefit-card p{font-size:14px;color:var(--text-gray);line-height:1.7}
 
   .uc-cta{max-width:640px;margin:0 auto 80px;padding:40px 30px;background:var(--navy);border-radius:14px;text-align:center}
-  .uc-cta h2{color:var(--white);font-size:22px;font-weight:600;margin-bottom:12px}
+  .uc-cta h2{color:var(--white);font-size:21px;font-weight:600;margin-bottom:12px}
   .uc-cta p{color:#C9D4E8;font-size:14.5px;margin-bottom:22px;line-height:1.7}
   .uc-cta-button{display:inline-block;background:var(--blue);color:var(--white);padding:14px 32px;border-radius:6px;font-weight:500;font-size:15px}
   .uc-cta-button:hover{background:var(--blue-dark)}
@@ -52,91 +77,106 @@
   .footer-bottom{border-top:1px solid var(--border);padding-top:30px;text-align:center;color:var(--text-gray);font-size:13px}
   footer a{color:var(--text-gray)}
   footer a:hover{color:var(--blue)}
+  @media(max-width:600px){table.findings,.cost-table{font-size:12.5px}}
 </style>
 
 <section class="uc-hero">
-  <span class="uc-tag">Use Case</span>
-  <h1>From exposed workspace to governed system: a 90-day transformation.</h1>
-  <p>How a growing company went from an accidental data-exposure scare to a Notion workspace with real access control, faster onboarding, and measurable cost savings.</p>
-  <div class="uc-note">Illustrative scenario based on the patterns I see most often in Notion Ops Audits. Company details are composite, not a specific client.</div>
+  <span class="uc-tag">Case Study</span>
+  <h1>Notion Governance Remediation: $2,880 in annual license cost recovered, access risk reduced from High to Low.</h1>
+  <p>How a 28-person B2B SaaS company moved from uncontrolled workspace access to a documented, governed system in 90 days.</p>
+  <div class="uc-note">Composite scenario based on findings typical of a Notion Ops Audit. Company details are illustrative, not a specific client.</div>
 </section>
 
 <div class="stats-row">
-  <div class="stat-card"><div class="num">12</div><div class="label">unnecessary paid seats removed</div></div>
-  <div class="stat-card"><div class="num">78%</div><div class="label">faster new-hire onboarding</div></div>
-  <div class="stat-card"><div class="num">~60 hrs</div><div class="label">admin time saved per year</div></div>
-  <div class="stat-card"><div class="num">0</div><div class="label">unresolved access flags after</div></div>
+  <div class="stat-card"><div class="num">$2,880</div><div class="label">annual license cost recovered</div></div>
+  <div class="stat-card"><div class="num">78%</div><div class="label">reduction in onboarding time</div></div>
+  <div class="stat-card"><div class="num">High → Low</div><div class="label">access risk classification</div></div>
+  <div class="stat-card"><div class="num">0</div><div class="label">unresolved access flags post-remediation</div></div>
 </div>
 
 <div class="uc-body">
 
   <div class="uc-act">
-    <span class="act-label">Act 1 — The Trigger</span>
-    <h2>A near-miss forces the question nobody had asked</h2>
-    <p>A 28-person B2B SaaS company, three years old and scaling fast, ran its entire operation out of Notion: sales pipeline, product roadmap, client contracts, internal ops. The workspace had grown the way most do, one page and one shortcut at a time, with no one ever assigned to own the structure.</p>
-    <p>The trigger came when a new hire, added to a shared teamspace during onboarding, stumbled across contract terms from a different client. Nothing malicious happened. But the COO realized nobody could say with confidence who had access to what, or why. She booked a Notion Ops Audit: 90 minutes, $197.</p>
+    <span class="act-label">Situation</span>
+    <h2>Trigger event</h2>
+    <p>A 28-person B2B SaaS company ran sales, product, and client operations entirely in Notion. A new hire, added to a shared teamspace during onboarding, was able to view contract terms belonging to a different client. No breach occurred. The COO could not confirm who had access to what across the workspace. She engaged a Notion Ops Audit: 90 minutes, $197.</p>
   </div>
 
   <div class="uc-act">
-    <span class="act-label">Act 2 — The Audit Findings</span>
-    <h2>What a structured review surfaced across all 7 domains</h2>
+    <span class="act-label">Findings</span>
+    <h2>Audit results, rated by risk</h2>
+    <table class="findings">
+      <tr><th>Finding</th><th>Risk</th><th>Business impact</th></tr>
+      <tr><td>14 guest accounts active from projects closed 6+ months prior</td><td><span class="risk-pill risk-high">High</span></td><td>Unauthorized data access outside current engagements</td></tr>
+      <tr><td>3 teamspaces set to open-edit with no access review</td><td><span class="risk-pill risk-critical">Critical</span></td><td>No control over who modifies client-facing content</td></tr>
+      <tr><td>No offboarding step to revoke contractor access</td><td><span class="risk-pill risk-high">High</span></td><td>Access persists indefinitely after engagement ends</td></tr>
+      <tr><td>1 database with 40+ properties, no ownership assigned</td><td><span class="risk-pill risk-medium">Medium</span></td><td>Reporting errors, duplicated manual work</td></tr>
+      <tr><td>No approval step before new databases go live</td><td><span class="risk-pill risk-medium">Medium</span></td><td>Unmanaged data sprawl over time</td></tr>
+      <tr><td>12 paid seats assigned to inactive or departed users</td><td><span class="risk-pill risk-medium">Medium</span></td><td>Recurring licensing cost with no corresponding usage</td></tr>
+    </table>
+  </div>
+
+  <div class="uc-act">
+    <span class="act-label">Remediation</span>
+    <h2>Actions taken</h2>
     <ul>
-      <li>14 guest accounts still active from projects closed 6+ months earlier</li>
-      <li>3 teamspaces set to "everyone can edit," with no documented reason</li>
-      <li>No offboarding step to remove departed contractors' access</li>
-      <li>One 40-plus-property "Master Tracker" database nobody fully understood</li>
-      <li>No approval step before anyone could spin up a new database</li>
+      <li>Access rebuilt on least-privilege principles; guest accounts reduced from 14 to 2</li>
+      <li>All open-edit teamspaces converted to role-based permissions with named owners</li>
+      <li>Offboarding checklist added to the HR termination workflow, tied to Notion admin access removal</li>
+      <li>Master database split into 3 purpose-built databases with defined ownership</li>
+      <li>Approval step added before any new database is created</li>
+      <li>12 inactive paid seats identified and removed at the next billing cycle</li>
     </ul>
-    <p>None of this was a single dramatic failure. It was a workspace that had accumulated small, reasonable-at-the-time decisions until the sum of them became a real exposure.</p>
+    <p>Engagement fee: Workspace Design & Governance, $1,500–$6,000 depending on scope. The $197 audit fee was credited against this engagement.</p>
   </div>
 
   <div class="uc-act">
-    <span class="act-label">Act 3 — Remediation</span>
-    <h2>Turning findings into a governed system</h2>
-    <p>The audit fee was credited toward a follow-on Workspace Design & Governance engagement. Over three weeks:</p>
-    <ul>
-      <li>Access rebuilt around least-privilege; guest accounts pruned from 14 to 2</li>
-      <li>The Master Tracker split into 3 purpose-built databases with role-specific views</li>
-      <li>An offboarding checklist added directly to the HR onboarding template</li>
-      <li>A lightweight approval step added before any new database goes live</li>
-      <li>12 unused paid seats identified and removed at the next billing cycle</li>
-    </ul>
-  </div>
-
-  <div class="uc-act">
-    <span class="act-label">Act 4 — The Transformation</span>
-    <h2>Where the company stood 90 days later</h2>
-    <p>New-hire onboarding dropped from two weeks to three days, since role-based views meant new employees saw only what their role required from day one. Zero unresolved permission flags remained, down from the 14 guest accounts and 3 open teamspaces found at audit. The COO could answer "who has access to what" with a single search, instead of a guessing exercise across a dozen pages.</p>
-    <p>When a prospective customer's security team sent over a vendor questionnaire, for the first time the company answered it in one sitting instead of scrambling for a week.</p>
+    <span class="act-label">Result</span>
+    <h2>Risk classification: before and after</h2>
+    <div class="risk-transition">
+      <div class="risk-box before">
+        <div class="risk-level">HIGH</div>
+        <div class="risk-sub">Uncontrolled guest access, no offboarding process, unowned teamspaces</div>
+      </div>
+      <div class="risk-arrow">→</div>
+      <div class="risk-box after">
+        <div class="risk-level">LOW (Acceptable)</div>
+        <div class="risk-sub">Named owners, revocation on offboarding, quarterly access review scheduled</div>
+      </div>
+    </div>
+    <p>Risk was reduced to an acceptable level defined by three controls: every teamspace has a named owner, access is revoked automatically at offboarding, and permissions are reviewed quarterly rather than left indefinitely.</p>
   </div>
 
 </div>
 
 <div class="benefits-section">
-  <h2>What changed, in numbers</h2>
+  <h2>Cost savings: Notion licensing</h2>
+  <table class="cost-table">
+    <tr><th>Item</th><th>Detail</th><th>Annual value</th></tr>
+    <tr><td>Inactive seats removed</td><td>12 seats on Notion Business ($20/user/month, billed annually)</td><td>$2,880</td></tr>
+    <tr><td>Admin time recovered</td><td>~5 hours/month previously spent manually tracking access, now handled by the offboarding workflow</td><td>60 hours/year</td></tr>
+    <tr class="total"><td>Total direct savings</td><td></td><td>$2,880 + 60 hrs redirected</td></tr>
+  </table>
+  <p style="font-size:13px;color:var(--text-gray);text-align:center;margin-top:6px">Based on Notion's published Business plan pricing of $20/user/month (annual billing). Actual savings scale with your seat count and plan tier.</p>
+</div>
+
+<div class="benefits-section">
+  <h2>Additional business outcomes</h2>
   <div class="benefit-grid">
     <div class="benefit-card">
-      <h3>Cost saved</h3>
-      <p>12 unused paid seats removed at the next billing cycle, plus the admin hours previously spent manually tracking who still needed access.</p>
+      <h3>Onboarding time</h3>
+      <p>Reduced from 2 weeks to 3 days. Role-based views meant new hires saw only what their role required from day one, removing manual access provisioning.</p>
     </div>
     <div class="benefit-card">
-      <h3>Productivity gained</h3>
-      <p>Onboarding time cut from 2 weeks to 3 days. Roughly 60 hours a year of manager time redirected from permission cleanup to actual work.</p>
-    </div>
-    <div class="benefit-card">
-      <h3>Risk reduced</h3>
-      <p>14 stale guest accounts and 3 open teamspaces closed. Zero unresolved access flags at the 90-day mark.</p>
-    </div>
-    <div class="benefit-card">
-      <h3>Revenue protected</h3>
-      <p>A customer security questionnaire answered in one sitting instead of a week-long scramble, removing a friction point in the sales cycle.</p>
+      <h3>Sales cycle friction</h3>
+      <p>A customer security questionnaire was completed in one sitting, replacing what had previously been a week-long, multi-person scramble.</p>
     </div>
   </div>
 </div>
 
 <div class="uc-cta">
-  <h2>Recognize your own workspace in this story?</h2>
-  <p>Most of what surfaced here shows up in the first 90 minutes of an audit. Start with the same first step this company did.</p>
+  <h2>Assess your own license cost and access risk</h2>
+  <p>Most of these findings surface in the first 90 minutes of an audit. Start with the same first step this company did.</p>
   <a href="https://store.anthonytoday.com/l/notion-ops-audit" class="uc-cta-button">Book the Notion Ops Audit ($197)</a>
 </div>
 
