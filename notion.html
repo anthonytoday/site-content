@@ -17,13 +17,12 @@
   .header-nav .cta-button{color:var(--white)}
   /* buttons */
   .cta-button{display:inline-block;background:var(--blue);color:var(--white);padding:13px 30px;border-radius:6px;font-weight:500;font-size:15px;transition:background .2s;cursor:pointer;border:none}
-  .cta-button:hover{background:var(--blue-dark)}
+  .cta-button:hover{background:var(--blue-dark);color:var(--white) !important}
   .cta-button.ghost{background:transparent;color:var(--navy);border:1px solid var(--border)}
-  .cta-button.ghost:hover{background:var(--light-gray)}
+  .cta-button.ghost:hover{background:var(--light-gray);color:var(--navy) !important}
   .cta-button.sm{padding:9px 20px;font-size:14px}
   /* hero */
   .hero{text-align:center;padding:64px 20px 10px;max-width:880px;margin:0 auto}
-  .trust-bar{display:inline-block;background:#EFF2FF;border:1px solid #C9D4FF;color:var(--blue);font-size:13px;font-weight:600;padding:8px 16px;border-radius:20px;margin-bottom:24px}
   .hero h1{font-size:46px;font-weight:600;line-height:1.15;color:var(--navy);margin:0 auto 22px;max-width:760px}
   .hero .subtitle{font-size:18px;color:var(--text-gray);max-width:640px;margin:0 auto 30px;line-height:1.7}
   .hero .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
@@ -36,12 +35,20 @@
   .badge-img-placeholder{width:80px;height:80px;border-radius:12px;background:var(--light-gray);border:1.5px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text-gray);text-align:center;padding:8px;overflow:hidden}
   .badge-img-placeholder img{max-width:100%;max-height:100%;object-fit:contain}
   .badge-label{font-size:12.5px;font-weight:600;color:var(--navy);max-width:120px;line-height:1.4}
+  .cred-flex{display:flex;gap:44px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  .cred-flex .badges{flex:1;min-width:280px;text-align:left}
+  .cred-flex .badge-row{justify-content:flex-start}
+  .cred-photo{flex-shrink:0;text-align:center}
+  .photo-frame{position:relative;width:130px;height:130px;margin:0 auto 10px}
+  .cred-photo-img{width:130px;height:130px;border-radius:50%;object-fit:cover;border:3px solid var(--white);box-shadow:0 2px 12px rgba(5,28,44,.14);display:block}
+  .cred-badge-overlay{position:absolute;top:-6px;right:-10px;width:46px;height:46px;border-radius:50%;background:var(--white);padding:3px;box-shadow:0 2px 8px rgba(5,28,44,.18)}
+  .cred-caption{font-size:12.5px;color:var(--text-gray);max-width:170px;margin:0 auto}
   .logo-banner{margin-top:30px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
   .logo-track{display:flex;width:max-content;gap:56px;align-items:center;animation:logoScroll 22s linear infinite}
   .logo-track:hover{animation-play-state:paused}
   .logo-mark{font-size:17px;font-weight:700;color:#9CA3AF;letter-spacing:.3px;white-space:nowrap;opacity:.85;transition:opacity .2s,color .2s}
   .logo-mark:hover{opacity:1;color:var(--navy)}
-  .logo-mark img{height:32px;width:auto;max-width:140px;object-fit:contain;filter:grayscale(1);opacity:.7;transition:opacity .2s,filter .2s;vertical-align:middle}
+  .logo-mark img{height:44px;width:auto;max-width:180px;object-fit:contain;filter:grayscale(1);opacity:.7;transition:opacity .2s,filter .2s;vertical-align:middle}
   .logo-mark img:hover{opacity:1;filter:grayscale(0)}
   @keyframes logoScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   /* stats */
@@ -65,9 +72,9 @@
   .scard{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:30px 28px;transition:border-color .2s,box-shadow .2s}
   .scard:hover{border-color:#C9D4FF;box-shadow:0 6px 22px rgba(5,28,44,.06)}
   .scard-head{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+  .scard-head h3{margin:0;font-size:19px;font-weight:600;color:var(--navy)}
   .scard .num{font-size:12px;font-weight:700;color:var(--blue);letter-spacing:.5px}
   .scard .ico{width:46px;height:46px;border-radius:10px;background:#EFF2FF;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
-  .scard h3{font-size:19px;font-weight:600;color:var(--navy);margin-bottom:10px}
   .scard p{font-size:14px;color:var(--text-gray);line-height:1.65;margin-bottom:16px}
   .scard ul{list-style:none;border-top:1px solid var(--border);padding-top:14px}
   .scard li{font-size:13px;color:var(--navy);padding:4px 0 4px 20px;position:relative}
@@ -187,60 +194,13 @@
 </style>
   <!-- HERO -->
   <section class="hero">
-    <span class="trust-bar">Certified Notion Consultant | 4.92 ⭐ | +60 Clients</span>
-    <h1>Your Notion held up with 10 people. It breaks at 50.</h1>
+    <h1>Your Notion workspace should scale with your team, not collapse under it.</h1>
     <p class="subtitle">I design and build the operational systems scaling teams actually need: workspaces that hold up, automations that do not break, and governance that keeps your data safe. One senior operator, start to finish.</p>
     <div class="btns">
       <a href="https://cal.com/anthonytoday/consultation" class="cta-button">Book a 30-min Discovery Call — $79</a>
       <a href="#pricing" class="cta-button ghost">See pricing</a>
     </div>
   </section>
-
-  <!-- CREDIBILITY STRIP: certifications + client logo banner, one compact block -->
-  <div class="credibility">
-    <div class="badges">
-      <p class="lead">Certifications in Good Standing</p>
-      <div class="badge-row">
-        <!-- Replace src with your hosted badge image. Keep alt text descriptive for SEO. -->
-        <a href="https://www.notion.so/consulting-partners/anthonytoday" class="badge-item" target="_blank" rel="noopener noreferrer">
-          <div class="badge-img-placeholder"><img src="https://storage.mlcdn.com/account_image/2413563/QKYHnthdR9hpTzajx7fbs86GKq8aBsh4IMxz6PJc.png" alt="Notion Consulting Partner badge" onerror="this.style.display='none';this.parentElement.textContent='Notion Consulting Partner';"></div>
-          <span class="badge-label">Consulting Partner</span>
-        </a>
-        <a href="https://www.notion.so/consulting-partners/anthonytoday" class="badge-item" target="_blank" rel="noopener noreferrer">
-          <div class="badge-img-placeholder"><img src="https://storage.mlcdn.com/account_image/2413563/FXVHwQVYJ6ytHFbISCA8mITAYrhJNYphU6RRbC2G.png" alt="Notion Consulting Partner badge" onerror="this.style.display='none';this.parentElement.textContent='Notion Consulting Partner';"></div>
-          <span class="badge-label">Certified Admin</span>
-        </a>
-        <a href="#" class="badge-item" target="_blank" rel="noopener noreferrer">
-          <div class="badge-img-placeholder"><img src="https://storage.mlcdn.com/account_image/2413563/BLJojInjd1YlinAt24JbQ5DqETveBdsmBXVSHpcA.png" alt="Notion certification badge" onerror="this.style.display='none';this.parentElement.textContent='Notion Certified';"></div>
-          <span class="badge-label">Service Specialist</span>
-        </a>
-        <!-- Add more <a class="badge-item"> blocks here for additional certifications -->
-      </div>
-    </div>
-
-    <!-- CLIENT LOGO BANNER — real clients only, auto-scrolling. Swap the <span> wordmarks for actual logo <img> files as you get them (same upload pattern as the badges above); the list is duplicated once below for a seamless loop, so update both copies together. -->
-    <div class="logo-banner">
-      <p class="lead">Trusted by teams including</p>
-      <div class="logo-track">
-        <span class="logo-mark"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/linktree.webp" alt="Linktree"></span>
-        <span class="logo-mark"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/dorchester.png" alt="Dorchester Collection"></span>
-        <span class="logo-mark"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/hitachi.webp" alt="Hitachi"></span>
-        <span class="logo-mark"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/nescafe.png" alt="Nescafe"></span>
-        <span class="logo-mark"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/hilti.png" alt="Hilti"></span>
-        <span class="logo-mark"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/eli-lilly.png" alt="Eli Lilly and Company"></span>
-        <span class="logo-mark"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/notion.png" alt="Notion"></span>
-        <span class="logo-mark"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/miles.png" alt="Miles"></span>
-        <span class="logo-mark" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/linktree.webp" alt=""></span>
-        <span class="logo-mark" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/dorchester.png" alt=""></span>
-        <span class="logo-mark" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/hitachi.webp" alt=""></span>
-        <span class="logo-mark" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/nescafe.png" alt=""></span>
-        <span class="logo-mark" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/hilti.png" alt=""></span>
-        <span class="logo-mark" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/eli-lilly.png" alt=""></span>
-        <span class="logo-mark" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/notion.png" alt=""></span>
-        <span class="logo-mark" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/miles.png" alt=""></span>
-      </div>
-    </div>
-  </div>
 
   <!-- STATS -->
   <div class="stats">
@@ -263,7 +223,7 @@
   <section class="block" id="services">
     <p class="eyebrow">What I build</p>
     <div class="sec-head">
-      <h2>Systems that run themselves. Infrastructure you can trust.</h2>
+      <h2>Systems that run themselves.<br>Infrastructure you can trust.</h2>
       <p>I diagnose the real problem, design the architecture, build it, document it, and train your team. Every engagement starts with an audit so you know what to fix before anything is rebuilt.</p>
     </div>
     <div class="grid4">
@@ -271,8 +231,8 @@
         <div class="scard-head">
           <div class="ico">&#127959;&#65039;</div>
           <span class="num">01</span>
+          <h3>Workspace Architecture</h3>
         </div>
-        <h3>Workspace Architecture</h3>
         <p>Replace the workspace that grew by accident with a structure that scales. Databases, relations, and views that make sense to the next person who opens them.</p>
         <ul>
           <li>System and process mapping</li>
@@ -285,8 +245,8 @@
         <div class="scard-head">
           <div class="ico">&#9881;&#65039;</div>
           <span class="num">02</span>
+          <h3>Workflow &amp; Automation</h3>
         </div>
-        <h3>Workflow &amp; Automation</h3>
         <p>Turn manual, scattered processes into clear workflows that run on their own and tell you when something is wrong instead of failing quietly for weeks.</p>
         <ul>
           <li>Workflow design and buildout</li>
@@ -299,8 +259,8 @@
         <div class="scard-head">
           <div class="ico">&#129302;</div>
           <span class="num">03</span>
+          <h3>AI Workflow Engineering</h3>
         </div>
-        <h3>AI Workflow Engineering</h3>
         <p>AI workflows that actually hold up, with human-in-the-loop safeguards and a clean foundation so they help your team instead of creating new mess.</p>
         <ul>
           <li>Notion AI setup and instruction design</li>
@@ -313,8 +273,8 @@
         <div class="scard-head">
           <div class="ico">&#128737;&#65039;</div>
           <span class="num">04</span>
+          <h3>Governance &amp; Security</h3>
         </div>
-        <h3>Governance &amp; Security</h3>
         <p>The part most consultants cannot do. A 15-year cybersecurity background applied to your workspace: who can see what, where you are exposed, and how to lock it down without slowing the team.</p>
         <ul>
           <li>Access and permissions audit</li>
@@ -354,6 +314,59 @@
       <p class="why-punch">Build it right, then go run your business.</p>
     </div>
   </section>
+
+  <!-- CREDIBILITY STRIP: certifications, photo, and client logo banner, one compact block -->
+  <div class="credibility">
+    <div class="cred-flex">
+      <div class="badges">
+        <p class="lead">Certifications in Good Standing</p>
+        <div class="badge-row">
+          <a href="https://www.notion.so/consulting-partners/anthonytoday" class="badge-item" target="_blank" rel="noopener noreferrer">
+            <div class="badge-img-placeholder"><img src="https://storage.mlcdn.com/account_image/2413563/QKYHnthdR9hpTzajx7fbs86GKq8aBsh4IMxz6PJc.png" alt="Notion Consulting Partner badge" onerror="this.style.display='none';this.parentElement.textContent='Notion Consulting Partner';"></div>
+            <span class="badge-label">Consulting Partner</span>
+          </a>
+          <a href="https://www.notion.so/consulting-partners/anthonytoday" class="badge-item" target="_blank" rel="noopener noreferrer">
+            <div class="badge-img-placeholder"><img src="https://storage.mlcdn.com/account_image/2413563/FXVHwQVYJ6ytHFbISCA8mITAYrhJNYphU6RRbC2G.png" alt="Notion Consulting Partner badge" onerror="this.style.display='none';this.parentElement.textContent='Notion Consulting Partner';"></div>
+            <span class="badge-label">Certified Admin</span>
+          </a>
+          <a href="#" class="badge-item" target="_blank" rel="noopener noreferrer">
+            <div class="badge-img-placeholder"><img src="https://storage.mlcdn.com/account_image/2413563/BLJojInjd1YlinAt24JbQ5DqETveBdsmBXVSHpcA.png" alt="Notion certification badge" onerror="this.style.display='none';this.parentElement.textContent='Notion Certified';"></div>
+            <span class="badge-label">Service Specialist</span>
+          </a>
+        </div>
+      </div>
+      <div class="cred-photo">
+        <div class="photo-frame">
+          <img class="cred-photo-img" src="https://storage.mlcdn.com/account_image/2413563/QwuLqpnjsDbMsN5h0NicXPLrMSTziwdQPMr4WMZh.png" alt="Anthony Today">
+          <img class="cred-badge-overlay" src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/certified-notion-consultant.png" alt="Certified Notion Consultant badge">
+        </div>
+        <p class="cred-caption">Anthony Today, Certified Notion Consultant</p>
+      </div>
+    </div>
+
+    <!-- CLIENT LOGO BANNER -->
+    <div class="logo-banner">
+      <p class="lead">Trusted by teams including</p>
+      <div class="logo-track">
+        <span class="logo-mark"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/linktree.webp" alt="Linktree"></span>
+        <span class="logo-mark"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/dorchester.png" alt="Dorchester Collection"></span>
+        <span class="logo-mark"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/hitachi.webp" alt="Hitachi"></span>
+        <span class="logo-mark"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/nescafe.png" alt="Nescafe"></span>
+        <span class="logo-mark"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/hilti.png" alt="Hilti"></span>
+        <span class="logo-mark"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/eli-lilly.png" alt="Eli Lilly and Company"></span>
+        <span class="logo-mark"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/notion.png" alt="Notion"></span>
+        <span class="logo-mark"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/miles.png" alt="Miles"></span>
+        <span class="logo-mark" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/linktree.webp" alt=""></span>
+        <span class="logo-mark" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/dorchester.png" alt=""></span>
+        <span class="logo-mark" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/hitachi.webp" alt=""></span>
+        <span class="logo-mark" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/nescafe.png" alt=""></span>
+        <span class="logo-mark" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/hilti.png" alt=""></span>
+        <span class="logo-mark" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/eli-lilly.png" alt=""></span>
+        <span class="logo-mark" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/notion.png" alt=""></span>
+        <span class="logo-mark" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/miles.png" alt=""></span>
+      </div>
+    </div>
+  </div>
 
   <!-- CASE STUDIES -->
   <section class="block" id="work">
