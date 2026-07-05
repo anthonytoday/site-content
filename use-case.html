@@ -83,7 +83,7 @@
 <section class="uc-hero">
   <span class="uc-tag">Case Study</span>
   <h1>Notion Governance Remediation: $2,880 in annual license cost recovered, access risk reduced from High to Low.</h1>
-  <p>How a 28-person B2B SaaS company moved from uncontrolled workspace access to a documented, governed system in 90 days.</p>
+  <p>How a 28-person B2B SaaS company moved from uncontrolled workspace access to a documented, governed system in 21 days.</p>
   <div class="uc-note">Composite scenario based on findings typical of a Notion Ops Audit. Company details are illustrative, not a specific client.</div>
 </section>
 
@@ -91,7 +91,7 @@
   <div class="stat-card"><div class="num">$2,880</div><div class="label">annual license cost recovered</div></div>
   <div class="stat-card"><div class="num">78%</div><div class="label">reduction in onboarding time</div></div>
   <div class="stat-card"><div class="num">High → Low</div><div class="label">access risk classification</div></div>
-  <div class="stat-card"><div class="num">0</div><div class="label">unresolved access flags post-remediation</div></div>
+  <div class="stat-card"><div class="num">21</div><div class="label">days from audit to full remediation</div></div>
 </div>
 
 <div class="uc-body">
@@ -106,18 +106,20 @@
     <span class="act-label">Findings</span>
     <h2>Audit results, rated by risk</h2>
     <table class="findings">
-      <tr><th>Finding</th><th>Risk</th><th>Business impact</th></tr>
-      <tr><td>14 guest accounts active from projects closed 6+ months prior</td><td><span class="risk-pill risk-high">High</span></td><td>Unauthorized data access outside current engagements</td></tr>
-      <tr><td>3 teamspaces set to open-edit with no access review</td><td><span class="risk-pill risk-critical">Critical</span></td><td>No control over who modifies client-facing content</td></tr>
-      <tr><td>No offboarding step to revoke contractor access</td><td><span class="risk-pill risk-high">High</span></td><td>Access persists indefinitely after engagement ends</td></tr>
-      <tr><td>1 database with 40+ properties, no ownership assigned</td><td><span class="risk-pill risk-medium">Medium</span></td><td>Reporting errors, duplicated manual work</td></tr>
-      <tr><td>No approval step before new databases go live</td><td><span class="risk-pill risk-medium">Medium</span></td><td>Unmanaged data sprawl over time</td></tr>
-      <tr><td>12 paid seats assigned to inactive or departed users</td><td><span class="risk-pill risk-medium">Medium</span></td><td>Recurring licensing cost with no corresponding usage</td></tr>
+      <tr><th>#</th><th>Finding</th><th>Risk</th><th>Business impact</th></tr>
+      <tr><td>1</td><td>3 teamspaces set to open-edit with no access review</td><td><span class="risk-pill risk-critical">Critical</span></td><td>No control over who can modify client-facing content</td></tr>
+      <tr><td>2</td><td>No offboarding process to revoke access when contractors or employees leave</td><td><span class="risk-pill risk-high">High</span></td><td>Structural gap: access loss is not a one-time issue, it recurs with every departure</td></tr>
+      <tr><td>3</td><td>14 guest accounts still active from engagements closed 6+ months prior</td><td><span class="risk-pill risk-high">High</span></td><td>Direct consequence of finding #2: live, unreviewed access existing today</td></tr>
+      <tr><td>4</td><td>12 paid seats assigned to inactive or departed users</td><td><span class="risk-pill risk-medium">Medium</span></td><td>Recurring licensing cost with no corresponding usage</td></tr>
+      <tr><td>5</td><td>No approval step before new databases go live</td><td><span class="risk-pill risk-medium">Medium</span></td><td>Unmanaged data sprawl over time</td></tr>
+      <tr><td>6</td><td>1 database with 40+ properties, no owner assigned</td><td><span class="risk-pill risk-medium">Medium</span></td><td>Reporting errors, duplicated manual work</td></tr>
+      <tr><td>7</td><td>No standardized templates for recurring project types</td><td><span class="risk-pill risk-low">Low</span></td><td>Inconsistent formatting, minor onboarding friction, no security exposure</td></tr>
     </table>
+    <p style="font-size:13px;color:var(--text-gray)">Findings #2 and #3 are related: #2 is the structural cause, #3 is its current, visible consequence. Both are tracked and resolved separately below.</p>
   </div>
 
   <div class="uc-act">
-    <span class="act-label">Remediation</span>
+    <span class="act-label">Remediation (21 days)</span>
     <h2>Actions taken</h2>
     <ul>
       <li>Access rebuilt on least-privilege principles; guest accounts reduced from 14 to 2</li>
@@ -127,12 +129,11 @@
       <li>Approval step added before any new database is created</li>
       <li>12 inactive paid seats identified and removed at the next billing cycle</li>
     </ul>
-    <p>Engagement fee: Workspace Design & Governance, $1,500–$6,000 depending on scope. The $197 audit fee was credited against this engagement.</p>
   </div>
 
   <div class="uc-act">
     <span class="act-label">Result</span>
-    <h2>Risk classification: before and after</h2>
+    <h2>Risk classification: before and after, day 21</h2>
     <div class="risk-transition">
       <div class="risk-box before">
         <div class="risk-level">HIGH</div>
@@ -175,8 +176,8 @@
 </div>
 
 <div class="uc-cta">
-  <h2>Assess your own license cost and access risk</h2>
-  <p>Most of these findings surface in the first 90 minutes of an audit. Start with the same first step this company did.</p>
+  <h2>Get your license cost and access risk assessed</h2>
+  <p>Findings like these surface in the first 90 minutes of an audit. Start with the same first step this company did.</p>
   <a href="https://store.anthonytoday.com/l/notion-ops-audit" class="uc-cta-button">Book the Notion Ops Audit ($197)</a>
 </div>
 
