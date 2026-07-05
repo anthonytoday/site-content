@@ -1,6 +1,6 @@
 # site-content
 
-Source of truth for the anthonytoday.com page content served through MailerLite. Each `.html` file is a self-contained fragment (styles + markup, no `<!DOCTYPE>`/`<head>`/`<body>` wrapper) meant to be loaded into a MailerLite Custom HTML block via jsDelivr's CDN, instead of pasting raw HTML into MailerLite every time a page changes.
+Source of truth for the anthonytoday.com page content served through MailerLite. Each `.html` file is a self-contained fragment (styles + markup, no `<!DOCTYPE>`/`<head>`/`<body>` wrapper) meant to be loaded into a MailerLite Custom HTML block, instead of pasting raw HTML into MailerLite every time a page changes.
 
 ## Files
 
@@ -8,13 +8,15 @@ Source of truth for the anthonytoday.com page content served through MailerLite.
 - `cyber.html` — anthonytoday.com/cyber
 - `tools.html` — anthonytoday.com/tools
 - `notion.html` — anthonytoday.com/notion
-- `.github/workflows/purge-jsdelivr.yml` — clears the jsDelivr CDN cache automatically on every push to `main`, so edits go live within seconds instead of waiting out jsDelivr's normal cache window
+- `assets/logos/` — logo and icon images referenced by the pages, served via jsDelivr CDN (images change rarely, so CDN caching is fine here)
 
 ## How the sync works
 
 1. Edit a page's `.html` file in this repo and push to `main`.
-2. The GitHub Action fires and purges jsDelivr's cache for all four files.
-3. The MailerLite page (which loads the file from jsDelivr, not from a pasted copy) picks up the new content on next page view.
+2. The MailerLite page loads that file directly from `raw.githubusercontent.com` on every page view, with a cache-busting timestamp, so it always gets the current version of `main`. No purge step, no CDN cache to fight.
+3. Reload the live MailerLite page to see the change, typically instant.
+
+We switched away from jsDelivr for the HTML fragments themselves (previously used with a purge-on-push GitHub Action) because jsDelivr's edge cache did not clear reliably fast enough between rapid pushes, causing stale content to linger. `raw.githubusercontent.com` has no comparable caching layer once a cache-busting query parameter is added, so it reflects `main` immediately.
 
 ## One-time setup per MailerLite page
 
@@ -27,7 +29,7 @@ In each page's editor, add a Custom HTML block containing the loader snippet bel
 <script>
 (function () {
   var page = "home.html";
-  var url = "https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/" + page;
+  var url = "https://raw.githubusercontent.com/anthonytoday/site-content/main/" + page + "?t=" + Date.now();
   fetch(url, { cache: "no-store" })
     .then(function (r) { return r.text(); })
     .then(function (html) {
@@ -64,11 +66,10 @@ var page = "notion.html";
 
 1. Pull this repo, edit the relevant `.html` file.
 2. Commit and push to `main`.
-3. The purge workflow runs automatically (check the Actions tab to confirm it succeeded).
-4. Reload the live MailerLite page. No need to touch the MailerLite editor again unless the loader snippet itself changes.
+3. Reload the live MailerLite page. Changes should appear immediately, no waiting on cache propagation.
 
 ## Notes
 
-- `@main` in the jsDelivr URL always resolves to the latest commit on `main`; the purge workflow is what keeps the CDN edge cache from serving a stale version after you push.
-- If a page ever looks stale despite a successful push and purge, hard-refresh (jsDelivr edge propagation can take up to a minute worldwide).
-- Keep files as fragments (start with `<style>`, no `<!DOCTYPE>`/`<head>`/`<body>`) since MailerLite's page settings already handle title, meta description, and viewport.
+- Image assets in `assets/logos/` are still served via jsDelivr (`cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/...`). Since these rarely change, jsDelivr's caching is a feature, not a problem, there.
+- Keep `.html` files as fragments (start with `<style>`, no `<!DOCTYPE>`/`<head>`/`<body>`) since MailerLite's page settings already handle title, meta description, and viewport.
+- If a new image asset is added or an existing one is replaced with the same filename, that specific image may take longer to refresh due to jsDelivr's cache. Renaming the file (e.g. adding a version suffix) forces a fresh cache entry immediately.
