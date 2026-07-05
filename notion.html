@@ -29,22 +29,21 @@
   /* credibility strip (badges + logo banner, one compact block) */
   .credibility{max-width:1000px;margin:40px auto 0;padding:28px 20px;text-align:center}
   .credibility.cred-top{border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-  .credibility.logo-only{border-bottom:1px solid var(--border);padding-bottom:44px}
+  .credibility.logo-only{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding-top:36px;padding-bottom:44px}
   .badges .lead,.logo-banner .lead{font-size:12px;color:var(--text-gray);text-transform:uppercase;letter-spacing:.6px;margin-bottom:16px}
   .badge-row{display:flex;flex-wrap:wrap;gap:22px;justify-content:center;align-items:center}
-  .badge-item{display:flex;flex-direction:column;align-items:center;gap:10px;transition:transform .2s,border-color .2s,box-shadow .2s}
-  .badge-item{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 14px}
-  .badge-item:hover{border-color:#C9D4FF;box-shadow:0 4px 14px rgba(5,28,44,.08)}
-  .badge-img-placeholder{width:64px;height:64px;border-radius:10px;background:var(--light-gray);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text-gray);text-align:center;padding:8px;overflow:hidden}
+  .badge-item{display:flex;flex-direction:column;align-items:center;gap:12px;transition:opacity .2s}
+  .badge-item:hover{opacity:.8}
+  .badge-img-placeholder{width:96px;height:96px;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--text-gray);text-align:center;overflow:hidden}
   .badge-img-placeholder img{max-width:100%;max-height:100%;object-fit:contain}
-  .badge-label{font-size:12.5px;font-weight:600;color:var(--navy);max-width:120px;line-height:1.4}
+  .badge-label{font-size:13.5px;font-weight:600;color:var(--navy);max-width:130px;line-height:1.4}
   .cred-flex{display:flex;gap:44px;align-items:center;justify-content:space-between;flex-wrap:wrap}
   .cred-flex .badges{flex:1;min-width:280px;text-align:left}
   .cred-flex .badge-row{justify-content:flex-start}
   .cred-photo{flex-shrink:0;text-align:center}
   .photo-frame{position:relative;width:190px;height:190px;margin:0 auto 12px}
   .cred-photo-img{width:190px;height:190px;border-radius:50%;object-fit:cover;border:4px solid var(--white);box-shadow:0 4px 18px rgba(5,28,44,.16);display:block}
-  .cred-badge-overlay{position:absolute;top:-8px;right:-14px;width:64px;height:64px;border-radius:50%;background:var(--white);padding:4px;box-shadow:0 2px 10px rgba(5,28,44,.2)}
+  .cred-badge-overlay{position:absolute;top:-10px;right:-16px;width:84px;height:84px;border-radius:50%;background:var(--white);padding:4px;box-shadow:0 2px 12px rgba(5,28,44,.22)}
   .cred-caption{font-size:12.5px;color:var(--text-gray);max-width:170px;margin:0 auto}
   .logo-banner{margin-top:30px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
   .logo-track{display:flex;width:max-content;gap:56px;align-items:center;animation:logoScroll 22s linear infinite}
@@ -492,7 +491,7 @@
       <div class="price-card popular">
         <span class="badge">Most popular</span>
         <h3>Audit &amp; Design</h3>
-        <div class="amount">$500<span> &ndash; $2,500</span></div>
+        <div class="amount">$1,500<span> &ndash; $6,000</span></div>
         <p class="desc">A full system audit with architecture recommendations and a costed plan to rebuild what matters most.</p>
         <ul>
           <li>Complete system and security audit</li>
@@ -501,7 +500,7 @@
           <li>Prioritized fix list and estimate</li>
         </ul>
         <p class="fit">Best for: you are ready to invest and want a clear plan first.</p>
-        <a href="https://cal.com/anthonytoday/consultation" class="cta-button">Start a Conversation</a>
+        <a href="https://cal.com/anthonytoday/consultation" class="cta-button">Book a Discovery Call</a>
       </div>
       <div class="price-card">
         <h3>Risk &amp; Governance Build</h3>
@@ -514,7 +513,7 @@
           <li>Documentation and team training</li>
         </ul>
         <p class="fit">Best for: operations are mission-critical and must be done right.</p>
-        <a href="https://cal.com/anthonytoday/consultation" class="cta-button ghost">Start a Conversation</a>
+        <a href="https://cal.com/anthonytoday/consultation" class="cta-button ghost">Book a Discovery Call</a>
       </div>
     </div>
     <p style="text-align:center;margin-top:22px;font-size:14px;color:var(--text-gray)">Ongoing partnership retainers available for teams that need an operator on call.</p>
