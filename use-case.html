@@ -47,9 +47,15 @@
   .risk-arrow{font-size:22px;color:var(--text-gray)}
 
   .cost-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px}
-  .cost-table th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--text-gray);padding:8px 10px;border-bottom:2px solid var(--border)}
-  .cost-table td{padding:10px;border-bottom:1px solid var(--border)}
-  .cost-table tr.total td{font-weight:700;border-bottom:none;border-top:2px solid var(--navy);padding-top:12px}
+  .cost-table th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--text-gray);padding:10px 12px;border-bottom:2px solid var(--border)}
+  .cost-table th:last-child,.cost-table td:last-child{text-align:right;white-space:nowrap}
+  .cost-table td{padding:14px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6}
+  .cost-table td:first-child{font-weight:600;width:28%}
+  .cost-table td:last-child{font-weight:700;color:var(--navy)}
+  .cost-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
+  .cost-summary .cs-card{background:var(--light-gray);border-radius:10px;padding:18px 20px;text-align:center}
+  .cost-summary .cs-num{font-size:22px;font-weight:700;color:var(--blue-dark)}
+  .cost-summary .cs-label{font-size:12.5px;color:var(--text-gray);margin-top:4px}
 
   .benefits-section{max-width:760px;margin:0 auto;padding:10px 20px 60px}
   .benefits-section h2{font-size:21px;font-weight:600;color:var(--navy);margin-bottom:20px;text-align:center}
@@ -155,10 +161,13 @@
   <table class="cost-table">
     <tr><th>Item</th><th>Detail</th><th>Annual value</th></tr>
     <tr><td>Inactive seats removed</td><td>12 seats on Notion Business ($20/user/month, billed annually)</td><td>$2,880</td></tr>
-    <tr><td>Admin time recovered</td><td>~5 hours/month previously spent manually tracking access, now handled by the offboarding workflow</td><td>60 hours/year</td></tr>
-    <tr class="total"><td>Total direct savings</td><td></td><td>$2,880 + 60 hrs redirected</td></tr>
+    <tr><td>Admin time recovered</td><td>~5 hours/month previously spent manually tracking access, now handled by the offboarding workflow</td><td>60 hrs/year</td></tr>
   </table>
-  <p style="font-size:13px;color:var(--text-gray);text-align:center;margin-top:6px">Based on Notion's published Business plan pricing of $20/user/month (annual billing). Actual savings scale with your seat count and plan tier.</p>
+  <div class="cost-summary">
+    <div class="cs-card"><div class="cs-num">$2,880/year</div><div class="cs-label">recovered license cost</div></div>
+    <div class="cs-card"><div class="cs-num">60 hrs/year</div><div class="cs-label">admin time redirected to other work</div></div>
+  </div>
+  <p style="font-size:13px;color:var(--text-gray);text-align:center;margin-top:14px">Based on Notion's published Business plan pricing of $20/user/month (annual billing). Actual savings scale with your seat count and plan tier.</p>
 </div>
 
 <div class="benefits-section">
