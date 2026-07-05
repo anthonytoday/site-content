@@ -17,9 +17,9 @@
   .header-nav .cta-button{color:var(--white)}
   /* buttons */
   .cta-button{display:inline-block;background:var(--blue);color:var(--white);padding:13px 30px;border-radius:6px;font-weight:500;font-size:15px;transition:background .2s;cursor:pointer;border:none}
-  .cta-button:hover{background:var(--blue-dark);color:var(--white) !important}
+  .cta-button:hover{background:var(--blue-dark) !important;color:var(--white) !important;text-decoration:none !important}
   .cta-button.ghost{background:transparent;color:var(--navy);border:1px solid var(--border)}
-  .cta-button.ghost:hover{background:var(--light-gray);color:var(--navy) !important}
+  .cta-button.ghost:hover{background:var(--light-gray) !important;color:var(--navy) !important;text-decoration:none !important}
   .cta-button.sm{padding:9px 20px;font-size:14px}
   /* hero */
   .hero{text-align:center;padding:64px 20px 10px;max-width:880px;margin:0 auto}
@@ -27,28 +27,31 @@
   .hero .subtitle{font-size:18px;color:var(--text-gray);max-width:640px;margin:0 auto 30px;line-height:1.7}
   .hero .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
   /* credibility strip (badges + logo banner, one compact block) */
-  .credibility{max-width:1000px;margin:40px auto 0;padding:28px 20px;text-align:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .credibility{max-width:1000px;margin:40px auto 0;padding:28px 20px;text-align:center}
+  .credibility.cred-top{border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .credibility.logo-only{border-bottom:1px solid var(--border);padding-bottom:44px}
   .badges .lead,.logo-banner .lead{font-size:12px;color:var(--text-gray);text-transform:uppercase;letter-spacing:.6px;margin-bottom:16px}
   .badge-row{display:flex;flex-wrap:wrap;gap:22px;justify-content:center;align-items:center}
-  .badge-item{display:flex;flex-direction:column;align-items:center;gap:10px;transition:transform .2s}
-  .badge-item:hover{transform:translateY(-2px)}
-  .badge-img-placeholder{width:80px;height:80px;border-radius:12px;background:var(--light-gray);border:1.5px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text-gray);text-align:center;padding:8px;overflow:hidden}
+  .badge-item{display:flex;flex-direction:column;align-items:center;gap:10px;transition:transform .2s,border-color .2s,box-shadow .2s}
+  .badge-item{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 14px}
+  .badge-item:hover{border-color:#C9D4FF;box-shadow:0 4px 14px rgba(5,28,44,.08)}
+  .badge-img-placeholder{width:64px;height:64px;border-radius:10px;background:var(--light-gray);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text-gray);text-align:center;padding:8px;overflow:hidden}
   .badge-img-placeholder img{max-width:100%;max-height:100%;object-fit:contain}
   .badge-label{font-size:12.5px;font-weight:600;color:var(--navy);max-width:120px;line-height:1.4}
   .cred-flex{display:flex;gap:44px;align-items:center;justify-content:space-between;flex-wrap:wrap}
   .cred-flex .badges{flex:1;min-width:280px;text-align:left}
   .cred-flex .badge-row{justify-content:flex-start}
   .cred-photo{flex-shrink:0;text-align:center}
-  .photo-frame{position:relative;width:130px;height:130px;margin:0 auto 10px}
-  .cred-photo-img{width:130px;height:130px;border-radius:50%;object-fit:cover;border:3px solid var(--white);box-shadow:0 2px 12px rgba(5,28,44,.14);display:block}
-  .cred-badge-overlay{position:absolute;top:-6px;right:-10px;width:46px;height:46px;border-radius:50%;background:var(--white);padding:3px;box-shadow:0 2px 8px rgba(5,28,44,.18)}
+  .photo-frame{position:relative;width:190px;height:190px;margin:0 auto 12px}
+  .cred-photo-img{width:190px;height:190px;border-radius:50%;object-fit:cover;border:4px solid var(--white);box-shadow:0 4px 18px rgba(5,28,44,.16);display:block}
+  .cred-badge-overlay{position:absolute;top:-8px;right:-14px;width:64px;height:64px;border-radius:50%;background:var(--white);padding:4px;box-shadow:0 2px 10px rgba(5,28,44,.2)}
   .cred-caption{font-size:12.5px;color:var(--text-gray);max-width:170px;margin:0 auto}
   .logo-banner{margin-top:30px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
   .logo-track{display:flex;width:max-content;gap:56px;align-items:center;animation:logoScroll 22s linear infinite}
   .logo-track:hover{animation-play-state:paused}
   .logo-mark{font-size:17px;font-weight:700;color:#9CA3AF;letter-spacing:.3px;white-space:nowrap;opacity:.85;transition:opacity .2s,color .2s}
   .logo-mark:hover{opacity:1;color:var(--navy)}
-  .logo-mark img{height:44px;width:auto;max-width:180px;object-fit:contain;filter:grayscale(1);opacity:.7;transition:opacity .2s,filter .2s;vertical-align:middle}
+  .logo-mark img{height:56px;width:auto;max-width:220px;object-fit:contain;filter:grayscale(1);opacity:.7;transition:opacity .2s,filter .2s;vertical-align:middle}
   .logo-mark img:hover{opacity:1;filter:grayscale(0)}
   @keyframes logoScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   /* stats */
@@ -202,6 +205,36 @@
     </div>
   </section>
 
+  <!-- CREDIBILITY: photo + certifications, right under the hero CTA -->
+  <div class="credibility cred-top">
+    <div class="cred-flex">
+      <div class="cred-photo">
+        <div class="photo-frame">
+          <img class="cred-photo-img" src="https://storage.mlcdn.com/account_image/2413563/QwuLqpnjsDbMsN5h0NicXPLrMSTziwdQPMr4WMZh.png" alt="Anthony Today">
+          <img class="cred-badge-overlay" src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/certified-notion-consultant.png" alt="Certified Notion Consultant badge">
+        </div>
+        <p class="cred-caption">Anthony Today, Certified Notion Consultant</p>
+      </div>
+      <div class="badges">
+        <p class="lead">Certifications in Good Standing</p>
+        <div class="badge-row">
+          <a href="https://www.notion.so/consulting-partners/anthonytoday" class="badge-item" target="_blank" rel="noopener noreferrer">
+            <div class="badge-img-placeholder"><img src="https://storage.mlcdn.com/account_image/2413563/QKYHnthdR9hpTzajx7fbs86GKq8aBsh4IMxz6PJc.png" alt="Notion Consulting Partner badge" onerror="this.style.display='none';this.parentElement.textContent='Notion Consulting Partner';"></div>
+            <span class="badge-label">Consulting Partner</span>
+          </a>
+          <a href="https://www.notion.so/consulting-partners/anthonytoday" class="badge-item" target="_blank" rel="noopener noreferrer">
+            <div class="badge-img-placeholder"><img src="https://storage.mlcdn.com/account_image/2413563/FXVHwQVYJ6ytHFbISCA8mITAYrhJNYphU6RRbC2G.png" alt="Notion Consulting Partner badge" onerror="this.style.display='none';this.parentElement.textContent='Notion Consulting Partner';"></div>
+            <span class="badge-label">Certified Admin</span>
+          </a>
+          <a href="#" class="badge-item" target="_blank" rel="noopener noreferrer">
+            <div class="badge-img-placeholder"><img src="https://storage.mlcdn.com/account_image/2413563/BLJojInjd1YlinAt24JbQ5DqETveBdsmBXVSHpcA.png" alt="Notion certification badge" onerror="this.style.display='none';this.parentElement.textContent='Notion Certified';"></div>
+            <span class="badge-label">Service Specialist</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- STATS -->
   <div class="stats">
     <div class="stat"><div class="n">15+</div><div class="l">years designing secure enterprise systems</div></div>
@@ -315,36 +348,8 @@
     </div>
   </section>
 
-  <!-- CREDIBILITY STRIP: certifications, photo, and client logo banner, one compact block -->
-  <div class="credibility">
-    <div class="cred-flex">
-      <div class="badges">
-        <p class="lead">Certifications in Good Standing</p>
-        <div class="badge-row">
-          <a href="https://www.notion.so/consulting-partners/anthonytoday" class="badge-item" target="_blank" rel="noopener noreferrer">
-            <div class="badge-img-placeholder"><img src="https://storage.mlcdn.com/account_image/2413563/QKYHnthdR9hpTzajx7fbs86GKq8aBsh4IMxz6PJc.png" alt="Notion Consulting Partner badge" onerror="this.style.display='none';this.parentElement.textContent='Notion Consulting Partner';"></div>
-            <span class="badge-label">Consulting Partner</span>
-          </a>
-          <a href="https://www.notion.so/consulting-partners/anthonytoday" class="badge-item" target="_blank" rel="noopener noreferrer">
-            <div class="badge-img-placeholder"><img src="https://storage.mlcdn.com/account_image/2413563/FXVHwQVYJ6ytHFbISCA8mITAYrhJNYphU6RRbC2G.png" alt="Notion Consulting Partner badge" onerror="this.style.display='none';this.parentElement.textContent='Notion Consulting Partner';"></div>
-            <span class="badge-label">Certified Admin</span>
-          </a>
-          <a href="#" class="badge-item" target="_blank" rel="noopener noreferrer">
-            <div class="badge-img-placeholder"><img src="https://storage.mlcdn.com/account_image/2413563/BLJojInjd1YlinAt24JbQ5DqETveBdsmBXVSHpcA.png" alt="Notion certification badge" onerror="this.style.display='none';this.parentElement.textContent='Notion Certified';"></div>
-            <span class="badge-label">Service Specialist</span>
-          </a>
-        </div>
-      </div>
-      <div class="cred-photo">
-        <div class="photo-frame">
-          <img class="cred-photo-img" src="https://storage.mlcdn.com/account_image/2413563/QwuLqpnjsDbMsN5h0NicXPLrMSTziwdQPMr4WMZh.png" alt="Anthony Today">
-          <img class="cred-badge-overlay" src="https://cdn.jsdelivr.net/gh/anthonytoday/site-content@main/assets/logos/certified-notion-consultant.png" alt="Certified Notion Consultant badge">
-        </div>
-        <p class="cred-caption">Anthony Today, Certified Notion Consultant</p>
-      </div>
-    </div>
-
-    <!-- CLIENT LOGO BANNER -->
+  <!-- CLIENT LOGO BANNER -->
+  <div class="credibility logo-only">
     <div class="logo-banner">
       <p class="lead">Trusted by teams including</p>
       <div class="logo-track">
@@ -496,7 +501,7 @@
           <li>Prioritized fix list and estimate</li>
         </ul>
         <p class="fit">Best for: you are ready to invest and want a clear plan first.</p>
-        <a href="https://cal.com/anthonytoday/consultation" class="cta-button">Start a conversation</a>
+        <a href="https://cal.com/anthonytoday/consultation" class="cta-button">Start a Conversation</a>
       </div>
       <div class="price-card">
         <h3>Risk &amp; Governance Build</h3>
@@ -509,7 +514,7 @@
           <li>Documentation and team training</li>
         </ul>
         <p class="fit">Best for: operations are mission-critical and must be done right.</p>
-        <a href="https://cal.com/anthonytoday/consultation" class="cta-button ghost">Start a conversation</a>
+        <a href="https://cal.com/anthonytoday/consultation" class="cta-button ghost">Start a Conversation</a>
       </div>
     </div>
     <p style="text-align:center;margin-top:22px;font-size:14px;color:var(--text-gray)">Ongoing partnership retainers available for teams that need an operator on call.</p>
