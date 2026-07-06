@@ -1,0 +1,239 @@
+<!-- MailerLite embed: paste everything below (starting with <style>) into a Custom HTML / Embed block on your ML landing page. Page title, meta description, and viewport are already handled by your ML page settings, so they are intentionally left out here. -->
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --navy:#051C2C;--blue:#2251FF;--blue-dark:#1A3FA8;--white:#FFFFFF;
+    --light-gray:#F5F5F5;--text-gray:#6B7280;--border:#E5E7EB;--green:#0F7A3D;
+  }
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:var(--navy);background:var(--white)}
+  a{text-decoration:none;color:inherit}
+
+  .grc-hero{max-width:760px;margin:0 auto;padding:70px 20px 20px;text-align:center}
+  .grc-tag{display:inline-block;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+  .grc-hero h1{font-size:32px;font-weight:600;color:var(--navy);margin-bottom:16px;line-height:1.28}
+  .grc-hero p{font-size:16px;color:var(--text-gray);line-height:1.7;max-width:640px;margin:0 auto}
+
+  .grc-section{max-width:1000px;margin:0 auto;padding:60px 20px 10px}
+  .grc-sec-head{text-align:center;margin-bottom:36px}
+  .grc-sec-head h2{font-size:26px;font-weight:600;color:var(--navy)}
+  .grc-sec-head p{font-size:15px;color:var(--text-gray);max-width:640px;margin:12px auto 0;line-height:1.7}
+
+  .role-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .role-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:26px 24px}
+  .role-card .role-num{display:inline-block;font-size:12px;font-weight:700;color:var(--blue);background:#EFF2FF;border-radius:20px;padding:3px 10px;margin-bottom:12px}
+  .role-card h3{font-size:16px;font-weight:600;color:var(--navy);margin-bottom:8px}
+  .role-card p{font-size:14px;color:var(--text-gray);line-height:1.65}
+
+  .example-band{background:var(--light-gray);border-radius:14px;padding:44px 40px;margin-top:10px}
+  .example-tag{font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;display:block}
+  .example-band h3{font-size:20px;font-weight:600;color:var(--navy);margin-bottom:12px;line-height:1.35}
+  .example-band>p{font-size:15px;color:var(--text-gray);line-height:1.75;margin-bottom:22px;max-width:720px}
+  .example-note{font-size:13px;color:var(--text-gray);background:var(--white);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:26px;max-width:720px}
+
+  .scope-table{width:100%;border-collapse:collapse;font-size:14px;background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+  .scope-table th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--text-gray);padding:12px 14px;border-bottom:2px solid var(--border)}
+  .scope-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--navy);vertical-align:top}
+  .scope-table tr:last-child td{border-bottom:none}
+
+  .cadence-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:24px}
+  .cadence-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:20px;text-align:center}
+  .cadence-card .cc-label{font-size:12px;color:var(--text-gray);text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px}
+  .cadence-card .cc-value{font-size:16px;font-weight:600;color:var(--navy)}
+
+  .outcome-row{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:28px;flex-wrap:wrap}
+  .outcome-box{flex:1;min-width:220px;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:20px;text-align:center}
+  .outcome-box .ob-level{font-size:15px;font-weight:600;color:var(--navy)}
+  .outcome-box .ob-sub{font-size:12.5px;color:var(--text-gray);margin-top:4px}
+  .outcome-arrow{font-size:22px;color:var(--text-gray)}
+
+  .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+  .why-card{padding:24px 4px}
+  .why-card .why-ico{font-size:22px;margin-bottom:10px}
+  .why-card h3{font-size:16px;font-weight:600;color:var(--navy);margin-bottom:8px}
+  .why-card p{font-size:14px;color:var(--text-gray);line-height:1.7}
+
+  .grc-cta{max-width:640px;margin:60px auto 80px;padding:40px 30px;background:var(--navy);border-radius:14px;text-align:center}
+  .grc-cta h2{color:var(--white);font-size:21px;font-weight:600;margin-bottom:12px}
+  .grc-cta p{color:#C9D4E8;font-size:14.5px;margin-bottom:22px;line-height:1.7}
+  .grc-cta-button{display:inline-block;background:var(--blue);color:var(--white);padding:14px 32px;border-radius:6px;font-weight:500;font-size:15px}
+  .grc-cta-button:hover{background:var(--blue-dark)}
+
+  footer{background:var(--light-gray);padding:60px 20px;margin-top:20px}
+  .footer-content{max-width:1000px;margin:0 auto}
+  .footer-main{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-bottom:40px}
+  .footer-section h4{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
+  .footer-section p{font-size:13px;color:var(--text-gray);line-height:1.8}
+  .footer-section a{display:block;font-size:13px;color:var(--text-gray);margin-bottom:8px;transition:color .2s}
+  .footer-section a:hover{color:var(--blue)}
+  .social-links{display:flex;gap:15px;margin-top:18px}
+  .social-links a{display:flex;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--white);align-items:center;justify-content:center;font-size:15px;transition:background .2s;margin:0}
+  .social-links a:hover{background:var(--blue)}
+  .footer-bottom{border-top:1px solid var(--border);padding-top:30px;text-align:center;color:var(--text-gray);font-size:13px}
+  footer a{color:var(--text-gray)}
+  footer a:hover{color:var(--blue)}
+
+  @media(max-width:768px){
+    .role-grid{grid-template-columns:1fr}
+    .example-band{padding:30px 22px}
+  }
+</style>
+
+<section class="grc-hero">
+  <span class="grc-tag">Independent GRC Advisor</span>
+  <h1>A defined scope, a defined timeline, and a security framework your board and your customers can rely on.</h1>
+  <p>Project-based governance, risk, and compliance advisory for organizations that have a specific gap to close, not a headcount to add. Every engagement is scoped, timelined, and handed off with the framework still standing after I leave.</p>
+</section>
+
+<section class="grc-section">
+  <div class="grc-sec-head">
+    <h2>Roles and responsibilities in a typical engagement</h2>
+    <p>An independent GRC advisor engagement is scoped around a defined outcome. Depending on the gap, it draws on some or all of the following.</p>
+  </div>
+  <div class="role-grid">
+    <div class="role-card">
+      <span class="role-num">01</span>
+      <h3>Framework design and gap assessment</h3>
+      <p>Map your current controls against the NIST CSF (or the framework your regulator or customers expect), and produce a prioritized list of what's missing.</p>
+    </div>
+    <div class="role-card">
+      <span class="role-num">02</span>
+      <h3>Policy and standards authoring</h3>
+      <p>Write the policies, standards, and procedures that turn the framework into daily practice, sized to your organization rather than copied from a template library.</p>
+    </div>
+    <div class="role-card">
+      <span class="role-num">03</span>
+      <h3>Risk assessment and risk register</h3>
+      <p>Identify, rate, and document risk in a register your leadership can actually read and act on, with a treatment plan for anything above your risk appetite.</p>
+    </div>
+    <div class="role-card">
+      <span class="role-num">04</span>
+      <h3>Audit and regulatory exam readiness</h3>
+      <p>Prepare evidence, close known findings, and represent the organization through the review itself, whether that's a customer audit, a certification body, or a regulator.</p>
+    </div>
+    <div class="role-card">
+      <span class="role-num">05</span>
+      <h3>Third-party and vendor risk</h3>
+      <p>Build the process that tiers vendors by data sensitivity and reviews them on a cadence, so the partners that extend your attack surface don't extend your exposure unmanaged.</p>
+    </div>
+    <div class="role-card">
+      <span class="role-num">06</span>
+      <h3>Remediation roadmap and delivery</h3>
+      <p>Sequence the findings into a roadmap with owners and dates, and drive it to closure rather than handing over a report and leaving the follow-through to you.</p>
+    </div>
+    <div class="role-card">
+      <span class="role-num">07</span>
+      <h3>Stakeholder and leadership reporting</h3>
+      <p>Translate technical findings into the language your leadership team and your board use, so security becomes a decision they can approve and fund.</p>
+    </div>
+    <div class="role-card">
+      <span class="role-num">08</span>
+      <h3>Handoff and internal enablement</h3>
+      <p>Document the framework and train whoever owns it internally after the engagement ends, so the program survives without an ongoing retainer.</p>
+    </div>
+  </div>
+</section>
+
+<section class="grc-section">
+  <div class="example-band">
+    <span class="example-tag">Example engagement</span>
+    <h3>A professional services firm needed ISO 27001-aligned controls to qualify for a major RFP.</h3>
+    <p>A 60-person professional services firm was shortlisted for a large enterprise contract. The RFP required evidence of a certifiable information security management system within a fixed submission window. The firm had informal practices but nothing documented, tested, or mapped to a recognized framework, and no one internally owned security as a function.</p>
+    <div class="example-note">Composite scenario based on the scope typical of an Independent GRC Advisor engagement. Company details are illustrative, not a specific client.</div>
+
+    <table class="scope-table">
+      <tr><th>Scope area</th><th>What was delivered</th></tr>
+      <tr><td>Framework &amp; gap assessment</td><td>Controls mapped against ISO 27001 Annex A; gaps prioritized by RFP relevance and effort</td></tr>
+      <tr><td>Policy &amp; standards</td><td>Information security policy suite authored and ratified by leadership</td></tr>
+      <tr><td>Risk register</td><td>First formal risk register built, with an owner and review cadence for each entry</td></tr>
+      <tr><td>Vendor risk</td><td>Vendor inventory built and tiered; review process put in place for renewals</td></tr>
+      <tr><td>Audit readiness</td><td>Evidence pack assembled and internal walkthrough run ahead of the external assessment</td></tr>
+    </table>
+
+    <div class="cadence-row">
+      <div class="cadence-card"><div class="cc-label">Engagement type</div><div class="cc-value">Scoped project, fixed deliverables</div></div>
+      <div class="cadence-card"><div class="cc-label">Structure</div><div class="cc-value">On-site kickoff, remote delivery</div></div>
+      <div class="cadence-card"><div class="cc-label">Ends with</div><div class="cc-value">Documented framework, internal owner trained</div></div>
+    </div>
+
+    <div class="outcome-row">
+      <div class="outcome-box">
+        <div class="ob-level">No documented ISMS</div>
+        <div class="ob-sub">Informal practices, no framework, no risk register</div>
+      </div>
+      <div class="outcome-arrow">→</div>
+      <div class="outcome-box">
+        <div class="ob-level">RFP-ready evidence pack</div>
+        <div class="ob-sub">ISO 27001-aligned controls, ratified policies, named risk owner</div>
+      </div>
+    </div>
+    <p style="font-size:14px;color:var(--text-gray);margin-top:22px;line-height:1.75">The firm submitted its RFP response with a completed security section and passed the customer's follow-up review without a single open finding. The framework and the internally trained owner stayed in place after the engagement closed.</p>
+  </div>
+</section>
+
+<section class="grc-section">
+  <div class="grc-sec-head">
+    <h2>Why an independent advisor, not a firm</h2>
+    <p>The same senior person scopes the engagement, does the work, and stands behind the result, end to end.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-ico">🎯</div>
+      <h3>Scoped to the gap, not a retainer</h3>
+      <p>You're not buying an open-ended relationship. You're buying a defined outcome, on a timeline, with a clear point where the engagement ends.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-ico">🧑‍💼</div>
+      <h3>One senior advisor, start to finish</h3>
+      <p>No handoffs between a partner who sells the work and a junior team who delivers it. The person you scope with is the person doing the work.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-ico">📄</div>
+      <h3>Built to survive the handoff</h3>
+      <p>The goal is a framework your team can run without me, not a dependency. Documentation and internal training are part of every scope.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-ico">⚖️</div>
+      <h3>Framework-first, not checklist-first</h3>
+      <p>Every deliverable maps back to a recognized framework like the NIST CSF or ISO 27001, so the work holds up under real audit or regulatory scrutiny.</p>
+    </div>
+  </div>
+</section>
+
+<div class="grc-cta">
+  <h2>Scope your engagement</h2>
+  <p>Tell me the gap you need closed and the deadline you're working against. I'll tell you honestly whether a scoped engagement can get you there.</p>
+  <a href="https://cal.com/anthonytoday/consultation" class="grc-cta-button">Book a Consultation</a>
+</div>
+
+<!-- FOOTER (light background, exact match to Cyber page) -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-main">
+      <div class="footer-section">
+        <h4>Consulting</h4>
+        <a href="https://cal.com/anthonytoday/consultation">Book a Discovery Call ($79)</a>
+        <a href="https://store.anthonytoday.com/l/notion-ops-audit">Notion Ops Audit ($197)</a>
+        <a href="https://www.anthonytoday.com/notion#pricing">Pricing</a>
+        <a href="https://www.anthonytoday.com/notion#services">Services</a>
+      </div>
+      <div class="footer-section">
+        <h4>Products</h4>
+        <a href="https://store.anthonytoday.com">Gumroad Store</a>
+        <a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">Etsy Shop</a>
+        <a href="https://www.notion.com/@anthonytoday">Notion Profile</a>
+        <a href="https://www.anthonytoday.com/tools">Tools</a>
+      </div>
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <p style="margin-bottom:15px">Follow for updates, resources, and new templates.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/anthony-kieffer/" title="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+          <a href="mailto:info@anthonytoday.com" title="Email">@</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Anthony Today. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
