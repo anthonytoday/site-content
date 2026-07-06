@@ -1,0 +1,232 @@
+<!-- MailerLite embed: paste everything below (starting with <style>) into a Custom HTML / Embed block on your ML landing page. Page title, meta description, and viewport are already handled by your ML page settings, so they are intentionally left out here. -->
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --navy:#051C2C;--blue:#2251FF;--blue-dark:#1A3FA8;--white:#FFFFFF;
+    --light-gray:#F5F5F5;--text-gray:#6B7280;--border:#E5E7EB;
+    --red:#C0392B;--amber:#B7791F;--green:#0F7A3D;
+  }
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:var(--navy);background:var(--white)}
+  a{text-decoration:none;color:inherit}
+  .uc-hero{max-width:720px;margin:0 auto;padding:70px 20px 20px;text-align:center}
+  .uc-tag{display:inline-block;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+  .uc-hero h1{font-size:30px;font-weight:600;color:var(--navy);margin-bottom:16px;line-height:1.3}
+  .uc-hero p{font-size:16px;color:var(--text-gray);line-height:1.7}
+  .uc-note{max-width:640px;margin:20px auto 0;padding:14px 18px;background:var(--light-gray);border-radius:8px;font-size:13px;color:var(--text-gray);text-align:center}
+
+  .stats-row{max-width:960px;margin:50px auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px}
+  .stat-card{background:var(--light-gray);border-radius:10px;padding:26px 20px;text-align:center}
+  .stat-card .num{font-size:24px;font-weight:700;color:var(--blue-dark)}
+  .stat-card .label{font-size:13px;color:var(--text-gray);margin-top:6px}
+
+  .uc-body{max-width:760px;margin:0 auto;padding:20px 20px 30px}
+  .uc-act{padding:38px 0;border-bottom:1px solid var(--border)}
+  .uc-act:last-child{border-bottom:none}
+  .uc-act .act-label{display:inline-block;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+  .uc-act h2{font-size:21px;font-weight:600;color:var(--navy);margin-bottom:14px;line-height:1.3}
+  .uc-act p{font-size:15px;color:var(--text-gray);line-height:1.75;margin-bottom:14px}
+  .uc-act ul{margin:0 0 14px 20px;color:var(--text-gray);font-size:15px;line-height:1.9}
+
+  table.findings{width:100%;border-collapse:collapse;margin:18px 0 8px;font-size:14px;background:var(--light-gray);border:1px solid var(--border)}
+  table.findings th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--text-gray);padding:10px 12px;border-bottom:2px solid var(--border);background:var(--white)}
+  table.findings td{padding:12px 12px;border-bottom:1px solid var(--border);color:var(--navy);vertical-align:top}
+  .risk-pill{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600;color:var(--white)}
+  .risk-critical{background:var(--red)}
+  .risk-high{background:#D9534F}
+  .risk-medium{background:var(--amber)}
+  .risk-low{background:var(--green)}
+
+  .risk-transition{display:flex;align-items:center;justify-content:center;gap:18px;margin:24px 0;flex-wrap:wrap}
+  .risk-box{flex:1;min-width:220px;border-radius:10px;padding:20px;text-align:center}
+  .risk-box.before{background:#FDECEA;border:1px solid #F5C6C0}
+  .risk-box.after{background:#E9F7EE;border:1px solid #BFE6CC}
+  .risk-box .risk-level{font-size:20px;font-weight:700}
+  .risk-box.before .risk-level{color:var(--red)}
+  .risk-box.after .risk-level{color:var(--green)}
+  .risk-box .risk-sub{font-size:12.5px;color:var(--text-gray);margin-top:4px}
+  .risk-arrow{font-size:22px;color:var(--text-gray)}
+
+  .cost-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px;background:var(--light-gray);border:1px solid var(--border)}
+  .cost-table th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--text-gray);padding:10px 12px;border-bottom:2px solid var(--border);background:var(--white)}
+  .cost-table th:last-child,.cost-table td:last-child{text-align:right;white-space:nowrap}
+  .cost-table td{padding:14px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6}
+  .cost-table td:first-child{width:28%}
+  .cost-table td:last-child{color:var(--navy);font-weight:600}
+  .cost-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
+  .cost-summary .cs-card{background:var(--light-gray);border-radius:10px;padding:18px 20px;text-align:center}
+  .cost-summary .cs-num{font-size:22px;font-weight:700;color:var(--blue-dark)}
+  .cost-summary .cs-label{font-size:12.5px;color:var(--text-gray);margin-top:4px}
+
+  .benefits-section{max-width:760px;margin:0 auto;padding:10px 20px 60px}
+  .benefits-section h2{font-size:21px;font-weight:600;color:var(--navy);margin-bottom:20px;text-align:center}
+  .benefit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .benefit-card{border:1px solid var(--border);border-radius:10px;padding:22px}
+  .benefit-card h3{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:8px}
+  .benefit-card p{font-size:14px;color:var(--text-gray);line-height:1.7}
+
+  .uc-cta{max-width:640px;margin:0 auto 80px;padding:40px 30px;background:var(--navy);border-radius:14px;text-align:center}
+  .uc-cta h2{color:var(--white);font-size:21px;font-weight:600;margin-bottom:12px}
+  .uc-cta p{color:#C9D4E8;font-size:14.5px;margin-bottom:22px;line-height:1.7}
+  .uc-cta-button{display:inline-block;background:var(--blue);color:var(--white);padding:14px 32px;border-radius:6px;font-weight:500;font-size:15px}
+  .uc-cta-button:hover{background:var(--blue-dark)}
+
+  footer{background:var(--light-gray);padding:60px 20px;margin-top:20px}
+  .footer-content{max-width:1000px;margin:0 auto}
+  .footer-main{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-bottom:40px}
+  .footer-section h4{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
+  .footer-section p{font-size:13px;color:var(--text-gray);line-height:1.8}
+  .footer-section a{display:block;font-size:13px;color:var(--text-gray);margin-bottom:8px;transition:color .2s}
+  .footer-section a:hover{color:var(--blue)}
+  .social-links{display:flex;gap:15px;margin-top:18px}
+  .social-links a{display:flex;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--white);align-items:center;justify-content:center;font-size:15px;transition:background .2s;margin:0}
+  .social-links a:hover{background:var(--blue)}
+  .footer-bottom{border-top:1px solid var(--border);padding-top:30px;text-align:center;color:var(--text-gray);font-size:13px}
+  footer a{color:var(--text-gray)}
+  footer a:hover{color:var(--blue)}
+  @media(max-width:600px){table.findings,.cost-table{font-size:12.5px}}
+</style>
+
+<section class="uc-hero">
+  <span class="uc-tag">Fractional CISO Engagement</span>
+  <h1>Zero to board-approved security program in 6 months, without a full-time CISO hire.</h1>
+  <p>How a 45-person Swiss/UAE fintech closed its regulatory and enterprise-sales security gaps on a part-time retainer instead of a $220K+ full-time hire.</p>
+  <div class="uc-note">Composite scenario based on outcomes typical of a Fractional CISO engagement. Company details are illustrative, not a specific client.</div>
+</section>
+
+<div class="stats-row">
+  <div class="stat-card"><div class="num">6 months</div><div class="label">zero to board-approved program</div></div>
+  <div class="stat-card"><div class="num">High → Low</div><div class="label">enterprise risk classification</div></div>
+  <div class="stat-card"><div class="num">2</div><div class="label">regulatory exams passed (CH &amp; UAE)</div></div>
+  <div class="stat-card"><div class="num">~$150K</div><div class="label">saved vs. a full-time CISO hire, year one</div></div>
+</div>
+
+<div class="uc-body">
+
+  <div class="uc-act">
+    <span class="act-label">Situation</span>
+    <h2>Trigger event</h2>
+    <p>A 45-person fintech, licensed to operate across Switzerland and the UAE, had just closed a Series B. Security had been owned informally by the CTO alongside product work. Two enterprise prospects paused their contracts pending a completed security questionnaire and evidence of a named security leader; the board separately asked for a risk report ahead of the next funding conversation. A full-time CISO hire was budgeted at 4-6 months out. The company engaged a fractional CISO instead: two days a week, starting immediately.</p>
+  </div>
+
+  <div class="uc-act">
+    <span class="act-label">Findings</span>
+    <h2>Initial 30-day assessment, rated by risk</h2>
+    <table class="findings">
+      <tr><th>#</th><th>Finding</th><th>Risk</th><th>Business impact</th></tr>
+      <tr><td>1</td><td>No formal risk register or board-approved risk appetite statement</td><td><span class="risk-pill risk-critical">Critical</span></td><td>Board cannot see or approve what risk the company is actually carrying</td></tr>
+      <tr><td>2</td><td>No incident response plan; no tested runbook or named responders</td><td><span class="risk-pill risk-critical">Critical</span></td><td>A real incident would be handled ad hoc, with no defined containment or notification path</td></tr>
+      <tr><td>3</td><td>No third-party or vendor risk process, despite 40+ vendors handling customer data</td><td><span class="risk-pill risk-high">High</span></td><td>Vendor exposure is inherited with no visibility or tiering by data sensitivity</td></tr>
+      <tr><td>4</td><td>Security policies existed on paper but had not been reviewed or ratified in 3 years</td><td><span class="risk-pill risk-high">High</span></td><td>Policies do not reflect current systems; unusable as audit evidence</td></tr>
+      <tr><td>5</td><td>No board-level security reporting cadence</td><td><span class="risk-pill risk-medium">Medium</span></td><td>Leadership has no recurring visibility into risk trend or program status</td></tr>
+      <tr><td>6</td><td>MFA and SSO not enforced organization-wide</td><td><span class="risk-pill risk-medium">Medium</span></td><td>Account takeover remains the most likely and least defended attack path</td></tr>
+      <tr><td>7</td><td>No structured security awareness training for staff</td><td><span class="risk-pill risk-low">Low</span></td><td>Elevated phishing susceptibility, no direct regulatory exposure yet</td></tr>
+    </table>
+    <p style="font-size:13px;color:var(--text-gray)">Findings #1 and #2 blocked the board risk report directly, so they were sequenced first.</p>
+  </div>
+
+  <div class="uc-act">
+    <span class="act-label">Engagement model</span>
+    <h2>Fractional CISO, two days a week</h2>
+    <p>Structured as ongoing leadership rather than a fixed-scope project: strategy, governance, reporting, and program oversight, built on the NIST CSF and mapped to Swiss and UAE regulatory expectations. The retainer replaced a full-time search that would have taken 4-6 months to fill and cost roughly $220K-$260K fully loaded once salary, bonus, equity, and benefits were counted.</p>
+  </div>
+
+  <div class="uc-act">
+    <span class="act-label">Program build (6 months)</span>
+    <h2>Actions taken</h2>
+    <ul>
+      <li>Built a risk register and a board-approved risk appetite statement, reported quarterly</li>
+      <li>Designed and tabletop-tested an incident response plan with named responders and an executive escalation path</li>
+      <li>Stood up a vendor risk program covering 40+ vendors, tiered by data sensitivity, with renewal-linked reviews</li>
+      <li>Rewrote and ratified 12 core policies, mapped to the NIST CSF and to Swiss and UAE regulatory obligations</li>
+      <li>Enforced MFA and SSO across the organization</li>
+      <li>Established a recurring quarterly board security report, in the same format leadership already used for financial reporting</li>
+      <li>Prepared the company for, and represented it through, its next regulatory examination cycle in both jurisdictions</li>
+    </ul>
+  </div>
+
+  <div class="uc-act">
+    <span class="act-label">Result</span>
+    <h2>Risk classification: before and after, month 6</h2>
+    <div class="risk-transition">
+      <div class="risk-box before">
+        <div class="risk-level">HIGH</div>
+        <div class="risk-sub">No risk register, no incident plan, no board visibility</div>
+      </div>
+      <div class="risk-arrow">→</div>
+      <div class="risk-box after">
+        <div class="risk-level">LOW (Acceptable)</div>
+        <div class="risk-sub">Board-approved risk appetite, tested response plan, quarterly reporting</div>
+      </div>
+    </div>
+    <p>Both regulatory examinations closed with no critical findings. The two paused enterprise contracts resumed once the completed security questionnaire and named CISO were provided, and the board received its first quarterly risk report ahead of the following funding round.</p>
+  </div>
+
+</div>
+
+<div class="benefits-section">
+  <h2>Cost comparison: fractional vs. full-time CISO</h2>
+  <table class="cost-table">
+    <tr><th>Item</th><th>Detail</th><th>Annual value</th></tr>
+    <tr><td>Full-time CISO, fully loaded</td><td>Base, bonus, equity, and benefits for a comparable security leader in this market</td><td>$220K-$260K</td></tr>
+    <tr><td>Fractional CISO retainer</td><td>Two days a week, senior security leadership with no recruiting cycle or benefits overhead</td><td>~$70K-$90K</td></tr>
+    <tr><td>Time to start</td><td>Fractional engagement began immediately; a full-time search was budgeted at 4-6 months</td><td>4-6 months saved</td></tr>
+  </table>
+  <div class="cost-summary">
+    <div class="cs-card"><div class="cs-num">~$150K</div><div class="cs-label">year-one saving vs. a full-time hire</div></div>
+    <div class="cs-card"><div class="cs-num">4-6 months</div><div class="cs-label">faster to a named security leader</div></div>
+  </div>
+  <p style="font-size:13px;color:var(--text-gray);text-align:center;margin-top:14px">Full-time cost range reflects typical fully loaded CISO compensation for a company at this stage and headcount; actual figures vary by market and candidate.</p>
+</div>
+
+<div class="benefits-section">
+  <h2>Additional business outcomes</h2>
+  <div class="benefit-grid">
+    <div class="benefit-card">
+      <h3>Enterprise deal cycle</h3>
+      <p>Security questionnaires that previously took weeks of scrambling across engineering and legal were answered from an existing evidence library within days.</p>
+    </div>
+    <div class="benefit-card">
+      <h3>Investor confidence</h3>
+      <p>A recurring, board-ready risk report became a standing item in investor updates, ahead of the next funding conversation rather than a scramble before it.</p>
+    </div>
+  </div>
+</div>
+
+<div class="uc-cta">
+  <h2>Get your security program assessed</h2>
+  <p>Findings like these surface in the first 30 days of a fractional CISO engagement. Start with a conversation about where your program stands today.</p>
+  <a href="https://cal.com/anthonytoday/consultation" class="uc-cta-button">Book a Consultation</a>
+</div>
+
+<!-- FOOTER (light background, exact match to Cyber page) -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-main">
+      <div class="footer-section">
+        <h4>Consulting</h4>
+        <a href="https://cal.com/anthonytoday/consultation">Book a Discovery Call ($79)</a>
+        <a href="https://store.anthonytoday.com/l/notion-ops-audit">Notion Ops Audit ($197)</a>
+        <a href="https://www.anthonytoday.com/notion#pricing">Pricing</a>
+        <a href="https://www.anthonytoday.com/notion#services">Services</a>
+      </div>
+      <div class="footer-section">
+        <h4>Products</h4>
+        <a href="https://store.anthonytoday.com">Gumroad Store</a>
+        <a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">Etsy Shop</a>
+        <a href="https://www.notion.com/@anthonytoday">Notion Profile</a>
+        <a href="https://www.anthonytoday.com/tools">Tools</a>
+      </div>
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <p style="margin-bottom:15px">Follow for updates, resources, and new templates.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/anthony-kieffer/" title="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+          <a href="mailto:info@anthonytoday.com" title="Email">@</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Anthony Today. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
