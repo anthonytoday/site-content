@@ -1,0 +1,1310 @@
+<!-- MailerLite embed: paste everything below (starting with <style>) into a Custom HTML / Embed block on your ML landing page. Page title, meta description, and viewport are already handled by your ML page settings, so they are intentionally left out here. -->
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --navy:#051C2C;--blue:#2251FF;--blue-dark:#1A3FA8;--white:#FFFFFF;
+    --light-gray:#F5F5F5;--text-gray:#6B7280;--border:#E5E7EB;--green:#86EFAC;
+  }
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:var(--navy);background:var(--white)}
+  a{text-decoration:none;color:var(--blue)}
+  a:hover{text-decoration:underline}
+  /* header */
+  header{background:var(--white);padding:18px 0;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+  .header-content{max-width:1080px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}
+  .logo{font-size:18px;font-weight:600;color:var(--navy);text-decoration:none}
+  .header-nav{display:flex;gap:26px;align-items:center}
+  .header-nav a{font-size:15px;color:var(--text-gray);font-weight:500;text-decoration:none}
+  .header-nav a:hover{color:var(--navy);text-decoration:none}
+  .cta-button{display:inline-block;background:var(--blue);color:var(--white)!important;padding:9px 20px;border-radius:6px;font-weight:500;font-size:14px}
+  .cta-button:hover{background:var(--blue-dark);text-decoration:none}
+  /* intro */
+  .guide-intro{max-width:760px;margin:0 auto;padding:56px 20px 10px;text-align:center}
+  .eyebrow{text-align:center;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+  .guide-intro h1{font-size:36px;font-weight:600;color:var(--navy);margin-bottom:16px;line-height:1.25}
+  .guide-intro p{font-size:16px;color:var(--text-gray);line-height:1.7;max-width:620px;margin:0 auto}
+  /* content wrap */
+  .guide-layout{max-width:1120px;margin:0 auto;padding:0 20px;display:flex;gap:48px;align-items:flex-start}
+  .guide-wrap{max-width:760px;margin:40px auto 0;padding:0 0 60px;flex:1;min-width:0}
+  .guide-toc{width:230px;flex-shrink:0;position:sticky;top:24px;margin-top:40px;padding:20px;background:var(--light-gray);border:1px solid var(--border);border-radius:10px;max-height:calc(100vh - 48px);overflow-y:auto}
+  .guide-toc .toc-label{font-size:11px;font-weight:700;color:var(--text-gray);text-transform:uppercase;letter-spacing:.6px;margin-bottom:12px}
+  .guide-toc ul{list-style:none;margin:0;padding:0}
+  .guide-toc li{margin-bottom:2px}
+  .guide-toc a{display:block;font-size:13px;color:var(--text-gray);padding:6px 8px;border-radius:6px;text-decoration:none;line-height:1.4}
+  .guide-toc a:hover{background:var(--white);color:var(--navy);text-decoration:none}
+  @media(max-width:980px){
+    .guide-layout{flex-direction:column;padding:0}
+    .guide-toc{position:static;width:auto;max-width:760px;margin:32px auto 0;max-height:none}
+    .guide-wrap{margin-top:24px}
+  }
+  .guide-content h2{font-size:26px;font-weight:600;color:var(--navy);margin:48px 0 16px;padding-top:8px;border-top:1px solid var(--border)}
+  .guide-content h2:first-child{border-top:none;margin-top:0}
+  .guide-content h3{font-size:20px;font-weight:600;color:var(--navy);margin:32px 0 12px}
+  .guide-content h4{font-size:16px;font-weight:600;color:var(--navy);margin:24px 0 10px}
+  .guide-content p{font-size:15.5px;color:var(--text-gray);line-height:1.75;margin-bottom:16px}
+  .guide-content strong{color:var(--navy);font-weight:600}
+  .guide-content code{background:var(--light-gray);border:1px solid var(--border);border-radius:4px;padding:2px 6px;font-size:14px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--navy)}
+  .guide-content ul,.guide-content ol{margin:0 0 16px 22px;color:var(--text-gray);font-size:15.5px;line-height:1.75}
+  .guide-content li{margin-bottom:6px}
+  .guide-content li strong{color:var(--navy)}
+  .guide-img{display:block;max-width:100%;height:auto;border-radius:10px;border:1px solid var(--border);margin:20px 0}
+  .guide-table{width:100%;border-collapse:collapse;margin:20px 0 24px;font-size:14px}
+  .guide-table th{background:var(--navy);color:var(--white);text-align:left;padding:10px 14px;font-weight:600}
+  .guide-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-gray);vertical-align:top}
+  .guide-table tr:nth-child(even) td{background:var(--light-gray)}
+  .guide-callout{display:flex;gap:12px;background:#EFF2FF;border:1px solid #C9D4FF;border-radius:8px;padding:16px 18px;margin:20px 0}
+  .guide-callout .callout-icon{font-size:18px;flex-shrink:0}
+  .guide-callout p{margin:0;color:var(--navy);font-size:14.5px;line-height:1.65}
+  .guide-promo{background:var(--navy);color:var(--white);border-radius:8px;padding:18px 22px;margin:24px 0;font-size:15px;line-height:1.6}
+  .guide-promo a{color:#7C97FF;font-weight:600}
+  .guide-promo .muted{color:#A9B6C2;font-style:italic;font-size:13px}
+  .guide-promo strong{color:var(--white)!important}
+  /* final cta */
+  .cta-section{background:var(--navy);color:var(--white);padding:56px 40px;text-align:center;margin:56px auto 0;border-radius:12px;max-width:760px}
+  .cta-section h2{font-size:26px;font-weight:600;margin-bottom:14px;color:var(--white)}
+  .cta-section p{color:#A9B6C2;font-size:15.5px;max-width:520px;margin:0 auto 24px}
+  /* footer */
+  footer{background:var(--light-gray);padding:60px 20px;margin-top:64px}
+  .footer-content{max-width:1000px;margin:0 auto}
+  .footer-main{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-bottom:40px}
+  .footer-section h4{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
+  .footer-section p{font-size:13px;color:var(--text-gray);line-height:1.8}
+  .footer-section a{display:block;font-size:13px;color:var(--text-gray);margin-bottom:8px;transition:color .2s;text-decoration:none}
+  .footer-section a:hover{color:var(--blue)}
+  .social-links{display:flex;gap:15px;margin-top:18px}
+  .social-links a{display:flex;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--white);align-items:center;justify-content:center;font-size:15px;transition:background .2s;margin:0}
+  .social-links a:hover{background:var(--blue)}
+  .footer-bottom{border-top:1px solid var(--border);padding-top:30px;text-align:center;color:var(--text-gray);font-size:13px}
+  @media(max-width:768px){
+    .header-nav{display:none}
+    .guide-intro h1{font-size:28px}
+  }
+</style>
+<!-- INTRO -->
+<div class="guide-intro">
+  <p class="eyebrow">Free Guide</p>
+  <h1>Ultimate Notion Guide: Beginner to Pro</h1>
+  <p>Everything you need to go from your first page to a fully connected workspace: pages, blocks, databases, automations, formulas, sharing, and more.</p>
+</div>
+
+<div class="guide-layout">
+<nav class="guide-toc"><p class="toc-label">On this page</p><ul>
+  <li><a href="#what-is-notion">What is Notion?</a></li>
+  <li><a href="#why-use-notion-for-task-management">Why Use Notion for Task Management?</a></li>
+  <li><a href="#workspace-sidebar">Workspace & Sidebar</a></li>
+  <li><a href="#pages-blocks">Pages & Blocks</a></li>
+  <li><a href="#wikis">Wikis</a></li>
+  <li><a href="#organize-format-your-content">Organize & Format Your Content</a></li>
+  <li><a href="#tables-simple-vs-database">Tables: Simple vs. Database</a></li>
+  <li><a href="#code-blocks">Code Blocks</a></li>
+  <li><a href="#advanced-features">Advanced features</a></li>
+  <li><a href="#what-is-a-notion-database">What is a Notion Database?</a></li>
+  <li><a href="#sharing-collaboration">Sharing & Collaboration</a></li>
+  <li><a href="#notion-api-custom-integrations">Notion API & Custom Integrations</a></li>
+  <li><a href="#automations-in-notion">Automations in Notion</a></li>
+  <li><a href="#formulas-in-notion">Formulas in Notion</a></li>
+  <li><a href="#notion-pricing-guide">Notion Pricing Guide</a></li>
+  <li><a href="#workspace-administration">Workspace Administration</a></li>
+  <li><a href="#settings-in-notion">Settings in Notion</a></li>
+  <li><a href="#notion-ai">Notion AI</a></li>
+  <li><a href="#notion-calendar">Notion Calendar</a></li>
+  <li><a href="#notion-sites">Notion Sites</a></li>
+  <li><a href="#marketplace">Marketplace</a></li>
+  <li><a href="#wrapping-up">Wrapping up</a></li>
+</ul></nav>
+<div class="guide-wrap guide-content">
+<h2 id="what-is-notion">What is Notion?</h2>
+<p>One way or another everyone discovers Notion. Whether it will be for its minimalistic interface, block building nature, or live page publishing. For me it was the doodle-like aesthetics and customization of workspaces I created over the years. All of these nuances make Notion what it is today, a powerhouse of all project management, task tracking, and simple note-taking.</p>
+<p>You can create pages, task lists, calendars, and databases to manage any kind of project. Then, organize the information, collaborate with others, and build powerful systems tailored to your workflow.</p>
+<p>At its core, Notion is built around a simple but powerful concept: everything is a "block". Whether it's text, an image, a checklist, a table, or even an embedded file. You can create pages to store these blocks, and then nest pages within pages to build a highly organized system.</p>
+<p>Notion offers a variety of templates and building tools, to give beginners an easy start to set up workflows for task management, project tracking, note-taking, or personal journaling. With features like drag-and-drop editing and customizable databases, Notion gives you full control over how you capture and organize your work and ideas.</p>
+<p>But&#160;<em>first you learn the notes, then you play the music.</em>&#160;In this guide we&#8217;ll go through all the basics you need to know, so by the end you will be comfortable with creating and organizing your projects and docs in Notion without templates as an intermediate user.</p>
+<table class="guide-table"> <tr> <th><strong>User Type</strong></th> <th><strong>Must Know</strong></th> <th><strong>Nice to Know</strong></th> </tr> <tr> <td><strong>Beginner</strong></td> <td><strong>Pages, text, checklists</strong></td> <td>How to use templates</td> </tr> <tr> <td><strong>Intermediate</strong></td> <td><strong>Databases, views, filters</strong></td> <td>Relations, rollups</td> </tr> <tr> <td><strong>Power User</strong></td> <td><strong>Custom workflows, automations</strong></td> <td>API, integrations (Zapier, Slack, etc.)</td> </tr> </table>
+<h2 id="why-use-notion-for-task-management">Why Use Notion for Task Management?</h2>
+<p>Notion allows you to fully customize your task lists, add deadlines, assign priorities, and link tasks to larger projects or resources. You can choose different views, such as kanban boards, calendars, or simple lists, depending on how you like to visualize your work.</p>
+<p>Task management in Notion is especially powerful because you can integrate notes, documents, and workflows alongside your to-dos.</p>
+<p>There&#8217;s a big number of tools that integrate Notion to increase the productivity of your projects. When&#160;<a href="https://www.anthonytoday.com" target="_blank" rel="noopener noreferrer">working with clients</a>, I always find a massive list of to-do&#8217;s, so the ready-made systems on <a href="http://AnthonyToday.com" target="_blank" rel="noopener noreferrer">AnthonyToday.com</a>&#160;help me visualize and prioritize which task to tackle, so I can hit where it matters without spending hours on planning and actually do the work.</p>
+<h3>Quick Start With Notion</h3>
+<p>First, create a free Notion account online or through the mobile app. Once inside, you'll be introduced to a clean workspace where you can begin creating pages. A page in Notion can be anything, a task list, a journal, a meeting agenda, or even a full project database.</p>
+<p>An easy way to start is by using Notion&#8217;s built-in templates, which offer ready-made layouts for task management, personal goals, project tracking, and more. You can customize the templates by adding text, headings, checklists, images, and other "blocks."</p>
+<p>Group related pages and use features like linked databases, tags, and filters for an integrated and organized setup. As you become more comfortable, you can customize your setup with advanced options like formulas, relations between databases, and automations. The key to success with Notion is to start simple, build gradually, and adjust your workspace as your needs evolve.</p>
+<h3>Prerequisites</h3>
+<ol>
+<li>A free Notion account.</li>
+<li>Web app or downloaded Notion app.</li>
+<li>Internet (offline access is limited and internet is required for syncing).</li>
+</ol>
+<h2 id="workspace-sidebar">Workspace & Sidebar</h2>
+<p>Your Notion app is divided into two main areas: the sidebar and the editor. We&#8217;ll go through both along with tips to get started.</p>
+<h3>Sidebar Overview</h3>
+<p>The sidebar is your command center for accessing pages, databases, teamspaces, settings, and more. Everything you create, pages, tasks, or databases, will appear here. The sidebar is fully expandable, collapsible, and customizable, allowing you to nest pages infinitely to create a structure that matches your personal or team organization.</p>
+<p>The sidebar is divided into several sections:</p>
+<ul>
+<li><strong>Teamspaces</strong>&#160;(on <a href="https://affiliate.notion.so/0x8u16p4sff1" target="_blank" rel="noopener noreferrer">paid plans</a>): Organize work by team or department.</li>
+<li><strong>Shared</strong>: Pages shared with specific members.</li>
+<li><strong>Private</strong>: Pages only you can see.</li>
+<li><strong>Favorites</strong>: Pages you&#8217;ve starred for quick access. By clicking &#11088; at the top of it, the page appears under Favorites to keep key project pages close at hand.</li>
+</ul>
+<img class="guide-img" src="https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b8009_681b574cd8925322ad971469_cleanshot_2025_05_07_at_14_36_16_2x_1_2x.webp" alt="Ultimate Notion Guide: Beginner to Pro screenshot" loading="lazy">
+<p>Next to the Create new page, you can click close sidebar, or cmd + \ to collapse sections and keep things tidy. Drag-and-drop properties to rearrange your sidebar exactly how you like.</p>
+<p>The top of the sidebar includes powerful tools:</p>
+<ul>
+<li><strong>Workspace Switcher</strong>: Switch between different workspaces or create a new one.</li>
+<li><strong>Search</strong>: Quickly find any page, database, or recent activity.</li>
+<li><strong>Home</strong>: View your most important pages and action items.</li>
+<li><strong>Inbox</strong>: See all notifications, mentions, and work assignments in one place.</li>
+<li><strong>Settings</strong>: Adjust everything from appearance to notifications.</li>
+<li><strong>Templates</strong>: Quickly start new projects with pre-built templates.</li>
+<li><strong>Trash</strong>: Deleted pages live here temporarily and can be restored if needed.</li>
+<li><strong>&#128221; Create a New Page:&#160;</strong>At the top of the sidebar, use the shortcut&#160;<code>cmd/ctrl + N</code>, or tap &#128221; at the bottom of your mobile app.</li>
+</ul>
+<p>You&#8217;ll also find quick links to Settings, Templates, and Trash at the bottom of the sidebar.</p>
+<div class="guide-callout"><span class="callout-icon">&#128161;</span><p>Tip: Dragging a page into the Private section instantly makes it visible only to you. Useful for confidential notes or drafts.</p></div>
+<h3>Editor Overview</h3>
+<p>The editor is the workspace where you create and manage content. Think of it as a blank canvas for writing, planning, brainstorming, or building full systems.</p>
+<img class="guide-img" src="https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b800f_681b5765836c736ebecbe00b_cleanshot_2025_05_07_at_14_39_27_2x_1_2x.webp" alt="Ultimate Notion Guide: Beginner to Pro screenshot" loading="lazy">
+<p>Key features of the editor include:</p>
+<ul>
+<li><strong>Minimal distractions</strong>: Once you start typing, control menus fade into the background, helping you focus deeply.</li>
+<li><strong>Collaborator presence</strong>: See live profile pictures of teammates viewing or editing the same page.</li>
+<li><strong>Share menu</strong>: Easily manage permissions, share a page link, or invite collaborators via email.</li>
+</ul>
+<p>The editor supports dozens of block types (text, headings, lists, images, tables, databases, embeds, etc.) giving you full flexibility in how you structure content.</p>
+<h3>Team vs. Personal Workspaces</h3>
+<h4>Personal workspaces</h4>
+<img class="guide-img" src="https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b800c_681b5776d3939de827f25a19_cleanshot_2025_05_07_at_14_41_30_2x_1_2x.webp" alt="Ultimate Notion Guide: Beginner to Pro screenshot" loading="lazy">
+<p>Newly created pages are private by default.</p>
+<h4>Team workspaces (Plus, Business, or Enterprise Plans)</h4>
+<img class="guide-img" src="https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b8012_681b578cd3939de827f2650e_cleanshot_2025_05_07_at_14_41_50_2x_1_2x.webp" alt="Ultimate Notion Guide: Beginner to Pro screenshot" loading="lazy">
+<p>Sidebar organization under Teamspaces is shared among members. Everyone sees the same structure, but can individually collapse or expand page trees without affecting others.</p>
+<p>Admins in team plans can manage member permissions and control page visibility more granularly.</p>
+<h2 id="pages-blocks">Pages & Blocks</h2>
+<p>Notion is built around the concept of pages and blocks, giving you impeccable flexibility in writing, planning, organizing, and connecting information. Whether you're building a knowledge base, writing a blog post, or designing a dashboard, understanding how to use blocks, pages, links, and synced content gives you full control over your workspace.</p>
+<h3>Notion Pages</h3>
+<p>Pages are where all your content lives. They can be standalone documents, nested inside other pages, or linked throughout your workspace. You can create a new page from the sidebar, the /page command, or with keyboard shortcuts. Pages can contain anything from text, images, databases, embedded files, to additional pages.</p>
+<img class="guide-img" src="https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b8015_681b579c17738ce3cf612e60_cleanshot_2025_05_07_at_14_44_23_2x_1_2x.webp" alt="Ultimate Notion Guide: Beginner to Pro screenshot" loading="lazy">
+<h3>Notion Blocks</h3>
+<p>Inside pages, all content is made up of blocks. All paragraphs, lists, headings, media, tables, databases, and more.</p>
+<p>These blocks can be:</p>
+<img class="guide-img" src="https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b8018_681b57ae29e8a8d7d1b54460_cleanshot_2025_05_07_at_14_46_06_2x_1_2x.webp" alt="Ultimate Notion Guide: Beginner to Pro screenshot" loading="lazy">
+<ul>
+<li>Dragged and dropped</li>
+<li>Edited inline</li>
+<li>Converted to other types</li>
+<li>Nested inside toggles, synced blocks, or columns</li>
+</ul>
+<div class="guide-callout"><span class="callout-icon">&#128161;</span><p>Tip: You can add blocks using the / command, which lets you insert nearly anything (e.g., /heading, /image, /table, /syncedblock).</p></div>
+<h3>Linking Content in Notion</h3>
+<p>Notion makes it easy to create a connected workspace by linking pages and blocks together. Connected workspace are all your tools, information, and people in one place, with the goal of reducing context switching, and enhancing team collaboration.</p>
+<ul>
+<li><strong>@-mention,&#160;</strong><strong><code>[[</code></strong><strong>,</strong>&#160;or&#160;<strong><code>+</code></strong>&#160;followed by a page name links to another Notion page inline.</li>
+<li>Use&#160;<strong><code>/link to page</code></strong>&#160;to create a visual block that links to another page (it will also appear in your sidebar as a subpage).</li>
+<li>Every block has a unique link, click the &#8942;&#8942; handle &#8594;&#160;<strong>Copy link</strong>&#160;to share it.</li>
+<li>Paste URLs from external sites to create web bookmarks with previews.</li>
+</ul>
+<h3>Synced Content</h3>
+<p>Synced blocks let you mirror content across multiple pages or within the same page, so updates in one place appear everywhere else.</p>
+<h4>How to Sync Content Across Pages</h4>
+<ol>
+<li>Select one or more blocks.</li>
+<li>Copy with&#160;<strong><code>cmd/ctrl + C</code></strong>.</li>
+<li>Paste in another page.</li>
+<li>Choose&#160;<strong>Paste and sync</strong>, a red outline will appear around synced blocks.</li>
+</ol>
+<img class="guide-img" src="https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b801b_681b57bcfc95f99c732e2696_cleanshot_2025_05_07_at_14_49_47_2x_1_2x.webp" alt="Ultimate Notion Guide: Beginner to Pro screenshot" loading="lazy">
+<h4>Create New Synced Blocks from Scratch</h4>
+<ul>
+<li>Type&#160;<strong><code>/syncedblock</code></strong>&#160;or use the&#160;<strong>+</strong>&#160;menu</li>
+<li>Add or drag content into the synced block</li>
+<li>Use&#160;<strong>Copy</strong>&#160;<strong>and sync</strong>&#160;to paste into other locations</li>
+</ul>
+<h4>Identify & Edit Synced Blocks</h4>
+<ul>
+<li>Synced blocks have a red border on hover</li>
+<li>Clicking inside lets you edit the content, which updates all instances</li>
+<li>Use the Editing in &#8601; X other pages menu to view all locations</li>
+<li>The original block is labeled ORIGINAL</li>
+</ul>
+<img class="guide-img" src="https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b801e_681b5960ce22b718857f9e62_cleanshot_2025_05_07_at_14_54_24_2x_1_2x.webp" alt="Ultimate Notion Guide: Beginner to Pro screenshot" loading="lazy">
+<h4>Unsyncing Content</h4>
+<p>Synced blocks are perfect for reusable FAQs, process documentation, status updates, or recurring callouts across different pages.</p>
+<ul>
+<li>To unsync a single instance, click &#8942;&#8942; &#8594;&#160;<strong>Unsync</strong></li>
+<li>To unsync all copies, go to the original block &#8594; &#8942;&#8942; &#8594;&#160;<strong>Unsync all</strong></li>
+</ul>
+<h2 id="wikis">Wikis</h2>
+<p>Notion lets you turn any page into a wiki, great for organizing company documentation, team handbooks, or learning hubs.</p>
+<h3>How to Create a Wiki</h3>
+<ol>
+<li>Open a page &#8594; click &#8226;&#8226; &#8594;&#160;<strong>Turn into wiki</strong></li>
+</ol>
+<img class="guide-img" src="https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b8021_681b597b20df969e1e6c9ca5_cleanshot_2025_05_07_at_14_58_41_2x_1_2x.webp" alt="Ultimate Notion Guide: Beginner to Pro screenshot" loading="lazy">
+<p>Wikis come with three built-in views:</p>
+<ul>
+<li><strong>Home</strong>: Custom landing page</li>
+<li><strong>All pages</strong>: A database of every wiki page</li>
+<li><strong>Pages I own</strong>: View only pages assigned to you</li>
+</ul>
+<p>You can add more views like timelines, calendars, or kanban boards.</p>
+<h3>Verified Pages & Owners</h3>
+<p>Pages can be verified to confirm accuracy and ownership. Verified pages show a &#9989; badge and can expire on a set schedule, notifying the page owner when it&#8217;s time to review or update.</p>
+<h3>Undo a Wiki</h3>
+<p>Click &#8226;&#8226;&#8226; &#8594; Undo wiki to convert it back into a normal page.</p>
+<h2 id="organize-format-your-content">Organize & Format Your Content</h2>
+<h3>Headings</h3>
+<p>Add hierarchy and readability with&#160;<strong>/h1, /h2,&#160;</strong>and&#160;<strong>/h3</strong>. You can also turn headings into toggles to collapse content.</p>
+<h3>Columns</h3>
+<p>Drag any block beside another to create columns. You can create multi-column layouts and even place media blocks side by side.</p>
+<h3>Dividers</h3>
+<p>Insert dividers with&#160;<strong>/divider</strong>&#160;or by typing&#160;<strong>---</strong>&#160;to visually break up content.</p>
+<h3>Table of Contents</h3>
+<p>Use<strong>&#160;/table of contents</strong>&#160;to auto-generate a clickable list of headings in your page &#8212; ideal for long documents or wikis.</p>
+<img class="guide-img" src="https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fd01e08bb7131b802c_681b5d7ead4ae860eea86335_fsdfd.webp" alt="Ultimate Notion Guide: Beginner to Pro screenshot" loading="lazy">
+<h3>Media & File Embeds</h3>
+<p>Notion supports a wide range of file formats:</p>
+<ul>
+<li><strong>Images</strong>: JPG, PNG, GIF, WEBP, SVG, HEIC, etc.</li>
+<li><strong>Videos</strong>: MP4, YouTube, Vimeo</li>
+<li><strong>Audio</strong>: MP3, WAV, OGG</li>
+<li><strong>Docs</strong>: PDF</li>
+</ul>
+<p>You can:</p>
+<ul>
+<li>Drag and drop media</li>
+<li>Use&#160;<strong><code>/image</code></strong><strong>,&#160;</strong><strong><code>/video</code></strong><strong>,&#160;</strong><strong><code>/audio</code></strong><strong>,&#160;</strong><strong><code>/file</code></strong><strong>,</strong>&#160;or&#160;<strong><code>/embed</code></strong></li>
+<li>Resize, crop, align, mask, or add captions</li>
+<li>View full screen, download, or replace files</li>
+</ul>
+<div class="guide-callout"><span class="callout-icon">&#128161;</span><p>Tip: Each media block can include alt text for accessibility and be hyperlinked or commented on.</p></div>
+<h2 id="tables-simple-vs-database">Tables: Simple vs. Database</h2>
+<p>Need a quick matrix? Use a simple table:</p>
+<ul>
+<li>Insert with&#160;<strong><code>/table</code></strong></li>
+<li>Add/remove rows and columns with the + button</li>
+<li>Use options for headers and column width</li>
+</ul>
+<img class="guide-img" src="https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fd01e08bb7131b802f_681b5e0f85c9143050ca1bc5_a.webp" alt="Ultimate Notion Guide: Beginner to Pro screenshot" loading="lazy">
+<p>Database include advanced features like filters, sorting, or relations. By clicking &#8226;&#8226;&#8226; &#8594; you will turn a table into a database. See Database chapter for more info.</p>
+<h2 id="code-blocks">Code Blocks</h2>
+<p>Code blocks in Notion are perfect for developers, technical writers, or anyone maintaining a personal library of scripts and code snippets. They allow you to present code with clean formatting, proper indentation, and syntax highlighting, all while keeping your main content easy to read.</p>
+<h3>Adding a Code Block</h3>
+<p>To insert a code block:</p>
+<ul>
+<li>Type&#160;<strong><code>/code</code></strong>&#160;and press&#160;<strong>Enter</strong></li>
+<li>Or, click the&#160;<strong>+</strong>&#160;icon in the left margin and select&#160;<strong>Code</strong></li>
+</ul>
+<p>This will create a separate block with a monospaced font where you can type or paste your code.</p>
+<h3>Syntax Highlighting</h3>
+<p>Notion supports syntax highlighting for many popular languages, including JavaScript, Python, HTML, CSS, SQL, Bash, and more.</p>
+<p>To choose your language:</p>
+<ul>
+<li>Click the language name at the top-left of the code block</li>
+<li>Start typing to search your desired language, then select it</li>
+</ul>
+<p>This ensures your code is color-coded and formatted correctly, making it easier to read and understand.</p>
+<h3>Wrap Code</h3>
+<p>By default, long lines of code may require horizontal scrolling. To wrap lines within the block:</p>
+<ul>
+<li>Hover over the code block and click the&#160;<strong>&#8226;</strong>&#160;menu</li>
+<li>Toggle on Wrap code, this adds line breaks to fit the block&#8217;s width</li>
+</ul>
+<h3>Copy or Caption Code Blocks</h3>
+<p>When you hover over a code block, you'll see options to:</p>
+<ul>
+<li><strong>Copy</strong>: Instantly copy the entire block to your clipboard</li>
+<li><strong>Caption</strong>: Add a brief description or label for your code</li>
+</ul>
+<p>You can also access these from the&#160;<code>&#8226;&#8226;&#8226;</code>&#160;menu, where additional options like block alignment and duplication are available.</p>
+<h2 id="advanced-features">Advanced features</h2>
+<p>Next up, we'll dive into databases, collaborations, formulas, APIs, settings, AI, calendar, sites and marketplace.</p>
+<h2 id="what-is-a-notion-database">What is a Notion Database?</h2>
+<p>Notion databases are one of the most powerful tools in the platform. More than just tables or spreadsheets, every row in a Notion database is a fully editable page, which means you can manage complex workflows, organize content, and track progress.</p>
+<p>Databases are great if you're building a content calendar, a project tracker, a CRM, or a company wiki.</p>
+<h3>What Makes Notion Databases Unique?</h3>
+<ul>
+<li><strong>Each item is a page</strong>: Every entry is a full-featured Notion page, which can include notes, checklists, media, subpages, or anything else you&#8217;d put in a normal Notion page.</li>
+<li><strong>Customizable properties</strong>: Add properties like text, dates, tags, people, status fields, numbers, checkboxes, formulas, and relations. These help you structure and label your content for easy sorting and filtering.</li>
+<li><strong>Multiple views</strong>: Visualize your data as a table, board (kanban), calendar, gallery, list, timeline, or chart. Switch between views based on what&#8217;s most helpful at any given moment.</li>
+</ul>
+<h4>Creating a Database</h4>
+<p><strong>Keep in mind:</strong></p>
+<ul>
+<li>A relation connects one database to another (like linking a Task to a Project).</li>
+<li>A rollup reaches through that relation and pulls in specific information, like the deadline of the project, or how many tasks are marked &#8220;Done.&#8221;</li>
+</ul>
+<table class="guide-table"> <tr> <th><strong>Name</strong></th> <th><strong>Status</strong></th> <th><strong>Assignee</strong></th> <th><strong>Due Date</strong></th> <th><strong>Project (Relation)</strong></th> </tr> <tr> <td><strong>Design login UI</strong></td> <td>In Progress</td> <td>Jane</td> <td>May 5</td> <td>Mobile App</td> </tr> <tr> <td><strong>Write user guide</strong></td> <td>Not Started</td> <td>Alex</td> <td>May 10</td> <td>Documentation</td> </tr> </table>
+<ul>
+<li><strong>Relation</strong>: Links to the Projects database</li>
+<li><strong>Rollups</strong>: Can roll up project deadline or priority from the related Project</li>
+</ul>
+<table class="guide-table"> <tr> <th><strong>Use Case</strong></th> <th><strong>How Rollup Helps</strong></th> </tr> <tr> <td><strong>Project progress tracking</strong></td> <td><strong>Count &#8220;Done&#8221; tasks / total tasks</strong></td> </tr> <tr> <td><strong>Pull deadlines into task views</strong></td> <td><strong>Show project deadline on each task</strong></td> </tr> <tr> <td><strong>Employee dashboards</strong></td> <td><strong>Show how many tasks are assigned to each person</strong></td> </tr> <tr> <td><strong>CRM</strong></td> <td><strong>Show last contact date for each client from the interactions log</strong></td> </tr> </table>
+<p><strong>To create a new database:</strong></p>
+<ul>
+<li>On a new page, choose &#8220;<strong>Table</strong>&#8221; under &#8220;<strong>Get started with.</strong>&#8221;</li>
+<li>Use the&#160;<code>/database</code>&#160;command to insert a database inline</li>
+<li>Choose from Suggested templates, use ChatGPT or Notion&#8217;s built-in AI to help generate a database structure with a custom prompt</li>
+</ul>
+<p><strong>Example prompt:</strong></p>
+<p><em>&#8220;Create a Notion workspace structure with connected databases for [your use case]. It should include the main entities (e.g., projects, tasks, team members), show how they relate to each other, and include example properties, views, and suggested rollups. Make it modular, scalable, and beginner-friendly.&#8221;</em></p>
+<p><strong>Main entites to consider for task management:</strong></p>
+<ul>
+<li><strong>User</strong>&#160;&#8211; The person using the system.</li>
+<li><strong>Task</strong>&#160;&#8211; The central item representing work to be done.</li>
+<li><strong>Description</strong>&#160;- Task details.</li>
+<li><strong>Due date</strong>&#160;- A date when the task is to be finished.</li>
+<li><strong>Status</strong>&#160;- Current task state can be to-do, doing, or done (you can further customize this)</li>
+<li><strong>Priority</strong>&#160;- Task priority in a time period.</li>
+<li><strong>Energy required</strong>&#160;- How much energy you need to finish this task&#8212; high, mid, low.</li>
+<li><strong>Subtasks</strong>&#160;- Smaller steps within a parent task.</li>
+</ul>
+<div class="guide-callout"><span class="callout-icon">&#128204;</span><p><strong>Note:</strong>&#160;Using <strong>my task templates</strong>&#160;with&#160;<strong>Notion</strong>, you can pull in tasks and update due dates from your calendar based on how much time you have available:</p></div>
+<ul>
+<li><a href="https://www.notion.com/@anthonytoday" target="_blank" rel="noopener noreferrer"><strong>Ready-made task systems</strong></a> on the Notion Marketplace, with status, priority, and energy properties pre-configured.</li>
+<li><a href="https://cal.com/anthonytoday/consultation" target="_blank" rel="noopener noreferrer"><strong>Book a 1:1 consultation</strong></a>&#160;to tailor the setup to your workflow with a realistic daily plan that helps you focus on what matters most and stay on track with deadlines.</li>
+</ul>
+<p><strong>Notion databases types:</strong></p>
+<ul>
+<li><strong>Full-page databases</strong>: Appear as their own pages in your sidebar. They can be locked (via&#160;<code>&#8226;</code>&#160;&#8594; Lock database) to prevent structure edits.</li>
+<li><strong>Inline databases</strong>: Embedded within another page. Use the expand icon (&#10529;) to open in full-page mode. Drag into the sidebar to convert it into a full-page database.</li>
+</ul>
+<h4>Adding & Opening Database Pages</h4>
+<p>Every database item is a Notion page.</p>
+<p>To&#160;<strong>add an item</strong>:</p>
+<ul>
+<li>Click&#160;<strong>+ New</strong>&#160;at the top of the database or at the bottom of a table/list/board/gallery.</li>
+<li>In calendars, click the&#160;<strong>+</strong>&#160;on any date.</li>
+</ul>
+<p>To&#160;<strong>open an item</strong>:</p>
+<ul>
+<li>In tables/lists, click the title or&#160;<strong>OPEN</strong>&#160;button.</li>
+<li>In boards/galleries/calendars, click anywhere on the card.</li>
+<li>Click &#10529; inside the preview to open it as a full page.</li>
+</ul>
+<p>You can add any blocks inside database pages: text, images, subpages, synced blocks, etc.</p>
+<h4>Customizing Database Pages</h4>
+<p>At the top of each database page, you&#8217;ll see its properties. You can customize what displays and how:</p>
+<ul>
+<li>Click&#160;<code>&#8226;</code>&#160;&#8594;&#160;<strong>Customize page</strong></li>
+<li>Choose&#160;<strong>Always show, Hide when empty,</strong>&#160;or&#160;<strong>Always hide</strong>&#160;for each property</li>
+<li>Rearrange property order with the &#8942;&#8942; drag handle</li>
+<li>Adjust display of backlinks and comments</li>
+</ul>
+<p>Backlinks: Expanded, Popover, or Off</p>
+<p>Comments: Expanded or Off</p>
+<p>This helps keep your pages clean, especially when working with many properties.</p>
+<h4>Navigating & Viewing Databases</h4>
+<p>Each database includes powerful tools to manage and analyze your data:</p>
+<ul>
+<li><strong>Views</strong>: Create multiple views for different teams or tasks (e.g., &#8220;This Week,&#8221; &#8220;In Progress,&#8221; &#8220;Completed&#8221;)</li>
+<li><strong>Add View</strong>: Click the dropdown next to the view name &#8594; Add view &#8594; Choose layout (table, board, etc.)</li>
+<li><strong>Filters & Sorts</strong>: Apply filters to show only what you need; sort by any property</li>
+<li><strong>Search</strong>: Instantly find matching database entries</li>
+<li><strong>&#8226; Menu</strong>: Change grouping, layout, and property visibility</li>
+</ul>
+<h4>Item Options</h4>
+<p>Right-click any database row (or click the &#8942;&#8942; handle) to:</p>
+<ul>
+<li><strong>Delete</strong>&#160;or&#160;<strong>Duplicate</strong>&#160;an item</li>
+<li><strong>Copy link</strong>&#160;to share it</li>
+<li><strong>Rename</strong>&#160;the item without opening it</li>
+<li><strong>Move to</strong>&#160;another workspace/page</li>
+<li><strong>Edit properties</strong>&#160;quickly in-line</li>
+</ul>
+<h4>Collaborating in Databases</h4>
+<p>Databases are powerful collaboration tools. Notion gives you granular control over who can edit what.</p>
+<h4>&#8220;Can Edit Content&#8221; Permission</h4>
+<p>This permission allows users to:</p>
+<ul>
+<li><strong>Add, edit,</strong>&#160;and&#160;<strong>delete</strong>&#160;pages \<em>\</em>\<em>\</em>in the database</li>
+<li>Modify property values</li>
+</ul>
+<p>But&#160;<strong>does not</strong>&#160;allow:</p>
+<ul>
+<li>Changing database structure (properties, views, filters, sorts)</li>
+<li>Locking or unlocking the database</li>
+</ul>
+<p>Linked databases respect these permissions but allow users to create custom filtered views elsewhere in the workspace.</p>
+<h4>Using Linked Databases</h4>
+<p>You can reference a database in multiple locations using linked databases:</p>
+<ul>
+<li>Use&#160;<strong><code>/linked database</code></strong>&#160;and select the one you want</li>
+<li>Apply different filters, views, and sorts in each location</li>
+<li>Linked databases reflect real-time updates from the source</li>
+</ul>
+<p>This makes it easy to present the same dataset differently across teams or documents.</p>
+<h4>Templates in Databases</h4>
+<p>Each database can include custom templates:</p>
+<ul>
+<li>Click the dropdown next to&#160;<strong>+ New</strong>&#160;&#8594;&#160;<strong>+ New template</strong></li>
+<li>Add pre-built structure for tasks, meeting notes, bug reports, etc.</li>
+<li>Use Notion AI to help generate template layouts</li>
+</ul>
+<p>Templates help standardize your data and reduce repetitive setup.</p>
+<h4>Locking & Duplicating Databases</h4>
+<ul>
+<li><strong>Lock database</strong>: Prevent changes to structure (in&#160;<code>&#8226;</code>&#160;menu)</li>
+<li><strong>Duplicate database</strong>: Choose to copy the structure only or structure + content</li>
+</ul>
+<p>Duplicating is ideal for reusing layouts across teams or projects.</p>
+<h2 id="sharing-collaboration">Sharing & Collaboration</h2>
+<p>Notion is designed for collaboration, whether you're working with teammates in your workspace, clients outside your company, or your followers. With flexible sharing settings, you can control who sees and edits your pages, databases, and teamspaces.</p>
+<h3>Ways to Share in Notion</h3>
+<p>You can share Notion pages and databases in a variety of ways:</p>
+<ul>
+<li>With individuals or groups in your workspace</li>
+<li>With guests via email</li>
+<li>With entire teamspaces</li>
+<li>With the public via a shareable link</li>
+<li>As a Notion Site using the&#160;<strong>Publish</strong>&#160;feature</li>
+</ul>
+<p>Click&#160;<strong>Share</strong>&#160;at the top of any page to open the&#160;<strong>Share menu</strong>, where you can:</p>
+<ul>
+<li>Invite people to a page</li>
+<li>Set permission levels</li>
+<li>Copy the page link</li>
+<li>Open the&#160;<strong>Publish</strong>&#160;tab to make your page public</li>
+</ul>
+<p>You can also access publishing options via the&#160;<code>&#8226;&#8226;&#8226;</code>&#160;menu &#8594;&#160;<strong>Publish tab</strong>.</p>
+<h4>General Access Levels</h4>
+<p>Under General Access, you can choose who can access a page and what they can do with it:</p>
+<ul>
+<li><strong>Only people invited</strong>&#160;&#8211; The page is private and visible only to you and invitees.</li>
+<li><strong>Everyone in workspace</strong>&#160;&#8211; All workspace members can find the page via search or with the link. You can optionally&#160;<strong>Hide in search</strong>&#160;for unvisited users.</li>
+<li><strong>Anyone with the link</strong>&#160;&#8211; Share with external users. They'll need a Notion account to comment or edit. You can also set a link expiration.</li>
+</ul>
+<div class="guide-callout"><span class="callout-icon">&#128161;</span><p>Tip: Enterprise admins can disable public links in Settings &#8594; Security &#8594; Disable publishing sites, forms, and public links.</p></div>
+<h4>Share with Individuals or Groups</h4>
+<p>To share with specific people:</p>
+<ol>
+<li>Click&#160;<strong>Share</strong>&#160;at the top of the page.</li>
+<li>Enter a workspace member's name or email.</li>
+<li>Choose a&#160;<strong>permission level</strong>&#160;from the dropdown.</li>
+<li>Click&#160;<strong>Invite</strong>.</li>
+</ol>
+<p>The page will appear in their&#160;<strong>Shared</strong>&#160;sidebar section. You can also share with groups for faster access control.</p>
+<h4>Sharing Publicly</h4>
+<p>To share with the wider internet:</p>
+<ul>
+<li>Open the&#160;<strong>Share menu</strong>&#160;&#8594;&#160;<strong>Publish tab</strong></li>
+<li>Enable &#8220;<strong>Publish to web</strong>&#8221;</li>
+<li>Set general access to &#8220;<strong>Anyone with the link</strong>&#8221;</li>
+<li>Manage link expiration or embed as a&#160;<strong>Notion Site</strong></li>
+</ul>
+<p>This is perfect for wikis, public docs, event pages, or portfolios.</p>
+<h4>Share with a Teamspace</h4>
+<p>Teamspaces are shared sections for teams inside your workspace. Each has its own members and permission settings.</p>
+<p>You can share pages by:</p>
+<ul>
+<li>Dragging a page into a teamspace from the sidebar</li>
+<li>Creating a new page inside a teamspace</li>
+</ul>
+<p>Some teamspaces may be default, meaning all members of the workspace are automatically part of them.</p>
+<p>To check if a teamspace is default:</p>
+<ul>
+<li>Click&#160;<code>&#8226;</code>&#160;next to the teamspace &#8594;&#160;<strong>Teamspace settings</strong>&#160;&#8594;&#160;<strong>Members</strong>&#160;tab &#8594; Look for &#8220;Default&#8221; under&#160;<strong>Permissions</strong>.</li>
+</ul>
+<h4>Share with Guests</h4>
+<p>Guests are people outside your workspace (like contractors or clients). To share:</p>
+<ul>
+<li>Enter their email in the&#160;<strong>Share menu</strong></li>
+<li>They&#8217;ll receive an invite to the page and need a Notion account to access</li>
+</ul>
+<div class="guide-callout"><span class="callout-icon">&#128161;</span><p>Tip: Enterprise admins can restrict guest sharing or allow only certain domains.</p></div>
+<h4>Stop Sharing or Make a Page Private</h4>
+<p>To revoke access:</p>
+<ul>
+<li>Drag a page into the&#160;<strong>Private</strong>&#160;section of your sidebar (others will lose access)</li>
+<li>Open&#160;<strong>Share menu</strong>&#160;&#8594; Click the dropdown next to a person or group &#8594;&#160;<strong>Remove</strong></li>
+</ul>
+<div class="guide-callout"><span class="callout-icon">&#128204;</span><p>Note: Moving a shared page to Private removes access for others, but subpages retain their permissions unless changed manually.</p></div>
+<h4>Permission Levels in Notion</h4>
+<p>Assign precise control to individuals or groups:</p>
+<table class="guide-table"> <tr> <th><strong>Permission Level</strong></th> <th><strong>Description</strong></th> </tr> <tr> <td><strong>Full access</strong></td> <td><strong>Edit, share, and invite others</strong></td> </tr> <tr> <td><strong>Can edit</strong></td> <td><strong>Edit content but not share or invite others</strong></td> </tr> <tr> <td><strong>Can edit content</strong></td> <td><strong><em>Databases only:</em>&#160;Edit content inside entries, but not structure or views</strong></td> </tr> <tr> <td><strong>Can comment</strong></td> <td><strong>View and leave comments only</strong></td> </tr> <tr> <td><strong>Can view</strong></td> <td><strong>Read-only access</strong></td> </tr> </table>
+<div class="guide-callout"><span class="callout-icon">&#128204;</span><p>Note: The highest permission level granted will apply. For example, if a group has Full access but an individual has Can view, they&#8217;ll still have Full access through the group.</p></div>
+<h4>See Who Can Access a Page</h4>
+<p>At the top of a page, you&#8217;ll see avatars for people with access:</p>
+<ul>
+<li><strong>Faded</strong>&#160;avatars = not currently viewing</li>
+<li><strong>Solid</strong>&#160;avatars = viewing/editing live</li>
+</ul>
+<p>Hover to see names, emails, and activity. Clicking an avatar jumps to where they&#8217;re editing.</p>
+<p>Use the&#160;<code>&#8226;&#8226;&#8226;</code>&#160;menu &#8594; see&#160;<strong>Last edited by</strong>&#160;and timestamp at the bottom.</p>
+<h4>Requesting Access or Permissions</h4>
+<p>Trying to access a restricted page?</p>
+<ul>
+<li>Click&#160;<strong>No access</strong>&#160;to request view or edit access</li>
+<li>This notifies the page owner to approve or deny your request</li>
+</ul>
+<p>To request edit access:</p>
+<ul>
+<li>Click&#160;<strong>Share</strong></li>
+<li>Open your permission dropdown</li>
+<li>Select&#160;<strong>Request edit access</strong></li>
+</ul>
+<h4>Enterprise-Grade Controls</h4>
+<p>Enterprise workspace owners can manage:</p>
+<ul>
+<li>Public sharing policies</li>
+<li>Guest invitation controls</li>
+<li>Allowed email domains</li>
+<li>Default teamspace permissions</li>
+</ul>
+<p>Go to&#160;<strong>Settings &#8594; Security</strong>&#160;to configure these protections and maintain workspace compliance.</p>
+<h2 id="notion-api-custom-integrations">Notion API & Custom Integrations</h2>
+<p>For developers looking to go beyond prebuilt integrations, Notion&#8217;s public API opens the door to building fully custom workflows, bots, automations, and internal tools. With internal integrations, webhooks, and granular permissions, you can create connections for managing content, syncing data, or reacting to updates in real-time.</p>
+<h3>Create an Internal Integration</h3>
+<p>To create one:</p>
+<ol>
+<li>Go to&#160;<strong>Settings &#8594; Integrations</strong>&#160;in your sidebar</li>
+</ol>
+<p><em>(Only Workspace Owners can access this tab.)</em></p>
+<ol>
+<li>Click&#160;<strong>Develop your own integrations</strong></li>
+</ol>
+<p>Your browser will open to the&#160;<strong>My Integrations</strong>&#160;dashboard</p>
+<ol>
+<li>&#8594; Click&#160;<strong>+ New Integration</strong></li>
+<li>Fill in:</li>
+</ol>
+<p><strong>Name</strong>&#160;of the integration</p>
+<ol>
+<li>Optional&#160;<strong>logo</strong></li>
+<li>Select the&#160;<strong>Associated Workspace</strong></li>
+<li>Once created, go to&#160;<strong>Settings &#8594; Connections</strong>, find your integration, and click&#160;<code>&#8226;&#8226;</code>&#160;to:</li>
+</ol>
+<ul>
+<li><strong>Retrieve the internal token</strong></li>
+<li><strong>Manage access</strong></li>
+<li><strong>Disconnect or modify</strong>&#160;the integration</li>
+</ul>
+<h3>Create a Public Integration</h3>
+<p>To make your integration available to all Notion users:</p>
+<ol>
+<li>First, create an&#160;<strong>internal integration</strong>&#160;as above.</li>
+<li>Then follow Notion&#8217;s&#160;<a href="https://developers.notion.com/reference/intro" target="_blank" rel="noopener noreferrer">developer documentation</a>&#160;to convert it into a public integration, including:</li>
+</ol>
+<ul>
+<li>OAuth flow setup</li>
+<li>Scoping permissions</li>
+<li>Publishing to Notion&#8217;s integration gallery (optional)</li>
+</ul>
+<h3>Granular Permissions for Integrations</h3>
+<p>When setting up an integration, you choose what the integration can do and see. Permissions are broken into:</p>
+<h4>Content Capabilities:</h4>
+<ul>
+<li><strong>Read content only</strong></li>
+<li><strong>Write content only</strong></li>
+<li><strong>Insert content</strong>&#160;(append-only)</li>
+</ul>
+<h4>User Capabilities:</h4>
+<ul>
+<li><strong>No user info</strong></li>
+<li><strong>Read user info</strong>&#160;(with or without email)</li>
+</ul>
+<p>These permissions are visible to users during setup and shown in the&#160;<strong>Share menu</strong>&#160;of any page the integration accesses.</p>
+<h3>Integration Webhooks</h3>
+<p>Notion supports real-time webhooks that notify your integration of content changes.</p>
+<p>Use integration webhooks to:</p>
+<ul>
+<li>Detect updates in connected pages or databases</li>
+<li>Sync changes to other apps instantly</li>
+<li>Trigger automations based on Notion activity</li>
+</ul>
+<h4>Webhook Actions vs. Integration Webhooks</h4>
+<p>While both can send events to third-party services, they serve different purposes:</p>
+<table class="guide-table"> <tr> <th><strong>Feature</strong></th> <th><strong>Integration Webhooks</strong></th> <th><strong>Webhook Actions</strong></th> </tr> <tr> <td><strong>Scope</strong></td> <td>Multiple workspaces</td> <td>One database</td> </tr> <tr> <td><strong>Complexity</strong></td> <td>Advanced</td> <td>Simple</td> </tr> <tr> <td><strong>Trigger Type</strong></td> <td>Content change events</td> <td>Manual or database rule</td> </tr> <tr> <td><strong>Configuration</strong></td> <td>Developer dashboard</td> <td>In-app automation UI</td> </tr> </table>
+<h4>Recommended Notion Integrations</h4>
+<table class="guide-table"> <tr> <th><strong>Integration</strong></th> <th><strong>Use Case</strong></th> <th><strong>Benefit</strong></th> </tr> <tr> <td><strong>Slack</strong></td> <td>Get Notion updates in Slack; turn Slack messages into Notion tasks.</td> <td>Keeps teams in sync without switching apps.</td> </tr> <tr> <td><a href="https://www.anthonytoday.com" target="_blank" rel="noopener noreferrer"><strong>AnthonyToday.com</strong></a></td> <td>Ready-made templates, workspace audits, and 1:1 Notion consulting.</td> <td>A working, best-practice system from day one, without weeks of trial and error.</td> </tr> <tr> <td><strong>Zapier</strong></td> <td>Automate tasks between Notion and 5000+ apps (e.g., form submissions &#8594; tasks).</td> <td>Works with almost any tool.</td> </tr> <tr> <td><strong>GitHub</strong></td> <td>Link GitHub issues, pull requests, and projects to Notion databases.</td> <td>Developers can manage code and documentation in one place.</td> </tr> <tr> <td><strong>Miro</strong></td> <td>Embed whiteboards or brainstorm sessions directly into Notion pages.</td> <td>Ideal for design, sprint planning, and retrospectives.</td> </tr> </table>
+<h2 id="automations-in-notion">Automations in Notion</h2>
+<p>Notion automations help you eliminate repetitive tasks, streamline workflows, and get more done with fewer clicks. With buttons, you can automate everything from sending notifications to editing database entries, all without writing a single line of code.</p>
+<p>Notion supports two types of buttons:</p>
+<ul>
+<li><strong>Page buttons</strong>: Add interactive buttons to any Notion page</li>
+<li><strong>Database buttons</strong>: Automate actions on specific database items</li>
+</ul>
+<h3>Page Buttons: Automate with a Click</h3>
+<p>With template buttons on pages, you can:</p>
+<ul>
+<li>Trigger actions like creating pages, editing data, or notifying users</li>
+<li>Stack multiple actions into one click</li>
+<li>Dynamically customize with variables, mentions, and formulas</li>
+</ul>
+<h3>Create a Page Button</h3>
+<ol>
+<li>Type&#160;<code>/button</code>&#160;on a page</li>
+<li>Name the button and pick an emoji</li>
+<li>Add one or more actions using the&#160;<strong>+ New action</strong>&#160;option</li>
+<li>Click&#160;<strong>Done</strong>&#160;to save</li>
+</ol>
+<h4>Available Actions for Page Buttons</h4>
+<table class="guide-table"> <tr> <th><strong>Action</strong></th> <th><strong>Description</strong></th> </tr> <tr> <td><strong>Insert blocks</strong></td> <td><strong>Add content blocks anywhere on the page</strong></td> </tr> <tr> <td><strong>Add page to</strong></td> <td><strong>Add a new entry to a selected database</strong></td> </tr> <tr> <td><strong>Edit pages in</strong></td> <td><strong>Modify properties in existing database items</strong></td> </tr> <tr> <td><strong>Send notification to</strong></td> <td><strong>Ping users or people properties</strong></td> </tr> <tr> <td><strong>Send mail to (Paid)</strong></td> <td><strong>Send Gmail emails</strong></td> </tr> <tr> <td><strong>Send webhook (Paid)</strong></td> <td><strong>Send POST requests to other tools</strong></td> </tr> <tr> <td><strong>Show confirmation</strong></td> <td><strong>Add a pop-up confirmation before executing</strong></td> </tr> <tr> <td><strong>Open page or URL</strong></td> <td><strong>Open a selected Notion page or external link</strong></td> </tr> <tr> <td><strong>Send Slack notification</strong></td> <td><strong>Push messages to Slack channels</strong></td> </tr> <tr> <td><strong>Define variables</strong></td> <td><strong>Store reusable values for other actions</strong></td> </tr> </table>
+<h3>Mentions & Formulas</h3>
+<p>Use&#160;<code>@</code>&#160;to reference users, pages, or dates. Use&#160;<code>&#8721;</code>&#160;for formulas like:</p>
+<ul>
+<li><code>[Page title] - Updated on [Today&#8217;s date]</code></li>
+<li><code>Hi @Person, your task is due on &#8721;[Due Date]</code></li>
+</ul>
+<h3>Database Buttons</h3>
+<p>Database buttons are a game changer for structured, repeatable tasks, like approvals, follow-ups, status updates, or habit tracking.</p>
+<p>Each button is a database property and lives in a row, executing actions on that specific item.</p>
+<h4>Who Can Use Database Buttons?</h4>
+<ul>
+<li>Create/edit: Anyone with&#160;<strong>Full access</strong>&#160;or&#160;<strong>Can edit</strong></li>
+<li>Click buttons: Also allowed for users with&#160;<strong>Can edit content</strong></li>
+</ul>
+<h4>Create a Database Button</h4>
+<ol>
+<li>Open your database &#8594; Click&#160;<code>&#8226;&#8226;</code>&#160;&#8594;&#160;<strong>Properties &#8594; New property &#8594; Button</strong></li>
+<li>Name your button (e.g., "Approve", "Done", "Send reminder")</li>
+<li>Click&#160;<strong>Edit automation</strong>&#160;to add actions</li>
+<li>Use&#160;<code>@</code>&#160;or&#160;<code>&#8721;</code>&#160;in fields to pull from the current row's properties</li>
+</ol>
+<h4>Available Actions for Database Buttons</h4>
+<table class="guide-table"> <tr> <th><strong>Action</strong></th> <th><strong>Description</strong></th> </tr> <tr> <td><strong>Edit property</strong></td> <td><strong>Change properties of the current row</strong></td> </tr> <tr> <td><strong>Add page to</strong></td> <td><strong>Create a new page in another database</strong></td> </tr> <tr> <td><strong>Edit pages in</strong></td> <td><strong>Modify entries in other databases</strong></td> </tr> <tr> <td><strong>Send notification to</strong></td> <td><strong>Notify people directly from the row context</strong></td> </tr> <tr> <td><strong>Send mail to (Paid)</strong></td> <td><strong>Trigger a Gmail message tied to this row</strong></td> </tr> <tr> <td><strong>Send webhook (Paid)</strong></td> <td><strong>Push updates to external apps</strong></td> </tr> <tr> <td><strong>Show confirmation</strong></td> <td><strong>Prompt before executing the action</strong></td> </tr> <tr> <td><strong>Open page or URL</strong></td> <td><strong>Link to an external site or Notion page</strong></td> </tr> <tr> <td><strong>Send Slack notification</strong></td> <td><strong>Notify a channel (e.g., #project-status)</strong></td> </tr> <tr> <td><strong>Define variables</strong></td> <td><strong>Reuse values across actions in the automation</strong></td> </tr> </table>
+<h4>Send Mail to from a Database Button</h4>
+<ol>
+<li>Add a Button property &#8594; Edit automation &#8594;&#160;<strong>Send mail to</strong></li>
+<li>Customize the&#160;<strong>To</strong>,&#160;<strong>Subject</strong>,&#160;<strong>Message</strong>, and more</li>
+<li>Use row-specific data like:</li>
+</ol>
+<ul>
+<li>Page creator</li>
+<li>Due date</li>
+<li>Status</li>
+<li>Custom formulas or mentions</li>
+</ul>
+<p>You can CC, BCC, and set reply-to addresses, even define display names with dynamic content.</p>
+<h4>Define Variables in Database Buttons</h4>
+<p>Set up named variables using:</p>
+<ul>
+<li><code>@</code>&#160;(mentions like people or properties)</li>
+<li><code>&#8721;</code>&#160;(formulas like today&#8217;s date, or concatenated strings)</li>
+</ul>
+<p>Use them in:</p>
+<ul>
+<li>Email subjects</li>
+<li>Property updates</li>
+<li>Notifications and Slack messages</li>
+</ul>
+<h2 id="formulas-in-notion">Formulas in Notion</h2>
+<p>Notion formulas empower you to calculate, manipulate, and automate data in your databases. Whether you&#8217;re tracking task progress, scoring ideas, or creating conditional logic for automations, formulas help you transform static data into dynamic outputs.</p>
+<h3>Where Can You Use Formulas in Notion?</h3>
+<p>You can use formulas in several places across Notion:</p>
+<ul>
+<li>As a&#160;<strong>database property</strong>&#160;(most common use)</li>
+<li>Inside&#160;<strong>page buttons</strong>&#160;and&#160;<strong>database buttons</strong></li>
+<li>Within&#160;<strong>database automations</strong>&#160;to define variables or logic</li>
+</ul>
+<p>Each formula evaluates and returns a dynamic result, text, number, Boolean (true/false), or date, based on your other properties or functions.</p>
+<h3>How to Create and Edit a Formula</h3>
+<h4>Create a Formula Property</h4>
+<ol>
+<li>Open your database &#8594; click&#160;<code>&#8226;&#8226;</code>&#160;&#8594;&#160;<strong>Properties</strong></li>
+<li>Click&#160;<strong>New property &#8594; Formula</strong></li>
+<li>Name your formula (e.g., &#8220;Priority Score&#8221; or &#8220;Overdue?&#8221;)</li>
+<li>Click&#160;<strong>Edit formula</strong>&#160;to open the Formula Editor</li>
+</ol>
+<h4>Use the Formula Editor</h4>
+<p>The formula editor includes:</p>
+<ul>
+<li>A text field to enter your formula</li>
+<li>A&#160;<strong>left-hand panel</strong>&#160;listing available database properties and built-in functions</li>
+<li>A&#160;<strong>right-hand panel</strong>&#160;showing syntax explanations and real-time tips</li>
+<li>A&#160;<strong>live preview</strong>&#160;of the result when editing from a database row</li>
+</ul>
+<h4>Formula Components</h4>
+<p>Formulas are built using:</p>
+<ul>
+<li><strong>Properties</strong>: Data in your current database (e.g., Status, Due Date, Priority)</li>
+<li><strong>Built-ins</strong>: Operators and logical values like&#160;<code>+</code>, ,&#160;<code>or</code>,&#160;<code>false</code>,&#160;<code>!=</code></li>
+<li><strong>Functions</strong>: Actions like&#160;<code>replace()</code>,&#160;<code>sum()</code>,&#160;<code>length()</code>,&#160;<code>now()</code>, or&#160;<code>dateAdd()</code></li>
+</ul>
+<p>Notion also supports&#160;<strong>style formatting</strong>&#160;inside formulas, and logical operators like&#160;<code>if()</code>,&#160;<code>and()</code>,&#160;<code>or()</code>, and the ternary operator&#160;<code>X ? Y : Z</code>.</p>
+<h4>Formula Examples</h4>
+<p><strong>Project management example</strong></p>
+<table class="guide-table"> <tr> <th><strong>Goal</strong></th> <th><strong>Formula</strong></th> </tr> <tr> <td><strong>Set due date two weeks after start</strong></td> <td><strong><code>dateAdd(Start Date, 2, "week")</code></strong></td> </tr> <tr> <td><strong>Mark as overdue if past due and not done</strong></td> <td><strong><code>if(and(now() > Due Date, Status != "Done"), "Overdue", "")</code></strong></td> </tr> <tr> <td><strong>Add bold red &#8220;Overdue&#8221; label</strong></td> <td><strong><code>if(and(now() > Due Date, Status != "Done"), style("Overdue", "red", "b"), "")</code></strong></td> </tr> <tr> <td><strong>Count incomplete tasks</strong></td> <td><strong><code>length(Tasks.map(current.Status != "Done"))</code></strong></td> </tr> </table>
+<p>Functions used: dateAdd(), if(), and(), now(), style(), map(), length()</p>
+<p><strong>Project brainstorming with RICE Example</strong></p>
+<table class="guide-table"> <tr> <th><strong>Goal</strong></th> <th><strong>Formula</strong></th> </tr> <tr> <td><strong>RICE scoring (Reach &#215; Impact &#215; Confidence &#247; Effort)</strong></td> <td><strong><code>Reach <em> Impact </em> Confidence / Effort</code></strong></td> </tr> <tr> <td><strong>Count total upvotes</strong></td> <td><strong><code>length(Upvoted by)</code></strong></td> </tr> </table>
+<p>Use this to prioritize projects based on quantitative impact, and track interest through upvote metrics.</p>
+<p><strong>Task Management Automation</strong></p>
+<p>Trigger an automation when all subtasks are marked as "Done" and update the parent task accordingly:</p>
+<ol>
+<li>Trigger condition: When Status = Done</li>
+<li>Define parent task:</li>
+</ol>
+<p><code>3.Trigger page.Parent item.first()</code></p>
+<ol>
+<li>Check all subtasks done:</li>
+</ol>
+<p><code>5.Parent Task.Sub-item ? Parent Task.Sub-item.every(current.Status == "Done") : false</code></p>
+<ol>
+<li>Update parent task status:</li>
+</ol>
+<p><code>7.All subtasks done? ? "Done" : Parent Task.Status</code></p>
+<p>Functions used:&#160;<code>first()</code>,&#160;<code>every()</code>, ternary operator&#160;<code>X ? Y : Z</code></p>
+<p>This setup is ideal for project hierarchies where sub-tasks drive the completion status of parent tasks.</p>
+<div class="guide-callout"><span class="callout-icon">&#128161;</span><p>Tip: Automations like this are exactly what I wire up for clients. If you want statuses, rollups, and parent-task logic set up correctly the first time, start from one of my <a href="https://www.notion.com/@anthonytoday" target="_blank" rel="noopener noreferrer">Marketplace templates</a> or <a href="https://cal.com/anthonytoday/consultation" target="_blank" rel="noopener noreferrer">book a consultation</a>.</p></div>
+<h3>Using Formulas in Automations & Buttons</h3>
+<p>You can embed formulas directly into:</p>
+<ul>
+<li><strong>Page buttons</strong></li>
+<li><strong>Database buttons</strong></li>
+<li><strong>Database automations</strong></li>
+</ul>
+<p>Use formulas to dynamically:</p>
+<ul>
+<li>Insert people&#8217;s names, page titles, or dates</li>
+<li>Create calculated subject lines or messages for emails</li>
+<li>Style or conditionally format content</li>
+<li>Control branching logic with Boolean evaluations</li>
+</ul>
+<h2 id="notion-pricing-guide">Notion Pricing Guide</h2>
+<p>Notion offers <a href="https://affiliate.notion.so/0x8u16p4sff1" target="_blank" rel="noopener noreferrer">flexible pricing plans</a> for individuals, teams, and enterprises, with core features included in every tier and powerful upgrades available as you scale.</p>
+<p>Choose to pay monthly or annually. All prices below are in USD per seat, billed annually. Monthly billing costs slightly more. Notion restructured its plans in 2025: Notion AI is now bundled into Business and Enterprise instead of being sold as a separate add-on.</p>
+<h3>Free &#8211; $0</h3>
+<p>Best for personal projects, study plans, or side gigs.</p>
+<p>Includes:</p>
+<ul>
+<li>Collaborative workspace</li>
+<li>Integration with Slack, GitHub & more</li>
+<li>Basic page analytics</li>
+<li>7-day page history</li>
+<li>Invite up to 10 guests</li>
+<li>Notion Mail (Gmail sync)</li>
+<li>Notion Calendar</li>
+</ul>
+<h3>Plus &#8211; $10 per seat/month</h3>
+<p>Added more collaboration power.</p>
+<p>Everything in Free, plus:</p>
+<ul>
+<li>Unlimited blocks for teams</li>
+<li>Unlimited file uploads</li>
+<li>30-day page history</li>
+<li>Invite up to 100 guests</li>
+<li>Synced databases with third-party apps</li>
+<li>Custom websites</li>
+<li>Custom automations</li>
+<li>Charts & dashboards</li>
+</ul>
+<h3>Business &#8211; $20 per seat/month</h3>
+<p>Added <a href="https://affiliate.notion.so/0x8u16p4sff1" target="_blank" rel="noopener noreferrer">full Notion AI</a>, more control, and analytics.</p>
+<p>Everything in Plus, plus:</p>
+<ul>
+<li>Full Notion AI (Notion Agent, AI Meeting Notes, Enterprise Search)</li>
+<li>SAML SSO (Single Sign-On)</li>
+<li>Private teamspaces</li>
+<li>Page verification</li>
+<li>Bulk PDF export</li>
+<li>Advanced page analytics</li>
+<li>90-day page history</li>
+<li>Invite up to 250 guests</li>
+</ul>
+<div class="guide-promo">&#128640; <strong>Get 3 months of Notion Business FREE</strong> (AI included). Everything in this guide runs even better with Business-tier features. <a href="https://affiliate.notion.so/0x8u16p4sff1" target="_blank" rel="noopener noreferrer">Claim your trial &#8594;</a> <span color="gray"><em>(affiliate link)</em></span></div>
+<h3>Enterprise &#8211; Custom pricing</h3>
+<p>Added advanced security, scale, and dedicated support.</p>
+<p>Everything in Business, plus:</p>
+<ul>
+<li>User provisioning (SCIM)</li>
+<li>Advanced security & admin controls</li>
+<li>Audit log</li>
+<li>Workspace analytics</li>
+<li>Unlimited page history</li>
+<li>Dedicated Customer Success Manager</li>
+<li>Security & Compliance integrations</li>
+<li>Invite up to 250 guests</li>
+</ul>
+<h4>Notion AI</h4>
+<p>The standalone AI add-on was retired in 2025. Full Notion AI is now included in the <a href="https://affiliate.notion.so/0x8u16p4sff1" target="_blank" rel="noopener noreferrer">Business and Enterprise plans</a>, while Free and Plus include a limited trial. Notion AI helps with:</p>
+<ul>
+<li>Writing & editing</li>
+<li>Summarizing & translating</li>
+<li>Autofilling data</li>
+<li>Asking contextual questions inside docs</li>
+<li>AI Meeting Notes, Enterprise Search, and the Notion Agent</li>
+</ul>
+<p>Usage-based options also exist: Custom Agents are free to try, then $10 per 1,000 monthly Notion credits.</p>
+<h3>Notion Pricing Overview</h3>
+<table class="guide-table"> <tr> <th><strong>Plan</strong></th> <th><strong>Best For</strong></th> <th><strong>Price (USD/mo, annual)</strong></th> <th><strong>Page History</strong></th> <th><strong>Guest Limit</strong></th> <th><strong>Syncs and Sites</strong></th> <th><strong>SSO and Security</strong></th> </tr> <tr> <td><strong>Free</strong></td> <td>Personal use</td> <td>$0</td> <td>7 days</td> <td>10</td> <td>&#8212;</td> <td>&#8212;</td> </tr> <tr> <td><strong>Plus</strong></td> <td>Small teams & pros</td> <td>$10/seat</td> <td>30 days</td> <td>100</td> <td><strong>&#10003;</strong></td> <td>&#8212;</td> </tr> <tr> <td><strong>Business</strong></td> <td>Growing businesses</td> <td>$20/seat</td> <td>90 days</td> <td>250</td> <td><strong>&#10003;</strong></td> <td><strong>&#10003;</strong></td> </tr> <tr> <td><strong>Enterprise</strong></td> <td>Large orgs</td> <td>Custom</td> <td>Unlimited</td> <td>250</td> <td><strong>&#10003;</strong></td> <td><strong>&#10003;</strong>&#160;(advanced)</td> </tr> </table>
+<h2 id="workspace-administration">Workspace Administration</h2>
+<p>Admins can manage workspace settings, invite and remove members, assign roles, and control access. Enterprise workspaces offer deeper controls like SAML SSO, audit logs, and granular permissions.</p>
+<h3>Workspace Administration Roles in Notion</h3>
+<table class="guide-table"> <tr> <th><strong>Role</strong></th> <th><strong>Scope</strong></th> <th><strong>Key Capabilities</strong></th> <th><strong>Limitations</strong></th> </tr> <tr> <td><strong>Organization Owner</strong></td> <td>Entire organization (multiple workspaces)</td> <td>&#8211; View and manage all workspaces and members&#8211; Apply settings across the organization</td> <td>Only available if your org uses Notion&#8217;s multi-workspace org setup</td> </tr> <tr> <td><strong>Workspace Owner</strong></td> <td>A single workspace</td> <td>&#8211; Full control over settings, security, members, and groups&#8211; Can delete the workspace</td> <td>N/A (has full permissions within the workspace)</td> </tr> <tr> <td><strong>Membership Admin</strong></td> <td>Member and group management</td> <td>&#8211; Add/remove members in workspaces&#8211; Manage groups (add/remove members, owners, and other membership admins)</td> <td>Can&#8217;t manage workspace settingsCan only add users in&#160;<strong>member role</strong></td> </tr> </table>
+<h2 id="settings-in-notion">Settings in Notion</h2>
+<p>Notion's settings give you control over your personal account, workspace preferences, appearance, language, privacy, and device behavior, including desktop, web, or mobile.</p>
+<img class="guide-img" src="https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fd01e08bb7131b8035_681b67f9ff04fa920e28ee6e_aaa.webp" alt="Ultimate Notion Guide: Beginner to Pro screenshot" loading="lazy">
+<h3>Account Settings</h3>
+<h4>Change Your Profile Photo</h4>
+<p>Available on desktop and web:</p>
+<ol>
+<li>Go to&#160;<strong>Settings &#8594; [Your Name]</strong></li>
+<li>Click your current photo (or initial) above "Add photo"</li>
+<li>Choose an image file and click&#160;<strong>Open</strong></li>
+</ol>
+<h4>Change Your Name</h4>
+<ol>
+<li>Go to&#160;<strong>Settings &#8594; [Your Name]</strong></li>
+<li>Edit the field under&#160;<strong>Preferred name</strong></li>
+</ol>
+<h4>Change Your Email Address</h4>
+<ol>
+<li>Go to&#160;<strong>Settings &#8594; [Your Name] &#8594; Account security &#8594; Change email</strong></li>
+<li>Follow the verification flow:</li>
+</ol>
+<ul>
+<li>With a password: enter it</li>
+<li>Without a password: verify via old email</li>
+</ul>
+<ol>
+<li>Enter your new email &#8594; Get verification code</li>
+<li>Paste code &#8594; Click&#160;<strong>Change email</strong></li>
+</ol>
+<h4>Set, Change, or Remove Your Password</h4>
+<ol>
+<li>Go to&#160;<strong>Settings &#8594; [Your Name]</strong></li>
+<li>Select&#160;<strong>Set a password</strong>&#160;or&#160;<strong>Change password</strong></li>
+<li>Enter your password following the requirements (min. 8 characters, 3 special characters, 1 letter, 1 number)</li>
+</ol>
+<h3>Appearance & Accessibility</h3>
+<h4>Customize Appearance on Desktop</h4>
+<ol>
+<li>Go to&#160;<strong>Settings &#8594; Preferences &#8594; Appearance</strong></li>
+<li>Choose:</li>
+</ol>
+<ul>
+<li><strong>Use system setting</strong></li>
+<li><strong>Light mode</strong></li>
+<li><strong>Dark mode</strong></li>
+</ul>
+<div class="guide-callout"><span class="callout-icon">&#128161;</span><p>Tip: Quick toggle: Cmd/Ctrl + Shift + L</p></div>
+<h4>Customize Appearance on Mobile</h4>
+<ol>
+<li>Tap&#160;<code>&#8226;&#8226;</code>&#160;in the sidebar &#8594;&#160;<strong>Settings &#8594; Appearance</strong></li>
+<li>Choose&#160;<strong>System setting</strong>,&#160;<strong>Light</strong>, or&#160;<strong>Dark</strong></li>
+</ol>
+<h4>Language, Region & Display</h4>
+<h4>Change Your Display Language</h4>
+<ol>
+<li>Go to&#160;<strong>Settings &#8594; Preferences &#8594; Language & Time &#8594; Language</strong></li>
+<li>Choose from:</li>
+</ol>
+<ul>
+<li>English, Korean, Japanese, French, German, Spanish (Spain & LATAM), Portuguese (Brazil), Simplified/Traditional Chinese, Dutch, Norwegian, Swedish, Danish (Beta), Finnish</li>
+</ul>
+<h4>Start Your Calendar Week on Monday</h4>
+<ol>
+<li>Go to&#160;<strong>Settings &#8594; Preferences &#8594; Language & Time</strong></li>
+<li>Toggle&#160;<strong>Start week on Monday</strong></li>
+</ol>
+<h4>Change Your Time Zone</h4>
+<ol>
+<li>Go to&#160;<strong>Settings &#8594; Preferences &#8594; Language & Time</strong></li>
+<li>Manually set or enable&#160;<strong>Auto update time zone</strong></li>
+</ol>
+<h3>Desktop App Preferences</h3>
+<h4>On Startup</h4>
+<p>Set what appears when the app opens:</p>
+<ul>
+<li>Continue where you left off</li>
+<li>Default page</li>
+</ul>
+<h4>Command Search & Menu Bar</h4>
+<p>Enable Command Search to launch Notion from anywhere:</p>
+<ul>
+<li>Show in&#160;<strong>Menu Bar</strong></li>
+<li>Customize&#160;<strong>keyboard shortcuts</strong></li>
+</ul>
+<h4>New Tab Behavior</h4>
+<ul>
+<li>Toggle&#160;<strong>Open Search when creating new tab</strong></li>
+<li>Choose whether to show&#160;<strong>default page</strong>&#160;instead</li>
+</ul>
+<h4>Notion Link Behavior</h4>
+<ul>
+<li>Toggle&#160;<strong>Open Notion links in browser</strong></li>
+<li>Or allow web links to&#160;<strong>redirect to the desktop app</strong></li>
+</ul>
+<h4>Open Links in Desktop App</h4>
+<p>Want Notion links from your browser to open in the app?</p>
+<ol>
+<li>Go to&#160;<strong>Settings &#8594; Preferences</strong></li>
+<li>Toggle&#160;<strong>Open links in desktop app</strong></li>
+<li>In your desktop app, make sure&#160;<strong>Open links in browser</strong>&#160;is turned&#160;<strong>off</strong></li>
+</ol>
+<p>If it's not working:</p>
+<ul>
+<li>Open the link in browser &#8594; Click&#160;<code>&#8226;</code>&#160;&#8594;&#160;<strong>Open in Mac app</strong></li>
+</ul>
+<h3>Privacy & Analytics</h3>
+<h4>View History</h4>
+<p>To opt out of analytics:</p>
+<ol>
+<li>Go to&#160;<strong>Settings &#8594; Preferences &#8594; Privacy</strong></li>
+<li>Under&#160;<strong>Show my view history</strong>, select&#160;<strong>Don't record</strong></li>
+</ol>
+<h4>Profile Discoverability</h4>
+<p>Control if others can find your profile using your email:</p>
+<ol>
+<li>Go to&#160;<strong>Settings &#8594; Preferences &#8594; Privacy</strong></li>
+<li>Toggle&#160;<strong>Profile discoverability</strong>&#160;on/off</li>
+</ol>
+<h3>Delete Your Notion Account</h3>
+<p>If you no longer wish to use Notion, you can permanently delete your account, but make sure you understand the consequences first.</p>
+<h4>What Happens When You Delete Your Account</h4>
+<p>Deleting your Notion account is permanent and affects all associated content and workspaces.</p>
+<p>Here&#8217;s what happens:</p>
+<ul>
+<li>All private workspaces where you're the only member will be permanently deleted</li>
+<li>Shared workspaces where you're the only admin will also be deleted for everyone</li>
+<li>Deleted workspaces are inaccessible to all members, not just you</li>
+<li>You'll be removed from any shared workspaces you were a part of</li>
+<li>You&#8217;ll lose access to all your pages, even personal and private ones</li>
+<li>A warning message will show which workspaces will be affected before you confirm</li>
+</ul>
+<div class="guide-callout"><span class="callout-icon">&#128161;</span><p>Tip: Before deleting your account, export any important data you want to keep.</p></div>
+<h4>How to Delete Your Account</h4>
+<ol>
+<li>Go to&#160;<strong>Settings &#8594; [Your Name]</strong></li>
+<li>Scroll down and click&#160;<strong>Delete my account</strong></li>
+<li>A pop-up will display affected workspaces</li>
+<li>To confirm, enter your account email</li>
+<li>Click&#160;<strong>Permanently delete account and {#} workspaces</strong></li>
+</ol>
+<h2 id="notion-ai">Notion AI</h2>
+<p>Notion AI is integrated into your workspace, helping you search, write, summarize, brainstorm, translate, and take action, all without switching apps.</p>
+<p>It&#8217;s useful for managing projects, reviewing docs, or exploring ideas, as it works alongside your notes, databases, and collaborators to speed up your work.</p>
+<h3>Where to Find Notion AI</h3>
+<p>You can access Notion AI from multiple points across your workspace:</p>
+<ul>
+<li>The&#160;<strong>Notion AI icon</strong>&#160;in the bottom corner of any page</li>
+<li>The&#160;<strong>Notion AI chat</strong>&#160;from your sidebar</li>
+</ul>
+<p><strong>Inline</strong>, by:</p>
+<ul>
+<li>Hitting space in a new block</li>
+<li>Clicking&#160;<code>&#8942;&#8942;</code>&#160;on any block &#8594;&#160;<strong>Ask AI</strong></li>
+<li>Highlighting text and selecting&#160;<strong>Ask AI</strong></li>
+</ul>
+<h3>Notion AI Shortcuts</h3>
+<p><strong>Desktop shortcut:</strong>&#160;<code>Shift + Cmd/Ctrl + J</code>&#160;(customizable via&#160;<strong>Settings &#8594; Preferences</strong>)</p>
+<p><strong>iOS access:</strong></p>
+<ul>
+<li>Ask Siri to open Notion AI</li>
+<li>Use Spotlight or the Shortcuts app</li>
+<li>Add Notion AI to your home screen</li>
+<li>On iPhone 15 Pro: assign to the Action Button</li>
+</ul>
+<h3>What Notion AI Can Do</h3>
+<h4>Find Answers</h4>
+<p>Ask Notion AI questions and get responses based on:</p>
+<ul>
+<li>World knowledge</li>
+<li>Pages in your workspace (that you have access to)</li>
+<li>Connected tools like Slack and Google Drive (via AI connectors)</li>
+</ul>
+<h4>Take Actions on Pages</h4>
+<p>Notion AI can suggest and run useful actions:</p>
+<ul>
+<li>Extract action items</li>
+<li>Summarize a meeting</li>
+<li>Draft an agenda</li>
+<li>Ask questions based on current page content</li>
+</ul>
+<h4>Analyze Uploaded Files & Images</h4>
+<p>Upload a PDF, PNG, or JPEG to your AI chat and ask questions like:</p>
+<p>&#8220;What are the key action items from this document?&#8221;</p>
+<ul>
+<li>Free Plan: PDFs/images under 5MB</li>
+<li>Paid/AI plans: PDFs up to 20MB, images up to 5MB</li>
+</ul>
+<div class="guide-callout"><span class="callout-icon">&#128204;</span><p>Note: Files/images must be uploaded directly into the chat &#8212; AI can't read media embedded in pages.</p></div>
+<h4>Create & Edit Content</h4>
+<p>Use Notion AI to:</p>
+<ul>
+<li>Write outlines, drafts, summaries</li>
+<li>Edit grammar, tone, length</li>
+<li>Translate content</li>
+<li>Build databases based on a prompt.</li>
+</ul>
+<h4>Autofill</h4>
+<p>Notion AI Autofill can:</p>
+<ul>
+<li>Generate summaries</li>
+<li>Translate content</li>
+<li>Draft action items directly into database properties</li>
+</ul>
+<p>Great for keeping project trackers or content databases automatically up to date.</p>
+<h4>Notion AI Pricing</h4>
+<ul>
+<li><strong>Included</strong> in the Business and Enterprise plans (the separate add-on was retired in 2025)</li>
+<li><strong>Free and Plus</strong> plans include a limited AI trial</li>
+<li><strong>Custom Agents</strong>: free to try, then $10 per 1,000 monthly Notion credits</li>
+</ul>
+<p><strong>How to get full AI access:</strong></p>
+<ul>
+<li>Go to&#160;<strong>Settings &#8594; Upgrade Plan / Explore Plans</strong></li>
+<li>Upgrade to the <strong>Business</strong> plan</li>
+</ul>
+<div class="guide-promo">&#128640; <strong>Get 3 months of Notion Business FREE</strong> (AI included). Everything in this guide runs even better with Business-tier features. <a href="https://affiliate.notion.so/0x8u16p4sff1" target="_blank" rel="noopener noreferrer">Claim your trial &#8594;</a> <span color="gray"><em>(affiliate link)</em></span></div>
+<h2 id="notion-calendar">Notion Calendar</h2>
+<img class="guide-img" src="https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fd01e08bb7131b80a8_681b23e0feae178e13f36062_cleanshot_2025_05_07_at_10_29_27_2x_1_2x.webp" alt="Ultimate Notion Guide: Beginner to Pro screenshot" loading="lazy">
+<p>Notion Calendar (formerly Cron) offers an integrated calendar experience. You can connect multiple calendar accounts, manage events alongside tasks, and view your schedule directly inside Notion.</p>
+<h3>Manage Your Calendars</h3>
+<p>You can connect multiple calendars to Notion Calendar. Connected accounts and their calendars are listed in the left sidebar of Notion Calendar. You can collapse accounts, reorder them, and reorder calendars within them.</p>
+<h3>Add a calendar</h3>
+<p>To add a calendar to Notion Calendar:</p>
+<ol>
+<li>Go to&#160;<strong><code>Settings</code></strong>&#160;&#8594;&#160;<strong><code>Calendars</code></strong>.</li>
+<li>Select&#160;<strong><code>Connect</code></strong>&#160;next to the type of calendar you want to add.</li>
+</ol>
+<h3>Remove a calendar</h3>
+<p>You can remove any calendar from Notion Calendar. To do this, go to&#160;<strong>Settings</strong>&#160;&#8594;&#160;<strong>Calendars</strong>. Next to the calendar you want to remove, select&#160;<strong>Disconnect</strong>.</p>
+<h3>Set a default calendar</h3>
+<p>Notion Calendar defaults to a calendar when you create new events.</p>
+<p>To set a default calendar, go to&#160;<strong>Settings</strong>&#160;&#8594;&#160;<strong>Calendars</strong>&#160;&#8594;&#160;<strong>Default calendar</strong>&#160;and pick the calendar you want to set as your default, this can be a Notion database.</p>
+<h3>Hide a calendar</h3>
+<p>If you want to hide a calendar, select&#160;<strong>&#128065;&#65039;</strong>&#160;next to its name. This will take all events on that calendar away from view and the icon will have a strikethrough. To show a calendar, select&#160;<strong>&#128065;&#65039;</strong>&#160;again.</p>
+<h3>Change a calendar's color or name</h3>
+<p>On desktop or web, select a calendar, then enter a new name or select a new color.</p>
+<h3>Getting More Out of Notion Calendar</h3>
+<p>Notion Calendar covers scheduling and basic time blocking within the Notion ecosystem. For intelligent planning, task-centric structure, and deep work support,&#160;<a href="http://AnthonyToday.com" target="_blank" rel="noopener noreferrer">AnthonyToday.com</a> is where my templates and consulting come in.</p>
+<p><em>Check out </em><a href="https://www.notion.com/@anthonytoday" target="_blank" rel="noopener noreferrer"><em>my Marketplace templates</em></a><em> for ready-to-use planning and deep work systems.</em></p>
+<table class="guide-table"> <tr> <th><strong>Area</strong></th> <th><strong>Notion Calendar</strong></th> <th><strong>How My System Helps</strong></th> </tr> <tr> <td><strong>Task Management</strong></td> <td>Lacks built-in task prioritization, energy tagging, or recurring task logic</td> <td>My templates add priority, energy, and deadline properties with views that surface the right task at the right time</td> </tr> <tr> <td><strong>Smart Planning / AI</strong></td> <td>No intelligent scheduling or daily planning suggestions</td> <td>Daily planning dashboards built on filtered views that adapt to your energy and focus levels</td> </tr> <tr> <td><strong>Cross-tool Task Integration</strong></td> <td>Limited task integrations beyond Notion and Google Calendar</td> <td>I consolidate scattered task tools into one Notion system with a single source of truth</td> </tr> <tr> <td><strong>Time Blocking</strong></td> <td>Manual time blocking only; no smart suggestions or batch planning</td> <td>My time blocking setup maps tasks to calendar slots for high-impact deep work</td> </tr> <tr> <td><strong>Multi-calendar Control</strong></td> <td>Supports Google, iCloud, and Outlook accounts with basic controls</td> <td>Guidance to connect and organize all your calendar accounts cleanly</td> </tr> <tr> <td><strong>Focus Mode</strong></td> <td>No focused execution view or dedicated task + calendar overlay</td> <td>Focus dashboards that combine today's tasks and schedule in one minimal view</td> </tr> <tr> <td><strong>Desktop Experience</strong></td> <td>Clean but limited; designed as a minimalist calendar</td> <td>A workspace structure that turns Notion into your planning and execution hub</td> </tr> </table>
+<h3>Manage your events</h3>
+<h4>Create events</h4>
+<p>To create an event in Notion Calendar, select a time slot in your calendar, then enter details for your event. If you want to create a focus, out of office, or birthday event, open the dropdown next to&#160;<strong><code>Event</code></strong>&#160;and choose your desired event type. To add participants and rooms, select&#160;<strong><code>Participants and Rooms</code></strong>&#160;and click on the relevant people and rooms. Once you&#8217;re done, select&#160;<strong><code>Send invite</code></strong>&#160;to notify invitees.</p>
+<p>If you&#8217;re on mobile, select&#160;<strong><code>+</code></strong>&#160;at the bottom right of the app, then enter details for your event. To finish, select&#160;<strong><code>Done</code></strong>, or&#160;<strong><code>Send invite</code></strong>&#160;if you&#8217;ve added other participants.</p>
+<p><strong>Create multiple-day events with start and end times</strong></p>
+<p>To create multiple-day events with time details, select a time slot in your calendar, then drag it across the days the event will span. Once the event is created, you can enter start and end times for it.</p>
+<div class="guide-callout"><span class="callout-icon">&#128161;</span><p>Tip: You can use headers, hyperlinks, numbered and bulleted lists, and more in your event description.</p></div>
+<h4>Change your status and event privacy</h4>
+<ol>
+<li>Select an event.</li>
+<li>In the right context panel, show your status as&#160;<strong><code>Busy</code></strong>&#160;or&#160;<strong><code>Free</code></strong>.</li>
+<li>You can also make your event&#8217;s details visible to others by making them&#160;<strong><code>Public</code></strong>, or only to yourself and other participants by making them&#160;<strong><code>Private</code></strong>.</li>
+</ol>
+<h4>Change your event type</h4>
+<p>In Notion Calendar, there are different kinds of events:&#160;<strong><code>Event</code></strong>,&#160;<strong><code>Focus time</code></strong>,&#160;<strong><code>Out of office</code></strong>, and&#160;<strong><code>Birthday</code></strong>.</p>
+<p>When you&#8217;re creating a new event and that event&#8217;s name contains the word "birthday", Notion Calendar will automatically make that event a&#160;<strong><code>Birthday</code></strong>&#160;event. The event will become an all-day event that repeats every year.</p>
+<h4>Email participants</h4>
+<p>Select an event, then select&#160;<strong><code>&#8226;&#8226;&#8226;</code></strong>&#160;at the top right of the right context panel &#8594;&#160;<strong><code>Email participants</code></strong>. This will open a mailto: link.</p>
+<p>On Mac, this defaults to the Mail app. To change this:</p>
+<ul>
+<li>Open the Mail app.</li>
+<li>Go to&#160;<strong><code>Settings...</code></strong>.</li>
+<li>Open the dropdown next to&#160;<strong><code>Default email reader</code></strong>&#160;and select your preferred email.</li>
+</ul>
+<h4>Move an event to a different calendar</h4>
+<p>Because Notion Calendar brings all of your commitments together in one place, it&#8217;s easy to move an event from one calendar to another. To do this:</p>
+<ul>
+<li>Select an event.</li>
+<li>In the right context panel, click on the name of the current calendar</li>
+<li>In the dropdown, select a new calendar for the event.</li>
+</ul>
+<h4>Bulk edit events</h4>
+<p>You can take action on multiple events at a time. These include changing their color or blocking them on another calendar. To do this:</p>
+<ul>
+<li>Hold&#160;<strong><code>shift</code></strong>&#160;while using Notion Calendar on desktop or web, then select multiple events.</li>
+<li>Right-click, then select the action you want to take.</li>
+</ul>
+<p>You can also shift multiple events over on your calendar. To do this:</p>
+<ul>
+<li>Hold&#160;<strong><code>shift</code></strong>&#160;while using Notion Calendar on desktop or web, then select multiple events.</li>
+<li>Drag the events to their desired time slots. They&#8217;ll all move together.</li>
+</ul>
+<h4>Delete an event</h4>
+<p>There are a few ways to delete an event in Notion Calendar:</p>
+<ul>
+<li>Right-click the event and select&#160;<strong><code>Delete</code></strong>.</li>
+<li>Select an event and press&#160;<strong><code>delete</code></strong>&#160;on your keyboard.</li>
+<li>On mobile, tap an event, then select&#160;<strong><code>&#8226;</code></strong>&#160;&#8594;&#160;<strong><code>Delete event</code></strong>.</li>
+</ul>
+<p>If you delete an event as a participant, you have the option to leave an RSVP note.</p>
+<h2 id="notion-sites">Notion Sites</h2>
+<p>With Notion Sites, you can transform any Notion page into a shareable, customizable website. Whether you&#8217;re building a portfolio, documentation hub, or company wiki, you can publish pages with just a few clicks. Paid plans include customization options and analytics.</p>
+<h3>What You Can Customize (Paid Plans Only)</h3>
+<p>Users on a <a href="https://affiliate.notion.so/0x8u16p4sff1" target="_blank" rel="noopener noreferrer">Plus, Business, or Enterprise plan</a> can:</p>
+<ul>
+<li>Add a custom favicon (site browser icon)</li>
+<li>Set a page theme (Light, Dark, or System)</li>
+<li>Modify the navigation bar and header</li>
+<li>Create a custom share preview for social links</li>
+<li>Integrate with Google Analytics</li>
+<li>Hide the Notion watermark (with a custom domain)</li>
+</ul>
+<p>For a custom domain you&#8217;ll need the Notion custom domain add-on.</p>
+<h4>Customize Share Previews</h4>
+<p>Control how your site appears in link previews (e.g., on social media):</p>
+<ol>
+<li>Open the published Notion page &#8594; click&#160;<strong>Share</strong>&#160;&#8594;&#160;<strong>Publish</strong></li>
+<li>Click&#160;<strong>Site customization</strong></li>
+<li>Under&#160;<strong>Share preview</strong>, hover over the preview and select&#160;<strong>Upload image</strong></li>
+<li>Click&#160;<strong>Publish changes</strong>&#160;to update</li>
+</ol>
+<h4>Set a Site Theme</h4>
+<p>Match your site&#8217;s theme with your content or brand:</p>
+<ol>
+<li>Go to&#160;<strong>Share &#8594; Publish &#8594; Site customization</strong></li>
+</ol>
+<p>2.Under&#160;<strong>Theme</strong>, select:</p>
+<ul>
+<li><strong>System</strong>&#160;(match user&#8217;s OS)</li>
+<li><strong>Light</strong></li>
+<li><strong>Dark</strong></li>
+</ul>
+<ol>
+<li>Click&#160;<strong>Publish changes</strong></li>
+</ol>
+<h4>Customize Your Favicon</h4>
+<p>To update the small icon that appears in browser tabs:</p>
+<p><strong>1. Share &#8594; Publish &#8594; Site customization</strong></p>
+<ol>
+<li>Under&#160;<strong>Favicon</strong>, choose:</li>
+</ol>
+<ul>
+<li><strong>Page icon</strong>&#160;(your existing Notion icon), or</li>
+<li><strong>Upload image</strong>&#160;(custom .png or .ico file)</li>
+</ul>
+<ol>
+<li>Click&#160;<strong>Publish changes</strong></li>
+</ol>
+<h4>Customize Your Site Header</h4>
+<p>Your site header appears at the top of every page and helps with navigation and branding.</p>
+<p>To customize:</p>
+<p><strong>1. Share &#8594; Publish &#8594; Site customization &#8594; Header</strong></p>
+<p>Here, you can:</p>
+<p><strong>Toggle on/off:</strong></p>
+<ul>
+<li><strong>Breadcrumbs</strong>&#160;(shows the page hierarchy)</li>
+<li><strong>Search</strong>&#160;(adds a search bar for visitors)</li>
+<li><strong>Duplicate as template</strong>&#160;(lets others copy your site as a Notion page)</li>
+<li><strong>Notion watermark</strong>&#160;(removable only with custom domain)</li>
+</ul>
+<p><strong>Add Navigation Links:</strong></p>
+<ul>
+<li>Under&#160;<strong>Navigation</strong>, click&#160;<strong>Add page</strong>&#160;to link other pages in your workspace</li>
+</ul>
+<p><strong>2. Click Publish changes</strong></p>
+<h4>Connect Google Analytics</h4>
+<p>Track visitor behavior and site performance with Notion&#8217;s built-in Google Analytics integration.</p>
+<p>Steps:</p>
+<p><strong>1. Share &#8594; Publish &#8594; Site customization</strong></p>
+<ol>
+<li>Click&#160;<strong>Google Analytics</strong></li>
+<li>Paste your&#160;<strong>Measurement ID</strong></li>
+<li>Click&#160;<strong>Publish changes</strong></li>
+</ol>
+<h4>Free Plan Users vs Paid Plan Users</h4>
+<table class="guide-table"> <tr> <th><strong>Feature</strong></th> <th><strong>Free Plan</strong></th> <th><strong>Paid Plans</strong></th> </tr> <tr> <td><strong>Publish pages as sites</strong></td> <td><strong>&#10003;</strong></td> <td><strong>&#10003;</strong></td> </tr> <tr> <td><strong>Set favicon</strong></td> <td>&#8212;</td> <td><strong>&#10003;</strong></td> </tr> <tr> <td><strong>Change share preview</strong></td> <td>&#8212;</td> <td><strong>&#10003;</strong></td> </tr> <tr> <td><strong>Customize navigation bar</strong></td> <td>&#8212;</td> <td><strong>&#10003;</strong></td> </tr> <tr> <td><strong>Google Analytics integration</strong></td> <td>&#8212;</td> <td><strong>&#10003;</strong></td> </tr> <tr> <td><strong>Use custom domains</strong></td> <td>&#8212;</td> <td><strong>&#10003;</strong>&#160;(Add-on)</td> </tr> <tr> <td><strong>Hide Notion watermark</strong></td> <td>&#8212;</td> <td><strong>&#10003;</strong>&#160;(with domain)</td> </tr> </table>
+<h2 id="marketplace">Marketplace</h2>
+<p>The Notion Marketplace is your trusted destination for free and paid templates made by verified creators. These templates range from content calendars to productivity, project planning, communities, and personal finance. Paid templates can be refunded within 14 days of purchase.</p>
+<h3>Find Templates</h3>
+<p>Access the Marketplace from your Notion sidebar:</p>
+<p><strong>Go to &#8594; Templates</strong></p>
+<p>Explore templates by:</p>
+<ul>
+<li><strong>Category</strong>: Work, Life, or School</li>
+<li><strong>Search</strong>: Use the top search bar to find something specific</li>
+<li><strong>Curation</strong>: Browse by most used, trending, or new additions</li>
+</ul>
+<p>Each listing displays:</p>
+<ul>
+<li>Template cost (Free or $)</li>
+<li>Creator name</li>
+<li>Description & use case</li>
+<li>Notion features used (e.g., buttons, databases)</li>
+<li>Number of times added</li>
+<li>Date of last update</li>
+<li>Ratings & reviews</li>
+</ul>
+<h3>Add a Template</h3>
+<h4>Free templates</h4>
+<p>Click&#160;<strong>Add</strong>&#160;to instantly duplicate the template to your workspace.</p>
+<p><strong>&#127873; Tip:</strong>&#160;Explore my ready-to-use templates on the <a href="https://www.notion.com/@anthonytoday" target="_blank" rel="noopener noreferrer">Notion Marketplace</a> to map out your tasks and projects and get a working system in minutes.</p>
+<h4>Paid templates</h4>
+<p>Click&#160;<strong>Buy for ${price}</strong>&#160;and follow these steps:</p>
+<ol>
+<li>Select where to duplicate the template (Private or Teamspace)</li>
+<li>Enter payment info (USD only, credit cards only)</li>
+<li>Optionally apply a coupon</li>
+<li>Accept Notion&#8217;s terms & 14-day refund policy</li>
+<li>Grant email access if requested by creator (optional)</li>
+<li>Click&#160;<strong>Buy</strong></li>
+</ol>
+<h3>Manage Your Templates</h3>
+<p>To view templates you've added or purchased:</p>
+<ol>
+<li>Open&#160;<strong>Templates</strong>&#160;from your sidebar</li>
+<li>Click&#160;<strong>Added</strong>&#160;at the top</li>
+</ol>
+<p>You&#8217;ll see:</p>
+<ul>
+<li>A full list of added templates</li>
+<li>Who added each one</li>
+<li>Price paid (if applicable)</li>
+<li>Purchase date</li>
+</ul>
+<h3>Review or Contact a Creator</h3>
+<p><strong>Leave a review:</strong></p>
+<ul>
+<li>Click&#160;<strong>&#8226;</strong>&#160;next to a template in the Added list</li>
+<li>Select&#160;<strong>Leave a review</strong></li>
+<li>Follow the prompt (must be respectful and relevant)</li>
+</ul>
+<p><strong>Contact the creator:</strong></p>
+<ul>
+<li>Click&#160;<strong>&#8226;</strong>&#160;&#8594;&#160;<strong>Contact creator</strong></li>
+</ul>
+<h2 id="wrapping-up">Wrapping up</h2>
+<p>By now you&#8217;ve mastered the basics like pages, blocks, and templates, and gradually explored databases, automations, and integrations. The key is to start simple, build intentionally, and evolve your workspace as your workflow becomes more sophisticated.</p>
+<p>Recommended setup:</p>
+<ul>
+<li>Slack for turning messages into Notion tasks.</li>
+<li><a href="http://AnthonyToday.com" target="_blank" rel="noopener noreferrer">AnthonyToday.com</a>&#160;for ready-made templates, workspace audits, and 1:1 consulting when you want a system that works from day one.</li>
+<li>Zapier for integrating external tools.</li>
+<li>Miro for visualizing ideas.</li>
+<li>Github for linking pull requests, and databases to Notion.</li>
+</ul>
+<p>You have the foundation and it's time to start building. The best system is the one that supports your thinking, not one that slows you down.</p>
+<div class="guide-promo">&#128640; <strong>Get 3 months of Notion Business FREE</strong> (AI included). Everything in this guide runs even better with Business-tier features. <a href="https://affiliate.notion.so/0x8u16p4sff1" target="_blank" rel="noopener noreferrer">Claim your trial &#8594;</a> <span color="gray"><em>(affiliate link)</em></span></div></div>
+
+</div><!-- /guide-layout -->
+
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <h2>Ready to go beyond the basics?</h2>
+  <p>Book a 30-min discovery call and bring me one specific problem in your workspace. We work on it live.</p>
+  <a href="https://cal.com/anthonytoday/consultation" class="cta-button" style="padding:13px 30px;font-size:15px">Book a Discovery Call &#8212; $79</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-main">
+      <div class="footer-section">
+        <h4>Consulting</h4>
+        <a href="https://cal.com/anthonytoday/consultation">Book a Discovery Call ($79)</a>
+        <a href="https://store.anthonytoday.com/l/notion-ops-audit">Notion Ops Audit ($197)</a>
+        <a href="https://www.anthonytoday.com/notion#pricing">Pricing</a>
+        <a href="https://www.anthonytoday.com/notion#services">Services</a>
+      </div>
+      <div class="footer-section">
+        <h4>Products</h4>
+        <a href="https://store.anthonytoday.com">Gumroad Store</a>
+        <a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">Etsy Shop</a>
+        <a href="https://www.notion.com/@anthonytoday">Notion Profile</a>
+        <a href="https://www.anthonytoday.com/tools">Tools</a>
+      </div>
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <p style="margin-bottom:15px">Follow for updates, resources, and new templates.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/anthony-kieffer/" title="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+          <a href="mailto:info@anthonytoday.com" title="Email">@</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Anthony Today. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
