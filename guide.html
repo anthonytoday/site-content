@@ -25,12 +25,13 @@
   /* content wrap */
   .guide-layout{max-width:1120px;margin:0 auto;padding:0 20px;display:flex;gap:48px;align-items:flex-start}
   .guide-wrap{max-width:760px;margin:40px auto 0;padding:0 0 60px;flex:1;min-width:0}
-  .guide-toc{width:230px;flex-shrink:0;position:sticky;top:24px;margin-top:40px;padding:20px;background:var(--light-gray);border:1px solid var(--border);border-radius:10px;max-height:calc(100vh - 48px);overflow-y:auto}
+  .guide-toc{width:230px;flex-shrink:0;position:sticky;top:44px;margin-top:60px;padding:20px;background:var(--light-gray);border:1px solid var(--border);border-radius:10px;max-height:calc(100vh - 68px);overflow-y:auto}
   .guide-toc .toc-label{font-size:11px;font-weight:700;color:var(--text-gray);text-transform:uppercase;letter-spacing:.6px;margin-bottom:12px}
   .guide-toc ul{list-style:none;margin:0;padding:0}
   .guide-toc li{margin-bottom:2px}
   .guide-toc a{display:block;font-size:13px;color:var(--text-gray);padding:6px 8px;border-radius:6px;text-decoration:none;line-height:1.4}
   .guide-toc a:hover{background:var(--white);color:var(--navy);text-decoration:none}
+  .guide-toc a.active{color:var(--navy);font-weight:600;background:var(--white)}
   @media(max-width:980px){
     .guide-layout{flex-direction:column;padding:0}
     .guide-toc{position:static;width:auto;max-width:760px;margin:32px auto 0;max-height:none}
@@ -48,9 +49,11 @@
   .guide-content li strong{color:var(--navy)}
   .guide-img{display:block;max-width:100%;height:auto;border-radius:10px;border:1px solid var(--border);margin:20px 0}
   .guide-table{width:100%;border-collapse:collapse;margin:20px 0 24px;font-size:14px}
-  .guide-table th{background:var(--navy);color:var(--white);text-align:left;padding:10px 14px;font-weight:600}
-  .guide-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-gray);vertical-align:top}
-  .guide-table tr:nth-child(even) td{background:var(--light-gray)}
+  .guide-table th{background:var(--white);color:var(--navy)!important;text-align:left;padding:12px 14px;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.4px;border-bottom:2px solid var(--blue)}
+  .guide-table th strong{color:var(--navy)!important;font-weight:600}
+  .guide-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--navy);vertical-align:top}
+  .guide-table td strong{color:var(--navy)}
+  .guide-table tr:last-child td{border-bottom:none}
   .guide-callout{display:flex;gap:12px;background:#EFF2FF;border:1px solid #C9D4FF;border-radius:8px;padding:16px 18px;margin:20px 0}
   .guide-callout .callout-icon{font-size:18px;flex-shrink:0}
   .guide-callout p{margin:0;color:var(--navy);font-size:14.5px;line-height:1.65}
@@ -122,7 +125,7 @@
 <h2 id="why-use-notion-for-task-management">Why Use Notion for Task Management?</h2>
 <p>Notion allows you to fully customize your task lists, add deadlines, assign priorities, and link tasks to larger projects or resources. You can choose different views, such as kanban boards, calendars, or simple lists, depending on how you like to visualize your work.</p>
 <p>Task management in Notion is especially powerful because you can integrate notes, documents, and workflows alongside your to-dos.</p>
-<p>There&#8217;s a big number of tools that integrate Notion to increase the productivity of your projects. When&#160;<a href="https://www.anthonytoday.com" target="_blank" rel="noopener noreferrer">working with clients</a>, I always find a massive list of to-do&#8217;s, so the ready-made systems on <a href="http://AnthonyToday.com" target="_blank" rel="noopener noreferrer">AnthonyToday.com</a>&#160;help me visualize and prioritize which task to tackle, so I can hit where it matters without spending hours on planning and actually do the work.</p>
+<p>There&#8217;s a big number of tools that integrate Notion to increase the productivity of your projects. When&#160;<a href="https://www.anthonytoday.com/use-case" target="_blank" rel="noopener noreferrer">working with clients</a>, I always find a massive list of to-do&#8217;s, so the ready-made systems on <a href="https://www.anthonytoday.com/notion" target="_blank" rel="noopener noreferrer">AnthonyToday.com</a>&#160;help me visualize and prioritize which task to tackle, so I can hit where it matters without spending hours on planning and actually do the work.</p>
 <h3>Quick Start With Notion</h3>
 <p>First, create a free Notion account online or through the mobile app. Once inside, you'll be introduced to a clean workspace where you can begin creating pages. A page in Notion can be anything, a task list, a journal, a meeting agenda, or even a full project database.</p>
 <p>An easy way to start is by using Notion&#8217;s built-in templates, which offer ready-made layouts for task management, personal goals, project tracking, and more. You can customize the templates by adding text, headings, checklists, images, and other "blocks."</p>
@@ -1066,7 +1069,7 @@
 <h3>Change a calendar's color or name</h3>
 <p>On desktop or web, select a calendar, then enter a new name or select a new color.</p>
 <h3>Getting More Out of Notion Calendar</h3>
-<p>Notion Calendar covers scheduling and basic time blocking within the Notion ecosystem. For intelligent planning, task-centric structure, and deep work support,&#160;<a href="http://AnthonyToday.com" target="_blank" rel="noopener noreferrer">AnthonyToday.com</a> is where my templates and consulting come in.</p>
+<p>Notion Calendar covers scheduling and basic time blocking within the Notion ecosystem. For intelligent planning, task-centric structure, and deep work support,&#160;<a href="https://www.anthonytoday.com/notion" target="_blank" rel="noopener noreferrer">AnthonyToday.com</a> is where my templates and consulting come in.</p>
 <p><em>Check out </em><a href="https://www.notion.com/@anthonytoday" target="_blank" rel="noopener noreferrer"><em>my Marketplace templates</em></a><em> for ready-to-use planning and deep work systems.</em></p>
 <table class="guide-table"> <tr> <th><strong>Area</strong></th> <th><strong>Notion Calendar</strong></th> <th><strong>How My System Helps</strong></th> </tr> <tr> <td><strong>Task Management</strong></td> <td>Lacks built-in task prioritization, energy tagging, or recurring task logic</td> <td>My templates add priority, energy, and deadline properties with views that surface the right task at the right time</td> </tr> <tr> <td><strong>Smart Planning / AI</strong></td> <td>No intelligent scheduling or daily planning suggestions</td> <td>Daily planning dashboards built on filtered views that adapt to your energy and focus levels</td> </tr> <tr> <td><strong>Cross-tool Task Integration</strong></td> <td>Limited task integrations beyond Notion and Google Calendar</td> <td>I consolidate scattered task tools into one Notion system with a single source of truth</td> </tr> <tr> <td><strong>Time Blocking</strong></td> <td>Manual time blocking only; no smart suggestions or batch planning</td> <td>My time blocking setup maps tasks to calendar slots for high-impact deep work</td> </tr> <tr> <td><strong>Multi-calendar Control</strong></td> <td>Supports Google, iCloud, and Outlook accounts with basic controls</td> <td>Guidance to connect and organize all your calendar accounts cleanly</td> </tr> <tr> <td><strong>Focus Mode</strong></td> <td>No focused execution view or dedicated task + calendar overlay</td> <td>Focus dashboards that combine today's tasks and schedule in one minimal view</td> </tr> <tr> <td><strong>Desktop Experience</strong></td> <td>Clean but limited; designed as a minimalist calendar</td> <td>A workspace structure that turns Notion into your planning and execution hub</td> </tr> </table>
 <h3>Manage your events</h3>
@@ -1259,7 +1262,7 @@
 <p>Recommended setup:</p>
 <ul>
 <li>Slack for turning messages into Notion tasks.</li>
-<li><a href="http://AnthonyToday.com" target="_blank" rel="noopener noreferrer">AnthonyToday.com</a>&#160;for ready-made templates, workspace audits, and 1:1 consulting when you want a system that works from day one.</li>
+<li><a href="https://www.anthonytoday.com/notion" target="_blank" rel="noopener noreferrer">AnthonyToday.com</a>&#160;for ready-made templates, workspace audits, and 1:1 consulting when you want a system that works from day one.</li>
 <li>Zapier for integrating external tools.</li>
 <li>Miro for visualizing ideas.</li>
 <li>Github for linking pull requests, and databases to Notion.</li>
@@ -1268,6 +1271,23 @@
 <div class="guide-promo">&#128640; <strong>Get 3 months of Notion Business FREE</strong> (AI included). Everything in this guide runs even better with Business-tier features. <a href="https://affiliate.notion.so/0x8u16p4sff1" target="_blank" rel="noopener noreferrer">Claim your trial &#8594;</a> <span color="gray"><em>(affiliate link)</em></span></div></div>
 
 </div><!-- /guide-layout -->
+
+<script data-injected="true">
+(function(){
+  var links=Array.prototype.slice.call(document.querySelectorAll('.guide-toc a'));
+  var sections=links.map(function(l){return document.getElementById(l.getAttribute('href').slice(1));}).filter(Boolean);
+  if(!sections.length) return;
+  function setActive(id){
+    links.forEach(function(l){l.classList.toggle('active', l.getAttribute('href')==='#'+id);});
+  }
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ setActive(entry.target.id); }
+    });
+  }, {rootMargin:'-15% 0px -70% 0px', threshold:0});
+  sections.forEach(function(s){observer.observe(s);});
+})();
+</script>
 
 <!-- FINAL CTA -->
 <section class="cta-section">
