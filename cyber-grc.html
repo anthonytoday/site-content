@@ -25,7 +25,7 @@
   .role-card h3{font-size:16px;font-weight:600;color:var(--navy);margin:0}
   .role-card p{font-size:14px;color:var(--text-gray);line-height:1.65}
 
-  .example-section{border-top:1px solid var(--border);padding-top:56px}
+  .example-section{padding-top:56px;padding-bottom:56px}
   .example-tag{font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.6px;margin-bottom:14px;display:block}
   .example-section h3{font-size:23px;font-weight:600;color:var(--navy);margin-bottom:16px;line-height:1.35;max-width:760px}
   .example-section>p.example-narrative{font-size:16px;color:var(--text-gray);line-height:1.8;margin-bottom:14px;max-width:720px}
@@ -41,8 +41,9 @@
   .scope-row dt{font-size:14.5px;font-weight:600;color:var(--navy)}
   .scope-row dd{font-size:14.5px;color:var(--text-gray);line-height:1.65}
 
-  .meta-row{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-  .meta-item .meta-label{display:block;font-size:12px;color:var(--text-gray);text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px}
+  .meta-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .meta-item{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:22px 20px;text-align:center}
+  .meta-item .meta-label{display:block;font-size:12px;color:var(--text-gray);text-transform:uppercase;letter-spacing:.4px;margin-bottom:10px}
   .meta-item .meta-value{display:block;font-size:16px;font-weight:600;color:var(--navy);line-height:1.4}
 
   .outcome-line{font-size:15.5px;color:var(--navy);line-height:1.8;max-width:760px}
@@ -86,14 +87,21 @@
     .role-grid{grid-template-columns:1fr}
     .example-band{padding:30px 22px}
   }
+
+  .section-band{width:100%}
+  .section-band.bg-white{background:var(--white)}
+  .section-band.bg-light{background:var(--light-gray)}
 </style>
 
+<div class="section-band bg-white">
 <section class="grc-hero">
   <span class="grc-tag">Independent GRC Advisor</span>
   <h1>A defined scope, a defined timeline, and a security framework your board and your customers can rely on.</h1>
   <p>Project-based governance, risk, and compliance advisory for organizations that have a specific gap to close, not a headcount to add. Every engagement is scoped, timelined, and handed off with the framework still standing after I leave.</p>
 </section>
+</div>
 
+<div class="section-band bg-white">
 <section class="grc-section">
   <div class="grc-sec-head">
     <h2>Roles and responsibilities in a typical engagement</h2>
@@ -158,7 +166,9 @@
     </div>
   </div>
 </section>
+</div>
 
+<div class="section-band bg-light">
 <section class="grc-section example-section">
   <span class="example-tag">Example engagement</span>
   <h3>A professional services firm needed ISO 27001-aligned controls to qualify for a major RFP.</h3>
@@ -187,7 +197,9 @@
   <p class="outcome-line"><strong>Before:</strong> no documented ISMS, informal practices, no risk register.<span class="outcome-arrow-inline">→</span><strong>After:</strong> RFP-ready evidence pack with ISO 27001-aligned controls, ratified policies, and a named risk owner.</p>
   <p class="example-close">The firm submitted its RFP response with a completed security section and passed the customer's follow-up review without a single open finding. The framework and the internally trained owner stayed in place after the engagement closed.</p>
 </section>
+</div>
 
+<div class="section-band bg-white">
 <section class="grc-section">
   <div class="grc-sec-head">
     <h2>Why an independent advisor, not a firm</h2>
@@ -216,6 +228,7 @@
     </div>
   </div>
 </section>
+</div>
 
 <div class="grc-cta">
   <h2>Scope your engagement</h2>
