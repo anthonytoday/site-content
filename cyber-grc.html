@@ -20,8 +20,9 @@
 
   .role-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
   .role-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:26px 24px}
-  .role-card .role-num{display:inline-block;font-size:12px;font-weight:700;color:var(--blue);background:#EFF2FF;border-radius:20px;padding:3px 10px;margin-bottom:12px}
-  .role-card h3{font-size:16px;font-weight:600;color:var(--navy);margin-bottom:8px}
+  .role-card .role-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .role-card .role-num{display:inline-flex;align-items:center;flex-shrink:0;font-size:12px;font-weight:700;color:var(--blue);background:#EFF2FF;border-radius:20px;padding:3px 10px;line-height:1}
+  .role-card h3{font-size:16px;font-weight:600;color:var(--navy);margin:0}
   .role-card p{font-size:14px;color:var(--text-gray);line-height:1.65}
 
   .example-band{background:var(--light-gray);border-radius:14px;padding:44px 40px;margin-top:10px}
@@ -91,43 +92,59 @@
   </div>
   <div class="role-grid">
     <div class="role-card">
-      <span class="role-num">01</span>
-      <h3>Framework design and gap assessment</h3>
+      <div class="role-head">
+        <span class="role-num">01</span>
+        <h3>Framework Design And Gap Assessment</h3>
+      </div>
       <p>Map your current controls against the NIST CSF (or the framework your regulator or customers expect), and produce a prioritized list of what's missing.</p>
     </div>
     <div class="role-card">
-      <span class="role-num">02</span>
-      <h3>Policy and standards authoring</h3>
+      <div class="role-head">
+        <span class="role-num">02</span>
+        <h3>Policy And Standards Authoring</h3>
+      </div>
       <p>Write the policies, standards, and procedures that turn the framework into daily practice, sized to your organization rather than copied from a template library.</p>
     </div>
     <div class="role-card">
-      <span class="role-num">03</span>
-      <h3>Risk assessment and risk register</h3>
+      <div class="role-head">
+        <span class="role-num">03</span>
+        <h3>Risk Assessment And Risk Register</h3>
+      </div>
       <p>Identify, rate, and document risk in a register your leadership can actually read and act on, with a treatment plan for anything above your risk appetite.</p>
     </div>
     <div class="role-card">
-      <span class="role-num">04</span>
-      <h3>Audit and regulatory exam readiness</h3>
+      <div class="role-head">
+        <span class="role-num">04</span>
+        <h3>Audit And Regulatory Exam Readiness</h3>
+      </div>
       <p>Prepare evidence, close known findings, and represent the organization through the review itself, whether that's a customer audit, a certification body, or a regulator.</p>
     </div>
     <div class="role-card">
-      <span class="role-num">05</span>
-      <h3>Third-party and vendor risk</h3>
+      <div class="role-head">
+        <span class="role-num">05</span>
+        <h3>Third-Party And Vendor Risk</h3>
+      </div>
       <p>Build the process that tiers vendors by data sensitivity and reviews them on a cadence, so the partners that extend your attack surface don't extend your exposure unmanaged.</p>
     </div>
     <div class="role-card">
-      <span class="role-num">06</span>
-      <h3>Remediation roadmap and delivery</h3>
+      <div class="role-head">
+        <span class="role-num">06</span>
+        <h3>Remediation Roadmap And Delivery</h3>
+      </div>
       <p>Sequence the findings into a roadmap with owners and dates, and drive it to closure rather than handing over a report and leaving the follow-through to you.</p>
     </div>
     <div class="role-card">
-      <span class="role-num">07</span>
-      <h3>Stakeholder and leadership reporting</h3>
+      <div class="role-head">
+        <span class="role-num">07</span>
+        <h3>Stakeholder And Leadership Reporting</h3>
+      </div>
       <p>Translate technical findings into the language your leadership team and your board use, so security becomes a decision they can approve and fund.</p>
     </div>
     <div class="role-card">
-      <span class="role-num">08</span>
-      <h3>Handoff and internal enablement</h3>
+      <div class="role-head">
+        <span class="role-num">08</span>
+        <h3>Handoff And Internal Enablement</h3>
+      </div>
       <p>Document the framework and train whoever owns it internally after the engagement ends, so the program survives without an ongoing retainer.</p>
     </div>
   </div>
