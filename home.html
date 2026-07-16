@@ -17,6 +17,17 @@
   .hero-image img{width:100%;max-width:350px;border-radius:12px;object-fit:cover}
   .cta-button{display:inline-block;background:var(--blue);color:var(--white);padding:14px 40px;border-radius:6px;text-decoration:none;font-weight:500;font-size:15px;transition:background .2s;cursor:pointer;border:none}
   .cta-button:hover{background:var(--blue-dark) !important;color:var(--white) !important;text-decoration:none !important}
+  .pain-section{max-width:1000px;margin:20px auto 80px;padding:60px 20px;background:var(--light-gray);border-radius:12px}
+  .pain-section .eyebrow{text-align:center;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+  .pain-section h2{font-size:28px;margin-bottom:40px;text-align:center;color:var(--navy)}
+  .pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:36px}
+  .pain-item{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:26px 24px;transition:border-color .2s,box-shadow .2s}
+  .pain-item:hover{border-color:#C9D4FF;box-shadow:0 6px 22px rgba(5,28,44,.06)}
+  .pain-item h3{font-size:16px;margin-bottom:10px;color:var(--navy);font-weight:600}
+  .pain-item p{font-size:14px;color:var(--text-gray);line-height:1.7}
+  .pain-close{text-align:center;max-width:640px;margin:0 auto}
+  .pain-close p{font-size:15px;color:var(--navy);font-weight:500;line-height:1.7}
+  .pain-close a{color:var(--blue);font-size:14px;font-weight:500;text-decoration:underline}
   .value-section{max-width:1000px;margin:20px auto 60px;padding:0 20px}
   .value-section .eyebrow{text-align:center;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
   .value-section h2{font-size:28px;margin-bottom:30px;text-align:center;color:var(--navy)}
@@ -55,6 +66,12 @@
   .cred-item .rating{font-size:32px;font-weight:600;margin-bottom:10px;color:var(--blue)}
   .cred-item .rating-text{font-size:14px;color:var(--text-gray);margin-top:5px}
   .cred-item p{color:var(--text-gray);font-size:14px;line-height:1.6}
+  .outcomes-strip{margin-top:50px;border:1px solid var(--border);border-radius:10px;padding:28px 24px;text-align:center;background:var(--light-gray)}
+  .outcomes-strip .strip-label{font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px}
+  .outcomes-strip .strip-items{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 14px;margin-bottom:14px}
+  .outcomes-strip .strip-item{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:8px 16px;font-size:13px;font-weight:500;color:var(--navy)}
+  .outcomes-strip .strip-note{font-size:12px;color:var(--text-gray)}
+  .outcomes-strip .strip-note a{color:var(--blue);text-decoration:underline}
   .templates-section{max-width:1000px;margin:80px auto;padding:0 20px;text-align:center}
   .templates-section .eyebrow{text-align:center;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
   .templates-section h2{font-size:28px;margin-bottom:15px;color:var(--navy)}
@@ -77,12 +94,13 @@
   .footer-section a{display:block;font-size:13px;color:var(--text-gray);text-decoration:none;margin-bottom:8px;transition:color .2s}
   .footer-section a:hover{color:var(--blue)}
   .social-links{display:flex;gap:15px;margin-top:20px}
-  .social-links a{display:inline-block;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--white);text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:16px;transition:background .2s;margin:0}
+  .social-links a{display:inline-block;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--white);text-decoration:none;margin:0;display:flex;align-items:center;justify-content:center;font-size:16px;transition:background .2s}
   .social-links a:hover{background:var(--blue)}
   .footer-bottom{border-top:1px solid var(--border);padding-top:30px;text-align:center;color:var(--text-gray);font-size:13px}
   @media (max-width:768px){
     .hero{grid-template-columns:1fr;padding:40px 20px;gap:30px}
     .hero-content h1{font-size:32px}
+    .pain-grid{grid-template-columns:1fr}
     .process-grid{grid-template-columns:1fr}
     .cta-section h2{font-size:24px}
   }
@@ -95,25 +113,54 @@
 </style>
 <section class="hero">
     <div class="hero-content">
-        <h1>Notion Expert & Cybersecurity Consultant</h1>
-        <p class="subtitle">I help teams and organizations build secure, scalable Notion workspaces, streamline operations, and implement governance frameworks. 15+ years designing enterprise systems.</p>
-        <a href="#booking" class="cta-button">Book a 30-min Discovery Call →</a>
+        <h1>Your operations should run themselves. Right now they run on you.</h1>
+        <p class="subtitle">I turn tangled Notion workspaces and unproven security programs into systems your team runs without you: documented, governed, and safe to grow on. 15+ years securing enterprise systems, one senior operator from first call to handoff.</p>
+        <p class="pricing">Bring one real problem. Leave with a fix or a clear next step.</p>
+        <br>
+        <a href="#booking" class="cta-button">Book a 30-min Discovery Call ($79) →</a>
     </div>
     <div class="hero-image">
         <img src="https://storage.mlcdn.com/account_image/2413563/QwuLqpnjsDbMsN5h0NicXPLrMSTziwdQPMr4WMZh.png" alt="Anthony Today">
     </div>
 </section>
 
+<section class="pain-section">
+    <p class="eyebrow">Sound familiar?</p>
+    <h2>The problems that land on my desk</h2>
+    <div class="pain-grid">
+        <div class="pain-item">
+            <h3>The workspace nobody fully understands anymore</h3>
+            <p>Everyone works in it daily, but relations are broken, formulas are undocumented, and keeping it alive has quietly become someone's second job.</p>
+        </div>
+        <div class="pain-item">
+            <h3>The security questionnaire stalling a deal</h3>
+            <p>An enterprise prospect wants evidence of controls and a named security owner. The contract waits until you can produce both.</p>
+        </div>
+        <div class="pain-item">
+            <h3>Automations that fail silently</h3>
+            <p>A workflow breaks after a small change, and nobody notices until a client does. You find out about failures last instead of first.</p>
+        </div>
+        <div class="pain-item">
+            <h3>Nobody can say who sees what</h3>
+            <p>A new hire opens data they never should have seen. No breach yet, but no way to prove access is under control either.</p>
+        </div>
+    </div>
+    <div class="pain-close">
+        <p>None of these are staffing problems. They are system problems, and system problems can be fixed on a deadline.</p>
+        <p style="margin-top:12px"><a href="https://www.anthonytoday.com/use-case">See how a real engagement fixes them &rarr;</a></p>
+    </div>
+</section>
+
 <section class="booking-section" id="booking">
     <h2>Book Your Discovery Call</h2>
-    <p class="booking-intro">Select a time that works for you. No back-and-forth needed.</p>
+    <p class="booking-intro">A 30-minute call for $79. Not a sales call: bring one real problem and we work on it together, live. Select a time below, no back-and-forth needed.</p>
     <div class="booking-embed">
         <iframe src="https://cal.com/anthonytoday/consultation?embed=1" style="width:100%;height:600px;border:none;border-radius:8px;"></iframe>
     </div>
 </section>
 
 <section class="value-section">
-    <p class="eyebrow">What I offer</p>
+    <p class="eyebrow">What you get</p>
     <h2>Offerings</h2>
     <p style="text-align:center;font-size:14px;color:var(--text-gray);margin:-15px 0 30px">Not sure where to start? See a full engagement from audit to results in the <a href="https://www.anthonytoday.com/use-case" style="color:var(--blue);text-decoration:underline">Use Case</a>.</p>
     <div class="value-grid">
@@ -121,17 +168,18 @@
         <div class="value-category-header">Products</div>
         <div class="value-item">
             <h3>Notion Expertise</h3>
-            <p>Custom workspace design, governance frameworks, and database optimization to scale your operations without cutting corners on control or clarity.</p>
+            <p>Stop maintaining the workspace and start running the business. I rebuild tangled setups into systems your team actually runs on its own: documented, permissioned, and ready for the next ten hires.</p>
             <p style="margin-top:14px"><a href="https://www.anthonytoday.com/notion" style="color:var(--blue);font-size:13px;font-weight:500;text-decoration:underline;white-space:nowrap">See the full Notion service breakdown&nbsp;&rarr;</a></p>
         </div>
         <div class="value-item">
             <h3>Security & Risk</h3>
-            <p>Cybersecurity audits, GRC framework design, and compliance remediation for organizations that need expert guidance on security strategy.</p>
+            <p>Pass the audit. Unblock the enterprise deal. Answer the board. I build the security program your regulators and customers keep asking about, without the cost of a full-time CISO.</p>
             <p style="margin-top:14px"><a href="https://www.anthonytoday.com/cyber" style="color:var(--blue);font-size:13px;font-weight:500;text-decoration:underline;white-space:nowrap">See the full security &amp; risk breakdown&nbsp;&rarr;</a></p>
         </div>
         <div class="value-item">
             <h3>Digital Products</h3>
-            <p>Ready-made Notion templates, flashcard study systems, and resources to get you started immediately without custom consulting.</p>
+            <p>Skip the blank page. Ready-made templates and study systems that give you a working setup today, no consulting engagement required.</p>
+            <p style="margin-top:14px"><a href="#templates" style="color:var(--blue);font-size:13px;font-weight:500;text-decoration:underline;white-space:nowrap">Browse the products&nbsp;&rarr;</a></p>
         </div>
     </div>
 </section>
@@ -142,17 +190,17 @@
         <div class="process-step">
             <div class="step-number">1</div>
             <h3>Gathering Information</h3>
-            <p>We audit your current setup, understand your goals, and identify constraints. Clear picture of where you are and where you want to go.</p>
+            <p>We audit your current setup, understand your goals, and identify constraints. You leave with a clear picture of the problem, even if we never work together.</p>
         </div>
         <div class="process-step">
             <div class="step-number">2</div>
             <h3>Agreeing on Direction</h3>
-            <p>We outline the approach, timeline, and resources needed. Align on what success looks like before we build anything.</p>
+            <p>We outline the approach, timeline, and resources needed. You approve the scope, the price, and what success looks like before anything gets built.</p>
         </div>
         <div class="process-step">
             <div class="step-number">3</div>
             <h3>Delivering Results</h3>
-            <p>Implementation, documentation, and handoff. You own the system and can maintain it with confidence.</p>
+            <p>Implementation, documentation, and handoff. You own the system and can maintain it with confidence, without me on retainer.</p>
         </div>
     </div>
     <div class="engagement-types">
@@ -182,6 +230,16 @@
             <p>Client satisfaction across all platforms and feedback channels</p>
         </div>
     </div>
+    <div class="outcomes-strip">
+        <p class="strip-label">What that looks like for clients</p>
+        <div class="strip-items">
+            <span class="strip-item">$2,880/yr in license cost recovered</span>
+            <span class="strip-item">Access risk High &rarr; Low in 21 days</span>
+            <span class="strip-item">Onboarding time cut 78%</span>
+            <span class="strip-item">4-step manual routine collapsed to 1</span>
+        </div>
+        <p class="strip-note">From the audit walkthrough: <a href="https://www.anthonytoday.com/use-case">read the full case study</a>. Composite scenario; company details illustrative.</p>
+    </div>
 </section>
 
 <section class="templates-section" id="templates">
@@ -207,7 +265,13 @@
     </div>
 </section>
 
-<!-- FOOTER — light background, exact match to Notion page -->
+<section class="cta-section">
+    <h2>Stop managing chaos. Start running the business.</h2>
+    <p>Bring me one real problem. In 30 minutes we work on it together, and you leave with either a fix or a clear, honest read on what to do next.</p>
+    <a href="#booking" class="cta-button">Book a 30-min Discovery Call ($79)</a>
+</section>
+
+<!-- FOOTER: light background, exact match to Notion page -->
 <footer>
     <div class="footer-content">
         <div class="footer-main">
