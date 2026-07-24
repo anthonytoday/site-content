@@ -41,7 +41,8 @@ permalink: /
   .value-grid>.value-category-header:first-child{grid-column:1/3}
   .value-grid>.value-category-header:nth-of-type(2){grid-column:3}
   .value-type{font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
-  .value-item{text-align:center;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:26px 22px;transition:border-color .2s,box-shadow .2s}
+  .value-item{text-align:center;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:26px 22px;transition:border-color .2s,box-shadow .2s;display:flex;flex-direction:column;height:100%}
+  .value-item .value-cta{margin-top:auto;padding-top:18px;margin-bottom:0}
   .value-item:hover{border-color:#C9D4FF;box-shadow:0 6px 22px rgba(5,28,44,.06)}
   .value-item h3{font-size:18px;margin-bottom:12px;color:var(--navy);font-weight:600}
   .value-item p{font-size:14px;color:var(--text-gray);line-height:1.7}
@@ -174,17 +175,17 @@ permalink: /
         <div class="value-item">
             <h3>Notion Expertise</h3>
             <p>Stop maintaining the workspace and start running the business. I rebuild tangled setups into systems your team actually runs on its own: documented, permissioned, and ready for the next ten hires.</p>
-            <p style="margin-top:14px"><a href="https://www.anthonytoday.com/notion" style="color:var(--blue);font-size:13px;font-weight:500;text-decoration:underline;white-space:nowrap">See the full Notion service breakdown&nbsp;&rarr;</a></p>
+            <p class="value-cta"><a href="https://www.anthonytoday.com/notion" style="color:var(--blue);font-size:13px;font-weight:500;text-decoration:underline;white-space:nowrap">See the full Notion service breakdown&nbsp;&rarr;</a></p>
         </div>
         <div class="value-item">
             <h3>Security & Risk</h3>
             <p>Pass the audit. Unblock the enterprise deal. Answer the board. I build the security program your regulators and customers keep asking about, without the cost of a full-time CISO.</p>
-            <p style="margin-top:14px"><a href="https://www.anthonytoday.com/cyber" style="color:var(--blue);font-size:13px;font-weight:500;text-decoration:underline;white-space:nowrap">See the full security &amp; risk breakdown&nbsp;&rarr;</a></p>
+            <p class="value-cta"><a href="https://www.anthonytoday.com/cyber" style="color:var(--blue);font-size:13px;font-weight:500;text-decoration:underline;white-space:nowrap">See the full security &amp; risk breakdown&nbsp;&rarr;</a></p>
         </div>
         <div class="value-item">
             <h3>Digital Products</h3>
             <p>Skip the blank page. Ready-made templates and study systems that give you a working setup today, no consulting engagement required.</p>
-            <p style="margin-top:14px"><a href="#templates" style="color:var(--blue);font-size:13px;font-weight:500;text-decoration:underline;white-space:nowrap">Browse the products&nbsp;&rarr;</a></p>
+            <p class="value-cta"><a href="#templates" style="color:var(--blue);font-size:13px;font-weight:500;text-decoration:underline;white-space:nowrap">Browse the products&nbsp;&rarr;</a></p>
         </div>
     </div>
 </section>
