@@ -72,8 +72,8 @@
       <div class="nav-item">
         <a href="/notion/"{% if page.url == "/notion/" %} aria-current="page"{% endif %}>Notion</a>
         <div class="sub">
+          <a href="/guide/"{% if page.url == "/guide/" %} aria-current="page"{% endif %}>Guide</a>
           <a href="/use-case/"{% if page.url == "/use-case/" %} aria-current="page"{% endif %}>Use Cases</a>
-          <a href="/guide/"{% if page.url == "/guide/" %} aria-current="page"{% endif %}>Guides</a>
         </div>
       </div>
 
@@ -95,5 +95,43 @@
 {{ content }}
 </main>
 
+<style id="global-mobile">
+@media(max-width:768px){
+  html,body{overflow-x:hidden}
+  img,svg,video,iframe{max-width:100%;height:auto}
+  pre,code{max-width:100%;overflow-x:auto}
+  table{display:block;max-width:100%;overflow-x:auto}
+
+  /* collapse every multi-column grid to a single column */
+  [class*="grid"]{grid-template-columns:1fr !important;gap:16px !important}
+  [class*="grid"]>*{grid-column:auto !important;grid-row:auto !important}
+  .hero{grid-template-columns:1fr !important;gap:26px !important;padding:38px 20px !important}
+
+  /* keep Services/Products labels attached to the right cards when stacked */
+  .value-grid{display:flex !important;flex-direction:column !important}
+  .value-grid>*:nth-child(1){order:1}
+  .value-grid>*:nth-child(3){order:2}
+  .value-grid>*:nth-child(4){order:3}
+  .value-grid>*:nth-child(2){order:4}
+  .value-grid>*:nth-child(5){order:5}
+  .value-category-header{margin-bottom:0 !important;padding-bottom:10px !important}
+
+  [class*="flex"]{flex-direction:column !important}
+
+  h1,.hero h1{font-size:27px !important;line-height:1.24 !important}
+  h2{font-size:21px !important;line-height:1.32 !important}
+  h3{font-size:17px !important}
+  .subtitle{font-size:15px !important;line-height:1.65 !important}
+
+  /* nothing forced onto one line may push the page sideways */
+  [style*="nowrap"],[class*="nowrap"]{white-space:normal !important}
+
+  .cta-button,.tool-cta,.btn{display:block !important;width:100% !important;
+    box-sizing:border-box !important;text-align:center !important;white-space:normal !important}
+  .btns{flex-direction:column !important;gap:12px !important;align-items:stretch !important}
+
+  section{padding-left:18px !important;padding-right:18px !important}
+}
+</style>
 </body>
 </html>
