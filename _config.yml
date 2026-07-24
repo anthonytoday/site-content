@@ -1,0 +1,7 @@
+title: "Anthony Today"
+description: "Cybersecurity, GRC and Notion systems consulting."
+url: "https://www.anthonytoday.com"
+exclude:
+  - README.md
+  - credentials.md
+  - "*.py"
