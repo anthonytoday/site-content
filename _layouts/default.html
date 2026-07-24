@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/images/favicon.png">
 <style>
-  :root{--navy:#051C2C;--blue:#2251FF;--white:#FFFFFF}
+  :root{--navy:#051C2C;--navy-2:#0A2B42;--blue:#2251FF;--white:#FFFFFF}
   body{margin:0}
   .site-header{position:sticky;top:0;z-index:999;background:var(--navy);
     font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
@@ -21,21 +21,42 @@
     display:flex;align-items:center;justify-content:space-between;gap:24px}
   .site-header .brand{color:var(--white);font-weight:700;font-size:19px;
     text-decoration:none;letter-spacing:-.02em;white-space:nowrap}
-  .site-header nav{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+  .site-header nav{display:flex;align-items:center;gap:26px}
   .site-header nav a{color:rgba(255,255,255,.82);text-decoration:none;
-    font-size:15px;font-weight:500;transition:color .15s}
+    font-size:15px;font-weight:500;transition:color .15s;white-space:nowrap}
   .site-header nav a:hover,.site-header nav a[aria-current="page"]{color:var(--white)}
+  .nav-item{position:relative;display:flex;align-items:center}
+  .nav-item>a::after{content:"";display:inline-block;margin-left:6px;
+    border:4px solid transparent;border-top-color:currentColor;
+    transform:translateY(2px);transition:transform .15s}
+  .nav-item:hover>a::after{transform:translateY(2px) rotate(180deg)}
+  .sub{position:absolute;top:100%;left:-14px;min-width:190px;padding:8px 0;
+    background:var(--navy-2);border-radius:8px;
+    box-shadow:0 12px 28px rgba(0,0,0,.32);
+    opacity:0;visibility:hidden;transform:translateY(6px);
+    transition:opacity .15s,transform .15s,visibility .15s}
+  .nav-item::after{content:"";position:absolute;top:100%;left:0;right:0;height:14px}
+  .nav-item:hover .sub,.nav-item:focus-within .sub{opacity:1;visibility:visible;transform:translateY(0)}
+  .sub a{display:block;padding:9px 18px;font-size:14.5px}
+  .sub a:hover{background:rgba(255,255,255,.08)}
   .site-header .cta{background:var(--blue);color:var(--white);padding:9px 18px;
-    border-radius:6px;font-weight:600;white-space:nowrap}
+    border-radius:6px;font-weight:600}
   .site-header .cta:hover{opacity:.9;color:var(--white)}
   .nav-toggle{display:none;background:none;border:0;color:var(--white);
     font-size:24px;cursor:pointer;line-height:1}
-  @media(max-width:860px){
+  @media(max-width:900px){
     .nav-toggle{display:block}
-    .site-header nav{display:none;width:100%;flex-direction:column;
-      align-items:flex-start;gap:14px;padding:16px 0 4px}
-    .site-header nav.open{display:flex}
     .site-header .bar{flex-wrap:wrap}
+    .site-header nav{display:none;width:100%;flex-direction:column;
+      align-items:flex-start;gap:14px;padding:16px 0 6px}
+    .site-header nav.open{display:flex}
+    .nav-item{flex-direction:column;align-items:flex-start;width:100%}
+    .nav-item>a::after{display:none}
+    .nav-item::after{display:none}
+    .sub{position:static;opacity:1;visibility:visible;transform:none;
+      background:none;box-shadow:none;padding:8px 0 0 16px;min-width:0}
+    .sub a{padding:6px 0;color:rgba(255,255,255,.62)}
+    .sub a:hover{background:none}
   }
 </style>
 </head>
@@ -46,11 +67,25 @@
     <a class="brand" href="/">Anthony Today</a>
     <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">&#9776;</button>
     <nav id="nav">
-      {% assign nav = "Notion,/notion/|Cyber,/cyber/|GRC,/cyber-grc/|Fractional CISO,/fractional-ciso/|Tools,/tools/|Guides,/guide/" | split: "|" %}
-      {% for item in nav %}
-        {% assign parts = item | split: "," %}
-        <a href="{{ parts[1] }}"{% if page.url == parts[1] %} aria-current="page"{% endif %}>{{ parts[0] }}</a>
-      {% endfor %}
+      <a href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>Home</a>
+
+      <div class="nav-item">
+        <a href="/notion/"{% if page.url == "/notion/" %} aria-current="page"{% endif %}>Notion</a>
+        <div class="sub">
+          <a href="/use-case/"{% if page.url == "/use-case/" %} aria-current="page"{% endif %}>Use Cases</a>
+          <a href="/guide/"{% if page.url == "/guide/" %} aria-current="page"{% endif %}>Guides</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="/cyber/"{% if page.url == "/cyber/" %} aria-current="page"{% endif %}>Cyber</a>
+        <div class="sub">
+          <a href="/cyber-grc/"{% if page.url == "/cyber-grc/" %} aria-current="page"{% endif %}>GRC</a>
+          <a href="/fractional-ciso/"{% if page.url == "/fractional-ciso/" %} aria-current="page"{% endif %}>Fractional CISO</a>
+        </div>
+      </div>
+
+      <a href="/tools/"{% if page.url == "/tools/" %} aria-current="page"{% endif %}>Tools</a>
       <a class="cta" href="/contact/">Contact</a>
     </nav>
   </div>
