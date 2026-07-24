@@ -43,6 +43,7 @@ Push to `main`. GitHub Pages rebuilds in about a minute.
 
 ## Outstanding
 
-- `assets/images/placeholder-01..04.png` are stand-ins for images that used to load from MailerLite's CDN. Replace with the real files, same filenames.
-- 13 images still hotlink `cdn.prod.website-files.com`. Re-host them under `assets/`.
-- Each page carries its own duplicated `<style>` block and its own copy of the footer. Consolidate into the layout when convenient.
+- 13 images still hotlink `cdn.prod.website-files.com` (Webflow). Re-host under `assets/`.
+- The first badge on `/notion/` is labelled **Certified Consultant** using the circular stamp. If you hold a distinct *Notion Consulting Partner* badge asset, drop it in `assets/images/` and relabel.
+- `assets/images/notion-certified-consultant-wide.png` (horizontal lockup) is stored but unused.
+- Each page still carries its own duplicated `<style>` block and footer. Consolidate into the layout when convenient.
