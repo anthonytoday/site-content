@@ -143,6 +143,8 @@ bc_name: "Start"
         <div class="counter" id="c-tried">0 characters</div>
       </div>
 
+      <input type="checkbox" name="botcheck" id="botcheck" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" tabindex="-1" autocomplete="off">
+
       <button type="submit" class="submit" id="qf-submit">See if it's a fit &rarr;</button>
       <p class="privacy">Goes to me, nobody else. No list, no sequence, no sharing.</p>
     </form>
@@ -246,6 +248,8 @@ bc_name: "Start"
       access_key: ACCESS_KEY,
       subject: '[' + bucket.toUpperCase() + '] ' + d.company + ' — ' + d.name,
       from_name: 'Investor-Ready Sprint form',
+      replyto: d.email,
+      botcheck: (document.getElementById('botcheck')||{}).checked || false,
       name: d.name, email: d.email, company: d.company,
       firm_type: d.firm, team_size: d.size, budget: d.budget, timeline: d.timeline,
       route: bucket,
