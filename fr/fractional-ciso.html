@@ -1,0 +1,201 @@
+---
+layout: default
+title: "CISO externalisé | Anthony Today"
+description: "Une direction sécurité senior à temps partagé. Reporting au conseil, pilotage de la feuille de route et défense en audit."
+permalink: /fr/fractional-ciso/
+lang: fr
+alt_url: /fractional-ciso/
+---
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --navy:#051C2C;--blue:#2251FF;--blue-dark:#1A3FA8;--white:#FFFFFF;
+    --light-gray:#F5F5F5;--text-gray:#6B7280;--border:#E5E7EB;
+    --red:#C0392B;--amber:#B7791F;--green:#0F7A3D;
+  }
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:var(--navy);background:var(--white)}
+  a{text-decoration:none;color:inherit}
+  .uc-hero{max-width:720px;margin:0 auto;padding:70px 20px 20px;text-align:center}
+  .uc-tag{display:inline-block;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+  .uc-hero h1{font-size:42px;font-weight:600;color:var(--navy);margin-bottom:16px;line-height:1.3}
+  .uc-hero p{font-size:16px;color:var(--text-gray);line-height:1.7}
+  .uc-note{max-width:640px;margin:20px auto 0;padding:14px 18px;background:var(--light-gray);border-radius:8px;font-size:13px;color:var(--text-gray);text-align:center}
+
+  .stats-row{max-width:960px;margin:50px auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px}
+  .stat-card{background:var(--light-gray);border-radius:10px;padding:26px 20px;text-align:center}
+  .stat-card .num{font-size:24px;font-weight:700;color:var(--blue-dark)}
+  .stat-card .label{font-size:13px;color:var(--text-gray);margin-top:6px}
+
+  .uc-body{max-width:760px;margin:0 auto;padding:20px 20px 30px}
+  .uc-act{padding:38px 0;border-bottom:1px solid var(--border)}
+  .uc-act:last-child{border-bottom:none}
+  .uc-act .act-label{display:inline-block;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+  .uc-act h2{font-size:21px;font-weight:600;color:var(--navy);margin-bottom:14px;line-height:1.3}
+  .uc-act p{font-size:15px;color:var(--text-gray);line-height:1.75;margin-bottom:14px}
+  .uc-act ul{margin:0 0 14px 20px;color:var(--text-gray);font-size:15px;line-height:1.9}
+
+  table.findings{width:100%;border-collapse:collapse;margin:18px 0 8px;font-size:14px;background:var(--light-gray);border:1px solid var(--border)}
+  table.findings th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--text-gray);padding:10px 12px;border-bottom:2px solid var(--border);background:var(--white)}
+  table.findings td{padding:12px 12px;border-bottom:1px solid var(--border);color:var(--navy);vertical-align:top}
+  .risk-pill{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600;color:var(--white)}
+  .risk-critical{background:var(--red)}
+  .risk-high{background:#D9534F}
+  .risk-medium{background:var(--amber)}
+  .risk-low{background:var(--green)}
+
+  .risk-transition{display:flex;align-items:center;justify-content:center;gap:18px;margin:24px 0;flex-wrap:wrap}
+  .risk-box{flex:1;min-width:220px;border-radius:10px;padding:20px;text-align:center}
+  .risk-box.before{background:#FDECEA;border:1px solid #F5C6C0}
+  .risk-box.after{background:#E9F7EE;border:1px solid #BFE6CC}
+  .risk-box .risk-level{font-size:20px;font-weight:700}
+  .risk-box.before .risk-level{color:var(--red)}
+  .risk-box.after .risk-level{color:var(--green)}
+  .risk-box .risk-sub{font-size:12.5px;color:var(--text-gray);margin-top:4px}
+  .risk-arrow{font-size:22px;color:var(--text-gray)}
+
+  .benefits-section{max-width:760px;margin:0 auto;padding:10px 20px 60px}
+  .benefits-section h2{font-size:21px;font-weight:600;color:var(--navy);margin-bottom:20px;text-align:center}
+  .benefit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .benefit-card{border:1px solid var(--border);border-radius:10px;padding:22px}
+  .benefit-card h3{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:8px}
+  .benefit-card p{font-size:14px;color:var(--text-gray);line-height:1.7}
+
+  .uc-cta{max-width:640px;margin:0 auto 80px;padding:40px 30px;background:var(--navy);border-radius:14px;text-align:center}
+  .uc-cta h2{color:var(--white);font-size:21px;font-weight:600;margin-bottom:12px}
+  .uc-cta p{color:#C9D4E8;font-size:14.5px;margin-bottom:22px;line-height:1.7}
+  .uc-cta-button{display:inline-block;background:var(--blue);color:var(--white);padding:14px 32px;border-radius:6px;font-weight:500;font-size:15px}
+  .uc-cta-button:hover{background:var(--blue-dark)}
+
+  footer{background:var(--light-gray);padding:60px 20px;margin-top:20px}
+  .footer-content{max-width:1000px;margin:0 auto}
+  .footer-main{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-bottom:40px}
+  .footer-section h4{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
+  .footer-section p{font-size:13px;color:var(--text-gray);line-height:1.8}
+  .footer-section a{display:block;font-size:13px;color:var(--text-gray);margin-bottom:8px;transition:color .2s}
+  .footer-section a:hover{color:var(--blue)}
+  .social-links{display:flex;gap:15px;margin-top:18px}
+  .social-links a{display:flex;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--white);align-items:center;justify-content:center;font-size:15px;transition:background .2s;margin:0}
+  .social-links a:hover{background:var(--blue)}
+  .footer-bottom{border-top:1px solid var(--border);padding-top:30px;text-align:center;color:var(--text-gray);font-size:13px}
+  footer a{color:var(--text-gray)}
+  footer a:hover{color:var(--blue)}
+  @media(max-width:600px){table.findings{font-size:12.5px}}
+</style>
+<section class="uc-hero">
+<span class="uc-tag">Mission CISO externalisé</span>
+<h1>Une direction sécurité prête pour le conseil d'administration, aussi souple que l'entreprise en avait besoin.</h1>
+<p>Comment une fintech du Moyen-Orient a comblé ses écarts de sécurité réglementaires et commerciaux grâce à une mission de CISO externalisé à temps partiel, bâtie sur le NIST Cybersecurity Framework.</p>
+<div class="uc-note">Scénario composite construit à partir de résultats typiques d'une mission de CISO externalisé. Les détails de l'entreprise sont illustratifs et ne désignent pas un client précis.</div>
+</section>
+<div class="stats-row">
+<div class="stat-card"><div class="num">6 mois</div><div class="label">de zéro à un programme validé par le conseil</div></div>
+<div class="stat-card"><div class="num">2 jours/semaine</div><div class="label">un rythme de mission souple, à temps partiel</div></div>
+<div class="stat-card"><div class="num">Élevé → Faible</div><div class="label">classification du risque d'entreprise</div></div>
+<div class="stat-card"><div class="num">NIST CSF</div><div class="label">le référentiel sur lequel le programme a été bâti</div></div>
+</div>
+<div class="uc-body">
+<div class="uc-act">
+<span class="act-label">Situation</span>
+<h2>L'élément déclencheur</h2>
+<p>Une fintech opérant au Moyen-Orient venait de boucler une levée de fonds de croissance. La sécurité était portée de façon informelle par le CTO, en parallèle du produit. Deux prospects grands comptes ont suspendu leurs contrats en attendant un questionnaire de sécurité complété et la preuve d'un responsable sécurité nommé ; en parallèle, le conseil réclamait un rapport de risque avant la prochaine discussion de financement. Plutôt que de s'engager sur un recrutement à temps plein avant d'être sûre du profil, l'entreprise a fait appel à un CISO externalisé : souple, à temps partiel, et capable de démarrer immédiatement.</p>
+</div>
+<div class="uc-act">
+<span class="act-label">Constats</span>
+<h2>Évaluation initiale à 30 jours, classée par risque</h2>
+<table class="findings">
+<tr><th>#</th><th>Constat</th><th>Risque</th><th>Impact métier</th></tr>
+<tr><td>1</td><td>Aucun registre des risques formel ni déclaration d'appétence au risque validée par le conseil</td><td><span class="risk-pill risk-critical">Critique</span></td><td>Le conseil ne peut ni voir ni approuver le risque que l'entreprise porte réellement</td></tr>
+<tr><td>2</td><td>Aucun plan de réponse à incident ; aucun runbook testé ni intervenant désigné</td><td><span class="risk-pill risk-critical">Critique</span></td><td>Un incident réel serait traité au cas par cas, sans chemin de confinement ni de notification défini</td></tr>
+<tr><td>3</td><td>Aucun processus de risque tiers ou fournisseurs, malgré plus de 40 prestataires manipulant des données clients</td><td><span class="risk-pill risk-high">Élevé</span></td><td>L'exposition fournisseurs est héritée sans visibilité ni hiérarchisation par sensibilité des données</td></tr>
+<tr><td>4</td><td>Des politiques de sécurité existaient sur le papier, mais n'avaient été ni revues ni validées depuis 3 ans</td><td><span class="risk-pill risk-high">Élevé</span></td><td>Les politiques ne reflètent pas les systèmes actuels ; inutilisables comme preuve d'audit</td></tr>
+<tr><td>5</td><td>Aucune fréquence de reporting sécurité au niveau du conseil</td><td><span class="risk-pill risk-medium">Moyen</span></td><td>La direction n'a aucune visibilité récurrente sur la tendance du risque ni sur l'état du programme</td></tr>
+<tr><td>6</td><td>MFA et SSO non imposés à l'échelle de l'organisation</td><td><span class="risk-pill risk-medium">Moyen</span></td><td>La compromission de comptes reste le chemin d'attaque le plus probable et le moins défendu</td></tr>
+<tr><td>7</td><td>Aucune formation structurée de sensibilisation à la sécurité pour les équipes</td><td><span class="risk-pill risk-low">Faible</span></td><td>Vulnérabilité accrue au phishing, sans exposition réglementaire directe à ce stade</td></tr>
+</table>
+<p style="font-size:13px;color:var(--text-gray)">Les constats n° 1 et n° 2 bloquaient directement le rapport de risque au conseil : ils ont donc été traités en premier.</p>
+</div>
+<div class="uc-act">
+<span class="act-label">Modèle de mission</span>
+<h2>CISO externalisé, à temps partiel et flexible</h2>
+<p>Structurée comme une direction dans la durée plutôt que comme un projet à périmètre figé : stratégie, gouvernance, reporting et pilotage du programme, bâtis sur le NIST CSF et alignés sur les attentes réglementaires régionales. La mission a suivi la croissance de l'entreprise, en démarrant immédiatement et en ajustant son rythme au fil des priorités, sans l'engagement d'un poste à temps plein.</p>
+</div>
+<div class="uc-act">
+<span class="act-label">Construction du programme (6 mois)</span>
+<h2>Actions menées</h2>
+<ul>
+<li>Construction d'un registre des risques et d'une déclaration d'appétence au risque validée par le conseil, avec un reporting trimestriel</li>
+<li>Conception et test sur table d'un plan de réponse à incident, avec des intervenants nommés et un chemin d'escalade vers la direction</li>
+<li>Mise en place d'un programme de risque fournisseurs couvrant plus de 40 prestataires, hiérarchisés par sensibilité des données, avec des revues liées aux renouvellements</li>
+<li>Réécriture et validation de 12 politiques fondamentales, rattachées au NIST CSF et aux obligations réglementaires régionales</li>
+<li>Généralisation du MFA et du SSO à toute l'organisation</li>
+<li>Mise en place d'un rapport sécurité trimestriel récurrent au conseil, dans le format que la direction utilisait déjà pour le reporting financier</li>
+<li>Préparation de l'entreprise à son cycle d'examen réglementaire suivant, et représentation de l'entreprise pendant celui-ci</li>
+</ul>
+</div>
+<div class="uc-act">
+<span class="act-label">Résultat</span>
+<h2>Classification du risque : avant et après, au 6e mois</h2>
+<div class="risk-transition">
+<div class="risk-box before">
+<div class="risk-level">ÉLEVÉ</div>
+<div class="risk-sub">Aucun registre des risques, aucun plan d'incident, aucune visibilité du conseil</div>
+</div>
+<div class="risk-arrow">→</div>
+<div class="risk-box after">
+<div class="risk-level">FAIBLE (Acceptable)</div>
+<div class="risk-sub">Appétence au risque validée par le conseil, plan de réponse testé, reporting trimestriel</div>
+</div>
+</div>
+<p>L'examen réglementaire s'est clôturé sans aucun constat critique. Les deux contrats grands comptes suspendus ont repris dès la remise du questionnaire de sécurité complété et la désignation d'un CISO, et le conseil a reçu son premier rapport de risque trimestriel avant le tour de financement suivant.</p>
+</div>
+</div>
+<div class="benefits-section">
+<h2>Autres bénéfices métier</h2>
+<div class="benefit-grid">
+<div class="benefit-card">
+<h3>Cycle de vente grands comptes</h3>
+<p>Les questionnaires de sécurité qui demandaient auparavant des semaines de mobilisation entre l'ingénierie et le juridique ont été renseignés en quelques jours à partir d'une bibliothèque de preuves existante.</p>
+</div>
+<div class="benefit-card">
+<h3>Confiance des investisseurs</h3>
+<p>Un rapport de risque récurrent, prêt pour le conseil, est devenu un point permanent des mises à jour investisseurs, en amont de la prochaine discussion de financement plutôt qu'en urgence juste avant.</p>
+</div>
+</div>
+</div>
+<div class="uc-cta">
+<h2>Faites évaluer votre programme de sécurité</h2>
+<p>Des constats de ce type ressortent dès les 30 premiers jours d'une mission de CISO externalisé. Commençons par un échange sur l'état actuel de votre programme.</p>
+<a class="uc-cta-button" href="https://cal.com/anthonytoday/consultation">Réserver une consultation</a>
+</div>
+<!-- FOOTER (light background, exact match to Cyber page) -->
+<footer>
+<div class="footer-content">
+<div class="footer-main">
+<div class="footer-section">
+<h4>Conseil</h4>
+<a href="https://cal.com/anthonytoday/consultation">Réserver un appel découverte (79 $)</a>
+<a href="https://store.anthonytoday.com/l/notion-ops-audit">Audit Notion Ops (197 $)</a>
+<a href="/fr/notion/#pricing">Tarifs</a>
+<a href="/fr/notion/#services">Services</a>
+</div>
+<div class="footer-section">
+<h4>Produits</h4>
+<a href="https://store.anthonytoday.com">Boutique Gumroad</a>
+<a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">Boutique Etsy</a>
+<a href="https://www.notion.com/@anthonytoday">Profil Notion</a>
+<a href="/fr/tools/">Outils</a>
+</div>
+<div class="footer-section">
+<h4>Restons en contact</h4>
+<p style="margin-bottom:15px">Suivez-moi pour les nouveautés, les ressources et les nouveaux templates.</p>
+<div class="social-links">
+<a href="https://www.linkedin.com/in/anthony-kieffer/" rel="noopener noreferrer" target="_blank" title="LinkedIn">in</a>
+<a href="mailto:info@anthonytoday.com" title="E-mail">@</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Anthony Today. Tous droits réservés.</p>
+</div>
+</div>
+</footer>

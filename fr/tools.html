@@ -1,0 +1,244 @@
+---
+layout: default
+title: "Outils et stack | Anthony Today"
+description: "La stack logicielle derrière l'activité de conseil, avec des notes honnêtes sur ce qui mérite sa place."
+permalink: /fr/tools/
+lang: fr
+alt_url: /tools/
+---
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --navy:#051C2C;--blue:#2251FF;--blue-dark:#1A3FA8;--white:#FFFFFF;
+    --light-gray:#F5F5F5;--text-gray:#6B7280;--border:#E5E7EB;--green:#86EFAC;
+  }
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:var(--navy);background:var(--white)}
+  a{text-decoration:none;color:inherit}
+  header{background:var(--white);padding:18px 0;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+  .header-content{max-width:1080px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}
+  .logo{font-size:18px;font-weight:600;color:var(--navy)}
+  .back-link{font-size:14px;color:var(--text-gray);font-weight:500}
+  .back-link:hover{color:var(--navy)}
+  .intro{max-width:760px;margin:0 auto;padding:60px 20px 10px;text-align:center}
+  .eyebrow{text-align:center;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+  .intro h1{font-size:38px;font-weight:600;color:var(--navy);margin-bottom:16px;line-height:1.2}
+  .intro p{font-size:16px;color:var(--text-gray);line-height:1.7;max-width:600px;margin:0 auto}
+  .disclosure{display:inline-block;margin-top:20px;background:#EFF2FF;border:1px solid #C9D4FF;color:var(--blue);font-size:13px;font-weight:600;padding:8px 16px;border-radius:20px}
+  .category{max-width:1080px;margin:0 auto;padding:52px 20px 0}
+  .category h2{font-size:13px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.8px;margin-bottom:22px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+  .tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .tool-card{position:relative;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:24px 22px;display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s}
+  .tool-card:hover{border-color:#C9D4FF;box-shadow:0 6px 22px rgba(5,28,44,.06)}
+  .tool-card.featured{border:2px solid var(--blue)}
+  .featured-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--blue);color:var(--white);font-size:11px;font-weight:600;padding:4px 12px;border-radius:14px;white-space:nowrap}
+  .tool-top{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+  .tool-icon{width:44px;height:44px;border-radius:9px;background:var(--light-gray);border:1.5px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text-gray);flex-shrink:0;overflow:hidden}
+  .tool-icon img{max-width:100%;max-height:100%;object-fit:contain}
+  .tool-name{font-size:16px;font-weight:600;color:var(--navy)}
+  .tool-offer{display:inline-block;align-self:flex-start;background:#F0FDF4;border:1px solid #BBF7D0;color:#15803D;font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:12px;margin-bottom:12px}
+  .tool-desc{font-size:13.5px;color:var(--text-gray);line-height:1.6;flex:1;margin-bottom:16px}
+  .tool-cta{display:inline-block;text-align:center;background:var(--light-gray);color:var(--navy);border:1px solid var(--border);padding:10px 18px;border-radius:6px;font-size:13.5px;font-weight:600;transition:background .2s}
+  .tool-cta:hover{background:#EFF2FF;border-color:#C9D4FF;color:var(--blue)}
+  footer{background:var(--light-gray);padding:60px 20px;margin-top:70px}
+  .footer-content{max-width:1000px;margin:0 auto}
+  .footer-main{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-bottom:40px}
+  .footer-section h4{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
+  .footer-section p{font-size:13px;color:var(--text-gray);line-height:1.8}
+  .footer-section a{display:block;font-size:13px;color:var(--text-gray);margin-bottom:8px;transition:color .2s}
+  .footer-section a:hover{color:var(--blue)}
+  .social-links{display:flex;gap:15px;margin-top:18px}
+  .social-links a{display:flex;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--white);align-items:center;justify-content:center;font-size:15px;transition:background .2s;margin:0}
+  .social-links a:hover{background:var(--blue)}
+  .footer-bottom{border-top:1px solid var(--border);padding-top:30px;text-align:center;color:var(--text-gray);font-size:13px}
+  footer a{color:var(--text-gray)}
+  footer a:hover{color:var(--blue)}
+  @media(max-width:900px){.tool-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.tool-grid{grid-template-columns:1fr}.intro h1{font-size:28px}}
+</style>
+<div class="intro">
+<p class="eyebrow">Ma stack</p>
+<h1>Les outils que j'utilise vraiment, tous les jours</h1>
+<p>Les applications sur lesquelles tournent mon activité de conseil Notion et ma propre entreprise : pour construire les systèmes clients, automatiser le travail et rester organisé. Rien ici que je ne recommande sans m'en servir personnellement.</p>
+<span class="disclosure">Certains liens ci-dessous sont des liens d'affiliation</span>
+</div>
+<section class="category">
+<h2>Productivité</h2>
+<div class="tool-grid">
+<div class="tool-card featured">
+<span class="featured-badge">Mon choix n° 1</span>
+<div class="tool-top">
+<div class="tool-icon"><img alt="Notion" src="/assets/logos/notion.png"/></div>
+<span class="tool-name">Notion</span>
+</div>
+<span class="tool-offer">3 mois offerts sur Business + IA</span>
+<p class="tool-desc">La plateforme sur laquelle je fais tourner toute mon activité de conseil et mes livraisons clients. Inscrivez-vous via mon lien et obtenez 3 mois de Notion Business avec l'IA incluse, gratuitement.</p>
+<a class="tool-cta" href="https://affiliate.notion.so/0x8u16p4sff1" rel="noopener noreferrer" target="_blank">Profiter de l'offre</a>
+</div>
+<div class="tool-card">
+<div class="tool-top">
+<div class="tool-icon"><img alt="Dropbox" src="/assets/logos/dropbox.webp"/></div>
+<span class="tool-name">Dropbox</span>
+</div>
+<span class="tool-offer">500 Mo offerts pour vous</span>
+<p class="tool-desc">Stockage cloud pour les fichiers clients et les sauvegardes. Inscrivez-vous via mon lien et installez l'application pour recevoir 500 Mo de stockage gratuit (j'en reçois 500 Mo aussi).</p>
+<a class="tool-cta" href="https://www.dropbox.com/referrals/AACRjYexe6nVbO-irKv1laETMI-MZSS87vc?src=global9" rel="noopener noreferrer" target="_blank">Profiter de l'offre</a>
+</div>
+<div class="tool-card">
+<div class="tool-top">
+<div class="tool-icon"><img alt="Google Workspace" src="/assets/logos/google-workspace.webp"/></div>
+<span class="tool-name">Google Workspace</span>
+</div>
+<span class="tool-offer">10 % de réduction la première année</span>
+<p class="tool-desc">Gmail, Agenda et Drive : la couche technique sous tout ce qui touche aux clients. Inscrivez-vous via mon lien et obtenez 10 % de réduction sur votre première année de Google Workspace.</p>
+<a class="tool-cta" href="https://referworkspace.app.goo.gl/HdLt" rel="noopener noreferrer" target="_blank">Profiter de l'offre</a>
+</div>
+</div>
+</section>
+<section class="category">
+<h2>IA</h2>
+<div class="tool-grid">
+<div class="tool-card">
+<div class="tool-top">
+<div class="tool-icon"><img alt="Claude Code" src="/assets/logos/claude-code.png"/></div>
+<span class="tool-name">Claude Code</span>
+</div>
+<span class="tool-offer">10 $ de crédits d'utilisation pour vous</span>
+<p class="tool-desc">Claude Code est l'agent IA qui écrit, débogue et livre du vrai code directement depuis votre terminal. Passez par le lien pour une semaine offerte, c'est pour moi.</p>
+<a class="tool-cta" href="https://claude.ai/referral/mLPpn0Z-JQ" rel="noopener noreferrer" target="_blank">Profiter de l'offre</a>
+</div>
+<div class="tool-card">
+<div class="tool-top">
+<div class="tool-icon"><img alt="Wispr Flow" src="/assets/logos/wisprflow.png"/></div>
+<span class="tool-name">Wispr Flow</span>
+</div>
+<span class="tool-offer">1 mois de Pro offert</span>
+<p class="tool-desc">La dictée vocale que j'utilise toute la journée pour mes e-mails, mes messages et mes brouillons. Inscrivez-vous via mon lien et obtenez un mois de Pro gratuit.</p>
+<a class="tool-cta" href="https://wisprflow.ai/r?VACOCHE1" rel="noopener noreferrer" target="_blank">Profiter de l'offre</a>
+</div>
+<div class="tool-card">
+<div class="tool-top">
+<div class="tool-icon"><img alt="Superhuman" src="/assets/logos/superhuman.png"/></div>
+<span class="tool-name">Superhuman</span>
+</div>
+<span class="tool-offer">1 mois offert pour vous</span>
+<p class="tool-desc">Le client e-mail par lequel passe toute ma boîte de réception : piloté au clavier, avec les accusés de lecture et les relances automatiques pour que rien ne passe à la trappe. Inscrivez-vous via mon lien et obtenez votre premier mois gratuit.</p>
+<a class="tool-cta" href="https://superhuman.com/refer/7zubjvrb" rel="noopener noreferrer" target="_blank">Profiter de l'offre</a>
+</div>
+</div>
+</section>
+<section class="category">
+<h2>Marketing et communication</h2>
+<div class="tool-grid">
+<div class="tool-card">
+<div class="tool-top">
+<div class="tool-icon"><img alt="Cal.com" src="/assets/logos/calcom.png"/></div>
+<span class="tool-name">Cal.com</span>
+</div>
+<span class="tool-offer">20 % de réduction pendant un an</span>
+<p class="tool-desc">Ce que j'utilise pour organiser mes appels découverte et mes consultations. Inscrivez-vous via mon lien pour 20 % de réduction la première année.</p>
+<a class="tool-cta" href="https://refer.cal.com/acceler8consultingfzco-gmail-k7np" rel="noopener noreferrer" target="_blank">Profiter de l'offre</a>
+</div>
+</div>
+</section>
+<section class="category">
+<h2>Finance</h2>
+<div class="tool-grid">
+<div class="tool-card">
+<div class="tool-top">
+<div class="tool-icon"><img alt="Interactive Brokers" src="/assets/logos/ibkr.jpeg"/></div>
+<span class="tool-name">Interactive Brokers</span>
+</div>
+<span class="tool-offer">Jusqu'à 1 000 $ en actions offertes</span>
+<p class="tool-desc">Mon courtier pour la gestion de portefeuille. Inscrivez-vous via mon lien, déposez au moins 10 000 $ sous 30 jours et conservez-les un an : vous pouvez recevoir jusqu'à 1 000 $ en actions IBKR (je reçois 200 $ également).</p>
+<a class="tool-cta" href="https://ibkr.com/referral/anthony3710" rel="noopener noreferrer" target="_blank">Profiter de l'offre</a>
+</div>
+<div class="tool-card">
+<div class="tool-top">
+<div class="tool-icon"><img alt="OKX" src="/assets/logos/okx.png"/></div>
+<span class="tool-name">OKX</span>
+</div>
+<span class="tool-offer">Récompenses de bienvenue, plus 500 AED par filleul</span>
+<p class="tool-desc">Ma plateforme d'échange crypto. Inscrivez-vous via mon lien pour débloquer les offres de bienvenue OKX, puis parrainez jusqu'à 5 amis : vous et chaque ami recevez 500 AED.</p>
+<a class="tool-cta" href="https://okx.com/en-ae/join/56606956" rel="noopener noreferrer" target="_blank">Profiter de l'offre</a>
+</div>
+<div class="tool-card">
+<div class="tool-top">
+<div class="tool-icon"><img alt="Portfolio Performance" src="/assets/logos/portfolioperformance.png"/></div>
+<span class="tool-name">Portfolio Performance</span>
+</div>
+<p class="tool-desc">Outil gratuit et open source que j'utilise pour suivre la performance de mon portefeuille, tous comptes et toutes devises confondus.</p>
+<a class="tool-cta" href="https://www.portfolio-performance.info/en/" rel="noopener noreferrer" target="_blank">Voir le site</a>
+</div>
+<div class="tool-card">
+<div class="tool-top">
+<div class="tool-icon"><img alt="Revolut" src="/assets/logos/revolut.png"/></div>
+<span class="tool-name">Revolut</span>
+</div>
+<p class="tool-desc">La carte et le compte multidevises que j'utilise au quotidien pour voyager et dépenser dans plusieurs monnaies. Plan Standard gratuit, sans frais mensuels, avec la détention et l'échange de plus de 25 devises. Inscrivez-vous via mon lien.</p>
+<a class="tool-cta" href="https://revolut.com/referral/?referral-code=anthonbqtg!JUL1-26-AR-H2&amp;geo-redirect" rel="noopener noreferrer" target="_blank">S'inscrire</a>
+</div>
+<div class="tool-card">
+<div class="tool-top">
+<div class="tool-icon"><img alt="Mercury" src="/assets/logos/mercury.png"/></div>
+<span class="tool-name">Mercury</span>
+</div>
+<span class="tool-offer">250 $ pour vous</span>
+<p class="tool-desc">La banque professionnelle de Banyan Strategic Properties. Inscrivez-vous via mon lien, déposez 10 000 $ sous 90 jours, et vous recevez 250 $ plus un traitement accéléré de votre dossier (je reçois 250 $ également).</p>
+<a class="tool-cta" href="https://mercury.com/r/banyanstrategicproperties" rel="noopener noreferrer" target="_blank">Profiter de l'offre</a>
+</div>
+<div class="tool-card">
+<div class="tool-top">
+<div class="tool-icon"><img alt="TradingView" src="/assets/logos/tradingview.jpeg"/></div>
+<span class="tool-name">TradingView</span>
+</div>
+<span class="tool-offer">15 $ de réduction pour vous</span>
+<p class="tool-desc">Graphiques et analyse de marché. Nouveau sur TradingView ? Inscrivez-vous via mon lien et obtenez 15 $ de réduction sur votre prochain abonnement (je reçois 15 $ également).</p>
+<a class="tool-cta" href="https://www.tradingview.com/pricing/?share_your_love=kiefferanthony" rel="noopener noreferrer" target="_blank">Profiter de l'offre</a>
+</div>
+</div>
+</section>
+<section class="category">
+<h2>Voyage</h2>
+<div class="tool-grid">
+<div class="tool-card">
+<div class="tool-top">
+<div class="tool-icon"><img alt="Airalo" src="/assets/logos/airalo.jpeg"/></div>
+<span class="tool-name">Airalo</span>
+</div>
+<p class="tool-desc">Des eSIM abordables pour rester connecté dans les pays où je me déplace pour mes clients.</p>
+<a class="tool-cta" href="https://airalo.go.link/9ENCH" rel="noopener noreferrer" target="_blank">Voir le site</a>
+</div>
+</div>
+</section>
+<!-- FOOTER — light background, exact match to Notion page -->
+<footer>
+<div class="footer-content">
+<div class="footer-main">
+<div class="footer-section">
+<h4>Conseil</h4>
+<a href="https://cal.com/anthonytoday/consultation">Réserver un appel découverte (79 $)</a>
+<a href="https://store.anthonytoday.com/l/notion-ops-audit">Audit Notion Ops (197 $)</a>
+<a href="/fr/notion/#pricing">Tarifs</a>
+<a href="/fr/notion/#services">Services</a>
+</div>
+<div class="footer-section">
+<h4>Produits</h4>
+<a href="https://store.anthonytoday.com">Boutique Gumroad</a>
+<a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">Boutique Etsy</a>
+<a href="https://www.notion.com/@anthonytoday">Profil Notion</a>
+<a href="/fr/tools/">Outils</a>
+</div>
+<div class="footer-section">
+<h4>Restons en contact</h4>
+<p style="margin-bottom:15px">Suivez-moi pour les nouveautés, les ressources et les nouveaux templates.</p>
+<div class="social-links">
+<a href="https://www.linkedin.com/in/anthony-kieffer/" rel="noopener noreferrer" target="_blank" title="LinkedIn">in</a>
+<a href="mailto:info@anthonytoday.com" title="E-mail">@</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Anthony Today. Tous droits réservés.</p>
+</div>
+</div>
+</footer>

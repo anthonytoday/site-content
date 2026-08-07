@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+{% assign lang = page.lang | default: "en" %}
+{% if lang == "fr" %}{% assign en_url = page.alt_url %}{% assign fr_url = page.url %}{% assign p = "/fr" %}
+{% else %}{% assign en_url = page.url %}{% assign fr_url = page.alt_url %}{% assign p = "" %}{% endif %}
+{% assign u_home = p | append: "/" %}{% assign u_notion = p | append: "/notion/" %}{% assign u_guide = p | append: "/guide/" %}{% assign u_usecase = p | append: "/use-case/" %}{% assign u_cyber = p | append: "/cyber/" %}{% assign u_grc = p | append: "/cyber-grc/" %}{% assign u_ciso = p | append: "/fractional-ciso/" %}{% assign u_tools = p | append: "/tools/" %}{% assign u_contact = p | append: "/contact/" %}
+<html lang="{{ lang }}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ page.title | default: site.title }}</title>
 <meta name="description" content="{{ page.description | default: site.description }}">
 <link rel="canonical" href="{{ page.url | absolute_url }}">
-<meta property="og:title" content="{{ page.title | default: site.title }}">
+{% if en_url and fr_url %}<link rel="alternate" hreflang="en" href="{{ en_url | absolute_url }}">
+<link rel="alternate" hreflang="fr" href="{{ fr_url | absolute_url }}">
+<link rel="alternate" hreflang="x-default" href="{{ en_url | absolute_url }}">
+{% endif %}<meta property="og:title" content="{{ page.title | default: site.title }}">
 <meta property="og:description" content="{{ page.description | default: site.description }}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:locale" content="{% if lang == 'fr' %}fr_FR{% else %}en_US{% endif %}">
+{% if en_url and fr_url %}<meta property="og:locale:alternate" content="{% if lang == 'fr' %}en_US{% else %}fr_FR{% endif %}">
+{% endif %}<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/images/favicon.png">
 <style>
   :root{--navy:#051C2C;--navy-2:#0A2B42;--blue:#2251FF;--white:#FFFFFF}
@@ -42,6 +51,13 @@
   .site-header .cta{background:var(--blue);color:var(--white);padding:9px 18px;
     border-radius:6px;font-weight:600}
   .site-header .cta:hover{opacity:.9;color:var(--white)}
+  .lang-switch{display:flex;align-items:center;gap:1px;margin-left:2px;
+    border:1px solid rgba(255,255,255,.28);border-radius:6px;overflow:hidden}
+  .lang-switch a,.lang-switch span{padding:5px 10px;font-size:12.5px;font-weight:700;
+    letter-spacing:.04em;line-height:1.2;text-decoration:none}
+  .lang-switch .on{background:var(--white);color:var(--navy)}
+  .lang-switch .off{color:rgba(255,255,255,.72)}
+  .lang-switch .off:hover{background:rgba(255,255,255,.14);color:var(--white)}
   .nav-toggle{display:none;background:none;border:0;color:var(--white);
     font-size:24px;cursor:pointer;line-height:1}
   @media(max-width:900px){
@@ -57,6 +73,7 @@
       background:none;box-shadow:none;padding:8px 0 0 16px;min-width:0}
     .sub a{padding:6px 0;color:rgba(255,255,255,.62)}
     .sub a:hover{background:none}
+    .lang-switch{flex-direction:row;align-self:flex-start}
   }
 </style>
 </head>
@@ -64,29 +81,34 @@
 
 <header class="site-header">
   <div class="bar">
-    <a class="brand" href="/">Anthony Today</a>
+    <a class="brand" href="{{ u_home }}">Anthony Today</a>
     <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">&#9776;</button>
     <nav id="nav">
-      <a href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>Home</a>
+      <a href="{{ u_home }}"{% if page.url == u_home %} aria-current="page"{% endif %}>{% if lang == "fr" %}Accueil{% else %}Home{% endif %}</a>
 
       <div class="nav-item">
-        <a href="/notion/"{% if page.url == "/notion/" %} aria-current="page"{% endif %}>Notion</a>
+        <a href="{{ u_notion }}"{% if page.url == u_notion %} aria-current="page"{% endif %}>Notion</a>
         <div class="sub">
-          <a href="/guide/"{% if page.url == "/guide/" %} aria-current="page"{% endif %}>Guide</a>
-          <a href="/use-case/"{% if page.url == "/use-case/" %} aria-current="page"{% endif %}>Use Cases</a>
+          <a href="{{ u_guide }}"{% if page.url == u_guide %} aria-current="page"{% endif %}>{% if lang == "fr" %}Guides{% else %}Guide{% endif %}</a>
+          <a href="{{ u_usecase }}"{% if page.url == u_usecase %} aria-current="page"{% endif %}>{% if lang == "fr" %}Cas clients{% else %}Use Cases{% endif %}</a>
         </div>
       </div>
 
       <div class="nav-item">
-        <a href="/cyber/"{% if page.url == "/cyber/" %} aria-current="page"{% endif %}>Cyber</a>
+        <a href="{{ u_cyber }}"{% if page.url == u_cyber %} aria-current="page"{% endif %}>Cyber</a>
         <div class="sub">
-          <a href="/cyber-grc/"{% if page.url == "/cyber-grc/" %} aria-current="page"{% endif %}>GRC</a>
-          <a href="/fractional-ciso/"{% if page.url == "/fractional-ciso/" %} aria-current="page"{% endif %}>Fractional CISO</a>
+          <a href="{{ u_grc }}"{% if page.url == u_grc %} aria-current="page"{% endif %}>GRC</a>
+          <a href="{{ u_ciso }}"{% if page.url == u_ciso %} aria-current="page"{% endif %}>{% if lang == "fr" %}CISO externalis&eacute;{% else %}Fractional CISO{% endif %}</a>
         </div>
       </div>
 
-      <a href="/tools/"{% if page.url == "/tools/" %} aria-current="page"{% endif %}>Tools</a>
-      <a class="cta" href="/contact/">Contact</a>
+      <a href="{{ u_tools }}"{% if page.url == u_tools %} aria-current="page"{% endif %}>{% if lang == "fr" %}Outils{% else %}Tools{% endif %}</a>
+      <a class="cta" href="{{ u_contact }}">Contact</a>
+
+      <div class="lang-switch">
+        {% if lang == "fr" %}<a class="off" href="{{ en_url | default: '/' }}" hreflang="en" lang="en" title="Read this page in English">EN</a><span class="on">FR</span>
+        {% else %}<span class="on">EN</span><a class="off" href="{{ fr_url | default: '/fr/' }}" hreflang="fr" lang="fr" title="Lire cette page en fran&ccedil;ais">FR</a>{% endif %}
+      </div>
     </nav>
   </div>
 </header>

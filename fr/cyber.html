@@ -1,0 +1,155 @@
+---
+layout: default
+title: "Conseil en cybersécurité | Anthony Today"
+description: "Stratégie sécurité, conseil en risque et remédiation opérationnelle, forts de 15 ans dans des secteurs réglementés."
+permalink: /fr/cyber/
+lang: fr
+alt_url: /cyber/
+---
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --navy:#051C2C;--blue:#2251FF;--white:#FFFFFF;--light-gray:#F5F5F5;--text-gray:#6B7280;--border:#E5E7EB;
+  }
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:var(--navy);background:var(--white)}
+  a{text-decoration:none;color:inherit}
+  header{background:var(--white);padding:20px 0;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+  .header-content{max-width:1000px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}
+  .logo{font-size:18px;font-weight:600;color:var(--navy)}
+  .header-nav{display:flex;gap:28px;align-items:center}
+  .header-nav a{font-size:15px;color:var(--text-gray);font-weight:500}
+  .header-nav a.active,.header-nav a:hover{color:var(--navy)}
+  .cta-button{display:inline-block;background:var(--blue);color:var(--white);padding:15px 40px;border-radius:6px;font-weight:500;font-size:16px;transition:background .2s;cursor:pointer;border:none}
+  .cta-button:hover{background:#1A3FA8}
+  .hero{text-align:center;padding:72px 20px 56px}
+  .hero .pill{display:inline-block;background:#EFF2FF;border:1px solid #C9D4FF;color:var(--blue);font-size:13px;font-weight:600;padding:8px 16px;border-radius:20px;margin-bottom:18px}
+  .hero h1{font-size:42px;font-weight:600;line-height:1.18;color:var(--navy);margin:0 auto 20px;max-width:760px}
+  .hero .subtitle{font-size:17px;color:var(--text-gray);max-width:660px;margin:0 auto 32px;line-height:1.7}
+  .stats{max-width:1000px;margin:48px auto 0;padding:0 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .stat{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:22px 16px;text-align:center}
+  .stat .n{font-size:20px;font-weight:600;color:var(--blue)}
+  .stat .l{font-size:13px;color:var(--text-gray);margin-top:6px;line-height:1.5}
+  section.block{max-width:1000px;margin:0 auto;padding:70px 20px 10px}
+  .sec-head{text-align:center;margin-bottom:40px}
+  .sec-head h2{font-size:28px;font-weight:600;color:var(--navy)}
+  .sec-head p{font-size:15px;color:var(--text-gray);max-width:640px;margin:12px auto 0}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:28px 24px;transition:border-color .2s,box-shadow .2s}
+  .card:hover{border-color:#C9D4FF;box-shadow:0 4px 18px rgba(5,28,44,.06)}
+  .card .ico{font-size:24px}
+  .card h3{font-size:17px;font-weight:600;color:var(--navy);margin:12px 0 8px}
+  .card p{font-size:14px;color:var(--text-gray);line-height:1.65}
+  .models{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px}
+  .model{background:var(--light-gray);border:1px solid var(--border);border-radius:8px;padding:30px 28px}
+  .model .tag{font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px}
+  .model h3{font-size:18px;font-weight:600;color:var(--navy);margin:8px 0 8px}
+  .model p{font-size:14px;color:var(--text-gray);line-height:1.65}
+  .sector{background:var(--navy);color:var(--white);border-radius:8px;padding:48px 40px;margin:64px 0 0;text-align:center}
+  .sector h2{font-size:24px;font-weight:600;margin-bottom:12px}
+  .sector p{font-size:15px;color:#B0BEC5;max-width:720px;margin:0 auto 26px;line-height:1.7}
+  .reg-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .reg{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:6px;padding:10px 20px;font-size:14px;font-weight:600;color:var(--white)}
+  .booking{max-width:1000px;margin:80px auto 0;padding:0 20px}
+  .booking .sec-head{margin-bottom:28px}
+  .booking-frame{border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--white)}
+  .booking-frame iframe{width:100%;height:860px;border:0;display:block}
+  footer{background:var(--light-gray);padding:60px 20px;margin-top:80px}
+  .footer-content{max-width:1000px;margin:0 auto}
+  .footer-main{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;margin-bottom:40px}
+  .footer-section h4{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
+  .footer-section p{font-size:13px;color:var(--text-gray);line-height:1.8}
+  .footer-section a{display:block;font-size:13px;color:var(--text-gray);text-decoration:none;margin-bottom:8px;transition:color .2s}
+  .footer-section a:hover{color:var(--blue)}
+  .social-links{display:flex;gap:15px;margin-top:20px}
+  .social-links a{display:flex;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--white);align-items:center;justify-content:center;font-size:16px;transition:background .2s;margin:0}
+  .social-links a:hover{background:var(--blue)}
+  .footer-bottom{border-top:1px solid var(--border);padding-top:30px;text-align:center;color:var(--text-gray);font-size:13px}
+  @media(max-width:768px){
+    .hero h1{font-size:32px}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .grid,.models{grid-template-columns:1fr}
+    .sector{padding:36px 22px}
+    .booking-frame iframe{height:900px}
+  }
+</style>
+<section class="hero">
+<span class="pill">Cybersécurité · GRC · CISO externalisé</span>
+<h1>Conseil et direction cybersécurité, à la demande</h1>
+<p class="subtitle">J'accompagne les institutions financières et les organisations réglementées dans la construction et la maturation de leur gouvernance, gestion des risques et conformité cyber, en mission GRC cadrée ou comme CISO externalisé. Les programmes s'appuient sur le NIST CSF et s'alignent sur les exigences locales en Suisse, aux États-Unis et aux Émirats arabes unis.</p>
+<a class="cta-button" href="#booking">Réserver une consultation</a>
+<div class="stats">
+<div class="stat"><div class="n">15+ ans</div><div class="l">Direction risque cyber et GRC</div></div>
+<div class="stat"><div class="n">Ex-Big4</div><div class="l">Responsable cybersécurité et gouvernance</div></div>
+<div class="stat"><div class="n">CISSP · CISA · CISM · PMP</div><div class="l">Certifié en sécurité, audit et pilotage</div></div>
+<div class="stat"><div class="n">21 000+</div><div class="l">Professionnels formés et certifiés</div></div>
+</div>
+</section>
+<section class="block" id="services">
+<div class="sec-head">
+<h2>Comment puis-je vous aider ?</h2>
+<p>Quel que soit le stade de votre programme de sécurité, je vous rejoins là où vous en êtes et je l'amène là où votre conseil d'administration et vos régulateurs l'attendent.</p>
+</div>
+<div class="grid">
+<div class="card"><div class="ico">🧩</div><h3>Construire votre programme de sécurité</h3><p>Mettre en place ou faire mûrir un programme de cybersécurité complet sur le NIST CSF, avec un référentiel de contrôles que vos auditeurs et vos superviseurs acceptent. Vous repartez avec un cadre opérationnel, pas avec un classeur de documents.</p></div>
+<div class="card"><div class="ico">⚖️</div><h3>Passer vos audits et vos examens réglementaires</h3><p>Préparer et réussir les examens réglementaires en Suisse, aux États-Unis et aux Émirats arabes unis. Je clôture les constats, je documente les preuves de contrôle et je vous rends prêt pour la revue.</p></div>
+<div class="card"><div class="ico">🎯</div><h3>Faire du risque une décision de comité</h3><p>Quantifier et prioriser votre risque cyber, puis le présenter en termes clairs et lisibles par le conseil, avec un plan de traitement que la direction peut réellement approuver et financer.</p></div>
+<div class="card"><div class="ico">📐</div><h3>Gouverner avec de vraies politiques</h3><p>Rédiger les politiques, standards et contrôles qui transforment l'intention en pratique quotidienne, alignés sur vos obligations et dimensionnés pour votre organisation.</p></div>
+<div class="card"><div class="ico">🔗</div><h3>Maîtriser le risque tiers</h3><p>Mettre en place un processus de gestion du risque fournisseurs et prestataires, pour que les partenaires qui élargissent votre surface d'attaque cessent d'élargir votre exposition.</p></div>
+<div class="card"><div class="ico">🎓</div><h3>Diriger comme votre CISO externalisé</h3><p>Une direction sécurité dans la durée : stratégie, gouvernance, montée en compétence des équipes, relation avec les régulateurs et les parties prenantes, sans le coût d'un recrutement à temps plein.</p></div>
+</div>
+<div class="models">
+<div class="model">
+<span class="tag">Au projet</span>
+<h3>Conseiller GRC indépendant</h3>
+<p>Une mission cadrée, avec des livrables et un calendrier clairs : conception du référentiel, préparation à l'audit, évaluation des risques, rédaction des politiques ou feuille de route de remédiation. Idéal quand vous avez un écart précis à combler.</p>
+<p style="margin-top:10px"><a href="/fr/cyber-grc/" style="color:var(--blue);font-weight:600">Voir le périmètre d'une mission GRC →</a></p>
+</div>
+<div class="model">
+<span class="tag">Direction continue</span>
+<h3>CISO externalisé</h3>
+<p>Une direction sécurité senior sous forfait mensuel : je porte votre stratégie sécurité, votre gouvernance, votre reporting et le pilotage du programme, à temps partiel. Idéal quand il vous faut un CISO, mais pas un salaire de CISO.</p>
+<p style="margin-top:10px"><a href="/fr/fractional-ciso/" style="color:var(--blue);font-weight:600">Voir une étude de cas CISO externalisé →</a></p>
+</div>
+</div>
+</section>
+<section class="booking" id="booking">
+<div class="sec-head">
+<h2>Réservez votre consultation</h2>
+<p>Un échange pour comprendre votre environnement, vos obligations et la bonne façon de travailler ensemble. Choisissez un créneau ci-dessous.</p>
+</div>
+<div class="booking-frame">
+<iframe loading="lazy" src="https://cal.com/anthonytoday/consultation?embed=1" title="Réserver une consultation"></iframe>
+</div>
+</section>
+<!-- FOOTER — light background, exact match to Notion page -->
+<footer>
+<div class="footer-content">
+<div class="footer-main">
+<div class="footer-section">
+<h4>Conseil</h4>
+<a href="https://cal.com/anthonytoday/consultation">Réserver un appel découverte (79 $)</a>
+<a href="https://store.anthonytoday.com/l/notion-ops-audit">Audit Notion Ops (197 $)</a>
+<a href="/fr/notion/#pricing">Tarifs</a>
+<a href="/fr/notion/#services">Services</a>
+</div>
+<div class="footer-section">
+<h4>Produits</h4>
+<a href="https://store.anthonytoday.com">Boutique Gumroad</a>
+<a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">Boutique Etsy</a>
+<a href="https://www.notion.com/@anthonytoday">Profil Notion</a>
+<a href="/fr/tools/">Outils</a>
+</div>
+<div class="footer-section">
+<h4>Restons en contact</h4>
+<p style="margin-bottom: 15px;">Suivez-moi pour les nouveautés, les ressources et les nouveaux templates.</p>
+<div class="social-links">
+<a href="https://www.linkedin.com/in/anthony-kieffer/" rel="noopener noreferrer" target="_blank" title="LinkedIn">in</a>
+<a href="mailto:info@anthonytoday.com" title="E-mail">@</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Anthony Today. Tous droits réservés.</p>
+</div>
+</div>
+</footer>

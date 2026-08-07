@@ -1,0 +1,568 @@
+---
+layout: default
+title: "Conseil Notion et architecture d'espace de travail | Anthony Today"
+description: "Consultant Notion certifié. Architecture d'espace de travail, migrations et systèmes opérationnels conçus pour suivre la croissance de votre équipe."
+permalink: /fr/notion/
+lang: fr
+alt_url: /notion/
+---
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --navy:#051C2C;--blue:#2251FF;--blue-dark:#1A3FA8;--white:#FFFFFF;
+    --light-gray:#F5F5F5;--text-gray:#6B7280;--border:#E5E7EB;--green:#86EFAC;
+  }
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:var(--navy);background:var(--white)}
+  a{text-decoration:none;color:inherit}
+  /* header */
+  header{background:var(--white);padding:18px 0;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+  .header-content{max-width:1080px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}
+  .logo{font-size:18px;font-weight:600;color:var(--navy)}
+  .header-nav{display:flex;gap:26px;align-items:center}
+  .header-nav a{font-size:15px;color:var(--text-gray);font-weight:500}
+  .header-nav a.active,.header-nav a:hover{color:var(--navy)}
+  .header-nav .cta-button{color:var(--white)}
+  /* buttons */
+  .cta-button{display:inline-block;background:var(--blue);color:var(--white);padding:13px 30px;border-radius:6px;font-weight:500;font-size:15px;transition:background .2s;cursor:pointer;border:none}
+  .cta-button:hover{background:var(--blue-dark) !important;color:var(--white) !important;text-decoration:none !important}
+  .cta-button.ghost{background:transparent;color:var(--navy);border:1px solid var(--border)}
+  .cta-button.ghost:hover{background:var(--light-gray) !important;color:var(--navy) !important;text-decoration:none !important}
+  .cta-button.sm{padding:9px 20px;font-size:14px}
+  /* hero */
+  .hero{text-align:center;padding:64px 20px 10px;max-width:880px;margin:0 auto}
+  .hero h1{font-size:46px;font-weight:600;line-height:1.15;color:var(--navy);margin:0 auto 22px;max-width:760px}
+  .hero .subtitle{font-size:18px;color:var(--text-gray);max-width:640px;margin:0 auto 30px;line-height:1.7}
+  .hero .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  /* credibility strip (badges + logo banner, one compact block) */
+  .credibility{max-width:1000px;margin:40px auto 0;padding:28px 20px;text-align:center}
+  .credibility.cred-top{border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .credibility.logo-only{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding-top:36px;padding-bottom:44px}
+  .badges .lead,.logo-banner .lead{font-size:12px;color:var(--text-gray);text-transform:uppercase;letter-spacing:.6px;margin-bottom:16px}
+  .badge-row{display:flex;flex-wrap:wrap;gap:22px;justify-content:center;align-items:center}
+  .badge-item{display:flex;flex-direction:column;align-items:center;gap:12px;transition:opacity .2s}
+  .badge-item:hover{opacity:.8}
+  .badge-img-placeholder{width:128px;height:128px;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--text-gray);text-align:center;overflow:hidden}
+  .badge-img-placeholder img{max-width:100%;max-height:100%;object-fit:contain}
+  .badge-label{font-size:13.5px;font-weight:600;color:var(--navy);max-width:130px;line-height:1.4}
+  .cred-flex{display:flex;gap:44px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  .cred-flex .badges{flex:1;min-width:280px;text-align:left}
+  .cred-flex .badge-row{justify-content:space-between;width:100%}
+  .cred-flex .badge-item{flex:1;min-width:120px}
+  .cred-photo{flex-shrink:0;text-align:center}
+  .photo-frame{position:relative;width:190px;height:190px;margin:0 auto 12px}
+  .cred-photo-img{width:190px;height:190px;border-radius:50%;object-fit:cover;border:4px solid var(--white);box-shadow:0 4px 18px rgba(5,28,44,.16);display:block}
+  .cred-badge-overlay{position:absolute;top:-10px;right:-16px;width:84px;height:84px;border-radius:50%;background:var(--white);padding:4px;box-shadow:0 2px 12px rgba(5,28,44,.22)}
+  .cred-caption{font-size:12.5px;color:var(--text-gray);max-width:170px;margin:0 auto}
+  .logo-banner{margin-top:30px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .logo-track{display:flex;width:max-content;gap:56px;align-items:center;animation:logoScroll 22s linear infinite}
+  .logo-track:hover{animation-play-state:paused}
+  .logo-mark{font-size:17px;font-weight:700;color:#9CA3AF;letter-spacing:.3px;white-space:nowrap;opacity:.85;transition:opacity .2s,color .2s}
+  .logo-mark:hover{opacity:1;color:var(--navy)}
+  .logo-mark img{height:56px;width:auto;max-width:220px;object-fit:contain;filter:grayscale(1);opacity:.7;transition:opacity .2s,filter .2s;vertical-align:middle}
+  .logo-mark img:hover{opacity:1;filter:grayscale(0)}
+  @keyframes logoScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  /* stats */
+  .stats{max-width:1000px;margin:50px auto 0;padding:0 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .stat{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px 16px;text-align:center}
+  .stat .n{font-size:26px;font-weight:600;color:var(--blue)}
+  .stat .l{font-size:13px;color:var(--text-gray);margin-top:6px;line-height:1.5}
+  /* sections */
+  section.block{max-width:1000px;margin:0 auto;padding:64px 20px 0}
+  .eyebrow{text-align:center;font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+  .sec-head{text-align:center;margin-bottom:42px}
+  .sec-head h2{font-size:30px;font-weight:600;color:var(--navy);max-width:720px;margin:0 auto;line-height:1.25}
+  .sec-head p{font-size:16px;color:var(--text-gray);max-width:640px;margin:16px auto 0;line-height:1.7}
+  /* problem */
+  .problem{background:var(--navy);color:var(--white);border-radius:12px;padding:54px 44px;text-align:center;margin-top:24px}
+  .problem h2{font-size:28px;font-weight:600;max-width:680px;margin:0 auto 20px;line-height:1.3}
+  .problem p{font-size:16px;color:#A9B6C2;max-width:660px;margin:0 auto 14px;line-height:1.75}
+  .problem .accent{color:var(--white);font-weight:500}
+  /* services grid */
+  .grid4{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .scard{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:30px 28px;transition:border-color .2s,box-shadow .2s}
+  .scard:hover{border-color:#C9D4FF;box-shadow:0 6px 22px rgba(5,28,44,.06)}
+  .scard-head{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+  .scard-head h3{margin:0;font-size:19px;font-weight:600;color:var(--navy)}
+  .scard .num{font-size:12px;font-weight:700;color:var(--blue);letter-spacing:.5px}
+  .scard .ico{width:46px;height:46px;border-radius:10px;background:#EFF2FF;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+  .scard p{font-size:14px;color:var(--text-gray);line-height:1.65;margin-bottom:16px}
+  .scard ul{list-style:none;border-top:1px solid var(--border);padding-top:14px}
+  .scard li{font-size:13px;color:var(--navy);padding:4px 0 4px 20px;position:relative}
+  .scard li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--blue)}
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .step{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:26px 22px}
+  .step .num{display:flex;width:34px;height:34px;border-radius:50%;background:#EFF2FF;color:var(--blue);font-weight:600;align-items:center;justify-content:center;font-size:14px;margin-bottom:14px}
+  .step h3{font-size:16px;font-weight:600;color:var(--navy);margin-bottom:8px}
+  .step p{font-size:13px;color:var(--text-gray);line-height:1.6}
+  /* why */
+  .why{background:var(--light-gray);border-radius:12px;padding:50px 44px;margin-top:24px}
+  .why h2{font-size:26px;font-weight:600;color:var(--navy);text-align:center;margin-bottom:24px}
+  .why-list{max-width:620px;margin:0 auto}
+  .why-list p{font-size:15px;color:var(--text-gray);line-height:1.7;margin-bottom:12px;padding-left:26px;position:relative}
+  .why-list p::before{content:"\2713";position:absolute;left:0;color:var(--blue);font-weight:700}
+  .why-punch{color:var(--navy);font-weight:600;text-align:center;margin-top:22px;font-size:17px}
+  /* case studies */
+  .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .case{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:26px 24px;display:flex;flex-direction:column}
+  .case .metric{display:flex;justify-content:space-between;align-items:baseline;background:var(--light-gray);border-radius:6px;padding:10px 14px;margin-bottom:16px}
+  .case .metric .before{font-size:13px;color:var(--text-gray);text-decoration:line-through}
+  .case .metric .arrow{color:var(--blue);font-weight:700}
+  .case .metric .after{font-size:15px;color:var(--navy);font-weight:600}
+  .case .tag{font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px}
+  .case h3{font-size:17px;font-weight:600;color:var(--navy);margin:6px 0 10px}
+  .case p{font-size:13px;color:var(--text-gray);line-height:1.6;margin-bottom:10px}
+  .case .label{font-size:12px;font-weight:600;color:var(--navy);margin-bottom:3px}
+  /* testimonial */
+  .quote{max-width:760px;margin:44px auto 0;text-align:center}
+  .quote blockquote{font-size:20px;font-weight:500;color:var(--navy);line-height:1.5;margin-bottom:16px}
+  .quote cite{font-size:14px;color:var(--text-gray);font-style:normal}
+  /* lead magnet */
+  .magnet{background:#EFF2FF;border:1px solid #C9D4FF;border-radius:12px;padding:44px;text-align:center;margin-top:24px}
+  .magnet h2{font-size:24px;font-weight:600;color:var(--navy);margin-bottom:10px}
+  .magnet p{font-size:15px;color:var(--text-gray);max-width:520px;margin:0 auto 22px}
+  .magnet .fine{font-size:12px;color:var(--text-gray);margin-top:12px}
+  /* discovery band */
+  .discovery-band{background:#EFF2FF;border:1px solid #C9D4FF;border-radius:12px;padding:34px 40px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+  .discovery-band .tag{font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.6px}
+  .discovery-text{max-width:600px}
+  .discovery-text h3{font-size:22px;font-weight:600;color:var(--navy);margin:6px 0 8px}
+  .discovery-text p{font-size:14.5px;color:var(--text-gray);line-height:1.65}
+  .discovery-cta{text-align:center;flex-shrink:0}
+  .discovery-price{font-size:26px;font-weight:700;color:var(--navy);margin-bottom:12px}
+  .discovery-price span{font-size:13px;font-weight:400;color:var(--text-gray)}
+  @media(max-width:768px){.discovery-band{padding:26px 24px;flex-direction:column;text-align:center}.discovery-text{text-align:center}}
+  /* audit section */
+  .audit-section{background:var(--navy);border-radius:14px;padding:56px 48px;margin-top:24px;color:var(--white)}
+  .audit-top{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;margin-bottom:36px}
+  .audit-top h2{font-size:28px;font-weight:600;max-width:520px;line-height:1.3}
+  .audit-top .value-tag{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:16px 22px;text-align:center;flex-shrink:0}
+  .audit-top .value-tag .price{font-size:26px;font-weight:700;color:var(--white)}
+  .audit-top .value-tag .price .was{font-size:16px;font-weight:500;color:#8FA0B8;text-decoration:line-through;margin-right:6px}
+  .offer-tag{display:inline-block;background:#DC2626;color:var(--white);font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;padding:3px 9px;border-radius:10px;margin-bottom:8px}
+  .audit-top .value-tag .worth{font-size:12.5px;color:#A9B6C2;margin-top:4px}
+  .audit-top p.desc{color:#A9B6C2;font-size:15px;max-width:560px;line-height:1.7;margin-top:10px}
+  .domains{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:34px}
+  .domain{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:16px 14px}
+  .domain .d-num{font-size:12px;font-weight:700;color:#7C97FF}
+  .domain h4{font-size:14px;font-weight:600;color:var(--white);margin-top:6px;line-height:1.35}
+  .audit-deliver{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:32px;padding-top:26px;border-top:1px solid rgba(255,255,255,.14)}
+  .audit-deliver div{flex:1;min-width:180px}
+  .audit-deliver .lbl{font-size:12px;font-weight:700;color:#7C97FF;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+  .audit-deliver p{font-size:13.5px;color:#A9B6C2;line-height:1.6}
+  .audit-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  .audit-bottom p{font-size:14px;color:#A9B6C2;max-width:420px;line-height:1.6}
+  @media(max-width:768px){.domains{grid-template-columns:repeat(2,1fr)}.audit-section{padding:36px 24px}}
+  /* pricing */
+  .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
+  .price-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:30px 26px;position:relative;display:flex;flex-direction:column}
+  .price-card.popular{border:2px solid var(--blue)}
+  .price-card .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--blue);color:var(--white);font-size:12px;font-weight:600;padding:5px 14px;border-radius:14px}
+  .price-card .badge.offer{background:#DC2626}
+  .price-card h3{font-size:18px;font-weight:600;color:var(--navy);margin-bottom:6px}
+  .price-card .amount{font-size:30px;font-weight:600;color:var(--navy);margin-bottom:4px}
+  .price-card .amount span{font-size:15px;color:var(--text-gray);font-weight:400}
+  .price-card .amount .was{font-size:17px;color:var(--text-gray);font-weight:400;text-decoration:line-through;margin-right:6px}
+  .price-card .desc{font-size:13px;color:var(--text-gray);line-height:1.6;margin-bottom:18px}
+  .price-card ul{list-style:none;margin-bottom:18px}
+  .price-card .fit{margin-top:auto}
+  .price-card .cta-button{margin-top:16px}
+  .price-card li{font-size:13px;color:var(--navy);padding:6px 0 6px 22px;position:relative}
+  .price-card li::before{content:"\2713";position:absolute;left:0;color:var(--blue);font-weight:700}
+  .price-card .fit{font-size:12px;color:var(--text-gray);font-style:italic;margin-bottom:16px}
+  .price-card .cta-button{text-align:center;width:100%}
+  /* faq */
+  .faq{max-width:760px;margin:0 auto}
+  details{border:1px solid var(--border);border-radius:8px;padding:18px 22px;margin-bottom:12px;background:var(--white)}
+  details[open]{border-color:#C9D4FF}
+  summary{font-size:16px;font-weight:600;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";color:var(--blue);font-size:22px;font-weight:400}
+  details[open] summary::after{content:"\2212"}
+  details p{font-size:14px;color:var(--text-gray);line-height:1.7;margin-top:14px}
+  /* final cta */
+  .cta-section{background:var(--navy);color:var(--white);padding:70px 40px;text-align:center;margin-top:64px;border-radius:12px;max-width:1000px;margin-left:auto;margin-right:auto}
+  .cta-section h2{font-size:30px;font-weight:600;margin-bottom:16px;color:var(--white)}
+  .cta-section p{color:#A9B6C2;font-size:16px;max-width:560px;margin:0 auto 28px}
+  /* footer */
+  footer{background:var(--light-gray);padding:60px 20px;margin-top:64px}
+  .footer-content{max-width:1000px;margin:0 auto}
+  .footer-main{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-bottom:40px}
+  .footer-section h4{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
+  .footer-section p{font-size:13px;color:var(--text-gray);line-height:1.8}
+  .footer-section a{display:block;font-size:13px;color:var(--text-gray);margin-bottom:8px;transition:color .2s}
+  .footer-section a:hover{color:var(--blue)}
+  .social-links{display:flex;gap:15px;margin-top:18px}
+  .social-links a{display:flex;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--white);align-items:center;justify-content:center;font-size:15px;transition:background .2s;margin:0}
+  .social-links a:hover{background:var(--blue)}
+  .footer-bottom{border-top:1px solid var(--border);padding-top:30px;text-align:center;color:var(--text-gray);font-size:13px}
+  @media(max-width:768px){
+    .header-nav{display:none}
+    .hero h1{font-size:33px}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .grid4,.steps,.cases,.pricing{grid-template-columns:1fr}
+    .problem,.why,.cta-section{padding:38px 24px}
+  }
+</style>
+<!-- HERO -->
+<section class="hero">
+<h1>L'expertise Notion. La rigueur sécurité. Un seul opérateur senior.</h1>
+<p class="subtitle">Je conçois et construis les systèmes opérationnels dont les équipes en croissance ont réellement besoin : des espaces de travail qui tiennent, des automatisations qui ne cassent pas, et une gouvernance qui garde vos données en sécurité. Un seul opérateur senior, du début à la fin.</p>
+</section>
+
+{% include start-here.html %}
+
+  <!-- CREDIBILITY: photo + certifications, right under the hero CTA -->
+<div class="credibility cred-top">
+<div class="cred-flex">
+<div class="cred-photo">
+<div class="photo-frame">
+<img alt="Anthony Today" class="cred-photo-img" src="/assets/images/anthony-profile.jpg"/>
+</div>
+<p class="cred-caption">Anthony Today, consultant Notion certifié</p>
+</div>
+<div class="badges">
+<p class="lead">Certifications en cours de validité</p>
+<div class="badge-row">
+<a class="badge-item" href="https://www.notion.so/consulting-partners/anthonytoday" rel="noopener noreferrer" target="_blank">
+<div class="badge-img-placeholder"><img alt="Badge Notion Consulting Partner" onerror="this.style.display='none';this.parentElement.textContent='Consultant certifié Notion';" src="/assets/logos/certified-notion-consultant.png"/></div>
+<span class="badge-label">Consultant certifié</span>
+</a>
+<a class="badge-item" href="https://www.notion.so/consulting-partners/anthonytoday" rel="noopener noreferrer" target="_blank">
+<div class="badge-img-placeholder"><img alt="Badge Notion Consulting Partner" onerror="this.style.display='none';this.parentElement.textContent='Notion Consulting Partner';" src="/assets/images/notion-certified-admin.png"/></div>
+<span class="badge-label">Admin certifié</span>
+</a>
+<a class="badge-item" href="#" rel="noopener noreferrer" target="_blank">
+<div class="badge-img-placeholder"><img alt="Badge de certification Notion" onerror="this.style.display='none';this.parentElement.textContent='Certifié Notion';" src="/assets/images/notion-service-specialist.png"/></div>
+<span class="badge-label">Service Specialist</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- STATS -->
+<div class="stats">
+<div class="stat"><div class="n">15+</div><div class="l">années à concevoir des systèmes d'entreprise sécurisés</div></div>
+<div class="stat"><div class="n">60+</div><div class="l">missions livrées</div></div>
+<div class="stat"><div class="n">4,92/5</div><div class="l">satisfaction client moyenne</div></div>
+<div class="stat"><div class="n">Zéro</div><div class="l">dépendance au prestataire : le système vous appartient</div></div>
+</div>
+<!-- PROBLEM -->
+<section class="block">
+<div class="problem">
+<h2>L'installation qui tournait bien l'an dernier est devenue un travail à plein temps.</h2>
+<p>L'espace Notion qui suivait tout est devenu un enchevêtrement de relations cassées et de formules que personne n'a documentées. Les automatisations que vous avez montées en un week-end échouent en silence dès que quelque chose change. Et personne n'est certain de qui peut voir quoi.</p>
+<p class="accent">Vous n'êtes pas mauvais en organisation. Vous avez construit des systèmes pour une entreprise plus petite. Je construis celui dont vous avez besoin maintenant, avec le regard sécurité que la plupart des consultants n'ont pas.</p>
+</div>
+</section>
+<!-- SERVICES -->
+<section class="block" id="services">
+<p class="eyebrow">Ce que je construis</p>
+<div class="sec-head">
+<h2>Des systèmes qui tournent seuls.<br/>Une infrastructure fiable.</h2>
+<p>Je diagnostique le vrai problème, je conçois l'architecture, je la construis, je la documente et je forme votre équipe. Chaque mission commence par un audit, pour que vous sachiez quoi corriger avant que quoi que ce soit ne soit reconstruit.</p>
+</div>
+<div class="grid4">
+<div class="scard">
+<div class="scard-head">
+<div class="ico">🏗️</div>
+<span class="num">01</span>
+<h3>Architecture de l'espace de travail</h3>
+</div>
+<p>Remplacer l'espace de travail qui a grandi par accident par une structure qui passe à l'échelle. Des bases de données, des relations et des vues compréhensibles par la prochaine personne qui les ouvrira.</p>
+<ul>
+<li>Cartographie des systèmes et des processus</li>
+<li>Conception des bases de données et des relations</li>
+<li>Modèle de permissions et d'accès</li>
+<li>Documentation et passation</li>
+</ul>
+</div>
+<div class="scard">
+<div class="scard-head">
+<div class="ico">⚙️</div>
+<span class="num">02</span>
+<h3>Workflows et automatisation</h3>
+</div>
+<p>Transformer des processus manuels et éparpillés en workflows clairs qui tournent seuls et vous alertent quand quelque chose cloche, au lieu d'échouer en silence pendant des semaines.</p>
+<ul>
+<li>Conception et mise en place des workflows</li>
+<li>Intégrations d'outils et synchronisation des données</li>
+<li>Gestion des erreurs et supervision</li>
+<li>Plus jamais de double saisie</li>
+</ul>
+</div>
+<div class="scard">
+<div class="scard-head">
+<div class="ico">🤖</div>
+<span class="num">03</span>
+<h3>Ingénierie des workflows IA</h3>
+</div>
+<p>Des workflows IA qui tiennent réellement, avec un contrôle humain dans la boucle et une base propre, pour qu'ils aident votre équipe au lieu de créer un nouveau désordre.</p>
+<ul>
+<li>Paramétrage de Notion AI et conception des instructions</li>
+<li>Traitement des documents et des données</li>
+<li>Rédaction et synthèses automatisées</li>
+<li>Contrôles de gouvernance et de revue</li>
+</ul>
+</div>
+<div class="scard">
+<div class="scard-head">
+<div class="ico">🛡️</div>
+<span class="num">04</span>
+<h3>Gouvernance et sécurité</h3>
+</div>
+<p>La partie que la plupart des consultants ne savent pas faire. Quinze ans de cybersécurité appliqués à votre espace de travail : qui peut voir quoi, où vous êtes exposé, et comment verrouiller sans ralentir l'équipe.</p>
+<ul>
+<li>Audit des accès et des permissions</li>
+<li>Revue des risques et de l'exposition</li>
+<li>Conception du cadre de gouvernance</li>
+<li>Documentation prête pour la conformité</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- HOW I WORK -->
+<section class="block" id="how">
+<p class="eyebrow">Ma façon de travailler</p>
+<div class="sec-head">
+<h2>Quatre étapes. Une personne. Aucune surprise.</h2>
+<p>Le même opérateur senior prend tout en charge, du premier appel à la passation finale. Pas d'intermédiaires, pas de téléphone arabe, pas de junior qui apprend sur votre projet.</p>
+</div>
+<div class="steps">
+<div class="step"><div class="num">1</div><h3>Découverte</h3><p>Je cartographie vos systèmes actuels, je repère ce qui casse et je clarifie ce dont vous avez réellement besoin. Vous repartez avec une vision claire du problème et du chemin à suivre.</p></div>
+<div class="step"><div class="num">2</div><h3>Architecture</h3><p>Je conçois le système sur le papier avant de construire. Vous voyez exactement ce qui va être construit, et pourquoi, avant que le travail ne commence.</p></div>
+<div class="step"><div class="num">3</div><h3>Construction</h3><p>La personne qui a conçu le système est celle qui le construit. Pas de passage de relais, pas de malentendu, aucun détail perdu en route.</p></div>
+<div class="step"><div class="num">4</div><h3>Lancement et passation</h3><p>Je teste tout, je rédige la documentation et je forme votre équipe. Vous savez exactement comment ça marche et comment l'entretenir.</p></div>
+</div>
+</section>
+<!-- WHY -->
+<section class="block">
+<div class="why">
+<h2>Payez une fois. Faites-le bien.</h2>
+<div class="why-list">
+<p>Vous pourriez recruter un freelance moins cher et passer l'année suivante à réparer ce qui casse.</p>
+<p>Vous pourriez assembler des templates et des tutoriels en espérant que ça tienne.</p>
+<p>Vous pourriez demander à une IA d'écrire vos automatisations et les surveiller indéfiniment.</p>
+<p>Ou vous pourriez le construire correctement du premier coup, avec quelqu'un qui sécurise des systèmes d'entreprise depuis 15 ans et qui comprendra encore le vôtre quand quelque chose cassera à 2 h du matin dans six mois.</p>
+</div>
+<p class="why-punch">Construisez-le bien, puis retournez diriger votre entreprise.</p>
+</div>
+</section>
+<!-- CLIENT LOGO BANNER -->
+<div class="credibility logo-only">
+<div class="logo-banner">
+<p class="lead">Ils m'ont fait confiance</p>
+<div class="logo-track">
+<span class="logo-mark"><img alt="Linktree" src="/assets/logos/linktree.webp"/></span>
+<span class="logo-mark"><img alt="Dorchester Collection" src="/assets/logos/dorchester.png"/></span>
+<span class="logo-mark"><img alt="Hitachi" src="/assets/logos/hitachi.webp"/></span>
+<span class="logo-mark"><img alt="Nescafé" src="/assets/logos/nescafe.png"/></span>
+<span class="logo-mark"><img alt="Hilti" src="/assets/logos/hilti.png"/></span>
+<span class="logo-mark"><img alt="Eli Lilly and Company" src="/assets/logos/eli-lilly.png"/></span>
+<span class="logo-mark"><img alt="Notion" src="/assets/logos/notion.png"/></span>
+<span class="logo-mark"><img alt="Miles" src="/assets/logos/miles.png"/></span>
+<span aria-hidden="true" class="logo-mark"><img alt="" src="/assets/logos/linktree.webp"/></span>
+<span aria-hidden="true" class="logo-mark"><img alt="" src="/assets/logos/dorchester.png"/></span>
+<span aria-hidden="true" class="logo-mark"><img alt="" src="/assets/logos/hitachi.webp"/></span>
+<span aria-hidden="true" class="logo-mark"><img alt="" src="/assets/logos/nescafe.png"/></span>
+<span aria-hidden="true" class="logo-mark"><img alt="" src="/assets/logos/hilti.png"/></span>
+<span aria-hidden="true" class="logo-mark"><img alt="" src="/assets/logos/eli-lilly.png"/></span>
+<span aria-hidden="true" class="logo-mark"><img alt="" src="/assets/logos/notion.png"/></span>
+<span aria-hidden="true" class="logo-mark"><img alt="" src="/assets/logos/miles.png"/></span>
+</div>
+</div>
+</div>
+<!-- CASE STUDIES -->
+<section class="block" id="work">
+<p class="eyebrow">Travaux sélectionnés</p>
+<div class="sec-head">
+<h2>Des problèmes résolus. Des systèmes construits.</h2>
+<p>Quelques missions représentatives. Les noms cités le sont avec autorisation ; les autres restent confidentiels.</p>
+</div>
+<div class="cases">
+<div class="case">
+<div class="metric"><span class="before">4 étapes manuelles</span><span class="arrow">→</span><span class="after">1 étape</span></div>
+<span class="tag">Opérations d'équipe</span>
+<h3>Système de mentorat et de KPI</h3>
+<p class="label">Le problème</p>
+<p>Des KPI dans des tableurs, des notes dans un autre outil, des transcriptions dans un troisième, sans aucun lien entre eux. Plus de temps passé en administratif que sur le travail lui-même.</p>
+<p class="label">Ce que j'ai construit</p>
+<p>Un hub d'opérations Notion unique, avec des tableaux de bord adaptés à chaque rôle, une synchronisation automatique des statistiques et des synthèses IA qui ramènent une routine en quatre étapes à une seule.</p>
+</div>
+<div class="case">
+<div class="metric"><span class="before">Fichiers Excel</span><span class="arrow">→</span><span class="after">1 système</span></div>
+<span class="tag">CRM et gouvernance</span>
+<h3>Plateforme de relation client et de conformité</h3>
+<p class="label">Le problème</p>
+<p>Un réseau de clients à forte confidentialité géré avec des outils e-mail et des tableurs échangés par mail entre collaborateurs, sans déduplication ni contrôle d'accès sur des contacts sensibles.</p>
+<p class="label">Ce que j'ai construit</p>
+<p>Une plateforme de contacts unifiée et cloisonnée par permissions, avec déduplication, une routine hebdomadaire de contrôle qualité structurée et un modèle de gouvernance que l'équipe entretient seule.</p>
+</div>
+<div class="case">
+<div class="metric"><span class="before">Plusieurs minutes de chargement</span><span class="arrow">→</span><span class="after">Instantané</span></div>
+<span class="tag">Refonte de plateforme</span>
+<h3>Refonte d'un espace de travail analytique</h3>
+<p class="label">Le problème</p>
+<p>Un produit d'analyse premium étouffé par des pages saturées de formules, incapable d'absorber des clients plus importants. L'écart entre les honoraires et l'infrastructure devenait risqué.</p>
+<p class="label">Ce que j'ai construit</p>
+<p>Une refonte qui a déplacé les calculs lourds vers des automatisations à la demande, ajouté la journalisation des erreurs et découplé les dépendances fragiles. Le correctif est devenu la colonne vertébrale opérationnelle.</p>
+</div>
+</div>
+<div class="quote">
+<blockquote>« Anthony a compris exactement ce dont j'avais besoin en quelques minutes et a construit un système propre et connecté que je peux réellement gérer moi-même. »</blockquote>
+<cite>Avis client · Marketplace Notion, 4,92/5</cite>
+</div>
+<p style="text-align:center;margin-top:18px;font-size:14px;color:var(--text-gray)">Vous voulez voir comment une mission se déroule de bout en bout ? <a href="/fr/use-case/" style="color:var(--blue);text-decoration:underline">Lire le cas client complet</a>.</p>
+</section>
+<!-- AUDIT -->
+<section class="block" id="audit">
+<div class="audit-section">
+<div class="audit-top">
+<div>
+<p class="eyebrow" style="color:#7C97FF">Le point d'entrée</p>
+<h2>L'Audit Notion Ops</h2>
+<p class="desc">Un entretien structuré de 90 minutes, associé à un scan technique de votre environnement Notion, sur 7 domaines que la plupart des consultants ne vérifient jamais. Vous recevez un tableau de bord de notation, des risques classés et une feuille de route, qui devient le plan de tout chantier d'implémentation qui suivra.</p>
+</div>
+<div class="value-tag">
+<span class="offer-tag">Offre spéciale</span>
+<div class="price"><span class="was">497 $</span> 197 $</div>
+<div class="worth">Plus de 1 000 $ de constats</div>
+</div>
+</div>
+<div class="domains">
+<div class="domain"><span class="d-num">01</span><h4>Accès, permissions et sécurité</h4></div>
+<div class="domain"><span class="d-num">02</span><h4>Gouvernance et responsabilités</h4></div>
+<div class="domain"><span class="d-num">03</span><h4>Protection des données et conformité</h4></div>
+<div class="domain"><span class="d-num">04</span><h4>Architecture et structure de l'espace de travail</h4></div>
+<div class="domain"><span class="d-num">05</span><h4>Santé des bases et du modèle de données</h4></div>
+<div class="domain"><span class="d-num">06</span><h4>Automatisation et usage de l'IA</h4></div>
+<div class="domain"><span class="d-num">07</span><h4>Adoption, continuité et coût</h4></div>
+</div>
+<div class="audit-deliver">
+<div><div class="lbl">Tableau de notation</div><p>Une notation rouge / orange / vert sur les 7 domaines, sur une seule page.</p></div>
+<div><div class="lbl">Top 5 des risques</div><p>Classés, en langage clair, reliés à leur impact métier.</p></div>
+<div><div class="lbl">Gains rapides</div><p>Des correctifs que votre équipe peut appliquer cette semaine, sans rien construire.</p></div>
+<div><div class="lbl">Feuille de route</div><p>Le plan de remédiation plus large, et la base de toute proposition de projet.</p></div>
+</div>
+<div class="audit-bottom">
+<p>La plupart des clients utilisent les constats de l'audit pour cadrer une mission Audit et conception ou Chantier risque et gouvernance. Sans aucune obligation dans un sens comme dans l'autre. <a href="/fr/use-case/" style="color:var(--blue);text-decoration:underline">Voir un parcours de remédiation réel</a>.</p>
+<a class="cta-button" href="https://store.anthonytoday.com/l/notion-ops-audit">Commencer l'audit (197 $)</a>
+</div>
+</div>
+</section>
+<!-- DISCOVERY CALL (separate from the pricing ladder below) -->
+<section class="block">
+<div class="discovery-band">
+<div class="discovery-text">
+<span class="tag">Par où commencer</span>
+<h3>Réserver un appel découverte de 30 min</h3>
+<p>Ce n'est pas un appel commercial. Apportez un problème réel de votre installation Notion et je le traite avec vous en direct, sur le champ. Vous repartez soit avec une solution, soit avec un avis clair et honnête sur la suite.</p>
+</div>
+<div class="discovery-cta">
+<div class="discovery-price">79 $</div>
+<a class="cta-button" href="https://cal.com/anthonytoday/consultation">Réserver l'appel</a>
+</div>
+</div>
+</section>
+<!-- PRICING -->
+<section class="block" id="pricing">
+<p class="eyebrow">Tarifs</p>
+<div class="sec-head">
+<h2>Des tarifs transparents. Aucune facture surprise.</h2>
+<p>Chaque mission commence par un périmètre clair et un prix fixe. Vous savez exactement ce que vous obtenez avant que le travail ne commence.</p>
+</div>
+<div class="pricing">
+<div class="price-card">
+<span class="badge offer">Offre spéciale</span>
+<h3>Audit Notion Ops</h3>
+<div class="amount"><span class="was">497 $</span> 197 $</div>
+<p class="desc">Un entretien de 90 minutes plus un scan technique de votre espace de travail. Le moyen le plus rapide de savoir ce qui casse et par quoi commencer.</p>
+<ul>
+<li>Revue de l'espace de travail et des accès</li>
+<li>Principaux risques et gains rapides</li>
+<li>Plan d'action priorisé</li>
+<li>Recommandations claires pour la suite</li>
+</ul>
+<p class="fit">Idéal si : vous sentez que quelque chose ne va pas sans savoir par où commencer.</p>
+<a class="cta-button ghost" href="https://store.anthonytoday.com/l/notion-ops-audit">Commencer l'audit</a>
+</div>
+<div class="price-card popular">
+<span class="badge">Le plus demandé</span>
+<h3>Audit et conception</h3>
+<div class="amount">1 500 $<span> à 6 000 $</span></div>
+<p class="desc">Un audit complet du système, avec des recommandations d'architecture et un plan chiffré pour reconstruire ce qui compte le plus.</p>
+<ul>
+<li>Audit complet du système et de la sécurité</li>
+<li>Analyse des fragilités et des risques</li>
+<li>Recommandations d'architecture</li>
+<li>Liste priorisée des correctifs et estimation</li>
+</ul>
+<p class="fit">Idéal si : vous êtes prêt à investir et voulez d'abord un plan clair.</p>
+<a class="cta-button" href="https://cal.com/anthonytoday/consultation">Réserver un appel découverte</a>
+</div>
+<div class="price-card">
+<h3>Chantier risque et gouvernance</h3>
+<div class="amount">5 k$<span> à 20 k$ et plus</span></div>
+<p class="desc">Je le conçois, je le construis, je le sécurise, je le documente et je forme votre équipe. Le système complet, de bout en bout.</p>
+<ul>
+<li>Découverte et cadrage</li>
+<li>Architecture et construction complète</li>
+<li>Modèle de gouvernance et d'accès</li>
+<li>Documentation et formation de l'équipe</li>
+</ul>
+<p class="fit">Idéal si : vos opérations sont critiques et ne tolèrent pas l'à-peu-près.</p>
+<a class="cta-button ghost" href="https://cal.com/anthonytoday/consultation">Réserver un appel découverte</a>
+</div>
+</div>
+<p style="text-align:center;margin-top:22px;font-size:14px;color:var(--text-gray)">Des forfaits de partenariat continu sont disponibles pour les équipes qui ont besoin d'un opérateur joignable en permanence.</p>
+<p style="text-align:center;margin-top:8px;font-size:14px;color:var(--text-gray)">Vous hésitez sur la formule ? <a href="/fr/use-case/" style="color:var(--blue);text-decoration:underline">Voir comment se déroule une mission type</a>.</p>
+</section>
+<!-- FAQ -->
+<section class="block">
+<p class="eyebrow">Les questions qu'on me pose</p>
+<div class="sec-head"><h2>Avant d'entamer la conversation</h2></div>
+<div class="faq">
+<details><summary>Je ne sais pas exactement ce dont j'ai besoin. Pouvez-vous quand même m'aider ?</summary><p>Oui. La plupart des clients arrivent en sachant que quelque chose ne va pas, sans en connaître la cause. C'est précisément l'objet de l'audit : une revue ciblée qui vous dit quoi corriger en premier, avant de vous engager sur un chantier.</p></details>
+<details><summary>En quoi est-ce différent d'une agence ?</summary><p>Dans une agence, vous parlez au commercial, puis à un chef de projet, puis peut-être à la personne qui fait le travail. Ici, vous travaillez avec un seul opérateur senior, du premier appel à la passation finale. La personne qui conçoit votre système est celle qui le construit.</p></details>
+<details><summary>Je ne suis pas technique. Vais-je comprendre ce que vous construisez ?</summary><p>C'est tout l'objectif. Chaque système est livré documenté, et je forme votre équipe pour que vous puissiez le faire tourner et l'entretenir sans moi. Il vous appartient.</p></details>
+<details><summary>Pourquoi l'angle sécurité et gouvernance est-il important ?</summary><p>La plupart des consultants Notion construisent des workflows mais ne vérifient jamais qui peut voir quoi. Avec 15 ans de cybersécurité derrière moi, je construis des systèmes rapides et sûrs, ce qui compte particulièrement pour les données clients, la finance et les équipes réglementées.</p></details>
+<details><summary>Que se passe-t-il après la construction ?</summary><p>Vous recevez une documentation complète, la formation de votre équipe et un système qui vous appartient entièrement. Si vous voulez un accompagnement continu à mesure que vous grandissez, un forfait de partenariat existe, mais il n'est jamais obligatoire.</p></details>
+<details><summary>Pourquoi coûtez-vous plus cher qu'un freelance ?</summary><p>Parce que le système fonctionne du premier coup. Une construction moins chère qui casse tous les mois coûte plus cher en heures perdues et en reprises que de le faire bien une seule fois.</p></details>
+</div>
+</section>
+<!-- FOOTER -->
+  
+{% include start-here.html %}
+
+
+<footer>
+<div class="footer-content">
+<div class="footer-main">
+<div class="footer-section">
+<h4>Conseil</h4>
+<a href="https://cal.com/anthonytoday/consultation">Réserver un appel découverte (79 $)</a>
+<a href="https://store.anthonytoday.com/l/notion-ops-audit">Audit Notion Ops (197 $)</a>
+<a href="#pricing">Tarifs</a>
+<a href="#services">Services</a>
+</div>
+<div class="footer-section">
+<h4>Produits</h4>
+<a href="https://store.anthonytoday.com">Boutique Gumroad</a>
+<a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">Boutique Etsy</a>
+<a href="https://www.notion.com/@anthonytoday">Profil Notion</a>
+<a href="/fr/tools/">Outils</a>
+</div>
+<div class="footer-section">
+<h4>Restons en contact</h4>
+<p style="margin-bottom:15px">Suivez-moi pour les nouveautés, les ressources et les nouveaux templates.</p>
+<div class="social-links">
+<a href="https://www.linkedin.com/in/anthony-kieffer/" rel="noopener noreferrer" target="_blank" title="LinkedIn">in</a>
+<a href="mailto:info@anthonytoday.com" title="E-mail">@</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Anthony Today. Tous droits réservés.</p>
+</div>
+</div>
+</footer>
