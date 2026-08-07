@@ -38,6 +38,8 @@ bc_name: "Start"
   .qf .submit{width:100%;background:var(--blue);color:#fff;border:none;padding:16px;border-radius:7px;font:inherit;font-size:16.5px;font-weight:600;cursor:pointer;transition:background .2s}
   .qf .submit:hover{background:var(--blue-dark)}
   .qf .submit:disabled{background:#C7D0DB;cursor:not-allowed}
+  .qf .consent{display:flex;gap:11px;align-items:flex-start;padding:15px 16px;border:1px solid var(--border);border-radius:8px;background:#FAFBFC;margin-bottom:22px;cursor:pointer;font-size:14.5px;color:var(--text-gray);line-height:1.55}
+  .qf .consent input{margin-top:3px;accent-color:var(--blue);flex-shrink:0}
   .qf .privacy{font-size:12.5px;color:var(--text-gray);text-align:center;margin-top:16px;line-height:1.6}
 
   /* results */
@@ -147,10 +149,13 @@ bc_name: "Start"
         <div class="counter" id="c-tried">0 characters</div>
       </div>
 
+      <label class="consent"><input type="checkbox" id="f-consent" name="consent">
+        <span>Send me the occasional email about Notion systems for property firms. Nothing else, and one click to stop.</span></label>
+
       <input type="checkbox" name="botcheck" id="botcheck" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" tabindex="-1" autocomplete="off">
 
       <button type="submit" class="submit" id="qf-submit">See if it's a fit &rarr;</button>
-      <p class="privacy">Goes to me, nobody else. No list, no sequence, no sharing.</p>
+      <p class="privacy">Your answers come straight to me and are never shared. You will only be added to a mailing list if you tick the box above.</p>
     </form>
 
     <div class="result" id="qf-result"></div>
@@ -253,6 +258,8 @@ bc_name: "Start"
       subject: '[' + bucket.toUpperCase() + '] ' + d.company + ' — ' + d.name,
       from_name: 'Investor-Ready Sprint form',
       replyto: d.email,
+      marketing_consent: document.getElementById('f-consent').checked ? 'YES' : 'no',
+      copy_paste: d.name + ' <' + d.email + '> | ' + d.company + ' | ' + bucket.toUpperCase() + ' | consent=' + (document.getElementById('f-consent').checked ? 'YES' : 'no'),
       botcheck: (document.getElementById('botcheck')||{}).checked || false,
       name: d.name, email: d.email, company: d.company,
       firm_type: d.firm, team_size: d.size, budget: d.budget, timeline: d.timeline,
