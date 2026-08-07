@@ -1,0 +1,360 @@
+---
+layout: default
+title: "L'Investor-Ready Sprint | Notion pour les sociétés immobilières | Anthony Today"
+description: "30 jours pour des opérations qu'un acquéreur, un prêteur ou un investisseur peut examiner. Systèmes Notion pour l'investissement, la promotion et la gestion immobilière."
+permalink: /fr/investor-ready-sprint/
+lang: fr
+alt_url: /investor-ready-sprint/
+schema_type: "Service"
+bc_name: "Investor-Ready Sprint"
+---
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --navy:#051C2C;--blue:#2251FF;--blue-dark:#1A3FA8;--white:#FFFFFF;
+    --light-gray:#F5F5F5;--text-gray:#6B7280;--border:#E5E7EB;--green:#86EFAC;
+  }
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:var(--navy);background:var(--white)}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:880px;margin:0 auto;padding:0 20px}
+  .cta-button{display:inline-block;background:var(--blue);color:var(--white);padding:14px 32px;border-radius:6px;font-weight:500;font-size:16px;transition:background .2s;border:none;cursor:pointer}
+  .cta-button:hover{background:var(--blue-dark)!important;color:var(--white)!important}
+  .cta-button.ghost{background:transparent;color:var(--navy);border:1px solid var(--border)}
+  .cta-button.ghost:hover{background:var(--light-gray)!important;color:var(--navy)!important}
+
+  /* hero */
+  .hero{text-align:center;padding:72px 20px 8px;max-width:880px;margin:0 auto}
+  .eyebrow{font-size:12px;letter-spacing:.9px;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:18px}
+  .hero h1{font-size:46px;font-weight:600;line-height:1.15;margin:0 auto 22px;max-width:740px}
+  .hero .subtitle{font-size:18px;color:var(--text-gray);max-width:620px;margin:0 auto 32px;line-height:1.7}
+  .hero .who{font-size:14px;color:var(--text-gray);margin-top:22px}
+
+  /* strips */
+  .strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:52px auto 0;padding:26px 20px;max-width:1000px;text-align:center}
+  .strip .lead{font-size:12px;color:var(--text-gray);text-transform:uppercase;letter-spacing:.6px;margin-bottom:14px}
+  .logo-banner{overflow:hidden;margin-top:4px;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+  .logo-track{display:flex;width:max-content;align-items:center;animation:logoScroll 34s linear infinite}
+  .logo-track:hover{animation-play-state:paused}
+  @keyframes logoScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .logo-mark{display:inline-flex;align-items:center;flex-shrink:0;padding:0 16px}
+  .logo-mark img{height:60px;width:220px;object-fit:contain;filter:grayscale(1);opacity:.62;transition:opacity .25s,filter .25s}
+  .logo-mark img:hover{opacity:1;filter:grayscale(0)}
+  @media(prefers-reduced-motion:reduce){.logo-track{animation:none}}
+
+  /* exhibit label */
+  .tools{max-width:1000px;margin:0 auto;padding:30px 20px 4px;text-align:center}
+  .tools .lead{font-size:12px;color:#6B7280;text-transform:uppercase;letter-spacing:.6px;margin-bottom:16px}
+  .tool-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center}
+  .tool{font-size:14.5px;font-weight:500;color:#6B7280;border:1px solid #E5E7EB;border-radius:99px;padding:8px 16px;background:#fff;white-space:nowrap}
+  .tool.to{border:none;background:none;color:#C7D0DB;font-size:18px;padding:0 4px}
+  .tool.dest{color:#051C2C;font-weight:600;border-color:#051C2C;display:inline-flex;align-items:center;gap:8px}
+  .tool.dest img{height:17px;width:auto}
+  .exhibit{font-size:11.5px;letter-spacing:1.1px;text-transform:uppercase;color:#2251FF;font-weight:600;margin-bottom:10px}
+
+  /* phase rail */
+  .rail{display:flex;align-items:stretch;gap:0;margin:6px 0 40px;border:1px solid #E5E7EB;border-radius:10px;overflow:hidden}
+  .rail-step{flex:1;padding:18px 16px;text-align:center;border-right:1px solid #E5E7EB;position:relative}
+  .rail-step:last-child{border-right:none}
+  .rail-step.key{background:#F7F9FF}
+  .rail-step .n{display:block;font-size:11px;letter-spacing:.9px;text-transform:uppercase;color:#6B7280;font-weight:600;margin-bottom:6px}
+  .rail-step .t{display:block;font-size:15.5px;font-weight:600;color:#051C2C;line-height:1.3}
+  .rail-step .d{display:block;font-size:13px;color:#6B7280;margin-top:4px}
+
+  /* stage cards, two-column */
+  .stage{border:1px solid #E5E7EB;border-radius:10px;margin-bottom:14px;overflow:hidden}
+  .stage.featured{border-color:#2251FF;border-width:2px}
+  .sgrid{display:grid;grid-template-columns:212px 1fr}
+  .smeta{background:#FAFBFC;padding:26px 24px;border-right:1px solid #E5E7EB}
+  .stage.featured .smeta{background:#F5F8FF}
+  .smeta .ph{font-size:11px;letter-spacing:.9px;text-transform:uppercase;color:#6B7280;font-weight:600}
+  .smeta h3{font-size:20px;font-weight:600;margin:6px 0 12px;line-height:1.25}
+  .smeta .price{font-size:26px;font-weight:600;color:#2251FF;line-height:1}
+  .smeta .dur{font-size:13.5px;color:#6B7280;margin-top:8px}
+  .smeta .note{font-size:12.5px;color:#6B7280;margin-top:12px;padding-top:12px;border-top:1px solid #E5E7EB;line-height:1.5}
+  .sbody{padding:26px 28px}
+  .sbody .outcome{font-size:16px;color:#051C2C;line-height:1.6;margin-bottom:18px}
+  .deliv{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px}
+  .deliv .di{font-size:14.5px;line-height:1.5;color:#6B7280;padding-left:16px;position:relative}
+  .deliv .di:before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:#2251FF;opacity:.55}
+  .deliv .di b{display:block;color:#051C2C;font-weight:600;font-size:15px;margin-bottom:2px}
+  .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+  .shots figure{margin:0}
+  .shots .shot{aspect-ratio:16/10;border:1px solid #E5E7EB;border-radius:8px;background:#FAFBFC url(var(--s)) center/cover no-repeat;position:relative}
+  .shots .shot:after{content:"";position:absolute;inset:0;border-radius:8px}
+  .shots figcaption{font-size:12.5px;color:#6B7280;margin-top:7px;line-height:1.4}
+  @media(max-width:760px){.shots{grid-template-columns:1fr}}
+
+  @media(max-width:760px){
+    .rail{flex-direction:column}
+    .rail-step{border-right:none;border-bottom:1px solid #E5E7EB;text-align:left;display:flex;gap:10px;align-items:baseline}
+    .rail-step .n{margin-bottom:0}
+    .sgrid{grid-template-columns:1fr}
+    .smeta{border-right:none;border-bottom:1px solid #E5E7EB;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:18px 22px}
+    .smeta h3{margin:0}
+    .deliv{grid-template-columns:1fr}
+  }
+
+  section{padding:60px 0}
+  h2{font-size:32px;font-weight:600;margin-bottom:14px;line-height:1.25}
+  .lede{font-size:17px;color:var(--text-gray);margin-bottom:34px;max-width:640px}
+
+  /* problem list */
+  .pain{list-style:none;display:grid;gap:10px;max-width:760px}
+  .pain li{display:grid;grid-template-columns:minmax(0,42%) minmax(0,58%);gap:22px;align-items:start;
+    padding:18px 22px;background:var(--light-gray);border-radius:8px;font-size:16px}
+  .pain .sym{font-weight:600;color:var(--navy);line-height:1.45}
+  .pain .cost{font-size:15px;color:var(--text-gray);line-height:1.55;
+    border-left:2px solid #D9DDE3;padding-left:20px;border-radius:0}
+  .pain li b{font-weight:600;color:var(--navy)}
+  .pain-anchor{max-width:760px;margin-top:22px;font-size:16px;color:var(--navy);
+    border-left:3px solid var(--blue);border-radius:0;padding:2px 0 2px 18px}
+  @media(max-width:700px){
+    .pain li{grid-template-columns:1fr;gap:10px}
+    .pain .cost{border-left:none;padding-left:0;border-top:1px solid #D9DDE3;padding-top:10px}
+  }
+
+  /* stages */
+  .stage{border:1px solid var(--border);border-radius:10px;padding:28px 30px;margin-bottom:16px}
+  .stage.featured{border-color:var(--blue);border-width:2px}
+  .stage-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:6px}
+  .stage h3{font-size:21px;font-weight:600}
+  .stage .price{font-size:21px;font-weight:600;color:var(--blue);white-space:nowrap}
+  .stage .meta{font-size:13px;color:var(--text-gray);text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+  .stage p{color:var(--text-gray);font-size:15.5px}
+  .stage ul{margin:14px 0 0 0;padding-left:20px;color:var(--text-gray);font-size:15.5px}
+  .stage ul li{margin-bottom:7px}
+  .stage ul li b{color:var(--navy);font-weight:600}
+
+  /* guarantee */
+  .guarantee{background:var(--navy);color:var(--white);border-radius:12px;padding:38px 36px;margin:8px 0}
+  .guarantee h2{color:var(--white);font-size:27px}
+  .g-item{border-left:3px solid var(--green);padding:4px 0 4px 18px;margin-top:22px}
+  .g-item .q{font-size:19px;font-weight:600;line-height:1.4}
+  .g-item .d{font-size:14.5px;color:#A8B4C2;margin-top:8px}
+
+  /* why */
+  .why{display:grid;gap:18px}
+  .why-item{border-left:3px solid var(--blue);padding-left:20px}
+  .why-item h4{font-size:17px;font-weight:600;margin-bottom:6px}
+  .why-item p{color:var(--text-gray);font-size:15.5px}
+
+  /* faq */
+  .faq details{border-bottom:1px solid var(--border);padding:18px 0}
+  .faq summary{font-weight:600;font-size:16.5px;cursor:pointer;list-style:none}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";float:right;color:var(--text-gray);font-weight:400}
+  .faq details[open] summary::after{content:"−"}
+  .faq p{color:var(--text-gray);font-size:15.5px;margin-top:12px}
+
+  .final{text-align:center;padding:66px 20px 80px;border-top:1px solid var(--border)}
+  .final h2{margin-bottom:12px}
+  .final p{color:var(--text-gray);margin-bottom:26px}
+  .disclosure{font-size:12.5px;color:var(--text-gray);text-align:center;padding:0 20px 40px}
+
+  @media(max-width:640px){
+    .hero h1{font-size:33px}
+    h2{font-size:25px}
+    .guarantee{padding:28px 22px}
+  }
+</style>
+<div class="hero">
+<div class="eyebrow">Pour les sociétés d'investissement, de promotion et de gestion immobilière</div>
+<h1>30 jours pour des opérations qu'un acquéreur, un prêteur ou un investisseur peut examiner sans vous mettre mal à l'aise.</h1>
+<p class="subtitle">Vos transactions, vos documents et votre reporting au même endroit, avec un modèle d'accès documenté. Conçu par un partenaire Notion certifié qui a passé 15 ans dans le risque technologique et l'audit informatique.</p>
+<a class="cta-button" href="#start">Commencer par un Blueprint →</a>
+<div class="who">Un tableau de bord opérationnel en 10 jours, ou c'est gratuit.</div>
+</div>
+<div class="strip">
+<div class="lead">Ils me font confiance</div>
+<div class="logo-banner">
+<div class="logo-track">
+<span class="logo-mark"><img alt="Brookfield" height="60" loading="lazy" src="/assets/logos/brookfield.png" width="220"/></span>
+<span class="logo-mark"><img alt="CapitaLand Investment" height="60" loading="lazy" src="/assets/logos/capitaland.png" width="220"/></span>
+<span class="logo-mark"><img alt="PGIM Real Estate" height="60" loading="lazy" src="/assets/logos/pgim.png" width="220"/></span>
+<span class="logo-mark"><img alt="Prologis" height="60" loading="lazy" src="/assets/logos/prologis.png" width="220"/></span>
+<span class="logo-mark"><img alt="Quilvest Capital Partners" height="60" loading="lazy" src="/assets/logos/quilvest.png" width="220"/></span>
+<span class="logo-mark"><img alt="ThreeStones Capital" height="60" loading="lazy" src="/assets/logos/threestones.png" width="220"/></span>
+<span aria-hidden="true" class="logo-mark"><img alt="" height="60" loading="lazy" src="/assets/logos/brookfield.png" width="220"/></span>
+<span aria-hidden="true" class="logo-mark"><img alt="" height="60" loading="lazy" src="/assets/logos/capitaland.png" width="220"/></span>
+<span aria-hidden="true" class="logo-mark"><img alt="" height="60" loading="lazy" src="/assets/logos/pgim.png" width="220"/></span>
+<span aria-hidden="true" class="logo-mark"><img alt="" height="60" loading="lazy" src="/assets/logos/prologis.png" width="220"/></span>
+<span aria-hidden="true" class="logo-mark"><img alt="" height="60" loading="lazy" src="/assets/logos/quilvest.png" width="220"/></span>
+<span aria-hidden="true" class="logo-mark"><img alt="" height="60" loading="lazy" src="/assets/logos/threestones.png" width="220"/></span>
+</div>
+</div>
+</div>
+<div class="wrap">
+<section>
+<h2>Vous savez déjà où ça casse</h2>
+<p class="lede">Pas « vous êtes mal organisé ». Toutes les sociétés de votre taille ont ces cinq problèmes. Ce qu'ils coûtent vraiment, personne ne le chiffre.</p>
+<ul class="pain">
+<li>
+<span class="sym">Un investisseur ou un prêteur demande un point d'avancement</span>
+<span class="cost">Des jours de temps de dirigeant à rassembler ce qui devrait prendre une heure. Faites-le chaque trimestre et cela fait deux semaines de travail par an, facturées à personne.</span>
+</li>
+<li>
+<span class="sym">Une demande de due diligence arrive</span>
+<span class="cost">Les documents existent. Personne ne sait les produire sur demande. Une data room lente se lit comme un signal sur tout le reste de votre gestion.</span>
+</li>
+<li>
+<span class="sym">Une échéance bouge et personne ne le voit</span>
+<span class="cost">Les fenêtres de financement, les dates d'option et les échéances de bail ne se reprogramment pas toutes seules. <b>Une seule date manquée sur une seule opération coûte plus cher que toute cette mission.</b></span>
+</li>
+<li>
+<span class="sym">La personne qui savait où tout se trouvait s'en va</span>
+<span class="cost">La mémoire de l'entreprise part avec elle, et vous la reconstruisez depuis d'anciennes boîtes mail, à votre propre taux horaire.</span>
+</li>
+<li>
+<span class="sym">Vos opérations sont encore manuelles au moment de lever ou de vendre</span>
+<span class="cost">Les constats de due diligence deviennent des ajustements de prix. Un acquéreur qui intègre le risque de dépendance aux personnes clés et l'absence de procédures documentées revalorise la société, pas une ligne du budget.</span>
+</li>
+</ul>
+<p class="pain-anchor">Aucun de ces points n'est urgent un mardi ordinaire. Ils ne coûtent cher que le jour où quelqu'un vous examine, et ce jour-là, ce n'est jamais vous qui le choisissez.</p>
+</section>
+<section>
+<div class="exhibit">La mission</div>
+<h2>Comment ça se passe</h2>
+<p class="lede">Quatre phases. Vous pouvez vous arrêter après le Blueprint sans rien devoir de plus.</p>
+<div class="rail">
+<div class="rail-step"><span class="n">Phase 0</span><span class="t">Setup</span><span class="d">Gratuit · 1 jour</span></div>
+<div class="rail-step key"><span class="n">Phase 1</span><span class="t">Blueprint</span><span class="d">2 500 $ · 10 jours</span></div>
+<div class="rail-step key"><span class="n">Phase 2</span><span class="t">Sprint</span><span class="d">15 000 $ · 30 jours</span></div>
+<div class="rail-step"><span class="n">Phase 3</span><span class="t">Standard</span><span class="d">Optionnel · mensuel</span></div>
+</div>
+<div class="stage">
+<div class="sgrid">
+<div class="smeta">
+<div class="ph">Phase 0</div><h3>Setup</h3>
+<div class="price">Gratuit</div><div class="dur">1 jour</div>
+<div class="note">Avant tout paiement</div>
+</div>
+<div class="sbody">
+<p class="outcome">Notion Business, gratuit pendant 3 mois. Cela représente environ 1 500 $ pour une équipe de 20 personnes, et c'est ce qui me permet de travailler dans votre espace <b>sans consommer de licence payante</b>.</p>
+<div class="deliv">
+<div class="di"><b>Accès à l'espace</b>Un siège consultant sans coût pour vous</div>
+<div class="di"><b>Aucun engagement</b>Ni paiement, ni contrat à ce stade</div>
+</div>
+</div>
+</div>
+</div>
+<div class="stage featured">
+<div class="sgrid">
+<div class="smeta">
+<div class="ph">Phase 1</div><h3>Le Blueprint</h3>
+<div class="price">2 500 $</div><div class="dur">10 jours</div>
+<div class="note">Intégralement déduit du Sprint. Gratuit si ce n'est pas opérationnel en 10 jours.</div>
+</div>
+<div class="sbody">
+<p class="outcome">Une version fonctionnelle de <b>votre société</b> dans Notion. Pas une proposition qui la décrit. Vous voyez vos propres transactions, documents et reporting tourner dans un vrai espace de travail avant de vous engager.</p>
+<div class="deliv">
+<div class="di"><b>Structure des transactions</b>Configurée comme vous transactez réellement</div>
+<div class="di"><b>Vues en direct</b>Pipeline et synthèse, avec vos données</div>
+<div class="di"><b>Démonstration des permissions</b>Trois rôles, montrés en fonctionnement, pas décrits</div>
+<div class="di"><b>Liste des écarts</b>Exactement ce que la version complète ajouterait</div>
+</div>
+<div class="shots">
+<figure><div class="shot" data-src="/assets/screens/deal-pipeline.png"></div><figcaption>Pipeline de transactions, vos étapes</figcaption></figure>
+<figure><div class="shot" data-src="/assets/screens/access-map.png"></div><figcaption>Carte des accès, trois rôles</figcaption></figure>
+<figure><div class="shot" data-src="/assets/screens/investor-view.png"></div><figcaption>Reporting investisseur, en un clic</figcaption></figure>
+</div>
+</div>
+</div>
+</div>
+<div class="stage featured">
+<div class="sgrid">
+<div class="smeta">
+<div class="ph">Phase 2</div><h3>Le Sprint</h3>
+<div class="price">15 000 $</div><div class="dur">30 jours</div>
+<div class="note">50 % au démarrage, 50 % à la livraison</div>
+</div>
+<div class="sbody">
+<p class="outcome">La construction complète. Tout est migré, structuré, sécurisé, documenté et remis à un responsable nommé chez vous.</p>
+<div class="deliv">
+<div class="di"><b>Migration</b>Inventaire et transfert cartographié depuis Drive, les emails, ailleurs</div>
+<div class="di"><b>Architecture</b>Structure des transactions et du portefeuille bâtie autour de vos opérations</div>
+<div class="di"><b>Modèle d'accès</b>Qui voit quelles données financières investisseurs, documenté</div>
+<div class="di"><b>Reporting</b>S'assemble en minutes au lieu de jours</div>
+<div class="di"><b>Formation</b>Un parcours pour le dirigeant, un pour l'équipe</div>
+<div class="di"><b>Passation</b>Responsable nommé, routine de maintenance, documentation complète</div>
+</div>
+</div>
+</div>
+</div>
+<div class="stage">
+<div class="sgrid">
+<div class="smeta">
+<div class="ph">Phase 3</div><h3>Le Standard</h3>
+<div class="price">1 500 $<span style="font-size:15px;font-weight:400;color:#6B7280">/mois</span></div>
+<div class="dur">Optionnel</div>
+<div class="note">Jamais inclus dans le prix affiché</div>
+</div>
+<div class="sbody">
+<p class="outcome">Pour les sociétés qui veulent quelqu'un à joindre quand quelque chose change.</p>
+<div class="deliv">
+<div class="di"><b>Expert à disposition</b>En asynchrone par défaut, un point en direct chaque mois</div>
+<div class="di"><b>Bilan trimestriel</b>Avant que les choses ne se dégradent en silence</div>
+<div class="di"><b>Revue des permissions</b>Au fil des arrivées et des départs</div>
+<div class="di"><b>Résiliable à tout moment</b>Sans engagement, sans préavis</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="guarantee">
+<h2>Deux garanties</h2>
+<p style="color:#A8B4C2;font-size:16px;margin-top:8px">La plupart des projets Notion finissent en bel espace de travail que plus personne n'ouvre trois mois plus tard. Ces deux garanties existent pour que ce ne soit pas le vôtre.</p>
+<div class="g-item">
+<div class="q">« Opérationnel en 10 jours, ou c'est gratuit. »</div>
+<div class="d">Votre structure, en direct, avec de vraies vues, parcourue avec vous. Dix jours à compter du jour où j'obtiens l'accès à votre espace. Remboursement intégral, sans condition.</div>
+</div>
+<div class="g-item">
+<div class="q">« Si votre équipe ne l'utilise pas 30 jours après la passation, je continue jusqu'à ce qu'elle y arrive. »</div>
+<div class="d">Jusqu'à 8 heures supplémentaires sous 60 jours. « L'utiliser » signifie que votre responsable nommé sait créer des enregistrements, ajuster les vues et gérer les permissions sans aide.</div>
+</div>
+</div>
+</section>
+<section>
+<h2>Pourquoi moi</h2>
+<div class="why">
+<div class="why-item">
+<h4>Vos données obtiennent un modèle d'accès, pas un dossier partagé</h4>
+<p>CISSP, CISA, CISM, CRISC, ISO 27001 Lead Implementer, AIGP. Dans tout l'annuaire des consultants Notion certifiés, aucun autre consultant ne détient une seule certification en sécurité. Quinze ans de risque technologique et d'audit informatique, l'essentiel chez EY.</p>
+</div>
+<div class="why-item">
+<h4>Une méthode, pas une improvisation</h4>
+<p>Évaluer, concevoir, construire, faire adopter, maintenir. Des livrables définis à chaque étape et un point de validation avant chacune. La plupart des projets Notion n'ont aucune méthodologie derrière eux, ce qui explique très exactement pourquoi tant d'entre eux sont abandonnés.</p>
+</div>
+<div class="why-item">
+<h4>Je travaille dans votre espace sans coût de licence</h4>
+<p>En tant que Notion Consulting Partner enregistré, je peux être ajouté à votre espace sans occuper de licence payante. La plupart des sociétés ignorent que c'est possible.</p>
+</div>
+<div class="why-item">
+<h4>60+ missions, 50+ pays, noté 4,92/5</h4>
+<p>Certified Notion Admin, Service Specialist et Technical Specialist.</p>
+</div>
+</div>
+</section>
+<section class="faq">
+<h2>Questions</h2>
+<details><summary>Notion coûte 20 $ par mois. Pourquoi cette mission coûte-t-elle 15 000 $ ?</summary>
+<p>La licence, c'est le logiciel. Ici, c'est le système qui tourne dedans, et la raison pour laquelle il fonctionne encore six mois plus tard. Comparez-le à une opération qui dérape, pas à votre abonnement.</p></details>
+<details><summary>Ne pouvons-nous pas le faire nous-mêmes, ou avec ChatGPT ?</summary>
+<p>Vous pouvez, et beaucoup le font. Ce qui en ressort en général, c'est une longue liste de bases de données que personne dans l'équipe n'ouvre. La construction est la moitié facile. Décider ce dont votre société a réellement besoin, et faire en sorte que les gens s'en servent, c'est la moitié qui demande de l'expérience.</p></details>
+<details><summary>Devons-nous confier des données investisseurs confidentielles ?</summary>
+<p>Non. Le Blueprint tourne sur votre structure avec une poignée d'enregistrements non sensibles. Les niveaux de confidentialité et les règles d'accès sont conçus avant que le moindre élément sensible ne bouge.</p></details>
+<details><summary>Et si nous nous arrêtons après le Blueprint ?</summary>
+<p>Vous gardez l'espace de travail, la structure et la liste des écarts. Vous ne devez rien de plus. Les 2 500 $ ne sont déduits que si vous continuez.</p></details>
+<details><summary>Combien de temps cela nous prend-il ?</summary>
+<p>Un appel de découverte de 45 minutes, un court inventaire de contenu, une présentation guidée et deux sessions de formation. Tout le reste est pour moi.</p></details>
+</section>
+</div>
+<div class="final" id="start">
+<h2>Commencez par le Blueprint</h2>
+<p>Voyez votre société tourner dans Notion en 10 jours. Ou c'est gratuit.</p>
+<a class="cta-button" href="https://pay.anthonytoday.com/b/14AcN72A04vP9zJ6SB1ZS00">Commencer le Blueprint · 2 500 $</a>
+<div style="margin-top:14px"><a class="cta-button ghost" href="/start/">Ou réservez un appel de 20 minutes</a></div>
+</div>
+<div class="disclosure">Le lien d'essai Notion Business est un lien d'affiliation. Si vous passez à l'offre payante via ce lien, je peux percevoir une commission, sans coût supplémentaire pour vous.</div>

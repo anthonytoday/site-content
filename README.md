@@ -25,6 +25,9 @@ Previously these files were HTML fragments loaded into MailerLite landing pages 
 | `use-case.html` | `/use-case/` |
 | `guide.html` | `/guide/` |
 | `contact.html` | `/contact/` |
+| `investor-ready-sprint.html` | `/investor-ready-sprint/` |
+| `start.html` | `/start/` |
+| `fr/*.html` | `/fr/…` (French twin of each page above) |
 
 ## Adding a page
 
