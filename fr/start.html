@@ -1,12 +1,12 @@
 ---
 layout: default
-title: "Start Here | Investor-Ready Sprint | Anthony Today"
-description: "Six questions. If it's a fit you'll get a booking link, and if it isn't I'll tell you and point you somewhere useful."
-permalink: /start/
-lang: en
-alt_url: /fr/start/
+title: "Commencer ici | Investor-Ready Sprint | Anthony Today"
+description: "Six questions. Si c'est un bon match vous recevrez un lien de réservation, sinon je vous le dirai et je vous orienterai vers quelque chose d'utile."
+permalink: /fr/start/
+lang: fr
+alt_url: /start/
 schema_type: "WebPage"
-bc_name: "Start"
+bc_name: "Commencer"
 ---
 <style>
   .qf{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;--navy:#051C2C;--blue:#2251FF;--blue-dark:#1A3FA8;--light-gray:#F5F5F5;--text-gray:#6B7280;--border:#E5E7EB;--green:#0F7A32;--green-bg:#E7F7EC;--amber-bg:#FFF3C4;color:var(--navy)}
@@ -74,95 +74,77 @@ bc_name: "Start"
     .qf .rcard{padding:26px 22px}
   }
 </style>
-
 <div class="qf">
-
-  <div class="head" id="qf-head">
-    <div class="prog">Six questions &middot; about two minutes</div>
-    <h1>Let's find out whether this is a fit</h1>
-    <p>If it is, you'll get a booking link at the end. If it isn't, I'll say so and point you somewhere more useful. Nobody's time gets wasted either way.</p>
-  </div>
-
-  <div class="wrap">
-
-    <form id="qf-form" novalidate>
-
-      <div class="two">
-        <div class="q"><label class="qlabel" for="f-name">Your name</label>
-          <input type="text" id="f-name" name="name" required></div>
-        <div class="q"><label class="qlabel" for="f-email">Email</label>
-          <input type="email" id="f-email" name="email" required></div>
-      </div>
-
-      <div class="q"><label class="qlabel" for="f-company">Firm name and website</label>
-        <input type="text" id="f-company" name="company" placeholder="Acme Capital &middot; acmecapital.com" required></div>
-
-      <div class="q">
-        <label class="qlabel">1. What kind of firm is it?</label>
-        <div class="opts" data-name="firm">
-          <label class="opt"><input type="radio" name="firm" value="investment" required> Real estate investment or development</label>
-          <label class="opt"><input type="radio" name="firm" value="property"> Property management or brokerage</label>
-          <label class="opt"><input type="radio" name="firm" value="other"> Something else</label>
-        </div>
-      </div>
-
-      <div class="q">
-        <label class="qlabel">2. How many people work in the firm?</label>
-        <div class="opts" data-name="size">
-          <label class="opt"><input type="radio" name="size" value="1-4" required> 1&ndash;4</label>
-          <label class="opt"><input type="radio" name="size" value="5-25"> 5&ndash;25</label>
-          <label class="opt"><input type="radio" name="size" value="25+"> 25 or more</label>
-        </div>
-      </div>
-
-      <div class="q">
-        <label class="qlabel">3. What budget range are you working with?</label>
-        <p class="hint">Rough is fine. It only decides what we'd sensibly talk about.</p>
-        <div class="opts" data-name="budget">
-          <label class="opt"><input type="radio" name="budget" value="under2500" required> Under $2,500</label>
-          <label class="opt"><input type="radio" name="budget" value="2500-10000"> $2,500 &ndash; $10,000</label>
-          <label class="opt"><input type="radio" name="budget" value="10000+"> $10,000 or more</label>
-          <label class="opt"><input type="radio" name="budget" value="unknown"> Don't know yet</label>
-        </div>
-      </div>
-
-      <div class="q">
-        <label class="qlabel">4. When do you want this working?</label>
-        <div class="opts" data-name="timeline">
-          <label class="opt"><input type="radio" name="timeline" value="30days" required> Start immediately</label>
-          <label class="opt"><input type="radio" name="timeline" value="1-3months"> 1&ndash;3 months</label>
-          <label class="opt"><input type="radio" name="timeline" value="later"> Later, no fixed timeline</label>
-        </div>
-      </div>
-
-      <div class="q">
-        <label class="qlabel" for="f-problem">5. What isn't working right now? Give me a recent example.</label>
-        <p class="hint">A specific moment, not a general description. The report that took three days, the document nobody could find, the deadline that slipped. Two or three sentences.</p>
-        <textarea id="f-problem" name="problem" required></textarea>
-        <div class="counter" id="c-problem">0 characters</div>
-      </div>
-
-      <div class="q">
-        <label class="qlabel" for="f-tried">6. What have you already tried?</label>
-        <p class="hint">Templates you bought, tools you tried, someone you hired, something you built with AI. What happened to it?</p>
-        <textarea id="f-tried" name="tried" required></textarea>
-        <div class="counter" id="c-tried">0 characters</div>
-      </div>
-
-      <label class="consent"><input type="checkbox" id="f-consent" name="consent">
-        <span>Send me the occasional email about Notion systems for property firms. Nothing else, and one click to stop.</span></label>
-
-      <input type="checkbox" name="botcheck" id="botcheck" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" tabindex="-1" autocomplete="off">
-
-      <button type="submit" class="submit" id="qf-submit">See if it's a fit &rarr;</button>
-      <p class="privacy">Your answers come straight to me and are never shared. You will only be added to a mailing list if you tick the box above.</p>
-    </form>
-
-    <div class="result" id="qf-result"></div>
-
-  </div>
+<div class="head" id="qf-head">
+<div class="prog">Six questions · environ deux minutes</div>
+<h1>Voyons si c'est fait pour vous</h1>
+<p>Si oui, vous recevrez un lien de réservation à la fin. Si non, je vous le dirai et je vous orienterai vers quelque chose de plus utile. Personne ne perd son temps, dans les deux cas.</p>
 </div>
-
+<div class="wrap">
+<form id="qf-form" novalidate="">
+<div class="two">
+<div class="q"><label class="qlabel" for="f-name">Votre nom</label>
+<input id="f-name" name="name" required="" type="text"/></div>
+<div class="q"><label class="qlabel" for="f-email">Email</label>
+<input id="f-email" name="email" required="" type="email"/></div>
+</div>
+<div class="q"><label class="qlabel" for="f-company">Nom de la société et site web</label>
+<input id="f-company" name="company" placeholder="Acme Capital · acmecapital.com" required="" type="text"/></div>
+<div class="q">
+<label class="qlabel">1. De quel type de société s'agit-il ?</label>
+<div class="opts" data-name="firm">
+<label class="opt"><input name="firm" required="" type="radio" value="investment"/> Investissement ou promotion immobilière</label>
+<label class="opt"><input name="firm" type="radio" value="property"/> Gestion locative ou transaction</label>
+<label class="opt"><input name="firm" type="radio" value="other"/> Autre chose</label>
+</div>
+</div>
+<div class="q">
+<label class="qlabel">2. Combien de personnes travaillent dans la société ?</label>
+<div class="opts" data-name="size">
+<label class="opt"><input name="size" required="" type="radio" value="1-4"/> 1 à 4</label>
+<label class="opt"><input name="size" type="radio" value="5-25"/> 5 à 25</label>
+<label class="opt"><input name="size" type="radio" value="25+"/> 25 ou plus</label>
+</div>
+</div>
+<div class="q">
+<label class="qlabel">3. Quel budget avez-vous en tête ?</label>
+<p class="hint">Un ordre de grandeur suffit. Cela sert uniquement à cadrer ce dont il est pertinent de parler.</p>
+<div class="opts" data-name="budget">
+<label class="opt"><input name="budget" required="" type="radio" value="under2500"/> Moins de 2 500 $</label>
+<label class="opt"><input name="budget" type="radio" value="2500-10000"/> 2 500 $ à 10 000 $</label>
+<label class="opt"><input name="budget" type="radio" value="10000+"/> 10 000 $ ou plus</label>
+<label class="opt"><input name="budget" type="radio" value="unknown"/> Je ne sais pas encore</label>
+</div>
+</div>
+<div class="q">
+<label class="qlabel">4. Pour quand souhaitez-vous que ce soit opérationnel ?</label>
+<div class="opts" data-name="timeline">
+<label class="opt"><input name="timeline" required="" type="radio" value="30days"/> Démarrer tout de suite</label>
+<label class="opt"><input name="timeline" type="radio" value="1-3months"/> 1 à 3 mois</label>
+<label class="opt"><input name="timeline" type="radio" value="later"/> Plus tard, sans échéance fixée</label>
+</div>
+</div>
+<div class="q">
+<label class="qlabel" for="f-problem">5. Qu'est-ce qui ne fonctionne pas en ce moment ? Donnez-moi un exemple récent.</label>
+<p class="hint">Un moment précis, pas une description générale. Le reporting qui a pris trois jours, le document que personne ne retrouvait, l'échéance qui a glissé. Deux ou trois phrases.</p>
+<textarea id="f-problem" name="problem" required=""></textarea>
+<div class="counter" id="c-problem">0 caractère</div>
+</div>
+<div class="q">
+<label class="qlabel" for="f-tried">6. Qu'avez-vous déjà essayé ?</label>
+<p class="hint">Des templates achetés, des outils testés, quelqu'un que vous avez recruté, quelque chose construit avec l'IA. Qu'est-ce que c'est devenu ?</p>
+<textarea id="f-tried" name="tried" required=""></textarea>
+<div class="counter" id="c-tried">0 caractère</div>
+</div>
+<label class="consent"><input id="f-consent" name="consent" type="checkbox"/>
+<span>Envoyez-moi de temps en temps un email sur les systèmes Notion pour les sociétés immobilières. Rien d'autre, et un clic pour arrêter.</span></label>
+<input autocomplete="off" id="botcheck" name="botcheck" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" tabindex="-1" type="checkbox"/>
+<button class="submit" id="qf-submit" type="submit">Voir si c'est fait pour vous →</button>
+<p class="privacy">Vos réponses me parviennent directement et ne sont jamais partagées. Vous ne serez ajouté à une liste de diffusion que si vous cochez la case ci-dessus.</p>
+</form>
+<div class="result" id="qf-result"></div>
+</div>
+</div>
 <script>
 (function(){
   // ---- CONFIG: drop your endpoint + links here ----
@@ -189,7 +171,7 @@ bc_name: "Start"
     var t=document.getElementById(id), c=document.getElementById(cid);
     t.addEventListener('input', function(){
       var n=t.value.trim().length;
-      c.textContent = n + ' characters' + (n>=MIN_GOOD ? '' : ' · aim for ' + MIN_GOOD + '+');
+      c.textContent = n + ' caractères' + (n>=MIN_GOOD ? '' : ' · visez ' + MIN_GOOD + '+');
       c.classList.toggle('ok', n>=MIN_GOOD);
     });
   }
@@ -209,32 +191,32 @@ bc_name: "Start"
     return 'hot';
   }
 
-  var NEXT = '<div class="next"><div class="next-t">What happens next</div>'
-    + '<div class="ns"><span>1</span><div><b>I read your answers properly</b>Before anything else. You will not be asked to repeat yourself.</div></div>'
-    + '<div class="ns"><span>2</span><div><b>You hear from me within one working day</b>Whatever the outcome. No sequence, no list.</div></div>'
-    + '<div class="ns"><span>3</span><div><b>You decide, with no pressure from me</b>If it is not right, I will say so.</div></div></div>';
+  var NEXT = '<div class="next"><div class="next-t">Ce qui se passe ensuite</div>'
+    + '<div class="ns"><span>1</span><div><b>Je lis vos réponses attentivement</b>Avant toute chose. On ne vous demandera pas de vous répéter.</div></div>'
+    + '<div class="ns"><span>2</span><div><b>Vous avez de mes nouvelles sous un jour ouvré</b>Quelle que soit l\'issue. Pas de séquence, pas de liste.</div></div>'
+    + '<div class="ns"><span>3</span><div><b>Vous décidez, sans pression de ma part</b>Si ce n\'est pas le bon moment, je vous le dirai.</div></div></div>';
 
   var VIEWS = {
-    hot: '<div class="rcard r-hot"><h2>Thanks. This sounds like a fit.</h2>'
-       + '<p>Pick a time below. Twenty minutes, no pitch. I will have read your answers before we start, so we begin at the actual problem rather than at introductions.</p></div>'
+    hot: '<div class="rcard r-hot"><h2>Merci : cela ressemble à un bon match.</h2>'
+       + '<p>Choisissez un créneau ci-dessous. Vingt minutes, sans argumentaire. J\'aurai lu vos réponses avant qu\'on commence, pour qu\'on démarre sur le vrai sujet plutôt que sur les présentations.</p></div>'
        + '<div class="calwrap"><div id="cal-inline"></div></div>'
-       + '<p class="calalt">Would rather not book a call? You can <a href="'+STRIPE_LINK+'" target="_blank" rel="noopener">start the Blueprint now</a>: $2,500, working in 10 days or it is free.</p>',
+       + '<p class="calalt">Vous préférez ne pas réserver d\'appel ? Vous pouvez <a href="'+STRIPE_LINK+'" target="_blank" rel="noopener">démarrer le Blueprint maintenant</a> : 2 500 $, opérationnel en 10 jours ou c\'est gratuit.</p>',
 
-    warm: '<div class="rcard r-warm"><h2>Thanks. Here is what I would suggest.</h2>'
-       + '<p>From your answers, I would not start with a call. I would start with the Blueprint: I build a working version of your firm in Notion within 10 days, so you can look at something real instead of reading a proposal.</p>'
-       + '<p>It is $2,500, credited in full if you go on to the full build, and free if it is not working in 10 days. That way you find out whether this is right for you before committing to anything larger.</p>'
-       + '<a class="btn" href="/investor-ready-sprint/">See what is involved &rarr;</a>'
-       + '<a class="btn ghost" href="'+STRIPE_LINK+'" target="_blank" rel="noopener">Start the Blueprint</a>'
-       + '<p class="alt">Either way I will email you within a day. If you would rather talk it through first, just reply and we will find a time.</p></div>' + NEXT,
+    warm: '<div class="rcard r-warm"><h2>Merci. Voici ce que je vous suggère.</h2>'
+       + '<p>D\'après vos réponses, je ne commencerais pas par un appel. Je commencerais par le Blueprint : je construis une version fonctionnelle de votre société dans Notion en 10 jours, pour que vous regardiez quelque chose de réel au lieu de lire une proposition.</p>'
+       + '<p>C\'est 2 500 $, intégralement déduits si vous poursuivez avec la construction complète, et gratuit si ce n\'est pas opérationnel en 10 jours. Vous savez ainsi si cela vous convient avant de vous engager sur quoi que ce soit de plus lourd.</p>'
+       + '<a class="btn" href="/fr/investor-ready-sprint/">Voir ce que cela implique &rarr;</a>'
+       + '<a class="btn ghost" href="'+STRIPE_LINK+'" target="_blank" rel="noopener">Démarrer le Blueprint</a>'
+       + '<p class="alt">Dans les deux cas je vous écris sous un jour. Si vous préférez en parler d\'abord, répondez simplement et nous trouverons un créneau.</p></div>' + NEXT,
 
-    cold: '<div class="rcard r-cold"><h2>Thanks for taking the time to fill this in.</h2>'
-       + '<p>Being straight with you: from what you have described, what I build would be more than you need at this stage. I would rather tell you that now than take the money and have you regret it.</p>'
-       + '<p>Two things that will genuinely help in the meantime, both free:</p>'
+    cold: '<div class="rcard r-cold"><h2>Merci d\'avoir pris le temps de remplir ce formulaire.</h2>'
+       + '<p>Pour être direct avec vous : d\'après ce que vous décrivez, ce que je construis serait plus que ce dont vous avez besoin à ce stade. Je préfère vous le dire maintenant plutôt que prendre votre argent et vous le faire regretter.</p>'
+       + '<p>Deux choses qui vous aideront réellement en attendant, toutes les deux gratuites :</p>'
        + '<ul class="rlist">'
-       + '<li><a href="'+AFFILIATE+'" target="_blank" rel="noopener" style="color:#2251FF;text-decoration:underline">Notion Business, free for 3 months</a>: worth around $1,500 for a 20-person team</li>'
-       + '<li><a href="'+TEMPLATES+'" target="_blank" rel="noopener" style="color:#2251FF;text-decoration:underline">My templates</a>: 70+, free, downloaded in 50+ countries</li>'
+       + '<li><a href="'+AFFILIATE+'" target="_blank" rel="noopener" style="color:#2251FF;text-decoration:underline">Notion Business, gratuit pendant 3 mois</a> : environ 1 500 $ pour une équipe de 20 personnes</li>'
+       + '<li><a href="'+TEMPLATES+'" target="_blank" rel="noopener" style="color:#2251FF;text-decoration:underline">Mes templates</a> : plus de 70, gratuits, téléchargés dans plus de 50 pays</li>'
        + '</ul>'
-       + '<p class="alt">When the team grows, or when keeping track of things starts costing you real time, come back. I will still be here.<br><span style="font-size:12.5px">The Notion link is a referral link. If you upgrade through it I may earn a commission, at no cost to you.</span></p></div>'
+       + '<p class="alt">Quand l\'équipe grandira, ou quand le suivi commencera à vous coûter du temps réel, revenez. Je serai toujours là.<br><span style="font-size:12.5px">Le lien Notion est un lien d\'affiliation. Si vous passez à l\'offre payante via ce lien, je peux percevoir une commission, sans coût pour vous.</span></p></div>'
   };
 
   form.addEventListener('submit', function(e){
@@ -243,10 +225,10 @@ bc_name: "Start"
     d.problem = d.problem || ''; d.tried = d.tried || '';
 
     if (!d.firm || !d.size || !d.budget || !d.timeline || !d.name || !d.email || !d.company){
-      alert('A few answers are still missing.'); return;
+      alert('Il manque encore quelques réponses.'); return;
     }
     if (d.problem.trim().length < MIN_SUBMIT || d.tried.trim().length < MIN_SUBMIT){
-      alert('Questions 5 and 6 need a bit more than that. A couple of sentences each.'); return;
+      alert('Les questions 5 et 6 demandent un peu plus que cela. Deux ou trois phrases chacune.'); return;
     }
 
     var bucket = route(d);
@@ -255,8 +237,8 @@ bc_name: "Start"
 
     var payload = {
       access_key: ACCESS_KEY,
-      subject: '[' + bucket.toUpperCase() + '] ' + d.company + ' | ' + d.name,
-      from_name: 'Investor-Ready Sprint form',
+      subject: '[' + bucket.toUpperCase() + '][FR] ' + d.company + ' | ' + d.name,
+      from_name: 'Investor-Ready Sprint form (FR)',
       replyto: d.email,
       marketing_consent: document.getElementById('f-consent').checked ? 'YES' : 'no',
       copy_paste: d.name + ' <' + d.email + '> | ' + d.company + ' | ' + bucket.toUpperCase() + ' | consent=' + (document.getElementById('f-consent').checked ? 'YES' : 'no'),
