@@ -32,16 +32,16 @@ bc_name: "Investor-Ready Sprint"
   /* strips */
   .strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:52px auto 0;padding:26px 20px;max-width:1000px;text-align:center}
   .strip .lead{font-size:12px;color:var(--text-gray);text-transform:uppercase;letter-spacing:.6px;margin-bottom:14px}
-  .logo-row{display:flex;flex-wrap:wrap;gap:34px;justify-content:center;align-items:center}
   .logo-banner{overflow:hidden;margin-top:4px;
-    -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
-    mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-  .logo-track{display:flex;width:max-content;gap:56px;align-items:center;animation:logoScroll 26s linear infinite}
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+  .logo-track{display:flex;width:max-content;align-items:center;animation:logoScroll 34s linear infinite}
   .logo-track:hover{animation-play-state:paused}
   @keyframes logoScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  .logo-mark{display:inline-flex;align-items:center;flex-shrink:0}
-  .logo-mark img{height:56px;width:auto;max-width:220px;object-fit:contain;filter:grayscale(1);opacity:.7;transition:opacity .2s,filter .2s}
+  .logo-mark{display:inline-flex;align-items:center;flex-shrink:0;padding:0 16px}
+  .logo-mark img{height:60px;width:220px;object-fit:contain;filter:grayscale(1);opacity:.62;transition:opacity .25s,filter .25s}
   .logo-mark img:hover{opacity:1;filter:grayscale(0)}
+  @media(prefers-reduced-motion:reduce){.logo-track{animation:none}}
 
   /* exhibit label */
   .tools{max-width:1000px;margin:0 auto;padding:30px 20px 4px;text-align:center}
@@ -154,13 +154,21 @@ bc_name: "Investor-Ready Sprint"
 
 <div class="strip">
   <div class="lead">Trusted by teams including</div>
-  <div class="logo-row">
-    <span class="logo-mark"><img src="/assets/logos/linktree.webp" alt="Linktree"></span>
-    <span class="logo-mark"><img src="/assets/logos/dorchester.png" alt="Dorchester Collection"></span>
-    <span class="logo-mark"><img src="/assets/logos/hitachi.webp" alt="Hitachi"></span>
-    <span class="logo-mark"><img src="/assets/logos/nescafe.png" alt="Nescaf&eacute;"></span>
-    <span class="logo-mark"><img src="/assets/logos/hilti.png" alt="Hilti"></span>
-    <span class="logo-mark"><img src="/assets/logos/eli-lilly.png" alt="Eli Lilly and Company"></span>
+  <div class="logo-banner">
+    <div class="logo-track">
+      <span class="logo-mark"><img src="/assets/logos/brookfield.png" alt="Brookfield" loading="lazy" width="220" height="60"></span>
+      <span class="logo-mark"><img src="/assets/logos/capitaland.png" alt="CapitaLand Investment" loading="lazy" width="220" height="60"></span>
+      <span class="logo-mark"><img src="/assets/logos/pgim.png" alt="PGIM Real Estate" loading="lazy" width="220" height="60"></span>
+      <span class="logo-mark"><img src="/assets/logos/prologis.png" alt="Prologis" loading="lazy" width="220" height="60"></span>
+      <span class="logo-mark"><img src="/assets/logos/quilvest.png" alt="Quilvest Capital Partners" loading="lazy" width="220" height="60"></span>
+      <span class="logo-mark"><img src="/assets/logos/threestones.png" alt="ThreeStones Capital" loading="lazy" width="220" height="60"></span>
+      <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/brookfield.png" alt="" loading="lazy" width="220" height="60"></span>
+      <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/capitaland.png" alt="" loading="lazy" width="220" height="60"></span>
+      <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/pgim.png" alt="" loading="lazy" width="220" height="60"></span>
+      <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/prologis.png" alt="" loading="lazy" width="220" height="60"></span>
+      <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/quilvest.png" alt="" loading="lazy" width="220" height="60"></span>
+      <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/threestones.png" alt="" loading="lazy" width="220" height="60"></span>
+    </div>
   </div>
 </div>
 
