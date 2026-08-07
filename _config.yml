@@ -1,7 +1,18 @@
 title: "Anthony Today"
 description: "Cybersecurity, GRC and Notion systems consulting."
 url: "https://www.anthonytoday.com"
+lang: en
+author:
+  name: "Anthony Kieffer"
+  email: "info@anthonytoday.com"
+social:
+  name: "Anthony Kieffer"
+  links:
+    - https://www.linkedin.com/in/anthony-kieffer/
+    - https://www.notion.com/@anthonytoday
+    - https://www.notion.so/consulting-partners/anthonytoday
 exclude:
   - README.md
   - credentials.md
   - "*.py"
+  - i18n/

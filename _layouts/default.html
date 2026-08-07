@@ -21,6 +21,99 @@
 {% if en_url and fr_url %}<meta property="og:locale:alternate" content="{% if lang == 'fr' %}en_US{% else %}fr_FR{% endif %}">
 {% endif %}<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/images/favicon.png">
+{%- assign locale = "en-US" -%}{%- if lang == "fr" -%}{%- assign locale = "fr-FR" -%}{%- endif -%}
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@graph":[
+  {
+   "@type":"Person",
+   "@id":"https://www.anthonytoday.com/#anthony",
+   "name":"Anthony Kieffer",
+   "givenName":"Anthony","familyName":"Kieffer",
+   "url":"https://www.anthonytoday.com/",
+   "image":"https://www.anthonytoday.com/assets/images/anthony-profile.jpg",
+   "jobTitle":{% if lang == "fr" %}"Consultant en cybersécurité, GRC et Notion"{% else %}"Cybersecurity, GRC and Notion Consultant"{% endif %},
+   "description":{% if lang == "fr" %}"Notion Consulting Partner certifié et ex-consultant cybersécurité chez EY. 15+ ans de risque technologique et d'audit IT entre le Luxembourg, la Suisse et les États-Unis."{% else %}"Certified Notion Consulting Partner and ex-EY cybersecurity consultant. 15+ years in technology risk and IT audit across Luxembourg, Switzerland and the USA."{% endif %},
+   "knowsLanguage":["en","fr"],
+   "knowsAbout":["Notion","Notion workspace architecture","Cybersecurity","Governance Risk and Compliance","ISO 27001","NIST Cybersecurity Framework","AI governance","IT audit","Information security management","Fractional CISO","Third-party risk management"],
+   "alumniOf":{"@type":"CollegeOrUniversity","name":"ETH Zürich"},
+   "hasCredential":[
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CISSP","recognizedBy":{"@type":"Organization","name":"ISC2"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CISA","recognizedBy":{"@type":"Organization","name":"ISACA"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CISM","recognizedBy":{"@type":"Organization","name":"ISACA"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CRISC","recognizedBy":{"@type":"Organization","name":"ISACA"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"AIGP","recognizedBy":{"@type":"Organization","name":"IAPP"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"ISO 27001 Lead Implementer"},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"Notion Certified Consultant","recognizedBy":{"@type":"Organization","name":"Notion"}}
+   ],
+   "sameAs":["https://www.linkedin.com/in/anthony-kieffer/","https://www.notion.com/@anthonytoday","https://www.notion.so/consulting-partners/anthonytoday"],
+   "worksFor":{"@id":"https://www.anthonytoday.com/#business"}
+  },
+  {
+   "@type":"ProfessionalService",
+   "@id":"https://www.anthonytoday.com/#business",
+   "name":"Anthony Today",
+   "url":"https://www.anthonytoday.com/",
+   "image":"https://www.anthonytoday.com/assets/images/anthony-profile.jpg",
+   "logo":"https://www.anthonytoday.com/assets/images/favicon.png",
+   "description":{% if lang == "fr" %}"Conseil Notion certifié, gouvernance des risques et cybersécurité. Architecture d'espace de travail, préparation à l'audit et direction sécurité à temps partagé."{% else %}"Certified Notion consulting, governance risk and cybersecurity advisory. Workspace architecture, audit readiness and fractional security leadership."{% endif %},
+   "founder":{"@id":"https://www.anthonytoday.com/#anthony"},
+   "email":"info@anthonytoday.com",
+   "priceRange":"$79-$20000",
+   "availableLanguage":["en","fr"],
+   "areaServed":[{"@type":"Country","name":"Luxembourg"},{"@type":"Country","name":"Switzerland"},{"@type":"Country","name":"United States"},{"@type":"Country","name":"United Arab Emirates"},{"@type":"Country","name":"France"},{"@type":"Country","name":"Belgium"}],
+   "sameAs":["https://www.linkedin.com/in/anthony-kieffer/","https://www.notion.com/@anthonytoday","https://www.notion.so/consulting-partners/anthonytoday"],
+   "hasOfferCatalog":{
+    "@type":"OfferCatalog",
+    "name":{% if lang == "fr" %}"Prestations"{% else %}"Services"{% endif %},
+    "itemListElement":[
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"Audit Notion Ops"{% else %}"Notion Ops Audit"{% endif %},"serviceType":"Notion workspace audit"},"price":"197","priceCurrency":"USD"},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"Appel découverte"{% else %}"Discovery Call"{% endif %},"serviceType":"Consulting"},"price":"79","priceCurrency":"USD"},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"Audit et conception"{% else %}"Audit & Design"{% endif %},"serviceType":"Notion workspace architecture"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"1500","maxPrice":"6000","priceCurrency":"USD"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"Chantier risque et gouvernance"{% else %}"Risk & Governance Build"{% endif %},"serviceType":"Governance risk and compliance"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"5000","maxPrice":"20000","priceCurrency":"USD"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"CISO externalisé"{% else %}"Fractional CISO"{% endif %},"serviceType":"Fractional security leadership"}}
+    ]
+   }
+  },
+  {
+   "@type":"WebSite",
+   "@id":"https://www.anthonytoday.com/#website",
+   "url":"https://www.anthonytoday.com/",
+   "name":"Anthony Today",
+   "publisher":{"@id":"https://www.anthonytoday.com/#business"},
+   "inLanguage":["en-US","fr-FR"]
+  },
+  {
+   "@type":{% if page.schema_type %}{{ page.schema_type | jsonify }}{% else %}"WebPage"{% endif %},
+   "@id":"{{ page.url | absolute_url }}#webpage",
+   "url":"{{ page.url | absolute_url }}",
+   "name":{{ page.title | default: site.title | jsonify }},
+   "description":{{ page.description | default: site.description | jsonify }},
+   "inLanguage":"{{ locale }}",
+   "isPartOf":{"@id":"https://www.anthonytoday.com/#website"},
+   "about":{"@id":"https://www.anthonytoday.com/#business"},
+   "author":{"@id":"https://www.anthonytoday.com/#anthony"},
+   "publisher":{"@id":"https://www.anthonytoday.com/#business"},
+   "primaryImageOfPage":"https://www.anthonytoday.com/assets/images/anthony-profile.jpg"
+  },
+  {
+   "@type":"BreadcrumbList",
+   "@id":"{{ page.url | absolute_url }}#breadcrumb",
+   "itemListElement":[
+    {"@type":"ListItem","position":1,"name":{% if lang == "fr" %}"Accueil"{% else %}"Home"{% endif %},"item":"{{ u_home | absolute_url }}"}
+    {%- if page.bc_parent_url %},
+    {"@type":"ListItem","position":2,"name":{{ page.bc_parent_name | jsonify }},"item":"{{ page.bc_parent_url | absolute_url }}"},
+    {"@type":"ListItem","position":3,"name":{{ page.bc_name | default: page.title | jsonify }},"item":"{{ page.url | absolute_url }}"}
+    {%- elsif page.url != u_home %},
+    {"@type":"ListItem","position":2,"name":{{ page.bc_name | default: page.title | jsonify }},"item":"{{ page.url | absolute_url }}"}
+    {%- endif %}
+   ]
+  }
+ ]
+}
+</script>
+
 <style>
   :root{--navy:#051C2C;--navy-2:#0A2B42;--blue:#2251FF;--white:#FFFFFF}
   body{margin:0}
