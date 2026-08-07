@@ -33,7 +33,9 @@ bc_name: "Investor-Ready Sprint"
   .strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:52px auto 0;padding:26px 20px;max-width:1000px;text-align:center}
   .strip .lead{font-size:12px;color:var(--text-gray);text-transform:uppercase;letter-spacing:.6px;margin-bottom:14px}
   .logo-row{display:flex;flex-wrap:wrap;gap:34px;justify-content:center;align-items:center}
-  .logo-mark{font-size:15px;font-weight:700;color:#9CA3AF;letter-spacing:.3px;opacity:.85}
+  .logo-mark{display:inline-flex;align-items:center}
+  .logo-mark img{height:40px;width:auto;max-width:165px;object-fit:contain;filter:grayscale(1);opacity:.6;transition:opacity .2s,filter .2s}
+  .logo-mark img:hover{opacity:1;filter:grayscale(0)}
 
   section{padding:60px 0}
   h2{font-size:32px;font-weight:600;margin-bottom:14px;line-height:1.25}
@@ -100,12 +102,12 @@ bc_name: "Investor-Ready Sprint"
 <div class="strip">
   <div class="lead">Trusted by teams including</div>
   <div class="logo-row">
-    <span class="logo-mark">LINKTREE</span>
-    <span class="logo-mark">DORCHESTER COLLECTION</span>
-    <span class="logo-mark">HITACHI</span>
-    <span class="logo-mark">NESCAFÉ</span>
-    <span class="logo-mark">HILTI</span>
-    <span class="logo-mark">ELI LILLY</span>
+    <span class="logo-mark"><img src="/assets/logos/linktree.webp" alt="Linktree"></span>
+    <span class="logo-mark"><img src="/assets/logos/dorchester.png" alt="Dorchester Collection"></span>
+    <span class="logo-mark"><img src="/assets/logos/hitachi.webp" alt="Hitachi"></span>
+    <span class="logo-mark"><img src="/assets/logos/nescafe.png" alt="Nescaf&eacute;"></span>
+    <span class="logo-mark"><img src="/assets/logos/hilti.png" alt="Hilti"></span>
+    <span class="logo-mark"><img src="/assets/logos/eli-lilly.png" alt="Eli Lilly and Company"></span>
   </div>
 </div>
 
