@@ -146,7 +146,8 @@ bc_name: "Start"
 <script>
 (function(){
   // ---- CONFIG: drop your endpoint + links here ----
-  var ENDPOINT   = "FORM_ENDPOINT";                                 // Formspree / Web3Forms / your Cloudflare worker
+  var ENDPOINT   = "https://api.web3forms.com/submit";
+  var ACCESS_KEY = "c11e0f6b-725b-41be-a276-e2427ef8c1b3";
   var CAL_LINK   = "https://cal.com/anthonytoday/qualification";
   var STRIPE_LINK= "STRIPE_BLUEPRINT_LINK";
   var AFFILIATE  = "https://affiliate.notion.so/0x8u16p4sff1";
@@ -219,9 +220,18 @@ bc_name: "Start"
     d.route = bucket;
     d.submitted_at = new Date().toISOString();
 
-    if (ENDPOINT && ENDPOINT.indexOf('FORM_ENDPOINT') === -1){
-      fetch(ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(d)}).catch(function(){});
-    }
+    var payload = {
+      access_key: ACCESS_KEY,
+      subject: '[' + bucket.toUpperCase() + '] ' + d.company + ' — ' + d.name,
+      from_name: 'Investor-Ready Sprint form',
+      name: d.name, email: d.email, company: d.company,
+      firm_type: d.firm, team_size: d.size, budget: d.budget, timeline: d.timeline,
+      route: bucket,
+      problem: d.problem, already_tried: d.tried,
+      submitted_at: d.submitted_at
+    };
+    fetch(ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json', Accept:'application/json'},
+      body:JSON.stringify(payload)}).catch(function(){});
 
     document.getElementById('qf-head').style.display='none';
     form.style.display='none';
