@@ -1,0 +1,234 @@
+---
+layout: default
+title: "Start Here | Investor-Ready Sprint | Anthony Today"
+description: "Six questions. If it's a fit you'll get a booking link, and if it isn't I'll tell you and point you somewhere useful."
+permalink: /start/
+lang: en
+alt_url: /fr/start/
+schema_type: "WebPage"
+bc_name: "Start"
+---
+<style>
+  .qf{--navy:#051C2C;--blue:#2251FF;--blue-dark:#1A3FA8;--light-gray:#F5F5F5;--text-gray:#6B7280;--border:#E5E7EB;--green:#0F7A32;--green-bg:#E7F7EC;--amber-bg:#FFF3C4;color:var(--navy)}
+  .qf *{box-sizing:border-box}
+  .qf .wrap{max-width:660px;margin:0 auto;padding:0 20px}
+  .qf .head{text-align:center;padding:58px 20px 6px}
+  .qf .head h1{font-size:38px;font-weight:600;line-height:1.18;margin-bottom:16px}
+  .qf .head p{font-size:17px;color:var(--text-gray);max-width:520px;margin:0 auto;line-height:1.65}
+  .qf .prog{font-size:12px;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:14px}
+
+  .qf form{padding:34px 0 70px}
+  .qf .q{margin-bottom:34px}
+  .qf .q > label.qlabel{display:block;font-size:17px;font-weight:600;margin-bottom:6px}
+  .qf .hint{font-size:14px;color:var(--text-gray);margin-bottom:14px;line-height:1.55}
+  .qf input[type=text],.qf input[type=email],.qf textarea{
+    width:100%;padding:13px 15px;border:1px solid var(--border);border-radius:7px;font:inherit;font-size:15.5px;color:var(--navy);background:#fff}
+  .qf textarea{min-height:130px;resize:vertical;line-height:1.6}
+  .qf input:focus,.qf textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(34,81,255,.10)}
+  .qf .opts{display:grid;gap:9px}
+  .qf .opt{display:flex;align-items:flex-start;gap:11px;padding:13px 15px;border:1px solid var(--border);border-radius:7px;cursor:pointer;transition:border-color .15s,background .15s;font-size:15.5px}
+  .qf .opt:hover{border-color:#C7D0DB;background:#FAFBFC}
+  .qf .opt input{margin-top:3px;accent-color:var(--blue);flex-shrink:0}
+  .qf .opt.sel{border-color:var(--blue);background:rgba(34,81,255,.04)}
+  .qf .counter{font-size:12.5px;color:var(--text-gray);margin-top:7px;text-align:right}
+  .qf .counter.ok{color:var(--green);font-weight:600}
+  .qf .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .qf .submit{width:100%;background:var(--blue);color:#fff;border:none;padding:16px;border-radius:7px;font:inherit;font-size:16.5px;font-weight:600;cursor:pointer;transition:background .2s}
+  .qf .submit:hover{background:var(--blue-dark)}
+  .qf .submit:disabled{background:#C7D0DB;cursor:not-allowed}
+  .qf .privacy{font-size:12.5px;color:var(--text-gray);text-align:center;margin-top:16px;line-height:1.6}
+
+  /* results */
+  .qf .result{display:none;padding:44px 0 80px}
+  .qf .result.on{display:block}
+  .qf .rcard{border-radius:12px;padding:34px 32px}
+  .qf .rcard h2{font-size:27px;font-weight:600;margin-bottom:12px;line-height:1.3}
+  .qf .rcard p{font-size:16px;line-height:1.7;margin-bottom:14px}
+  .qf .rcard .btn{display:inline-block;background:var(--blue);color:#fff;padding:14px 30px;border-radius:6px;font-weight:500;font-size:16px;margin-top:8px}
+  .qf .rcard .btn:hover{background:var(--blue-dark)!important;color:#fff!important;text-decoration:none!important}
+  .qf .rcard .btn.ghost{background:transparent;color:var(--navy);border:1px solid var(--border);margin-left:8px}
+  .qf .rcard .alt{font-size:14.5px;color:var(--text-gray);margin-top:18px}
+  .qf .r-hot{background:var(--green-bg);border:1px solid #9FD9B2}
+  .qf .r-warm{background:var(--amber-bg);border:1px solid #E8C95A}
+  .qf .r-cold{background:var(--light-gray);border:1px solid var(--border)}
+  .qf .rlist{margin:6px 0 0 0;padding-left:20px;font-size:15.5px;line-height:1.75}
+
+  @media(max-width:640px){
+    .qf .head h1{font-size:29px}
+    .qf .two{grid-template-columns:1fr}
+    .qf .rcard{padding:26px 22px}
+  }
+</style>
+
+<div class="qf">
+
+  <div class="head" id="qf-head">
+    <div class="prog">Six questions &middot; about two minutes</div>
+    <h1>Let's find out whether this is a fit</h1>
+    <p>If it is, you'll get a booking link at the end. If it isn't, I'll say so and point you somewhere more useful. Nobody's time gets wasted either way.</p>
+  </div>
+
+  <div class="wrap">
+
+    <form id="qf-form" novalidate>
+
+      <div class="two">
+        <div class="q"><label class="qlabel" for="f-name">Your name</label>
+          <input type="text" id="f-name" name="name" required></div>
+        <div class="q"><label class="qlabel" for="f-email">Email</label>
+          <input type="email" id="f-email" name="email" required></div>
+      </div>
+
+      <div class="q"><label class="qlabel" for="f-company">Firm name and website</label>
+        <input type="text" id="f-company" name="company" placeholder="Acme Capital &middot; acmecapital.com" required></div>
+
+      <div class="q">
+        <label class="qlabel">1. What kind of firm is it?</label>
+        <div class="opts" data-name="firm">
+          <label class="opt"><input type="radio" name="firm" value="investment" required> Real estate investment or development</label>
+          <label class="opt"><input type="radio" name="firm" value="property"> Property management or brokerage</label>
+          <label class="opt"><input type="radio" name="firm" value="other"> Something else</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <label class="qlabel">2. How many people work in the firm?</label>
+        <div class="opts" data-name="size">
+          <label class="opt"><input type="radio" name="size" value="1-4" required> 1&ndash;4</label>
+          <label class="opt"><input type="radio" name="size" value="5-25"> 5&ndash;25</label>
+          <label class="opt"><input type="radio" name="size" value="25+"> 25 or more</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <label class="qlabel">3. What budget range are you working with?</label>
+        <p class="hint">Rough is fine. It only decides what we'd sensibly talk about.</p>
+        <div class="opts" data-name="budget">
+          <label class="opt"><input type="radio" name="budget" value="under2500" required> Under $2,500</label>
+          <label class="opt"><input type="radio" name="budget" value="2500-10000"> $2,500 &ndash; $10,000</label>
+          <label class="opt"><input type="radio" name="budget" value="10000+"> $10,000 or more</label>
+          <label class="opt"><input type="radio" name="budget" value="unknown"> Don't know yet</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <label class="qlabel">4. When do you want this working?</label>
+        <div class="opts" data-name="timeline">
+          <label class="opt"><input type="radio" name="timeline" value="30days" required> Within 30 days</label>
+          <label class="opt"><input type="radio" name="timeline" value="1-3months"> 1&ndash;3 months</label>
+          <label class="opt"><input type="radio" name="timeline" value="later"> Later, no fixed timeline</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <label class="qlabel" for="f-problem">5. What isn't working right now? Give me a recent example.</label>
+        <p class="hint">A specific moment, not a general description. The report that took three days, the document nobody could find, the deadline that slipped. Two or three sentences.</p>
+        <textarea id="f-problem" name="problem" required></textarea>
+        <div class="counter" id="c-problem">0 characters</div>
+      </div>
+
+      <div class="q">
+        <label class="qlabel" for="f-tried">6. What have you already tried?</label>
+        <p class="hint">Templates you bought, tools you tried, someone you hired, something you built with AI. What happened to it?</p>
+        <textarea id="f-tried" name="tried" required></textarea>
+        <div class="counter" id="c-tried">0 characters</div>
+      </div>
+
+      <button type="submit" class="submit" id="qf-submit">See if it's a fit &rarr;</button>
+      <p class="privacy">Goes to me, nobody else. No list, no sequence, no sharing.</p>
+    </form>
+
+    <div class="result" id="qf-result"></div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  // ---- CONFIG: drop your endpoint + links here ----
+  var ENDPOINT   = "FORM_ENDPOINT";                                 // Formspree / Web3Forms / your Cloudflare worker
+  var CAL_LINK   = "https://cal.com/anthonytoday/qualification";
+  var STRIPE_LINK= "STRIPE_BLUEPRINT_LINK";
+  var AFFILIATE  = "https://affiliate.notion.so/0x8u16p4sff1";
+  var TEMPLATES  = "https://www.notion.com/@anthonytoday";
+  var MIN_GOOD   = 200;   // routing threshold
+  var MIN_SUBMIT = 40;    // hard minimum so thin leads are still captured
+
+  var form = document.getElementById('qf-form');
+
+  // selected-state styling
+  document.querySelectorAll('.opts').forEach(function(g){
+    g.addEventListener('change', function(){
+      g.querySelectorAll('.opt').forEach(function(o){ o.classList.toggle('sel', o.querySelector('input').checked); });
+    });
+  });
+
+  // character counters
+  function wire(id, cid){
+    var t=document.getElementById(id), c=document.getElementById(cid);
+    t.addEventListener('input', function(){
+      var n=t.value.trim().length;
+      c.textContent = n + ' characters' + (n>=MIN_GOOD ? '' : ' · aim for ' + MIN_GOOD + '+');
+      c.classList.toggle('ok', n>=MIN_GOOD);
+    });
+  }
+  wire('f-problem','c-problem'); wire('f-tried','c-tried');
+
+  function route(d){
+    if (d.firm==='other' || d.size==='1-4' || d.budget==='under2500') return 'cold';
+    if (d.timeline==='later') return 'warm';
+    if (d.budget==='unknown' && d.timeline!=='30days') return 'warm';
+    if (d.problem.trim().length < MIN_GOOD || d.tried.trim().length < MIN_GOOD) return 'warm';
+    return 'hot';
+  }
+
+  var VIEWS = {
+    hot: '<div class="rcard r-hot"><h2>This looks like a fit.</h2>'
+       + '<p>Pick a time below. Twenty minutes, no pitch. I\'ll have read your answers before we start, so we begin at the actual problem rather than at introductions.</p>'
+       + '<a class="btn" href="'+CAL_LINK+'">Book 20 minutes &rarr;</a>'
+       + '<p class="alt">Would rather not wait for a slot? You can <a href="'+STRIPE_LINK+'" style="color:#2251FF;text-decoration:underline">start the Blueprint now</a> &mdash; $2,500, working in 10 days or it\'s free.</p></div>',
+
+    warm: '<div class="rcard r-warm"><h2>Probably the Blueprint, and it doesn\'t need a call.</h2>'
+       + '<p>From your answers, the sensible first step is the Blueprint: I build a working version of your firm in Notion in 10 days so you can see it rather than read a proposal. $2,500, credited in full if you go on to the full build, and free if it isn\'t working in 10 days.</p>'
+       + '<a class="btn" href="/investor-ready-sprint/">See what\'s involved &rarr;</a>'
+       + '<a class="btn ghost" href="'+STRIPE_LINK+'">Start the Blueprint</a>'
+       + '<p class="alt">I\'ll follow up by email within a day either way. If you\'d rather talk it through first, just reply to it.</p></div>',
+
+    cold: '<div class="rcard r-cold"><h2>Honestly? Not yet.</h2>'
+       + '<p>Based on where you are, what I build would be more than you need right now, and I\'d rather say that than take the money. Two things that will actually help:</p>'
+       + '<ul class="rlist">'
+       + '<li><a href="'+AFFILIATE+'" style="color:#2251FF;text-decoration:underline">Notion Business, free for 3 months</a> &mdash; worth around $1,500 for a 20-person team</li>'
+       + '<li><a href="'+TEMPLATES+'" style="color:#2251FF;text-decoration:underline">My templates</a> &mdash; 70+, free, downloaded in 50+ countries</li>'
+       + '</ul>'
+       + '<p class="alt">When the team grows or things get harder to keep track of, come back. I\'ll still be here.<br><span style="font-size:12.5px">The Notion link is a referral link. If you upgrade through it I may earn a commission, at no cost to you.</span></p></div>'
+  };
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var d = Object.fromEntries(new FormData(form).entries());
+    d.problem = d.problem || ''; d.tried = d.tried || '';
+
+    if (!d.firm || !d.size || !d.budget || !d.timeline || !d.name || !d.email || !d.company){
+      alert('A few answers are still missing.'); return;
+    }
+    if (d.problem.trim().length < MIN_SUBMIT || d.tried.trim().length < MIN_SUBMIT){
+      alert('Questions 5 and 6 need a bit more than that. A couple of sentences each.'); return;
+    }
+
+    var bucket = route(d);
+    d.route = bucket;
+    d.submitted_at = new Date().toISOString();
+
+    if (ENDPOINT && ENDPOINT.indexOf('FORM_ENDPOINT') === -1){
+      fetch(ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(d)}).catch(function(){});
+    }
+
+    document.getElementById('qf-head').style.display='none';
+    form.style.display='none';
+    var r=document.getElementById('qf-result');
+    r.innerHTML=VIEWS[bucket];
+    r.classList.add('on');
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+})();
+</script>

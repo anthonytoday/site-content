@@ -2,7 +2,7 @@
 {% assign lang = page.lang | default: "en" %}
 {% if lang == "fr" %}{% assign en_url = page.alt_url %}{% assign fr_url = page.url %}{% assign p = "/fr" %}
 {% else %}{% assign en_url = page.url %}{% assign fr_url = page.alt_url %}{% assign p = "" %}{% endif %}
-{% assign u_home = p | append: "/" %}{% assign u_notion = p | append: "/notion/" %}{% assign u_guide = p | append: "/guide/" %}{% assign u_usecase = p | append: "/use-case/" %}{% assign u_cyber = p | append: "/cyber/" %}{% assign u_grc = p | append: "/cyber-grc/" %}{% assign u_ciso = p | append: "/fractional-ciso/" %}{% assign u_tools = p | append: "/tools/" %}{% assign u_contact = p | append: "/contact/" %}
+{% assign u_home = p | append: "/" %}{% assign u_notion = p | append: "/notion/" %}{% assign u_guide = p | append: "/guide/" %}{% assign u_usecase = p | append: "/use-case/" %}{% assign u_cyber = p | append: "/cyber/" %}{% assign u_grc = p | append: "/cyber-grc/" %}{% assign u_ciso = p | append: "/fractional-ciso/" %}{% assign u_tools = p | append: "/tools/" %}{% assign u_contact = p | append: "/contact/" %}{% assign u_sprint = p | append: "/investor-ready-sprint/" %}{% assign u_start = p | append: "/start/" %}
 <html lang="{{ lang }}">
 <head>
 <meta charset="utf-8">
@@ -184,6 +184,7 @@
         <div class="sub">
           <a href="{{ u_guide }}"{% if page.url == u_guide %} aria-current="page"{% endif %}>{% if lang == "fr" %}Guides{% else %}Guide{% endif %}</a>
           <a href="{{ u_usecase }}"{% if page.url == u_usecase %} aria-current="page"{% endif %}>{% if lang == "fr" %}Cas clients{% else %}Use Cases{% endif %}</a>
+          <a href="{{ u_sprint }}"{% if page.url == u_sprint %} aria-current="page"{% endif %}>{% if lang == "fr" %}Immobilier{% else %}For Real Estate{% endif %}</a>
         </div>
       </div>
 
