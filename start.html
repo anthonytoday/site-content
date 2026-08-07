@@ -9,8 +9,10 @@ schema_type: "WebPage"
 bc_name: "Start"
 ---
 <style>
-  .qf{--navy:#051C2C;--blue:#2251FF;--blue-dark:#1A3FA8;--light-gray:#F5F5F5;--text-gray:#6B7280;--border:#E5E7EB;--green:#0F7A32;--green-bg:#E7F7EC;--amber-bg:#FFF3C4;color:var(--navy)}
-  .qf *{box-sizing:border-box}
+  .qf{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;--navy:#051C2C;--blue:#2251FF;--blue-dark:#1A3FA8;--light-gray:#F5F5F5;--text-gray:#6B7280;--border:#E5E7EB;--green:#0F7A32;--green-bg:#E7F7EC;--amber-bg:#FFF3C4;color:var(--navy)}
+  .qf *{box-sizing:border-box;font-family:inherit}
+  /* result headings are sentences, not titles */
+  .qf .rcard h2{text-transform:none}
   .qf .wrap{max-width:660px;margin:0 auto;padding:0 20px}
   .qf .head{text-align:center;padding:58px 20px 6px}
   .qf .head h1{font-size:38px;font-weight:600;line-height:1.18;margin-bottom:16px}
@@ -52,6 +54,13 @@ bc_name: "Start"
   .qf .r-warm{background:var(--amber-bg);border:1px solid #E8C95A}
   .qf .r-cold{background:var(--light-gray);border:1px solid var(--border)}
   .qf .rlist{margin:6px 0 0 0;padding-left:20px;font-size:15.5px;line-height:1.75}
+  .qf .next{margin-top:26px;padding:24px 26px;border:1px solid var(--border);border-radius:12px;background:#fff}
+  .qf .next-t{font-size:11.5px;letter-spacing:1px;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:16px}
+  .qf .ns{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
+  .qf .ns:last-child{margin-bottom:0}
+  .qf .ns span{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--light-gray);color:var(--navy);font-size:12.5px;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .qf .ns b{display:block;font-size:15px;font-weight:600;color:var(--navy);margin-bottom:2px}
+  .qf .ns div{font-size:14.5px;color:var(--text-gray);line-height:1.55}
 
   @media(max-width:640px){
     .qf .head h1{font-size:29px}
@@ -114,7 +123,7 @@ bc_name: "Start"
       <div class="q">
         <label class="qlabel">4. When do you want this working?</label>
         <div class="opts" data-name="timeline">
-          <label class="opt"><input type="radio" name="timeline" value="30days" required> Within 30 days</label>
+          <label class="opt"><input type="radio" name="timeline" value="30days" required> Start immediately</label>
           <label class="opt"><input type="radio" name="timeline" value="1-3months"> 1&ndash;3 months</label>
           <label class="opt"><input type="radio" name="timeline" value="later"> Later, no fixed timeline</label>
         </div>
@@ -176,32 +185,45 @@ bc_name: "Start"
   wire('f-problem','c-problem'); wire('f-tried','c-tried');
 
   function route(d){
+    // never a fit
     if (d.firm==='other' || d.size==='1-4' || d.budget==='under2500') return 'cold';
+    // no timeline means no decision to make yet
     if (d.timeline==='later') return 'warm';
+    // real budget + a real timeline always earns a call, regardless of how much they typed
+    if (d.budget==='10000+') return 'hot';
+    // unknown budget only converts on urgency
     if (d.budget==='unknown' && d.timeline!=='30days') return 'warm';
+    // mid band: the written answers decide
     if (d.problem.trim().length < MIN_GOOD || d.tried.trim().length < MIN_GOOD) return 'warm';
     return 'hot';
   }
 
+  var NEXT = '<div class="next"><div class="next-t">What happens next</div>'
+    + '<div class="ns"><span>1</span><div><b>I read your answers properly</b>Before anything else. You will not be asked to repeat yourself.</div></div>'
+    + '<div class="ns"><span>2</span><div><b>You hear from me within one working day</b>Whatever the outcome. No sequence, no list.</div></div>'
+    + '<div class="ns"><span>3</span><div><b>You decide, with no pressure from me</b>If it is not right, I will say so.</div></div></div>';
+
   var VIEWS = {
-    hot: '<div class="rcard r-hot"><h2>This looks like a fit.</h2>'
-       + '<p>Pick a time below. Twenty minutes, no pitch. I\'ll have read your answers before we start, so we begin at the actual problem rather than at introductions.</p>'
-       + '<a class="btn" href="'+CAL_LINK+'">Book 20 minutes &rarr;</a>'
-       + '<p class="alt">Would rather not wait for a slot? You can <a href="'+STRIPE_LINK+'" style="color:#2251FF;text-decoration:underline">start the Blueprint now</a> &mdash; $2,500, working in 10 days or it\'s free.</p></div>',
+    hot: '<div class="rcard r-hot"><h2>Thanks &mdash; this sounds like a fit.</h2>'
+       + '<p>From what you have described, it is worth twenty minutes of both our time. No pitch. I will have read your answers before we start, so we begin at the actual problem rather than at introductions.</p>'
+       + '<a class="btn" href="'+CAL_LINK+'" target="_blank" rel="noopener">Pick a time &rarr;</a>'
+       + '<p class="alt">Would rather not wait for a slot? You can <a href="'+STRIPE_LINK+'" target="_blank" rel="noopener" style="color:#2251FF;text-decoration:underline">start the Blueprint now</a> &mdash; $2,500, working in 10 days or it is free.</p></div>' + NEXT,
 
-    warm: '<div class="rcard r-warm"><h2>Probably the Blueprint, and it doesn\'t need a call.</h2>'
-       + '<p>From your answers, the sensible first step is the Blueprint: I build a working version of your firm in Notion in 10 days so you can see it rather than read a proposal. $2,500, credited in full if you go on to the full build, and free if it isn\'t working in 10 days.</p>'
-       + '<a class="btn" href="/investor-ready-sprint/">See what\'s involved &rarr;</a>'
-       + '<a class="btn ghost" href="'+STRIPE_LINK+'">Start the Blueprint</a>'
-       + '<p class="alt">I\'ll follow up by email within a day either way. If you\'d rather talk it through first, just reply to it.</p></div>',
+    warm: '<div class="rcard r-warm"><h2>Thanks. Here is what I would suggest.</h2>'
+       + '<p>From your answers, I would not start with a call. I would start with the Blueprint: I build a working version of your firm in Notion within 10 days, so you can look at something real instead of reading a proposal.</p>'
+       + '<p>It is $2,500, credited in full if you go on to the full build, and free if it is not working in 10 days. That way you find out whether this is right for you before committing to anything larger.</p>'
+       + '<a class="btn" href="/investor-ready-sprint/">See what is involved &rarr;</a>'
+       + '<a class="btn ghost" href="'+STRIPE_LINK+'" target="_blank" rel="noopener">Start the Blueprint</a>'
+       + '<p class="alt">Either way I will email you within a day. If you would rather talk it through first, just reply and we will find a time.</p></div>' + NEXT,
 
-    cold: '<div class="rcard r-cold"><h2>Honestly? Not yet.</h2>'
-       + '<p>Based on where you are, what I build would be more than you need right now, and I\'d rather say that than take the money. Two things that will actually help:</p>'
+    cold: '<div class="rcard r-cold"><h2>Thanks for taking the time to fill this in.</h2>'
+       + '<p>Being straight with you: from what you have described, what I build would be more than you need at this stage. I would rather tell you that now than take the money and have you regret it.</p>'
+       + '<p>Two things that will genuinely help in the meantime, both free:</p>'
        + '<ul class="rlist">'
-       + '<li><a href="'+AFFILIATE+'" style="color:#2251FF;text-decoration:underline">Notion Business, free for 3 months</a> &mdash; worth around $1,500 for a 20-person team</li>'
-       + '<li><a href="'+TEMPLATES+'" style="color:#2251FF;text-decoration:underline">My templates</a> &mdash; 70+, free, downloaded in 50+ countries</li>'
+       + '<li><a href="'+AFFILIATE+'" target="_blank" rel="noopener" style="color:#2251FF;text-decoration:underline">Notion Business, free for 3 months</a> &mdash; worth around $1,500 for a 20-person team</li>'
+       + '<li><a href="'+TEMPLATES+'" target="_blank" rel="noopener" style="color:#2251FF;text-decoration:underline">My templates</a> &mdash; 70+, free, downloaded in 50+ countries</li>'
        + '</ul>'
-       + '<p class="alt">When the team grows or things get harder to keep track of, come back. I\'ll still be here.<br><span style="font-size:12.5px">The Notion link is a referral link. If you upgrade through it I may earn a commission, at no cost to you.</span></p></div>'
+       + '<p class="alt">When the team grows, or when keeping track of things starts costing you real time, come back. I will still be here.<br><span style="font-size:12.5px">The Notion link is a referral link. If you upgrade through it I may earn a commission, at no cost to you.</span></p></div>'
   };
 
   form.addEventListener('submit', function(e){
