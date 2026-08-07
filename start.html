@@ -54,6 +54,10 @@ bc_name: "Start"
   .qf .r-warm{background:var(--amber-bg);border:1px solid #E8C95A}
   .qf .r-cold{background:var(--light-gray);border:1px solid var(--border)}
   .qf .rlist{margin:6px 0 0 0;padding-left:20px;font-size:15.5px;line-height:1.75}
+  .qf .calwrap{margin-top:18px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#fff;min-height:560px}
+  .qf #cal-inline{width:100%;height:100%;min-height:560px}
+  .qf .calalt{font-size:14.5px;color:var(--text-gray);margin-top:16px;text-align:center;line-height:1.6}
+  .qf .calalt a{color:var(--blue);text-decoration:underline}
   .qf .next{margin-top:26px;padding:24px 26px;border:1px solid var(--border);border-radius:12px;background:#fff}
   .qf .next-t{font-size:11.5px;letter-spacing:1px;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:16px}
   .qf .ns{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
@@ -207,9 +211,9 @@ bc_name: "Start"
 
   var VIEWS = {
     hot: '<div class="rcard r-hot"><h2>Thanks &mdash; this sounds like a fit.</h2>'
-       + '<p>From what you have described, it is worth twenty minutes of both our time. No pitch. I will have read your answers before we start, so we begin at the actual problem rather than at introductions.</p>'
-       + '<a class="btn" href="'+CAL_LINK+'" target="_blank" rel="noopener">Pick a time &rarr;</a>'
-       + '<p class="alt">Would rather not wait for a slot? You can <a href="'+STRIPE_LINK+'" target="_blank" rel="noopener" style="color:#2251FF;text-decoration:underline">start the Blueprint now</a> &mdash; $2,500, working in 10 days or it is free.</p></div>' + NEXT,
+       + '<p>Pick a time below. Twenty minutes, no pitch. I will have read your answers before we start, so we begin at the actual problem rather than at introductions.</p></div>'
+       + '<div class="calwrap"><div id="cal-inline"></div></div>'
+       + '<p class="calalt">Would rather not book a call? You can <a href="'+STRIPE_LINK+'" target="_blank" rel="noopener">start the Blueprint now</a> &mdash; $2,500, working in 10 days or it is free.</p>',
 
     warm: '<div class="rcard r-warm"><h2>Thanks. Here is what I would suggest.</h2>'
        + '<p>From your answers, I would not start with a call. I would start with the Blueprint: I build a working version of your firm in Notion within 10 days, so you can look at something real instead of reading a proposal.</p>'
@@ -264,6 +268,23 @@ bc_name: "Start"
     var r=document.getElementById('qf-result');
     r.innerHTML=VIEWS[bucket];
     r.classList.add('on');
+
+    if (bucket === 'hot'){
+      (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document;
+        C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments;
+          if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
+          if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1];
+            api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); }
+            else p(cal, ar); return; } p(cal, ar); };
+      })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "qualification", {origin:"https://app.cal.com"});
+      Cal.ns.qualification("inline", {
+        elementOrSelector:"#cal-inline",
+        config:{layout:"month_view"},
+        calLink:"anthonytoday/qualification"
+      });
+      Cal.ns.qualification("ui", {hideEventTypeDetails:false, layout:"month_view"});
+    }
     window.scrollTo({top:0, behavior:'smooth'});
   });
 })();

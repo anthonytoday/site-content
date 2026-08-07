@@ -79,6 +79,12 @@ bc_name: "Investor-Ready Sprint"
   .deliv .di{font-size:14.5px;line-height:1.5;color:#6B7280;padding-left:16px;position:relative}
   .deliv .di:before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:#2251FF;opacity:.55}
   .deliv .di b{display:block;color:#051C2C;font-weight:600;font-size:15px;margin-bottom:2px}
+  .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+  .shots figure{margin:0}
+  .shots .shot{aspect-ratio:16/10;border:1px solid #E5E7EB;border-radius:8px;background:#FAFBFC url(var(--s)) center/cover no-repeat;position:relative}
+  .shots .shot:after{content:"";position:absolute;inset:0;border-radius:8px}
+  .shots figcaption{font-size:12.5px;color:#6B7280;margin-top:7px;line-height:1.4}
+  @media(max-width:760px){.shots{grid-template-columns:1fr}}
 
   @media(max-width:760px){
     .rail{flex-direction:column}
@@ -255,6 +261,11 @@ bc_name: "Investor-Ready Sprint"
             <div class="di"><b>Live views</b>Pipeline and summary, with your records</div>
             <div class="di"><b>Permissions demo</b>Three roles, shown working, not described</div>
             <div class="di"><b>Gap list</b>Exactly what the full build would add</div>
+          </div>
+          <div class="shots">
+            <figure><div class="shot" data-src="/assets/screens/deal-pipeline.png"></div><figcaption>Deal pipeline, your stages</figcaption></figure>
+            <figure><div class="shot" data-src="/assets/screens/access-map.png"></div><figcaption>Access map, three roles</figcaption></figure>
+            <figure><div class="shot" data-src="/assets/screens/investor-view.png"></div><figcaption>Investor update, one click</figcaption></figure>
           </div>
         </div>
       </div>
