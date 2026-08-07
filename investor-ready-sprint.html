@@ -95,9 +95,19 @@ bc_name: "Investor-Ready Sprint"
   .lede{font-size:17px;color:var(--text-gray);margin-bottom:34px;max-width:640px}
 
   /* problem list */
-  .pain{list-style:none;display:grid;gap:12px;max-width:700px}
-  .pain li{padding:16px 20px;background:var(--light-gray);border-radius:8px;font-size:16px}
-  .pain li b{font-weight:600}
+  .pain{list-style:none;display:grid;gap:10px;max-width:760px}
+  .pain li{display:grid;grid-template-columns:minmax(0,42%) minmax(0,58%);gap:22px;align-items:start;
+    padding:18px 22px;background:var(--light-gray);border-radius:8px;font-size:16px}
+  .pain .sym{font-weight:600;color:var(--navy);line-height:1.45}
+  .pain .cost{font-size:15px;color:var(--text-gray);line-height:1.55;
+    border-left:2px solid #D9DDE3;padding-left:20px;border-radius:0}
+  .pain li b{font-weight:600;color:var(--navy)}
+  .pain-anchor{max-width:760px;margin-top:22px;font-size:16px;color:var(--navy);
+    border-left:3px solid var(--blue);border-radius:0;padding:2px 0 2px 18px}
+  @media(max-width:700px){
+    .pain li{grid-template-columns:1fr;gap:10px}
+    .pain .cost{border-left:none;padding-left:0;border-top:1px solid #D9DDE3;padding-top:10px}
+  }
 
   /* stages */
   .stage{border:1px solid var(--border);border-radius:10px;padding:28px 30px;margin-bottom:16px}
@@ -176,14 +186,30 @@ bc_name: "Investor-Ready Sprint"
 
   <section>
     <h2>You already know where this breaks</h2>
-    <p class="lede">Not "you're disorganised." These:</p>
+    <p class="lede">Not "you're disorganised." Every firm your size has these five. What they actually cost is the part nobody puts a number against.</p>
     <ul class="pain">
-      <li>An investor or lender asks for an update and it takes <b>days</b> to assemble</li>
-      <li>A diligence request exposes documents <b>nobody can find</b></li>
-      <li>A deadline slips and it <b>costs a deal</b></li>
-      <li>The person who knew where everything lived <b>has left</b></li>
-      <li>Manual operations get <b>discounted</b> when you raise capital or sell the firm</li>
+      <li>
+        <span class="sym">An investor or lender asks for an update</span>
+        <span class="cost">Days of principal time assembling something that should take an hour. Do that quarterly and it is a working fortnight a year, billed to nobody.</span>
+      </li>
+      <li>
+        <span class="sym">A diligence request lands</span>
+        <span class="cost">The documents exist. Nobody can produce them on demand. A slow data room gets read as a signal about everything else you manage.</span>
+      </li>
+      <li>
+        <span class="sym">A date moves and nobody sees it</span>
+        <span class="cost">Financing windows, option dates and lease breaks do not reschedule themselves. <b>One missed date on one deal costs more than this entire engagement.</b></span>
+      </li>
+      <li>
+        <span class="sym">The person who knew where everything lived leaves</span>
+        <span class="cost">Institutional memory walks out with them, and you rebuild it from old inboxes at your own hourly rate.</span>
+      </li>
+      <li>
+        <span class="sym">Operations are still manual when you raise or sell</span>
+        <span class="cost">Diligence findings turn into price adjustments. A buyer pricing in key-person risk and undocumented process is repricing the firm, not a line item.</span>
+      </li>
     </ul>
+    <p class="pain-anchor">Set the $15,000 against the fifth one, not against your Notion subscription. That is the comparison that matters.</p>
   </section>
 
   <section>
@@ -332,7 +358,7 @@ bc_name: "Investor-Ready Sprint"
 <div class="final" id="start">
   <h2>Start with the Blueprint</h2>
   <p>See your firm running in Notion in 10 days. Or it's free.</p>
-  <a href="https://pay.anthonytoday.com/b/14AcN72A04vP9zJ6SB1ZS00" class="cta-button">Start the Blueprint — $2,500</a>
+  <a href="https://pay.anthonytoday.com/b/14AcN72A04vP9zJ6SB1ZS00" class="cta-button">Start the Blueprint &middot; $2,500</a>
   <div style="margin-top:14px"><a href="/start/" class="cta-button ghost">Or book a 20-minute fit call</a></div>
 </div>
 
