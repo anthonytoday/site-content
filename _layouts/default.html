@@ -152,19 +152,28 @@
   .lang-switch .off{color:rgba(255,255,255,.72)}
   .lang-switch .off:hover{background:rgba(255,255,255,.14);color:var(--white)}
   .nav-toggle{display:none;background:none;border:0;color:var(--white);
-    font-size:24px;cursor:pointer;line-height:1}
+    font-size:24px;cursor:pointer;line-height:1;
+    min-width:44px;min-height:44px;padding:0;
+    align-items:center;justify-content:center}
   @media(max-width:900px){
-    .nav-toggle{display:block}
+    .nav-toggle{display:flex}
     .site-header .bar{flex-wrap:wrap}
     .site-header nav{display:none;width:100%;flex-direction:column;
-      align-items:flex-start;gap:14px;padding:16px 0 6px}
+      align-items:flex-start;gap:2px;padding:10px 0 6px}
+    /* 44px minimum tap target on every menu row */
+    .site-header nav>a,.nav-item>a{display:flex;align-items:center;
+      min-height:44px;width:100%}
     .site-header nav.open{display:flex}
     .nav-item{flex-direction:column;align-items:flex-start;width:100%}
     .nav-item>a::after{display:none}
     .nav-item::after{display:none}
     .sub{position:static;opacity:1;visibility:visible;transform:none;
       background:none;box-shadow:none;padding:8px 0 0 16px;min-width:0}
-    .sub a{padding:6px 0;color:rgba(255,255,255,.62)}
+    .sub a{display:flex;align-items:center;min-height:44px;padding:4px 0;
+      color:rgba(255,255,255,.62)}
+    .site-header .cta{min-height:44px;display:flex;align-items:center;
+      justify-content:center;width:100%;margin-top:8px}
+    .lang-switch{margin-top:10px}
     .sub a:hover{background:none}
     .lang-switch{flex-direction:row;align-self:flex-start}
   }
@@ -191,7 +200,7 @@
           <a href="{{ u_guide }}"{% if page.url == u_guide %} aria-current="page"{% endif %}>{% if lang == "fr" %}Guides{% else %}Guide{% endif %}</a>
           <a href="{{ u_usecase }}"{% if page.url == u_usecase %} aria-current="page"{% endif %}>{% if lang == "fr" %}Cas clients{% else %}Use Cases{% endif %}</a>
           <a href="{{ u_sprint }}"{% if page.url == u_sprint %} aria-current="page"{% endif %}>{% if lang == "fr" %}Offre Immobilier{% else %}Real Estate Offer{% endif %}</a>
-          <a href="{{ u_templates }}"{% if page.url == u_templates %} aria-current="page"{% endif %}>{% if lang == "fr" %}Boutique{% else %}Shop{% endif %}</a>
+          <a href="{{ u_templates }}"{% if page.url == u_templates %} aria-current="page"{% endif %}>eShop</a>
         </div>
       </div>
 
@@ -219,8 +228,17 @@
 </main>
 
 <style id="global-mobile">
+html{-webkit-text-size-adjust:100%;scroll-padding-top:78px}
 @media(max-width:768px){
   html,body{overflow-x:hidden}
+
+  /* iOS Safari zooms the whole page when a focused field is under 16px.
+     This is the single most disruptive mobile bug on the qualification form. */
+  input,select,textarea,button{font-size:16px !important}
+
+  /* thumb-sized controls */
+  a.btn,a.cta-button,button,.opt,summary{min-height:44px}
+  .opt{align-items:center !important}
   img,svg,video,iframe{max-width:100%;height:auto}
   pre,code{max-width:100%;overflow-x:auto}
   table{display:block;max-width:100%;overflow-x:auto}
