@@ -21,12 +21,14 @@ bc_name: "Comment ca marche"
     font-size:18px;font-weight:700;display:flex;align-items:center;justify-content:center}
   .step h2{font-size:21px;margin:6px 0 10px}
   .step p{font-size:15px;color:var(--text-gray);line-height:1.75;margin-bottom:12px}
+  .step .shot .ph-art{position:absolute;inset:0}
   .step .shot{aspect-ratio:16/10;border-radius:10px;border:1px solid var(--border);
     overflow:hidden;position:relative;margin-top:14px;max-width:520px}
   .step .shot img{width:100%;height:100%;object-fit:cover;display:block}
   .callout{background:var(--light-gray);border-radius:10px;padding:18px 20px;margin-top:14px}
   .callout p{margin:0;font-size:14.5px;color:var(--navy);line-height:1.7}
   .faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+  .faq-item:last-of-type{border-bottom:0}
   .faq-item summary{font-size:15.5px;font-weight:600;cursor:pointer;list-style:none}
   .faq-item summary::-webkit-details-marker{display:none}
   .faq-item summary::before{content:"+ ";color:var(--blue);font-weight:700}
@@ -53,28 +55,30 @@ bc_name: "Comment ca marche"
 
 <div class="hiw">
 
+  <div class="callout" style="margin-bottom:30px">
+    <p><strong>Nouveau sur Notion ?</strong> Il vous faut un compte Notion avant de pouvoir dupliquer
+       quoi que ce soit. C'est gratuit :
+       <a href="https://affiliate.notion.so/0x8u16p4sff1" target="_blank" rel="noopener">inscrivez-vous ici</a>.
+       <span style="color:var(--text-gray);font-size:13px">(lien d'affiliation)</span></p>
+  </div>
+
   <div class="step">
     <div><span class="step-n">1</span></div>
     <div>
       <h2>Choisissez votre template et payez</h2>
       <p>Chaque template a sa page avec des captures d'ecran, la liste complete de son contenu et le
-         prix. Le paiement passe par Stripe : carte, Apple Pay, Google Pay ou Link. Votre email vous
-         sera demande, car c'est la que le lien du template est envoye.</p>
-      <div class="callout"><p><strong>Aucun plan Notion payant n'est necessaire.</strong> Tous les templates
-         fonctionnent avec le plan personnel gratuit.</p></div>
+         prix. Le paiement passe par Stripe : carte, Apple Pay, Google Pay ou Link. Votre email est
+         obligatoire, car c'est la qu'arrive le lien d'acces.</p>
     </div>
   </div>
 
   <div class="step">
     <div><span class="step-n">2</span></div>
     <div>
-      <h2>Recevez votre lien d'acces</h2>
-      <p>L'ecran de confirmation apparait immediatement apres le paiement, et le meme lien arrive par
-         email depuis <strong>admin@anthonytoday.com</strong>. Conservez cet email : c'est votre
-         preuve d'achat et votre acces aux futures mises a jour.</p>
-      <div class="callout"><p>Rien dans votre boite apres quelques minutes ? Regardez dans les spams, puis repondez a l'un
-         de mes emails ou ecrivez a <a href="mailto:info@anthonytoday.com">info@anthonytoday.com</a>
-         et je vous l'envoie manuellement.</p></div>
+      <h2>Ouvrez votre lien d'acces</h2>
+      <p>L'ecran de confirmation apparait juste apres le paiement, et le meme lien arrive par email
+         depuis <strong>admin@anthonytoday.com</strong>. L'un comme l'autre ouvre le template.
+         Conservez cet email : c'est votre preuve d'achat et votre acces aux mises a jour.</p>
     </div>
   </div>
 
@@ -82,27 +86,35 @@ bc_name: "Comment ca marche"
     <div><span class="step-n">3</span></div>
     <div>
       <h2>Cliquez sur Dupliquer</h2>
-      <p>Le lien ouvre le template dans Notion, en apercu lecture seule. Appuyez sur le bouton
-         <strong>Dupliquer</strong> en haut a droite. Notion demande dans quel espace le copier :
-         si vous en avez plusieurs, choisissez celui ou vous travaillez vraiment, pas un espace
-         personnel que vous laisserez de cote.</p>
-      <p>La copie vous appartient. Elle n'est pas partagee avec moi, je ne peux pas la voir, et rien
-         ne se synchronise en retour. Renommez-la, supprimez-en la moitie, restructurez-la : c'est
-         votre espace maintenant.</p>
-      <div class="shot"><img src="/assets/templates/ultimate-business-dashboard/cover.webp"
-           alt="Un template ouvert dans Notion, pret a etre duplique" width="1000" height="700" loading="lazy"></div>
+      <p>Le template s'ouvre dans Notion en apercu lecture seule. Appuyez sur
+         <strong>Dupliquer</strong> ou <strong>Start with Notion</strong> en haut a droite de
+         l'ecran.</p>
+      <div class="shot"><div class="ph-art"><span class="ph-icon">&#9635;</span>Bouton Dupliquer, en haut a droite</div></div>
     </div>
   </div>
 
   <div class="step">
     <div><span class="step-n">4</span></div>
     <div>
-      <h2>Commencez par le Read Me</h2>
-      <p>Chaque template commence par une courte section <strong>Read Me First</strong>. Elle indique
-         quelles bases comptent, quoi remplir en premier, et quoi ignorer pour l'instant. Dix
-         minutes la font gagner une heure de tatonnement.</p>
-      <p>Traitez une section avant de toucher au reste. Le moyen le plus sur d'abandonner un nouveau
-         systeme est de vouloir tout remplir le premier jour.</p>
+      <h2>Choisissez votre espace et ajoutez-le</h2>
+      <p>Notion demande ou le placer. Selectionnez votre espace, puis cliquez sur
+         <strong>Add to Private</strong>. Si vous avez plusieurs espaces, choisissez celui ou vous
+         travaillez vraiment, pas un espace personnel que vous laisserez de cote.</p>
+      <div class="shot"><div class="ph-art"><span class="ph-icon">&#9635;</span>Selectionner l'espace, puis Add to Private</div></div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div><span class="step-n">5</span></div>
+    <div>
+      <h2>C'est tout</h2>
+      <p>Apres quelques secondes, le template apparait sous l'espace choisi dans votre barre
+         laterale. Il est a vous pour toujours. La copie n'est pas partagee avec moi, je ne peux pas
+         la voir et rien ne se synchronise en retour : renommez-la, supprimez-en la moitie ou
+         restructurez-la entierement.</p>
+      <div class="callout"><p>Commencez par la section <strong>Read Me First</strong> en haut de
+         chaque template. Elle indique quelles bases comptent et quoi remplir en premier. Dix
+         minutes la font gagner une heure de tatonnement.</p></div>
     </div>
   </div>
 
