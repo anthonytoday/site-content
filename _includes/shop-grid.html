@@ -13,6 +13,7 @@
         <div class="la-bar l"></div><div class="la-bar s"></div>
         <div class="la-bar m accent"></div><div class="la-bar l"></div>
       </div></div>
+      {%- if t.cover %}<img class="cover" src="{{ t.cover }}" alt="{{ c.title }}" loading="lazy" onerror="this.remove()">{% endif -%}
     </div>
     <div class="card-body">
       <h3>{{ c.title }}</h3>
