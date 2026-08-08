@@ -21,10 +21,11 @@ bc_name: "How It Works"
     font-size:18px;font-weight:700;display:flex;align-items:center;justify-content:center}
   .step h2{font-size:21px;margin:6px 0 10px}
   .step p{font-size:15px;color:var(--text-gray);line-height:1.75;margin-bottom:12px}
-  .step .shot .ph-art{position:absolute;inset:0}
-  .step .shot{aspect-ratio:16/10;border-radius:10px;border:1px solid var(--border);
-    overflow:hidden;position:relative;margin-top:14px;max-width:520px}
-  .step .shot img{width:100%;height:100%;object-fit:cover;display:block}
+  .step .shot{border-radius:10px;border:1px solid var(--border);background:#F3F5F8;
+    margin-top:16px;max-width:560px;padding:26px;display:flex;align-items:center;justify-content:center}
+  .step .shot img{max-width:100%;height:auto;display:block;border-radius:6px;
+    box-shadow:0 4px 18px rgba(5,28,44,.12)}
+  .step .shot figcaption{font-size:12px;color:var(--text-gray);margin-top:10px;text-align:center}
   .callout{background:var(--light-gray);border-radius:10px;padding:18px 20px;margin-top:14px}
   .callout p{margin:0;font-size:14.5px;color:var(--navy);line-height:1.7}
   .faq-item{border-bottom:1px solid var(--border);padding:16px 0}
@@ -82,35 +83,7 @@ bc_name: "How It Works"
       <p>The template opens in Notion as a read-only preview. Press
          <strong>Duplicate</strong> or <strong>Start with Notion</strong> in the top right-hand
          corner of the screen.</p>
-      <div class="shot"><svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img"
-     aria-label="The Duplicate button in the top right of a Notion page" style="width:100%;height:100%;display:block">
-  <rect width="640" height="400" fill="#FFFFFF"/>
-  <rect x="0" y="0" width="640" height="44" fill="#FAFAFA"/>
-  <line x1="0" y1="44" x2="640" y2="44" stroke="#E5E7EB"/>
-  <circle cx="20" cy="22" r="4" fill="#E5E7EB"/><circle cx="34" cy="22" r="4" fill="#E5E7EB"/>
-  <circle cx="48" cy="22" r="4" fill="#E5E7EB"/>
-  <rect x="72" y="14" width="150" height="16" rx="4" fill="#EDEFF2"/>
-  <rect x="452" y="11" width="112" height="26" rx="6" fill="#051C2C"/>
-  <text x="508" y="28" font-family="-apple-system,Segoe UI,sans-serif" font-size="12.5"
-        font-weight="700" fill="#FFFFFF" text-anchor="middle">Duplicate</text>
-  <rect x="576" y="11" width="26" height="26" rx="6" fill="#EDEFF2"/>
-  <rect x="610" y="11" width="18" height="26" rx="6" fill="#EDEFF2"/>
-  <path d="M508 52 l0 26" stroke="#2251FF" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M501 71 l7 9 l7 -9" fill="none" stroke="#2251FF" stroke-width="2.5"
-        stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="40" y="86" width="300" height="26" rx="5" fill="#E9EDF2"/>
-  <rect x="40" y="132" width="470" height="12" rx="4" fill="#F1F3F6"/>
-  <rect x="40" y="156" width="410" height="12" rx="4" fill="#F1F3F6"/>
-  <rect x="40" y="196" width="256" height="120" rx="8" fill="#FAFBFC" stroke="#E5E7EB"/>
-  <rect x="324" y="196" width="256" height="120" rx="8" fill="#FAFBFC" stroke="#E5E7EB"/>
-  <rect x="56" y="214" width="120" height="10" rx="3" fill="#E1E5EA"/>
-  <rect x="340" y="214" width="120" height="10" rx="3" fill="#E1E5EA"/>
-  <rect x="56" y="238" width="200" height="8" rx="3" fill="#EDEFF2"/>
-  <rect x="340" y="238" width="200" height="8" rx="3" fill="#EDEFF2"/>
-  <rect x="56" y="256" width="170" height="8" rx="3" fill="#EDEFF2"/>
-  <rect x="340" y="256" width="170" height="8" rx="3" fill="#EDEFF2"/>
-  <rect x="40" y="340" width="540" height="12" rx="4" fill="#F1F3F6"/>
-</svg></div>
+      <div class="shot"><img src="/assets/how-it-works/duplicate-button.png" alt="The Duplicate button in the Notion toolbar, top right" style="max-width:300px" loading="lazy"></div>
     </div>
   </div>
 
@@ -121,31 +94,7 @@ bc_name: "How It Works"
       <p>Notion asks where to put it. Select your space, then click <strong>Add to Private</strong>.
          If you belong to more than one workspace, pick the one you actually work in rather than a
          personal one you will abandon.</p>
-      <div class="shot"><svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img"
-     aria-label="Choosing a workspace, then Add to Private" style="width:100%;height:100%;display:block">
-  <rect width="640" height="400" fill="#F3F5F8"/>
-  <rect x="140" y="70" width="360" height="260" rx="12" fill="#FFFFFF" stroke="#E1E5EA"/>
-  <text x="172" y="110" font-family="-apple-system,Segoe UI,sans-serif" font-size="15"
-        font-weight="700" fill="#051C2C">Add to your workspace</text>
-  <line x1="140" y1="128" x2="500" y2="128" stroke="#EDEFF2"/>
-  <rect x="164" y="148" width="312" height="44" rx="8" fill="#F5F8FF" stroke="#2251FF"/>
-  <rect x="180" y="162" width="16" height="16" rx="4" fill="#2251FF"/>
-  <text x="208" y="175" font-family="-apple-system,Segoe UI,sans-serif" font-size="13"
-        font-weight="600" fill="#051C2C">My Workspace</text>
-  <circle cx="456" cy="170" r="8" fill="#2251FF"/>
-  <path d="M452 170 l3 3 l6 -7" fill="none" stroke="#FFFFFF" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="164" y="204" width="312" height="44" rx="8" fill="#FBFCFD" stroke="#EDEFF2"/>
-  <rect x="180" y="218" width="16" height="16" rx="4" fill="#D8DEE7"/>
-  <text x="208" y="231" font-family="-apple-system,Segoe UI,sans-serif" font-size="13"
-        fill="#6B7280">Personal</text>
-  <rect x="330" y="272" width="146" height="34" rx="7" fill="#051C2C"/>
-  <text x="403" y="294" font-family="-apple-system,Segoe UI,sans-serif" font-size="12.5"
-        font-weight="700" fill="#FFFFFF" text-anchor="middle">Add to Private</text>
-  <rect x="196" y="272" width="112" height="34" rx="7" fill="#FFFFFF" stroke="#E1E5EA"/>
-  <text x="252" y="294" font-family="-apple-system,Segoe UI,sans-serif" font-size="12.5"
-        font-weight="600" fill="#6B7280" text-anchor="middle">Cancel</text>
-</svg></div>
+      <div class="shot"><img src="/assets/how-it-works/add-to-private.png" alt="Notion asking which workspace to add the template to, with the Add to Private button" style="max-width:390px" loading="lazy"></div>
     </div>
   </div>
 
