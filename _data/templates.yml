@@ -131,6 +131,8 @@
   status: pending
   category: finance
   tags: [finance, tax, freelance, business]
+  # marketplace: paste the notion.com/templates/<slug> URL here and the card
+  # becomes clickable, sending people to the live listing until it ships here
   en:
     title: Business Expenses Tracker, Tax Ready
     blurb: Categorised expenses, receipts and a year-end export your accountant accepts.
