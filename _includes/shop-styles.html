@@ -84,6 +84,37 @@
   footer a{color:var(--text-gray);text-decoration:none}
   footer a:hover{color:var(--blue)}
 
+  /* clickable gallery + lightbox */
+  .gallery-main.lb-open,.gthumb.lb-open{cursor:zoom-in;padding:0;border:1px solid var(--border);background:none}
+  .gallery-main.lb-open:focus-visible,.gthumb.lb-open:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+  .lb-hint{position:absolute;right:12px;bottom:12px;background:rgba(5,28,44,.78);color:#fff;
+    font-size:11.5px;font-weight:600;letter-spacing:.03em;padding:6px 11px;border-radius:5px;
+    opacity:0;transition:opacity .18s;pointer-events:none}
+  .gallery-main.lb-open:hover .lb-hint,.gallery-main.lb-open:focus-visible .lb-hint{opacity:1}
+  .gthumb.on{border-color:var(--blue);box-shadow:0 0 0 2px rgba(34,81,255,.18)}
+
+  .lb{position:fixed;inset:0;z-index:9999;background:rgba(5,28,44,.94);
+    display:flex;align-items:center;justify-content:center;gap:8px;padding:24px}
+  .lb[hidden]{display:none}
+  .lb-stage{margin:0;display:flex;flex-direction:column;align-items:center;gap:14px;max-width:100%;max-height:100%}
+  .lb-stage img{max-width:min(1400px,92vw);max-height:82vh;width:auto;height:auto;
+    border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,.5);background:#fff}
+  .lb-count{color:rgba(255,255,255,.72);font-size:13px;letter-spacing:.06em}
+  .lb-close{position:absolute;top:16px;right:20px;background:none;border:0;color:#fff;
+    font-size:38px;line-height:1;cursor:pointer;padding:4px 12px;border-radius:6px;font-family:inherit}
+  .lb-close:hover{background:rgba(255,255,255,.12)}
+  .lb-nav{background:rgba(255,255,255,.1);border:0;color:#fff;font-size:34px;line-height:1;
+    width:52px;height:52px;border-radius:50%;cursor:pointer;flex-shrink:0;font-family:inherit}
+  .lb-nav:hover{background:rgba(255,255,255,.22)}
+  .lb-close:focus-visible,.lb-nav:focus-visible{outline:3px solid #fff;outline-offset:2px}
+  @media(max-width:640px){
+    .lb{padding:12px;gap:4px}
+    .lb-stage img{max-width:94vw;max-height:74vh}
+    .lb-nav{width:42px;height:42px;font-size:26px}
+    .lb-close{top:8px;right:10px;font-size:32px}
+    .lb-hint{display:none}
+  }
+
   @media(max-width:900px){.shop-grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:640px){
     .shop-grid{grid-template-columns:1fr;gap:16px}

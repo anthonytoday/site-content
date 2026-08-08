@@ -9,6 +9,7 @@ schema_type: "Product"
 bc_parent_url: /fr/templates/
 bc_parent_name: "Templates"
 bc_name: "Ultimate Content Manager"
+template_id: ultimate-content-manager
 ---
 {% include shop-styles.html %}
 <style>
@@ -58,17 +59,7 @@ bc_name: "Ultimate Content Manager"
 
   <div class="pd-layout">
     <div>
-      <div class="gallery-main"><div class="ph-art"><span class="ph-icon">&#9635;</span>Capture a venir</div><img class="cover" src="/assets/templates/ultimate-content-manager/cover.png" alt="Template Notion Ultimate Content Manager affiche sur une tablette" width="1000" height="700" onerror="this.remove()"></div>
-      <div class="gallery-thumbs">
-        <div class="gthumb"><div class="ph-art"><span class="ph-icon">&#9635;</span>2</div></div>
-        <div class="gthumb"><div class="ph-art"><span class="ph-icon">&#9635;</span>3</div></div>
-        <div class="gthumb"><div class="ph-art"><span class="ph-icon">&#9635;</span>4</div></div>
-        <div class="gthumb"><div class="ph-art"><span class="ph-icon">&#9654;</span>5</div></div>
-      </div>
-      <div class="phone-strip">
-        <div class="phone-frame"><div class="ph-art"><span class="ph-icon">&#9636;</span>Vue mobile</div></div>
-        <div class="ps-copy"><p>Les captures d'ecran et une video de presentation sont en cours de production. Achetez avec le remboursement 14 jours en attendant, ou <a href="/fr/contact/">posez-moi vos questions avant</a>.</p></div>
-      </div>
+      {% include shop-gallery.html %}
     </div>
 
     <aside class="pd-side">
