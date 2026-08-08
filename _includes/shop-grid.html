@@ -1,0 +1,46 @@
+{%- assign L = "en" -%}{%- if page.lang == "fr" -%}{%- assign L = "fr" -%}{%- endif -%}
+<div class="shop-grid" id="grid">
+{%- for t in site.data.templates -%}
+  {%- assign c = t[L] -%}
+  {%- if t.status == "live" -%}
+    {%- if L == "fr" -%}{%- assign href = t.page_fr -%}{%- else -%}{%- assign href = t.page -%}{%- endif -%}
+  <a class="card" href="{{ href }}"
+     data-cat="{{ t.category }}"
+     data-search="{{ c.title | downcase }} {{ c.blurb | downcase }} {{ t.category }} {% for tg in t.tags %}#{{ tg }} {% endfor %}">
+    <div class="thumb">
+      <div class="live-art"><div class="la-inner">
+        <div class="la-bar l accent"></div><div class="la-bar m"></div>
+        <div class="la-bar l"></div><div class="la-bar s"></div>
+        <div class="la-bar m accent"></div><div class="la-bar l"></div>
+      </div></div>
+    </div>
+    <div class="card-body">
+      <h3>{{ c.title }}</h3>
+      <p class="blurb">{{ c.blurb }}</p>
+      <div class="card-tags">{% for tg in t.tags limit:3 %}<span class="tagpill">#{{ tg }}</span>{% endfor %}</div>
+      <div class="price-row">
+        <span class="price">${{ t.price }}</span>
+        <span class="card-cta">{% if L == "fr" %}Voir{% else %}View{% endif %} &rarr;</span>
+      </div>
+    </div>
+  </a>
+  {%- else -%}
+  <div class="card is-pending"
+       data-cat="{{ t.category }}"
+       data-search="{{ c.title | downcase }} {{ c.blurb | downcase }} {{ t.category }} {% for tg in t.tags %}#{{ tg }} {% endfor %}">
+    <div class="thumb">
+      <div class="ph-art"><span class="ph-icon">&#9635;</span>{% if L == "fr" %}Visuels a venir{% else %}Artwork coming{% endif %}</div>
+      <div class="badges"><span class="badge soon">{% if L == "fr" %}Bientot{% else %}Coming soon{% endif %}</span></div>
+    </div>
+    <div class="card-body">
+      <h3>{{ c.title }}</h3>
+      <p class="blurb">{{ c.blurb }}</p>
+      <div class="card-tags">{% for tg in t.tags limit:3 %}<span class="tagpill">#{{ tg }}</span>{% endfor %}</div>
+      <div class="price-row">
+        <span class="price soon">{% if L == "fr" %}En preparation{% else %}In production{% endif %}</span>
+      </div>
+    </div>
+  </div>
+  {%- endif -%}
+{%- endfor -%}
+</div>

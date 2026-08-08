@@ -1,0 +1,95 @@
+---
+layout: default
+title: "Templates Notion | Anthony Today"
+description: "Des templates Notion pour la gouvernance, le risque et les operations, concus par un Notion Consulting Partner certifie. Duplication en un clic, mises a jour a vie."
+permalink: /fr/templates/
+lang: fr
+alt_url: /templates/
+schema_type: "CollectionPage"
+bc_name: "Templates"
+---
+{% include shop-styles.html %}
+
+<div class="wrap shop-hero">
+  <div class="eyebrow">Templates Notion</div>
+  <h1>Des systemes operationnels des lundi matin</h1>
+  <p>Des templates Notion pour la gouvernance, le risque et les operations, concus par un Notion
+     Consulting Partner certifie et ancien consultant cybersecurite chez EY. Dupliquez dans votre
+     espace en un clic, et gardez-les pour toujours.</p>
+  <div class="trust-row">
+    <span><b>4,92/5</b> dans plus de 50 pays</span>
+    <span>Lien de duplication Notion <b>immediat</b></span>
+    <span>Mises a jour <b>gratuites</b> a vie</span>
+    <span>Remboursement <b>14 jours</b>, sans justification</span>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="wrap">
+    <div class="search-box">
+      <span class="ico">&#8981;</span>
+      <label for="q" class="visually-hidden" style="position:absolute;left:-9999px">Rechercher un template</label>
+      <input id="q" type="search" placeholder="Rechercher un template, une description ou un #hashtag" autocomplete="off">
+    </div>
+    <div class="filter-row" id="cats">
+      <button class="chip on" data-cat="all">Tous</button>
+      <button class="chip" data-cat="grc">GRC</button>
+      <button class="chip" data-cat="real-estate">Immobilier</button>
+      <button class="chip" data-cat="finance">Finance</button>
+      <button class="chip" data-cat="business">Business</button>
+      <button class="chip" data-cat="study">Etudes</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <p class="result-line" id="count"></p>
+  {% include shop-grid.html %}
+  <p class="empty" id="empty" hidden><b>Aucun template ne correspond a cette recherche.</b><br>
+     Essayez de retirer le filtre, ou cherchez un hashtag comme <code>#grc</code>.</p>
+
+  <div class="note">
+    <h3>La boutique se construit a vue</h3>
+    <p>Deux templates sont en ligne aujourd'hui. Les autres sont ecrits et deja utilises : il leur
+       manque les captures d'ecran et la documentation avant la mise en vente. Les cartes marquees
+       "bientot" montrent la suite, dans l'ordre prevu. Si l'un d'eux correspond exactement a votre
+       besoin, <a href="/fr/contact/">dites-le moi</a> et je le remonte dans la file.</p>
+  </div>
+</div>
+
+{% include shop-footer.html %}
+
+<script>
+(function(){
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#grid .card'));
+  var q = document.getElementById('q');
+  var count = document.getElementById('count');
+  var empty = document.getElementById('empty');
+  var cat = 'all';
+
+  function apply(){
+    var term = (q.value || '').trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function(card){
+      var okCat = (cat === 'all') || (card.getAttribute('data-cat') === cat);
+      var okTerm = !term || card.getAttribute('data-search').indexOf(term) !== -1;
+      var show = okCat && okTerm;
+      card.hidden = !show;
+      if (show) shown++;
+    });
+    empty.hidden = shown !== 0;
+    count.textContent = shown + (shown === 1 ? ' template' : ' templates');
+  }
+
+  document.getElementById('cats').addEventListener('click', function(e){
+    var b = e.target.closest('[data-cat]');
+    if (!b) return;
+    cat = b.getAttribute('data-cat');
+    this.querySelectorAll('.chip').forEach(function(c){ c.classList.remove('on'); });
+    b.classList.add('on');
+    apply();
+  });
+  q.addEventListener('input', apply);
+  apply();
+})();
+</script>

@@ -1,0 +1,94 @@
+---
+layout: default
+title: "Notion Templates | Anthony Today"
+description: "Notion templates for governance, risk and operations, built by a certified Notion Consulting Partner. One-click duplication, lifetime updates."
+permalink: /templates/
+lang: en
+alt_url: /fr/templates/
+schema_type: "CollectionPage"
+bc_name: "Templates"
+---
+{% include shop-styles.html %}
+
+<div class="wrap shop-hero">
+  <div class="eyebrow">Notion Templates</div>
+  <h1>Systems you can run on Monday morning</h1>
+  <p>Governance, risk and operations templates built by a certified Notion Consulting Partner
+     and ex-EY cybersecurity consultant. Duplicate into your workspace in one click, keep it forever.</p>
+  <div class="trust-row">
+    <span><b>4.92/5</b> across 50+ countries</span>
+    <span><b>Instant</b> Notion duplication link</span>
+    <span><b>Free</b> lifetime updates</span>
+    <span><b>14-day</b> refund, no questions</span>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="wrap">
+    <div class="search-box">
+      <span class="ico">&#8981;</span>
+      <label for="q" class="visually-hidden" style="position:absolute;left:-9999px">Search templates</label>
+      <input id="q" type="search" placeholder="Search templates, descriptions and #hashtags" autocomplete="off">
+    </div>
+    <div class="filter-row" id="cats">
+      <button class="chip on" data-cat="all">All</button>
+      <button class="chip" data-cat="grc">GRC</button>
+      <button class="chip" data-cat="real-estate">Real Estate</button>
+      <button class="chip" data-cat="finance">Finance</button>
+      <button class="chip" data-cat="business">Business</button>
+      <button class="chip" data-cat="study">Study</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <p class="result-line" id="count"></p>
+  {% include shop-grid.html %}
+  <p class="empty" id="empty" hidden><b>No templates match that search.</b><br>
+     Try clearing the filter, or search a hashtag like <code>#grc</code>.</p>
+
+  <div class="note">
+    <h3>The shop is being built in public</h3>
+    <p>Two templates are live today. The rest are written and in use, waiting on screenshots and
+       documentation before they go on sale. Cards marked "coming soon" show what is next, in the
+       order it ships. If one of them is exactly what you need now,
+       <a href="/contact/">tell me</a> and I will move it up the queue.</p>
+  </div>
+</div>
+
+{% include shop-footer.html %}
+
+<script>
+(function(){
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#grid .card'));
+  var q = document.getElementById('q');
+  var count = document.getElementById('count');
+  var empty = document.getElementById('empty');
+  var cat = 'all';
+
+  function apply(){
+    var term = (q.value || '').trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function(card){
+      var okCat = (cat === 'all') || (card.getAttribute('data-cat') === cat);
+      var okTerm = !term || card.getAttribute('data-search').indexOf(term) !== -1;
+      var show = okCat && okTerm;
+      card.hidden = !show;
+      if (show) shown++;
+    });
+    empty.hidden = shown !== 0;
+    count.textContent = shown + (shown === 1 ? ' template' : ' templates');
+  }
+
+  document.getElementById('cats').addEventListener('click', function(e){
+    var b = e.target.closest('[data-cat]');
+    if (!b) return;
+    cat = b.getAttribute('data-cat');
+    this.querySelectorAll('.chip').forEach(function(c){ c.classList.remove('on'); });
+    b.classList.add('on');
+    apply();
+  });
+  q.addEventListener('input', apply);
+  apply();
+})();
+</script>

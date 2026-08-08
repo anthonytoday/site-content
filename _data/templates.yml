@@ -1,0 +1,147 @@
+# Catalog for /templates/ and /fr/templates/
+#
+# status: live     -> card is clickable, price and Stripe link shown
+# status: pending  -> card renders the hatched placeholder, not clickable
+#
+# To publish a pending template: add cover/gallery images, set status: live,
+# and paste its Stripe payment link. Nothing else needs to change.
+
+- id: ultimate-content-manager
+  status: live
+  category: business
+  price: 169
+  stripe: https://pay.anthonytoday.com/b/4gMcN73E4e6paDN90J1ZS01
+  page: /templates/ultimate-content-manager/
+  page_fr: /fr/templates/ultimate-content-manager/
+  tags: [content, creators, marketing, dashboard]
+  en:
+    title: Ultimate Content Manager
+    blurb: Plan, publish and track every piece of content in one Notion workspace.
+  fr:
+    title: Ultimate Content Manager
+    blurb: Planifiez, publiez et suivez chaque contenu dans un seul espace Notion.
+
+- id: cpa-exam-prep
+  status: live
+  category: study
+  price: 79
+  stripe: https://pay.anthonytoday.com/b/aFa9AV8Yo7I19zJb8R1ZS02
+  page: /templates/cpa-exam-prep/
+  page_fr: /fr/templates/cpa-exam-prep/
+  tags: [cpa, exam, study, accounting]
+  en:
+    title: CPA Exam Prep, Complete Study System
+    blurb: All six CPA sections with flashcards, practice questions and progress tracking.
+  fr:
+    title: CPA Exam Prep, systeme d'etude complet
+    blurb: Les six sections du CPA avec fiches, questions d'entrainement et suivi.
+
+- id: risk-register
+  status: pending
+  category: grc
+  tags: [grc, risk, iso27001, security]
+  en:
+    title: Risk Register and Controls Library
+    blurb: Risks, controls, owners and treatment plans, mapped to ISO 27001 Annex A.
+  fr:
+    title: Registre des risques et bibliotheque de controles
+    blurb: Risques, controles, responsables et plans de traitement, alignes sur l'Annexe A d'ISO 27001.
+
+- id: iso-evidence-tracker
+  status: pending
+  category: grc
+  tags: [grc, iso27001, audit, compliance]
+  en:
+    title: ISO 27001 Audit Evidence Tracker
+    blurb: Every control, every piece of evidence, every due date, in one auditor-ready view.
+  fr:
+    title: Suivi des preuves d'audit ISO 27001
+    blurb: Chaque controle, chaque preuve, chaque echeance, dans une vue prete pour l'auditeur.
+
+- id: ai-governance-register
+  status: pending
+  category: grc
+  tags: [grc, ai, governance, compliance]
+  en:
+    title: AI Governance Register
+    blurb: Inventory AI systems, classify EU AI Act risk, and track mitigations.
+  fr:
+    title: Registre de gouvernance de l'IA
+    blurb: Inventoriez les systemes d'IA, classez le risque au titre du reglement europeen, suivez les mesures.
+
+- id: vendor-risk-tracker
+  status: pending
+  category: grc
+  tags: [grc, vendor, risk, security]
+  en:
+    title: Vendor and Third-Party Risk Tracker
+    blurb: Onboarding questionnaires, risk tiers and review dates for every supplier.
+  fr:
+    title: Suivi des risques fournisseurs et tiers
+    blurb: Questionnaires d'entree en relation, niveaux de risque et dates de revue pour chaque fournisseur.
+
+- id: policy-hub
+  status: pending
+  category: grc
+  tags: [grc, policy, compliance, governance]
+  en:
+    title: Policy Management Hub
+    blurb: Policy lifecycle, approvals, versions and attestation tracking.
+  fr:
+    title: Centre de gestion des politiques
+    blurb: Cycle de vie des politiques, validations, versions et suivi des attestations.
+
+- id: workspace-governance-kit
+  status: pending
+  category: grc
+  tags: [grc, notion, governance, permissions]
+  en:
+    title: Notion Workspace Governance Kit
+    blurb: Naming conventions, permission model and content ownership for a workspace that scales.
+  fr:
+    title: Kit de gouvernance d'espace Notion
+    blurb: Conventions de nommage, modele de permissions et propriete des contenus pour un espace qui tient la charge.
+
+- id: real-estate-portfolio
+  status: pending
+  category: real-estate
+  tags: [real-estate, investing, cashflow, dashboard]
+  en:
+    title: Real Estate Portfolio Manager
+    blurb: Units, leases, cash flow and cap rate across a whole portfolio.
+  fr:
+    title: Gestionnaire de portefeuille immobilier
+    blurb: Lots, baux, flux de tresorerie et taux de capitalisation sur tout un portefeuille.
+
+- id: investor-deal-room
+  status: pending
+  category: real-estate
+  tags: [real-estate, investing, diligence, fundraising]
+  en:
+    title: Investor-Ready Deal Room
+    blurb: Deal pipeline, diligence checklists and a lender-ready document vault.
+  fr:
+    title: Data room investisseurs
+    blurb: Pipeline d'operations, checklists de due diligence et coffre documentaire pret pour le preteur.
+
+- id: business-expenses-tracker
+  status: pending
+  category: finance
+  tags: [finance, tax, freelance, business]
+  en:
+    title: Business Expenses Tracker, Tax Ready
+    blurb: Categorised expenses, receipts and a year-end export your accountant accepts.
+  fr:
+    title: Suivi des depenses professionnelles, pret pour l'impot
+    blurb: Depenses categorisees, justificatifs et export de fin d'annee accepte par votre comptable.
+
+- id: ultimate-business-dashboard
+  status: pending
+  category: business
+  tags: [business, crm, projects, operations]
+  en:
+    title: Ultimate Business Dashboard
+    blurb: Clients, projects, invoices and pipeline in one operating system.
+  fr:
+    title: Tableau de bord d'entreprise complet
+    blurb: Clients, projets, factures et pipeline dans un seul systeme.
