@@ -139,9 +139,27 @@
     blurb: Depenses categorisees, justificatifs et export de fin d'annee accepte par votre comptable.
 
 - id: ultimate-business-dashboard
-  status: pending
+  status: live
   category: business
+  price: 99
+  stripe: https://pay.anthonytoday.com/b/eVq8wRgqQ3rLaDN90J1ZS03
+  page: /templates/ultimate-business-dashboard/
+  page_fr: /fr/templates/ultimate-business-dashboard/
   tags: [business, crm, projects, operations]
+  cover: /assets/templates/ultimate-business-dashboard/cover.webp
+  gallery:
+    - /assets/templates/ultimate-business-dashboard/01-team-profiles.webp
+    - /assets/templates/ultimate-business-dashboard/02-finances.webp
+    - /assets/templates/ultimate-business-dashboard/03-home-page.webp
+    - /assets/templates/ultimate-business-dashboard/04-resources.webp
+    - /assets/templates/ultimate-business-dashboard/05-cloudops-hub.webp
+  mobile:
+    - /assets/templates/ultimate-business-dashboard/m00-dashboard.jpg
+    - /assets/templates/ultimate-business-dashboard/m01-team-profiles.jpg
+    - /assets/templates/ultimate-business-dashboard/m02-finances.jpg
+    - /assets/templates/ultimate-business-dashboard/m03-home-page.jpg
+    - /assets/templates/ultimate-business-dashboard/m04-resources.jpg
+    - /assets/templates/ultimate-business-dashboard/m05-cloudops-hub.jpg
   en:
     title: Ultimate Business Dashboard
     blurb: Clients, projects, invoices and pipeline in one operating system.

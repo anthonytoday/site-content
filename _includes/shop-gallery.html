@@ -7,6 +7,7 @@
 {%- assign parts = "" -%}
 {%- if t.cover -%}{%- assign parts = parts | append: "|" | append: t.cover -%}{%- endif -%}
 {%- for g in t.gallery -%}{%- assign parts = parts | append: "|" | append: g -%}{%- endfor -%}
+{%- for m in t.mobile -%}{%- assign parts = parts | append: "|" | append: m -%}{%- endfor -%}
 {%- assign slides = parts | remove_first: "|" | split: "|" -%}
 {%- assign nslides = 0 -%}{%- if t.cover -%}{%- assign nslides = slides | size -%}{%- endif -%}
 {%- assign placeholders = 4 | minus: nslides -%}
@@ -20,26 +21,49 @@
 </div>
 
 <div class="gallery-thumbs">
-  {%- for s in slides -%}
+  {%- assign ndesk = 0 -%}{%- if t.cover -%}{%- assign ngal = t.gallery | size -%}{%- assign ndesk = ngal | plus: 1 -%}{%- endif -%}
+  {%- for s in slides limit: ndesk -%}
   <button type="button" class="gthumb lb-open{% if forloop.first %} on{% endif %}" data-lb-index="{{ forloop.index0 }}"
           aria-label="{% if L == 'fr' %}Voir l'image{% else %}View image{% endif %} {{ forloop.index }}">
     <img class="cover" src="{{ s }}" alt="" loading="lazy" onerror="this.remove()">
   </button>
   {%- endfor -%}
+  {%- assign placeholders = 4 | minus: ndesk -%}
   {%- for i in (1..placeholders) -%}
-  <div class="gthumb"><div class="ph-art"><span class="ph-icon">&#9635;</span>{{ nslides | plus: forloop.index | plus: 0 }}</div></div>
+  <div class="gthumb"><div class="ph-art"><span class="ph-icon">&#9635;</span>{{ ndesk | plus: forloop.index }}</div></div>
   {%- endfor -%}
 </div>
 
 <div class="phone-strip">
-  <div class="phone-frame"><div class="ph-art"><span class="ph-icon">&#9636;</span>{% if L == "fr" %}Vue mobile{% else %}Mobile view{% endif %}</div></div>
+  {%- if t.mobile -%}
+    {%- assign ndesk2 = 0 -%}{%- if t.cover -%}{%- assign ng2 = t.gallery | size -%}{%- assign ndesk2 = ng2 | plus: 1 -%}{%- endif -%}
+    {%- for m in t.mobile limit: 3 -%}
+    {%- assign midx = forloop.index0 | plus: ndesk2 -%}
+    <button type="button" class="phone-frame lb-open" data-lb-index="{{ midx }}"
+            aria-label="{% if L == 'fr' %}Voir la vue mobile{% else %}View mobile screenshot{% endif %} {{ forloop.index }}">
+      <img class="cover" src="{{ m }}" alt="" loading="lazy" onerror="this.remove()">
+    </button>
+    {%- endfor -%}
+  {%- else -%}
+    <div class="phone-frame"><div class="ph-art"><span class="ph-icon">&#9636;</span>{% if L == "fr" %}Vue mobile{% else %}Mobile view{% endif %}</div></div>
+  {%- endif -%}
   <div class="ps-copy"><p>
-    {%- if L == "fr" -%}
-    D'autres captures et une video de presentation sont en cours de production. Achetez avec le
-    remboursement 14 jours en attendant, ou <a href="/fr/contact/">posez-moi vos questions avant</a>.
+    {%- if t.mobile -%}
+      {%- if L == "fr" -%}
+      Le template est concu pour le mobile autant que pour le bureau. Cliquez sur une image pour
+      l'agrandir et parcourir la galerie complete.
+      {%- else -%}
+      The template is built for phone as much as desktop. Click any image to enlarge it and browse
+      the full gallery.
+      {%- endif -%}
     {%- else -%}
-    More screenshots and a walkthrough video are being produced. Buy with the 14-day refund in the
-    meantime, or <a href="/contact/">ask me anything first</a>.
+      {%- if L == "fr" -%}
+      D'autres captures et une video de presentation sont en cours de production. Achetez avec le
+      remboursement 14 jours en attendant, ou <a href="/fr/contact/">posez-moi vos questions avant</a>.
+      {%- else -%}
+      More screenshots and a walkthrough video are being produced. Buy with the 14-day refund in the
+      meantime, or <a href="/contact/">ask me anything first</a>.
+      {%- endif -%}
     {%- endif -%}
   </p></div>
 </div>
