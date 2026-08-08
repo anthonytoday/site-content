@@ -11,7 +11,7 @@
   category: business
   price: 169
   stripe: https://pay.anthonytoday.com/b/4gMcN73E4e6paDN90J1ZS01
-  cover: https://storage.mlcdn.com/account_image/2413563/Znzumh1dlthH6v8fCMdOPHhBBTf7PV6J3yddDo5c.jpg
+  cover: /assets/templates/ultimate-content-manager/cover.png
   page: /templates/ultimate-content-manager/
   page_fr: /fr/templates/ultimate-content-manager/
   tags: [content, creators, marketing, dashboard]
@@ -27,7 +27,7 @@
   category: study
   price: 79
   stripe: https://pay.anthonytoday.com/b/aFa9AV8Yo7I19zJb8R1ZS02
-  cover: https://storage.mlcdn.com/account_image/2413563/IxBBVRI648Ge1xddkbxGzfGBgZbfiGD3YsqLvOC5.jpg
+  cover: /assets/templates/cpa-exam-prep/cover.png
   marketplace: https://www.notion.com/templates/cpa-exam-study-plan
   page: /templates/cpa-exam-prep/
   page_fr: /fr/templates/cpa-exam-prep/
