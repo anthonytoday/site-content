@@ -1,410 +1,258 @@
 [
  {
-  "path": "assets/templates/pmp-exam-prep-pass-first-try-lite/pmp-exam-prep-pass-first-try-lite-g1-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/09ed2ae8-c155-47b8-bde6-f7f2adfb5c02/1766253008333/desktop.jpg"
+  "path": "assets/templates/company-home-system/company-home-system-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/f5679e7f-7322-4ceb-a027-b5601c2137e0/1775568507540/desktop.jpg"
  },
  {
-  "path": "assets/templates/pmp-exam-prep-pass-first-try-lite/pmp-exam-prep-pass-first-try-lite-g1-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/09ed2ae8-c155-47b8-bde6-f7f2adfb5c02/1766253008333/mobile.jpg"
+  "path": "assets/templates/company-home-system/company-home-system-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/f5679e7f-7322-4ceb-a027-b5601c2137e0/1775568507540/mobile.jpg"
  },
  {
-  "path": "assets/templates/pmp-exam-prep-pass-first-try-lite/pmp-exam-prep-pass-first-try-lite-g2-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/91832e19-7c49-4e87-a5f6-fd61c29d57f6/1766254634512/desktop.jpg"
+  "path": "assets/templates/cissp-exam-prep-full/cissp-exam-prep-full-g1-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/07dfce92-876a-4087-88c6-357eaa5d91b3/1768585280548/desktop.jpg"
  },
  {
-  "path": "assets/templates/pmp-exam-prep-pass-first-try-lite/pmp-exam-prep-pass-first-try-lite-g2-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/91832e19-7c49-4e87-a5f6-fd61c29d57f6/1766254634512/mobile.jpg"
+  "path": "assets/templates/cissp-exam-prep-full/cissp-exam-prep-full-g1-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/07dfce92-876a-4087-88c6-357eaa5d91b3/1768585280548/mobile.jpg"
  },
  {
-  "path": "assets/templates/pmp-exam-prep-pass-first-try-lite/pmp-exam-prep-pass-first-try-lite-g3-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/1cc6aa26-87b9-4076-aa0b-e8961ed28eaf/1766254735028/desktop.jpg"
+  "path": "assets/templates/cissp-exam-prep-full/cissp-exam-prep-full-g2-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/95a5579d-2f92-4250-9567-f84a2d817faf/1768585934604/desktop.jpg"
  },
  {
-  "path": "assets/templates/pmp-exam-prep-pass-first-try-lite/pmp-exam-prep-pass-first-try-lite-g3-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/1cc6aa26-87b9-4076-aa0b-e8961ed28eaf/1766254735028/mobile.jpg"
+  "path": "assets/templates/cissp-exam-prep-full/cissp-exam-prep-full-g2-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/95a5579d-2f92-4250-9567-f84a2d817faf/1768585934604/mobile.jpg"
  },
  {
-  "path": "assets/templates/pmp-exam-prep-pass-first-try-lite/pmp-exam-prep-pass-first-try-lite-g4-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/c122fd0e-642a-444b-bc7a-ce1db039fa23/1766255251671/desktop.jpg"
+  "path": "assets/templates/cissp-exam-prep-full/cissp-exam-prep-full-g3-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/f9561c02-c409-401b-9257-1c581c94e695/1768585951751/desktop.jpg"
  },
  {
-  "path": "assets/templates/pmp-exam-prep-pass-first-try-lite/pmp-exam-prep-pass-first-try-lite-g4-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/c122fd0e-642a-444b-bc7a-ce1db039fa23/1766255251671/mobile.jpg"
+  "path": "assets/templates/cissp-exam-prep-full/cissp-exam-prep-full-g3-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/f9561c02-c409-401b-9257-1c581c94e695/1768585951751/mobile.jpg"
  },
  {
-  "path": "assets/templates/real-estate-portfolio-management-ultimate-dashboard/real-estate-portfolio-management-ultimate-dashboard-g1-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/1391cbb9-a82c-49e6-9212-2b9e42773e60/1765685189717/desktop.jpg"
+  "path": "assets/templates/cissp-exam-prep-full/cissp-exam-prep-full-g4-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/ecf087bf-e25b-4613-8e57-0fa9f4f5cb38/1768586062417/desktop.jpg"
  },
  {
-  "path": "assets/templates/real-estate-portfolio-management-ultimate-dashboard/real-estate-portfolio-management-ultimate-dashboard-g1-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/1391cbb9-a82c-49e6-9212-2b9e42773e60/1765685189717/mobile.jpg"
+  "path": "assets/templates/cissp-exam-prep-full/cissp-exam-prep-full-g4-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/ecf087bf-e25b-4613-8e57-0fa9f4f5cb38/1768586062417/mobile.jpg"
  },
  {
-  "path": "assets/templates/real-estate-portfolio-management-ultimate-dashboard/real-estate-portfolio-management-ultimate-dashboard-g2-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/32750556-7908-4eb6-a965-92a54340bfcb/1765685262710/desktop.jpg"
+  "path": "assets/templates/cv-in-ats-format/cv-in-ats-format-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/2f669c93-cc19-4297-83cf-68658977d741/1775218486452/desktop.jpg"
  },
  {
-  "path": "assets/templates/real-estate-portfolio-management-ultimate-dashboard/real-estate-portfolio-management-ultimate-dashboard-g2-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/32750556-7908-4eb6-a965-92a54340bfcb/1765685262710/mobile.jpg"
+  "path": "assets/templates/cv-in-ats-format/cv-in-ats-format-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/2f669c93-cc19-4297-83cf-68658977d741/1775218486452/mobile.jpg"
  },
  {
-  "path": "assets/templates/real-estate-portfolio-management-ultimate-dashboard/real-estate-portfolio-management-ultimate-dashboard-g3-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/4284a146-ad81-43fd-96c4-cfb6955251aa/1765685396227/desktop.jpg"
+  "path": "assets/templates/life-os-simple-all-in-one-dashboard/life-os-simple-all-in-one-dashboard-g1-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/c89d4511-03a0-4168-9e1c-ac1de9f184ee/1782368421073/desktop.jpg"
  },
  {
-  "path": "assets/templates/real-estate-portfolio-management-ultimate-dashboard/real-estate-portfolio-management-ultimate-dashboard-g3-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/4284a146-ad81-43fd-96c4-cfb6955251aa/1765685396227/mobile.jpg"
+  "path": "assets/templates/life-os-simple-all-in-one-dashboard/life-os-simple-all-in-one-dashboard-g1-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/c89d4511-03a0-4168-9e1c-ac1de9f184ee/1782368421073/mobile.jpg"
  },
  {
-  "path": "assets/templates/real-estate-portfolio-management-ultimate-dashboard/real-estate-portfolio-management-ultimate-dashboard-g4-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/98983a22-980d-48bd-a305-e1836da944b6/1765686633479/desktop.jpg"
+  "path": "assets/templates/life-os-simple-all-in-one-dashboard/life-os-simple-all-in-one-dashboard-g2-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/07ebbc1e-5fd3-4c57-b84b-177115bd10b2/1782368466179/desktop.jpg"
  },
  {
-  "path": "assets/templates/real-estate-portfolio-management-ultimate-dashboard/real-estate-portfolio-management-ultimate-dashboard-g4-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/98983a22-980d-48bd-a305-e1836da944b6/1765686633479/mobile.jpg"
+  "path": "assets/templates/life-os-simple-all-in-one-dashboard/life-os-simple-all-in-one-dashboard-g2-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/07ebbc1e-5fd3-4c57-b84b-177115bd10b2/1782368466179/mobile.jpg"
  },
  {
-  "path": "assets/templates/real-estate-portfolio-management-ultimate-dashboard/real-estate-portfolio-management-ultimate-dashboard-g5-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/7d894f18-0f56-473e-83fe-c1bd766f894a/1765691204723/desktop.jpg"
+  "path": "assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g1-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/ef0dd67b-64ee-450b-a4d7-b52970834047/1782880576942/desktop.jpg"
  },
  {
-  "path": "assets/templates/real-estate-portfolio-management-ultimate-dashboard/real-estate-portfolio-management-ultimate-dashboard-g5-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/7d894f18-0f56-473e-83fe-c1bd766f894a/1765691204723/mobile.jpg"
+  "path": "assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g1-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/ef0dd67b-64ee-450b-a4d7-b52970834047/1782880576942/mobile.jpg"
  },
  {
-  "path": "assets/templates/security-certification-bundle/security-certification-bundle-g1-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/09eae22f-9789-4bef-a93f-cbfe2523de17/1768715770126/desktop.jpg"
+  "path": "assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g2-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/ab10a50b-f8e4-4ca6-8efb-79fc9a0f98df/1782880606145/desktop.jpg"
  },
  {
-  "path": "assets/templates/security-certification-bundle/security-certification-bundle-g1-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/09eae22f-9789-4bef-a93f-cbfe2523de17/1768715770126/mobile.jpg"
+  "path": "assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g2-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/ab10a50b-f8e4-4ca6-8efb-79fc9a0f98df/1782880606145/mobile.jpg"
  },
  {
-  "path": "assets/templates/security-certification-bundle/security-certification-bundle-g2-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/37fe83c0-7eb9-42e4-b35b-3782ea0c036c/1768716492891/desktop.jpg"
+  "path": "assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g3-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/3d3eeedf-1c4b-47a7-8615-9ce16e6760fb/1782880684103/desktop.jpg"
  },
  {
-  "path": "assets/templates/security-certification-bundle/security-certification-bundle-g2-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/37fe83c0-7eb9-42e4-b35b-3782ea0c036c/1768716492891/mobile.jpg"
+  "path": "assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g3-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/3d3eeedf-1c4b-47a7-8615-9ce16e6760fb/1782880684103/mobile.jpg"
  },
  {
-  "path": "assets/templates/security-certification-bundle/security-certification-bundle-g3-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/73c87917-3b76-43d4-bc93-4ced489ecb01/1768716671080/desktop.jpg"
+  "path": "assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g4-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/24299338-1764-47fc-a0e2-a5b2e6edb8c9/1782880716326/desktop.jpg"
  },
  {
-  "path": "assets/templates/security-certification-bundle/security-certification-bundle-g3-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/73c87917-3b76-43d4-bc93-4ced489ecb01/1768716671080/mobile.jpg"
+  "path": "assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g4-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/24299338-1764-47fc-a0e2-a5b2e6edb8c9/1782880716326/mobile.jpg"
  },
  {
-  "path": "assets/templates/security-certification-bundle/security-certification-bundle-g4-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/4c36ee0b-8123-4f81-afa9-848baa06998f/1768716717901/desktop.jpg"
+  "path": "assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g5-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/6b89977f-b66f-4de7-ab52-0d05f5f3b4ef/1782880776591/desktop.jpg"
  },
  {
-  "path": "assets/templates/security-certification-bundle/security-certification-bundle-g4-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/4c36ee0b-8123-4f81-afa9-848baa06998f/1768716717901/mobile.jpg"
+  "path": "assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g5-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/6b89977f-b66f-4de7-ab52-0d05f5f3b4ef/1782880776591/mobile.jpg"
  },
  {
-  "path": "assets/templates/security-certification-bundle/security-certification-bundle-g5-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/767979cc-2ad6-4e0b-8c20-ffdaa612115c/1768716796090/desktop.jpg"
+  "path": "assets/templates/sop-standard-operating-procedures-834/sop-standard-operating-procedures-834-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/3155c46f-83ec-4d3f-ad31-94a96649daf7/1775569421090/desktop.jpg"
  },
  {
-  "path": "assets/templates/security-certification-bundle/security-certification-bundle-g5-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/767979cc-2ad6-4e0b-8c20-ffdaa612115c/1768716796090/mobile.jpg"
+  "path": "assets/templates/sop-standard-operating-procedures-834/sop-standard-operating-procedures-834-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/3155c46f-83ec-4d3f-ad31-94a96649daf7/1775569421090/mobile.jpg"
  },
  {
-  "path": "assets/templates/security-certification-bundle/security-certification-bundle-g6-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/47cb9906-e95e-4792-ab64-38bdce6c857e/1768717076622/desktop.jpg"
+  "path": "assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g1-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/e1838570-4f3a-40b9-9180-9d1beeaa233d/1767877554776/desktop.jpg"
  },
  {
-  "path": "assets/templates/security-certification-bundle/security-certification-bundle-g6-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/47cb9906-e95e-4792-ab64-38bdce6c857e/1768717076622/mobile.jpg"
+  "path": "assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g1-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/e1838570-4f3a-40b9-9180-9d1beeaa233d/1767877554776/mobile.jpg"
  },
  {
-  "path": "assets/templates/simple-student-planner-2025/simple-student-planner-2025-g1-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/e6634510-c16e-4567-b2be-ddf86b1252af/1765680172918/desktop.jpg"
+  "path": "assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g2-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/4d10918c-e78f-455d-b632-d511b8abb60d/1767878147311/desktop.jpg"
  },
  {
-  "path": "assets/templates/simple-student-planner-2025/simple-student-planner-2025-g1-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/e6634510-c16e-4567-b2be-ddf86b1252af/1765680172918/mobile.jpg"
+  "path": "assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g2-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/4d10918c-e78f-455d-b632-d511b8abb60d/1767878147311/mobile.jpg"
  },
  {
-  "path": "assets/templates/simple-student-planner-2025/simple-student-planner-2025-g2-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/f2aee87a-44bf-41a9-a024-b242e63ec61f/1765680287267/desktop.jpg"
+  "path": "assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g3-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/72894f42-6006-42b0-9108-c46479acc895/1767878180824/desktop.jpg"
  },
  {
-  "path": "assets/templates/simple-student-planner-2025/simple-student-planner-2025-g2-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/f2aee87a-44bf-41a9-a024-b242e63ec61f/1765680287267/mobile.jpg"
+  "path": "assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g3-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/72894f42-6006-42b0-9108-c46479acc895/1767878180824/mobile.jpg"
  },
  {
-  "path": "assets/templates/simple-faq/simple-faq-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/17daa43f-5bd0-40ba-8bcf-702f082a9321/1765683985011/desktop.jpg"
+  "path": "assets/templates/progress-dashboard-top-performer/progress-dashboard-top-performer-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/b972c1b5-01cc-461d-848e-ccad6df2844a/1773572897509/desktop.jpg"
  },
  {
-  "path": "assets/templates/simple-faq/simple-faq-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/17daa43f-5bd0-40ba-8bcf-702f082a9321/1765683985011/mobile.jpg"
+  "path": "assets/templates/progress-dashboard-top-performer/progress-dashboard-top-performer-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/b972c1b5-01cc-461d-848e-ccad6df2844a/1773572897509/mobile.jpg"
  },
  {
-  "path": "assets/templates/student-dashboard-study-smarter/student-dashboard-study-smarter-g1-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/569344c9-fae2-4161-9ac9-a0e21f8ab3a6/1765180187124/desktop.jpg"
+  "path": "assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g1-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/1bc86052-7deb-4ff1-897c-94890d08c302/1782543683129/desktop.jpg"
  },
  {
-  "path": "assets/templates/student-dashboard-study-smarter/student-dashboard-study-smarter-g1-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/569344c9-fae2-4161-9ac9-a0e21f8ab3a6/1765180187124/mobile.jpg"
+  "path": "assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g1-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/1bc86052-7deb-4ff1-897c-94890d08c302/1782543683129/mobile.jpg"
  },
  {
-  "path": "assets/templates/student-dashboard-study-smarter/student-dashboard-study-smarter-g2-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/8b8ca9a1-9800-40af-838d-1abf80aedec2/1765180205161/desktop.jpg"
+  "path": "assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g2-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/41119f15-fec4-41c4-bf58-785caefa6bf0/1782559364929/desktop.jpg"
  },
  {
-  "path": "assets/templates/student-dashboard-study-smarter/student-dashboard-study-smarter-g2-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/8b8ca9a1-9800-40af-838d-1abf80aedec2/1765180205161/mobile.jpg"
+  "path": "assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g2-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/41119f15-fec4-41c4-bf58-785caefa6bf0/1782559364929/mobile.jpg"
  },
  {
-  "path": "assets/templates/student-dashboard-study-smarter/student-dashboard-study-smarter-g3-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/b78dd94f-4ecf-45b8-96e6-32c967295432/1765180228406/desktop.jpg"
+  "path": "assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g3-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/7895691a-eba9-4529-9473-f3d6f214acd7/1782559399262/desktop.jpg"
  },
  {
-  "path": "assets/templates/student-dashboard-study-smarter/student-dashboard-study-smarter-g3-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/b78dd94f-4ecf-45b8-96e6-32c967295432/1765180228406/mobile.jpg"
+  "path": "assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g3-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/7895691a-eba9-4529-9473-f3d6f214acd7/1782559399262/mobile.jpg"
  },
  {
-  "path": "assets/templates/student-dashboard-study-smarter/student-dashboard-study-smarter-g4-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/6f80f64d-3c34-4282-9ef0-8457a9f7eac9/1765180254646/desktop.jpg"
+  "path": "assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g4-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/c7a4c69c-ba28-4af4-b59e-dec0e1da3d00/1782559445924/desktop.jpg"
  },
  {
-  "path": "assets/templates/student-dashboard-study-smarter/student-dashboard-study-smarter-g4-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/6f80f64d-3c34-4282-9ef0-8457a9f7eac9/1765180254646/mobile.jpg"
+  "path": "assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g4-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/c7a4c69c-ba28-4af4-b59e-dec0e1da3d00/1782559445924/mobile.jpg"
  },
  {
-  "path": "assets/templates/simple-university-student-dashboard/simple-university-student-dashboard-g1-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/9793f794-ab06-42f8-a08e-459cef53c7b2/1708608300660/desktop.jpg"
+  "path": "assets/templates/business-framework-solo-founder-startup/business-framework-solo-founder-startup-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/79d3c162-a87c-4a20-9fa1-41ed82681dcb/1782632328687/desktop.jpg"
  },
  {
-  "path": "assets/templates/simple-university-student-dashboard/simple-university-student-dashboard-g1-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/9793f794-ab06-42f8-a08e-459cef53c7b2/1708608300660/mobile.jpg"
+  "path": "assets/templates/business-framework-solo-founder-startup/business-framework-solo-founder-startup-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/79d3c162-a87c-4a20-9fa1-41ed82681dcb/1782632328687/mobile.jpg"
  },
  {
-  "path": "assets/templates/simple-university-student-dashboard/simple-university-student-dashboard-g2-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/f9d8663a-ae83-42cb-a7c0-f63d0889503d/1769397361901/desktop.jpg"
+  "path": "assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g1-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/3d778359-5671-46f5-8be2-d840381f49c1/1782881110067/desktop.jpg"
  },
  {
-  "path": "assets/templates/simple-university-student-dashboard/simple-university-student-dashboard-g2-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/f9d8663a-ae83-42cb-a7c0-f63d0889503d/1769397361901/mobile.jpg"
+  "path": "assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g1-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/3d778359-5671-46f5-8be2-d840381f49c1/1782881110067/mobile.jpg"
  },
  {
-  "path": "assets/templates/simple-university-student-dashboard/simple-university-student-dashboard-g3-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/7307b603-eba2-4c12-b1fd-87ca52e663f1/1769397403136/desktop.jpg"
+  "path": "assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g2-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/053c0355-df5c-41e7-b687-32ea7e9e1bd7/1782881137840/desktop.jpg"
  },
  {
-  "path": "assets/templates/simple-university-student-dashboard/simple-university-student-dashboard-g3-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/7307b603-eba2-4c12-b1fd-87ca52e663f1/1769397403136/mobile.jpg"
+  "path": "assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g2-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/053c0355-df5c-41e7-b687-32ea7e9e1bd7/1782881137840/mobile.jpg"
  },
  {
-  "path": "assets/templates/simple-university-student-dashboard/simple-university-student-dashboard-g4-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/318b479e-9881-4288-b1e8-545ec0a175b5/1769397975100/desktop.jpg"
+  "path": "assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g3-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/590af44e-3ec4-4b2d-91c4-bcfc2a377b88/1782881178535/desktop.jpg"
  },
  {
-  "path": "assets/templates/simple-university-student-dashboard/simple-university-student-dashboard-g4-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/318b479e-9881-4288-b1e8-545ec0a175b5/1769397975100/mobile.jpg"
+  "path": "assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g3-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/590af44e-3ec4-4b2d-91c4-bcfc2a377b88/1782881178535/mobile.jpg"
  },
  {
-  "path": "assets/templates/trading-journal-like-a-pro/trading-journal-like-a-pro-g1-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/f53dfb09-29bf-4700-a4af-de2b975d20e5/1769396247244/desktop.jpg"
+  "path": "assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g4-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/249c0dfb-48d5-46d6-87a0-ceef0b87842d/1782881218210/desktop.jpg"
  },
  {
-  "path": "assets/templates/trading-journal-like-a-pro/trading-journal-like-a-pro-g1-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/f53dfb09-29bf-4700-a4af-de2b975d20e5/1769396247244/mobile.jpg"
+  "path": "assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g4-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/249c0dfb-48d5-46d6-87a0-ceef0b87842d/1782881218210/mobile.jpg"
  },
  {
-  "path": "assets/templates/trading-journal-like-a-pro/trading-journal-like-a-pro-g2-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/1e580a2b-8785-40ae-aed6-03fb4927600b/1767870825134/desktop.jpg"
+  "path": "assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g5-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/3b6c9cbb-3e02-44b7-a95f-0b79efe3cbab/1782881262056/desktop.jpg"
  },
  {
-  "path": "assets/templates/trading-journal-like-a-pro/trading-journal-like-a-pro-g2-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/1e580a2b-8785-40ae-aed6-03fb4927600b/1767870825134/mobile.jpg"
+  "path": "assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g5-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/3b6c9cbb-3e02-44b7-a95f-0b79efe3cbab/1782881262056/mobile.jpg"
  },
  {
-  "path": "assets/templates/trading-journal-like-a-pro/trading-journal-like-a-pro-g3-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/54b62729-081f-45bd-8ae9-9574abdbba3e/a3319579-2c12-49d6-bfc8-a98cd7b30501/1767870474114/desktop.jpg"
+  "path": "assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g1-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/7e8d3714-1ca5-4495-8d7f-45ff5b825f29/1782621533117/desktop.jpg"
  },
  {
-  "path": "assets/templates/trading-journal-like-a-pro/trading-journal-like-a-pro-g3-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/54b62729-081f-45bd-8ae9-9574abdbba3e/a3319579-2c12-49d6-bfc8-a98cd7b30501/1767870474114/mobile.jpg"
+  "path": "assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g1-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/7e8d3714-1ca5-4495-8d7f-45ff5b825f29/1782621533117/mobile.jpg"
  },
  {
-  "path": "assets/templates/trading-journal-like-a-pro/trading-journal-like-a-pro-g4-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/b23b774c-f56f-4781-8c52-eaa2f7be6fa9/3d995eab-3bfd-4f1f-ad5f-d63962f09f9d/1767870603965/desktop.jpg"
+  "path": "assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g2-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/2f2c65a1-b6f6-4a10-8bab-51e72b644bef/1782311430622/desktop.jpg"
  },
  {
-  "path": "assets/templates/trading-journal-like-a-pro/trading-journal-like-a-pro-g4-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/b23b774c-f56f-4781-8c52-eaa2f7be6fa9/3d995eab-3bfd-4f1f-ad5f-d63962f09f9d/1767870603965/mobile.jpg"
+  "path": "assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g2-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/2f2c65a1-b6f6-4a10-8bab-51e72b644bef/1782311430622/mobile.jpg"
  },
  {
-  "path": "assets/templates/travel-budget-tracker/travel-budget-tracker-g1-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/70671bd2-e047-40da-9ea8-64707394e831/1762699797954/desktop.jpg"
+  "path": "assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g3-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/0931b744-c5b3-4d16-b1eb-546aba7bacfe/1782311562036/desktop.jpg"
  },
  {
-  "path": "assets/templates/travel-budget-tracker/travel-budget-tracker-g1-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/70671bd2-e047-40da-9ea8-64707394e831/1762699797954/mobile.jpg"
+  "path": "assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g3-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/0931b744-c5b3-4d16-b1eb-546aba7bacfe/1782311562036/mobile.jpg"
  },
  {
-  "path": "assets/templates/travel-budget-tracker/travel-budget-tracker-g2-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/dc0f018b-d0b0-46e2-b9ea-44421803925f/10612d3e-300c-4eb5-9bc2-0468133e3da3/1762699985278/desktop.jpg"
+  "path": "assets/templates/business-consultant-agent-management-consulting-lite/business-consultant-agent-management-consulting-lite-desktop.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/2a984cc8-288e-47de-9adb-68e6d33da729/1767185392538/desktop.jpg"
  },
  {
-  "path": "assets/templates/travel-budget-tracker/travel-budget-tracker-g2-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/dc0f018b-d0b0-46e2-b9ea-44421803925f/10612d3e-300c-4eb5-9bc2-0468133e3da3/1762699985278/mobile.jpg"
- },
- {
-  "path": "assets/templates/travel-budget-tracker/travel-budget-tracker-g3-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/94b45cf2-89ac-45f7-bc4d-ddcbadd1e399/ab0817ad-f7e0-42bd-80c8-95d49c63cbbb/1762700003938/desktop.jpg"
- },
- {
-  "path": "assets/templates/travel-budget-tracker/travel-budget-tracker-g3-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/94b45cf2-89ac-45f7-bc4d-ddcbadd1e399/ab0817ad-f7e0-42bd-80c8-95d49c63cbbb/1762700003938/mobile.jpg"
- },
- {
-  "path": "assets/templates/ultimate-business-dashboard/ultimate-business-dashboard-g1-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/b033880b-799f-49f8-b362-e64f4c3a3f6c/1726985249885/desktop.jpg"
- },
- {
-  "path": "assets/templates/ultimate-business-dashboard/ultimate-business-dashboard-g1-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/b033880b-799f-49f8-b362-e64f4c3a3f6c/1726985249885/mobile.jpg"
- },
- {
-  "path": "assets/templates/ultimate-business-dashboard/ultimate-business-dashboard-g2-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/a28fbd6a-dc31-4fa7-b0d7-3c70873c0bfc/f77aa1c0-9b54-474c-9e93-2d715ab85743/1767897803145/desktop.jpg"
- },
- {
-  "path": "assets/templates/ultimate-business-dashboard/ultimate-business-dashboard-g2-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/a28fbd6a-dc31-4fa7-b0d7-3c70873c0bfc/f77aa1c0-9b54-474c-9e93-2d715ab85743/1767897803145/mobile.jpg"
- },
- {
-  "path": "assets/templates/ultimate-business-dashboard/ultimate-business-dashboard-g3-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/f2165945-01a9-43d0-8313-074132ba9beb/1767897903618/desktop.jpg"
- },
- {
-  "path": "assets/templates/ultimate-business-dashboard/ultimate-business-dashboard-g3-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/f2165945-01a9-43d0-8313-074132ba9beb/1767897903618/mobile.jpg"
- },
- {
-  "path": "assets/templates/ultimate-business-dashboard/ultimate-business-dashboard-g4-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/bed86627-1770-4735-93d0-72596e327dc4/1767897934876/desktop.jpg"
- },
- {
-  "path": "assets/templates/ultimate-business-dashboard/ultimate-business-dashboard-g4-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/bed86627-1770-4735-93d0-72596e327dc4/1767897934876/mobile.jpg"
- },
- {
-  "path": "assets/templates/ultimate-business-dashboard/ultimate-business-dashboard-g5-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/7cf31fb7-14be-49e0-98bd-2f82a8267a4f/dddf35f6-023f-4493-bbd5-25fd354c7065/1767898106959/desktop.jpg"
- },
- {
-  "path": "assets/templates/ultimate-business-dashboard/ultimate-business-dashboard-g5-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/7cf31fb7-14be-49e0-98bd-2f82a8267a4f/dddf35f6-023f-4493-bbd5-25fd354c7065/1767898106959/mobile.jpg"
- },
- {
-  "path": "assets/templates/ultimate-business-dashboard/ultimate-business-dashboard-g6-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/274b915d-37fa-4575-8436-ef24fce15575/1782310401935/desktop.jpg"
- },
- {
-  "path": "assets/templates/ultimate-business-dashboard/ultimate-business-dashboard-g6-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/274b915d-37fa-4575-8436-ef24fce15575/1782310401935/mobile.jpg"
- },
- {
-  "path": "assets/templates/ultimate-student-dashboard-3/ultimate-student-dashboard-3-g1-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/fc5441f0-c97f-4d9b-a206-5ed44c824d55/1765637879495/desktop.jpg"
- },
- {
-  "path": "assets/templates/ultimate-student-dashboard-3/ultimate-student-dashboard-3-g1-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/fc5441f0-c97f-4d9b-a206-5ed44c824d55/1765637879495/mobile.jpg"
- },
- {
-  "path": "assets/templates/ultimate-student-dashboard-3/ultimate-student-dashboard-3-g2-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/37d58f28-4d65-4786-80a3-e593c9a195f6/1765638278651/desktop.jpg"
- },
- {
-  "path": "assets/templates/ultimate-student-dashboard-3/ultimate-student-dashboard-3-g2-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/37d58f28-4d65-4786-80a3-e593c9a195f6/1765638278651/mobile.jpg"
- },
- {
-  "path": "assets/templates/ultimate-student-dashboard-3/ultimate-student-dashboard-3-g3-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/7637ff9b-637a-4ebc-a0e4-f29222b4b5bd/1765638347726/desktop.jpg"
- },
- {
-  "path": "assets/templates/ultimate-student-dashboard-3/ultimate-student-dashboard-3-g3-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/7637ff9b-637a-4ebc-a0e4-f29222b4b5bd/1765638347726/mobile.jpg"
- },
- {
-  "path": "assets/templates/ultimate-student-dashboard-3/ultimate-student-dashboard-3-7e6a0b78-0ff7-4cac-8116-be737e2dc207.png",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/b628efe8-f10a-4753-92bb-7e9a0a9db3e6/7e6a0b78-0ff7-4cac-8116-be737e2dc207.png"
- },
- {
-  "path": "assets/templates/ultimate-student-dashboard-3/ultimate-student-dashboard-3-f312ab69-18c2-421d-990d-45895cb8f62f.png",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/957f866b-d7ac-46ba-9e65-f95a6335f208/f312ab69-18c2-421d-990d-45895cb8f62f.png"
- },
- {
-  "path": "assets/templates/ultimate-student-dashboard-lite/ultimate-student-dashboard-lite-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/0eb044f7-6f29-481c-b4a1-ae69ec9e1a11/1765636487124/desktop.jpg"
- },
- {
-  "path": "assets/templates/ultimate-student-dashboard-lite/ultimate-student-dashboard-lite-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/0eb044f7-6f29-481c-b4a1-ae69ec9e1a11/1765636487124/mobile.jpg"
- },
- {
-  "path": "assets/templates/website-privacy-policy-746/website-privacy-policy-746-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/16bdfc42-06a8-4288-aac7-3aa82d518c4d/1769396419456/desktop.jpg"
- },
- {
-  "path": "assets/templates/website-privacy-policy-746/website-privacy-policy-746-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/16bdfc42-06a8-4288-aac7-3aa82d518c4d/1769396419456/mobile.jpg"
- },
- {
-  "path": "assets/templates/workout-tracker-pro-576/workout-tracker-pro-576-g1-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/5c9ed75e-8e33-47a2-b2f6-a5803ba5e3f4/1765634844939/desktop.jpg"
- },
- {
-  "path": "assets/templates/workout-tracker-pro-576/workout-tracker-pro-576-g1-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/5c9ed75e-8e33-47a2-b2f6-a5803ba5e3f4/1765634844939/mobile.jpg"
- },
- {
-  "path": "assets/templates/workout-tracker-pro-576/workout-tracker-pro-576-g2-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/35771389-987e-4840-a9dd-08bf48d29575/1765634904605/desktop.jpg"
- },
- {
-  "path": "assets/templates/workout-tracker-pro-576/workout-tracker-pro-576-g2-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/35771389-987e-4840-a9dd-08bf48d29575/1765634904605/mobile.jpg"
- },
- {
-  "path": "assets/templates/workout-tracker-pro-576/workout-tracker-pro-576-g3-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/1ff70417-3671-4a7c-a119-6c9bd30d7f79/1765634944146/desktop.jpg"
- },
- {
-  "path": "assets/templates/workout-tracker-pro-576/workout-tracker-pro-576-g3-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/1ff70417-3671-4a7c-a119-6c9bd30d7f79/1765634944146/mobile.jpg"
- },
- {
-  "path": "assets/templates/2026-annual-calendar-plan-your-events/2026-annual-calendar-plan-your-events-g1-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/98792776-46cb-4550-90e4-45f4101506cb/1770793286770/desktop.jpg"
- },
- {
-  "path": "assets/templates/2026-annual-calendar-plan-your-events/2026-annual-calendar-plan-your-events-g1-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/98792776-46cb-4550-90e4-45f4101506cb/1770793286770/mobile.jpg"
- },
- {
-  "path": "assets/templates/2026-annual-calendar-plan-your-events/2026-annual-calendar-plan-your-events-g2-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/73fda35f-31bc-4e5b-9d9a-9cd90c64d5c7/1770794222973/desktop.jpg"
- },
- {
-  "path": "assets/templates/2026-annual-calendar-plan-your-events/2026-annual-calendar-plan-your-events-g2-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/73fda35f-31bc-4e5b-9d9a-9cd90c64d5c7/1770794222973/mobile.jpg"
- },
- {
-  "path": "assets/templates/2026-annual-calendar-plan-your-events/2026-annual-calendar-plan-your-events-g3-desktop.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/98792776-46cb-4550-90e4-45f4101506cb/1770794290068/desktop.jpg"
- },
- {
-  "path": "assets/templates/2026-annual-calendar-plan-your-events/2026-annual-calendar-plan-your-events-g3-mobile.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/98792776-46cb-4550-90e4-45f4101506cb/1770794290068/mobile.jpg"
+  "path": "assets/templates/business-consultant-agent-management-consulting-lite/business-consultant-agent-management-consulting-lite-mobile.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/2a984cc8-288e-47de-9adb-68e6d33da729/1767185392538/mobile.jpg"
  }
 ]
