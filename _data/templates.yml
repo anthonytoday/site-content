@@ -61,6 +61,7 @@
   - budget
   - multi-destination
   - packing
+  cover: /assets/templates/dream-travel-planner-ultimate/cover.webp
   en:
     title: Dream Travel Planner Ultimate
     blurb: Multi-destination routing, packing systems and a full budget breakdown.
@@ -82,7 +83,6 @@
   - ai
   - prompts
   - chatgpt
-  - free
   cover: /assets/templates/ai-teaching-prompts/cover.webp
   gallery:
   - /assets/templates/ai-teaching-prompts/desktop/01-prompt-detail.webp
@@ -496,6 +496,7 @@
   - debt
   - goals
   - accounts
+  cover: /assets/templates/personal-financial-planner-pro/cover.webp
   en:
     title: Personal Financial Planner Pro
     blurb: Accounts, net worth, debt payoff and goals in one budget system.
@@ -575,6 +576,7 @@
   - research
   - citations
   - sources
+  cover: /assets/templates/top-ai-research-agent/cover.webp
   en:
     title: Top AI Research Agent
     blurb: 100+ sources with full citations, for research you can publish.
