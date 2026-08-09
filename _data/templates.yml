@@ -12,6 +12,7 @@
   price: 169
   stripe: https://pay.anthonytoday.com/b/4gMcN73E4e6paDN90J1ZS01
   cover: /assets/templates/ultimate-content-manager/cover.png
+  marketplace: https://www.notion.com/templates/ultimate-content-manager-590
   page: /templates/ultimate-content-manager/
   page_fr: /fr/templates/ultimate-content-manager/
   tags: [content, creators, marketing, dashboard]
@@ -109,6 +110,7 @@
   status: pending
   category: real-estate
   tags: [real-estate, investing, cashflow, dashboard]
+  marketplace: https://www.notion.com/templates/real-estate-portfolio-management-ultimate-dashboard
   en:
     title: Real Estate Portfolio Manager
     blurb: Units, leases, cash flow and cap rate across a whole portfolio.
@@ -131,8 +133,7 @@
   status: pending
   category: finance
   tags: [finance, tax, freelance, business]
-  # marketplace: paste the notion.com/templates/<slug> URL here and the card
-  # becomes clickable, sending people to the live listing until it ships here
+  marketplace: https://www.notion.com/templates/business-expenses-tracker
   en:
     title: Business Expenses Tracker, Tax Ready
     blurb: Categorised expenses, receipts and a year-end export your accountant accepts.
@@ -145,6 +146,7 @@
   category: business
   price: 99
   stripe: https://pay.anthonytoday.com/b/eVq8wRgqQ3rLaDN90J1ZS03
+  marketplace: https://www.notion.com/templates/ultimate-business-dashboard
   page: /templates/ultimate-business-dashboard/
   page_fr: /fr/templates/ultimate-business-dashboard/
   tags: [business, crm, projects, operations]
