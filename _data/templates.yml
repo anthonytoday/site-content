@@ -1094,9 +1094,12 @@
   - /assets/templates/cissp-exam-prep-lite/mobile/02.jpg
   - /assets/templates/cissp-exam-prep-lite/mobile/03.jpg
   - /assets/templates/cissp-exam-prep-lite/mobile/04.jpg
+  upsell: cissp-exam-prep
   en:
     title: CISSP Exam Prep, Master All Domains (Lite)
     blurb: A working CISSP study plan you can start tonight. Free.
+    upsell_hook: Need all eight domains?
+    upsell_body: CISSP Exam Prep adds every domain, flashcards and a practice question log.
   fr:
     title: CISSP Exam Prep, maitriser tous les domaines (Lite)
     blurb: 'Un plan d''etude CISSP utilisable des ce soir. Gratuit.'
@@ -1867,3 +1870,36 @@
     title: Workout Tracking Pro, prenez du muscle
     blurb: Chaque seance consignee, pour voir la surcharge progressive.
   rank: 228
+
+- id: cissp-exam-prep
+  status: live
+  category: grc
+  price: 47
+  stripe: https://pay.anthonytoday.com/b/fZufZj7UkbYhbHR7WF1ZS0p
+  marketplace: https://www.notion.com/templates/cissp-exam-prep-with-peace-of-mind
+  page: /templates/cissp-exam-prep/
+  page_fr: /fr/templates/cissp-exam-prep/
+  tags:
+  - cissp
+  - security
+  - certification
+  - isc2
+  - study
+  cover: /assets/templates/cissp-exam-prep/cover.webp
+  gallery:
+  - /assets/templates/cissp-exam-prep/desktop/01.webp
+  - /assets/templates/cissp-exam-prep/desktop/02.webp
+  - /assets/templates/cissp-exam-prep/desktop/03.webp
+  - /assets/templates/cissp-exam-prep/desktop/04.webp
+  mobile:
+  - /assets/templates/cissp-exam-prep/mobile/01.jpg
+  - /assets/templates/cissp-exam-prep/mobile/02.jpg
+  - /assets/templates/cissp-exam-prep/mobile/03.jpg
+  - /assets/templates/cissp-exam-prep/mobile/04.jpg
+  en:
+    title: CISSP Exam Prep, Master All Domains
+    blurb: All eight CISSP domains, flashcards and pace tracking.
+  fr:
+    title: CISSP, maitriser tous les domaines
+    blurb: Les huit domaines CISSP, fiches et suivi du rythme.
+  rank: 139.5
