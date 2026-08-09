@@ -835,6 +835,7 @@
   status: live
   category: grc
   price: 59
+  stripe: https://pay.anthonytoday.com/b/aFa4gBeiI5zTh2bccV1ZS0f
   marketplace: https://www.notion.com/templates/cism-exam-study-plan
   page: /templates/cism-exam-prep/
   page_fr: /fr/templates/cism-exam-prep/
@@ -865,6 +866,7 @@
   status: live
   category: grc
   price: 59
+  stripe: https://pay.anthonytoday.com/b/8x228tgqQ2nH6nx7WF1ZS0g
   marketplace: https://www.notion.com/templates/crisc-exam-study-plan
   page: /templates/crisc-exam-prep/
   page_fr: /fr/templates/crisc-exam-prep/
@@ -926,6 +928,7 @@
   status: live
   category: grc
   price: 49
+  stripe: https://pay.anthonytoday.com/b/cNi9AV7Uk8M58vF2Cl1ZS0h
   marketplace: https://www.notion.com/templates/comptia-security-v7-exam-study-plan
   page: /templates/comptia-security-plus/
   page_fr: /fr/templates/comptia-security-plus/
