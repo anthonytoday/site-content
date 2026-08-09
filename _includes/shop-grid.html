@@ -20,7 +20,11 @@
       <p class="blurb">{{ c.blurb }}</p>
       <div class="card-tags">{% for tg in t.tags limit:3 %}<span class="tagpill">#{{ tg }}</span>{% endfor %}</div>
       <div class="price-row">
+        {%- if t.free -%}
+        <span class="price">{% if L == "fr" %}Gratuit{% else %}Free{% endif %}</span>
+        {%- else -%}
         <span class="price">${{ t.price }}</span>
+        {%- endif -%}
         <span class="card-cta">{% if L == "fr" %}Voir{% else %}View{% endif %} &rarr;</span>
       </div>
     </div>

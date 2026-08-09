@@ -176,3 +176,203 @@
   fr:
     title: Tableau de bord d'entreprise complet
     blurb: Clients, projets, factures et pipeline dans un seul systeme.
+
+- id: ai-teaching-prompts
+  status: live
+  free: true
+  category: study
+  marketplace: https://www.notion.com/templates/100-teachers-prompt
+  page: /templates/ai-teaching-prompts/
+  page_fr: /fr/templates/ai-teaching-prompts/
+  tags: [teaching, education, ai, prompts]
+  cover: /assets/templates/ai-teaching-prompts/cover.webp
+  gallery:
+    - /assets/templates/ai-teaching-prompts/01-prompt-detail.webp
+    - /assets/templates/ai-teaching-prompts/02-prompt-fields.webp
+  mobile:
+    - /assets/templates/ai-teaching-prompts/m00-gallery.jpg
+    - /assets/templates/ai-teaching-prompts/m01-prompt-detail.jpg
+    - /assets/templates/ai-teaching-prompts/m02-prompt-fields.jpg
+  en:
+    title: 100+ AI Teaching Prompts
+    blurb: Lesson plans, quizzes and parent emails, written by AI in seconds.
+  fr:
+    title: 100+ prompts IA pour enseignants
+    blurb: Plans de cours, quiz et emails aux parents, rediges par l'IA en quelques secondes.
+
+- id: books-library
+  status: live
+  free: true
+  category: study
+  marketplace: https://www.notion.com/templates/200-best-selling-books
+  page: /templates/books-library/
+  page_fr: /fr/templates/books-library/
+  cover: /assets/templates/books-library/cover.webp
+  gallery:
+    - /assets/templates/books-library/01-screen.webp
+  mobile:
+    - /assets/templates/books-library/m00-screen.jpg
+    - /assets/templates/books-library/m01-screen.jpg
+  en:
+    title: "200+ Books Library"
+    blurb: "200 best-selling books, sorted so you always know what to read next."
+  fr:
+    title: "200+ livres, la bibliotheque"
+    blurb: "200 best-sellers, tries pour toujours savoir quoi lire ensuite."
+
+- id: 2026-planning
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/2026-planning-full-year-overview
+  page: /templates/2026-planning/
+  page_fr: /fr/templates/2026-planning/
+  cover: /assets/templates/2026-planning/cover.webp
+  mobile:
+    - /assets/templates/2026-planning/m00-screen.jpg
+  en:
+    title: "2026 Planning, Full Year Overview"
+    blurb: "The whole year on one page: goals, quarters, months and weeks, linked."
+  fr:
+    title: "Planning 2026, vue annuelle complete"
+    blurb: "L'annee entiere sur une page : objectifs, trimestres, mois et semaines, relies."
+
+- id: ai-research-agent-lite
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/ai-agent-research-analysis-lite
+  page: /templates/ai-research-agent-lite/
+  page_fr: /fr/templates/ai-research-agent-lite/
+  cover: /assets/templates/ai-research-agent-lite/cover.webp
+  mobile:
+    - /assets/templates/ai-research-agent-lite/m00-screen.jpg
+  en:
+    title: "AI Agent Research Analysis (Lite)"
+    blurb: "A Notion agent that researches a topic and returns a structured analysis."
+  fr:
+    title: "AI Agent Research Analysis (Lite)"
+    blurb: "Un agent Notion qui etudie un sujet et rend une analyse structuree."
+
+- id: airbnb-manager-lite
+  status: live
+  free: true
+  category: real-estate
+  marketplace: https://www.notion.com/templates/airbnb-manager-lite
+  page: /templates/airbnb-manager-lite/
+  page_fr: /fr/templates/airbnb-manager-lite/
+  cover: /assets/templates/airbnb-manager-lite/cover.webp
+  gallery:
+    - /assets/templates/airbnb-manager-lite/01-screen.webp
+    - /assets/templates/airbnb-manager-lite/02-screen.webp
+    - /assets/templates/airbnb-manager-lite/03-screen.webp
+  mobile:
+    - /assets/templates/airbnb-manager-lite/m00-screen.jpg
+    - /assets/templates/airbnb-manager-lite/m01-screen.jpg
+    - /assets/templates/airbnb-manager-lite/m02-screen.jpg
+    - /assets/templates/airbnb-manager-lite/m03-screen.jpg
+  en:
+    title: "Airbnb Manager, Run Rentals Like a Pro (Lite)"
+    blurb: "One property, every booking, cleaning and payout in one place."
+  fr:
+    title: "Airbnb Manager, gerez comme un pro (Lite)"
+    blurb: "Un bien, toutes les reservations, menages et revenus au meme endroit."
+
+- id: airbnb-manager-ultimate
+  status: live
+  price: 79
+  stripe: https://pay.anthonytoday.com/b/cNi7sN7Uk8M59zJdgZ1ZS04
+  category: real-estate
+  marketplace: https://www.notion.com/templates/airbnb-manager-ultimate
+  page: /templates/airbnb-manager-ultimate/
+  page_fr: /fr/templates/airbnb-manager-ultimate/
+  cover: /assets/templates/airbnb-manager-ultimate/cover.webp
+  gallery:
+    - /assets/templates/airbnb-manager-ultimate/01-screen.webp
+    - /assets/templates/airbnb-manager-ultimate/02-screen.webp
+    - /assets/templates/airbnb-manager-ultimate/03-screen.webp
+    - /assets/templates/airbnb-manager-ultimate/04-screen.webp
+    - /assets/templates/airbnb-manager-ultimate/05-screen.webp
+  mobile:
+    - /assets/templates/airbnb-manager-ultimate/m00-screen.jpg
+    - /assets/templates/airbnb-manager-ultimate/m01-screen.jpg
+    - /assets/templates/airbnb-manager-ultimate/m02-screen.jpg
+    - /assets/templates/airbnb-manager-ultimate/m03-screen.jpg
+    - /assets/templates/airbnb-manager-ultimate/m04-screen.jpg
+    - /assets/templates/airbnb-manager-ultimate/m05-screen.jpg
+  en:
+    title: "Airbnb Manager Ultimate, Full System"
+    blurb: "Unlimited listings, bookings, finances, maintenance and guests, with 8 automations."
+  fr:
+    title: "Airbnb Manager Ultimate, systeme complet"
+    blurb: "Annonces illimitees, reservations, finances, maintenance et voyageurs, avec 8 automatisations."
+
+- id: business-bundle-20x
+  status: live
+  price: 179
+  stripe: https://pay.anthonytoday.com/b/fZubJ3fmM7I15jtdgZ1ZS05
+  category: business
+  marketplace: https://www.notion.com/templates/business-bundle-all-in-one-20-premium
+  page: /templates/business-bundle-20x/
+  page_fr: /fr/templates/business-bundle-20x/
+  cover: /assets/templates/business-bundle-20x/cover.webp
+  gallery:
+    - /assets/templates/business-bundle-20x/01-screen.webp
+    - /assets/templates/business-bundle-20x/02-screen.webp
+    - /assets/templates/business-bundle-20x/03-screen.webp
+    - /assets/templates/business-bundle-20x/04-screen.webp
+    - /assets/templates/business-bundle-20x/05-screen.webp
+  mobile:
+    - /assets/templates/business-bundle-20x/m00-screen.jpg
+    - /assets/templates/business-bundle-20x/m01-screen.jpg
+    - /assets/templates/business-bundle-20x/m02-screen.jpg
+    - /assets/templates/business-bundle-20x/m03-screen.jpg
+    - /assets/templates/business-bundle-20x/m04-screen.jpg
+    - /assets/templates/business-bundle-20x/m05-screen.jpg
+  en:
+    title: "All-In-One Business Bundle (20x)"
+    blurb: "Twenty premium templates in one purchase. Over $500 cheaper than buying separately."
+  fr:
+    title: "All-In-One Business Bundle (20x)"
+    blurb: "Vingt templates premium en un achat. Plus de 500 $ d'economie."
+
+- id: budget-tracker
+  status: live
+  free: true
+  category: finance
+  marketplace: https://www.notion.com/templates/basic-financial-tracker-780
+  page: /templates/budget-tracker/
+  page_fr: /fr/templates/budget-tracker/
+  cover: /assets/templates/budget-tracker/cover.webp
+  mobile:
+    - /assets/templates/budget-tracker/m00-screen.jpg
+  en:
+    title: "Budget Tracker, Master Your Money Fast"
+    blurb: "Income in, expenses out, and what is actually left. Nothing else."
+  fr:
+    title: "Budget Tracker, maitrisez vos finances vite"
+    blurb: "Ce qui entre, ce qui sort, et ce qui reste vraiment. Rien d'autre."
+
+- id: dream-travel-planner
+  status: live
+  free: true
+  category: travel
+  marketplace: https://www.notion.com/templates/best-travel-planner-lite
+  page: /templates/dream-travel-planner/
+  page_fr: /fr/templates/dream-travel-planner/
+  cover: /assets/templates/dream-travel-planner/cover.webp
+  gallery:
+    - /assets/templates/dream-travel-planner/01-screen.webp
+    - /assets/templates/dream-travel-planner/02-screen.webp
+    - /assets/templates/dream-travel-planner/03-screen.webp
+  mobile:
+    - /assets/templates/dream-travel-planner/m00-screen.jpg
+    - /assets/templates/dream-travel-planner/m01-screen.jpg
+    - /assets/templates/dream-travel-planner/m02-screen.jpg
+    - /assets/templates/dream-travel-planner/m03-screen.jpg
+  en:
+    title: "Dream Travel Planner"
+    blurb: "Itinerary, budget, bookings and checklists for the whole trip, in one page."
+  fr:
+    title: "Dream Travel Planner"
+    blurb: "Itineraire, budget, reservations et checklists du voyage, sur une page."
