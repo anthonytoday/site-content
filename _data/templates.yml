@@ -111,6 +111,7 @@
 
 - id: ultimate-business-dashboard
   status: live
+  pinned: 3
   category: business
   price: 99
   stripe: https://pay.anthonytoday.com/b/eVq8wRgqQ3rLaDN90J1ZS03
@@ -149,7 +150,6 @@
   status: live
   price: 179
   stripe: https://pay.anthonytoday.com/b/fZubJ3fmM7I15jtdgZ1ZS05
-  pinned: 3
   category: business
   marketplace: https://www.notion.com/templates/business-bundle-all-in-one-20-premium
   page: /templates/business-bundle-20x/
@@ -780,6 +780,7 @@
 - id: comptia-security-plus-lite
   status: live
   free: true
+  pinned: 2
   category: grc
   marketplace: https://www.notion.com/templates/comptia-security-v7-exam-study-plan-lite
   page: /templates/comptia-security-plus-lite/
@@ -879,7 +880,6 @@
 - id: personal-financial-planner
   status: live
   free: true
-  pinned: 2
   category: finance
   marketplace: https://www.notion.com/templates/personal-financial-planner-free
   page: /templates/personal-financial-planner/
