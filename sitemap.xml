@@ -12,9 +12,11 @@ permalink: /sitemap.xml
 {%- else -%}{%- assign en = p.permalink -%}{%- assign fr = p.alt_url -%}{%- endif -%}
   <url>
     <loc>{{ p.permalink | absolute_url }}</loc>
+{%- if en and fr %}
     <xhtml:link rel="alternate" hreflang="en" href="{{ en | absolute_url }}"/>
     <xhtml:link rel="alternate" hreflang="fr" href="{{ fr | absolute_url }}"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="{{ en | absolute_url }}"/>
+{%- endif %}
     <changefreq>{% if p.permalink == "/" or p.permalink == "/fr/" %}weekly{% else %}monthly{% endif %}</changefreq>
     <priority>{% if p.permalink == "/" %}1.0{% elsif p.permalink == "/fr/" %}0.9{% elsif p.lang == "fr" %}0.7{% else %}0.8{% endif %}</priority>
   </url>
