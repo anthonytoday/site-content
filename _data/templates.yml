@@ -9,6 +9,7 @@
 - id: dream-travel-planner
   status: live
   free: true
+  pinned: 1
   category: travel
   marketplace: https://www.notion.com/templates/best-travel-planner-lite
   page: /templates/dream-travel-planner/
@@ -62,6 +63,18 @@
   - multi-destination
   - packing
   cover: /assets/templates/dream-travel-planner-ultimate/cover.webp
+  gallery:
+  - /assets/templates/dream-travel-planner-ultimate/desktop/01.webp
+  - /assets/templates/dream-travel-planner-ultimate/desktop/02.webp
+  - /assets/templates/dream-travel-planner-ultimate/desktop/03.webp
+  - /assets/templates/dream-travel-planner-ultimate/desktop/04.webp
+  - /assets/templates/dream-travel-planner-ultimate/desktop/05.webp
+  mobile:
+  - /assets/templates/dream-travel-planner-ultimate/mobile/01.jpg
+  - /assets/templates/dream-travel-planner-ultimate/mobile/02.jpg
+  - /assets/templates/dream-travel-planner-ultimate/mobile/03.jpg
+  - /assets/templates/dream-travel-planner-ultimate/mobile/04.jpg
+  - /assets/templates/dream-travel-planner-ultimate/mobile/05.jpg
   en:
     title: Dream Travel Planner Ultimate
     blurb: Multi-destination routing, packing systems and a full budget breakdown.
@@ -139,6 +152,7 @@
   status: live
   price: 179
   stripe: https://pay.anthonytoday.com/b/fZubJ3fmM7I15jtdgZ1ZS05
+  pinned: 3
   category: business
   marketplace: https://www.notion.com/templates/business-bundle-all-in-one-20-premium
   page: /templates/business-bundle-20x/
@@ -497,6 +511,16 @@
   - goals
   - accounts
   cover: /assets/templates/personal-financial-planner-pro/cover.webp
+  gallery:
+  - /assets/templates/personal-financial-planner-pro/desktop/01.webp
+  - /assets/templates/personal-financial-planner-pro/desktop/02.webp
+  - /assets/templates/personal-financial-planner-pro/desktop/03.webp
+  - /assets/templates/personal-financial-planner-pro/desktop/04.webp
+  mobile:
+  - /assets/templates/personal-financial-planner-pro/mobile/01.jpg
+  - /assets/templates/personal-financial-planner-pro/mobile/02.jpg
+  - /assets/templates/personal-financial-planner-pro/mobile/03.jpg
+  - /assets/templates/personal-financial-planner-pro/mobile/04.jpg
   en:
     title: Personal Financial Planner Pro
     blurb: Accounts, net worth, debt payoff and goals in one budget system.
@@ -662,143 +686,6 @@
   - quarterly
   - '2026'
   - free
-
-- id: risk-register
-  status: pending
-  category: grc
-  tags:
-  - grc
-  - risk
-  - iso27001
-  - controls
-  - security
-  en:
-    title: Risk Register and Controls Library
-    blurb: Risks, controls, owners and treatment plans, mapped to ISO 27001 Annex A.
-  fr:
-    title: Registre des risques et bibliotheque de controles
-    blurb: Risques, controles, responsables et plans de traitement, alignes sur l'Annexe A d'ISO 27001.
-  rank: 230
-
-- id: iso-evidence-tracker
-  status: pending
-  category: grc
-  tags:
-  - grc
-  - iso27001
-  - audit
-  - evidence
-  - compliance
-  en:
-    title: ISO 27001 Audit Evidence Tracker
-    blurb: Every control, every piece of evidence, every due date, in one auditor-ready view.
-  fr:
-    title: Suivi des preuves d'audit ISO 27001
-    blurb: Chaque controle, chaque preuve, chaque echeance, dans une vue prete pour l'auditeur.
-  rank: 240
-
-- id: ai-governance-register
-  status: pending
-  category: grc
-  tags:
-  - grc
-  - ai
-  - governance
-  - eu-ai-act
-  - compliance
-  en:
-    title: AI Governance Register
-    blurb: Inventory AI systems, classify EU AI Act risk, and track mitigations.
-  fr:
-    title: Registre de gouvernance de l'IA
-    blurb: Inventoriez les systemes d'IA, classez le risque au titre du reglement europeen, suivez les mesures.
-  rank: 250
-
-- id: vendor-risk-tracker
-  status: pending
-  category: grc
-  tags:
-  - grc
-  - vendor
-  - third-party
-  - risk
-  - security
-  en:
-    title: Vendor and Third-Party Risk Tracker
-    blurb: Onboarding questionnaires, risk tiers and review dates for every supplier.
-  fr:
-    title: Suivi des risques fournisseurs et tiers
-    blurb: Questionnaires d'entree en relation, niveaux de risque et dates de revue pour chaque fournisseur.
-  rank: 260
-
-- id: policy-hub
-  status: pending
-  category: grc
-  tags:
-  - grc
-  - policy
-  - attestation
-  - governance
-  - compliance
-  en:
-    title: Policy Management Hub
-    blurb: Policy lifecycle, approvals, versions and attestation tracking.
-  fr:
-    title: Centre de gestion des politiques
-    blurb: Cycle de vie des politiques, validations, versions et suivi des attestations.
-  rank: 270
-
-- id: workspace-governance-kit
-  status: pending
-  category: grc
-  tags:
-  - notion
-  - governance
-  - permissions
-  - naming
-  - admin
-  en:
-    title: Notion Workspace Governance Kit
-    blurb: Naming conventions, permission model and content ownership for a workspace that scales.
-  fr:
-    title: Kit de gouvernance d'espace Notion
-    blurb: Conventions de nommage, modele de permissions et propriete des contenus pour un espace qui tient la charge.
-  rank: 280
-
-- id: real-estate-portfolio
-  status: pending
-  category: real-estate
-  tags:
-  - real-estate
-  - investing
-  - cashflow
-  - leases
-  - dashboard
-  marketplace: https://www.notion.com/templates/real-estate-portfolio-management-ultimate-dashboard
-  en:
-    title: Real Estate Portfolio Manager
-    blurb: Units, leases, cash flow and cap rate across a whole portfolio.
-  fr:
-    title: Gestionnaire de portefeuille immobilier
-    blurb: Lots, baux, flux de tresorerie et taux de capitalisation sur tout un portefeuille.
-  rank: 290
-
-- id: investor-deal-room
-  status: pending
-  category: real-estate
-  tags:
-  - real-estate
-  - investing
-  - diligence
-  - fundraising
-  - data-room
-  en:
-    title: Investor-Ready Deal Room
-    blurb: Deal pipeline, diligence checklists and a lender-ready document vault.
-  fr:
-    title: Data room investisseurs
-    blurb: Pipeline d'operations, checklists de due diligence et coffre documentaire pret pour le preteur.
-  rank: 300
 
 - id: cpa-exam-prep-lite
   status: live
@@ -991,3 +878,598 @@
     upsell_hook: Un studio devenu trop grand ?
     upsell_body: Ultimate Business Dashboard ajoute le pipeline, les contrats, le recrutement, les profils et les finances completes.
   rank: 205
+
+- id: personal-financial-planner
+  status: live
+  free: true
+  pinned: 2
+  category: finance
+  marketplace: https://www.notion.com/templates/personal-financial-planner-free
+  page: /templates/personal-financial-planner/
+  page_fr: /fr/templates/personal-financial-planner/
+  tags:
+  - finance
+  - budget
+  - planner
+  - money
+  - accounts
+  cover: /assets/templates/personal-financial-planner/cover.webp
+  gallery:
+  - /assets/templates/personal-financial-planner/desktop/01.webp
+  - /assets/templates/personal-financial-planner/desktop/02.webp
+  - /assets/templates/personal-financial-planner/desktop/03.webp
+  - /assets/templates/personal-financial-planner/desktop/04.webp
+  mobile:
+  - /assets/templates/personal-financial-planner/mobile/01.jpg
+  - /assets/templates/personal-financial-planner/mobile/02.jpg
+  - /assets/templates/personal-financial-planner/mobile/03.jpg
+  - /assets/templates/personal-financial-planner/mobile/04.jpg
+  upsell: personal-financial-planner-pro
+  en:
+    title: Personal Financial Planner, Master Your Budget
+    blurb: Income, expenses and what is actually left, tracked month by month.
+    upsell_hook: Need the full picture?
+    upsell_body: Personal Financial Planner Pro adds accounts, net worth, debt payoff and goal tracking.
+  fr:
+    title: Personal Financial Planner, maitrisez votre budget
+    blurb: Revenus, depenses et ce qui reste vraiment, mois par mois.
+    upsell_hook: Besoin de la vue complete ?
+    upsell_body: Personal Financial Planner Pro ajoute les comptes, le patrimoine net, les dettes et les objectifs.
+  rank: 155
+
+- id: cisa-exam-prep-lite
+  status: live
+  free: true
+  category: grc
+  marketplace: https://www.notion.com/templates/free-cisa-exam-study-plan-lite
+  page: /templates/cisa-exam-prep-lite/
+  page_fr: /fr/templates/cisa-exam-prep-lite/
+  tags:
+  - cisa
+  - audit
+  - certification
+  - isaca
+  - free
+  cover: /assets/templates/cisa-exam-prep-lite/cover.webp
+  gallery:
+  - /assets/templates/cisa-exam-prep-lite/desktop/01.webp
+  - /assets/templates/cisa-exam-prep-lite/desktop/02.webp
+  mobile:
+  - /assets/templates/cisa-exam-prep-lite/mobile/01.jpg
+  - /assets/templates/cisa-exam-prep-lite/mobile/02.jpg
+  upsell: cisa-exam-prep
+  en:
+    title: CISA Exam Prep, Pass First Attempt (Lite)
+    blurb: A working CISA study plan you can start tonight. Free.
+    upsell_hook: Need all five domains?
+    upsell_body: CISA Complete adds every audit domain, flashcards and a practice question log.
+  fr:
+    title: CISA Exam Prep, reussir du premier coup (Lite)
+    blurb: 'Un plan d''etude CISA utilisable des ce soir. Gratuit.'
+    upsell_hook: Besoin des cinq domaines ?
+    upsell_body: 'CISA Complete ajoute tous les domaines d''audit, les fiches et le journal de questions.'
+  rank: 108
+
+- id: cism-exam-prep-lite
+  status: live
+  free: true
+  category: grc
+  marketplace: https://www.notion.com/templates/free-cism-exam-study-plan
+  page: /templates/cism-exam-prep-lite/
+  page_fr: /fr/templates/cism-exam-prep-lite/
+  tags:
+  - cism
+  - security
+  - certification
+  - isaca
+  - free
+  cover: /assets/templates/cism-exam-prep-lite/cover.webp
+  gallery:
+  - /assets/templates/cism-exam-prep-lite/desktop/01.webp
+  - /assets/templates/cism-exam-prep-lite/desktop/02.webp
+  mobile:
+  - /assets/templates/cism-exam-prep-lite/mobile/01.jpg
+  - /assets/templates/cism-exam-prep-lite/mobile/02.jpg
+  upsell: cism-exam-prep
+  en:
+    title: CISM Exam Prep, Pass First Attempt (Lite)
+    blurb: A working CISM study plan you can start tonight. Free.
+    upsell_hook: Need all four domains?
+    upsell_body: CISM Complete adds every management domain, flashcards and a practice question log.
+  fr:
+    title: CISM Exam Prep, reussir du premier coup (Lite)
+    blurb: 'Un plan d''etude CISM utilisable des ce soir. Gratuit.'
+    upsell_hook: Besoin des quatre domaines ?
+    upsell_body: CISM Complete ajoute tous les domaines de management, les fiches et le journal de questions.
+  rank: 131
+
+- id: crisc-exam-prep-lite
+  status: live
+  free: true
+  category: grc
+  marketplace: https://www.notion.com/templates/free-crisc-exam-study-plan
+  page: /templates/crisc-exam-prep-lite/
+  page_fr: /fr/templates/crisc-exam-prep-lite/
+  tags:
+  - crisc
+  - risk
+  - certification
+  - isaca
+  - free
+  cover: /assets/templates/crisc-exam-prep-lite/cover.webp
+  gallery:
+  - /assets/templates/crisc-exam-prep-lite/desktop/01.webp
+  - /assets/templates/crisc-exam-prep-lite/desktop/02.webp
+  mobile:
+  - /assets/templates/crisc-exam-prep-lite/mobile/01.jpg
+  - /assets/templates/crisc-exam-prep-lite/mobile/02.jpg
+  upsell: crisc-exam-prep
+  en:
+    title: CRISC Exam Prep, Pass First Attempt (Lite)
+    blurb: A working CRISC study plan you can start tonight. Free.
+    upsell_hook: Need all four domains?
+    upsell_body: CRISC Complete adds every risk domain, flashcards and a practice question log.
+  fr:
+    title: CRISC Exam Prep, reussir du premier coup (Lite)
+    blurb: 'Un plan d''etude CRISC utilisable des ce soir. Gratuit.'
+    upsell_hook: Besoin des quatre domaines ?
+    upsell_body: CRISC Complete ajoute tous les domaines de risque, les fiches et le journal de questions.
+  rank: 133
+
+- id: cgeit-exam-prep-lite
+  status: live
+  free: true
+  category: grc
+  marketplace: https://www.notion.com/templates/free-cgeit-exam-study-plan
+  page: /templates/cgeit-exam-prep-lite/
+  page_fr: /fr/templates/cgeit-exam-prep-lite/
+  tags:
+  - cgeit
+  - governance
+  - certification
+  - isaca
+  - free
+  cover: /assets/templates/cgeit-exam-prep-lite/cover.webp
+  gallery:
+  - /assets/templates/cgeit-exam-prep-lite/desktop/01.webp
+  - /assets/templates/cgeit-exam-prep-lite/desktop/02.webp
+  mobile:
+  - /assets/templates/cgeit-exam-prep-lite/mobile/01.jpg
+  - /assets/templates/cgeit-exam-prep-lite/mobile/02.jpg
+  upsell: cgeit-exam-prep
+  en:
+    title: CGEIT Exam Prep, Pass First Attempt (Lite)
+    blurb: A working CGEIT study plan you can start tonight. Free.
+    upsell_hook: Need all four domains?
+    upsell_body: CGEIT Complete adds every governance domain, flashcards and a practice question log.
+  fr:
+    title: CGEIT Exam Prep, reussir du premier coup (Lite)
+    blurb: 'Un plan d''etude CGEIT utilisable des ce soir. Gratuit.'
+    upsell_hook: Besoin des quatre domaines ?
+    upsell_body: CGEIT Complete ajoute tous les domaines de gouvernance, les fiches et le journal de questions.
+  rank: 129
+
+- id: cdpse-exam-prep-lite
+  status: live
+  free: true
+  category: grc
+  marketplace: https://www.notion.com/templates/free-cdpse-exam-study-plan
+  page: /templates/cdpse-exam-prep-lite/
+  page_fr: /fr/templates/cdpse-exam-prep-lite/
+  tags:
+  - cdpse
+  - privacy
+  - certification
+  - isaca
+  - free
+  cover: /assets/templates/cdpse-exam-prep-lite/cover.webp
+  gallery:
+  - /assets/templates/cdpse-exam-prep-lite/desktop/01.webp
+  - /assets/templates/cdpse-exam-prep-lite/desktop/02.webp
+  mobile:
+  - /assets/templates/cdpse-exam-prep-lite/mobile/01.jpg
+  - /assets/templates/cdpse-exam-prep-lite/mobile/02.jpg
+  upsell: cdpse-exam-prep
+  en:
+    title: CDPSE Exam Prep, Pass First Attempt (Lite)
+    blurb: A working CDPSE study plan you can start tonight. Free.
+    upsell_hook: Need every domain?
+    upsell_body: CDPSE Complete adds every privacy domain, flashcards and a practice question log.
+  fr:
+    title: CDPSE Exam Prep, reussir du premier coup (Lite)
+    blurb: 'Un plan d''etude CDPSE utilisable des ce soir. Gratuit.'
+    upsell_hook: Besoin de tous les domaines ?
+    upsell_body: CDPSE Complete ajoute tous les domaines, les fiches et le journal de questions.
+  rank: 119
+
+- id: cissp-exam-prep-lite
+  status: live
+  free: true
+  category: grc
+  marketplace: https://www.notion.com/templates/free-cissp-study-plan
+  page: /templates/cissp-exam-prep-lite/
+  page_fr: /fr/templates/cissp-exam-prep-lite/
+  tags:
+  - cissp
+  - security
+  - certification
+  - isc2
+  - free
+  cover: /assets/templates/cissp-exam-prep-lite/cover.webp
+  gallery:
+  - /assets/templates/cissp-exam-prep-lite/desktop/01.webp
+  - /assets/templates/cissp-exam-prep-lite/desktop/02.webp
+  - /assets/templates/cissp-exam-prep-lite/desktop/03.webp
+  - /assets/templates/cissp-exam-prep-lite/desktop/04.webp
+  - /assets/templates/cissp-exam-prep-lite/desktop/05.webp
+  mobile:
+  - /assets/templates/cissp-exam-prep-lite/mobile/01.jpg
+  - /assets/templates/cissp-exam-prep-lite/mobile/02.jpg
+  - /assets/templates/cissp-exam-prep-lite/mobile/03.jpg
+  - /assets/templates/cissp-exam-prep-lite/mobile/04.jpg
+  - /assets/templates/cissp-exam-prep-lite/mobile/05.jpg
+  en:
+    title: CISSP Exam Prep, Master All Domains (Lite)
+    blurb: A working CISSP study plan you can start tonight. Free.
+  fr:
+    title: CISSP Exam Prep, maitriser tous les domaines (Lite)
+    blurb: 'Un plan d''etude CISSP utilisable des ce soir. Gratuit.'
+  rank: 139
+
+- id: pmp-exam-prep
+  status: live
+  category: business
+  price: 59
+  stripe: https://pay.anthonytoday.com/b/00w28t8YogexdPZdgZ1ZS0i
+  marketplace: https://www.notion.com/templates/pmi-pmp-exam-study-plan
+  page: /templates/pmp-exam-prep/
+  page_fr: /fr/templates/pmp-exam-prep/
+  tags:
+  - pmp
+  - pmi
+  - certification
+  - project-management
+  - study
+  cover: /assets/templates/pmp-exam-prep/cover.webp
+  gallery:
+  - /assets/templates/pmp-exam-prep/desktop/01.webp
+  - /assets/templates/pmp-exam-prep/desktop/02.webp
+  - /assets/templates/pmp-exam-prep/desktop/03.webp
+  - /assets/templates/pmp-exam-prep/desktop/04.webp
+  mobile:
+  - /assets/templates/pmp-exam-prep/mobile/01.jpg
+  - /assets/templates/pmp-exam-prep/mobile/02.jpg
+  - /assets/templates/pmp-exam-prep/mobile/03.jpg
+  - /assets/templates/pmp-exam-prep/mobile/04.jpg
+  en:
+    title: PMP Exam Prep, Pass the PMP Certification
+    blurb: All three PMP domains, flashcards and pace tracking.
+  fr:
+    title: PMP Exam Prep, reussir la certification PMP
+    blurb: Les trois domaines PMP, fiches et suivi du rythme.
+  rank: 142
+
+- id: dental-clinic
+  status: live
+  category: business
+  price: 47
+  stripe: https://pay.anthonytoday.com/b/8x2fZjgqQ3rL8vFa4N1ZS0j
+  marketplace: https://www.notion.com/templates/dental-clinic-management
+  page: /templates/dental-clinic/
+  page_fr: /fr/templates/dental-clinic/
+  tags:
+  - dental
+  - clinic
+  - patients
+  - practice
+  - healthcare
+  cover: /assets/templates/dental-clinic/cover.webp
+  gallery:
+  - /assets/templates/dental-clinic/desktop/01.webp
+  - /assets/templates/dental-clinic/desktop/02.webp
+  - /assets/templates/dental-clinic/desktop/03.webp
+  - /assets/templates/dental-clinic/desktop/04.webp
+  - /assets/templates/dental-clinic/desktop/05.webp
+  - /assets/templates/dental-clinic/desktop/06.webp
+  mobile:
+  - /assets/templates/dental-clinic/mobile/01.jpg
+  - /assets/templates/dental-clinic/mobile/02.jpg
+  - /assets/templates/dental-clinic/mobile/03.jpg
+  - /assets/templates/dental-clinic/mobile/04.jpg
+  - /assets/templates/dental-clinic/mobile/05.jpg
+  - /assets/templates/dental-clinic/mobile/06.jpg
+  en:
+    title: Dental Clinic Management, Ready to Use
+    blurb: Patients, appointments, treatments and billing in one practice workspace.
+  fr:
+    title: 'Dental Clinic Management, pret a l''emploi'
+    blurb: Patients, rendez-vous, traitements et facturation dans un seul espace.
+  rank: 207
+
+- id: dental-clinic-lite
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/dental-clinic-management-lite
+  page: /templates/dental-clinic-lite/
+  page_fr: /fr/templates/dental-clinic-lite/
+  tags:
+  - dental
+  - clinic
+  - patients
+  - practice
+  - free
+  cover: /assets/templates/dental-clinic-lite/cover.webp
+  gallery:
+  - /assets/templates/dental-clinic-lite/desktop/01.webp
+  - /assets/templates/dental-clinic-lite/desktop/02.webp
+  - /assets/templates/dental-clinic-lite/desktop/03.webp
+  - /assets/templates/dental-clinic-lite/desktop/04.webp
+  mobile:
+  - /assets/templates/dental-clinic-lite/mobile/01.jpg
+  - /assets/templates/dental-clinic-lite/mobile/02.jpg
+  - /assets/templates/dental-clinic-lite/mobile/03.jpg
+  - /assets/templates/dental-clinic-lite/mobile/04.jpg
+  upsell: dental-clinic
+  en:
+    title: Dental Practice, Run Your Clinic (Lite)
+    blurb: Patients and appointments for a single-chair practice. Free.
+    upsell_hook: Running a full practice?
+    upsell_body: Dental Clinic Management adds treatments, billing, inventory and staff.
+  fr:
+    title: Dental Practice, gerez votre cabinet (Lite)
+    blurb: Patients et rendez-vous pour un cabinet a un fauteuil. Gratuit.
+    upsell_hook: Vous gerez un cabinet complet ?
+    upsell_body: 'Dental Clinic Management ajoute les traitements, la facturation, le stock et l''equipe.'
+  rank: 206
+
+- id: medical-practice
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/doctor-clinic-management
+  page: /templates/medical-practice/
+  page_fr: /fr/templates/medical-practice/
+  tags:
+  - medical
+  - clinic
+  - patients
+  - practice
+  - free
+  cover: /assets/templates/medical-practice/cover.webp
+  gallery:
+  - /assets/templates/medical-practice/desktop/01.webp
+  - /assets/templates/medical-practice/desktop/02.webp
+  - /assets/templates/medical-practice/desktop/03.webp
+  - /assets/templates/medical-practice/desktop/04.webp
+  mobile:
+  - /assets/templates/medical-practice/mobile/01.jpg
+  - /assets/templates/medical-practice/mobile/02.jpg
+  - /assets/templates/medical-practice/mobile/03.jpg
+  - /assets/templates/medical-practice/mobile/04.jpg
+  en:
+    title: Medical Practice, Manage Patients Easily
+    blurb: Patients, appointments and consultation notes in one workspace.
+  fr:
+    title: Medical Practice, gerez vos patients simplement
+    blurb: Patients, rendez-vous et notes de consultation dans un seul espace.
+  rank: 208
+
+- id: life-os
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/digital-life-planner-home-organizer
+  page: /templates/life-os/
+  page_fr: /fr/templates/life-os/
+  tags:
+  - planner
+  - home
+  - life-os
+  - organisation
+  - free
+  cover: /assets/templates/life-os/cover.webp
+  gallery:
+  - /assets/templates/life-os/desktop/01.webp
+  mobile:
+  - /assets/templates/life-os/mobile/01.jpg
+  en:
+    title: Life OS, Digital Planner and Home Hub
+    blurb: Tasks, home, habits and plans for the whole household, in one page.
+  fr:
+    title: Life OS, planificateur et hub maison
+    blurb: Taches, maison, habitudes et projets du foyer, sur une page.
+  rank: 215
+
+- id: parent-os
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/parent-os-family-work-life-dashboard
+  page: /templates/parent-os/
+  page_fr: /fr/templates/parent-os/
+  tags:
+  - family
+  - parenting
+  - planner
+  - work-life
+  - free
+  cover: /assets/templates/parent-os/cover.webp
+  gallery:
+  - /assets/templates/parent-os/desktop/01.webp
+  - /assets/templates/parent-os/desktop/02.webp
+  - /assets/templates/parent-os/desktop/03.webp
+  mobile:
+  - /assets/templates/parent-os/mobile/01.jpg
+  - /assets/templates/parent-os/mobile/02.jpg
+  - /assets/templates/parent-os/mobile/03.jpg
+  en:
+    title: Parent OS, Family, Work and Life Dashboard
+    blurb: School, activities, meals and work commitments on one dashboard.
+  fr:
+    title: Parent OS, tableau de bord famille et travail
+    blurb: Ecole, activites, repas et engagements pro sur un seul tableau.
+  rank: 216
+
+- id: performance-improvement-plan
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/performance-improvement-plan-business
+  page: /templates/performance-improvement-plan/
+  page_fr: /fr/templates/performance-improvement-plan/
+  tags:
+  - hr
+  - performance
+  - management
+  - team
+  - free
+  cover: /assets/templates/performance-improvement-plan/cover.webp
+  gallery:
+  - /assets/templates/performance-improvement-plan/desktop/01.webp
+  - /assets/templates/performance-improvement-plan/desktop/02.webp
+  mobile:
+  - /assets/templates/performance-improvement-plan/mobile/01.jpg
+  - /assets/templates/performance-improvement-plan/mobile/02.jpg
+  en:
+    title: Performance Improvement Plan, Fix Team Issues
+    blurb: A documented PIP with objectives, check-ins and evidence.
+  fr:
+    title: 'Performance Improvement Plan, corriger les problemes d''equipe'
+    blurb: 'Un PIP documente avec objectifs, points d''etape et preuves.'
+  rank: 209
+
+- id: finance-tracker
+  status: live
+  free: true
+  category: finance
+  marketplace: https://www.notion.com/templates/finance-tracker-income-and-expenses
+  page: /templates/finance-tracker/
+  page_fr: /fr/templates/finance-tracker/
+  tags:
+  - finance
+  - income
+  - expenses
+  - tracker
+  - free
+  cover: /assets/templates/finance-tracker/cover.webp
+  gallery:
+  - /assets/templates/finance-tracker/desktop/01.webp
+  mobile:
+  - /assets/templates/finance-tracker/mobile/01.jpg
+  en:
+    title: Finance Tracker, Income and Expenses
+    blurb: Every transaction in, every transaction out, categorised.
+  fr:
+    title: Finance Tracker, revenus et depenses
+    blurb: Chaque transaction entrante et sortante, categorisee.
+  rank: 172
+
+- id: daily-weekly-monthly-planners
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/daily-weekly-monthly-planners-stay-on-track
+  page: /templates/daily-weekly-monthly-planners/
+  page_fr: /fr/templates/daily-weekly-monthly-planners/
+  tags:
+  - planner
+  - daily
+  - weekly
+  - monthly
+  - free
+  cover: /assets/templates/daily-weekly-monthly-planners/cover.webp
+  gallery:
+  - /assets/templates/daily-weekly-monthly-planners/desktop/01.webp
+  mobile:
+  - /assets/templates/daily-weekly-monthly-planners/mobile/01.jpg
+  en:
+    title: Daily Weekly Monthly Planners, Stay on Track
+    blurb: 'Three linked horizons: today, this week, this month.'
+  fr:
+    title: Planners quotidien, hebdo et mensuel
+    blurb: 'Trois horizons relies : aujourd''hui, cette semaine, ce mois.'
+  rank: 225
+
+- id: green-monthly-planner
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/green-monthly-planner-focus-flow-balance-in-one-place
+  page: /templates/green-monthly-planner/
+  page_fr: /fr/templates/green-monthly-planner/
+  tags:
+  - planner
+  - monthly
+  - focus
+  - habits
+  - free
+  cover: /assets/templates/green-monthly-planner/cover.webp
+  gallery:
+  - /assets/templates/green-monthly-planner/desktop/01.webp
+  - /assets/templates/green-monthly-planner/desktop/02.webp
+  - /assets/templates/green-monthly-planner/desktop/03.webp
+  - /assets/templates/green-monthly-planner/desktop/04.webp
+  mobile:
+  - /assets/templates/green-monthly-planner/mobile/01.jpg
+  - /assets/templates/green-monthly-planner/mobile/02.jpg
+  - /assets/templates/green-monthly-planner/mobile/03.jpg
+  - /assets/templates/green-monthly-planner/mobile/04.jpg
+  en:
+    title: Green Monthly Planner, Focus, Flow and Balance
+    blurb: A calm monthly page for focus, habits and balance.
+  fr:
+    title: Green Monthly Planner, focus, flow et equilibre
+    blurb: 'Une page mensuelle calme pour le focus, les habitudes et l''equilibre.'
+  rank: 226
+
+- id: font-finder-pro
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/font-finder-pro-curated-open-source-typography-hub
+  page: /templates/font-finder-pro/
+  page_fr: /fr/templates/font-finder-pro/
+  tags:
+  - design
+  - typography
+  - fonts
+  - resources
+  - free
+  cover: /assets/templates/font-finder-pro/cover.webp
+  gallery:
+  - /assets/templates/font-finder-pro/desktop/01.webp
+  - /assets/templates/font-finder-pro/desktop/02.webp
+  - /assets/templates/font-finder-pro/desktop/03.webp
+  mobile:
+  - /assets/templates/font-finder-pro/mobile/01.jpg
+  - /assets/templates/font-finder-pro/mobile/02.jpg
+  - /assets/templates/font-finder-pro/mobile/03.jpg
+  en:
+    title: Font Finder Pro, Curated Open Source Fonts
+    blurb: A searchable library of open source fonts you can actually use commercially.
+  fr:
+    title: Font Finder Pro, polices open source selectionnees
+    blurb: Une bibliotheque consultable de polices open source utilisables commercialement.
+  rank: 227
+
+- id: real-estate-portfolio
+  status: live
+  category: real-estate
+  price: 39
+  marketplace: https://www.notion.com/templates/real-estate-portfolio-management-ultimate-dashboard
+  page: /templates/real-estate-portfolio/
+  page_fr: /fr/templates/real-estate-portfolio/
+  tags:
+  - real-estate
+  - investing
+  - cashflow
+  - leases
+  - portfolio
+  en:
+    title: Real Estate Portfolio Manager
+    blurb: Units, leases, cash flow and cap rate across a whole portfolio.
+  fr:
+    title: Gestionnaire de portefeuille immobilier
+    blurb: Lots, baux, flux de tresorerie et taux de capitalisation sur tout un portefeuille.
+  rank: 235

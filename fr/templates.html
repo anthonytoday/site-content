@@ -30,6 +30,7 @@ bc_name: "Templates"
     .hero-help{flex-direction:column;align-items:flex-start;gap:16px;width:100%}
     .hh-go{display:none}
   }
+  .chip-sep{display:inline-block;width:1px;height:20px;background:var(--border);margin:0 6px;vertical-align:middle}
 </style>
 <style>
   /* search typeahead */
@@ -92,6 +93,9 @@ bc_name: "Templates"
       <button class="chip" data-cat="business">Business</button>
       <button class="chip" data-cat="study">Etudes</button>
       <button class="chip" data-cat="travel">Voyage</button>
+      <span class="chip-sep" aria-hidden="true"></span>
+      <button class="chip" data-cat="free">Gratuit</button>
+      <button class="chip" data-cat="premium">Premium</button>
     </div>
   </div>
 </div>
@@ -126,7 +130,10 @@ bc_name: "Templates"
     var term = (q.value || '').trim().toLowerCase();
     var shown = 0;
     cards.forEach(function(card){
-      var okCat = (cat === 'all') || (card.getAttribute('data-cat') === cat);
+      var okCat = (cat === 'all')
+        || (cat === 'free' || cat === 'premium'
+              ? card.getAttribute('data-price') === cat
+              : card.getAttribute('data-cat') === cat);
       var okTerm = !term || card.getAttribute('data-search').indexOf(term) !== -1;
       var show = okCat && okTerm;
       card.hidden = !show;

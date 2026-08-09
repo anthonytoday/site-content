@@ -1,12 +1,19 @@
 {%- assign L = "en" -%}{%- if page.lang == "fr" -%}{%- assign L = "fr" -%}{%- endif -%}
 <div class="shop-grid" id="grid">
-{%- assign catalogue = site.data.templates | sort: "rank" -%}
+{%- comment -%} Pinned listings lead the grid in every view, then everything else by rank.
+    Filters still apply to pins: a pinned card hides when it does not match the active
+    facet, exactly like the Notion marketplace. {%- endcomment -%}
+{%- assign by_rank = site.data.templates | sort: "rank" -%}
+{%- assign pins = by_rank | where_exp: "t", "t.pinned" | sort: "pinned" -%}
+{%- assign rest = by_rank | where_exp: "t", "t.pinned == nil" -%}
+{%- assign catalogue = pins | concat: rest -%}
 {%- for t in catalogue -%}
   {%- assign c = t[L] -%}
   {%- if t.status == "live" -%}
     {%- if L == "fr" -%}{%- assign href = t.page_fr -%}{%- else -%}{%- assign href = t.page -%}{%- endif -%}
   <a class="card" href="{{ href }}"
      data-cat="{{ t.category }}"
+     data-price="{% if t.free %}free{% else %}premium{% endif %}"
      data-search="{{ c.title | downcase }} {{ c.blurb | downcase }} {{ t.category }} {% for tg in t.tags %}#{{ tg }} {% endfor %}">
     <div class="thumb">
       <div class="live-art"><div class="la-inner">
@@ -37,10 +44,12 @@
   {%- if t.marketplace -%}
   <a class="card is-pending" href="{{ t.marketplace }}" target="_blank" rel="noopener"
      data-cat="{{ t.category }}"
+     data-price="{% if t.free %}free{% else %}premium{% endif %}"
      data-search="{{ c.title | downcase }} {{ c.blurb | downcase }} {{ t.category }} {% for tg in t.tags %}#{{ tg }} {% endfor %}">
   {%- else -%}
   <div class="card is-pending"
        data-cat="{{ t.category }}"
+       data-price="{% if t.free %}free{% else %}premium{% endif %}"
        data-search="{{ c.title | downcase }} {{ c.blurb | downcase }} {{ t.category }} {% for tg in t.tags %}#{{ tg }} {% endfor %}">
   {%- endif -%}
     <div class="thumb">
