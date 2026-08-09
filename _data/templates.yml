@@ -930,10 +930,8 @@
   cover: /assets/templates/cisa-exam-prep-lite/cover.webp
   gallery:
   - /assets/templates/cisa-exam-prep-lite/desktop/01.webp
-  - /assets/templates/cisa-exam-prep-lite/desktop/02.webp
   mobile:
   - /assets/templates/cisa-exam-prep-lite/mobile/01.jpg
-  - /assets/templates/cisa-exam-prep-lite/mobile/02.jpg
   upsell: cisa-exam-prep
   en:
     title: CISA Exam Prep, Pass First Attempt (Lite)
@@ -963,10 +961,8 @@
   cover: /assets/templates/cism-exam-prep-lite/cover.webp
   gallery:
   - /assets/templates/cism-exam-prep-lite/desktop/01.webp
-  - /assets/templates/cism-exam-prep-lite/desktop/02.webp
   mobile:
   - /assets/templates/cism-exam-prep-lite/mobile/01.jpg
-  - /assets/templates/cism-exam-prep-lite/mobile/02.jpg
   upsell: cism-exam-prep
   en:
     title: CISM Exam Prep, Pass First Attempt (Lite)
@@ -996,10 +992,8 @@
   cover: /assets/templates/crisc-exam-prep-lite/cover.webp
   gallery:
   - /assets/templates/crisc-exam-prep-lite/desktop/01.webp
-  - /assets/templates/crisc-exam-prep-lite/desktop/02.webp
   mobile:
   - /assets/templates/crisc-exam-prep-lite/mobile/01.jpg
-  - /assets/templates/crisc-exam-prep-lite/mobile/02.jpg
   upsell: crisc-exam-prep
   en:
     title: CRISC Exam Prep, Pass First Attempt (Lite)
@@ -1029,10 +1023,8 @@
   cover: /assets/templates/cgeit-exam-prep-lite/cover.webp
   gallery:
   - /assets/templates/cgeit-exam-prep-lite/desktop/01.webp
-  - /assets/templates/cgeit-exam-prep-lite/desktop/02.webp
   mobile:
   - /assets/templates/cgeit-exam-prep-lite/mobile/01.jpg
-  - /assets/templates/cgeit-exam-prep-lite/mobile/02.jpg
   upsell: cgeit-exam-prep
   en:
     title: CGEIT Exam Prep, Pass First Attempt (Lite)
@@ -1062,10 +1054,8 @@
   cover: /assets/templates/cdpse-exam-prep-lite/cover.webp
   gallery:
   - /assets/templates/cdpse-exam-prep-lite/desktop/01.webp
-  - /assets/templates/cdpse-exam-prep-lite/desktop/02.webp
   mobile:
   - /assets/templates/cdpse-exam-prep-lite/mobile/01.jpg
-  - /assets/templates/cdpse-exam-prep-lite/mobile/02.jpg
   upsell: cdpse-exam-prep
   en:
     title: CDPSE Exam Prep, Pass First Attempt (Lite)
@@ -1104,7 +1094,6 @@
   - /assets/templates/cissp-exam-prep-lite/mobile/02.jpg
   - /assets/templates/cissp-exam-prep-lite/mobile/03.jpg
   - /assets/templates/cissp-exam-prep-lite/mobile/04.jpg
-  - /assets/templates/cissp-exam-prep-lite/mobile/05.jpg
   en:
     title: CISSP Exam Prep, Master All Domains (Lite)
     blurb: A working CISSP study plan you can start tonight. Free.
@@ -1411,7 +1400,6 @@
   - /assets/templates/green-monthly-planner/mobile/01.jpg
   - /assets/templates/green-monthly-planner/mobile/02.jpg
   - /assets/templates/green-monthly-planner/mobile/03.jpg
-  - /assets/templates/green-monthly-planner/mobile/04.jpg
   en:
     title: Green Monthly Planner, Focus, Flow and Balance
     blurb: A calm monthly page for focus, habits and balance.
@@ -1470,3 +1458,412 @@
     title: Gestionnaire de portefeuille immobilier
     blurb: Lots, baux, flux de tresorerie et taux de capitalisation sur tout un portefeuille.
   rank: 235
+
+- id: security-cert-bundle-7x
+  status: live
+  category: grc
+  price: 147
+  stripe: https://pay.anthonytoday.com/b/eVqcN76Qgfat7rB6SB1ZS0k
+  marketplace: https://www.notion.com/templates/security-certification-bundle
+  page: /templates/security-cert-bundle-7x/
+  page_fr: /fr/templates/security-cert-bundle-7x/
+  tags:
+  - bundle
+  - security
+  - certification
+  - isaca
+  - grc
+  cover: /assets/templates/security-cert-bundle-7x/cover.webp
+  gallery:
+  - /assets/templates/security-cert-bundle-7x/desktop/01.webp
+  - /assets/templates/security-cert-bundle-7x/desktop/02.webp
+  - /assets/templates/security-cert-bundle-7x/desktop/03.webp
+  - /assets/templates/security-cert-bundle-7x/desktop/04.webp
+  - /assets/templates/security-cert-bundle-7x/desktop/05.webp
+  - /assets/templates/security-cert-bundle-7x/desktop/06.webp
+  mobile:
+  - /assets/templates/security-cert-bundle-7x/mobile/01.jpg
+  - /assets/templates/security-cert-bundle-7x/mobile/02.jpg
+  - /assets/templates/security-cert-bundle-7x/mobile/03.jpg
+  - /assets/templates/security-cert-bundle-7x/mobile/04.jpg
+  - /assets/templates/security-cert-bundle-7x/mobile/05.jpg
+  - /assets/templates/security-cert-bundle-7x/mobile/06.jpg
+  en:
+    title: Certifications Exam Prep Bundle (7x Premium)
+    blurb: Seven complete certification study systems in one purchase.
+  fr:
+    title: Bundle Certifications (7x Premium)
+    blurb: 'Sept systemes d''etude complets en un seul achat.'
+  rank: 55
+
+- id: trading-journal
+  status: live
+  category: finance
+  price: 39
+  stripe: https://pay.anthonytoday.com/b/fZu3cxgqQ7I1dPZ5Ox1ZS0l
+  marketplace: https://www.notion.com/templates/trading-journal-like-a-pro
+  page: /templates/trading-journal/
+  page_fr: /fr/templates/trading-journal/
+  tags:
+  - trading
+  - journal
+  - finance
+  - performance
+  - risk
+  cover: /assets/templates/trading-journal/cover.webp
+  gallery:
+  - /assets/templates/trading-journal/desktop/01.webp
+  - /assets/templates/trading-journal/desktop/02.webp
+  - /assets/templates/trading-journal/desktop/03.webp
+  - /assets/templates/trading-journal/desktop/04.webp
+  mobile:
+  - /assets/templates/trading-journal/mobile/01.jpg
+  - /assets/templates/trading-journal/mobile/02.jpg
+  - /assets/templates/trading-journal/mobile/03.jpg
+  - /assets/templates/trading-journal/mobile/04.jpg
+  en:
+    title: Trading Journal Like a Pro, Get Profitable
+    blurb: Every trade logged, with the reasoning, so patterns become visible.
+  fr:
+    title: Trading Journal Like a Pro, devenez rentable
+    blurb: Chaque trade consigne, avec le raisonnement, pour voir les schemas.
+  rank: 175
+
+- id: student-dashboard-ultimate
+  status: live
+  category: study
+  price: 29
+  stripe: https://pay.anthonytoday.com/b/00w5kFfmM6DX7rB6SB1ZS0m
+  marketplace: https://www.notion.com/templates/ultimate-student-dashboard-3
+  page: /templates/student-dashboard-ultimate/
+  page_fr: /fr/templates/student-dashboard-ultimate/
+  tags:
+  - student
+  - classes
+  - study
+  - grades
+  - university
+  cover: /assets/templates/student-dashboard-ultimate/cover.webp
+  gallery:
+  - /assets/templates/student-dashboard-ultimate/desktop/01.webp
+  - /assets/templates/student-dashboard-ultimate/desktop/02.webp
+  - /assets/templates/student-dashboard-ultimate/desktop/03.webp
+  mobile:
+  - /assets/templates/student-dashboard-ultimate/mobile/01.jpg
+  - /assets/templates/student-dashboard-ultimate/mobile/02.jpg
+  - /assets/templates/student-dashboard-ultimate/mobile/03.jpg
+  en:
+    title: Ultimate Student Dashboard, Organize Classes
+    blurb: Classes, assignments, grades and revision in one workspace.
+  fr:
+    title: Ultimate Student Dashboard, organisez vos cours
+    blurb: Cours, devoirs, notes et revisions dans un seul espace.
+  rank: 218
+
+- id: website-privacy-policy
+  status: live
+  category: grc
+  price: 9
+  stripe: https://pay.anthonytoday.com/b/28E5kF1vWaUd3blccV1ZS0n
+  marketplace: https://www.notion.com/templates/website-privacy-policy-746
+  page: /templates/website-privacy-policy/
+  page_fr: /fr/templates/website-privacy-policy/
+  tags:
+  - privacy
+  - compliance
+  - gdpr
+  - legal
+  - website
+  cover: /assets/templates/website-privacy-policy/cover.webp
+  gallery:
+  - /assets/templates/website-privacy-policy/desktop/01.webp
+  mobile:
+  - /assets/templates/website-privacy-policy/mobile/01.jpg
+  en:
+    title: Website Privacy Policy, Be Compliant
+    blurb: A privacy policy you can fill in and publish the same day.
+  fr:
+    title: Website Privacy Policy, soyez conforme
+    blurb: Une politique de confidentialite a completer et publier le jour meme.
+  rank: 212
+
+- id: annual-calendar-2026
+  status: live
+  category: business
+  price: 7
+  stripe: https://pay.anthonytoday.com/b/5kQdRba2s2nHdPZ5Ox1ZS0o
+  marketplace: https://www.notion.com/templates/2026-annual-calendar-plan-your-events
+  page: /templates/annual-calendar-2026/
+  page_fr: /fr/templates/annual-calendar-2026/
+  tags:
+  - calendar
+  - 2026
+  - events
+  - planning
+  - annual
+  cover: /assets/templates/annual-calendar-2026/cover.webp
+  gallery:
+  - /assets/templates/annual-calendar-2026/desktop/01.webp
+  - /assets/templates/annual-calendar-2026/desktop/02.webp
+  - /assets/templates/annual-calendar-2026/desktop/03.webp
+  mobile:
+  - /assets/templates/annual-calendar-2026/mobile/01.jpg
+  - /assets/templates/annual-calendar-2026/mobile/02.jpg
+  - /assets/templates/annual-calendar-2026/mobile/03.jpg
+  en:
+    title: 2026 Annual Calendar, Plan Your Events
+    blurb: The whole of 2026 on one page, with every event in view.
+  fr:
+    title: Calendrier annuel 2026, planifiez vos evenements
+    blurb: 'Toute l''annee 2026 sur une page, avec chaque evenement en vue.'
+  rank: 224
+
+- id: pmp-exam-prep-lite
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/pmp-exam-prep-pass-first-try-lite
+  page: /templates/pmp-exam-prep-lite/
+  page_fr: /fr/templates/pmp-exam-prep-lite/
+  tags:
+  - pmp
+  - pmi
+  - certification
+  - project-management
+  - free
+  cover: /assets/templates/pmp-exam-prep-lite/cover.webp
+  gallery:
+  - /assets/templates/pmp-exam-prep-lite/desktop/01.webp
+  - /assets/templates/pmp-exam-prep-lite/desktop/02.webp
+  - /assets/templates/pmp-exam-prep-lite/desktop/03.webp
+  mobile:
+  - /assets/templates/pmp-exam-prep-lite/mobile/01.jpg
+  - /assets/templates/pmp-exam-prep-lite/mobile/02.jpg
+  - /assets/templates/pmp-exam-prep-lite/mobile/03.jpg
+  - /assets/templates/pmp-exam-prep-lite/mobile/04.jpg
+  upsell: pmp-exam-prep
+  en:
+    title: PMP Exam Prep, Pass First Try (Lite)
+    blurb: A working PMP study plan you can start tonight. Free.
+    upsell_hook: Need all three domains?
+    upsell_body: PMP Exam Prep adds every domain, flashcards and a practice question log.
+  fr:
+    title: PMP Exam Prep, reussir du premier coup (Lite)
+    blurb: 'Un plan d''etude PMP utilisable des ce soir. Gratuit.'
+    upsell_hook: Besoin des trois domaines ?
+    upsell_body: PMP Exam Prep ajoute tous les domaines, les fiches et le journal de questions.
+  rank: 141
+
+- id: simple-faq
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/simple-faq
+  page: /templates/simple-faq/
+  page_fr: /fr/templates/simple-faq/
+  tags:
+  - faq
+  - support
+  - documentation
+  - website
+  - free
+  cover: /assets/templates/simple-faq/cover.webp
+  gallery:
+  - /assets/templates/simple-faq/desktop/01.webp
+  mobile:
+  - /assets/templates/simple-faq/mobile/01.jpg
+  en:
+    title: Simple FAQ, Professional
+    blurb: A clean, searchable FAQ you can publish as a page.
+  fr:
+    title: Simple FAQ, Professional
+    blurb: Une FAQ propre et consultable, publiable en une page.
+  rank: 211
+
+- id: travel-budget-tracker
+  status: live
+  free: true
+  category: travel
+  marketplace: https://www.notion.com/templates/travel-budget-tracker
+  page: /templates/travel-budget-tracker/
+  page_fr: /fr/templates/travel-budget-tracker/
+  tags:
+  - travel
+  - budget
+  - expenses
+  - trip
+  - free
+  cover: /assets/templates/travel-budget-tracker/cover.webp
+  gallery:
+  - /assets/templates/travel-budget-tracker/desktop/01.webp
+  - /assets/templates/travel-budget-tracker/desktop/02.webp
+  - /assets/templates/travel-budget-tracker/desktop/03.webp
+  mobile:
+  - /assets/templates/travel-budget-tracker/mobile/01.jpg
+  - /assets/templates/travel-budget-tracker/mobile/02.jpg
+  - /assets/templates/travel-budget-tracker/mobile/03.jpg
+  upsell: dream-travel-planner-ultimate
+  en:
+    title: Travel Budget Tracker
+    blurb: What the trip was meant to cost, and what it actually cost.
+    upsell_hook: Planning the whole trip?
+    upsell_body: Dream Travel Planner Ultimate adds routing, bookings, packing and the full itinerary.
+  fr:
+    title: Travel Budget Tracker
+    blurb: 'Ce que le voyage devait couter, et ce qu''il a coute.'
+    upsell_hook: Vous planifiez tout le voyage ?
+    upsell_body: Dream Travel Planner Ultimate ajoute les itineraires, reservations, bagages et le programme complet.
+  rank: 25
+
+- id: student-dashboard-lite
+  status: live
+  free: true
+  category: study
+  marketplace: https://www.notion.com/templates/ultimate-student-dashboard-lite
+  page: /templates/student-dashboard-lite/
+  page_fr: /fr/templates/student-dashboard-lite/
+  tags:
+  - student
+  - classes
+  - study
+  - organisation
+  - free
+  cover: /assets/templates/student-dashboard-lite/cover.webp
+  gallery:
+  - /assets/templates/student-dashboard-lite/desktop/01.webp
+  mobile:
+  - /assets/templates/student-dashboard-lite/mobile/01.jpg
+  upsell: student-dashboard-ultimate
+  en:
+    title: Student Dashboard, Get Organized Fast (Lite)
+    blurb: Classes and assignments in one place. Free.
+    upsell_hook: Need grades and revision too?
+    upsell_body: Ultimate Student Dashboard adds grades, revision planning and resources.
+  fr:
+    title: Student Dashboard, organisez-vous vite (Lite)
+    blurb: Cours et devoirs au meme endroit. Gratuit.
+    upsell_hook: Besoin des notes et des revisions ?
+    upsell_body: Ultimate Student Dashboard ajoute les notes, les revisions et les ressources.
+  rank: 217
+
+- id: student-dashboard-all-in-one
+  status: live
+  free: true
+  category: study
+  marketplace: https://www.notion.com/templates/student-dashboard-study-smarter
+  page: /templates/student-dashboard-all-in-one/
+  page_fr: /fr/templates/student-dashboard-all-in-one/
+  tags:
+  - student
+  - study
+  - notes
+  - planner
+  - free
+  cover: /assets/templates/student-dashboard-all-in-one/cover.webp
+  gallery:
+  - /assets/templates/student-dashboard-all-in-one/desktop/01.webp
+  - /assets/templates/student-dashboard-all-in-one/desktop/02.webp
+  - /assets/templates/student-dashboard-all-in-one/desktop/03.webp
+  - /assets/templates/student-dashboard-all-in-one/desktop/04.webp
+  mobile:
+  - /assets/templates/student-dashboard-all-in-one/mobile/01.jpg
+  - /assets/templates/student-dashboard-all-in-one/mobile/02.jpg
+  - /assets/templates/student-dashboard-all-in-one/mobile/03.jpg
+  - /assets/templates/student-dashboard-all-in-one/mobile/04.jpg
+  en:
+    title: All-in-One Student Dashboard, Study Smarter
+    blurb: Notes, tasks and study sessions in one linked workspace.
+  fr:
+    title: All-in-One Student Dashboard, etudiez mieux
+    blurb: 'Notes, taches et sessions d''etude dans un espace relie.'
+  rank: 219
+
+- id: student-dashboard-university
+  status: live
+  free: true
+  category: study
+  marketplace: https://www.notion.com/templates/simple-university-student-dashboard
+  page: /templates/student-dashboard-university/
+  page_fr: /fr/templates/student-dashboard-university/
+  tags:
+  - student
+  - university
+  - modules
+  - study
+  - free
+  cover: /assets/templates/student-dashboard-university/cover.webp
+  gallery:
+  - /assets/templates/student-dashboard-university/desktop/01.webp
+  - /assets/templates/student-dashboard-university/desktop/02.webp
+  - /assets/templates/student-dashboard-university/desktop/03.webp
+  - /assets/templates/student-dashboard-university/desktop/04.webp
+  mobile:
+  - /assets/templates/student-dashboard-university/mobile/01.jpg
+  - /assets/templates/student-dashboard-university/mobile/02.jpg
+  - /assets/templates/student-dashboard-university/mobile/03.jpg
+  - /assets/templates/student-dashboard-university/mobile/04.jpg
+  en:
+    title: Simple University, Student Dashboard
+    blurb: Modules, lectures and coursework for a university term.
+  fr:
+    title: Simple University, tableau de bord etudiant
+    blurb: 'Modules, cours magistraux et travaux d''un semestre.'
+  rank: 222
+
+- id: student-planner-simple
+  status: live
+  free: true
+  category: study
+  marketplace: https://www.notion.com/templates/simple-student-planner-2025
+  page: /templates/student-planner-simple/
+  page_fr: /fr/templates/student-planner-simple/
+  tags:
+  - student
+  - planner
+  - 2026
+  - classes
+  - free
+  cover: /assets/templates/student-planner-simple/cover.webp
+  gallery:
+  - /assets/templates/student-planner-simple/desktop/01.webp
+  - /assets/templates/student-planner-simple/desktop/02.webp
+  mobile:
+  - /assets/templates/student-planner-simple/mobile/01.jpg
+  - /assets/templates/student-planner-simple/mobile/02.jpg
+  en:
+    title: Simple Student Planner 2026, Ace Your Classes
+    blurb: A term planner simple enough that you keep using it.
+  fr:
+    title: Simple Student Planner 2026, reussissez vos cours
+    blurb: Un planner de semestre assez simple pour etre garde.
+  rank: 221
+
+- id: workout-tracker
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/workout-tracker-pro-576
+  page: /templates/workout-tracker/
+  page_fr: /fr/templates/workout-tracker/
+  tags:
+  - fitness
+  - workout
+  - training
+  - progress
+  - free
+  cover: /assets/templates/workout-tracker/cover.webp
+  gallery:
+  - /assets/templates/workout-tracker/desktop/01.webp
+  - /assets/templates/workout-tracker/desktop/02.webp
+  - /assets/templates/workout-tracker/desktop/03.webp
+  mobile:
+  - /assets/templates/workout-tracker/mobile/01.jpg
+  - /assets/templates/workout-tracker/mobile/02.jpg
+  - /assets/templates/workout-tracker/mobile/03.jpg
+  en:
+    title: Workout Tracking Pro, Build Muscle Fast
+    blurb: Every session logged, so progressive overload is visible.
+  fr:
+    title: Workout Tracking Pro, prenez du muscle
+    blurb: Chaque seance consignee, pour voir la surcharge progressive.
+  rank: 228
