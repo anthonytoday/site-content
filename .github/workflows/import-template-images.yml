@@ -1,0 +1,40 @@
+name: Import template images
+on:
+  push:
+    paths:
+      - 'assets/template-images-manifest.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download images
+        run: |
+          python3 - <<'PYEOF'
+          import json, os, urllib.request
+          items = json.load(open('assets/template-images-manifest.json'))
+          ok = 0
+          for it in items:
+              p = it['path']
+              os.makedirs(os.path.dirname(p), exist_ok=True)
+              req = urllib.request.Request(it['url'], headers={'User-Agent': 'Mozilla/5.0'})
+              with urllib.request.urlopen(req, timeout=60) as r, open(p, 'wb') as f:
+                  f.write(r.read())
+              ok += 1
+              print('ok', p)
+          print('downloaded', ok)
+          PYEOF
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/templates
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -m "Import template listing pictures (rows 21-50)"
+            git push
+          fi
