@@ -1,6 +1,7 @@
 {%- assign L = "en" -%}{%- if page.lang == "fr" -%}{%- assign L = "fr" -%}{%- endif -%}
 <div class="shop-grid" id="grid">
-{%- for t in site.data.templates -%}
+{%- assign catalogue = site.data.templates | sort: "rank" -%}
+{%- for t in catalogue -%}
   {%- assign c = t[L] -%}
   {%- if t.status == "live" -%}
     {%- if L == "fr" -%}{%- assign href = t.page_fr -%}{%- else -%}{%- assign href = t.page -%}{%- endif -%}
@@ -14,6 +15,7 @@
         <div class="la-bar m accent"></div><div class="la-bar l"></div>
       </div></div>
       {%- if t.cover %}<img class="cover" src="{{ t.cover }}" alt="{{ c.title }}" loading="lazy" onerror="this.remove()">{% endif -%}
+      {%- if t.badge %}<div class="badges"><span class="badge best">{{ t.badge[L] }}</span></div>{% endif -%}
     </div>
     <div class="card-body">
       <h3>{{ c.title }}</h3>

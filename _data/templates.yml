@@ -6,146 +6,98 @@
 # To publish a pending template: add cover/gallery images, set status: live,
 # and paste its Stripe payment link. Nothing else needs to change.
 
-- id: ultimate-content-manager
+- id: dream-travel-planner
   status: live
-  category: business
-  price: 169
-  stripe: https://pay.anthonytoday.com/b/4gMcN73E4e6paDN90J1ZS01
-  cover: /assets/templates/ultimate-content-manager/cover.png
-  marketplace: https://www.notion.com/templates/ultimate-content-manager-590
-  page: /templates/ultimate-content-manager/
-  page_fr: /fr/templates/ultimate-content-manager/
-  tags: [content, creators, marketing, dashboard]
-  en:
-    title: Ultimate Content Manager
-    blurb: Plan, publish and track every piece of content in one Notion workspace.
-  fr:
-    title: Ultimate Content Manager
-    blurb: Planifiez, publiez et suivez chaque contenu dans un seul espace Notion.
-
-- id: cpa-exam-prep
-  status: live
-  category: study
-  price: 79
-  stripe: https://pay.anthonytoday.com/b/aFa9AV8Yo7I19zJb8R1ZS02
-  cover: /assets/templates/cpa-exam-prep/cover.png
-  marketplace: https://www.notion.com/templates/cpa-exam-study-plan
-  page: /templates/cpa-exam-prep/
-  page_fr: /fr/templates/cpa-exam-prep/
-  tags: [cpa, exam, study, accounting]
+  free: true
+  category: travel
+  marketplace: https://www.notion.com/templates/best-travel-planner-lite
+  page: /templates/dream-travel-planner/
+  page_fr: /fr/templates/dream-travel-planner/
+  cover: /assets/templates/dream-travel-planner/cover.webp
   gallery:
-    - https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/4a785e80-2096-403f-a857-d9a9213c721c/1765353009742/desktop.jpg
-  video:
-    id: cetcAXvyIpc
-    thumb: https://i.ytimg.com/vi/cetcAXvyIpc/hqdefault.jpg
-    title: Master CPA Exam with Notion Template
+  - /assets/templates/dream-travel-planner/desktop/01.webp
+  - /assets/templates/dream-travel-planner/desktop/02.webp
+  - /assets/templates/dream-travel-planner/desktop/03.webp
+  mobile:
+  - /assets/templates/dream-travel-planner/mobile/01.jpg
+  - /assets/templates/dream-travel-planner/mobile/02.jpg
+  - /assets/templates/dream-travel-planner/mobile/03.jpg
+  - /assets/templates/dream-travel-planner/mobile/04.jpg
   en:
-    title: CPA Exam Prep, Complete Study System
-    blurb: All six CPA sections with flashcards, practice questions and progress tracking.
+    title: Dream Travel Planner
+    blurb: Itinerary, budget, bookings and checklists for the whole trip, in one page.
+    upsell_hook: Planning a bigger trip?
+    upsell_body: Dream Travel Planner Ultimate adds multi-destination routing, packing systems and a full budget breakdown.
   fr:
-    title: CPA Exam Prep, systeme d'etude complet
-    blurb: Les six sections du CPA avec fiches, questions d'entrainement et suivi.
+    title: Dream Travel Planner
+    blurb: Itineraire, budget, reservations et checklists du voyage, sur une page.
+    upsell_hook: Un voyage plus ambitieux ?
+    upsell_body: Dream Travel Planner Ultimate ajoute les itineraires multi-destinations, les systemes de bagages et un budget detaille.
+  upsell: dream-travel-planner-ultimate
+  badge:
+    en: Best seller
+    fr: Meilleure vente
+  marketplace_i18n:
+    en: https://www.notion.com/templates/best-travel-planner-lite
+  rank: 10
+  tags:
+  - travel
+  - itinerary
+  - budget
+  - planner
+  - free
 
-- id: risk-register
-  status: pending
-  category: grc
-  tags: [grc, risk, iso27001, security]
+- id: dream-travel-planner-ultimate
+  status: live
+  category: travel
+  price: 17
+  stripe: https://pay.anthonytoday.com/b/fZu5kFa2sfat13del31ZS06
+  marketplace: https://www.notion.com/templates/dream-travel-planner-ultimate
+  page: /templates/dream-travel-planner-ultimate/
+  page_fr: /fr/templates/dream-travel-planner-ultimate/
+  tags:
+  - travel
+  - itinerary
+  - budget
+  - multi-destination
+  - packing
   en:
-    title: Risk Register and Controls Library
-    blurb: Risks, controls, owners and treatment plans, mapped to ISO 27001 Annex A.
+    title: Dream Travel Planner Ultimate
+    blurb: Multi-destination routing, packing systems and a full budget breakdown.
   fr:
-    title: Registre des risques et bibliotheque de controles
-    blurb: Risques, controles, responsables et plans de traitement, alignes sur l'Annexe A d'ISO 27001.
+    title: Dream Travel Planner Ultimate
+    blurb: Itineraires multi-destinations, systemes de bagages et budget detaille.
+  rank: 20
 
-- id: iso-evidence-tracker
-  status: pending
-  category: grc
-  tags: [grc, iso27001, audit, compliance]
+- id: ai-teaching-prompts
+  status: live
+  free: true
+  category: study
+  marketplace: https://www.notion.com/templates/100-teachers-prompt
+  page: /templates/ai-teaching-prompts/
+  page_fr: /fr/templates/ai-teaching-prompts/
+  tags:
+  - teaching
+  - education
+  - ai
+  - prompts
+  - chatgpt
+  - free
+  cover: /assets/templates/ai-teaching-prompts/cover.webp
+  gallery:
+  - /assets/templates/ai-teaching-prompts/desktop/01-prompt-detail.webp
+  - /assets/templates/ai-teaching-prompts/desktop/02-prompt-fields.webp
+  mobile:
+  - /assets/templates/ai-teaching-prompts/mobile/01-gallery.jpg
+  - /assets/templates/ai-teaching-prompts/mobile/02-prompt-detail.jpg
+  - /assets/templates/ai-teaching-prompts/mobile/03-prompt-fields.jpg
   en:
-    title: ISO 27001 Audit Evidence Tracker
-    blurb: Every control, every piece of evidence, every due date, in one auditor-ready view.
+    title: 100+ AI Teaching Prompts
+    blurb: Lesson plans, quizzes and parent emails, written by AI in seconds.
   fr:
-    title: Suivi des preuves d'audit ISO 27001
-    blurb: Chaque controle, chaque preuve, chaque echeance, dans une vue prete pour l'auditeur.
-
-- id: ai-governance-register
-  status: pending
-  category: grc
-  tags: [grc, ai, governance, compliance]
-  en:
-    title: AI Governance Register
-    blurb: Inventory AI systems, classify EU AI Act risk, and track mitigations.
-  fr:
-    title: Registre de gouvernance de l'IA
-    blurb: Inventoriez les systemes d'IA, classez le risque au titre du reglement europeen, suivez les mesures.
-
-- id: vendor-risk-tracker
-  status: pending
-  category: grc
-  tags: [grc, vendor, risk, security]
-  en:
-    title: Vendor and Third-Party Risk Tracker
-    blurb: Onboarding questionnaires, risk tiers and review dates for every supplier.
-  fr:
-    title: Suivi des risques fournisseurs et tiers
-    blurb: Questionnaires d'entree en relation, niveaux de risque et dates de revue pour chaque fournisseur.
-
-- id: policy-hub
-  status: pending
-  category: grc
-  tags: [grc, policy, compliance, governance]
-  en:
-    title: Policy Management Hub
-    blurb: Policy lifecycle, approvals, versions and attestation tracking.
-  fr:
-    title: Centre de gestion des politiques
-    blurb: Cycle de vie des politiques, validations, versions et suivi des attestations.
-
-- id: workspace-governance-kit
-  status: pending
-  category: grc
-  tags: [grc, notion, governance, permissions]
-  en:
-    title: Notion Workspace Governance Kit
-    blurb: Naming conventions, permission model and content ownership for a workspace that scales.
-  fr:
-    title: Kit de gouvernance d'espace Notion
-    blurb: Conventions de nommage, modele de permissions et propriete des contenus pour un espace qui tient la charge.
-
-- id: real-estate-portfolio
-  status: pending
-  category: real-estate
-  tags: [real-estate, investing, cashflow, dashboard]
-  marketplace: https://www.notion.com/templates/real-estate-portfolio-management-ultimate-dashboard
-  en:
-    title: Real Estate Portfolio Manager
-    blurb: Units, leases, cash flow and cap rate across a whole portfolio.
-  fr:
-    title: Gestionnaire de portefeuille immobilier
-    blurb: Lots, baux, flux de tresorerie et taux de capitalisation sur tout un portefeuille.
-
-- id: investor-deal-room
-  status: pending
-  category: real-estate
-  tags: [real-estate, investing, diligence, fundraising]
-  en:
-    title: Investor-Ready Deal Room
-    blurb: Deal pipeline, diligence checklists and a lender-ready document vault.
-  fr:
-    title: Data room investisseurs
-    blurb: Pipeline d'operations, checklists de due diligence et coffre documentaire pret pour le preteur.
-
-- id: business-expenses-tracker
-  status: pending
-  category: finance
-  tags: [finance, tax, freelance, business]
-  marketplace: https://www.notion.com/templates/business-expenses-tracker
-  en:
-    title: Business Expenses Tracker, Tax Ready
-    blurb: Categorised expenses, receipts and a year-end export your accountant accepts.
-  fr:
-    title: Suivi des depenses professionnelles, pret pour l'impot
-    blurb: Depenses categorisees, justificatifs et export de fin d'annee accepte par votre comptable.
+    title: 100+ prompts IA pour enseignants
+    blurb: Plans de cours, quiz et emails aux parents, rediges par l'IA en quelques secondes.
+  rank: 30
 
 - id: ultimate-business-dashboard
   status: live
@@ -155,157 +107,33 @@
   marketplace: https://www.notion.com/templates/ultimate-business-dashboard
   page: /templates/ultimate-business-dashboard/
   page_fr: /fr/templates/ultimate-business-dashboard/
-  tags: [business, crm, projects, operations]
+  tags:
+  - business
+  - crm
+  - projects
+  - invoices
+  - operations
   cover: /assets/templates/ultimate-business-dashboard/cover.webp
   gallery:
-    - /assets/templates/ultimate-business-dashboard/01-team-profiles.webp
-    - /assets/templates/ultimate-business-dashboard/02-finances.webp
-    - /assets/templates/ultimate-business-dashboard/03-home-page.webp
-    - /assets/templates/ultimate-business-dashboard/04-resources.webp
-    - /assets/templates/ultimate-business-dashboard/05-cloudops-hub.webp
+  - /assets/templates/ultimate-business-dashboard/desktop/01-team-profiles.webp
+  - /assets/templates/ultimate-business-dashboard/desktop/02-finances.webp
+  - /assets/templates/ultimate-business-dashboard/desktop/03-home-page.webp
+  - /assets/templates/ultimate-business-dashboard/desktop/04-resources.webp
+  - /assets/templates/ultimate-business-dashboard/desktop/05-cloudops-hub.webp
   mobile:
-    - /assets/templates/ultimate-business-dashboard/m00-dashboard.jpg
-    - /assets/templates/ultimate-business-dashboard/m01-team-profiles.jpg
-    - /assets/templates/ultimate-business-dashboard/m02-finances.jpg
-    - /assets/templates/ultimate-business-dashboard/m03-home-page.jpg
-    - /assets/templates/ultimate-business-dashboard/m04-resources.jpg
-    - /assets/templates/ultimate-business-dashboard/m05-cloudops-hub.jpg
+  - /assets/templates/ultimate-business-dashboard/mobile/01-dashboard.jpg
+  - /assets/templates/ultimate-business-dashboard/mobile/02-team-profiles.jpg
+  - /assets/templates/ultimate-business-dashboard/mobile/03-finances.jpg
+  - /assets/templates/ultimate-business-dashboard/mobile/04-home-page.jpg
+  - /assets/templates/ultimate-business-dashboard/mobile/05-resources.jpg
+  - /assets/templates/ultimate-business-dashboard/mobile/06-cloudops-hub.jpg
   en:
     title: Ultimate Business Dashboard
     blurb: Clients, projects, invoices and pipeline in one operating system.
   fr:
     title: Tableau de bord d'entreprise complet
     blurb: Clients, projets, factures et pipeline dans un seul systeme.
-
-- id: ai-teaching-prompts
-  status: live
-  free: true
-  category: study
-  marketplace: https://www.notion.com/templates/100-teachers-prompt
-  page: /templates/ai-teaching-prompts/
-  page_fr: /fr/templates/ai-teaching-prompts/
-  tags: [teaching, education, ai, prompts]
-  cover: /assets/templates/ai-teaching-prompts/cover.webp
-  gallery:
-    - /assets/templates/ai-teaching-prompts/01-prompt-detail.webp
-    - /assets/templates/ai-teaching-prompts/02-prompt-fields.webp
-  mobile:
-    - /assets/templates/ai-teaching-prompts/m00-gallery.jpg
-    - /assets/templates/ai-teaching-prompts/m01-prompt-detail.jpg
-    - /assets/templates/ai-teaching-prompts/m02-prompt-fields.jpg
-  en:
-    title: 100+ AI Teaching Prompts
-    blurb: Lesson plans, quizzes and parent emails, written by AI in seconds.
-  fr:
-    title: 100+ prompts IA pour enseignants
-    blurb: Plans de cours, quiz et emails aux parents, rediges par l'IA en quelques secondes.
-
-- id: books-library
-  status: live
-  free: true
-  category: study
-  marketplace: https://www.notion.com/templates/200-best-selling-books
-  page: /templates/books-library/
-  page_fr: /fr/templates/books-library/
-  cover: /assets/templates/books-library/cover.webp
-  gallery:
-    - /assets/templates/books-library/01-screen.webp
-  mobile:
-    - /assets/templates/books-library/m00-screen.jpg
-    - /assets/templates/books-library/m01-screen.jpg
-  en:
-    title: "200+ Books Library"
-    blurb: "200 best-selling books, sorted so you always know what to read next."
-  fr:
-    title: "200+ livres, la bibliotheque"
-    blurb: "200 best-sellers, tries pour toujours savoir quoi lire ensuite."
-
-- id: 2026-planning
-  status: live
-  free: true
-  category: business
-  marketplace: https://www.notion.com/templates/2026-planning-full-year-overview
-  page: /templates/2026-planning/
-  page_fr: /fr/templates/2026-planning/
-  cover: /assets/templates/2026-planning/cover.webp
-  mobile:
-    - /assets/templates/2026-planning/m00-screen.jpg
-  en:
-    title: "2026 Planning, Full Year Overview"
-    blurb: "The whole year on one page: goals, quarters, months and weeks, linked."
-  fr:
-    title: "Planning 2026, vue annuelle complete"
-    blurb: "L'annee entiere sur une page : objectifs, trimestres, mois et semaines, relies."
-
-- id: ai-research-agent-lite
-  status: live
-  free: true
-  category: business
-  marketplace: https://www.notion.com/templates/ai-agent-research-analysis-lite
-  page: /templates/ai-research-agent-lite/
-  page_fr: /fr/templates/ai-research-agent-lite/
-  cover: /assets/templates/ai-research-agent-lite/cover.webp
-  mobile:
-    - /assets/templates/ai-research-agent-lite/m00-screen.jpg
-  en:
-    title: "AI Agent Research Analysis (Lite)"
-    blurb: "A Notion agent that researches a topic and returns a structured analysis."
-  fr:
-    title: "AI Agent Research Analysis (Lite)"
-    blurb: "Un agent Notion qui etudie un sujet et rend une analyse structuree."
-
-- id: airbnb-manager-lite
-  status: live
-  free: true
-  category: real-estate
-  marketplace: https://www.notion.com/templates/airbnb-manager-lite
-  page: /templates/airbnb-manager-lite/
-  page_fr: /fr/templates/airbnb-manager-lite/
-  cover: /assets/templates/airbnb-manager-lite/cover.webp
-  gallery:
-    - /assets/templates/airbnb-manager-lite/01-screen.webp
-    - /assets/templates/airbnb-manager-lite/02-screen.webp
-    - /assets/templates/airbnb-manager-lite/03-screen.webp
-  mobile:
-    - /assets/templates/airbnb-manager-lite/m00-screen.jpg
-    - /assets/templates/airbnb-manager-lite/m01-screen.jpg
-    - /assets/templates/airbnb-manager-lite/m02-screen.jpg
-    - /assets/templates/airbnb-manager-lite/m03-screen.jpg
-  en:
-    title: "Airbnb Manager, Run Rentals Like a Pro (Lite)"
-    blurb: "One property, every booking, cleaning and payout in one place."
-  fr:
-    title: "Airbnb Manager, gerez comme un pro (Lite)"
-    blurb: "Un bien, toutes les reservations, menages et revenus au meme endroit."
-
-- id: airbnb-manager-ultimate
-  status: live
-  price: 79
-  stripe: https://pay.anthonytoday.com/b/cNi7sN7Uk8M59zJdgZ1ZS04
-  category: real-estate
-  marketplace: https://www.notion.com/templates/airbnb-manager-ultimate
-  page: /templates/airbnb-manager-ultimate/
-  page_fr: /fr/templates/airbnb-manager-ultimate/
-  cover: /assets/templates/airbnb-manager-ultimate/cover.webp
-  gallery:
-    - /assets/templates/airbnb-manager-ultimate/01-screen.webp
-    - /assets/templates/airbnb-manager-ultimate/02-screen.webp
-    - /assets/templates/airbnb-manager-ultimate/03-screen.webp
-    - /assets/templates/airbnb-manager-ultimate/04-screen.webp
-    - /assets/templates/airbnb-manager-ultimate/05-screen.webp
-  mobile:
-    - /assets/templates/airbnb-manager-ultimate/m00-screen.jpg
-    - /assets/templates/airbnb-manager-ultimate/m01-screen.jpg
-    - /assets/templates/airbnb-manager-ultimate/m02-screen.jpg
-    - /assets/templates/airbnb-manager-ultimate/m03-screen.jpg
-    - /assets/templates/airbnb-manager-ultimate/m04-screen.jpg
-    - /assets/templates/airbnb-manager-ultimate/m05-screen.jpg
-  en:
-    title: "Airbnb Manager Ultimate, Full System"
-    blurb: "Unlimited listings, bookings, finances, maintenance and guests, with 8 automations."
-  fr:
-    title: "Airbnb Manager Ultimate, systeme complet"
-    blurb: "Annonces illimitees, reservations, finances, maintenance et voyageurs, avec 8 automatisations."
+  rank: 40
 
 - id: business-bundle-20x
   status: live
@@ -317,24 +145,311 @@
   page_fr: /fr/templates/business-bundle-20x/
   cover: /assets/templates/business-bundle-20x/cover.webp
   gallery:
-    - /assets/templates/business-bundle-20x/01-screen.webp
-    - /assets/templates/business-bundle-20x/02-screen.webp
-    - /assets/templates/business-bundle-20x/03-screen.webp
-    - /assets/templates/business-bundle-20x/04-screen.webp
-    - /assets/templates/business-bundle-20x/05-screen.webp
+  - /assets/templates/business-bundle-20x/desktop/01.webp
+  - /assets/templates/business-bundle-20x/desktop/02.webp
+  - /assets/templates/business-bundle-20x/desktop/03.webp
+  - /assets/templates/business-bundle-20x/desktop/04.webp
+  - /assets/templates/business-bundle-20x/desktop/05.webp
   mobile:
-    - /assets/templates/business-bundle-20x/m00-screen.jpg
-    - /assets/templates/business-bundle-20x/m01-screen.jpg
-    - /assets/templates/business-bundle-20x/m02-screen.jpg
-    - /assets/templates/business-bundle-20x/m03-screen.jpg
-    - /assets/templates/business-bundle-20x/m04-screen.jpg
-    - /assets/templates/business-bundle-20x/m05-screen.jpg
+  - /assets/templates/business-bundle-20x/mobile/01.jpg
+  - /assets/templates/business-bundle-20x/mobile/02.jpg
+  - /assets/templates/business-bundle-20x/mobile/03.jpg
+  - /assets/templates/business-bundle-20x/mobile/04.jpg
+  - /assets/templates/business-bundle-20x/mobile/05.jpg
+  - /assets/templates/business-bundle-20x/mobile/06.jpg
   en:
-    title: "All-In-One Business Bundle (20x)"
-    blurb: "Twenty premium templates in one purchase. Over $500 cheaper than buying separately."
+    title: All-In-One Business Bundle (20x)
+    blurb: Twenty premium templates in one purchase. Over $500 cheaper than buying separately.
   fr:
-    title: "All-In-One Business Bundle (20x)"
-    blurb: "Vingt templates premium en un achat. Plus de 500 $ d'economie."
+    title: All-In-One Business Bundle (20x)
+    blurb: Vingt templates premium en un achat. Plus de 500 $ d'economie.
+  rank: 50
+  tags:
+  - bundle
+  - business
+  - certification
+  - finance
+  - value
+
+- id: airbnb-manager-lite
+  status: live
+  free: true
+  category: real-estate
+  marketplace: https://www.notion.com/templates/airbnb-manager-lite
+  page: /templates/airbnb-manager-lite/
+  page_fr: /fr/templates/airbnb-manager-lite/
+  cover: /assets/templates/airbnb-manager-lite/cover.webp
+  gallery:
+  - /assets/templates/airbnb-manager-lite/desktop/01.webp
+  - /assets/templates/airbnb-manager-lite/desktop/02.webp
+  - /assets/templates/airbnb-manager-lite/desktop/03.webp
+  mobile:
+  - /assets/templates/airbnb-manager-lite/mobile/01.jpg
+  - /assets/templates/airbnb-manager-lite/mobile/02.jpg
+  - /assets/templates/airbnb-manager-lite/mobile/03.jpg
+  - /assets/templates/airbnb-manager-lite/mobile/04.jpg
+  en:
+    title: Airbnb Manager, Run Rentals Like a Pro (Lite)
+    blurb: One property, every booking, cleaning and payout in one place.
+    upsell_hook: Running more than one property?
+    upsell_body: Airbnb Manager Ultimate handles unlimited listings, finances, maintenance and guests, with 8 automation buttons.
+  fr:
+    title: Airbnb Manager, gerez comme un pro (Lite)
+    blurb: Un bien, toutes les reservations, menages et revenus au meme endroit.
+    upsell_hook: Plus d'un bien a gerer ?
+    upsell_body: Airbnb Manager Ultimate gere un nombre illimite d'annonces, les finances, la maintenance et les voyageurs, avec 8 boutons d'automatisation.
+  upsell: airbnb-manager-ultimate
+  rank: 60
+  tags:
+  - airbnb
+  - rentals
+  - real-estate
+  - bookings
+  - free
+
+- id: airbnb-manager-ultimate
+  status: live
+  price: 79
+  stripe: https://pay.anthonytoday.com/b/cNi7sN7Uk8M59zJdgZ1ZS04
+  category: real-estate
+  marketplace: https://www.notion.com/templates/airbnb-manager-ultimate
+  page: /templates/airbnb-manager-ultimate/
+  page_fr: /fr/templates/airbnb-manager-ultimate/
+  cover: /assets/templates/airbnb-manager-ultimate/cover.webp
+  gallery:
+  - /assets/templates/airbnb-manager-ultimate/desktop/01.webp
+  - /assets/templates/airbnb-manager-ultimate/desktop/02.webp
+  - /assets/templates/airbnb-manager-ultimate/desktop/03.webp
+  - /assets/templates/airbnb-manager-ultimate/desktop/04.webp
+  - /assets/templates/airbnb-manager-ultimate/desktop/05.webp
+  mobile:
+  - /assets/templates/airbnb-manager-ultimate/mobile/01.jpg
+  - /assets/templates/airbnb-manager-ultimate/mobile/02.jpg
+  - /assets/templates/airbnb-manager-ultimate/mobile/03.jpg
+  - /assets/templates/airbnb-manager-ultimate/mobile/04.jpg
+  - /assets/templates/airbnb-manager-ultimate/mobile/05.jpg
+  - /assets/templates/airbnb-manager-ultimate/mobile/06.jpg
+  en:
+    title: Airbnb Manager Ultimate, Full System
+    blurb: Unlimited listings, bookings, finances, maintenance and guests, with 8 automations.
+  fr:
+    title: Airbnb Manager Ultimate, systeme complet
+    blurb: Annonces illimitees, reservations, finances, maintenance et voyageurs, avec 8 automatisations.
+  rank: 70
+  tags:
+  - airbnb
+  - rentals
+  - real-estate
+  - finances
+  - automation
+
+- id: cfa-exam-prep-lite
+  status: live
+  free: true
+  category: study
+  marketplace: https://www.notion.com/templates/cfa-exam-study-plan-lite
+  page: /templates/cfa-exam-prep-lite/
+  page_fr: /fr/templates/cfa-exam-prep-lite/
+  tags:
+  - cfa
+  - exam
+  - study
+  - finance
+  - free
+  cover: /assets/templates/cfa-exam-prep-lite/cover.webp
+  gallery:
+  - /assets/templates/cfa-exam-prep-lite/desktop/01.webp
+  - /assets/templates/cfa-exam-prep-lite/desktop/02.webp
+  mobile:
+  - /assets/templates/cfa-exam-prep-lite/mobile/01.jpg
+  - /assets/templates/cfa-exam-prep-lite/mobile/02.jpg
+  - /assets/templates/cfa-exam-prep-lite/mobile/03.jpg
+  upsell: cfa-exam-prep
+  en:
+    title: CFA Exam Prep, Study Plan (Lite)
+    blurb: A working CFA study plan you can start tonight. Free.
+    upsell_hook: Need all three levels?
+    upsell_body: CFA Exam Prep Complete adds every level, flashcards and a practice question log.
+  fr:
+    title: CFA Exam Prep, plan d'etude (Lite)
+    blurb: Un plan d'etude CFA utilisable des ce soir. Gratuit.
+    upsell_hook: Besoin des trois niveaux ?
+    upsell_body: CFA Exam Prep Complete ajoute tous les niveaux, les fiches et le journal de questions.
+  rank: 80
+
+- id: cfa-exam-prep
+  status: live
+  price: 79
+  stripe: https://pay.anthonytoday.com/b/8x26oJ6Qgd2l7rBfp71ZS09
+  category: study
+  marketplace: https://www.notion.com/templates/cfa-exam-study-plan
+  page: /templates/cfa-exam-prep/
+  page_fr: /fr/templates/cfa-exam-prep/
+  tags:
+  - cfa
+  - exam
+  - study
+  - finance
+  - flashcards
+  cover: /assets/templates/cfa-exam-prep/cover.webp
+  gallery:
+  - /assets/templates/cfa-exam-prep/desktop/01.webp
+  - /assets/templates/cfa-exam-prep/desktop/02.webp
+  - /assets/templates/cfa-exam-prep/desktop/03.webp
+  - /assets/templates/cfa-exam-prep/desktop/04.webp
+  mobile:
+  - /assets/templates/cfa-exam-prep/mobile/01.jpg
+  - /assets/templates/cfa-exam-prep/mobile/02.jpg
+  - /assets/templates/cfa-exam-prep/mobile/03.jpg
+  - /assets/templates/cfa-exam-prep/mobile/04.jpg
+  - /assets/templates/cfa-exam-prep/mobile/05.jpg
+  en:
+    title: CFA Exam Prep, Complete Study System
+    blurb: All three levels, flashcards, practice questions and pace tracking.
+  fr:
+    title: CFA Exam Prep, systeme d'etude complet
+    blurb: Les trois niveaux, fiches, questions d'entrainement et suivi du rythme.
+  rank: 90
+
+- id: cpa-exam-prep
+  status: live
+  category: study
+  price: 79
+  stripe: https://pay.anthonytoday.com/b/aFa9AV8Yo7I19zJb8R1ZS02
+  cover: /assets/templates/cpa-exam-prep/cover.png
+  marketplace: https://www.notion.com/templates/cpa-exam-study-plan
+  page: /templates/cpa-exam-prep/
+  page_fr: /fr/templates/cpa-exam-prep/
+  tags:
+  - cpa
+  - exam
+  - study
+  - accounting
+  - flashcards
+  gallery:
+  - https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/4a785e80-2096-403f-a857-d9a9213c721c/1765353009742/desktop.jpg
+  video:
+    id: cetcAXvyIpc
+    thumb: https://i.ytimg.com/vi/cetcAXvyIpc/hqdefault.jpg
+    title: Master CPA Exam with Notion Template
+  en:
+    title: CPA Exam Prep, Complete Study System
+    blurb: All six CPA sections with flashcards, practice questions and progress tracking.
+  fr:
+    title: CPA Exam Prep, systeme d'etude complet
+    blurb: Les six sections du CPA avec fiches, questions d'entrainement et suivi.
+  rank: 100
+
+- id: cisa-exam-prep
+  status: live
+  price: 59
+  stripe: https://pay.anthonytoday.com/b/aFafZj0rS2nHeU3dgZ1ZS0c
+  category: grc
+  marketplace: https://www.notion.com/templates/cisa-exam-study-plan
+  page: /templates/cisa-exam-prep/
+  page_fr: /fr/templates/cisa-exam-prep/
+  tags:
+  - cisa
+  - audit
+  - certification
+  - grc
+  - study
+  cover: /assets/templates/cisa-exam-prep/cover.webp
+  gallery:
+  - /assets/templates/cisa-exam-prep/desktop/01.webp
+  mobile:
+  - /assets/templates/cisa-exam-prep/mobile/01.jpg
+  - /assets/templates/cisa-exam-prep/mobile/02.jpg
+  en:
+    title: CISA Exam, Complete Study System
+    blurb: All five audit domains, flashcards and pace tracking.
+  fr:
+    title: CISA, systeme d'etude complet
+    blurb: Les cinq domaines d'audit, fiches et suivi du rythme.
+  rank: 110
+
+- id: cdpse-exam-prep
+  status: live
+  price: 59
+  stripe: https://pay.anthonytoday.com/b/aFa00lgqQ5zTdPZ4Kt1ZS0a
+  category: grc
+  marketplace: https://www.notion.com/templates/cdpse-exam-study-plan
+  page: /templates/cdpse-exam-prep/
+  page_fr: /fr/templates/cdpse-exam-prep/
+  tags:
+  - cdpse
+  - privacy
+  - certification
+  - grc
+  - study
+  cover: /assets/templates/cdpse-exam-prep/cover.webp
+  gallery:
+  - /assets/templates/cdpse-exam-prep/desktop/01.webp
+  - /assets/templates/cdpse-exam-prep/desktop/02.webp
+  mobile:
+  - /assets/templates/cdpse-exam-prep/mobile/01.jpg
+  - /assets/templates/cdpse-exam-prep/mobile/02.jpg
+  - /assets/templates/cdpse-exam-prep/mobile/03.jpg
+  en:
+    title: CDPSE Exam Prep, Pass With Confidence
+    blurb: Every domain as study sessions, with flashcards and pace tracking.
+  fr:
+    title: CDPSE Exam Prep, reussir sereinement
+    blurb: Chaque domaine en sessions d'etude, avec fiches et suivi du rythme.
+  rank: 120
+
+- id: cgeit-exam-prep
+  status: live
+  price: 59
+  stripe: https://pay.anthonytoday.com/b/dRm00l7Uk7I1cLVfp71ZS0b
+  category: grc
+  marketplace: https://www.notion.com/templates/cgeit-exam-study-plan
+  page: /templates/cgeit-exam-prep/
+  page_fr: /fr/templates/cgeit-exam-prep/
+  tags:
+  - cgeit
+  - governance
+  - certification
+  - grc
+  - study
+  cover: /assets/templates/cgeit-exam-prep/cover.webp
+  gallery:
+  - /assets/templates/cgeit-exam-prep/desktop/01.webp
+  - /assets/templates/cgeit-exam-prep/desktop/02.webp
+  mobile:
+  - /assets/templates/cgeit-exam-prep/mobile/01.jpg
+  - /assets/templates/cgeit-exam-prep/mobile/02.jpg
+  - /assets/templates/cgeit-exam-prep/mobile/03.jpg
+  en:
+    title: CGEIT Exam, Complete Study System
+    blurb: All four governance domains, flashcards and pace tracking.
+  fr:
+    title: CGEIT, systeme d'etude complet
+    blurb: Les quatre domaines de gouvernance, fiches et suivi du rythme.
+  rank: 130
+
+- id: ultimate-content-manager
+  status: live
+  category: business
+  price: 169
+  stripe: https://pay.anthonytoday.com/b/4gMcN73E4e6paDN90J1ZS01
+  cover: /assets/templates/ultimate-content-manager/cover.png
+  marketplace: https://www.notion.com/templates/ultimate-content-manager-590
+  page: /templates/ultimate-content-manager/
+  page_fr: /fr/templates/ultimate-content-manager/
+  tags:
+  - content
+  - creators
+  - marketing
+  - calendar
+  - dashboard
+  en:
+    title: Ultimate Content Manager
+    blurb: Plan, publish and track every piece of content in one Notion workspace.
+  fr:
+    title: Ultimate Content Manager
+    blurb: Planifiez, publiez et suivez chaque contenu dans un seul espace Notion.
+  rank: 140
 
 - id: budget-tracker
   status: live
@@ -345,34 +460,338 @@
   page_fr: /fr/templates/budget-tracker/
   cover: /assets/templates/budget-tracker/cover.webp
   mobile:
-    - /assets/templates/budget-tracker/m00-screen.jpg
+  - /assets/templates/budget-tracker/mobile/01.jpg
   en:
-    title: "Budget Tracker, Master Your Money Fast"
-    blurb: "Income in, expenses out, and what is actually left. Nothing else."
+    title: Budget Tracker, Master Your Money Fast
+    blurb: Income in, expenses out, and what is actually left. Nothing else.
+    upsell_hook: Want the full picture?
+    upsell_body: Personal Financial Planner Pro adds accounts, net worth, debt payoff and goal tracking.
   fr:
-    title: "Budget Tracker, maitrisez vos finances vite"
-    blurb: "Ce qui entre, ce qui sort, et ce qui reste vraiment. Rien d'autre."
+    title: Budget Tracker, maitrisez vos finances vite
+    blurb: Ce qui entre, ce qui sort, et ce qui reste vraiment. Rien d'autre.
+    upsell_hook: Vous voulez la vue complete ?
+    upsell_body: Personal Financial Planner Pro ajoute les comptes, le patrimoine net, le remboursement des dettes et le suivi des objectifs.
+  upsell: personal-financial-planner-pro
+  rank: 150
+  tags:
+  - finance
+  - budget
+  - expenses
+  - personal
+  - free
 
-- id: dream-travel-planner
+- id: personal-financial-planner-pro
+  status: live
+  category: finance
+  price: 27
+  stripe: https://pay.anthonytoday.com/b/dRm4gBfmMd2l3bl5Ox1ZS07
+  marketplace: https://www.notion.com/templates/personal-financial-planner-pro
+  page: /templates/personal-financial-planner-pro/
+  page_fr: /fr/templates/personal-financial-planner-pro/
+  tags:
+  - finance
+  - net-worth
+  - debt
+  - goals
+  - accounts
+  en:
+    title: Personal Financial Planner Pro
+    blurb: Accounts, net worth, debt payoff and goals in one budget system.
+  fr:
+    title: Personal Financial Planner Pro
+    blurb: Comptes, patrimoine net, dettes et objectifs dans un seul systeme.
+  rank: 160
+
+- id: business-expenses-tracker
+  status: live
+  category: finance
+  tags:
+  - finance
+  - tax
+  - freelance
+  - expenses
+  - business
+  marketplace: https://www.notion.com/templates/business-expenses-tracker
+  en:
+    title: Business Expenses Tracker, Tax Ready
+    blurb: Categorised expenses, receipts and a year-end export your accountant accepts.
+  fr:
+    title: Suivi des depenses professionnelles, pret pour l'impot
+    blurb: Depenses categorisees, justificatifs et export de fin d'annee accepte par votre comptable.
+  rank: 170
+  price: 7
+  stripe: https://pay.anthonytoday.com/b/9B66oJ4I8fat7rBfp71ZS0e
+  page: /templates/business-expenses-tracker/
+  page_fr: /fr/templates/business-expenses-tracker/
+  cover: /assets/templates/business-expenses-tracker/cover.webp
+  gallery:
+  - /assets/templates/business-expenses-tracker/desktop/01.webp
+  mobile:
+  - /assets/templates/business-expenses-tracker/mobile/01.jpg
+  - /assets/templates/business-expenses-tracker/mobile/02.jpg
+
+- id: ai-research-agent-lite
   status: live
   free: true
-  category: travel
-  marketplace: https://www.notion.com/templates/best-travel-planner-lite
-  page: /templates/dream-travel-planner/
-  page_fr: /fr/templates/dream-travel-planner/
-  cover: /assets/templates/dream-travel-planner/cover.webp
-  gallery:
-    - /assets/templates/dream-travel-planner/01-screen.webp
-    - /assets/templates/dream-travel-planner/02-screen.webp
-    - /assets/templates/dream-travel-planner/03-screen.webp
+  category: business
+  marketplace: https://www.notion.com/templates/ai-agent-research-analysis-lite
+  page: /templates/ai-research-agent-lite/
+  page_fr: /fr/templates/ai-research-agent-lite/
+  cover: /assets/templates/ai-research-agent-lite/cover.webp
   mobile:
-    - /assets/templates/dream-travel-planner/m00-screen.jpg
-    - /assets/templates/dream-travel-planner/m01-screen.jpg
-    - /assets/templates/dream-travel-planner/m02-screen.jpg
-    - /assets/templates/dream-travel-planner/m03-screen.jpg
+  - /assets/templates/ai-research-agent-lite/mobile/01.jpg
   en:
-    title: "Dream Travel Planner"
-    blurb: "Itinerary, budget, bookings and checklists for the whole trip, in one page."
+    title: AI Agent Research Analysis (Lite)
+    blurb: A Notion agent that researches a topic and returns a structured analysis.
+    upsell_hook: Need the full version?
+    upsell_body: Top AI Research Agent pulls 100+ sources with full citations, for research you can actually publish.
   fr:
-    title: "Dream Travel Planner"
-    blurb: "Itineraire, budget, reservations et checklists du voyage, sur une page."
+    title: AI Agent Research Analysis (Lite)
+    blurb: Un agent Notion qui etudie un sujet et rend une analyse structuree.
+    upsell_hook: Besoin de la version complete ?
+    upsell_body: Top AI Research Agent va chercher plus de 100 sources avec citations completes, pour une recherche publiable.
+  upsell: top-ai-research-agent
+  rank: 180
+  tags:
+  - ai
+  - agent
+  - research
+  - notion-ai
+  - free
+
+- id: top-ai-research-agent
+  status: live
+  category: business
+  price: 45
+  stripe: https://pay.anthonytoday.com/b/14A28tdeEe6peU31yh1ZS08
+  marketplace: https://www.notion.com/templates/top-ai-research-agent-100-sources-full-citations
+  page: /templates/top-ai-research-agent/
+  page_fr: /fr/templates/top-ai-research-agent/
+  tags:
+  - ai
+  - agent
+  - research
+  - citations
+  - sources
+  en:
+    title: Top AI Research Agent
+    blurb: 100+ sources with full citations, for research you can publish.
+  fr:
+    title: Top AI Research Agent
+    blurb: Plus de 100 sources avec citations completes, pour une recherche publiable.
+  rank: 190
+
+- id: business-consultant-agent
+  status: live
+  price: 19
+  stripe: https://pay.anthonytoday.com/b/5kQeVf0rSe6p13d2Cl1ZS0d
+  category: business
+  marketplace: https://www.notion.com/templates/business-consultant-agent-management-consulting
+  page: /templates/business-consultant-agent/
+  page_fr: /fr/templates/business-consultant-agent/
+  tags:
+  - ai
+  - agent
+  - consulting
+  - strategy
+  - business
+  cover: /assets/templates/business-consultant-agent/cover.webp
+  mobile:
+  - /assets/templates/business-consultant-agent/mobile/01.jpg
+  en:
+    title: Business Consultant Agent
+    blurb: A Notion agent that frames the problem, structures the analysis, then recommends.
+  fr:
+    title: Business Consultant Agent
+    blurb: Un agent Notion qui cadre le probleme, structure l'analyse, puis recommande.
+  rank: 200
+
+- id: books-library
+  status: live
+  free: true
+  category: study
+  marketplace: https://www.notion.com/templates/200-best-selling-books
+  page: /templates/books-library/
+  page_fr: /fr/templates/books-library/
+  cover: /assets/templates/books-library/cover.webp
+  gallery:
+  - /assets/templates/books-library/desktop/01.webp
+  mobile:
+  - /assets/templates/books-library/mobile/01.jpg
+  - /assets/templates/books-library/mobile/02.jpg
+  en:
+    title: 200+ Books Library
+    blurb: 200 best-selling books, sorted so you always know what to read next.
+  fr:
+    title: 200+ livres, la bibliotheque
+    blurb: 200 best-sellers, tries pour toujours savoir quoi lire ensuite.
+  rank: 210
+  tags:
+  - books
+  - reading
+  - library
+  - ideas
+  - free
+
+- id: 2026-planning
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/2026-planning-full-year-overview
+  page: /templates/2026-planning/
+  page_fr: /fr/templates/2026-planning/
+  cover: /assets/templates/2026-planning/cover.webp
+  mobile:
+  - /assets/templates/2026-planning/mobile/01.jpg
+  en:
+    title: 2026 Planning, Full Year Overview
+    blurb: 'The whole year on one page: goals, quarters, months and weeks, linked.'
+  fr:
+    title: Planning 2026, vue annuelle complete
+    blurb: 'L''annee entiere sur une page : objectifs, trimestres, mois et semaines, relies.'
+  marketplace_i18n:
+    en: https://www.notion.com/templates/2026-planning-full-year-overview
+  rank: 220
+  tags:
+  - planning
+  - goals
+  - quarterly
+  - '2026'
+  - free
+
+- id: risk-register
+  status: pending
+  category: grc
+  tags:
+  - grc
+  - risk
+  - iso27001
+  - controls
+  - security
+  en:
+    title: Risk Register and Controls Library
+    blurb: Risks, controls, owners and treatment plans, mapped to ISO 27001 Annex A.
+  fr:
+    title: Registre des risques et bibliotheque de controles
+    blurb: Risques, controles, responsables et plans de traitement, alignes sur l'Annexe A d'ISO 27001.
+  rank: 230
+
+- id: iso-evidence-tracker
+  status: pending
+  category: grc
+  tags:
+  - grc
+  - iso27001
+  - audit
+  - evidence
+  - compliance
+  en:
+    title: ISO 27001 Audit Evidence Tracker
+    blurb: Every control, every piece of evidence, every due date, in one auditor-ready view.
+  fr:
+    title: Suivi des preuves d'audit ISO 27001
+    blurb: Chaque controle, chaque preuve, chaque echeance, dans une vue prete pour l'auditeur.
+  rank: 240
+
+- id: ai-governance-register
+  status: pending
+  category: grc
+  tags:
+  - grc
+  - ai
+  - governance
+  - eu-ai-act
+  - compliance
+  en:
+    title: AI Governance Register
+    blurb: Inventory AI systems, classify EU AI Act risk, and track mitigations.
+  fr:
+    title: Registre de gouvernance de l'IA
+    blurb: Inventoriez les systemes d'IA, classez le risque au titre du reglement europeen, suivez les mesures.
+  rank: 250
+
+- id: vendor-risk-tracker
+  status: pending
+  category: grc
+  tags:
+  - grc
+  - vendor
+  - third-party
+  - risk
+  - security
+  en:
+    title: Vendor and Third-Party Risk Tracker
+    blurb: Onboarding questionnaires, risk tiers and review dates for every supplier.
+  fr:
+    title: Suivi des risques fournisseurs et tiers
+    blurb: Questionnaires d'entree en relation, niveaux de risque et dates de revue pour chaque fournisseur.
+  rank: 260
+
+- id: policy-hub
+  status: pending
+  category: grc
+  tags:
+  - grc
+  - policy
+  - attestation
+  - governance
+  - compliance
+  en:
+    title: Policy Management Hub
+    blurb: Policy lifecycle, approvals, versions and attestation tracking.
+  fr:
+    title: Centre de gestion des politiques
+    blurb: Cycle de vie des politiques, validations, versions et suivi des attestations.
+  rank: 270
+
+- id: workspace-governance-kit
+  status: pending
+  category: grc
+  tags:
+  - notion
+  - governance
+  - permissions
+  - naming
+  - admin
+  en:
+    title: Notion Workspace Governance Kit
+    blurb: Naming conventions, permission model and content ownership for a workspace that scales.
+  fr:
+    title: Kit de gouvernance d'espace Notion
+    blurb: Conventions de nommage, modele de permissions et propriete des contenus pour un espace qui tient la charge.
+  rank: 280
+
+- id: real-estate-portfolio
+  status: pending
+  category: real-estate
+  tags:
+  - real-estate
+  - investing
+  - cashflow
+  - leases
+  - dashboard
+  marketplace: https://www.notion.com/templates/real-estate-portfolio-management-ultimate-dashboard
+  en:
+    title: Real Estate Portfolio Manager
+    blurb: Units, leases, cash flow and cap rate across a whole portfolio.
+  fr:
+    title: Gestionnaire de portefeuille immobilier
+    blurb: Lots, baux, flux de tresorerie et taux de capitalisation sur tout un portefeuille.
+  rank: 290
+
+- id: investor-deal-room
+  status: pending
+  category: real-estate
+  tags:
+  - real-estate
+  - investing
+  - diligence
+  - fundraising
+  - data-room
+  en:
+    title: Investor-Ready Deal Room
+    blurb: Deal pipeline, diligence checklists and a lender-ready document vault.
+  fr:
+    title: Data room investisseurs
+    blurb: Pipeline d'operations, checklists de due diligence et coffre documentaire pret pour le preteur.
+  rank: 300

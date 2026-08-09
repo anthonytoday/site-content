@@ -48,5 +48,5 @@ Push to `main`. GitHub Pages rebuilds in about a minute.
 
 - 13 images still hotlink `cdn.prod.website-files.com` (Webflow). Re-host under `assets/`.
 - The first badge on `/notion/` is labelled **Certified Consultant** using the circular stamp. If you hold a distinct *Notion Consulting Partner* badge asset, drop it in `assets/images/` and relabel.
-- `assets/images/notion-certified-consultant-wide.png` (horizontal lockup) is stored but unused.
+- `assets/brand/notion-certified-consultant-wide.png` (horizontal lockup) is stored but unused.
 - Each page still carries its own duplicated `<style>` block and footer. Consolidate into the layout when convenient.

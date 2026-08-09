@@ -27,6 +27,18 @@ template_id: cpa-exam-prep
   .pd-side h1{font-size:29px;font-weight:600;line-height:1.2;margin-bottom:10px}
   .pd-side .sub{font-size:15px;color:var(--text-gray);line-height:1.7;margin-bottom:18px}
   .pd-price{font-size:32px;font-weight:700}
+  .pd-upsell{display:flex;gap:13px;align-items:flex-start;margin-top:16px;padding:14px 16px;border:1px solid var(--border);border-radius:10px;
+    background:var(--light-gray);text-decoration:none;color:inherit;transition:border-color .2s,box-shadow .2s}
+  .pd-upsell:hover{border-color:#C9D4FF;box-shadow:0 8px 24px rgba(5,28,44,.07)}
+  .pd-upsell img{width:78px;height:49px;object-fit:cover;border-radius:6px;border:1px solid var(--border);flex-shrink:0;background:#fff}
+  .pd-upsell .pu-t{min-width:0}
+  .pd-upsell .pu-k{display:block;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);margin-bottom:5px}
+  .pd-upsell strong{display:block;font-size:14.5px;color:var(--navy);margin-bottom:3px}
+  .pd-upsell em{display:block;font-style:normal;font-size:13px;color:var(--text-gray);line-height:1.55}
+  .pd-langs{font-size:12.5px;color:var(--text-gray);margin-top:11px;text-align:center}
+  .pd-langs span{margin-right:4px}
+  .pd-langs a{color:var(--blue);text-decoration:none;margin:0 5px;white-space:nowrap}
+  .pd-langs a:hover{text-decoration:underline}
   .pd-vat{font-size:12.5px;color:var(--text-gray);margin:4px 0 18px}
   .stripe-note{font-size:11.5px;color:#9AA5B4;text-align:center;margin-top:10px}
   .pd-trust{list-style:none;margin:20px 0 0;padding:18px 0 0;border-top:1px solid var(--border)}
@@ -65,16 +77,12 @@ template_id: cpa-exam-prep
     <aside class="pd-side">
       <h1>CPA Exam Prep, systeme d'etude complet</h1>
       <p class="sub">Un systeme d'etude pour les six sections du CPA, concu pour que vous sachiez toujours quoi reviser ensuite et ou vous en etes reellement.</p>
-      <p class="pd-price">$79</p>
-      <p class="pd-vat">Paiement unique. TVA ajoutee au paiement le cas echeant.</p>
-      <a class="btn btn-block" href="https://pay.anthonytoday.com/b/aFa9AV8Yo7I19zJb8R1ZS02" rel="noopener">Acheter &nbsp;&middot;&nbsp; $79</a>
-      <p class="stripe-note">Paiement securise par Stripe. Carte, Apple Pay, Google Pay, Link.</p>
-      <p style="margin-top:14px;font-size:13px;text-align:center"><a href="https://www.notion.com/templates/cpa-exam-study-plan" target="_blank" rel="noopener">Voir ce template sur le Notion Marketplace</a><br><span style="color:var(--text-gray);font-size:12px">Fiche independante, avec avis et apercu officiel.</span></p>
+      {% include pd-buybox.html %}
       <p style="font-size:13px;color:var(--text-gray);margin-top:14px">Jamais utilise un template Notion ? <a href="/fr/templates/how-it-works/">Voir comment ca marche</a>.</p>
       <ul class="pd-trust"><li>Lien de duplication Notion envoye par email</li><li>Fonctionne avec le plan Notion gratuit</li><li>A vous de le modifier comme vous voulez</li><li>Mises a jour a vie incluses</li><li>Remboursement 14 jours, sans justification</li></ul>
       <div class="pd-meta">
         <div><div class="k">Categorie</div><div class="v">Etudes</div></div>
-        <div><div class="k">Mise a jour</div><div class="v">Aout 2026</div></div>
+        <div><div class="k">Mise a jour</div><div class="v">{% include last-updated.html %}</div></div>
         <div><div class="k">Bases</div><div class="v">6 liees</div></div>
         <div><div class="k">Niveau</div><div class="v">Accessible aux debutants</div></div>
       </div>

@@ -27,6 +27,10 @@ template_id: ai-research-agent-lite
   .pd-side h1{font-size:29px;font-weight:600;line-height:1.2;margin-bottom:10px}
   .pd-side .sub{font-size:15px;color:var(--text-gray);line-height:1.7;margin-bottom:18px}
   .pd-price{font-size:32px;font-weight:700}
+  .pd-langs{font-size:12.5px;color:var(--text-gray);margin-top:11px;text-align:center}
+  .pd-langs span{margin-right:4px}
+  .pd-langs a{color:var(--blue);text-decoration:none;margin:0 5px;white-space:nowrap}
+  .pd-langs a:hover{text-decoration:underline}
   .pd-vat{font-size:12.5px;color:var(--text-gray);margin:4px 0 18px}
   .stripe-note{font-size:11.5px;color:#9AA5B4;text-align:center;margin-top:10px}
   .pd-trust{list-style:none;margin:20px 0 0;padding:18px 0 0;border-top:1px solid var(--border)}
@@ -54,8 +58,10 @@ template_id: ai-research-agent-lite
   }
 </style>
 <style>
-  .pd-upsell{display:block;margin-top:16px;padding:14px 16px;border:1px solid var(--border);border-radius:10px;
+  .pd-upsell{display:flex;gap:13px;align-items:flex-start;margin-top:16px;padding:14px 16px;border:1px solid var(--border);border-radius:10px;
     background:var(--light-gray);text-decoration:none;color:inherit;transition:border-color .2s,box-shadow .2s}
+  .pd-upsell img{width:78px;height:49px;object-fit:cover;border-radius:6px;border:1px solid var(--border);flex-shrink:0;background:#fff}
+  .pd-upsell .pu-t{min-width:0}
   .pd-upsell:hover{border-color:#C9D4FF;box-shadow:0 8px 24px rgba(5,28,44,.07)}
   .pd-upsell .pu-k{display:block;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);margin-bottom:5px}
   .pd-upsell strong{display:block;font-size:14.5px;color:var(--navy);margin-bottom:3px}
@@ -73,16 +79,12 @@ template_id: ai-research-agent-lite
     <aside class="pd-side">
       <h1>AI Agent Research Analysis (Lite)</h1>
       <p class="sub">Donnez-lui un sujet et il rend une note de recherche structuree plutot qu&#39;un mur de texte : la question, ce qui a ete trouve, ce que cela signifie et quoi faire ensuite. Concu comme un agent Notion personnalise, le resultat arrive directement dans votre espace.</p>
-      <p class="pd-price">Gratuit</p>
-      <p class="pd-vat">Aucun paiement, aucun email demande. Livre via le Notion Marketplace.</p>
-      <a class="btn btn-block" href="https://www.notion.com/templates/ai-agent-research-analysis-lite" target="_blank" rel="noopener">Obtenir gratuitement &nbsp;&middot;&nbsp; Dupliquer dans Notion</a>
-      <p class="stripe-note">Ouvre la fiche sur le Notion Marketplace. Cliquez sur Dupliquer et le template arrive dans votre espace.</p>
-      <a class="pd-upsell" href="https://www.notion.com/templates/top-ai-research-agent-100-sources-full-citations" target="_blank" rel="noopener"><span class="pu-k">Passer a la version superieure &middot; $45</span><strong>Besoin de la version complete ?</strong><em>Top AI Research Agent va chercher plus de 100 sources avec citations completes, pour une recherche publiable.</em></a>
+      {% include pd-buybox.html %}
       <p style="font-size:13px;color:var(--text-gray);margin-top:14px">Jamais utilise un template Notion ? <a href="/fr/templates/how-it-works/">Voir comment ca marche</a>.</p>
       <ul class="pd-trust"><li>Gratuit sur le Notion Marketplace</li><li>Fonctionne avec le plan Notion gratuit</li><li>A vous de le modifier, renommer et enrichir</li><li>Mises a jour a vie gratuites</li><li>Aucun compte requis sur ce site</li></ul>
       <div class="pd-meta">
         <div><div class="k">Categorie</div><div class="v">Business</div></div>
-        <div><div class="k">Mise a jour</div><div class="v">Aout 2026</div></div>
+        <div><div class="k">Mise a jour</div><div class="v">{% include last-updated.html %}</div></div>
         <div><div class="k">Type</div><div class="v">Agent personnalise</div></div>
         <div><div class="k">Niveau</div><div class="v">Intermediaire</div></div>
       </div>

@@ -1,0 +1,55 @@
+{%- comment -%}
+  The whole price / call-to-action / upgrade block for a product page.
+  Driven entirely by _data/templates.yml, so a copy change happens once, here,
+  rather than in 24 separate product pages. Requires page.template_id.
+{%- endcomment -%}
+{%- assign L = "en" -%}{%- if page.lang == "fr" -%}{%- assign L = "fr" -%}{%- endif -%}
+{%- assign t = nil -%}
+{%- for x in site.data.templates -%}{%- if x.id == page.template_id -%}{%- assign t = x -%}{%- endif -%}{%- endfor -%}
+
+{%- if t.free -%}
+  {%- comment -%} Send people to the listing in the language of the page when that
+      language exists on the Marketplace, otherwise the default listing. {%- endcomment -%}
+  {%- assign mk = t.marketplace -%}
+  {%- if L == "fr" and t.marketplace_i18n.fr -%}{%- assign mk = t.marketplace_i18n.fr -%}{%- endif -%}
+      <p class="pd-price">{% if L == "fr" %}Gratuit{% else %}Free{% endif %}</p>
+      <p class="pd-vat">{% if L == "fr" %}Aucun paiement, aucun email demande. Livre via le Notion Marketplace.{% else %}No payment, no email required. Delivered through the Notion Marketplace.{% endif %}</p>
+      <a class="btn btn-block" href="{{ mk }}" target="_blank" rel="noopener">{% if L == "fr" %}Obtenir gratuitement &nbsp;&middot;&nbsp; Dupliquer maintenant{% else %}Get it free &nbsp;&middot;&nbsp; Duplicate it Now{% endif %}</a>
+      <p class="stripe-note">{% if L == "fr" %}Ouvre la fiche sur le Notion Marketplace. Cliquez sur Dupliquer et le template arrive dans votre espace.{% else %}Opens the Notion Marketplace listing. Click Duplicate and it lands in your workspace.{% endif %}</p>
+  {%- comment -%} Only worth showing once a second language actually exists. {%- endcomment -%}
+  {%- assign has_alt = false -%}
+  {%- if t.marketplace_i18n.fr or t.marketplace_i18n.de or t.marketplace_i18n.es or t.marketplace_i18n.pt or t.marketplace_i18n.it -%}{%- assign has_alt = true -%}{%- endif -%}
+  {%- if has_alt -%}
+      <p class="pd-langs"><span>{% if L == "fr" %}Aussi disponible en{% else %}Also available in{% endif %}</span>
+      {%- if t.marketplace_i18n.en %}<a href="{{ t.marketplace_i18n.en }}" target="_blank" rel="noopener">English</a>{% endif -%}
+      {%- if t.marketplace_i18n.fr %}<a href="{{ t.marketplace_i18n.fr }}" target="_blank" rel="noopener">Fran&ccedil;ais</a>{% endif -%}
+      {%- if t.marketplace_i18n.de %}<a href="{{ t.marketplace_i18n.de }}" target="_blank" rel="noopener">Deutsch</a>{% endif -%}
+      {%- if t.marketplace_i18n.es %}<a href="{{ t.marketplace_i18n.es }}" target="_blank" rel="noopener">Espa&ntilde;ol</a>{% endif -%}
+      {%- if t.marketplace_i18n.pt %}<a href="{{ t.marketplace_i18n.pt }}" target="_blank" rel="noopener">Portugu&ecirc;s</a>{% endif -%}
+      {%- if t.marketplace_i18n.it %}<a href="{{ t.marketplace_i18n.it }}" target="_blank" rel="noopener">Italiano</a>{% endif -%}
+      </p>
+  {%- endif -%}
+{%- else -%}
+      <p class="pd-price">${{ t.price }}</p>
+      <p class="pd-vat">{% if L == "fr" %}Paiement unique. TVA ajoutee au paiement le cas echeant.{% else %}One-time payment. VAT added at checkout where applicable.{% endif %}</p>
+      <a class="btn btn-block" href="{{ t.stripe }}" rel="noopener">{% if L == "fr" %}Acheter{% else %}Buy now{% endif %} &nbsp;&middot;&nbsp; ${{ t.price }}</a>
+      <p class="stripe-note">{% if L == "fr" %}Paiement securise par Stripe. Carte, Apple Pay, Google Pay, Link.{% else %}Secure checkout by Stripe. Card, Apple Pay, Google Pay, Link.{% endif %}</p>
+{%- endif -%}
+
+{%- comment -%} Upgrade band. Title, price, page and thumbnail are read from the target
+    listing itself, so it can never drift out of sync with what is actually on sale. {%- endcomment -%}
+{%- if t.upsell -%}
+  {%- assign u = nil -%}
+  {%- for x in site.data.templates -%}{%- if x.id == t.upsell -%}{%- assign u = x -%}{%- endif -%}{%- endfor -%}
+  {%- if u -%}
+    {%- if L == "fr" -%}{%- assign uhref = u.page_fr -%}{%- else -%}{%- assign uhref = u.page -%}{%- endif -%}
+      <a class="pd-upsell" href="{{ uhref }}">
+        {%- if u.cover %}<img src="{{ u.cover }}" alt="" loading="lazy" onerror="this.remove()">{% endif -%}
+        <span class="pu-t">
+          <span class="pu-k">{% if L == "fr" %}Version superieure{% else %}Upgrade{% endif %} &middot; ${{ u.price }}</span>
+          <strong>{{ t[L].upsell_hook }}</strong>
+          <em>{{ t[L].upsell_body }}</em>
+        </span>
+      </a>
+  {%- endif -%}
+{%- endif -%}
