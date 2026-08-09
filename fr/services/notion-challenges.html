@@ -1,0 +1,625 @@
+---
+layout: default
+title: "Les 10 questions que mes clients me posent le plus sur Notion | Anthony Today"
+description: "Les dix questions que mes clients me posent le plus sur Notion, ce qui se passe vraiment derriere chacune, et la reponse a appliquer des cette semaine."
+permalink: /fr/notion/challenges/
+lang: fr
+alt_url: /notion/challenges/
+schema_type: "WebPage"
+bc_parent_url: /fr/notion/
+bc_parent_name: "Notion Consulting"
+bc_name: "Top 10 questions Notion"
+---
+{% include shop-styles.html %}
+<style>
+  /* Editorial layout: hairline rules, a wide number gutter, and one accent color.
+     Palette is the site's existing navy/blue, no new tokens. */
+  .ch{max-width:1080px;margin:0 auto;padding:0 32px}
+  .ch-narrow{max-width:760px}
+
+  /* hero */
+  .ch-hero{padding:72px 0 0}
+  .ch-hero h1{font-size:52px;font-weight:500;line-height:1.08;letter-spacing:-1.4px;
+    margin:14px 0 26px;max-width:15ch}
+  .ch-hero .lede{font-size:20px;line-height:1.6;color:var(--navy);max-width:62ch;
+    font-weight:400;margin-bottom:14px}
+  .ch-hero .sub{font-size:16px;line-height:1.75;color:var(--text-gray);max-width:62ch}
+  .rule{height:1px;background:var(--border);margin:44px 0 0}
+
+  /* method note, McKinsey-style sidenote rather than a filled box */
+  .method{display:grid;grid-template-columns:150px 1fr;gap:40px;padding:26px 0 0}
+  .method .lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;
+    color:var(--text-gray);padding-top:3px}
+  .method p{margin:0;font-size:14.5px;color:var(--text-gray);line-height:1.75;max-width:64ch}
+
+  /* index */
+  .toc{padding:52px 0 0}
+  .toc .eyebrow{margin-bottom:22px;display:block}
+  .toc ol{list-style:none;margin:0;padding:0;
+    display:grid;grid-template-columns:1fr 1fr;column-gap:56px}
+  .toc li{border-top:1px solid var(--border)}
+  .toc a{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:baseline;
+    padding:15px 0;font-size:16px;color:var(--navy);transition:color .15s}
+  .toc a:hover{color:var(--blue)}
+  .toc .n{font-size:12.5px;font-weight:600;color:var(--blue);letter-spacing:.5px}
+
+  /* the ten */
+  .items{padding-top:64px}
+  .item{display:grid;grid-template-columns:150px 1fr;gap:40px;
+    padding:56px 0;border-top:1px solid var(--border)}
+  .item-col{position:sticky;top:96px;align-self:start}
+  .item-n{display:block;font-size:58px;font-weight:200;line-height:.9;
+    color:var(--blue);letter-spacing:-2.5px;font-variant-numeric:tabular-nums}
+  .item-body{max-width:66ch}
+  .item h2{font-size:31px;font-weight:500;line-height:1.2;letter-spacing:-.6px;
+    margin:0 0 30px;color:var(--navy)}
+
+  /* section labels: quiet small caps on a hairline, not colored headers */
+  .item h3{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;
+    color:var(--text-gray);margin:34px 0 14px;padding-top:14px;
+    border-top:1px solid var(--border)}
+  .item h3:first-of-type{margin-top:0}
+  .item p{font-size:16px;color:var(--navy);line-height:1.72;margin-bottom:14px}
+  .item ul{margin:0;padding:0;list-style:none}
+  .item li{font-size:16px;color:var(--navy);line-height:1.72;padding:11px 0 11px 26px;
+    position:relative;border-bottom:1px solid var(--border)}
+  .item li:last-child{border-bottom:0}
+  .item li::before{content:"";position:absolute;left:0;top:20px;
+    width:11px;height:1px;background:var(--blue)}
+
+  /* pull quote */
+  .said{border-left:2px solid var(--blue);padding:2px 0 2px 24px;margin:0}
+  .said p{font-size:19px;line-height:1.55;color:var(--navy);margin-bottom:16px;
+    letter-spacing:-.2px}
+  .said p:last-child{margin-bottom:0}
+
+  /* recommendation */
+  .start{border:1px solid var(--border);border-left:3px solid var(--navy);
+    padding:20px 24px;margin-top:34px;background:#FBFCFD}
+  .start p{margin:0;font-size:15px;color:var(--navy);line-height:1.7}
+  .start a{color:var(--blue);font-weight:600}
+  .start a:hover{text-decoration:underline}
+
+  /* outcomes */
+  .gains{border-top:1px solid var(--border);padding:64px 0 0;margin-top:0}
+  .gains h2{font-size:34px;font-weight:500;letter-spacing:-.8px;margin-bottom:12px}
+  .gains p.lede{font-size:17px;color:var(--text-gray);line-height:1.7;
+    margin-bottom:44px;max-width:60ch}
+  .gain-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0 36px}
+  .gain{border-top:2px solid var(--navy);padding-top:20px}
+  .gain h3{font-size:17px;font-weight:600;margin-bottom:10px;line-height:1.35}
+  .gain p{font-size:14.5px;color:var(--text-gray);line-height:1.7;margin:0}
+
+  /* close */
+  .ch-cta{border-top:1px solid var(--border);margin-top:64px;padding:56px 0 20px;
+    display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+  .ch-cta h2{font-size:28px;font-weight:500;letter-spacing:-.5px;margin-bottom:12px}
+  .ch-cta p{font-size:16px;color:var(--text-gray);line-height:1.7;margin:0;max-width:56ch}
+  .ch-cta .also{margin-top:16px;font-size:14.5px}
+  .ch-cta .also a{color:var(--blue);font-weight:600}
+
+  @media(max-width:960px){
+    .gain-grid{grid-template-columns:1fr 1fr;gap:32px 32px}
+    .item{grid-template-columns:96px 1fr;gap:26px}
+    .item-n{font-size:44px}
+    .method{grid-template-columns:110px 1fr;gap:24px}
+  }
+  @media(max-width:768px){
+    .ch{padding:0 20px}
+    .ch-hero{padding:38px 0 0}
+    .ch-hero h1{font-size:33px;letter-spacing:-.8px;max-width:none}
+    .ch-hero .lede{font-size:17.5px}
+    .toc ol{grid-template-columns:1fr}
+    .items{padding-top:38px}
+    .item{grid-template-columns:1fr;gap:14px;padding:38px 0}
+    .item-col{position:static}
+    .item-n{font-size:34px}
+    .item h2{font-size:24px;margin-bottom:22px}
+    .item p,.item li{font-size:15.5px}
+    .said p{font-size:17px}
+    .method{grid-template-columns:1fr;gap:10px}
+    .gains{padding-top:44px}
+    .gains h2{font-size:26px}
+    .gain-grid{grid-template-columns:1fr;gap:28px}
+    .ch-cta{grid-template-columns:1fr;gap:24px;padding:40px 0 10px}
+    .ch-cta h2{font-size:23px}
+  }
+</style>
+
+<div class="ch ch-hero">
+  <div class="eyebrow">Notion, les 10 questions</div>
+  <h1>Les dix questions que mes clients me posent le plus sur Notion</h1>
+  <p class="lede">Des pays differents, des industries differentes, les memes dix questions. Voici chacune
+     dans les mots des clients, ce qui se passe vraiment derriere, et la reponse que je donne.</p>
+  <p class="sub">Chaque reponse est applicable des cette semaine. Quand un template vous y mene plus
+     vite, je le nomme. Si vous debutez sur Notion, ou si vous migrez depuis un autre outil, lisez
+     tout du debut a la fin.</p>
+
+  <div class="rule"></div>
+</div>
+
+<div class="ch">
+  <div class="toc">
+    <span class="eyebrow">Les questions</span>
+    <ol>
+      <li><a href="#c1"><span class="n">01</span><span>Par ou commencer sans tout construire de zero ?</span></a></li>
+      <li><a href="#c2"><span class="n">02</span><span>Comment tout rassembler en un seul endroit ?</span></a></li>
+      <li><a href="#c3"><span class="n">03</span><span>Comment gerer taches et projets en equipe ?</span></a></li>
+      <li><a href="#c4"><span class="n">04</span><span>Comment construire un CRM dans Notion ?</span></a></li>
+      <li><a href="#c5"><span class="n">05</span><span>Pourquoi mes bases de donnees ne se parlent-elles pas ?</span></a></li>
+      <li><a href="#c6"><span class="n">06</span><span>Pourquoi est-ce que je paie des sieges que personne n'utilise ?</span></a></li>
+      <li><a href="#c7"><span class="n">07</span><span>Comment partager des pages sans ajouter tout le monde ?</span></a></li>
+      <li><a href="#c8"><span class="n">08</span><span>Comment etre rappele quand une echeance arrive ?</span></a></li>
+      <li><a href="#c9"><span class="n">09</span><span>Pourquoi Notion est lent, ou bloque les nouvelles pages ?</span></a></li>
+      <li><a href="#c10"><span class="n">10</span><span>Que peuvent vraiment faire Notion AI et les agents ?</span></a></li>
+    </ol>
+  </div>
+</div>
+
+<div class="ch items">
+
+  <div class="item" id="c1">
+    <div class="item-col"><span class="item-n">01</span></div>
+    <div class="item-body">
+      <h2>Vous voulez un systeme, et une page blanche n'en est pas un</h2>
+
+      <h3>Ce que demandent les clients</h3>
+      <div class="said">
+        <p>"Comprendre ce que je fais bien et mal. Voir si je peux passer a l'etape suivante pour
+          utiliser Notion et gerer ma vie."</p>
+        <p>"Comprendre ce que fait Notion et comment cela m'aidera."</p>
+        <p>"Besoin d'aide pour structurer."</p>
+      </div>
+
+      <h3>Ce qui se passe vraiment</h3>
+      <p>Notion s'ouvre sur une page vide et vous demande de tout inventer d'un coup: la structure,
+        le nommage, les proprietes, les vues. La plupart des gens construisent quelque chose
+        d'ambitieux la premiere semaine, le trouvent trop lourd a maintenir la troisieme, et cessent
+        doucement de l'ouvrir.</p>
+      <p>Le cout n'est pas la soiree perdue. C'est de conclure que Notion ne marche pas pour vous,
+        alors que c'est la page blanche qui a echoue.</p>
+
+      <h3>Ce que je leur reponds</h3>
+      <ul>
+        <li>Partez d'un template fini qui correspond a votre cas. Un bon template couvre environ
+          80% de vos besoins des le premier jour.</li>
+        <li>Supprimez avant de construire. Enlevez les donnees d'exemple et toute section dont vous
+          ne savez pas nommer l'usage, puis renommez les champs avec vos propres mots.</li>
+        <li>Ajoutez une chose par semaine. Une table simple que vous ouvrez vraiment vaut mieux
+          qu'un systeme elegant que vous abandonnez.</li>
+      </ul>
+
+      <div class="start">
+        <p><strong>Partir de :</strong>
+          <a href="/fr/templates/life-os/">Life OS</a> pour le personnel et la maison,
+          <a href="/fr/templates/creative-studio/">Creative Studio</a> pour une petite entreprise.
+          Les deux sont gratuits, et deja structures pour que vous editiez au lieu d'inventer.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item" id="c2">
+    <div class="item-col"><span class="item-n">02</span></div>
+    <div class="item-body">
+      <h2>Un seul endroit ou regarder, au lieu de cinq onglets et d'une estimation</h2>
+
+      <h3>Ce que demandent les clients</h3>
+      <div class="said">
+        <p>"Le workflow actuel est reparti entre Excel, HubSpot et Nirvana, ce qui fragmente le suivi
+          des taches, des contacts et des affaires."</p>
+        <p>"Google Sheets et Docs desorganises, bibliotheques d'images dispersees, besoin d'un
+          systeme propre et centralise."</p>
+        <p>"Remplacer les workflows Excel en silos par une configuration Notion interactive."</p>
+      </div>
+
+      <h3>Ce qui se passe vraiment</h3>
+      <p>Chaque outil en plus ajoute un endroit de plus ou la reponse se cache. Vous cessez de faire
+        confiance a une vue unique, alors vous les verifiez toutes. Ce cout se paie chaque jour, et
+        il empire quand l'equipe grandit.</p>
+      <p>On essaie alors de tout migrer dans Notion en un week-end, on tombe a court d'energie a
+        mi-chemin, et on se retrouve avec six outils au lieu de cinq.</p>
+
+      <h3>Ce que je leur reponds</h3>
+      <ul>
+        <li>Migrez un workflow d'abord. Choisissez celui qui fait le plus mal, faites-le marcher a
+          fond, puis passez au suivant.</li>
+        <li>Importez les donnees structurees en CSV. Notion lit un CSV directement dans une base,
+          ce qui couvre la plupart des migrations de tableurs.</li>
+        <li>Pas besoin de deplacer les fichiers. Google Docs et Sheets s'integrent dans Notion avec
+          un apercu fonctionnel: le fichier reste dans Drive, le contexte vit dans Notion.</li>
+        <li>Fixez une date de bascule ferme par workflow. Deux systemes qui tournent en parallele,
+          c'est l'etat qui ne finit jamais tout seul.</li>
+      </ul>
+
+      <div class="start">
+        <p><strong>Partir de :</strong>
+          <a href="/fr/templates/creative-studio/">Creative Studio</a> vous donne projets, clients
+          et taches deja relies, donc le premier workflow atterrit dans quelque chose qui passe a
+          l'echelle. Gratuit.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item" id="c3">
+    <div class="item-col"><span class="item-n">03</span></div>
+    <div class="item-body">
+      <h2>Chacun voit son propre travail, vous voyez tout</h2>
+
+      <h3>Ce que demandent les clients</h3>
+      <div class="said">
+        <p>"La meilleure facon d'assigner des taches aux membres de l'equipe, de suivre l'avancement
+          des projets, et de comprendre comment marchent les permissions selon les utilisateurs ou
+          les equipes."</p>
+        <p>"Systeme d'equipe evolutif: gestion des taches partagees et individuelles, feuille de
+          route projets et evenements, suivi de l'avancement et des delais, workflows hebdomadaires,
+          hub central."</p>
+        <p>"L'information se perd dans la collaboration en equipe. Des taches disparaissent de la
+          vue partagee."</p>
+      </div>
+
+      <h3>Ce qui se passe vraiment</h3>
+      <p>L'echec classique est une liste de taches par personne ou par projet. Rien ne remonte, donc
+        la seule facon de savoir ou en est un projet est de demander a trois personnes.</p>
+      <p>Le second echec est plus subtil. Quelqu'un modifie un filtre sur une vue partagee, le
+        travail disparait de l'ecran de tous, et l'equipe perd confiance dans le systeme en une
+        semaine.</p>
+
+      <h3>Ce que je leur reponds</h3>
+      <ul>
+        <li>Une seule base Taches pour toute l'equipe. Jamais une par personne, jamais une par
+          projet.</li>
+        <li>Donnez a chacun une vue filtree de cette base unique, filtree sur Assigne = Moi. Memes
+          donnees, ecran personnel.</li>
+        <li>Reliez les Taches aux Projets pour que le statut remonte tout seul et que vous cessiez
+          de courir apres les nouvelles.</li>
+        <li>Verrouillez les vues partagees une fois qu'elles marchent. Les modifications de vues
+          sont la cause la plus frequente des "mes taches ont disparu".</li>
+      </ul>
+
+      <div class="start">
+        <p><strong>Partir de :</strong>
+          <a href="/fr/templates/creative-studio/">Creative Studio</a> pour un hub d'equipe, ou
+          <a href="/fr/templates/daily-weekly-monthly-planners/">Daily Weekly Monthly Planners</a>
+          si c'est le rythme hebdomadaire qui manque. Les deux gratuits.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item" id="c4">
+    <div class="item-col"><span class="item-n">04</span></div>
+    <div class="item-body">
+      <h2>Savoir qui relancer aujourd'hui, sans ouvrir un tableur</h2>
+
+      <h3>Ce que demandent les clients</h3>
+      <div class="said">
+        <p>"Veut construire un CRM dans Notion."</p>
+        <p>"Creer un CRM simple et evolutif. Actuellement aucun systeme de gestion des clients ou
+          des leads."</p>
+        <p>"Optimiser son activite de recrutement avec un suivi plus propre de l'avancement, des
+          notes, des affaires et des clients."</p>
+      </div>
+
+      <h3>Ce qui se passe vraiment</h3>
+      <p>Les contacts dans le telephone, les affaires dans un tableur, les notes dans la boite mail.
+        Rien ne se connecte, donc les relances dependent de la memoire. Des affaires refroidissent
+        sans raison identifiable.</p>
+      <p>Le piege est de construire une table geante de quarante colonnes. Elle devient illisible en
+        un mois et impossible a exploiter.</p>
+
+      <h3>Ce que je leur reponds</h3>
+      <ul>
+        <li>Utilisez trois bases, pas une: Contacts, Affaires, Activites. Reliez-les.</li>
+        <li>Mettez l'etape du pipeline sur l'Affaire, pas sur le Contact. Un contact peut avoir
+          plusieurs affaires, et c'est l'historique des etapes qui sert au reporting.</li>
+        <li>Consignez chaque echange comme une Activite liee a l'Affaire. Votre liste de relances
+          devient une vue filtree au lieu d'un exercice de memoire.</li>
+        <li>Ajoutez une date Prochaine action sur chaque Affaire ouverte. Une affaire sans prochaine
+          action est une affaire deja perdue.</li>
+      </ul>
+
+      <div class="start">
+        <p><strong>Partir de :</strong>
+          <a href="/fr/templates/ultimate-business-dashboard/">Ultimate Business Dashboard</a>
+          embarque clients, projets, affaires et revenus deja relies. Pour un depart plus leger,
+          les trackers CRM et ventes gratuits sur mon
+          <a href="https://www.notion.com/@anthonytoday" target="_blank" rel="noopener">profil Notion Marketplace</a>
+          couvrent la meme forme.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item" id="c5">
+    <div class="item-col"><span class="item-n">05</span></div>
+    <div class="item-body">
+      <h2>Saisissez une fois, voyez partout ou cela compte</h2>
+
+      <h3>Ce que demandent les clients</h3>
+      <div class="said">
+        <p>"Les taches ne se synchronisent pas correctement entre la base projet et la base
+          principale."</p>
+        <p>"Les agregations rollup ne remplissent qu'une base liee, ce qui force la double
+          saisie."</p>
+        <p>"Connecter les tables clients, reunions et activites via des relations bidirectionnelles.
+          Consolider les tables clients en double."</p>
+      </div>
+
+      <h3>Ce qui se passe vraiment</h3>
+      <p>Sans relations, le meme nom de client est tape dans quatre tables. Ils derivent, ils se mal
+        orthographient, et aucun chiffre produit ne peut etre fiable.</p>
+      <p>La cause habituelle d'un rollup casse est une relation a sens unique, ou un rollup pointe
+        sur la mauvaise propriete. Cela ressemble a un bug Notion. C'est un probleme de cablage, et
+        cela se repare en minutes une fois visible.</p>
+
+      <h3>Ce que je leur reponds</h3>
+      <ul>
+        <li>Rendez chaque relation bidirectionnelle. Activez "Afficher sur" dans les reglages de la
+          relation pour que les deux cotes restent synchronises.</li>
+        <li>Utilisez les rollups pour lire les valeurs liees au lieu de les copier. Somme, compte,
+          derniere date, tout sans dupliquer les donnees.</li>
+        <li>Fusionnez les tables en double avant de construire des vues dessus. Dedupliquer plus
+          tard signifie reconstruire chaque relation.</li>
+        <li>Quand vous demandez a Notion AI de creer une relation, nommez la base cible exacte. Les
+          instructions vagues produisent des relations pointees sur la mauvaise table.</li>
+      </ul>
+
+      <div class="start">
+        <p><strong>Partir de :</strong>
+          <a href="/fr/templates/medical-practice/">Medical Practice</a> est un exemple compact et
+          fonctionnel de bases reliees avec des rollups qui marchent. Gratuit, et le modele se
+          transpose a toute industrie.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item" id="c6">
+    <div class="item-col"><span class="item-n">06</span></div>
+    <div class="item-body">
+      <h2>Payez pour ceux qui editent, pas pour tous ceux qui lisent</h2>
+
+      <h3>Ce que demandent les clients</h3>
+      <div class="said">
+        <p>"Ne comprend pas pourquoi il paie 3 membres Notion alors qu'il n'en a qu'un."</p>
+        <p>"Une charge de 96 $ au lieu des 24 $ attendus."</p>
+        <p>"Des invites ont ete convertis automatiquement en membres payants et il a ete
+          facture."</p>
+      </div>
+
+      <h3>Ce qui se passe vraiment</h3>
+      <p>C'est le malentendu le plus couteux de Notion, et le plus frequent. Les gens qu'il frappe
+        paient deja. Ils paient des sieges que personne n'utilise.</p>
+      <p>La cause est presque toujours la meme. Tout le monde est invite comme membre, parce que
+        membre est le defaut, et chaque membre consomme une licence payante.</p>
+
+      <h3>Ce que je leur reponds</h3>
+      <ul>
+        <li>Connaissez la difference. Les membres consomment une licence payante. Les invites
+          editent des pages precises que vous partagez avec eux, et les invites sont gratuits.</li>
+        <li>Auditez Settings, puis Members. Quiconque n'a besoin que de quelques pages devrait etre
+          un invite.</li>
+        <li>Retirez d'abord le membre, puis re-invitez comme invite avec Skip. Ajouter un invite
+          sans retirer le membre conserve la charge.</li>
+        <li>Agissez avant la date de renouvellement. Les changements s'appliquent au cycle suivant,
+          et les plans annuels ne remboursent pas les sieges retires en cours.</li>
+      </ul>
+
+      <div class="start">
+        <p><strong>Aucun template ne repare cela.</strong> C'est un audit de 20 minutes de votre
+          liste de membres. Si la charge est deja fausse, contactez le support Notion avant la
+          prochaine date de facturation plutot qu'apres.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item" id="c7">
+    <div class="item-col"><span class="item-n">07</span></div>
+    <div class="item-body">
+      <h2>Donnez a chacun exactement la page dont il a besoin, et rien d'autre</h2>
+
+      <h3>Ce que demandent les clients</h3>
+      <div class="said">
+        <p>"Partager des pages de formation par hotel avec 70 hotels sans ajouter chaque hotel
+          comme membre de l'espace de travail."</p>
+        <p>"Veut partager ses plans de cours Notion avec son ecole, en preferant les liens publies
+          sur le web aux exports PDF."</p>
+        <p>"Changer les niveaux d'acces pour que certains membres soient retrogrades en invites."</p>
+      </div>
+
+      <h3>Ce qui se passe vraiment</h3>
+      <p>On suppose que la seule facon de partager est d'ajouter quelqu'un a l'espace de travail.
+        C'est couteux, et cela lui offre une barre laterale pleine de choses qu'il ne devrait pas
+        voir.</p>
+      <p>Alors on exporte en PDF a la place. Le PDF est perime des son envoi, et on finit par
+        maintenir deux versions de tout.</p>
+
+      <h3>Ce que je leur reponds</h3>
+      <ul>
+        <li>Publiez sur le web pour un partage en lecture seule a large audience. Toute personne
+          avec le lien peut lire, et cela se met a jour tout seul.</li>
+        <li>Desactivez l'indexation par les moteurs de recherche sur les pages publiees, sauf si
+          vous voulez etre trouve. Le lien reste introuvable.</li>
+        <li>Utilisez l'acces invite quand quelqu'un doit editer. Granulaire, au niveau page, et
+          gratuit.</li>
+        <li>Partagez au niveau page, jamais au niveau espace, pour les parties externes. Une page
+          entre, rien d'autre n'est visible.</li>
+      </ul>
+
+      <div class="start">
+        <p><strong>Partir de :</strong>
+          <a href="/fr/templates/simple-faq/">Simple FAQ</a> est concu pour etre publie et partage a
+          l'exterieur, donc vous voyez le modele fonctionner avant de l'appliquer a vos propres
+          pages. Gratuit.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item" id="c8">
+    <div class="item-col"><span class="item-n">08</span></div>
+    <div class="item-body">
+      <h2>L'echeance vous trouve, au lieu que vous trouviez l'echeance</h2>
+
+      <h3>Ce que demandent les clients</h3>
+      <div class="said">
+        <p>"Veut utiliser Notion pour assigner des taches et relancer son equipe."</p>
+        <p>"Rappels de dates d'expiration et tables de conformite."</p>
+        <p>"Savoir si Notion peut prendre en charge les mails de confirmation ou de rappel
+          personnalises et automatiques."</p>
+      </div>
+
+      <h3>Ce qui se passe vraiment</h3>
+      <p>On suppose qu'une propriete Date envoie une alerte. Ce n'est pas le cas. Notion n'a pas de
+        notification de date integree, donc la date reste la et l'echeance passe.</p>
+      <p>Vous gardez alors un second systeme de rappels dans votre telephone, ce qui est le probleme
+        de fragmentation qui revient par la porte de service.</p>
+
+      <h3>Ce que je leur reponds</h3>
+      <ul>
+        <li>Utilisez une propriete Personne pour l'assignation. Notion notifie nativement l'assigne,
+          et cela ne coute rien a regler.</li>
+        <li>Construisez l'alerte avec une formule plus une automatisation de base. Une formule
+          marque ce qui arrive bientot, une automatisation agit dessus.</li>
+        <li>Connectez Slack via Notion Connections pour des notifications de taches
+          bidirectionnelles la ou votre equipe se trouve deja.</li>
+        <li>Ajoutez une vue quotidienne filtree sur Du cette semaine. Une vue ouverte chaque matin
+          bat une notification qu'on apprend a ignorer.</li>
+      </ul>
+
+      <div class="start">
+        <p><strong>Partir de :</strong>
+          <a href="/fr/templates/daily-weekly-monthly-planners/">Daily Weekly Monthly Planners</a>
+          vous donne les vues quotidiennes et hebdomadaires deja filtrees. Gratuit.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item" id="c9">
+    <div class="item-col"><span class="item-n">09</span></div>
+    <div class="item-body">
+      <h2>Un espace de travail qui reste rapide quand vos donnees grandissent</h2>
+
+      <h3>Ce que demandent les clients</h3>
+      <div class="said">
+        <p>"A atteint la limite des 1 000 blocs du plan gratuit. Restructuration de l'espace
+          necessaire pour lever la limitation."</p>
+        <p>"Un espace gratuit partage a atteint la limite des 1 000 blocs, bloquant les nouvelles
+          pages."</p>
+        <p>"Inquietudes sur la performance de Notion avec de grosses bases et des champs de
+          relation."</p>
+      </div>
+
+      <h3>Ce qui se passe vraiment</h3>
+      <p>La limite des 1 000 blocs est largement mal comprise. Elle ne s'applique qu'aux espaces
+        gratuits partages avec deux membres ou plus. Un espace gratuit prive a un utilisateur n'a
+        aucune limite de blocs. Des gens passent a un plan payant sans en avoir besoin, ou paniquent
+        sans raison.</p>
+      <p>La lenteur est un autre probleme, et c'est rarement Notion. C'est une table qui affiche des
+        milliers de lignes non filtrees avec vingt proprietes visibles.</p>
+
+      <h3>Ce que je leur reponds</h3>
+      <ul>
+        <li>Verifiez si la limite s'applique meme a vous avant de passer a un plan superieur.
+          Partage et gratuit est la seule combinaison qui la declenche.</li>
+        <li>Filtrez chaque grande vue et plafonnez l'affichage a environ 10 a 25 elements. Personne
+          ne lit la ligne 400.</li>
+        <li>Cachez les proprietes rarement utilisees. Deplacez-les vers le panneau lateral de la
+          page au lieu de la table.</li>
+        <li>Gardez une base source unique avec beaucoup de vues filtrees. Dupliquer la table par
+          segment multiplie le probleme et divise vos donnees.</li>
+      </ul>
+
+      <div class="start">
+        <p><strong>Aucun template ne repare cela.</strong> C'est un nettoyage au niveau des vues et
+          cela prend generalement moins d'une heure. Si votre espace est deja grand, le
+          <a href="/fr/notion/">Notion Ops Audit</a> est fait exactement pour cela.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item" id="c10">
+    <div class="item-col"><span class="item-n">10</span></div>
+    <div class="item-body">
+      <h2>Une IA qui produit quelque chose d'utilisable, a un cout que vous controlez</h2>
+
+      <h3>Ce que demandent les clients</h3>
+      <div class="said">
+        <p>"Un agent Notion pour les resumes hebdomadaires de feuilles de temps consomme vite les
+          credits. Formatage PDF inconsistent. Besoin d'auditer et d'alleger les instructions de
+          l'agent."</p>
+        <p>"Les bases generees par l'IA manquent de structure visuelle et d'utilisabilite."</p>
+        <p>"Rationaliser et automatiser leurs workflows et processus avec l'IA."</p>
+      </div>
+
+      <h3>Ce qui se passe vraiment</h3>
+      <p>On attend de l'IA qu'elle concoive le systeme. Elle ne le fera pas. Pointez-la sur une
+        instruction vague et elle produit une base qui a l'air juste et marche mal, ou elle brule
+        des credits en produisant le meme resume dans un format legerement different chaque
+        semaine.</p>
+      <p>La lecon que les clients retiennent: la structure d'abord. Un agent bati sur un espace
+        desordonne produit un resultat desordonne, plus vite.</p>
+
+      <h3>Ce que je leur reponds</h3>
+      <ul>
+        <li>Sachez quel outil il vous faut. Le chatbot repond aux questions et fait des editions en
+          masse a la demande. Les agents personnalises tournent sur un declencheur ou un horaire.</li>
+        <li>Nommez la base exacte et les proprietes exactes dans votre instruction. La precision est
+          tout le jeu avec l'IA dans Notion.</li>
+        <li>Surveillez les credits. Les agents et les modeles superieurs consomment des credits et
+          demandent un plan payant. Un agent hebdomadaire qui fait le travail d'une vue filtree est
+          de l'argent depense pour rien.</li>
+        <li>Connectez Claude ou ChatGPT via le connecteur MCP quand vous voulez qu'une IA externe
+          agisse sur votre espace.</li>
+      </ul>
+
+      <div class="start">
+        <p><strong>Partir de :</strong>
+          <a href="/fr/templates/ai-research-agent-lite/">AI Agent Research Analysis (Lite)</a> montre
+          comment un agent cadre est instruit et ou atterrit le resultat. Gratuit. La
+          <a href="/fr/templates/top-ai-research-agent/">version complete</a> ajoute les sources et
+          les citations.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="ch">
+  <div class="gains">
+    <h2>Ce que vous gagnez une fois tout cela repare</h2>
+    <p class="lede">Rien de tout cela n'est une limitation de Notion. Ce sont des decisions de
+      configuration, et chacune est reversible.</p>
+    <div class="gain-grid">
+      <div class="gain">
+        <h3>Vous cessez de chercher les choses</h3>
+        <p>Un seul endroit detient la reponse. Le cout quotidien de verifier cinq outils pour
+          trouver un chiffre disparait, et il ne revient pas quand l'equipe grandit.</p>
+      </div>
+      <div class="gain">
+        <h3>Vous cessez de payer des sieges inutilises</h3>
+        <p>Les membres editent, les invites lisent, et les invites sont gratuits. La plupart des
+          espaces paient trop, et l'audit qui repare cela prend 20 minutes.</p>
+      </div>
+      <div class="gain">
+        <h3>Vos chiffres deviennent fiables</h3>
+        <p>Des bases reliees et des rollups signifient une saisie unique lue partout. Fini les
+          quatre orthographes du meme nom de client.</p>
+      </div>
+      <div class="gain">
+        <h3>Le systeme survit au troisieme mois</h3>
+        <p>Partez d'un template, coupez ce que vous n'utilisez pas, ajoutez une chose par semaine.
+          C'est la difference entre un espace que vous gardez et un que vous abandonnez.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ch-cta">
+    <div>
+      <h2>Vous en reconnaissez plus de deux ?</h2>
+      <p>La plupart des espaces en ont quatre ou cinq en meme temps, et ils se cumulent. Dites-moi
+        ce que vous essayez de faire tourner et je vous dirai franchement si cela correspond.</p>
+      <p class="also">Vous preferez d'abord parcourir ? <a href="/fr/templates/">Voir les templates</a>
+        ou lire le <a href="/fr/guide/">guide Notion</a>.</p>
+    </div>
+    <div><a class="btn" href="/fr/start/">Commencer</a></div>
+  </div>
+</div>
+
+{% include shop-footer.html %}

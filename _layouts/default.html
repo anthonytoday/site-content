@@ -47,7 +47,7 @@
     {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"ISO 27001 Lead Implementer"},
     {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"Notion Certified Consultant","recognizedBy":{"@type":"Organization","name":"Notion"}}
    ],
-   "sameAs":["https://www.linkedin.com/in/anthony-kieffer/","https://www.notion.com/@anthonytoday","https://www.notion.so/consulting-partners/anthonytoday"],
+   "sameAs":["https://www.linkedin.com/in/anthony-kieffer/","https://www.notion.com/@anthonytoday","https://certs.notion.so/5c2a6cd2c3b14e83a585c1dedb40852d"],
    "worksFor":{"@id":"https://www.anthonytoday.com/#business"}
   },
   {
@@ -63,7 +63,7 @@
    "priceRange":"$79-$20000",
    "availableLanguage":["en","fr"],
    "areaServed":[{"@type":"Country","name":"Luxembourg"},{"@type":"Country","name":"Switzerland"},{"@type":"Country","name":"United States"},{"@type":"Country","name":"United Arab Emirates"},{"@type":"Country","name":"France"},{"@type":"Country","name":"Belgium"}],
-   "sameAs":["https://www.linkedin.com/in/anthony-kieffer/","https://www.notion.com/@anthonytoday","https://www.notion.so/consulting-partners/anthonytoday"],
+   "sameAs":["https://www.linkedin.com/in/anthony-kieffer/","https://www.notion.com/@anthonytoday","https://certs.notion.so/5c2a6cd2c3b14e83a585c1dedb40852d"],
    "hasOfferCatalog":{
     "@type":"OfferCatalog",
     "name":{% if lang == "fr" %}"Prestations"{% else %}"Services"{% endif %},
@@ -197,11 +197,11 @@
       <div class="nav-item">
         <a href="{{ u_notion }}"{% if page.url == u_notion %} aria-current="page"{% endif %}>Notion</a>
         <div class="sub">
-          {% if lang != "fr" %}<a href="{{ u_challenges }}"{% if page.url == u_challenges %} aria-current="page"{% endif %}>Top 10 Questions</a>
-          {% endif %}<a href="{{ u_guide }}"{% if page.url == u_guide %} aria-current="page"{% endif %}>{% if lang == "fr" %}Guides{% else %}Guide{% endif %}</a>
+          <a href="{{ u_challenges }}"{% if page.url == u_challenges %} aria-current="page"{% endif %}>{% if lang == "fr" %}Top 10 questions{% else %}Top 10 Questions{% endif %}</a>
+          <a href="{{ u_guide }}"{% if page.url == u_guide %} aria-current="page"{% endif %}>{% if lang == "fr" %}Guides{% else %}Guide{% endif %}</a>
           <a href="{{ u_usecase }}"{% if page.url == u_usecase %} aria-current="page"{% endif %}>{% if lang == "fr" %}Cas clients{% else %}Use Cases{% endif %}</a>
           <a href="{{ u_sprint }}"{% if page.url == u_sprint %} aria-current="page"{% endif %}>{% if lang == "fr" %}Offre Immobilier{% else %}Real Estate Offer{% endif %}</a>
-          {% if lang != "fr" %}<a href="{{ u_templates }}"{% if page.url == u_templates %} aria-current="page"{% endif %}>eShop</a>{% endif %}
+          <a href="{{ u_templates }}"{% if page.url == u_templates %} aria-current="page"{% endif %}>eShop</a>
         </div>
       </div>
 
