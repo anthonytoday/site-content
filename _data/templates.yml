@@ -33,6 +33,12 @@
   page: /templates/cpa-exam-prep/
   page_fr: /fr/templates/cpa-exam-prep/
   tags: [cpa, exam, study, accounting]
+  gallery:
+    - https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/4a785e80-2096-403f-a857-d9a9213c721c/1765353009742/desktop.jpg
+  video:
+    id: cetcAXvyIpc
+    thumb: https://i.ytimg.com/vi/cetcAXvyIpc/hqdefault.jpg
+    title: Master CPA Exam with Notion Template
   en:
     title: CPA Exam Prep, Complete Study System
     blurb: All six CPA sections with flashcards, practice questions and progress tracking.

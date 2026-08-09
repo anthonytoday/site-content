@@ -61,12 +61,38 @@
       D'autres captures et une video de presentation sont en cours de production. Achetez avec le
       remboursement 14 jours en attendant, ou <a href="/fr/contact/">posez-moi vos questions avant</a>.
       {%- else -%}
-      More screenshots and a walkthrough video are being produced. Buy with the 14-day refund in the
-      meantime, or <a href="/contact/">ask me anything first</a>.
+      {%- if t.video -%}Watch the walkthrough below. More screenshots are on the way, so buy with the 14-day refund in the{%- else -%}More screenshots and a walkthrough video are being produced. Buy with the 14-day refund in the
+      meantime, or <a href="/contact/">ask me anything first</a>.{%- endif -%}
       {%- endif -%}
     {%- endif -%}
   </p></div>
 </div>
+
+{%- if t.video -%}
+<style>
+  .vid-card{margin-top:22px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--white)}
+  .vid-card a{display:block;position:relative;text-decoration:none}
+  .vid-card img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+  .vid-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+  .vid-play span{width:62px;height:62px;border-radius:50%;background:rgba(5,28,44,.82);
+    display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;padding-left:4px;
+    transition:background .18s,transform .18s}
+  .vid-card a:hover .vid-play span{background:var(--blue);transform:scale(1.06)}
+  .vid-meta{padding:13px 16px;font-size:13.5px;color:var(--text-gray);line-height:1.6}
+  .vid-meta b{color:var(--navy);display:block;font-size:14.5px;margin-bottom:2px}
+</style>
+<div class="vid-card">
+  <a href="https://www.youtube.com/watch?v={{ t.video.id }}" target="_blank" rel="noopener"
+     aria-label="{% if L == 'fr' %}Voir la video de presentation{% else %}Watch the walkthrough video{% endif %}">
+    <img src="{{ t.video.thumb }}" alt="{{ t.video.title }}" loading="lazy" width="480" height="270" onerror="this.remove()">
+    <span class="vid-play" aria-hidden="true"><span>&#9654;</span></span>
+  </a>
+  <div class="vid-meta">
+    <b>{% if L == "fr" %}Video de presentation{% else %}Walkthrough video{% endif %}</b>
+    {{ t.video.title }}{% if L == "fr" %} &middot; sur YouTube{% else %} &middot; on YouTube{% endif %}
+  </div>
+</div>
+{%- endif -%}
 
 {%- if nslides > 0 -%}
 <div class="lb" id="lb" hidden aria-hidden="true" role="dialog" aria-modal="true"
