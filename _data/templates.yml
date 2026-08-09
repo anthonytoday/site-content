@@ -327,7 +327,9 @@
   - accounting
   - flashcards
   gallery:
-  - https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/4a785e80-2096-403f-a857-d9a9213c721c/1765353009742/desktop.jpg
+  - /assets/templates/cpa-exam-prep/desktop/01.webp
+  mobile:
+  - /assets/templates/cpa-exam-prep/mobile/01.jpg
   video:
     id: cetcAXvyIpc
     thumb: https://i.ytimg.com/vi/cetcAXvyIpc/hqdefault.jpg
@@ -795,3 +797,192 @@
     title: Data room investisseurs
     blurb: Pipeline d'operations, checklists de due diligence et coffre documentaire pret pour le preteur.
   rank: 300
+
+- id: cpa-exam-prep-lite
+  status: live
+  free: true
+  category: study
+  marketplace: https://www.notion.com/templates/cpa-exam-study-plan-lite
+  page: /templates/cpa-exam-prep-lite/
+  page_fr: /fr/templates/cpa-exam-prep-lite/
+  tags:
+  - cpa
+  - exam
+  - study
+  - accounting
+  - free
+  cover: /assets/templates/cpa-exam-prep-lite/cover.webp
+  gallery:
+  - /assets/templates/cpa-exam-prep-lite/desktop/01.webp
+  - /assets/templates/cpa-exam-prep-lite/desktop/02.webp
+  mobile:
+  - /assets/templates/cpa-exam-prep-lite/mobile/01.jpg
+  - /assets/templates/cpa-exam-prep-lite/mobile/02.jpg
+  upsell: cpa-exam-prep
+  en:
+    title: CPA Exam Prep, Study Plan Ready (Lite)
+    blurb: A working CPA study plan you can start tonight. Free.
+    upsell_hook: Need all six sections?
+    upsell_body: CPA Exam Prep Complete adds every section, flashcards and a practice question log.
+  fr:
+    title: 'CPA Exam Prep, plan d''etude (Lite)'
+    blurb: 'Un plan d''etude CPA utilisable des ce soir. Gratuit.'
+    upsell_hook: Besoin des six sections ?
+    upsell_body: CPA Exam Prep Complete ajoute toutes les sections, les fiches et le journal de questions.
+  rank: 95
+
+- id: cism-exam-prep
+  status: live
+  category: grc
+  price: 59
+  marketplace: https://www.notion.com/templates/cism-exam-study-plan
+  page: /templates/cism-exam-prep/
+  page_fr: /fr/templates/cism-exam-prep/
+  tags:
+  - cism
+  - security
+  - certification
+  - isaca
+  - study
+  cover: /assets/templates/cism-exam-prep/cover.webp
+  gallery:
+  - /assets/templates/cism-exam-prep/desktop/01.webp
+  - /assets/templates/cism-exam-prep/desktop/02.webp
+  - /assets/templates/cism-exam-prep/desktop/03.webp
+  mobile:
+  - /assets/templates/cism-exam-prep/mobile/01.jpg
+  - /assets/templates/cism-exam-prep/mobile/02.jpg
+  - /assets/templates/cism-exam-prep/mobile/03.jpg
+  en:
+    title: CISM Exam, Complete Study System
+    blurb: All four management domains, flashcards and pace tracking.
+  fr:
+    title: 'CISM, systeme d''etude complet'
+    blurb: Les quatre domaines de management, fiches et suivi du rythme.
+  rank: 132
+
+- id: crisc-exam-prep
+  status: live
+  category: grc
+  price: 59
+  marketplace: https://www.notion.com/templates/crisc-exam-study-plan
+  page: /templates/crisc-exam-prep/
+  page_fr: /fr/templates/crisc-exam-prep/
+  tags:
+  - crisc
+  - risk
+  - certification
+  - isaca
+  - study
+  cover: /assets/templates/crisc-exam-prep/cover.webp
+  gallery:
+  - /assets/templates/crisc-exam-prep/desktop/01.webp
+  - /assets/templates/crisc-exam-prep/desktop/02.webp
+  mobile:
+  - /assets/templates/crisc-exam-prep/mobile/01.jpg
+  - /assets/templates/crisc-exam-prep/mobile/02.jpg
+  en:
+    title: CRISC Exam, Complete Study System
+    blurb: All four risk domains, flashcards and pace tracking.
+  fr:
+    title: 'CRISC, systeme d''etude complet'
+    blurb: Les quatre domaines de risque, fiches et suivi du rythme.
+  rank: 134
+
+- id: comptia-security-plus-lite
+  status: live
+  free: true
+  category: grc
+  marketplace: https://www.notion.com/templates/comptia-security-v7-exam-study-plan-lite
+  page: /templates/comptia-security-plus-lite/
+  page_fr: /fr/templates/comptia-security-plus-lite/
+  tags:
+  - comptia
+  - security
+  - certification
+  - sy0-701
+  - free
+  cover: /assets/templates/comptia-security-plus-lite/cover.webp
+  gallery:
+  - /assets/templates/comptia-security-plus-lite/desktop/01.webp
+  - /assets/templates/comptia-security-plus-lite/desktop/02.webp
+  mobile:
+  - /assets/templates/comptia-security-plus-lite/mobile/01.jpg
+  - /assets/templates/comptia-security-plus-lite/mobile/02.jpg
+  upsell: comptia-security-plus
+  en:
+    title: CompTIA Security+ Prep, V7 Path (Lite)
+    blurb: A working Security+ study plan you can start tonight. Free.
+    upsell_hook: Need all five domains?
+    upsell_body: CompTIA Security+ Complete adds every SY0-701 domain, flashcards and a practice question log.
+  fr:
+    title: CompTIA Security+ Prep, parcours V7 (Lite)
+    blurb: 'Un plan d''etude Security+ utilisable des ce soir. Gratuit.'
+    upsell_hook: Besoin des cinq domaines ?
+    upsell_body: CompTIA Security+ Complete ajoute tous les domaines SY0-701, les fiches et le journal de questions.
+  rank: 136
+
+- id: comptia-security-plus
+  status: live
+  category: grc
+  price: 49
+  marketplace: https://www.notion.com/templates/comptia-security-v7-exam-study-plan
+  page: /templates/comptia-security-plus/
+  page_fr: /fr/templates/comptia-security-plus/
+  tags:
+  - comptia
+  - security
+  - certification
+  - sy0-701
+  - study
+  cover: /assets/templates/comptia-security-plus/cover.webp
+  gallery:
+  - /assets/templates/comptia-security-plus/desktop/01.webp
+  - /assets/templates/comptia-security-plus/desktop/02.webp
+  mobile:
+  - /assets/templates/comptia-security-plus/mobile/01.jpg
+  - /assets/templates/comptia-security-plus/mobile/02.jpg
+  en:
+    title: CompTIA Security+, Pass SY0-701 Fast
+    blurb: Every SY0-701 domain as study sessions, with flashcards and pace tracking.
+  fr:
+    title: CompTIA Security+, reussir SY0-701 vite
+    blurb: 'Chaque domaine SY0-701 en sessions d''etude, avec fiches et suivi du rythme.'
+  rank: 138
+
+- id: creative-studio
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/creative-studio-company-hub
+  page: /templates/creative-studio/
+  page_fr: /fr/templates/creative-studio/
+  tags:
+  - creative
+  - projects
+  - clients
+  - studio
+  - free
+  cover: /assets/templates/creative-studio/cover.webp
+  gallery:
+  - /assets/templates/creative-studio/desktop/01.webp
+  - /assets/templates/creative-studio/desktop/02.webp
+  - /assets/templates/creative-studio/desktop/03.webp
+  - /assets/templates/creative-studio/desktop/04.webp
+  mobile:
+  - /assets/templates/creative-studio/mobile/01.jpg
+  - /assets/templates/creative-studio/mobile/02.jpg
+  - /assets/templates/creative-studio/mobile/03.jpg
+  - /assets/templates/creative-studio/mobile/04.jpg
+  upsell: ultimate-business-dashboard
+  en:
+    title: Creative Studio, Manage Projects and Clients
+    blurb: Projects, clients, deliverables and invoices for a studio, in one workspace.
+    upsell_hook: Outgrowing a studio hub?
+    upsell_body: Ultimate Business Dashboard adds pipeline, contracts, recruiting, team profiles and full finances.
+  fr:
+    title: Creative Studio, projets et clients
+    blurb: 'Projets, clients, livrables et factures d''un studio, dans un seul espace.'
+    upsell_hook: Un studio devenu trop grand ?
+    upsell_body: Ultimate Business Dashboard ajoute le pipeline, les contrats, le recrutement, les profils et les finances completes.
+  rank: 205

@@ -32,8 +32,17 @@
 {%- else -%}
       <p class="pd-price">${{ t.price }}</p>
       <p class="pd-vat">{% if L == "fr" %}Paiement unique. TVA ajoutee au paiement le cas echeant.{% else %}One-time payment. VAT added at checkout where applicable.{% endif %}</p>
+  {%- comment -%} A paid listing with no Stripe link yet must never render an empty href.
+      Fall back to the Marketplace listing, where the same template is on sale at the
+      same price today, and say so plainly. Remove nothing: adding `stripe:` to the
+      catalogue entry silently switches this back to native checkout. {%- endcomment -%}
+  {%- if t.stripe and t.stripe != "" -%}
       <a class="btn btn-block" href="{{ t.stripe }}" rel="noopener">{% if L == "fr" %}Acheter{% else %}Buy now{% endif %} &nbsp;&middot;&nbsp; ${{ t.price }}</a>
       <p class="stripe-note">{% if L == "fr" %}Paiement securise par Stripe. Carte, Apple Pay, Google Pay, Link.{% else %}Secure checkout by Stripe. Card, Apple Pay, Google Pay, Link.{% endif %}</p>
+  {%- elsif t.marketplace -%}
+      <a class="btn btn-block" href="{{ t.marketplace }}" target="_blank" rel="noopener">{% if L == "fr" %}Acheter sur le Notion Marketplace{% else %}Buy on the Notion Marketplace{% endif %} &nbsp;&middot;&nbsp; ${{ t.price }}</a>
+      <p class="stripe-note">{% if L == "fr" %}Paiement et livraison geres par Notion. Checkout direct bientot disponible ici.{% else %}Payment and delivery handled by Notion. Direct checkout is coming here shortly.{% endif %}</p>
+  {%- endif -%}
 {%- endif -%}
 
 {%- comment -%} Upgrade band. Title, price, page and thumbnail are read from the target
