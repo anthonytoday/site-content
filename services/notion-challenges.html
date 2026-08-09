@@ -1,113 +1,168 @@
 ---
 layout: default
-title: "The 10 Notion Challenges That Come Up Most | Anthony Today"
-description: "The ten problems clients bring to a Notion setup session, ranked by how often they come up across 457 sessions, each with the fix and the template to start from."
+title: "The 10 Questions Clients Ask Most About Notion | Anthony Today"
+description: "The ten questions clients ask me most about Notion, what is really going on behind each one, and the answer you can apply this week."
 permalink: /notion/challenges/
 lang: en
 schema_type: "WebPage"
 bc_parent_url: /notion/
 bc_parent_name: "Notion Consulting"
-bc_name: "Top 10 Notion Challenges"
+bc_name: "Top 10 Notion Questions"
 ---
 {% include shop-styles.html %}
 <style>
-  .ch{max-width:860px;margin:0 auto;padding:0 20px}
-  .ch-hero{padding:52px 0 8px}
-  .ch-hero h1{font-size:38px;font-weight:600;line-height:1.16;margin:10px 0 16px}
-  .ch-hero p{font-size:16.5px;color:var(--text-gray);line-height:1.75;margin-bottom:14px}
-  .method{background:var(--light-gray);border-radius:10px;padding:18px 20px;margin:22px 0 6px}
-  .method p{margin:0;font-size:14.5px;color:var(--navy);line-height:1.7}
-  .toc{border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-    padding:22px 0;margin:34px 0 6px}
-  .toc h2{font-size:15px;margin-bottom:12px}
-  .toc ol{margin:0;padding-left:20px;columns:2;column-gap:36px}
-  .toc li{font-size:14.5px;line-height:1.9;color:var(--text-gray)}
-  .toc a{color:var(--navy)}
+  /* Editorial layout: hairline rules, a wide number gutter, and one accent color.
+     Palette is the site's existing navy/blue, no new tokens. */
+  .ch{max-width:1080px;margin:0 auto;padding:0 32px}
+  .ch-narrow{max-width:760px}
+
+  /* hero */
+  .ch-hero{padding:72px 0 0}
+  .ch-hero h1{font-size:52px;font-weight:500;line-height:1.08;letter-spacing:-1.4px;
+    margin:14px 0 26px;max-width:15ch}
+  .ch-hero .lede{font-size:20px;line-height:1.6;color:var(--navy);max-width:62ch;
+    font-weight:400;margin-bottom:14px}
+  .ch-hero .sub{font-size:16px;line-height:1.75;color:var(--text-gray);max-width:62ch}
+  .rule{height:1px;background:var(--border);margin:44px 0 0}
+
+  /* method note, McKinsey-style sidenote rather than a filled box */
+  .method{display:grid;grid-template-columns:150px 1fr;gap:40px;padding:26px 0 0}
+  .method .lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;
+    color:var(--text-gray);padding-top:3px}
+  .method p{margin:0;font-size:14.5px;color:var(--text-gray);line-height:1.75;max-width:64ch}
+
+  /* index */
+  .toc{padding:52px 0 0}
+  .toc .eyebrow{margin-bottom:22px;display:block}
+  .toc ol{list-style:none;margin:0;padding:0;
+    display:grid;grid-template-columns:1fr 1fr;column-gap:56px}
+  .toc li{border-top:1px solid var(--border)}
+  .toc a{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:baseline;
+    padding:15px 0;font-size:16px;color:var(--navy);transition:color .15s}
   .toc a:hover{color:var(--blue)}
-  .item{display:grid;grid-template-columns:52px 1fr;gap:22px;padding:36px 0;
+  .toc .n{font-size:12.5px;font-weight:600;color:var(--blue);letter-spacing:.5px}
+
+  /* the ten */
+  .items{padding-top:64px}
+  .item{display:grid;grid-template-columns:150px 1fr;gap:40px;
+    padding:56px 0;border-top:1px solid var(--border)}
+  .item-col{position:sticky;top:96px;align-self:start}
+  .item-n{display:block;font-size:58px;font-weight:200;line-height:.9;
+    color:var(--blue);letter-spacing:-2.5px;font-variant-numeric:tabular-nums}
+  .item-body{max-width:66ch}
+  .item h2{font-size:31px;font-weight:500;line-height:1.2;letter-spacing:-.6px;
+    margin:0 0 30px;color:var(--navy)}
+
+  /* section labels: quiet small caps on a hairline, not colored headers */
+  .item h3{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;
+    color:var(--text-gray);margin:34px 0 14px;padding-top:14px;
     border-top:1px solid var(--border)}
-  .item-n{width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;
-    font-size:18px;font-weight:700;display:flex;align-items:center;justify-content:center}
-  .item h2{font-size:22px;line-height:1.3;margin:6px 0 14px}
-  .item h3{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;
-    color:var(--blue);margin:20px 0 8px}
-  .item p{font-size:15px;color:var(--text-gray);line-height:1.75;margin-bottom:10px}
-  .item ul{margin:0 0 10px 18px}
-  .item li{font-size:15px;color:var(--text-gray);line-height:1.75;margin-bottom:6px}
-  .said{border-left:3px solid var(--green);padding:4px 0 4px 16px;margin:0 0 6px}
-  .said p{font-size:15px;color:var(--navy);font-style:italic;margin-bottom:8px}
+  .item h3:first-of-type{margin-top:0}
+  .item p{font-size:16px;color:var(--navy);line-height:1.72;margin-bottom:14px}
+  .item ul{margin:0;padding:0;list-style:none}
+  .item li{font-size:16px;color:var(--navy);line-height:1.72;padding:11px 0 11px 26px;
+    position:relative;border-bottom:1px solid var(--border)}
+  .item li:last-child{border-bottom:0}
+  .item li::before{content:"";position:absolute;left:0;top:20px;
+    width:11px;height:1px;background:var(--blue)}
+
+  /* pull quote */
+  .said{border-left:2px solid var(--blue);padding:2px 0 2px 24px;margin:0}
+  .said p{font-size:19px;line-height:1.55;color:var(--navy);margin-bottom:16px;
+    letter-spacing:-.2px}
   .said p:last-child{margin-bottom:0}
-  .freq{display:inline-block;background:var(--light-gray);border-radius:20px;
-    padding:5px 13px;font-size:12.5px;font-weight:600;color:var(--navy)}
-  .start{background:var(--light-gray);border-radius:10px;padding:16px 18px;margin-top:16px}
-  .start p{margin:0;font-size:14.5px;color:var(--navy);line-height:1.7}
+
+  /* recommendation */
+  .start{border:1px solid var(--border);border-left:3px solid var(--navy);
+    padding:20px 24px;margin-top:34px;background:#FBFCFD}
+  .start p{margin:0;font-size:15px;color:var(--navy);line-height:1.7}
   .start a{color:var(--blue);font-weight:600}
-  .gains{border-top:1px solid var(--border);padding:40px 0 6px;margin-top:14px}
-  .gains h2{font-size:24px;margin-bottom:8px}
-  .gains p.lede{font-size:15.5px;color:var(--text-gray);line-height:1.75;margin-bottom:22px}
-  .gain-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-  .gain{border:1px solid var(--border);border-radius:10px;padding:20px}
-  .gain h3{font-size:16px;margin-bottom:8px}
+  .start a:hover{text-decoration:underline}
+
+  /* outcomes */
+  .gains{border-top:1px solid var(--border);padding:64px 0 0;margin-top:0}
+  .gains h2{font-size:34px;font-weight:500;letter-spacing:-.8px;margin-bottom:12px}
+  .gains p.lede{font-size:17px;color:var(--text-gray);line-height:1.7;
+    margin-bottom:44px;max-width:60ch}
+  .gain-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0 36px}
+  .gain{border-top:2px solid var(--navy);padding-top:20px}
+  .gain h3{font-size:17px;font-weight:600;margin-bottom:10px;line-height:1.35}
   .gain p{font-size:14.5px;color:var(--text-gray);line-height:1.7;margin:0}
-  .ch-cta{text-align:center;padding:44px 0 10px;border-top:1px solid var(--border);margin-top:34px}
-  .ch-cta h2{font-size:23px;margin-bottom:10px}
-  .ch-cta p{font-size:15px;color:var(--text-gray);margin-bottom:18px;line-height:1.75}
-  @media(max-width:640px){
-    .ch{padding:0 18px}
-    .ch-hero{padding:30px 0 6px}
-    .ch-hero h1{font-size:27px}
-    .toc ol{columns:1}
-    .item{grid-template-columns:1fr;gap:12px;padding:28px 0}
-    .item-n{width:38px;height:38px;font-size:16px}
-    .item h2{font-size:20px}
-    .gain-grid{grid-template-columns:1fr}
+
+  /* close */
+  .ch-cta{border-top:1px solid var(--border);margin-top:64px;padding:56px 0 20px;
+    display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+  .ch-cta h2{font-size:28px;font-weight:500;letter-spacing:-.5px;margin-bottom:12px}
+  .ch-cta p{font-size:16px;color:var(--text-gray);line-height:1.7;margin:0;max-width:56ch}
+  .ch-cta .also{margin-top:16px;font-size:14.5px}
+  .ch-cta .also a{color:var(--blue);font-weight:600}
+
+  @media(max-width:960px){
+    .gain-grid{grid-template-columns:1fr 1fr;gap:32px 32px}
+    .item{grid-template-columns:96px 1fr;gap:26px}
+    .item-n{font-size:44px}
+    .method{grid-template-columns:110px 1fr;gap:24px}
+  }
+  @media(max-width:768px){
+    .ch{padding:0 20px}
+    .ch-hero{padding:38px 0 0}
+    .ch-hero h1{font-size:33px;letter-spacing:-.8px;max-width:none}
+    .ch-hero .lede{font-size:17.5px}
+    .toc ol{grid-template-columns:1fr}
+    .items{padding-top:38px}
+    .item{grid-template-columns:1fr;gap:14px;padding:38px 0}
+    .item-col{position:static}
+    .item-n{font-size:34px}
+    .item h2{font-size:24px;margin-bottom:22px}
+    .item p,.item li{font-size:15.5px}
+    .said p{font-size:17px}
+    .method{grid-template-columns:1fr;gap:10px}
+    .gains{padding-top:44px}
+    .gains h2{font-size:26px}
+    .gain-grid{grid-template-columns:1fr;gap:28px}
+    .ch-cta{grid-template-columns:1fr;gap:24px;padding:40px 0 10px}
+    .ch-cta h2{font-size:23px}
   }
 </style>
 
 <div class="ch ch-hero">
-  <div class="eyebrow">Notion, Top 10 Challenges</div>
-  <h1>The ten problems that come up in almost every Notion session</h1>
-  <p>I run free Notion setup sessions as a Certified Notion Consultant. Different countries,
-     different industries, same ten problems. This page lists them in order of how often they
-     come up, explains why each one stops people, and gives you the fix.</p>
-  <p>Every fix is something you can do this week. Where a template gets you there faster,
-     I name it.</p>
+  <div class="eyebrow">Notion, Top 10 Questions</div>
+  <h1>The ten questions clients ask me most about Notion</h1>
+  <p class="lede">Different countries, different industries, same ten questions. Here is each one
+     in the words clients use, what is really going on behind it, and the answer I give.</p>
+  <p class="sub">Every answer is something you can apply this week. Where a template gets you
+     there faster, I name it. If you are new to Notion, or moving to it from another tool, read
+     it top to bottom.</p>
 
-  <div class="method">
-    <p><strong>Where this comes from.</strong> 457 recorded setup sessions between January and
-      July 2026, across 50+ countries. Quotes are taken from what clients wrote or said in
-      those sessions. The ranking reflects how often each theme appears across all 457 records,
-      not my opinion of what matters.</p>
-  </div>
+  <div class="rule"></div>
 </div>
 
 <div class="ch">
   <div class="toc">
-    <h2>The ten, in order</h2>
+    <span class="eyebrow">The questions</span>
     <ol>
-      <li><a href="#c1">I do not know where to start</a></li>
-      <li><a href="#c2">My work is spread across five tools</a></li>
-      <li><a href="#c3">Tasks and projects fall through the cracks</a></li>
-      <li><a href="#c4">I need a CRM and I have nothing</a></li>
-      <li><a href="#c5">My databases will not talk to each other</a></li>
-      <li><a href="#c6">I am paying for seats I do not use</a></li>
-      <li><a href="#c7">I need to share pages without adding everyone</a></li>
-      <li><a href="#c8">Nothing reminds me when something is due</a></li>
-      <li><a href="#c9">Notion is slow, or it stopped letting me add pages</a></li>
-      <li><a href="#c10">I want AI to do the work and it is not</a></li>
+      <li><a href="#c1"><span class="n">01</span><span>Where do I start without building everything from scratch?</span></a></li>
+      <li><a href="#c2"><span class="n">02</span><span>How do I get everything into one place?</span></a></li>
+      <li><a href="#c3"><span class="n">03</span><span>How do I run tasks and projects across a team?</span></a></li>
+      <li><a href="#c4"><span class="n">04</span><span>How do I build a CRM in Notion?</span></a></li>
+      <li><a href="#c5"><span class="n">05</span><span>Why will my databases not talk to each other?</span></a></li>
+      <li><a href="#c6"><span class="n">06</span><span>Why am I paying for seats nobody uses?</span></a></li>
+      <li><a href="#c7"><span class="n">07</span><span>How do I share pages without adding everyone?</span></a></li>
+      <li><a href="#c8"><span class="n">08</span><span>How do I get reminded when something is due?</span></a></li>
+      <li><a href="#c9"><span class="n">09</span><span>Why is Notion slow, or blocking new pages?</span></a></li>
+      <li><a href="#c10"><span class="n">10</span><span>What can Notion AI and agents actually do?</span></a></li>
     </ol>
   </div>
 </div>
 
-<div class="ch">
+<div class="ch items">
 
   <div class="item" id="c1">
-    <div><span class="item-n">1</span></div>
-    <div>
-      <span class="freq">Appears in 118 of 457 sessions</span>
+    <div class="item-col"><span class="item-n">01</span></div>
+    <div class="item-body">
       <h2>You want a system, and a blank page is not one</h2>
 
-      <h3>In their words</h3>
+      <h3>What clients ask</h3>
       <div class="said">
         <p>"Learn what I'm doing right and wrong. See if I can get to the next step in my journey
           to use Notion to manage my life."</p>
@@ -115,14 +170,14 @@ bc_name: "Top 10 Notion Challenges"
         <p>"Need help to structure."</p>
       </div>
 
-      <h3>Why it blocks you</h3>
+      <h3>What is really going on</h3>
       <p>Notion opens on an empty page and asks you to invent everything at once: the structure,
         the naming, the properties, the views. Most people build something ambitious in week one,
         find it too heavy to maintain by week three, and quietly stop opening it.</p>
       <p>The cost is not the wasted evening. It is that you conclude Notion does not work for you
         when what failed was the blank page.</p>
 
-      <h3>What to do instead</h3>
+      <h3>What I tell them</h3>
       <ul>
         <li>Start from a finished template that matches your use case. A good one covers about
           80% of what you need on day one.</li>
@@ -142,12 +197,11 @@ bc_name: "Top 10 Notion Challenges"
   </div>
 
   <div class="item" id="c2">
-    <div><span class="item-n">2</span></div>
-    <div>
-      <span class="freq">Appears in 104 of 457 sessions</span>
+    <div class="item-col"><span class="item-n">02</span></div>
+    <div class="item-body">
       <h2>One place to look, instead of five tabs and a guess</h2>
 
-      <h3>In their words</h3>
+      <h3>What clients ask</h3>
       <div class="said">
         <p>"Current workflow spreads across Excel, HubSpot, and Nirvana, causing fragmented task,
           contact, and deal tracking."</p>
@@ -156,14 +210,14 @@ bc_name: "Top 10 Notion Challenges"
         <p>"Replace siloed Excel workflows with an interactive Notion setup."</p>
       </div>
 
-      <h3>Why it blocks you</h3>
+      <h3>What is really going on</h3>
       <p>Every extra tool adds one more place the answer hides. You stop trusting any single
         view, so you check all of them. That tax gets paid every day, and it gets worse as the
         team grows.</p>
       <p>People then try to move everything into Notion in one weekend, run out of energy halfway,
         and end up with six tools instead of five.</p>
 
-      <h3>What to do instead</h3>
+      <h3>What I tell them</h3>
       <ul>
         <li>Move one workflow first. Pick the one that hurts most, get it fully working, then
           move the next.</li>
@@ -184,12 +238,11 @@ bc_name: "Top 10 Notion Challenges"
   </div>
 
   <div class="item" id="c3">
-    <div><span class="item-n">3</span></div>
-    <div>
-      <span class="freq">Appears in 86 of 457 sessions</span>
+    <div class="item-col"><span class="item-n">03</span></div>
+    <div class="item-body">
       <h2>Everyone sees their own work, you see all of it</h2>
 
-      <h3>In their words</h3>
+      <h3>What clients ask</h3>
       <div class="said">
         <p>"Best way to assign tasks to team members, track project progress, and understand how
           permissions work for different users or teams."</p>
@@ -198,13 +251,13 @@ bc_name: "Top 10 Notion Challenges"
         <p>"Info lost in team collaboration. Tasks disappear from the shared view."</p>
       </div>
 
-      <h3>Why it blocks you</h3>
+      <h3>What is really going on</h3>
       <p>The common failure is a separate task list per person or per project. Nothing rolls up,
         so the only way to know where a project stands is to ask three people.</p>
       <p>The second failure is subtler. Someone edits a filter on a shared view, work vanishes
         from everyone's screen, and the team loses trust in the system within a week.</p>
 
-      <h3>What to do instead</h3>
+      <h3>What I tell them</h3>
       <ul>
         <li>One Tasks database for the whole team. Never one per person, never one per project.</li>
         <li>Give each person a filtered view of that single database, filtered on Assignee equals
@@ -224,12 +277,11 @@ bc_name: "Top 10 Notion Challenges"
   </div>
 
   <div class="item" id="c4">
-    <div><span class="item-n">4</span></div>
-    <div>
-      <span class="freq">Appears in 76 of 457 sessions</span>
+    <div class="item-col"><span class="item-n">04</span></div>
+    <div class="item-body">
       <h2>Know who to follow up with today, without opening a spreadsheet</h2>
 
-      <h3>In their words</h3>
+      <h3>What clients ask</h3>
       <div class="said">
         <p>"Wants to build a CRM in Notion."</p>
         <p>"Crear un CRM simple y escalable. Actualmente no tienen ningun sistema de gestion de
@@ -238,13 +290,13 @@ bc_name: "Top 10 Notion Challenges"
           and clients."</p>
       </div>
 
-      <h3>Why it blocks you</h3>
+      <h3>What is really going on</h3>
       <p>Contacts in a phone, deals in a spreadsheet, notes in an inbox. Nothing connects, so
         follow-ups depend on memory. Deals go cold for no reason anyone can point to.</p>
       <p>The trap is building one giant table with forty columns. It is unreadable within a month
         and impossible to report on.</p>
 
-      <h3>What to do instead</h3>
+      <h3>What I tell them</h3>
       <ul>
         <li>Use three databases, not one: Contacts, Deals, Activities. Relate them.</li>
         <li>Put the pipeline stage on the Deal, not the Contact. One contact can have several
@@ -267,12 +319,11 @@ bc_name: "Top 10 Notion Challenges"
   </div>
 
   <div class="item" id="c5">
-    <div><span class="item-n">5</span></div>
-    <div>
-      <span class="freq">Appears in 68 of 457 sessions</span>
+    <div class="item-col"><span class="item-n">05</span></div>
+    <div class="item-body">
       <h2>Enter it once, see it everywhere it matters</h2>
 
-      <h3>In their words</h3>
+      <h3>What clients ask</h3>
       <div class="said">
         <p>"Tasks not syncing correctly between project and main task databases."</p>
         <p>"Rollup aggregations only fill one linked base, forcing double data entry."</p>
@@ -280,14 +331,14 @@ bc_name: "Top 10 Notion Challenges"
           duplicate client tables."</p>
       </div>
 
-      <h3>Why it blocks you</h3>
+      <h3>What is really going on</h3>
       <p>Without relations, the same client name gets typed into four tables. They drift, they
         get misspelled, and no number you produce can be trusted.</p>
       <p>The usual cause of a broken rollup is a one-way relation, or a rollup pointed at the
         wrong property. It looks like a Notion bug. It is a wiring problem, and it is fixable
         in minutes once you can see it.</p>
 
-      <h3>What to do instead</h3>
+      <h3>What I tell them</h3>
       <ul>
         <li>Make every relation two-way. Turn on "Show on" in the relation settings so both sides
           stay in sync.</li>
@@ -309,25 +360,24 @@ bc_name: "Top 10 Notion Challenges"
   </div>
 
   <div class="item" id="c6">
-    <div><span class="item-n">6</span></div>
-    <div>
-      <span class="freq">Appears in 44 of 457 sessions, and 17 of the 40 urgent ones</span>
+    <div class="item-col"><span class="item-n">06</span></div>
+    <div class="item-body">
       <h2>Pay for the people who edit, not for everyone who reads</h2>
 
-      <h3>In their words</h3>
+      <h3>What clients ask</h3>
       <div class="said">
         <p>"Doesn't understand why he's paying for 3 Notion members when he only has 1."</p>
         <p>"A $96 charge instead of the expected $24."</p>
         <p>"Guests were auto-converted to paid members and he was billed."</p>
       </div>
 
-      <h3>Why it blocks you</h3>
-      <p>This is the single biggest source of genuine urgency in the data. Not a business event,
-        billing. People already paying for Notion are paying for seats nobody uses.</p>
+      <h3>What is really going on</h3>
+      <p>This is the most expensive misunderstanding in Notion, and the most common. The people
+        it hits are already paying. They are paying for seats nobody uses.</p>
       <p>The cause is almost always the same. Everyone gets invited as a member, because member
         is the default, and every member consumes a paid license.</p>
 
-      <h3>What to do instead</h3>
+      <h3>What I tell them</h3>
       <ul>
         <li>Know the difference. Members consume a paid license. Guests edit specific pages you
           share with them, and guests are free.</li>
@@ -347,12 +397,11 @@ bc_name: "Top 10 Notion Challenges"
   </div>
 
   <div class="item" id="c7">
-    <div><span class="item-n">7</span></div>
-    <div>
-      <span class="freq">Appears in 50 of 457 sessions</span>
+    <div class="item-col"><span class="item-n">07</span></div>
+    <div class="item-body">
       <h2>Give people exactly the page they need, and nothing else</h2>
 
-      <h3>In their words</h3>
+      <h3>What clients ask</h3>
       <div class="said">
         <p>"Share per-hotel training pages with 70 hotels without adding each hotel as a
           workspace member."</p>
@@ -361,13 +410,13 @@ bc_name: "Top 10 Notion Challenges"
         <p>"Change member access levels so certain members are downgraded to guests."</p>
       </div>
 
-      <h3>Why it blocks you</h3>
+      <h3>What is really going on</h3>
       <p>People assume the only way to share is to add someone to the workspace. That is expensive,
         and it hands them a sidebar full of things they should not see.</p>
       <p>So they export to PDF instead. The PDF is out of date the moment it is sent, and you end
         up maintaining two versions of everything.</p>
 
-      <h3>What to do instead</h3>
+      <h3>What I tell them</h3>
       <ul>
         <li>Publish to web for read-only sharing with a wide audience. Anyone with the link can
           read it, and it updates itself.</li>
@@ -388,12 +437,11 @@ bc_name: "Top 10 Notion Challenges"
   </div>
 
   <div class="item" id="c8">
-    <div><span class="item-n">8</span></div>
-    <div>
-      <span class="freq">Appears in 39 of 457 sessions</span>
+    <div class="item-col"><span class="item-n">08</span></div>
+    <div class="item-body">
       <h2>The deadline finds you, instead of you finding the deadline</h2>
 
-      <h3>In their words</h3>
+      <h3>What clients ask</h3>
       <div class="said">
         <p>"Wants to use Notion to assign tasks and remind his team."</p>
         <p>"Expiry-date reminders and compliance tables."</p>
@@ -401,13 +449,13 @@ bc_name: "Top 10 Notion Challenges"
           personnalises et automatiques."</p>
       </div>
 
-      <h3>Why it blocks you</h3>
+      <h3>What is really going on</h3>
       <p>People assume a Date property sends an alert. It does not. Notion has no built-in
         due-date notification, so the date sits there and the deadline passes.</p>
       <p>You then keep a second reminder system in your phone, which is the fragmentation problem
         arriving through a side door.</p>
 
-      <h3>What to do instead</h3>
+      <h3>What I tell them</h3>
       <ul>
         <li>Use a Person property for assignment. Notion notifies the assignee natively when they
           are assigned, and that costs you nothing to set up.</li>
@@ -428,12 +476,11 @@ bc_name: "Top 10 Notion Challenges"
   </div>
 
   <div class="item" id="c9">
-    <div><span class="item-n">9</span></div>
-    <div>
-      <span class="freq">Appears in 13 of 457 sessions, and stops work when it does</span>
+    <div class="item-col"><span class="item-n">09</span></div>
+    <div class="item-body">
       <h2>A workspace that stays fast as your data grows</h2>
 
-      <h3>In their words</h3>
+      <h3>What clients ask</h3>
       <div class="said">
         <p>"Hit the 1000-block free-plan limit. Needed workspace restructuring to remove the
           limitation."</p>
@@ -441,14 +488,14 @@ bc_name: "Top 10 Notion Challenges"
         <p>"Concerns about Notion's performance with large databases and relation fields."</p>
       </div>
 
-      <h3>Why it blocks you</h3>
+      <h3>What is really going on</h3>
       <p>The 1,000-block limit is widely misunderstood. It applies only to free workspaces shared
         with two or more members. A private single-user free workspace has no block limit at all.
         People upgrade when they did not need to, or panic when they did not have to.</p>
       <p>Slowness is a different problem, and it is rarely Notion. It is a table displaying
         thousands of unfiltered rows with twenty visible properties.</p>
 
-      <h3>What to do instead</h3>
+      <h3>What I tell them</h3>
       <ul>
         <li>Check whether the limit even applies to you before upgrading. Shared and free is the
           only combination that triggers it.</li>
@@ -468,12 +515,11 @@ bc_name: "Top 10 Notion Challenges"
   </div>
 
   <div class="item" id="c10">
-    <div><span class="item-n">10</span></div>
-    <div>
-      <span class="freq">Appears in 30 of 457 sessions</span>
+    <div class="item-col"><span class="item-n">10</span></div>
+    <div class="item-body">
       <h2>AI that produces something you can use, at a cost you control</h2>
 
-      <h3>In their words</h3>
+      <h3>What clients ask</h3>
       <div class="said">
         <p>"Notion agent for weekly timesheet summaries consumes credits quickly. Inconsistent PDF
           formatting. Needs to audit and streamline agent instructions."</p>
@@ -481,14 +527,14 @@ bc_name: "Top 10 Notion Challenges"
         <p>"Streamline and automate their workflow and processes with AI."</p>
       </div>
 
-      <h3>Why it blocks you</h3>
+      <h3>What is really going on</h3>
       <p>People expect AI to design the system. It will not. Point it at a vague instruction and
         it produces a database that looks right and works badly, or it burns credits producing
         the same summary in a slightly different format every week.</p>
-      <p>Worth knowing: AI appears in only 30 of 457 client problem statements. It is a real need,
-        not the main one. Structure comes first.</p>
+      <p>The lesson clients take away: structure comes first. An agent built on a messy
+        workspace produces messy output faster.</p>
 
-      <h3>What to do instead</h3>
+      <h3>What I tell them</h3>
       <ul>
         <li>Know which tool you need. The chatbot answers questions and does bulk edits on demand.
           Custom agents run on a trigger or a schedule.</li>
@@ -542,13 +588,14 @@ bc_name: "Top 10 Notion Challenges"
   </div>
 
   <div class="ch-cta">
-    <h2>Recognize more than two of these?</h2>
-    <p>Most workspaces have four or five running at once, and they compound. Tell me what you are
-      trying to run and I will tell you straight whether it is a fit.</p>
-    <a class="btn" href="/start/">Start here</a>
-    <p style="margin-top:18px;font-size:14px">
-      Prefer to browse first? <a href="/templates/" style="color:var(--blue);font-weight:600">See the templates</a>
-      or read the <a href="/guide/" style="color:var(--blue);font-weight:600">Notion guide</a>.</p>
+    <div>
+      <h2>Recognize more than two of these?</h2>
+      <p>Most workspaces have four or five running at once, and they compound. Tell me what you
+        are trying to run and I will tell you straight whether it is a fit.</p>
+      <p class="also">Prefer to browse first? <a href="/templates/">See the templates</a>
+        or read the <a href="/guide/">Notion guide</a>.</p>
+    </div>
+    <div><a class="btn" href="/start/">Start here</a></div>
   </div>
 </div>
 
