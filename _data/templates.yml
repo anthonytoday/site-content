@@ -1445,6 +1445,7 @@
   status: live
   category: real-estate
   price: 39
+  stripe: https://pay.anthonytoday.com/b/dRm8wRfmMbYhaDN1yh1ZS0q
   marketplace: https://www.notion.com/templates/real-estate-portfolio-management-ultimate-dashboard
   page: /templates/real-estate-portfolio/
   page_fr: /fr/templates/real-estate-portfolio/

@@ -8,6 +8,7 @@ permalink: /sitemap.xml
 {%- assign pages = site.pages | where_exp: "p", "p.permalink" | sort: "permalink" -%}
 {%- for p in pages -%}
 {%- if p.permalink contains ".xml" or p.permalink contains ".txt" -%}{%- continue -%}{%- endif -%}
+{%- if p.sitemap == false -%}{%- continue -%}{%- endif -%}
 {%- if p.lang == "fr" -%}{%- assign en = p.alt_url -%}{%- assign fr = p.permalink -%}
 {%- else -%}{%- assign en = p.permalink -%}{%- assign fr = p.alt_url -%}{%- endif -%}
   <url>
