@@ -135,5 +135,10 @@
   }
 </style>
 <style>
-  .badge.best{background:#0B1B2B;color:#fff;border:0;font-weight:700;letter-spacing:.03em}
+  /* Featured listings are marked by the card frame itself, not a floating pill.
+     A 2px accent border plus a soft blue lift reads as "picked" without covering
+     the artwork the way the old Best seller badge did. */
+  .card.is-featured{border:2px solid var(--blue);box-shadow:0 10px 30px rgba(34,81,255,.13)}
+  .card.is-featured:hover{box-shadow:0 16px 40px rgba(34,81,255,.20)}
+  .card.is-featured .thumb{border-bottom:1px solid rgba(34,81,255,.18)}
 </style>

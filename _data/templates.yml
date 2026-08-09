@@ -35,9 +35,6 @@
     upsell_hook: Un voyage plus ambitieux ?
     upsell_body: Dream Travel Planner Ultimate ajoute les itineraires multi-destinations, les systemes de bagages et un budget detaille.
   upsell: dream-travel-planner-ultimate
-  badge:
-    en: Best seller
-    fr: Meilleure vente
   marketplace_i18n:
     en: https://www.notion.com/templates/best-travel-planner-lite
   rank: 10

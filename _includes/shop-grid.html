@@ -11,7 +11,7 @@
   {%- assign c = t[L] -%}
   {%- if t.status == "live" -%}
     {%- if L == "fr" -%}{%- assign href = t.page_fr -%}{%- else -%}{%- assign href = t.page -%}{%- endif -%}
-  <a class="card" href="{{ href }}"
+  <a class="card{% if t.pinned %} is-featured{% endif %}" href="{{ href }}"
      data-cat="{{ t.category }}"
      data-price="{% if t.free %}free{% else %}premium{% endif %}"
      data-search="{{ c.title | downcase }} {{ c.blurb | downcase }} {{ t.category }} {% for tg in t.tags %}#{{ tg }} {% endfor %}">
@@ -22,7 +22,6 @@
         <div class="la-bar m accent"></div><div class="la-bar l"></div>
       </div></div>
       {%- if t.cover %}<img class="cover" src="{{ t.cover }}" alt="{{ c.title }}" loading="lazy" onerror="this.remove()">{% endif -%}
-      {%- if t.badge %}<div class="badges"><span class="badge best">{{ t.badge[L] }}</span></div>{% endif -%}
     </div>
     <div class="card-body">
       <h3>{{ c.title }}</h3>
