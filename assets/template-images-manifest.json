@@ -46,5 +46,45 @@
  {
   "path": "assets/templates/cissp-exam-prep-full/cissp-exam-prep-full-video.jpg",
   "url": "https://img.youtube.com/vi/g8OUELhXH9c/maxresdefault.jpg"
+ },
+ {
+  "path": "assets/templates/real-estate-portfolio/cover.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/1391cbb9-a82c-49e6-9212-2b9e42773e60/1765685189717/desktop.jpg"
+ },
+ {
+  "path": "assets/templates/real-estate-portfolio/desktop/02.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/32750556-7908-4eb6-a965-92a54340bfcb/1765685262710/desktop.jpg"
+ },
+ {
+  "path": "assets/templates/real-estate-portfolio/desktop/03.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/4284a146-ad81-43fd-96c4-cfb6955251aa/1765685396227/desktop.jpg"
+ },
+ {
+  "path": "assets/templates/real-estate-portfolio/desktop/04.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/98983a22-980d-48bd-a305-e1836da944b6/1765686633479/desktop.jpg"
+ },
+ {
+  "path": "assets/templates/real-estate-portfolio/desktop/05.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/7d894f18-0f56-473e-83fe-c1bd766f894a/1765691204723/desktop.jpg"
+ },
+ {
+  "path": "assets/templates/real-estate-portfolio/mobile/01.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/1391cbb9-a82c-49e6-9212-2b9e42773e60/1765685189717/mobile.jpg"
+ },
+ {
+  "path": "assets/templates/real-estate-portfolio/mobile/02.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/32750556-7908-4eb6-a965-92a54340bfcb/1765685262710/mobile.jpg"
+ },
+ {
+  "path": "assets/templates/real-estate-portfolio/mobile/03.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/4284a146-ad81-43fd-96c4-cfb6955251aa/1765685396227/mobile.jpg"
+ },
+ {
+  "path": "assets/templates/real-estate-portfolio/mobile/04.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/98983a22-980d-48bd-a305-e1836da944b6/1765686633479/mobile.jpg"
+ },
+ {
+  "path": "assets/templates/real-estate-portfolio/mobile/05.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/7d894f18-0f56-473e-83fe-c1bd766f894a/1765691204723/mobile.jpg"
  }
 ]
