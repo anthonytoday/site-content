@@ -10,21 +10,22 @@ bc_name: "Templates"
 {% include shop-styles.html %}
 <style>
   /* prominent help card in the hero */
-  .hero-help{display:inline-flex;align-items:center;gap:20px;margin-top:26px;padding:18px 22px;
+  .hero-help{display:inline-flex;align-items:center;gap:20px;margin-top:24px;padding:18px 22px;
     border:1px solid var(--border);border-radius:12px;background:#fff;text-decoration:none;
     color:inherit;transition:border-color .2s,box-shadow .2s,transform .2s;max-width:640px}
   .hero-help:hover{border-color:#C9D4FF;box-shadow:0 10px 30px rgba(5,28,44,.08);transform:translateY(-1px)}
   .hh-steps{display:flex;align-items:center;gap:10px;flex-shrink:0}
-  .hh-step{display:flex;flex-direction:column;align-items:center;gap:6px;width:56px}
+  .hh-step{display:flex;flex-direction:column;align-items:center;gap:6px}
   .hh-ico{width:38px;height:38px;border-radius:10px;background:var(--light-gray);
     display:flex;align-items:center;justify-content:center}
-  .hh-step span{font-size:10.5px;font-weight:600;color:var(--text-gray);
-    text-align:center;line-height:1.25}
+  .hh-step span{font-size:12px;font-weight:600;color:var(--text-gray);
+    text-align:center;line-height:1.25;white-space:nowrap}
   .hh-arrow{color:#C9D4FF;font-size:16px;margin-bottom:16px}
   .hh-txt{min-width:0}
-  .hh-txt strong{display:block;font-size:15px;color:var(--navy);margin-bottom:3px}
-  .hh-txt span{font-size:13.5px;color:var(--text-gray);line-height:1.55}
+  .hh-txt strong{display:block;font-size:16px;color:var(--navy);margin-bottom:3px}
+  .hh-txt span{font-size:14px;color:var(--text-gray);line-height:1.55}
   .hh-go{color:var(--blue);font-weight:700;font-size:18px;margin-left:6px;flex-shrink:0}
+  .hero-note{margin-top:16px}
   @media(max-width:760px){
     .hero-help{flex-direction:column;align-items:flex-start;gap:16px;width:100%}
     .hh-go{display:none}
@@ -67,7 +68,7 @@ bc_name: "Templates"
     <span><b>Free</b> lifetime updates</span>
     <span><b>14-day</b> refund, no questions</span>
   </div>
-  <p style="margin-top:20px;font-size:15px">Not sure which one you need? Start with the
+  <p class="hero-note">Not sure which one you need? Start with the
      <a href="/notion/challenges/" style="font-weight:600;color:var(--blue)">10 questions clients ask most about Notion</a>
      and the template I recommend for each.</p>
   <a class="hero-help" href="/templates/how-it-works/">
