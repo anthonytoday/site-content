@@ -9,17 +9,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ page.title | default: site.title }}</title>
 <meta name="description" content="{{ page.description | default: site.description }}">
-<link rel="canonical" href="{{ page.url | absolute_url }}">
+{% if page.noindex %}<meta name="robots" content="noindex, nofollow">
+{% endif %}<link rel="canonical" href="{{ page.url | absolute_url }}">
 {% if en_url and fr_url %}<link rel="alternate" hreflang="en" href="{{ en_url | absolute_url }}">
 <link rel="alternate" hreflang="fr" href="{{ fr_url | absolute_url }}">
 <link rel="alternate" hreflang="x-default" href="{{ en_url | absolute_url }}">
 {% endif %}<meta property="og:title" content="{{ page.title | default: site.title }}">
 <meta property="og:description" content="{{ page.description | default: site.description }}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="{% if page.template_id %}product{% else %}website{% endif %}">
 <meta property="og:locale" content="{% if lang == 'fr' %}fr_FR{% else %}en_US{% endif %}">
 {% if en_url and fr_url %}<meta property="og:locale:alternate" content="{% if lang == 'fr' %}en_US{% else %}fr_FR{% endif %}">
-{% endif %}<meta name="twitter:card" content="summary_large_image">
+{% endif %}{% assign og_image = page.og_image %}{% if page.template_id %}{% assign tpl = site.data.templates | where: "id", page.template_id | first %}{% if tpl and tpl.cover %}{% assign og_image = tpl.cover %}{% endif %}{% endif %}{% unless og_image %}{% assign og_image = "/assets/brand/anthony-profile.jpg" %}{% endunless %}<meta property="og:image" content="{{ og_image | absolute_url }}">
+<meta property="og:image:alt" content="{{ page.title | default: site.title }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ og_image | absolute_url }}">
 <link rel="icon" href="/assets/brand/favicon.png">
 {%- assign locale = "en-US" -%}{%- if lang == "fr" -%}{%- assign locale = "fr-FR" -%}{%- endif -%}
 <script type="application/ld+json">
@@ -96,6 +100,14 @@
    "author":{"@id":"https://www.anthonytoday.com/#anthony"},
    "publisher":{"@id":"https://www.anthonytoday.com/#business"},
    "primaryImageOfPage":"https://www.anthonytoday.com/assets/brand/anthony-profile.jpg"
+   {%- if page.template_id -%}
+   {%- assign tpld = site.data.templates | where: "id", page.template_id | first -%}
+   {%- if tpld %},
+   "image":{{ tpld.cover | absolute_url | jsonify }},
+   "offers":{"@type":"Offer","url":{{ tpld.page | absolute_url | jsonify }},"priceCurrency":"USD","price":{% if tpld.free %}"0"{% else %}{{ tpld.price | jsonify }}{% endif %},"availability":"https://schema.org/InStock"}{% if tpld.free %},
+   "isAccessibleForFree":true{% endif %}
+   {%- endif -%}
+   {%- endif -%}
   },
   {
    "@type":"BreadcrumbList",

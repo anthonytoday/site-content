@@ -13,6 +13,7 @@ permalink: /sitemap.xml
 {%- else -%}{%- assign en = p.permalink -%}{%- assign fr = p.alt_url -%}{%- endif -%}
   <url>
     <loc>{{ p.permalink | absolute_url }}</loc>
+    <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
 {%- if en and fr %}
     <xhtml:link rel="alternate" hreflang="en" href="{{ en | absolute_url }}"/>
     <xhtml:link rel="alternate" hreflang="fr" href="{{ fr | absolute_url }}"/>
