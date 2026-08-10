@@ -622,4 +622,97 @@ bc_name: "Top 10 questions Notion"
   </div>
 </div>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://www.anthonytoday.com/fr/notion/challenges/#faq",
+  "url": "https://www.anthonytoday.com/fr/notion/challenges/",
+  "inLanguage": "fr-FR",
+  "isPartOf": { "@id": "https://www.anthonytoday.com/fr/notion/challenges/#webpage" },
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Par ou commencer sans tout construire de zero ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Partez d'un template fini qui correspond a votre cas: un bon couvre environ 80% de vos besoins des le premier jour. Supprimez les donnees d'exemple et toute section dont vous ne savez pas nommer l'usage, renommez les champs avec vos propres mots, puis ajoutez une chose par semaine. Points de depart gratuits: Life OS pour le personnel et la maison, Creative Studio pour une petite entreprise."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment tout rassembler en un seul endroit ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Migrez un workflow d'abord, celui qui fait le plus mal, et fixez une date de bascule ferme par workflow pour ne pas faire tourner deux systemes en parallele. Importez les donnees structurees en CSV directement dans une base. Les fichiers peuvent rester dans Drive: Google Docs et Sheets s'integrent dans Notion avec un apercu fonctionnel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment gerer taches et projets en equipe ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gardez une seule base Taches pour toute l'equipe, jamais une par personne ni par projet. Donnez a chacun une vue filtree de cette meme base avec Assigne = Moi, reliez les Taches aux Projets pour que le statut remonte tout seul, et verrouillez les vues partagees une fois qu'elles marchent pour qu'un filtre modifie ne fasse pas disparaitre les taches."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment construire un CRM dans Notion ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Utilisez trois bases reliees, Contacts, Affaires et Activites, et non une table geante. Mettez l'etape du pipeline sur l'Affaire, consignez chaque echange comme une Activite liee a l'Affaire, et ajoutez une date Prochaine action sur chaque affaire ouverte: votre liste de relances devient une vue filtree au lieu d'un exercice de memoire."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi mes bases de donnees ne se parlent-elles pas ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rendez chaque relation bidirectionnelle en activant Afficher sur dans les reglages de la relation, et utilisez les rollups pour lire les valeurs liees au lieu de les copier. Fusionnez les tables en double avant de construire des vues, et quand vous demandez a Notion AI de creer une relation, nommez la base cible exacte. Un rollup casse est un probleme de cablage, pas un bug."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi est-ce que je paie des sieges que personne n'utilise ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les membres consomment une licence payante; les invites editent des pages precises que vous partagez et sont gratuits. Auditez Settings puis Members: retirez d'abord le membre, puis re-invitez-le comme invite avec Skip, car ajouter un invite sans retirer le membre conserve la charge. Agissez avant la date de renouvellement, car les plans annuels ne remboursent pas les sieges retires en cours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment partager des pages sans ajouter tout le monde ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Publiez sur le web pour un partage en lecture seule a large audience, et desactivez l'indexation par les moteurs de recherche sauf si vous voulez etre trouve. Utilisez l'acces invite quand quelqu'un doit editer: c'est granulaire, au niveau page, et gratuit. Pour les parties externes, partagez au niveau page, jamais au niveau espace."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment etre rappele quand une echeance arrive ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Une propriete Date n'envoie aucune alerte. Utilisez une propriete Personne pour l'assignation afin que Notion notifie l'assigne nativement, marquez ce qui arrive bientot avec une formule et agissez avec une automatisation de base, connectez Slack via Notion Connections, et gardez une vue quotidienne filtree sur Du cette semaine que vous ouvrez chaque matin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi Notion est lent, ou bloque les nouvelles pages ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La limite des 1 000 blocs ne s'applique qu'aux espaces gratuits partages avec deux membres ou plus; un espace gratuit prive a un utilisateur n'a aucune limite de blocs. La lenteur vient des vues: filtrez chaque grande vue a environ 10 a 25 elements, cachez les proprietes rarement utilisees, et gardez une base source unique avec beaucoup de vues filtrees."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que peuvent vraiment faire Notion AI et les agents ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le chatbot repond aux questions et fait des editions en masse a la demande; les agents personnalises tournent sur un declencheur ou un horaire. Nommez la base exacte et les proprietes exactes dans vos instructions, surveillez les credits car les agents demandent un plan payant, et connectez Claude ou ChatGPT via le connecteur MCP pour qu'une IA externe agisse sur votre espace. La structure d'abord: un agent bati sur un espace desordonne produit un resultat desordonne, plus vite."
+      }
+    }
+  ]
+}
+</script>
+
 {% include shop-footer.html %}
