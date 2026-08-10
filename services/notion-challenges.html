@@ -600,4 +600,97 @@ bc_name: "Top 10 Notion Questions"
   </div>
 </div>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://www.anthonytoday.com/notion/challenges/#faq",
+  "url": "https://www.anthonytoday.com/notion/challenges/",
+  "inLanguage": "en-US",
+  "isPartOf": { "@id": "https://www.anthonytoday.com/notion/challenges/#webpage" },
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where do I start without building everything from scratch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start from a finished template that matches your use case; a good one covers about 80% of what you need on day one. Delete the sample data and any section you cannot name a use for, rename the fields to your own words, then add one thing per week. Free starting points: Life OS for personal and home, Creative Studio for a small business."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get everything into one place?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Move one workflow first, the one that hurts most, and set a hard cutover date per workflow so two systems never run in parallel for long. Import structured data with CSV straight into a database. Files can stay in Drive: Google Docs and Sheets embed live inside Notion with a working preview."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I run tasks and projects across a team?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Keep one Tasks database for the whole team, never one per person or per project. Give each person a filtered view of that same database with Assignee equals Me, relate Tasks to Projects so status rolls up by itself, and lock shared views once they work so a stray filter edit cannot make tasks vanish."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I build a CRM in Notion?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use three related databases, Contacts, Deals and Activities, not one giant table. Put the pipeline stage on the Deal, log every touch as an Activity linked to the Deal, and add a Next Action date on every open deal so your follow-up list becomes a filtered view instead of a memory exercise."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why will my databases not talk to each other?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Make every relation two-way by turning on Show on in the relation settings, and use rollups to read related values instead of copying them. Merge duplicate tables before building views on them, and when asking Notion AI to create a relation, name the exact target database. A broken rollup is a wiring problem, not a bug."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why am I paying for seats nobody uses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Members consume a paid license; guests edit specific pages you share with them and are free. Audit Settings, then Members: remove the member first, then re-invite as a guest using Skip, because adding a guest without removing the member keeps the charge. Act before the renewal date, as annual plans do not refund seats removed mid-term."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I share pages without adding everyone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Publish to web for read-only sharing with a wide audience, and turn off search engine indexing on published pages unless you want them found. Use guest access when someone needs to edit: it is granular, page-level and free. For external parties, share at page level, never workspace level."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get reminded when something is due?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Date property sends no alert by itself. Use a Person property for assignment so Notion notifies the assignee natively, flag what is due soon with a formula and act on it with a database automation, connect Slack through Notion Connections, and keep a daily view filtered to Due this week that you open every morning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is Notion slow, or blocking new pages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The 1,000-block limit applies only to free workspaces shared with two or more members; a private single-user free workspace has no block limit at all. Slowness is usually a view problem: filter every large view to roughly 10 to 25 items, hide rarely used properties, and keep one source database with many filtered views."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can Notion AI and agents actually do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The chatbot answers questions and does bulk edits on demand; custom agents run on a trigger or a schedule. Name the exact database and the exact properties in your instruction, watch the credits since agents need a paid plan, and connect Claude or ChatGPT through the MCP connector when you want external AI to act on your workspace. Structure comes first: an agent built on a messy workspace produces messy output faster."
+      }
+    }
+  ]
+}
+</script>
+
 {% include shop-footer.html %}
