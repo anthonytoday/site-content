@@ -16,7 +16,10 @@
      {% if nslides > 0 %}data-lb-index="0" role="button" tabindex="0"
      aria-label="{% if L == 'fr' %}Agrandir l'image{% else %}Enlarge image{% endif %}"{% endif %}>
   <div class="ph-art"><span class="ph-icon">&#9635;</span>{% if L == "fr" %}Capture a venir{% else %}Screenshot pending{% endif %}</div>
-  {%- if t.cover %}<img class="cover" src="{{ t.cover }}" alt="{{ c.title }}" width="1000" height="700" onerror="this.remove()">{% endif -%}
+  {%- comment -%} No width/height here on purpose. Covers vary (1600x999, 1920x1199) and the
+      frame already declares aspect-ratio:16/10 in CSS, which reserves the space correctly.
+      The old hardcoded 1000x700 was a 1.43 ratio against 1.60 files and contradicted it. {%- endcomment -%}
+  {%- if t.cover %}<img class="cover" src="{{ t.cover }}" alt="{{ c.title }}" onerror="this.remove()">{% endif -%}
   {%- if nslides > 0 %}<span class="lb-hint" aria-hidden="true">{% if L == "fr" %}Cliquer pour agrandir{% else %}Click to enlarge{% endif %}</span>{% endif -%}
 </div>
 
