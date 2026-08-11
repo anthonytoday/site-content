@@ -1904,3 +1904,35 @@
     title: CISSP, maitriser tous les domaines
     blurb: Les huit domaines CISSP, fiches et suivi du rythme.
   rank: 139.5
+- id: freelancer-small-business-starter-pack
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/freelancer-small-business-starter-pack
+  page: /templates/freelancer-small-business-starter-pack/
+  page_fr: /fr/templates/freelancer-small-business-starter-pack/
+  tags:
+    - freelance
+    - smallbusiness
+    - invoices
+    - clients
+    - starter
+  cover: /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g1-desktop.jpg
+  gallery:
+    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g2-desktop.jpg
+    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g3-desktop.jpg
+    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g4-desktop.jpg
+    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g5-desktop.jpg
+  mobile:
+    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g1-mobile.jpg
+    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g2-mobile.jpg
+    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g3-mobile.jpg
+    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g4-mobile.jpg
+    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g5-mobile.jpg
+  en:
+    title: Freelancer & Small Business Starter Pack
+    blurb: Clients, projects, invoices and expenses in one place, from your first client onward.
+  fr:
+    title: Pack de demarrage freelance et petite entreprise
+    blurb: Clients, projets, factures et depenses au meme endroit, des le premier client.
+  rank: 236
