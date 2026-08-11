@@ -29,6 +29,9 @@
 <link rel="dns-prefetch" href="{{ origin }}">
 {%- endfor %}
 <link rel="stylesheet" href="/assets/site.css">
+{%- for href in page.extra_css %}
+<link rel="stylesheet" href="{{ href }}">
+{%- endfor %}
 <link rel="icon" href="/assets/brand/favicon.png">
 {%- assign locale = "en-US" -%}{%- if lang == "fr" -%}{%- assign locale = "fr-FR" -%}{%- endif -%}
 <script type="application/ld+json">
