@@ -2,7 +2,7 @@
 {% assign lang = page.lang | default: "en" %}
 {% if lang == "fr" %}{% assign en_url = page.alt_url %}{% assign fr_url = page.url %}{% assign p = "/fr" %}
 {% else %}{% assign en_url = page.url %}{% assign fr_url = page.alt_url %}{% assign p = "" %}{% endif %}
-{% assign u_home = p | append: "/" %}{% assign u_notion = p | append: "/notion/" %}{% assign u_guide = p | append: "/guide/" %}{% assign u_usecase = p | append: "/use-case/" %}{% assign u_cyber = p | append: "/cyber/" %}{% assign u_grc = p | append: "/cyber-grc/" %}{% assign u_ciso = p | append: "/fractional-ciso/" %}{% assign u_templates = p | append: "/templates/" %}{% assign u_tools = p | append: "/tools/" %}{% assign u_contact = p | append: "/contact/" %}{% assign u_sprint = p | append: "/investor-ready-sprint/" %}{% assign u_start = p | append: "/start/" %}{% assign u_challenges = p | append: "/notion/challenges/" %}
+{% assign u_home = p | append: "/" %}{% assign u_notion = p | append: "/notion/" %}{% assign u_guide = p | append: "/guide/" %}{% assign u_usecase = p | append: "/use-case/" %}{% assign u_cyber = p | append: "/cyber/" %}{% assign u_grc = p | append: "/cyber-grc/" %}{% assign u_ciso = p | append: "/fractional-ciso/" %}{% assign u_templates = p | append: "/templates/" %}{% assign u_tools = p | append: "/tools/" %}{% assign u_contact = p | append: "/contact/" %}{% if page.lang == "fr" %}{% assign u_sprint = "/fr/investor-ready-sprint/" %}{% else %}{% assign u_sprint = "/notion-for-real-estate/" %}{% endif %}{% assign u_start = p | append: "/start/" %}{% assign u_challenges = p | append: "/notion/challenges/" %}
 <html lang="{{ lang }}">
 <head>
 <meta charset="utf-8">
@@ -50,8 +50,8 @@
   {
    "@type":"Person",
    "@id":"https://www.anthonytoday.com/#anthony",
-   "name":"Anthony Kieffer",
-   "givenName":"Anthony","familyName":"Kieffer",
+   "name":"Anthony",
+   "givenName":"Anthony",
    "url":"https://www.anthonytoday.com/",
    "image":"https://www.anthonytoday.com/assets/brand/anthony-profile.webp",
    "jobTitle":{% if lang == "fr" %}"Consultant en cybersécurité, GRC et Notion"{% else %}"Cybersecurity, GRC and Notion Consultant"{% endif %},

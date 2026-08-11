@@ -1,18 +1,18 @@
 ---
 layout: default
-title: "The 30-Day Investor-Ready Build | Notion for Real Estate Firms | Anthony Today"
-description: "One engagement, one price, and you decide again at day 10. A Notion system for real estate investment, development and property firms, built in 30 days."
-permalink: /investor-ready-sprint/
+title: "Notion for Real Estate Firms | The 30-Day Investor-Ready Build"
+description: "Notion for real estate investment, development and property firms. Deals, documents and reporting in one place. $15,000, 30 days, working in 10 days or refunded."
+permalink: /notion-for-real-estate/
 lang: en
 alt_url: /fr/investor-ready-sprint/
-schema_type: "Service"
+schema_type: "WebPage"
 bc_name: "The 30-Day Investor-Ready Build"
 css_bundle: /assets/css/b-94692ffa38.css
 ---
 
 <div class="hero">
   <div class="eyebrow">For real estate investment, development &amp; property firms</div>
-  <h1>The 30-Day Investor-Ready Build</h1>
+  <h1>Notion for Real Estate: The 30-Day Investor-Ready Build</h1>
   <p class="subtitle">Your deals, documents and reporting in one place, with a documented access model.
      Built by a certified Notion partner who spent 15 years in technology risk and IT audit.</p>
   <a href="#start" class="cta-button">See how it works &rarr;</a>
@@ -20,7 +20,7 @@ css_bundle: /assets/css/b-94692ffa38.css
   <div style="margin-top:12px;font-size:14px;color:#A8B4C2;letter-spacing:.02em">One of three founding places</div>
 </div>
 
-{% include offer-summary.html %}
+<div class="wrap">{% include offer-summary.html %}</div>
 
 <div class="strip">
   <div class="lead">Trusted by teams including</div>
@@ -185,7 +185,7 @@ css_bundle: /assets/css/b-94692ffa38.css
     </div>
   </section>
 
-  <section class="risk-sec">
+  <section class="risk-sec" id="risk">
     <h2>What you are risking</h2>
     <div class="risk-big">Nothing</div>
     <p class="sec-lede">Your $2,500 is a refundable deposit, not a payment. Two guarantees, both
@@ -287,7 +287,7 @@ css_bundle: /assets/css/b-94692ffa38.css
 
 </div>
 
-{% include offer-summary.html %}
+<div class="wrap">{% include offer-summary.html %}</div>
 
 <div class="final" id="start">
   <h2>Start the Build</h2>
@@ -300,5 +300,64 @@ css_bundle: /assets/css/b-94692ffa38.css
 </div>
 
 <div class="disclosure">The Notion Business trial link is a referral link. If you upgrade through it I may earn a commission, at no additional cost to you. <a href="/privacy/" style="color:inherit">Privacy policy</a>.</div>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@graph":[
+  {
+   "@type":"Service",
+   "@id":"https://www.anthonytoday.com/notion-for-real-estate/#service",
+   "name":"The 30-Day Investor-Ready Build",
+   "alternateName":"Notion for real estate firms",
+   "serviceType":"Notion workspace design and implementation for real estate firms",
+   "description":"A 30-day engagement that puts a real estate firm's deals, documents and reporting into one Notion workspace with a documented, tested access model, migrated from existing systems and handed over to a named owner.",
+   "url":"https://www.anthonytoday.com/notion-for-real-estate/",
+   "provider":{"@id":"https://www.anthonytoday.com/#business"},
+   "areaServed":[{"@type":"Country","name":"Luxembourg"},{"@type":"Country","name":"Switzerland"},{"@type":"Country","name":"United States"},{"@type":"Country","name":"United Arab Emirates"},{"@type":"Country","name":"France"},{"@type":"Country","name":"Belgium"}],
+   "audience":{"@type":"BusinessAudience","name":"Real estate investment, development and property firms"},
+   "termsOfService":"https://www.anthonytoday.com/notion-for-real-estate/#risk",
+   "offers":{
+    "@type":"Offer",
+    "url":"https://www.anthonytoday.com/notion-for-real-estate/",
+    "price":"15000",
+    "priceCurrency":"USD",
+    "availability":"https://schema.org/LimitedAvailability",
+    "description":"$15,000 total. A $2,500 refundable deposit to start, then $12,500 at day 10 only if the client approves.",
+    "eligibleQuantity":{"@type":"QuantitativeValue","value":3,"description":"Founding engagement, limited to the first three firms"}
+   },
+   "hasOfferCatalog":{
+    "@type":"OfferCatalog","name":"Included in the engagement",
+    "itemListElement":[
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Deal and portfolio architecture"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Migration from Drive, email and elsewhere"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Access model implemented and tested"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Investor reporting"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Training, two tracks"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Handover to a named owner"}}
+    ]
+   }
+  },
+  {
+   "@type":"FAQPage",
+   "@id":"https://www.anthonytoday.com/notion-for-real-estate/#faq",
+   "mainEntity":[
+    {"@type":"Question","name":"Notion is $20 a month. Why is this $15,000?",
+     "acceptedAnswer":{"@type":"Answer","text":"The license is the software. This is the system that runs in it, and the reason it still works six months later. Set it against one deal going sideways, not against the subscription."}},
+    {"@type":"Question","name":"Can we do this ourselves, or with ChatGPT?",
+     "acceptedAnswer":{"@type":"Answer","text":"You can, and plenty do. What usually comes back is a long list of databases nobody on the team opens. The build is the easy half. Deciding what your firm actually needs, and getting people to use it, is the half that takes the experience."}},
+    {"@type":"Question","name":"Do we have to hand over confidential investor data?",
+     "acceptedAnswer":{"@type":"Answer","text":"No. The first ten days run on your structure with a handful of non-sensitive records. Confidentiality levels and access rules are designed before any sensitive material moves."}},
+    {"@type":"Question","name":"What if we stop at day 10?",
+     "acceptedAnswer":{"@type":"Answer","text":"You keep the workspace, the structure and the gap list, and you owe nothing further. If the reason you are stopping is that it is not working, the deposit comes back in full as well."}},
+    {"@type":"Question","name":"Is the $2,500 on top of the $15,000?",
+     "acceptedAnswer":{"@type":"Answer","text":"No. The $15,000 is the whole engagement. The $2,500 is the first instalment of it, and the remaining $12,500 falls due at day 10 only if you decide to continue."}},
+    {"@type":"Question","name":"How much of our time does this take?",
+     "acceptedAnswer":{"@type":"Answer","text":"One 45-minute discovery call, a short content inventory, one walkthrough, and two training sessions. Everything else is on me."}}
+   ]
+  }
+ ]
+}
+</script>
 
 {% include site-footer.html %}
