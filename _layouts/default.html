@@ -20,7 +20,7 @@
 <meta property="og:type" content="{% if page.template_id %}product{% else %}website{% endif %}">
 <meta property="og:locale" content="{% if lang == 'fr' %}fr_FR{% else %}en_US{% endif %}">
 {% if en_url and fr_url %}<meta property="og:locale:alternate" content="{% if lang == 'fr' %}en_US{% else %}fr_FR{% endif %}">
-{% endif %}{% assign og_image = page.og_image %}{% if page.template_id %}{% assign tpl = site.data.templates | where: "id", page.template_id | first %}{% if tpl and tpl.cover %}{% assign og_image = tpl.cover %}{% endif %}{% endif %}{% unless og_image %}{% assign og_image = "/assets/brand/anthony-profile.jpg" %}{% endunless %}<meta property="og:image" content="{{ og_image | absolute_url }}">
+{% endif %}{% assign og_image = page.og_image %}{% if page.template_id %}{% assign tpl = site.data.templates | where: "id", page.template_id | first %}{% if tpl and tpl.cover %}{% assign og_image = tpl.cover %}{% endif %}{% endif %}{% unless og_image %}{% assign og_image = "/assets/brand/anthony-profile.webp" %}{% endunless %}<meta property="og:image" content="{{ og_image | absolute_url }}">
 <meta property="og:image:alt" content="{{ page.title | default: site.title }}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{{ og_image | absolute_url }}">
@@ -44,7 +44,7 @@
    "name":"Anthony Kieffer",
    "givenName":"Anthony","familyName":"Kieffer",
    "url":"https://www.anthonytoday.com/",
-   "image":"https://www.anthonytoday.com/assets/brand/anthony-profile.jpg",
+   "image":"https://www.anthonytoday.com/assets/brand/anthony-profile.webp",
    "jobTitle":{% if lang == "fr" %}"Consultant en cybersécurité, GRC et Notion"{% else %}"Cybersecurity, GRC and Notion Consultant"{% endif %},
    "description":{% if lang == "fr" %}"Notion Consulting Partner certifié et ex-consultant cybersécurité chez EY. 15+ ans de risque technologique et d'audit IT entre le Luxembourg, la Suisse et les États-Unis."{% else %}"Certified Notion Consulting Partner and ex-EY cybersecurity consultant. 15+ years in technology risk and IT audit across Luxembourg, Switzerland and the USA."{% endif %},
    "knowsLanguage":["en","fr"],
@@ -67,7 +67,7 @@
    "@id":"https://www.anthonytoday.com/#business",
    "name":"Anthony Today",
    "url":"https://www.anthonytoday.com/",
-   "image":"https://www.anthonytoday.com/assets/brand/anthony-profile.jpg",
+   "image":"https://www.anthonytoday.com/assets/brand/anthony-profile.webp",
    "logo":"https://www.anthonytoday.com/assets/brand/favicon.png",
    "description":{% if lang == "fr" %}"Conseil Notion certifié, gouvernance des risques et cybersécurité. Architecture d'espace de travail, préparation à l'audit et direction sécurité à temps partagé."{% else %}"Certified Notion consulting, governance risk and cybersecurity advisory. Workspace architecture, audit readiness and fractional security leadership."{% endif %},
    "founder":{"@id":"https://www.anthonytoday.com/#anthony"},
@@ -107,7 +107,7 @@
    "about":{"@id":"https://www.anthonytoday.com/#business"},
    "author":{"@id":"https://www.anthonytoday.com/#anthony"},
    "publisher":{"@id":"https://www.anthonytoday.com/#business"},
-   "primaryImageOfPage":"https://www.anthonytoday.com/assets/brand/anthony-profile.jpg"
+   "primaryImageOfPage":"https://www.anthonytoday.com/assets/brand/anthony-profile.webp"
    {%- if page.template_id -%}
    {%- assign tpld = site.data.templates | where: "id", page.template_id | first -%}
    {%- if tpld %},
