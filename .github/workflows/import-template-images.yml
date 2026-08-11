@@ -4,9 +4,8 @@ on:
     paths:
       - 'assets/template-images-manifest.json'
   workflow_dispatch:
-  # Anything still missing is retried automatically. A push-triggered run that
-  # never fires, or a CDN having a bad day, then heals itself within six hours
-  # instead of waiting for someone to notice.
+  # Anything still missing is retried automatically, so a run that fails or
+  # never fires heals itself within six hours instead of waiting to be noticed.
   schedule:
     - cron: '0 */6 * * *'
 permissions:
@@ -17,62 +16,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Download images
-        run: |
-          python3 - <<'PYEOF'
-          import json, os, urllib.request, urllib.error, sys
-
-          items = json.load(open('assets/template-images-manifest.json'))
-          done = skipped = failed = 0
-          failures = []
-
-          for it in items:
-              p, url = it['path'], it['url']
-
-              # Already present: nothing to fetch. Keeps re-runs cheap and lets the
-              # manifest stay as a permanent record rather than a queue to empty.
-              if os.path.exists(p) and os.path.getsize(p) > 0:
-                  skipped += 1
-                  continue
-
-              os.makedirs(os.path.dirname(p), exist_ok=True)
-              req = urllib.request.Request(url, headers={
-                  'User-Agent': 'Mozilla/5.0 (compatible; anthonytoday-site-import/1.0)',
-                  'Accept': 'image/avif,image/webp,image/png,image/jpeg,*/*',
-              })
-              try:
-                  with urllib.request.urlopen(req, timeout=60) as r:
-                      data = r.read()
-                  if len(data) < 100:
-                      raise ValueError(f'suspiciously small response: {len(data)} bytes')
-                  with open(p, 'wb') as f:
-                      f.write(data)
-                  done += 1
-                  print(f'ok      {p}  ({len(data)//1024} KB)')
-              except Exception as e:
-                  # One bad URL must not discard every good download in the same run.
-                  failed += 1
-                  failures.append((p, url, str(e)))
-                  print(f'FAILED  {p}  <- {url}\n        {e}')
-                  if os.path.exists(p) and os.path.getsize(p) == 0:
-                      os.remove(p)
-
-          print(f'\ndownloaded {done}, already present {skipped}, failed {failed}')
-          if failures:
-              print('\nfailures:')
-              for p, url, e in failures:
-                  print(f'  {p}\n    {url}\n    {e}')
-          # Record the outcome for the next step: commit first, then fail, so
-          # partial progress is never thrown away by a non-zero exit.
-          with open('import-outcome.txt', 'w') as fh:
-              fh.write(f'{done} {skipped} {failed}')
-          PYEOF
-      - name: Commit and push
+        run: python3 .github/scripts/import_images.py
+      - name: Commit whatever arrived
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets
+          # Stage all of assets, not just assets/templates. The original workflow
+          # staged only the templates folder, so guide images downloaded into
+          # assets/guides were silently discarded and the job reported success.
+          git add assets .github/import-result.txt
           if git diff --cached --quiet; then
-            echo "no new images to commit"
+            echo "nothing new to commit"
           else
             git commit -m "Import images listed in the manifest"
             git pull --rebase --autostash
@@ -80,10 +34,8 @@ jobs:
           fi
       - name: Fail if anything is still missing
         run: |
-          read done skipped failed < import-outcome.txt
-          rm -f import-outcome.txt
-          echo "downloaded=$done already-present=$skipped failed=$failed"
-          if [ "$failed" -gt 0 ]; then
-            echo "::error::$failed image(s) could not be downloaded. See the log above for each URL and reason."
+          grep -q 'failed=0' .github/import-result.txt || {
+            echo "::error::Some images could not be downloaded. See .github/import-result.txt"
+            cat .github/import-result.txt
             exit 1
-          fi
+          }
