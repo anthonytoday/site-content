@@ -21,7 +21,7 @@
         <div class="la-bar l"></div><div class="la-bar s"></div>
         <div class="la-bar m accent"></div><div class="la-bar l"></div>
       </div></div>
-      {%- if t.cover %}<img class="cover" src="{{ t.cover }}" alt="{{ c.title }}" loading="lazy"{%- assign _d = site.data.image_dims[t.cover] -%}{%- if _d -%}{%- assign _wh = _d | split: "x" -%} width="{{ _wh[0] }}" height="{{ _wh[1] }}"{%- endif -%} onerror="this.remove()">{% endif -%}
+      {%- if t.cover %}<img class="cover" src="{{ t.cover }}"{%- assign _ss = site.data.cover_srcset[t.cover] -%}{%- if _ss %} srcset="{{ _ss }}" sizes="(max-width:600px) 100vw, (max-width:900px) 46vw, 330px"{%- endif -%} alt="{{ c.title }}" loading="lazy"{%- assign _d = site.data.image_dims[t.cover] -%}{%- if _d -%}{%- assign _wh = _d | split: "x" -%} width="{{ _wh[0] }}" height="{{ _wh[1] }}"{%- endif -%} onerror="this.remove()">{% endif -%}
     </div>
     <div class="card-body">
       <h3>{{ c.title }}</h3>
@@ -54,7 +54,7 @@
     <div class="thumb">
       {%- if t.cover -%}
       <div class="ph-art"><span class="ph-icon">&#9635;</span>{% if L == "fr" %}Visuels a venir{% else %}Artwork coming{% endif %}</div>
-      <img class="cover" src="{{ t.cover }}" alt="{{ c.title }}" loading="lazy"{%- assign _d = site.data.image_dims[t.cover] -%}{%- if _d -%}{%- assign _wh = _d | split: "x" -%} width="{{ _wh[0] }}" height="{{ _wh[1] }}"{%- endif -%} onerror="this.remove()">
+      <img class="cover" src="{{ t.cover }}"{%- assign _ss = site.data.cover_srcset[t.cover] -%}{%- if _ss %} srcset="{{ _ss }}" sizes="(max-width:600px) 100vw, (max-width:900px) 46vw, 330px"{%- endif -%} alt="{{ c.title }}" loading="lazy"{%- assign _d = site.data.image_dims[t.cover] -%}{%- if _d -%}{%- assign _wh = _d | split: "x" -%} width="{{ _wh[0] }}" height="{{ _wh[1] }}"{%- endif -%} onerror="this.remove()">
       {%- else -%}
       <div class="ph-art"><span class="ph-icon">&#9635;</span>{% if L == "fr" %}Visuels a venir{% else %}Artwork coming{% endif %}</div>
       {%- endif -%}
