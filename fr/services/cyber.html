@@ -7,67 +7,8 @@ lang: fr
 alt_url: /cyber/
 schema_type: "WebPage"
 bc_name: "Cybersécurité"
+css_bundle: /assets/css/b-91cefa7d0d.css
 ---
-<style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  :root{
-    --navy:#051C2C;--blue:#2251FF;--white:#FFFFFF;--light-gray:#F5F5F5;--text-gray:#6B7280;--border:#E5E7EB;
-  }
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:var(--navy);background:var(--white)}
-  a{text-decoration:none;color:inherit}
-  header{background:var(--white);padding:20px 0;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
-  .header-content{max-width:1000px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}
-  .logo{font-size:18px;font-weight:600;color:var(--navy)}
-  .header-nav{display:flex;gap:28px;align-items:center}
-  .header-nav a{font-size:15px;color:var(--text-gray);font-weight:500}
-  .header-nav a.active,.header-nav a:hover{color:var(--navy)}
-  .cta-button{display:inline-block;background:var(--blue);color:var(--white);padding:15px 40px;border-radius:6px;font-weight:500;font-size:16px;transition:background .2s;cursor:pointer;border:none}
-  .cta-button:hover{background:#1A3FA8}
-  .hero{text-align:center;padding:72px 20px 56px}
-  .hero .pill{display:inline-block;background:#EFF2FF;border:1px solid #C9D4FF;color:var(--blue);font-size:13px;font-weight:600;padding:8px 16px;border-radius:20px;margin-bottom:18px}
-  .hero h1{font-size:42px;font-weight:600;line-height:1.18;color:var(--navy);margin:0 auto 20px;max-width:760px}
-  .hero .subtitle{font-size:17px;color:var(--text-gray);max-width:660px;margin:0 auto 32px;line-height:1.7}
-  .stats{max-width:1000px;margin:48px auto 0;padding:0 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-  .stat{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:22px 16px;text-align:center}
-  .stat .n{font-size:20px;font-weight:600;color:var(--blue)}
-  .stat .l{font-size:13px;color:var(--text-gray);margin-top:6px;line-height:1.5}
-  section.block{max-width:1000px;margin:0 auto;padding:70px 20px 10px}
-  .sec-head{text-align:center;margin-bottom:40px}
-  .sec-head h2{font-size:28px;font-weight:600;color:var(--navy)}
-  .sec-head p{font-size:15px;color:var(--text-gray);max-width:640px;margin:12px auto 0}
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:28px 24px;transition:border-color .2s,box-shadow .2s}
-  .card:hover{border-color:#C9D4FF;box-shadow:0 4px 18px rgba(5,28,44,.06)}
-  .card .ico{font-size:24px}
-  .card h3{font-size:17px;font-weight:600;color:var(--navy);margin:12px 0 8px}
-  .card p{font-size:14px;color:var(--text-gray);line-height:1.65}
-  .models{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px}
-  .model{background:var(--light-gray);border:1px solid var(--border);border-radius:8px;padding:30px 28px}
-  .model .tag{font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px}
-  .model h3{font-size:18px;font-weight:600;color:var(--navy);margin:8px 0 8px}
-  .model p{font-size:14px;color:var(--text-gray);line-height:1.65}
-  .sector{background:var(--navy);color:var(--white);border-radius:8px;padding:48px 40px;margin:64px 0 0;text-align:center}
-  .sector h2{font-size:24px;font-weight:600;margin-bottom:12px}
-  .sector p{font-size:15px;color:#B0BEC5;max-width:720px;margin:0 auto 26px;line-height:1.7}
-  .reg-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-  .reg{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:6px;padding:10px 20px;font-size:14px;font-weight:600;color:var(--white)}
-  .booking{max-width:1000px;margin:80px auto 0;padding:0 20px}
-  .booking .sec-head{margin-bottom:28px}
-  .booking-frame{border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--white)}
-  .booking-frame iframe{width:100%;height:860px;border:0;display:block}
-  footer{background:var(--light-gray);padding:60px 20px;margin-top:80px}
-  .footer-main{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;margin-bottom:40px}
-  .footer-section a{display:block;font-size:13px;color:var(--text-gray);text-decoration:none;margin-bottom:8px;transition:color .2s}
-  .social-links{display:flex;gap:15px;margin-top:20px}
-  .social-links a{display:flex;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--white);align-items:center;justify-content:center;font-size:16px;transition:background .2s;margin:0}
-  @media(max-width:768px){
-    .hero h1{font-size:32px}
-    .stats{grid-template-columns:repeat(2,1fr)}
-    .grid,.models{grid-template-columns:1fr}
-    .sector{padding:36px 22px}
-    .booking-frame iframe{height:900px}
-  }
-</style>
 <section class="hero">
 <span class="pill">Cybersécurité · GRC · CISO externalisé</span>
 <h1>Conseil et direction cybersécurité, à la demande</h1>

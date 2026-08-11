@@ -6,59 +6,8 @@ permalink: /templates/
 lang: en
 schema_type: "CollectionPage"
 bc_name: "Templates"
-extra_css:
-  - /assets/shop.css
+css_bundle: /assets/css/b-425be4fa1e.css
 ---
-<style>
-  /* prominent help card in the hero */
-  .hero-help{display:flex;width:100%;align-items:center;gap:32px;margin-top:22px;padding:20px 26px;
-    border:1px solid var(--border);border-radius:12px;background:#fff;text-decoration:none;
-    color:inherit;transition:border-color .2s,box-shadow .2s,transform .2s;max-width:640px}
-  .hero-help:hover{border-color:#C9D4FF;box-shadow:0 10px 30px rgba(5,28,44,.08);transform:translateY(-1px)}
-  .hh-steps{display:flex;align-items:center;gap:10px;flex-shrink:0}
-  .hh-step{display:flex;flex-direction:column;align-items:center;gap:6px}
-  .hh-ico{width:38px;height:38px;border-radius:10px;background:var(--light-gray);
-    display:flex;align-items:center;justify-content:center}
-  .hh-step span{font-size:12px;font-weight:600;color:var(--text-gray);
-    text-align:center;line-height:1.25;white-space:nowrap}
-  .hh-arrow{color:#C9D4FF;font-size:16px;margin-bottom:16px}
-  .hh-txt{min-width:0;flex:1}
-  .hh-txt strong{display:block;font-size:16px;color:var(--navy);margin-bottom:3px}
-  .hh-txt span{font-size:14px;color:var(--text-gray);line-height:1.55}
-  .hh-go{color:var(--blue);font-weight:700;font-size:18px;margin-left:auto;flex-shrink:0}
-  .hero-note{margin:14px 0 0;font-size:13.5px;color:var(--text-gray);line-height:1.6}
-  .hero-note a{color:var(--blue);font-weight:600;text-decoration:none}
-  .hero-note a:hover{text-decoration:underline}
-  @media(max-width:760px){
-    .hero-help{flex-direction:column;align-items:flex-start;gap:16px;width:100%}
-    .hh-go{display:none}
-  }
-  .chip-sep{display:inline-block;width:1px;height:20px;background:var(--border);margin:0 6px;vertical-align:middle}
-</style>
-<style>
-  /* search typeahead */
-  .search-wrap{position:relative;max-width:420px}
-  .ta{position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:200;background:#fff;
-    border:1px solid var(--border);border-radius:10px;box-shadow:0 16px 40px rgba(5,28,44,.14);
-    overflow:hidden;max-height:340px;overflow-y:auto}
-  .ta[hidden]{display:none}
-  .ta-item{display:flex;align-items:center;gap:12px;padding:10px 12px;text-decoration:none;
-    color:inherit;border-bottom:1px solid #F1F3F6;cursor:pointer;width:100%;
-    background:none;border-left:0;border-right:0;border-top:0;text-align:left;font-family:inherit}
-  .ta-item:last-child{border-bottom:0}
-  .ta-item:hover,.ta-item.act{background:#F3F6FF}
-  .ta-thumb{width:60px;height:38px;border-radius:5px;flex-shrink:0;object-fit:cover;
-    background:repeating-linear-gradient(135deg,#EEF1F5 0 8px,#E6EAF0 8px 16px)}
-  .ta-txt{min-width:0;flex:1}
-  .ta-title{font-size:13.5px;font-weight:600;line-height:1.3;display:block;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .ta-title mark{background:#DDE6FF;color:inherit;padding:0 1px;border-radius:2px}
-  .ta-meta{font-size:11.5px;color:var(--text-gray);margin-top:2px;display:block}
-  .ta-price{font-size:13px;font-weight:700;flex-shrink:0}
-  .ta-price.soon{font-weight:600;color:#9AA5B4;font-size:11.5px}
-  .ta-none{padding:14px 12px;font-size:13px;color:var(--text-gray)}
-</style>
-
 <div class="wrap shop-hero">
   <div class="eyebrow">Notion Templates</div>
   <h1>Instant access. Use it today.</h1>
