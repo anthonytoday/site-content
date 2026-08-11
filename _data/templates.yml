@@ -343,7 +343,7 @@
   - /assets/templates/cpa-exam-prep/mobile/01.webp
   video:
     id: cetcAXvyIpc
-    thumb: https://i.ytimg.com/vi/cetcAXvyIpc/hqdefault.jpg
+    thumb: /assets/templates/cpa-exam-prep/video-thumb-640w.webp
     title: Master CPA Exam with Notion Template
   en:
     title: CPA Exam Prep, Complete Study System
