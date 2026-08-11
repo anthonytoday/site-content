@@ -2288,7 +2288,10 @@
 
 - id: finance-cert-bundle-3x-premium
   status: live
-  free: true
+  # Paid bundle. Price not yet confirmed: the Marketplace renders it client-side and
+  # the Listings Tracker has it null. Its own listing copy says "save over $124" and
+  # the three components are $79 + $79 + $27 = $185, so it is at most $61.
+  # Add `price:` and `stripe:` once confirmed and the buy box switches automatically.
   category: finance
   marketplace: https://www.notion.com/templates/finance-cert-bundle-3x-premium
   page: /templates/finance-cert-bundle-3x-premium/

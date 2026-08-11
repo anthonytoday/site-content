@@ -29,6 +29,14 @@
       {%- if t.marketplace_i18n.it %}<a href="{{ t.marketplace_i18n.it }}" target="_blank" rel="noopener">Italiano</a>{% endif -%}
       </p>
   {%- endif -%}
+{%- elsif t.price == nil -%}
+  {%- comment -%} Paid, but the price is not yet confirmed. Never print a bare "$",
+      and never claim a number we cannot stand behind. Send people to the listing,
+      where Notion shows the real price and takes the payment. {%- endcomment -%}
+      <p class="pd-price" style="font-size:20px">{% if L == "fr" %}Payant{% else %}Paid template{% endif %}</p>
+      <p class="pd-vat">{% if L == "fr" %}Le prix actuel est affiche sur le Notion Marketplace.{% else %}Current price is shown on the Notion Marketplace.{% endif %}</p>
+      <a class="btn btn-block" href="{{ t.marketplace }}" target="_blank" rel="noopener">{% if L == "fr" %}Voir le prix et acheter{% else %}See the price and buy{% endif %}</a>
+      <p class="stripe-note">{% if L == "fr" %}Paiement et livraison geres par Notion. Checkout direct bientot disponible ici.{% else %}Payment and delivery handled by Notion. Direct checkout is coming here shortly.{% endif %}</p>
 {%- else -%}
       <p class="pd-price">${{ t.price }}</p>
       <p class="pd-vat">{% if L == "fr" %}Paiement unique. TVA ajoutee au paiement le cas echeant.{% else %}One-time payment. VAT added at checkout where applicable.{% endif %}</p>
