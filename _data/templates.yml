@@ -1465,6 +1465,8 @@
 
 - id: security-cert-bundle-7x
   status: live
+  # Parts at current catalogue prices: CISA/CISM/CRISC/CGEIT/CDPSE $59 each + CISSP $47 + CompTIA Security+ $49
+  compare_at: 391
   category: grc
   price: 147
   stripe: https://pay.anthonytoday.com/b/eVqcN76Qgfat7rB6SB1ZS0k
@@ -2288,6 +2290,8 @@
 
 - id: finance-cert-bundle-3x-premium
   status: live
+  # Parts at current catalogue prices: CFA $79 + CPA $79 + Personal Financial Planner Pro $27
+  compare_at: 185
   category: finance
   price: 97
   stripe: https://pay.anthonytoday.com/b/8x200l0rS4vP5jt0ud1ZS0r

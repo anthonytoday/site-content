@@ -30,7 +30,17 @@
       </p>
   {%- endif -%}
 {%- else -%}
+  {%- comment -%} A bundle states what its parts cost separately. Both the saving and the
+      percentage are computed from compare_at and price, so they cannot go stale the way a
+      number typed into listing copy does. {%- endcomment -%}
+  {%- if t.compare_at -%}
+    {%- assign saving = t.compare_at | minus: t.price -%}
+    {%- assign pct = saving | times: 100 | divided_by: t.compare_at -%}
+      <p class="pd-price">${{ t.price }} <span class="pd-was">${{ t.compare_at }}</span></p>
+      <p class="pd-save">{% if L == "fr" %}Économie de ${{ saving }}, soit {{ pct }} % de moins qu'en achetant les templates séparément.{% else %}Save ${{ saving }}, {{ pct }}% less than buying the templates separately.{% endif %}</p>
+  {%- else -%}
       <p class="pd-price">${{ t.price }}</p>
+  {%- endif -%}
       <p class="pd-vat">{% if L == "fr" %}Paiement unique. TVA ajoutée au paiement le cas échéant.{% else %}One-time payment. VAT added at checkout where applicable.{% endif %}</p>
   {%- comment -%} A paid listing with no Stripe link yet must never render an empty href.
       Fall back to the Marketplace listing, where the same template is on sale at the
