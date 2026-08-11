@@ -20,10 +20,10 @@
   - /assets/templates/dream-travel-planner/desktop/02.webp
   - /assets/templates/dream-travel-planner/desktop/03.webp
   mobile:
-  - /assets/templates/dream-travel-planner/mobile/01.jpg
-  - /assets/templates/dream-travel-planner/mobile/02.jpg
-  - /assets/templates/dream-travel-planner/mobile/03.jpg
-  - /assets/templates/dream-travel-planner/mobile/04.jpg
+  - /assets/templates/dream-travel-planner/mobile/01.webp
+  - /assets/templates/dream-travel-planner/mobile/02.webp
+  - /assets/templates/dream-travel-planner/mobile/03.webp
+  - /assets/templates/dream-travel-planner/mobile/04.webp
   en:
     title: Dream Travel Planner
     blurb: Itinerary, budget, bookings and checklists for the whole trip, in one page.
@@ -67,11 +67,11 @@
   - /assets/templates/dream-travel-planner-ultimate/desktop/04.webp
   - /assets/templates/dream-travel-planner-ultimate/desktop/05.webp
   mobile:
-  - /assets/templates/dream-travel-planner-ultimate/mobile/01.jpg
-  - /assets/templates/dream-travel-planner-ultimate/mobile/02.jpg
-  - /assets/templates/dream-travel-planner-ultimate/mobile/03.jpg
-  - /assets/templates/dream-travel-planner-ultimate/mobile/04.jpg
-  - /assets/templates/dream-travel-planner-ultimate/mobile/05.jpg
+  - /assets/templates/dream-travel-planner-ultimate/mobile/01.webp
+  - /assets/templates/dream-travel-planner-ultimate/mobile/02.webp
+  - /assets/templates/dream-travel-planner-ultimate/mobile/03.webp
+  - /assets/templates/dream-travel-planner-ultimate/mobile/04.webp
+  - /assets/templates/dream-travel-planner-ultimate/mobile/05.webp
   en:
     title: Dream Travel Planner Ultimate
     blurb: Multi-destination routing, packing systems and a full budget breakdown.
@@ -98,9 +98,9 @@
   - /assets/templates/ai-teaching-prompts/desktop/01-prompt-detail.webp
   - /assets/templates/ai-teaching-prompts/desktop/02-prompt-fields.webp
   mobile:
-  - /assets/templates/ai-teaching-prompts/mobile/01-gallery.jpg
-  - /assets/templates/ai-teaching-prompts/mobile/02-prompt-detail.jpg
-  - /assets/templates/ai-teaching-prompts/mobile/03-prompt-fields.jpg
+  - /assets/templates/ai-teaching-prompts/mobile/01-gallery.webp
+  - /assets/templates/ai-teaching-prompts/mobile/02-prompt-detail.webp
+  - /assets/templates/ai-teaching-prompts/mobile/03-prompt-fields.webp
   en:
     title: 100+ AI Teaching Prompts
     blurb: Lesson plans, quizzes and parent emails, written by AI in seconds.
@@ -132,12 +132,12 @@
   - /assets/templates/ultimate-business-dashboard/desktop/04-resources.webp
   - /assets/templates/ultimate-business-dashboard/desktop/05-cloudops-hub.webp
   mobile:
-  - /assets/templates/ultimate-business-dashboard/mobile/01-dashboard.jpg
-  - /assets/templates/ultimate-business-dashboard/mobile/02-team-profiles.jpg
-  - /assets/templates/ultimate-business-dashboard/mobile/03-finances.jpg
-  - /assets/templates/ultimate-business-dashboard/mobile/04-home-page.jpg
-  - /assets/templates/ultimate-business-dashboard/mobile/05-resources.jpg
-  - /assets/templates/ultimate-business-dashboard/mobile/06-cloudops-hub.jpg
+  - /assets/templates/ultimate-business-dashboard/mobile/01-dashboard.webp
+  - /assets/templates/ultimate-business-dashboard/mobile/02-team-profiles.webp
+  - /assets/templates/ultimate-business-dashboard/mobile/03-finances.webp
+  - /assets/templates/ultimate-business-dashboard/mobile/04-home-page.webp
+  - /assets/templates/ultimate-business-dashboard/mobile/05-resources.webp
+  - /assets/templates/ultimate-business-dashboard/mobile/06-cloudops-hub.webp
   en:
     title: Ultimate Business Dashboard
     blurb: Clients, projects, invoices and pipeline in one operating system.
@@ -162,12 +162,12 @@
   - /assets/templates/business-bundle-20x/desktop/04.webp
   - /assets/templates/business-bundle-20x/desktop/05.webp
   mobile:
-  - /assets/templates/business-bundle-20x/mobile/01.jpg
-  - /assets/templates/business-bundle-20x/mobile/02.jpg
-  - /assets/templates/business-bundle-20x/mobile/03.jpg
-  - /assets/templates/business-bundle-20x/mobile/04.jpg
-  - /assets/templates/business-bundle-20x/mobile/05.jpg
-  - /assets/templates/business-bundle-20x/mobile/06.jpg
+  - /assets/templates/business-bundle-20x/mobile/01.webp
+  - /assets/templates/business-bundle-20x/mobile/02.webp
+  - /assets/templates/business-bundle-20x/mobile/03.webp
+  - /assets/templates/business-bundle-20x/mobile/04.webp
+  - /assets/templates/business-bundle-20x/mobile/05.webp
+  - /assets/templates/business-bundle-20x/mobile/06.webp
   en:
     title: All-In-One Business Bundle (20x)
     blurb: Twenty premium templates in one purchase. Over $500 cheaper than buying separately.
@@ -195,10 +195,10 @@
   - /assets/templates/airbnb-manager-lite/desktop/02.webp
   - /assets/templates/airbnb-manager-lite/desktop/03.webp
   mobile:
-  - /assets/templates/airbnb-manager-lite/mobile/01.jpg
-  - /assets/templates/airbnb-manager-lite/mobile/02.jpg
-  - /assets/templates/airbnb-manager-lite/mobile/03.jpg
-  - /assets/templates/airbnb-manager-lite/mobile/04.jpg
+  - /assets/templates/airbnb-manager-lite/mobile/01.webp
+  - /assets/templates/airbnb-manager-lite/mobile/02.webp
+  - /assets/templates/airbnb-manager-lite/mobile/03.webp
+  - /assets/templates/airbnb-manager-lite/mobile/04.webp
   en:
     title: Airbnb Manager, Run Rentals Like a Pro (Lite)
     blurb: One property, every booking, cleaning and payout in one place.
@@ -234,12 +234,12 @@
   - /assets/templates/airbnb-manager-ultimate/desktop/04.webp
   - /assets/templates/airbnb-manager-ultimate/desktop/05.webp
   mobile:
-  - /assets/templates/airbnb-manager-ultimate/mobile/01.jpg
-  - /assets/templates/airbnb-manager-ultimate/mobile/02.jpg
-  - /assets/templates/airbnb-manager-ultimate/mobile/03.jpg
-  - /assets/templates/airbnb-manager-ultimate/mobile/04.jpg
-  - /assets/templates/airbnb-manager-ultimate/mobile/05.jpg
-  - /assets/templates/airbnb-manager-ultimate/mobile/06.jpg
+  - /assets/templates/airbnb-manager-ultimate/mobile/01.webp
+  - /assets/templates/airbnb-manager-ultimate/mobile/02.webp
+  - /assets/templates/airbnb-manager-ultimate/mobile/03.webp
+  - /assets/templates/airbnb-manager-ultimate/mobile/04.webp
+  - /assets/templates/airbnb-manager-ultimate/mobile/05.webp
+  - /assets/templates/airbnb-manager-ultimate/mobile/06.webp
   en:
     title: Airbnb Manager Ultimate, Full System
     blurb: Unlimited listings, bookings, finances, maintenance and guests, with 8 automations.
@@ -272,9 +272,9 @@
   - /assets/templates/cfa-exam-prep-lite/desktop/01.webp
   - /assets/templates/cfa-exam-prep-lite/desktop/02.webp
   mobile:
-  - /assets/templates/cfa-exam-prep-lite/mobile/01.jpg
-  - /assets/templates/cfa-exam-prep-lite/mobile/02.jpg
-  - /assets/templates/cfa-exam-prep-lite/mobile/03.jpg
+  - /assets/templates/cfa-exam-prep-lite/mobile/01.webp
+  - /assets/templates/cfa-exam-prep-lite/mobile/02.webp
+  - /assets/templates/cfa-exam-prep-lite/mobile/03.webp
   upsell: cfa-exam-prep
   en:
     title: CFA Exam Prep, Study Plan (Lite)
@@ -309,11 +309,11 @@
   - /assets/templates/cfa-exam-prep/desktop/03.webp
   - /assets/templates/cfa-exam-prep/desktop/04.webp
   mobile:
-  - /assets/templates/cfa-exam-prep/mobile/01.jpg
-  - /assets/templates/cfa-exam-prep/mobile/02.jpg
-  - /assets/templates/cfa-exam-prep/mobile/03.jpg
-  - /assets/templates/cfa-exam-prep/mobile/04.jpg
-  - /assets/templates/cfa-exam-prep/mobile/05.jpg
+  - /assets/templates/cfa-exam-prep/mobile/01.webp
+  - /assets/templates/cfa-exam-prep/mobile/02.webp
+  - /assets/templates/cfa-exam-prep/mobile/03.webp
+  - /assets/templates/cfa-exam-prep/mobile/04.webp
+  - /assets/templates/cfa-exam-prep/mobile/05.webp
   en:
     title: CFA Exam Prep, Complete Study System
     blurb: All three levels, flashcards, practice questions and pace tracking.
@@ -340,7 +340,7 @@
   gallery:
   - /assets/templates/cpa-exam-prep/desktop/01.webp
   mobile:
-  - /assets/templates/cpa-exam-prep/mobile/01.jpg
+  - /assets/templates/cpa-exam-prep/mobile/01.webp
   video:
     id: cetcAXvyIpc
     thumb: https://i.ytimg.com/vi/cetcAXvyIpc/hqdefault.jpg
@@ -371,8 +371,8 @@
   gallery:
   - /assets/templates/cisa-exam-prep/desktop/01.webp
   mobile:
-  - /assets/templates/cisa-exam-prep/mobile/01.jpg
-  - /assets/templates/cisa-exam-prep/mobile/02.jpg
+  - /assets/templates/cisa-exam-prep/mobile/01.webp
+  - /assets/templates/cisa-exam-prep/mobile/02.webp
   en:
     title: CISA Exam, Complete Study System
     blurb: All five audit domains, flashcards and pace tracking.
@@ -400,9 +400,9 @@
   - /assets/templates/cdpse-exam-prep/desktop/01.webp
   - /assets/templates/cdpse-exam-prep/desktop/02.webp
   mobile:
-  - /assets/templates/cdpse-exam-prep/mobile/01.jpg
-  - /assets/templates/cdpse-exam-prep/mobile/02.jpg
-  - /assets/templates/cdpse-exam-prep/mobile/03.jpg
+  - /assets/templates/cdpse-exam-prep/mobile/01.webp
+  - /assets/templates/cdpse-exam-prep/mobile/02.webp
+  - /assets/templates/cdpse-exam-prep/mobile/03.webp
   en:
     title: CDPSE Exam Prep, Pass With Confidence
     blurb: Every domain as study sessions, with flashcards and pace tracking.
@@ -430,9 +430,9 @@
   - /assets/templates/cgeit-exam-prep/desktop/01.webp
   - /assets/templates/cgeit-exam-prep/desktop/02.webp
   mobile:
-  - /assets/templates/cgeit-exam-prep/mobile/01.jpg
-  - /assets/templates/cgeit-exam-prep/mobile/02.jpg
-  - /assets/templates/cgeit-exam-prep/mobile/03.jpg
+  - /assets/templates/cgeit-exam-prep/mobile/01.webp
+  - /assets/templates/cgeit-exam-prep/mobile/02.webp
+  - /assets/templates/cgeit-exam-prep/mobile/03.webp
   en:
     title: CGEIT Exam, Complete Study System
     blurb: All four governance domains, flashcards and pace tracking.
@@ -473,7 +473,7 @@
   page_fr: /fr/templates/budget-tracker/
   cover: /assets/templates/budget-tracker/cover.webp
   mobile:
-  - /assets/templates/budget-tracker/mobile/01.jpg
+  - /assets/templates/budget-tracker/mobile/01.webp
   en:
     title: Budget Tracker, Master Your Money Fast
     blurb: Income in, expenses out, and what is actually left. Nothing else.
@@ -514,10 +514,10 @@
   - /assets/templates/personal-financial-planner-pro/desktop/03.webp
   - /assets/templates/personal-financial-planner-pro/desktop/04.webp
   mobile:
-  - /assets/templates/personal-financial-planner-pro/mobile/01.jpg
-  - /assets/templates/personal-financial-planner-pro/mobile/02.jpg
-  - /assets/templates/personal-financial-planner-pro/mobile/03.jpg
-  - /assets/templates/personal-financial-planner-pro/mobile/04.jpg
+  - /assets/templates/personal-financial-planner-pro/mobile/01.webp
+  - /assets/templates/personal-financial-planner-pro/mobile/02.webp
+  - /assets/templates/personal-financial-planner-pro/mobile/03.webp
+  - /assets/templates/personal-financial-planner-pro/mobile/04.webp
   en:
     title: Personal Financial Planner Pro
     blurb: Accounts, net worth, debt payoff and goals in one budget system.
@@ -551,8 +551,8 @@
   gallery:
   - /assets/templates/business-expenses-tracker/desktop/01.webp
   mobile:
-  - /assets/templates/business-expenses-tracker/mobile/01.jpg
-  - /assets/templates/business-expenses-tracker/mobile/02.jpg
+  - /assets/templates/business-expenses-tracker/mobile/01.webp
+  - /assets/templates/business-expenses-tracker/mobile/02.webp
 
 - id: ai-research-agent-lite
   status: live
@@ -563,7 +563,7 @@
   page_fr: /fr/templates/ai-research-agent-lite/
   cover: /assets/templates/ai-research-agent-lite/cover.webp
   mobile:
-  - /assets/templates/ai-research-agent-lite/mobile/01.jpg
+  - /assets/templates/ai-research-agent-lite/mobile/01.webp
   en:
     title: AI Agent Research Analysis (Lite)
     blurb: A Notion agent that researches a topic and returns a structured analysis.
@@ -622,7 +622,7 @@
   - business
   cover: /assets/templates/business-consultant-agent/cover.webp
   mobile:
-  - /assets/templates/business-consultant-agent/mobile/01.jpg
+  - /assets/templates/business-consultant-agent/mobile/01.webp
   en:
     title: Business Consultant Agent
     blurb: A Notion agent that frames the problem, structures the analysis, then recommends.
@@ -642,8 +642,8 @@
   gallery:
   - /assets/templates/books-library/desktop/01.webp
   mobile:
-  - /assets/templates/books-library/mobile/01.jpg
-  - /assets/templates/books-library/mobile/02.jpg
+  - /assets/templates/books-library/mobile/01.webp
+  - /assets/templates/books-library/mobile/02.webp
   en:
     title: 200+ Books Library
     blurb: 200 best-selling books, sorted so you always know what to read next.
@@ -667,7 +667,7 @@
   page_fr: /fr/templates/2026-planning/
   cover: /assets/templates/2026-planning/cover.webp
   mobile:
-  - /assets/templates/2026-planning/mobile/01.jpg
+  - /assets/templates/2026-planning/mobile/01.webp
   en:
     title: 2026 Planning, Full Year Overview
     blurb: 'The whole year on one page: goals, quarters, months and weeks, linked.'
@@ -702,8 +702,8 @@
   - /assets/templates/cpa-exam-prep-lite/desktop/01.webp
   - /assets/templates/cpa-exam-prep-lite/desktop/02.webp
   mobile:
-  - /assets/templates/cpa-exam-prep-lite/mobile/01.jpg
-  - /assets/templates/cpa-exam-prep-lite/mobile/02.jpg
+  - /assets/templates/cpa-exam-prep-lite/mobile/01.webp
+  - /assets/templates/cpa-exam-prep-lite/mobile/02.webp
   upsell: cpa-exam-prep
   en:
     title: CPA Exam Prep, Study Plan Ready (Lite)
@@ -737,9 +737,9 @@
   - /assets/templates/cism-exam-prep/desktop/02.webp
   - /assets/templates/cism-exam-prep/desktop/03.webp
   mobile:
-  - /assets/templates/cism-exam-prep/mobile/01.jpg
-  - /assets/templates/cism-exam-prep/mobile/02.jpg
-  - /assets/templates/cism-exam-prep/mobile/03.jpg
+  - /assets/templates/cism-exam-prep/mobile/01.webp
+  - /assets/templates/cism-exam-prep/mobile/02.webp
+  - /assets/templates/cism-exam-prep/mobile/03.webp
   en:
     title: CISM Exam, Complete Study System
     blurb: All four management domains, flashcards and pace tracking.
@@ -767,8 +767,8 @@
   - /assets/templates/crisc-exam-prep/desktop/01.webp
   - /assets/templates/crisc-exam-prep/desktop/02.webp
   mobile:
-  - /assets/templates/crisc-exam-prep/mobile/01.jpg
-  - /assets/templates/crisc-exam-prep/mobile/02.jpg
+  - /assets/templates/crisc-exam-prep/mobile/01.webp
+  - /assets/templates/crisc-exam-prep/mobile/02.webp
   en:
     title: CRISC Exam, Complete Study System
     blurb: All four risk domains, flashcards and pace tracking.
@@ -796,8 +796,8 @@
   - /assets/templates/comptia-security-plus-lite/desktop/01.webp
   - /assets/templates/comptia-security-plus-lite/desktop/02.webp
   mobile:
-  - /assets/templates/comptia-security-plus-lite/mobile/01.jpg
-  - /assets/templates/comptia-security-plus-lite/mobile/02.jpg
+  - /assets/templates/comptia-security-plus-lite/mobile/01.webp
+  - /assets/templates/comptia-security-plus-lite/mobile/02.webp
   upsell: comptia-security-plus
   en:
     title: CompTIA Security+ Prep, V7 Path (Lite)
@@ -830,8 +830,8 @@
   - /assets/templates/comptia-security-plus/desktop/01.webp
   - /assets/templates/comptia-security-plus/desktop/02.webp
   mobile:
-  - /assets/templates/comptia-security-plus/mobile/01.jpg
-  - /assets/templates/comptia-security-plus/mobile/02.jpg
+  - /assets/templates/comptia-security-plus/mobile/01.webp
+  - /assets/templates/comptia-security-plus/mobile/02.webp
   en:
     title: CompTIA Security+, Pass SY0-701 Fast
     blurb: Every SY0-701 domain as study sessions, with flashcards and pace tracking.
@@ -860,10 +860,10 @@
   - /assets/templates/creative-studio/desktop/03.webp
   - /assets/templates/creative-studio/desktop/04.webp
   mobile:
-  - /assets/templates/creative-studio/mobile/01.jpg
-  - /assets/templates/creative-studio/mobile/02.jpg
-  - /assets/templates/creative-studio/mobile/03.jpg
-  - /assets/templates/creative-studio/mobile/04.jpg
+  - /assets/templates/creative-studio/mobile/01.webp
+  - /assets/templates/creative-studio/mobile/02.webp
+  - /assets/templates/creative-studio/mobile/03.webp
+  - /assets/templates/creative-studio/mobile/04.webp
   upsell: ultimate-business-dashboard
   en:
     title: Creative Studio, Manage Projects and Clients
@@ -897,10 +897,10 @@
   - /assets/templates/personal-financial-planner/desktop/03.webp
   - /assets/templates/personal-financial-planner/desktop/04.webp
   mobile:
-  - /assets/templates/personal-financial-planner/mobile/01.jpg
-  - /assets/templates/personal-financial-planner/mobile/02.jpg
-  - /assets/templates/personal-financial-planner/mobile/03.jpg
-  - /assets/templates/personal-financial-planner/mobile/04.jpg
+  - /assets/templates/personal-financial-planner/mobile/01.webp
+  - /assets/templates/personal-financial-planner/mobile/02.webp
+  - /assets/templates/personal-financial-planner/mobile/03.webp
+  - /assets/templates/personal-financial-planner/mobile/04.webp
   upsell: personal-financial-planner-pro
   en:
     title: Personal Financial Planner, Master Your Budget
@@ -931,7 +931,7 @@
   gallery:
   - /assets/templates/cisa-exam-prep-lite/desktop/01.webp
   mobile:
-  - /assets/templates/cisa-exam-prep-lite/mobile/01.jpg
+  - /assets/templates/cisa-exam-prep-lite/mobile/01.webp
   upsell: cisa-exam-prep
   en:
     title: CISA Exam Prep, Pass First Attempt (Lite)
@@ -962,7 +962,7 @@
   gallery:
   - /assets/templates/cism-exam-prep-lite/desktop/01.webp
   mobile:
-  - /assets/templates/cism-exam-prep-lite/mobile/01.jpg
+  - /assets/templates/cism-exam-prep-lite/mobile/01.webp
   upsell: cism-exam-prep
   en:
     title: CISM Exam Prep, Pass First Attempt (Lite)
@@ -993,7 +993,7 @@
   gallery:
   - /assets/templates/crisc-exam-prep-lite/desktop/01.webp
   mobile:
-  - /assets/templates/crisc-exam-prep-lite/mobile/01.jpg
+  - /assets/templates/crisc-exam-prep-lite/mobile/01.webp
   upsell: crisc-exam-prep
   en:
     title: CRISC Exam Prep, Pass First Attempt (Lite)
@@ -1024,7 +1024,7 @@
   gallery:
   - /assets/templates/cgeit-exam-prep-lite/desktop/01.webp
   mobile:
-  - /assets/templates/cgeit-exam-prep-lite/mobile/01.jpg
+  - /assets/templates/cgeit-exam-prep-lite/mobile/01.webp
   upsell: cgeit-exam-prep
   en:
     title: CGEIT Exam Prep, Pass First Attempt (Lite)
@@ -1055,7 +1055,7 @@
   gallery:
   - /assets/templates/cdpse-exam-prep-lite/desktop/01.webp
   mobile:
-  - /assets/templates/cdpse-exam-prep-lite/mobile/01.jpg
+  - /assets/templates/cdpse-exam-prep-lite/mobile/01.webp
   upsell: cdpse-exam-prep
   en:
     title: CDPSE Exam Prep, Pass First Attempt (Lite)
@@ -1090,10 +1090,10 @@
   - /assets/templates/cissp-exam-prep-lite/desktop/04.webp
   - /assets/templates/cissp-exam-prep-lite/desktop/05.webp
   mobile:
-  - /assets/templates/cissp-exam-prep-lite/mobile/01.jpg
-  - /assets/templates/cissp-exam-prep-lite/mobile/02.jpg
-  - /assets/templates/cissp-exam-prep-lite/mobile/03.jpg
-  - /assets/templates/cissp-exam-prep-lite/mobile/04.jpg
+  - /assets/templates/cissp-exam-prep-lite/mobile/01.webp
+  - /assets/templates/cissp-exam-prep-lite/mobile/02.webp
+  - /assets/templates/cissp-exam-prep-lite/mobile/03.webp
+  - /assets/templates/cissp-exam-prep-lite/mobile/04.webp
   upsell: cissp-exam-prep
   en:
     title: CISSP Exam Prep, Master All Domains (Lite)
@@ -1126,10 +1126,10 @@
   - /assets/templates/pmp-exam-prep/desktop/03.webp
   - /assets/templates/pmp-exam-prep/desktop/04.webp
   mobile:
-  - /assets/templates/pmp-exam-prep/mobile/01.jpg
-  - /assets/templates/pmp-exam-prep/mobile/02.jpg
-  - /assets/templates/pmp-exam-prep/mobile/03.jpg
-  - /assets/templates/pmp-exam-prep/mobile/04.jpg
+  - /assets/templates/pmp-exam-prep/mobile/01.webp
+  - /assets/templates/pmp-exam-prep/mobile/02.webp
+  - /assets/templates/pmp-exam-prep/mobile/03.webp
+  - /assets/templates/pmp-exam-prep/mobile/04.webp
   en:
     title: PMP Exam Prep, Pass the PMP Certification
     blurb: All three PMP domains, flashcards and pace tracking.
@@ -1161,12 +1161,12 @@
   - /assets/templates/dental-clinic/desktop/05.webp
   - /assets/templates/dental-clinic/desktop/06.webp
   mobile:
-  - /assets/templates/dental-clinic/mobile/01.jpg
-  - /assets/templates/dental-clinic/mobile/02.jpg
-  - /assets/templates/dental-clinic/mobile/03.jpg
-  - /assets/templates/dental-clinic/mobile/04.jpg
-  - /assets/templates/dental-clinic/mobile/05.jpg
-  - /assets/templates/dental-clinic/mobile/06.jpg
+  - /assets/templates/dental-clinic/mobile/01.webp
+  - /assets/templates/dental-clinic/mobile/02.webp
+  - /assets/templates/dental-clinic/mobile/03.webp
+  - /assets/templates/dental-clinic/mobile/04.webp
+  - /assets/templates/dental-clinic/mobile/05.webp
+  - /assets/templates/dental-clinic/mobile/06.webp
   en:
     title: Dental Clinic Management, Ready to Use
     blurb: Patients, appointments, treatments and billing in one practice workspace.
@@ -1195,10 +1195,10 @@
   - /assets/templates/dental-clinic-lite/desktop/03.webp
   - /assets/templates/dental-clinic-lite/desktop/04.webp
   mobile:
-  - /assets/templates/dental-clinic-lite/mobile/01.jpg
-  - /assets/templates/dental-clinic-lite/mobile/02.jpg
-  - /assets/templates/dental-clinic-lite/mobile/03.jpg
-  - /assets/templates/dental-clinic-lite/mobile/04.jpg
+  - /assets/templates/dental-clinic-lite/mobile/01.webp
+  - /assets/templates/dental-clinic-lite/mobile/02.webp
+  - /assets/templates/dental-clinic-lite/mobile/03.webp
+  - /assets/templates/dental-clinic-lite/mobile/04.webp
   upsell: dental-clinic
   en:
     title: Dental Practice, Run Your Clinic (Lite)
@@ -1232,10 +1232,10 @@
   - /assets/templates/medical-practice/desktop/03.webp
   - /assets/templates/medical-practice/desktop/04.webp
   mobile:
-  - /assets/templates/medical-practice/mobile/01.jpg
-  - /assets/templates/medical-practice/mobile/02.jpg
-  - /assets/templates/medical-practice/mobile/03.jpg
-  - /assets/templates/medical-practice/mobile/04.jpg
+  - /assets/templates/medical-practice/mobile/01.webp
+  - /assets/templates/medical-practice/mobile/02.webp
+  - /assets/templates/medical-practice/mobile/03.webp
+  - /assets/templates/medical-practice/mobile/04.webp
   en:
     title: Medical Practice, Manage Patients Easily
     blurb: Patients, appointments and consultation notes in one workspace.
@@ -1261,7 +1261,7 @@
   gallery:
   - /assets/templates/life-os/desktop/01.webp
   mobile:
-  - /assets/templates/life-os/mobile/01.jpg
+  - /assets/templates/life-os/mobile/01.webp
   en:
     title: Life OS, Digital Planner and Home Hub
     blurb: Tasks, home, habits and plans for the whole household, in one page.
@@ -1289,9 +1289,9 @@
   - /assets/templates/parent-os/desktop/02.webp
   - /assets/templates/parent-os/desktop/03.webp
   mobile:
-  - /assets/templates/parent-os/mobile/01.jpg
-  - /assets/templates/parent-os/mobile/02.jpg
-  - /assets/templates/parent-os/mobile/03.jpg
+  - /assets/templates/parent-os/mobile/01.webp
+  - /assets/templates/parent-os/mobile/02.webp
+  - /assets/templates/parent-os/mobile/03.webp
   en:
     title: Parent OS, Family, Work and Life Dashboard
     blurb: School, activities, meals and work commitments on one dashboard.
@@ -1318,8 +1318,8 @@
   - /assets/templates/performance-improvement-plan/desktop/01.webp
   - /assets/templates/performance-improvement-plan/desktop/02.webp
   mobile:
-  - /assets/templates/performance-improvement-plan/mobile/01.jpg
-  - /assets/templates/performance-improvement-plan/mobile/02.jpg
+  - /assets/templates/performance-improvement-plan/mobile/01.webp
+  - /assets/templates/performance-improvement-plan/mobile/02.webp
   en:
     title: Performance Improvement Plan, Fix Team Issues
     blurb: A documented PIP with objectives, check-ins and evidence.
@@ -1345,7 +1345,7 @@
   gallery:
   - /assets/templates/finance-tracker/desktop/01.webp
   mobile:
-  - /assets/templates/finance-tracker/mobile/01.jpg
+  - /assets/templates/finance-tracker/mobile/01.webp
   en:
     title: Finance Tracker, Income and Expenses
     blurb: Every transaction in, every transaction out, categorised.
@@ -1371,7 +1371,7 @@
   gallery:
   - /assets/templates/daily-weekly-monthly-planners/desktop/01.webp
   mobile:
-  - /assets/templates/daily-weekly-monthly-planners/mobile/01.jpg
+  - /assets/templates/daily-weekly-monthly-planners/mobile/01.webp
   en:
     title: Daily Weekly Monthly Planners, Stay on Track
     blurb: 'Three linked horizons: today, this week, this month.'
@@ -1400,9 +1400,9 @@
   - /assets/templates/green-monthly-planner/desktop/03.webp
   - /assets/templates/green-monthly-planner/desktop/04.webp
   mobile:
-  - /assets/templates/green-monthly-planner/mobile/01.jpg
-  - /assets/templates/green-monthly-planner/mobile/02.jpg
-  - /assets/templates/green-monthly-planner/mobile/03.jpg
+  - /assets/templates/green-monthly-planner/mobile/01.webp
+  - /assets/templates/green-monthly-planner/mobile/02.webp
+  - /assets/templates/green-monthly-planner/mobile/03.webp
   en:
     title: Green Monthly Planner, Focus, Flow and Balance
     blurb: A calm monthly page for focus, habits and balance.
@@ -1430,9 +1430,9 @@
   - /assets/templates/font-finder-pro/desktop/02.webp
   - /assets/templates/font-finder-pro/desktop/03.webp
   mobile:
-  - /assets/templates/font-finder-pro/mobile/01.jpg
-  - /assets/templates/font-finder-pro/mobile/02.jpg
-  - /assets/templates/font-finder-pro/mobile/03.jpg
+  - /assets/templates/font-finder-pro/mobile/01.webp
+  - /assets/templates/font-finder-pro/mobile/02.webp
+  - /assets/templates/font-finder-pro/mobile/03.webp
   en:
     title: Font Finder Pro, Curated Open Source Fonts
     blurb: A searchable library of open source fonts you can actually use commercially.
@@ -1488,12 +1488,12 @@
   - /assets/templates/security-cert-bundle-7x/desktop/05.webp
   - /assets/templates/security-cert-bundle-7x/desktop/06.webp
   mobile:
-  - /assets/templates/security-cert-bundle-7x/mobile/01.jpg
-  - /assets/templates/security-cert-bundle-7x/mobile/02.jpg
-  - /assets/templates/security-cert-bundle-7x/mobile/03.jpg
-  - /assets/templates/security-cert-bundle-7x/mobile/04.jpg
-  - /assets/templates/security-cert-bundle-7x/mobile/05.jpg
-  - /assets/templates/security-cert-bundle-7x/mobile/06.jpg
+  - /assets/templates/security-cert-bundle-7x/mobile/01.webp
+  - /assets/templates/security-cert-bundle-7x/mobile/02.webp
+  - /assets/templates/security-cert-bundle-7x/mobile/03.webp
+  - /assets/templates/security-cert-bundle-7x/mobile/04.webp
+  - /assets/templates/security-cert-bundle-7x/mobile/05.webp
+  - /assets/templates/security-cert-bundle-7x/mobile/06.webp
   en:
     title: Certifications Exam Prep Bundle (7x Premium)
     blurb: Seven complete certification study systems in one purchase.
@@ -1523,10 +1523,10 @@
   - /assets/templates/trading-journal/desktop/03.webp
   - /assets/templates/trading-journal/desktop/04.webp
   mobile:
-  - /assets/templates/trading-journal/mobile/01.jpg
-  - /assets/templates/trading-journal/mobile/02.jpg
-  - /assets/templates/trading-journal/mobile/03.jpg
-  - /assets/templates/trading-journal/mobile/04.jpg
+  - /assets/templates/trading-journal/mobile/01.webp
+  - /assets/templates/trading-journal/mobile/02.webp
+  - /assets/templates/trading-journal/mobile/03.webp
+  - /assets/templates/trading-journal/mobile/04.webp
   en:
     title: Trading Journal Like a Pro, Get Profitable
     blurb: Every trade logged, with the reasoning, so patterns become visible.
@@ -1555,9 +1555,9 @@
   - /assets/templates/student-dashboard-ultimate/desktop/02.webp
   - /assets/templates/student-dashboard-ultimate/desktop/03.webp
   mobile:
-  - /assets/templates/student-dashboard-ultimate/mobile/01.jpg
-  - /assets/templates/student-dashboard-ultimate/mobile/02.jpg
-  - /assets/templates/student-dashboard-ultimate/mobile/03.jpg
+  - /assets/templates/student-dashboard-ultimate/mobile/01.webp
+  - /assets/templates/student-dashboard-ultimate/mobile/02.webp
+  - /assets/templates/student-dashboard-ultimate/mobile/03.webp
   en:
     title: Ultimate Student Dashboard, Organize Classes
     blurb: Classes, assignments, grades and revision in one workspace.
@@ -1584,7 +1584,7 @@
   gallery:
   - /assets/templates/website-privacy-policy/desktop/01.webp
   mobile:
-  - /assets/templates/website-privacy-policy/mobile/01.jpg
+  - /assets/templates/website-privacy-policy/mobile/01.webp
   en:
     title: Website Privacy Policy, Be Compliant
     blurb: A privacy policy you can fill in and publish the same day.
@@ -1613,9 +1613,9 @@
   - /assets/templates/annual-calendar-2026/desktop/02.webp
   - /assets/templates/annual-calendar-2026/desktop/03.webp
   mobile:
-  - /assets/templates/annual-calendar-2026/mobile/01.jpg
-  - /assets/templates/annual-calendar-2026/mobile/02.jpg
-  - /assets/templates/annual-calendar-2026/mobile/03.jpg
+  - /assets/templates/annual-calendar-2026/mobile/01.webp
+  - /assets/templates/annual-calendar-2026/mobile/02.webp
+  - /assets/templates/annual-calendar-2026/mobile/03.webp
   en:
     title: 2026 Annual Calendar, Plan Your Events
     blurb: The whole of 2026 on one page, with every event in view.
@@ -1643,10 +1643,10 @@
   - /assets/templates/pmp-exam-prep-lite/desktop/02.webp
   - /assets/templates/pmp-exam-prep-lite/desktop/03.webp
   mobile:
-  - /assets/templates/pmp-exam-prep-lite/mobile/01.jpg
-  - /assets/templates/pmp-exam-prep-lite/mobile/02.jpg
-  - /assets/templates/pmp-exam-prep-lite/mobile/03.jpg
-  - /assets/templates/pmp-exam-prep-lite/mobile/04.jpg
+  - /assets/templates/pmp-exam-prep-lite/mobile/01.webp
+  - /assets/templates/pmp-exam-prep-lite/mobile/02.webp
+  - /assets/templates/pmp-exam-prep-lite/mobile/03.webp
+  - /assets/templates/pmp-exam-prep-lite/mobile/04.webp
   upsell: pmp-exam-prep
   en:
     title: PMP Exam Prep, Pass First Try (Lite)
@@ -1677,7 +1677,7 @@
   gallery:
   - /assets/templates/simple-faq/desktop/01.webp
   mobile:
-  - /assets/templates/simple-faq/mobile/01.jpg
+  - /assets/templates/simple-faq/mobile/01.webp
   en:
     title: Simple FAQ, Professional
     blurb: A clean, searchable FAQ you can publish as a page.
@@ -1705,9 +1705,9 @@
   - /assets/templates/travel-budget-tracker/desktop/02.webp
   - /assets/templates/travel-budget-tracker/desktop/03.webp
   mobile:
-  - /assets/templates/travel-budget-tracker/mobile/01.jpg
-  - /assets/templates/travel-budget-tracker/mobile/02.jpg
-  - /assets/templates/travel-budget-tracker/mobile/03.jpg
+  - /assets/templates/travel-budget-tracker/mobile/01.webp
+  - /assets/templates/travel-budget-tracker/mobile/02.webp
+  - /assets/templates/travel-budget-tracker/mobile/03.webp
   upsell: dream-travel-planner-ultimate
   en:
     title: Travel Budget Tracker
@@ -1738,7 +1738,7 @@
   gallery:
   - /assets/templates/student-dashboard-lite/desktop/01.webp
   mobile:
-  - /assets/templates/student-dashboard-lite/mobile/01.jpg
+  - /assets/templates/student-dashboard-lite/mobile/01.webp
   upsell: student-dashboard-ultimate
   en:
     title: Student Dashboard, Get Organized Fast (Lite)
@@ -1772,10 +1772,10 @@
   - /assets/templates/student-dashboard-all-in-one/desktop/03.webp
   - /assets/templates/student-dashboard-all-in-one/desktop/04.webp
   mobile:
-  - /assets/templates/student-dashboard-all-in-one/mobile/01.jpg
-  - /assets/templates/student-dashboard-all-in-one/mobile/02.jpg
-  - /assets/templates/student-dashboard-all-in-one/mobile/03.jpg
-  - /assets/templates/student-dashboard-all-in-one/mobile/04.jpg
+  - /assets/templates/student-dashboard-all-in-one/mobile/01.webp
+  - /assets/templates/student-dashboard-all-in-one/mobile/02.webp
+  - /assets/templates/student-dashboard-all-in-one/mobile/03.webp
+  - /assets/templates/student-dashboard-all-in-one/mobile/04.webp
   en:
     title: All-in-One Student Dashboard, Study Smarter
     blurb: Notes, tasks and study sessions in one linked workspace.
@@ -1804,10 +1804,10 @@
   - /assets/templates/student-dashboard-university/desktop/03.webp
   - /assets/templates/student-dashboard-university/desktop/04.webp
   mobile:
-  - /assets/templates/student-dashboard-university/mobile/01.jpg
-  - /assets/templates/student-dashboard-university/mobile/02.jpg
-  - /assets/templates/student-dashboard-university/mobile/03.jpg
-  - /assets/templates/student-dashboard-university/mobile/04.jpg
+  - /assets/templates/student-dashboard-university/mobile/01.webp
+  - /assets/templates/student-dashboard-university/mobile/02.webp
+  - /assets/templates/student-dashboard-university/mobile/03.webp
+  - /assets/templates/student-dashboard-university/mobile/04.webp
   en:
     title: Simple University, Student Dashboard
     blurb: Modules, lectures and coursework for a university term.
@@ -1834,8 +1834,8 @@
   - /assets/templates/student-planner-simple/desktop/01.webp
   - /assets/templates/student-planner-simple/desktop/02.webp
   mobile:
-  - /assets/templates/student-planner-simple/mobile/01.jpg
-  - /assets/templates/student-planner-simple/mobile/02.jpg
+  - /assets/templates/student-planner-simple/mobile/01.webp
+  - /assets/templates/student-planner-simple/mobile/02.webp
   en:
     title: Simple Student Planner 2026, Ace Your Classes
     blurb: A term planner simple enough that you keep using it.
@@ -1863,9 +1863,9 @@
   - /assets/templates/workout-tracker/desktop/02.webp
   - /assets/templates/workout-tracker/desktop/03.webp
   mobile:
-  - /assets/templates/workout-tracker/mobile/01.jpg
-  - /assets/templates/workout-tracker/mobile/02.jpg
-  - /assets/templates/workout-tracker/mobile/03.jpg
+  - /assets/templates/workout-tracker/mobile/01.webp
+  - /assets/templates/workout-tracker/mobile/02.webp
+  - /assets/templates/workout-tracker/mobile/03.webp
   en:
     title: Workout Tracking Pro, Build Muscle Fast
     blurb: Every session logged, so progressive overload is visible.
@@ -1895,10 +1895,10 @@
   - /assets/templates/cissp-exam-prep/desktop/03.webp
   - /assets/templates/cissp-exam-prep/desktop/04.webp
   mobile:
-  - /assets/templates/cissp-exam-prep/mobile/01.jpg
-  - /assets/templates/cissp-exam-prep/mobile/02.jpg
-  - /assets/templates/cissp-exam-prep/mobile/03.jpg
-  - /assets/templates/cissp-exam-prep/mobile/04.jpg
+  - /assets/templates/cissp-exam-prep/mobile/01.webp
+  - /assets/templates/cissp-exam-prep/mobile/02.webp
+  - /assets/templates/cissp-exam-prep/mobile/03.webp
+  - /assets/templates/cissp-exam-prep/mobile/04.webp
   en:
     title: CISSP Exam Prep, Master All Domains
     blurb: All eight CISSP domains, flashcards and pace tracking.
@@ -1919,18 +1919,18 @@
     - invoices
     - clients
     - starter
-  cover: /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g1-desktop.jpg
+  cover: /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g1-desktop.webp
   gallery:
-    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g2-desktop.jpg
-    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g3-desktop.jpg
-    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g4-desktop.jpg
-    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g5-desktop.jpg
+    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g2-desktop.webp
+    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g3-desktop.webp
+    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g4-desktop.webp
+    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g5-desktop.webp
   mobile:
-    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g1-mobile.jpg
-    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g2-mobile.jpg
-    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g3-mobile.jpg
-    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g4-mobile.jpg
-    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g5-mobile.jpg
+    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g1-mobile.webp
+    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g2-mobile.webp
+    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g3-mobile.webp
+    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g4-mobile.webp
+    - /assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g5-mobile.webp
   en:
     title: Freelancer & Small Business Starter Pack
     blurb: Clients, projects, invoices and expenses in one place, from your first client onward.
@@ -1951,18 +1951,18 @@
     - clients
     - content
     - starter
-  cover: /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g1-desktop.jpg
+  cover: /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g1-desktop.webp
   gallery:
-    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g2-desktop.jpg
-    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g3-desktop.jpg
-    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g4-desktop.jpg
-    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g5-desktop.jpg
+    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g2-desktop.webp
+    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g3-desktop.webp
+    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g4-desktop.webp
+    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g5-desktop.webp
   mobile:
-    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g1-mobile.jpg
-    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g2-mobile.jpg
-    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g3-mobile.jpg
-    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g4-mobile.jpg
-    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g5-mobile.jpg
+    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g1-mobile.webp
+    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g2-mobile.webp
+    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g3-mobile.webp
+    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g4-mobile.webp
+    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g5-mobile.webp
   en:
     title: The All-in-One Pack for Coaches & Creators
     blurb: Clients, sessions, content and offers in one workspace, built for a coaching or creator business.
@@ -1984,16 +1984,16 @@
     - rent
     - investing
     - starter
-  cover: /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g1-desktop.jpg
+  cover: /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g1-desktop.webp
   gallery:
-    - /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g2-desktop.jpg
-    - /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g3-desktop.jpg
-    - /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g4-desktop.jpg
+    - /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g2-desktop.webp
+    - /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g3-desktop.webp
+    - /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g4-desktop.webp
   mobile:
-    - /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g1-mobile.jpg
-    - /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g2-mobile.jpg
-    - /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g3-mobile.jpg
-    - /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g4-mobile.jpg
+    - /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g1-mobile.webp
+    - /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g2-mobile.webp
+    - /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g3-mobile.webp
+    - /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g4-mobile.webp
   en:
     title: Real Estate Starter Pack for Investors & Landlords
     blurb: Properties, tenants, rent and expenses tracked from your first unit.
@@ -2015,14 +2015,14 @@
     - investing
     - discipline
     - starter
-  cover: /assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g1-desktop.jpg
+  cover: /assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g1-desktop.webp
   gallery:
-    - /assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g2-desktop.jpg
-    - /assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g3-desktop.jpg
+    - /assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g2-desktop.webp
+    - /assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g3-desktop.webp
   mobile:
-    - /assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g1-mobile.jpg
-    - /assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g2-mobile.jpg
-    - /assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g3-mobile.jpg
+    - /assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g1-mobile.webp
+    - /assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g2-mobile.webp
+    - /assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g3-mobile.webp
   en:
     title: Trading Journal Starter Pack (Lite)
     blurb: Log every trade, tag the setup, and see which ones actually make money.
@@ -2044,14 +2044,14 @@
     - guests
     - budget
     - starter
-  cover: /assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g1-desktop.jpg
+  cover: /assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g1-desktop.webp
   gallery:
-    - /assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g2-desktop.jpg
-    - /assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g3-desktop.jpg
+    - /assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g2-desktop.webp
+    - /assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g3-desktop.webp
   mobile:
-    - /assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g1-mobile.jpg
-    - /assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g2-mobile.jpg
-    - /assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g3-mobile.jpg
+    - /assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g1-mobile.webp
+    - /assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g2-mobile.webp
+    - /assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g3-mobile.webp
   en:
     title: Event Planner, Shareable With Your Guests
     blurb: Timeline, guests, vendors and budget in one page you can share with everyone.
@@ -2072,9 +2072,9 @@
     - onboarding
     - team
     - starter
-  cover: /assets/templates/company-home-system/company-home-system-desktop.jpg
+  cover: /assets/templates/company-home-system/company-home-system-desktop.webp
   mobile:
-    - /assets/templates/company-home-system/company-home-system-mobile.jpg
+    - /assets/templates/company-home-system/company-home-system-mobile.webp
   en:
     title: Company Home System
     blurb: "One home page for the company: announcements, people, documents and tools."
@@ -2095,12 +2095,12 @@
     - habits
     - goals
     - starter
-  cover: /assets/templates/life-os-simple-all-in-one-dashboard/life-os-simple-all-in-one-dashboard-g1-desktop.jpg
+  cover: /assets/templates/life-os-simple-all-in-one-dashboard/life-os-simple-all-in-one-dashboard-g1-desktop.webp
   gallery:
-    - /assets/templates/life-os-simple-all-in-one-dashboard/life-os-simple-all-in-one-dashboard-g2-desktop.jpg
+    - /assets/templates/life-os-simple-all-in-one-dashboard/life-os-simple-all-in-one-dashboard-g2-desktop.webp
   mobile:
-    - /assets/templates/life-os-simple-all-in-one-dashboard/life-os-simple-all-in-one-dashboard-g1-mobile.jpg
-    - /assets/templates/life-os-simple-all-in-one-dashboard/life-os-simple-all-in-one-dashboard-g2-mobile.jpg
+    - /assets/templates/life-os-simple-all-in-one-dashboard/life-os-simple-all-in-one-dashboard-g1-mobile.webp
+    - /assets/templates/life-os-simple-all-in-one-dashboard/life-os-simple-all-in-one-dashboard-g2-mobile.webp
   en:
     title: "Life OS, Simple All-in-One Dashboard"
     blurb: "Tasks, notes, goals and habits on one page, without the usual complexity."
@@ -2122,9 +2122,9 @@
     - strategy
     - business
     - starter
-  cover: /assets/templates/business-framework-solo-founder-startup/business-framework-solo-founder-startup-desktop.jpg
+  cover: /assets/templates/business-framework-solo-founder-startup/business-framework-solo-founder-startup-desktop.webp
   mobile:
-    - /assets/templates/business-framework-solo-founder-startup/business-framework-solo-founder-startup-mobile.jpg
+    - /assets/templates/business-framework-solo-founder-startup/business-framework-solo-founder-startup-mobile.webp
   en:
     title: "Business Framework for Solo Founders"
     blurb: "Strategy, offers, customers and numbers in one frame, for a company of one."
@@ -2146,9 +2146,9 @@
     - ats
     - jobsearch
     - career
-  cover: /assets/templates/cv-in-ats-format/cv-in-ats-format-desktop.jpg
+  cover: /assets/templates/cv-in-ats-format/cv-in-ats-format-desktop.webp
   mobile:
-    - /assets/templates/cv-in-ats-format/cv-in-ats-format-mobile.jpg
+    - /assets/templates/cv-in-ats-format/cv-in-ats-format-mobile.webp
   en:
     title: "CV in ATS Format"
     blurb: "A CV that applicant tracking systems can actually read, written in Notion."
@@ -2170,9 +2170,9 @@
     - operations
     - governance
     - team
-  cover: /assets/templates/sop-standard-operating-procedures-834/sop-standard-operating-procedures-834-desktop.jpg
+  cover: /assets/templates/sop-standard-operating-procedures-834/sop-standard-operating-procedures-834-desktop.webp
   mobile:
-    - /assets/templates/sop-standard-operating-procedures-834/sop-standard-operating-procedures-834-mobile.jpg
+    - /assets/templates/sop-standard-operating-procedures-834/sop-standard-operating-procedures-834-mobile.webp
   en:
     title: "Standard Operating Procedures Library"
     blurb: "Write a process once, and have anyone follow it the same way every time."
@@ -2194,9 +2194,9 @@
     - consulting
     - strategy
     - notion
-  cover: /assets/templates/business-consultant-agent-management-consulting-lite/business-consultant-agent-management-consulting-lite-desktop.jpg
+  cover: /assets/templates/business-consultant-agent-management-consulting-lite/business-consultant-agent-management-consulting-lite-desktop.webp
   mobile:
-    - /assets/templates/business-consultant-agent-management-consulting-lite/business-consultant-agent-management-consulting-lite-mobile.jpg
+    - /assets/templates/business-consultant-agent-management-consulting-lite/business-consultant-agent-management-consulting-lite-mobile.webp
   en:
     title: "Business Consultant AI Agent (Lite)"
     blurb: "A Notion AI agent that pressure-tests your thinking like a consultant would."
