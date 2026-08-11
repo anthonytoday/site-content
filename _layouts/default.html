@@ -28,6 +28,15 @@
 <link rel="preconnect" href="{{ origin }}" crossorigin>
 <link rel="dns-prefetch" href="{{ origin }}">
 {%- endfor %}
+{%- comment -%} Preload the LCP image so it is discovered in the first HTML chunk {%- endcomment -%}
+{%- if page.template_id -%}
+{%- for x in site.data.templates -%}{%- if x.id == page.template_id -%}{%- assign _lt = x -%}{%- endif -%}{%- endfor -%}
+{%- if _lt.cover -%}{%- assign _lss = site.data.cover_srcset[_lt.cover] -%}
+<link rel="preload" as="image" href="{{ _lt.cover }}"{% if _lss %} imagesrcset="{{ _lss }}" imagesizes="(max-width:900px) 100vw, 590px"{% endif %} fetchpriority="high">
+{%- endif -%}
+{%- elsif page.lcp_image -%}
+<link rel="preload" as="image" href="{{ page.lcp_image }}" fetchpriority="high">
+{%- endif %}
 <link rel="stylesheet" href="{{ page.css_bundle }}">
 {%- for href in page.extra_css %}
 <link rel="stylesheet" href="{{ href }}">

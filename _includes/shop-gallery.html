@@ -22,7 +22,7 @@
   {%- comment -%} No width/height here on purpose. Covers vary (1600x999, 1920x1199) and the
       frame already declares aspect-ratio:16/10 in CSS, which reserves the space correctly.
       The old hardcoded 1000x700 was a 1.43 ratio against 1.60 files and contradicted it. {%- endcomment -%}
-  {%- if t.cover %}<img class="cover" src="{{ t.cover }}" alt="{{ c.title }}"{%- assign _ss = site.data.cover_srcset[t.cover] -%}{%- if _ss %} srcset="{{ _ss }}" sizes="(max-width:900px) 100vw, 590px"{%- endif -%}{%- assign _d = site.data.image_dims[t.cover] -%}{%- if _d -%}{%- assign _wh = _d | split: "x" -%} width="{{ _wh[0] }}" height="{{ _wh[1] }}"{%- endif -%} onerror="this.remove()">{% endif -%}
+  {%- if t.cover %}<img class="cover" fetchpriority="high" src="{{ t.cover }}" alt="{{ c.title }}"{%- assign _ss = site.data.cover_srcset[t.cover] -%}{%- if _ss %} srcset="{{ _ss }}" sizes="(max-width:900px) 100vw, 590px"{%- endif -%}{%- assign _d = site.data.image_dims[t.cover] -%}{%- if _d -%}{%- assign _wh = _d | split: "x" -%} width="{{ _wh[0] }}" height="{{ _wh[1] }}"{%- endif -%} onerror="this.remove()">{% endif -%}
   {%- if nslides > 0 %}<span class="lb-hint" aria-hidden="true">{% if L == "fr" %}Cliquer pour agrandir{% else %}Click to enlarge{% endif %}</span>{% endif -%}
 </div>
 
