@@ -13,8 +13,8 @@
   {%- assign mk = t.marketplace -%}
   {%- if L == "fr" and t.marketplace_i18n.fr -%}{%- assign mk = t.marketplace_i18n.fr -%}{%- endif -%}
       <p class="pd-price">{% if L == "fr" %}Gratuit{% else %}Free{% endif %}</p>
-      <p class="pd-vat">{% if L == "fr" %}Aucun paiement, aucun email demande. Livre via le Notion Marketplace.{% else %}No payment, no email required. Delivered through the Notion Marketplace.{% endif %}</p>
-      <a class="btn btn-block" href="{{ mk }}" target="_blank" rel="noopener">{% if L == "fr" %}Obtenir gratuitement &nbsp;&middot;&nbsp; Dupliquer maintenant{% else %}Get it free &nbsp;&middot;&nbsp; Duplicate it Now{% endif %}</a>
+      <p class="pd-vat">{% if L == "fr" %}Aucun paiement, aucun email demandé. Livré via le Notion Marketplace.{% else %}No payment, no email required. Delivered through the Notion Marketplace.{% endif %}</p>
+      <a class="btn btn-block" href="{{ mk }}" target="_blank" rel="noopener">{% if L == "fr" %}Obtenir gratuitement &nbsp;&middot;&nbsp; Dupliquer maintenant{% else %}Get it free &nbsp;&middot;&nbsp; Duplicate it now{% endif %}</a>
       <p class="stripe-note">{% if L == "fr" %}Ouvre la fiche sur le Notion Marketplace. Cliquez sur Dupliquer et le template arrive dans votre espace.{% else %}Opens the Notion Marketplace listing. Click Duplicate and it lands in your workspace.{% endif %}</p>
   {%- comment -%} Only worth showing once a second language actually exists. {%- endcomment -%}
   {%- assign has_alt = false -%}
@@ -29,27 +29,19 @@
       {%- if t.marketplace_i18n.it %}<a href="{{ t.marketplace_i18n.it }}" target="_blank" rel="noopener">Italiano</a>{% endif -%}
       </p>
   {%- endif -%}
-{%- elsif t.price == nil -%}
-  {%- comment -%} Paid, but the price is not yet confirmed. Never print a bare "$",
-      and never claim a number we cannot stand behind. Send people to the listing,
-      where Notion shows the real price and takes the payment. {%- endcomment -%}
-      <p class="pd-price" style="font-size:20px">{% if L == "fr" %}Payant{% else %}Paid template{% endif %}</p>
-      <p class="pd-vat">{% if L == "fr" %}Le prix actuel est affiche sur le Notion Marketplace.{% else %}Current price is shown on the Notion Marketplace.{% endif %}</p>
-      <a class="btn btn-block" href="{{ t.marketplace }}" target="_blank" rel="noopener">{% if L == "fr" %}Voir le prix et acheter{% else %}See the price and buy{% endif %}</a>
-      <p class="stripe-note">{% if L == "fr" %}Paiement et livraison geres par Notion. Checkout direct bientot disponible ici.{% else %}Payment and delivery handled by Notion. Direct checkout is coming here shortly.{% endif %}</p>
 {%- else -%}
       <p class="pd-price">${{ t.price }}</p>
-      <p class="pd-vat">{% if L == "fr" %}Paiement unique. TVA ajoutee au paiement le cas echeant.{% else %}One-time payment. VAT added at checkout where applicable.{% endif %}</p>
+      <p class="pd-vat">{% if L == "fr" %}Paiement unique. TVA ajoutée au paiement le cas échéant.{% else %}One-time payment. VAT added at checkout where applicable.{% endif %}</p>
   {%- comment -%} A paid listing with no Stripe link yet must never render an empty href.
       Fall back to the Marketplace listing, where the same template is on sale at the
       same price today, and say so plainly. Remove nothing: adding `stripe:` to the
       catalogue entry silently switches this back to native checkout. {%- endcomment -%}
   {%- if t.stripe and t.stripe != "" -%}
       <a class="btn btn-block" href="{{ t.stripe }}" rel="noopener">{% if L == "fr" %}Acheter{% else %}Buy now{% endif %} &nbsp;&middot;&nbsp; ${{ t.price }}</a>
-      <p class="stripe-note">{% if L == "fr" %}Paiement securise par Stripe. Carte, Apple Pay, Google Pay, Link.{% else %}Secure checkout by Stripe. Card, Apple Pay, Google Pay, Link.{% endif %}</p>
+      <p class="stripe-note">{% if L == "fr" %}Paiement sécurisé par Stripe. Carte, Apple Pay, Google Pay, Link.{% else %}Secure checkout by Stripe. Card, Apple Pay, Google Pay, Link.{% endif %}</p>
   {%- elsif t.marketplace -%}
       <a class="btn btn-block" href="{{ t.marketplace }}" target="_blank" rel="noopener">{% if L == "fr" %}Acheter sur le Notion Marketplace{% else %}Buy on the Notion Marketplace{% endif %} &nbsp;&middot;&nbsp; ${{ t.price }}</a>
-      <p class="stripe-note">{% if L == "fr" %}Paiement et livraison geres par Notion. Checkout direct bientot disponible ici.{% else %}Payment and delivery handled by Notion. Direct checkout is coming here shortly.{% endif %}</p>
+      <p class="stripe-note">{% if L == "fr" %}Paiement et livraison gérés par Notion. Checkout direct bientôt disponible ici.{% else %}Payment and delivery handled by Notion. Direct checkout is coming here shortly.{% endif %}</p>
   {%- endif -%}
 {%- endif -%}
 
@@ -63,7 +55,7 @@
       <a class="pd-upsell" href="{{ uhref }}">
         {%- if u.cover %}<img src="{{ u.cover }}" alt="" loading="lazy" onerror="this.remove()">{% endif -%}
         <span class="pu-t">
-          <span class="pu-k">{% if L == "fr" %}Version superieure{% else %}Upgrade{% endif %} &middot; ${{ u.price }}</span>
+          <span class="pu-k">{% if L == "fr" %}Version supérieure{% else %}Upgrade{% endif %} &middot; ${{ u.price }}</span>
           <strong>{{ t[L].upsell_hook }}</strong>
           <em>{{ t[L].upsell_body }}</em>
         </span>
