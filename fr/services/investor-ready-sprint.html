@@ -82,8 +82,7 @@ bc_name: "Investor-Ready Sprint"
   .deliv .di b{display:block;color:#051C2C;font-weight:600;font-size:15px;margin-bottom:2px}
   .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
   .shots figure{margin:0}
-  .shots .shot{aspect-ratio:16/10;border:1px solid #E5E7EB;border-radius:8px;background:#FAFBFC url(var(--s)) center/cover no-repeat;position:relative}
-  .shots .shot:after{content:"";position:absolute;inset:0;border-radius:8px}
+  .shots .shot{width:100%;aspect-ratio:16/10;object-fit:cover;border:1px solid #E5E7EB;border-radius:8px;background:#FAFBFC;display:block}
   .shots figcaption{font-size:12.5px;color:#6B7280;margin-top:7px;line-height:1.4}
   @media(max-width:760px){.shots{grid-template-columns:1fr}}
 
@@ -256,9 +255,9 @@ bc_name: "Investor-Ready Sprint"
 <div class="di"><b>Liste des écarts</b>Exactement ce que la version complète ajouterait</div>
 </div>
 <div class="shots">
-<figure><div class="shot" data-src="/assets/screens/deal-pipeline.png"></div><figcaption>Pipeline de transactions, vos étapes</figcaption></figure>
-<figure><div class="shot" data-src="/assets/screens/access-map.png"></div><figcaption>Carte des accès, trois rôles</figcaption></figure>
-<figure><div class="shot" data-src="/assets/screens/investor-view.png"></div><figcaption>Reporting investisseur, en un clic</figcaption></figure>
+<figure><img class="shot" src="/assets/screens/deal-pipeline.png" alt="Pipeline de transactions configuré selon vos étapes" loading="lazy" onerror="this.closest('figure').style.display='none'"><figcaption>Pipeline de transactions, vos étapes</figcaption></figure>
+<figure><img class="shot" src="/assets/screens/access-map.png" alt="Carte des accès montrant trois rôles" loading="lazy" onerror="this.closest('figure').style.display='none'"><figcaption>Carte des accès, trois rôles</figcaption></figure>
+<figure><img class="shot" src="/assets/screens/investor-view.png" alt="Reporting investisseur généré en un clic" loading="lazy" onerror="this.closest('figure').style.display='none'"><figcaption>Reporting investisseur, en un clic</figcaption></figure>
 </div>
 </div>
 </div>

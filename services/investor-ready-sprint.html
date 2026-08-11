@@ -82,8 +82,7 @@ bc_name: "Investor-Ready Sprint"
   .deliv .di b{display:block;color:#051C2C;font-weight:600;font-size:15px;margin-bottom:2px}
   .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
   .shots figure{margin:0}
-  .shots .shot{aspect-ratio:16/10;border:1px solid #E5E7EB;border-radius:8px;background:#FAFBFC url(var(--s)) center/cover no-repeat;position:relative}
-  .shots .shot:after{content:"";position:absolute;inset:0;border-radius:8px}
+  .shots .shot{width:100%;aspect-ratio:16/10;object-fit:cover;border:1px solid #E5E7EB;border-radius:8px;background:#FAFBFC;display:block}
   .shots figcaption{font-size:12.5px;color:#6B7280;margin-top:7px;line-height:1.4}
   @media(max-width:760px){.shots{grid-template-columns:1fr}}
 
@@ -193,7 +192,7 @@ bc_name: "Investor-Ready Sprint"
 
   <section>
     <h2>You already know where this breaks</h2>
-    <p class="lede">Not "you're disorganised." Every firm your size has these five. What they actually cost is the part nobody puts a number against.</p>
+    <p class="lede">Not "you're disorganized." Every firm your size has these five. What they actually cost is the part nobody puts a number against.</p>
     <ul class="pain">
       <li>
         <span class="sym">An investor or lender asks for an update</span>
@@ -264,9 +263,9 @@ bc_name: "Investor-Ready Sprint"
             <div class="di"><b>Gap list</b>Exactly what the full build would add</div>
           </div>
           <div class="shots">
-            <figure><div class="shot" data-src="/assets/screens/deal-pipeline.png"></div><figcaption>Deal pipeline, your stages</figcaption></figure>
-            <figure><div class="shot" data-src="/assets/screens/access-map.png"></div><figcaption>Access map, three roles</figcaption></figure>
-            <figure><div class="shot" data-src="/assets/screens/investor-view.png"></div><figcaption>Investor update, one click</figcaption></figure>
+            <figure><img class="shot" src="/assets/screens/deal-pipeline.png" alt="Deal pipeline configured to the firm's stages" loading="lazy" onerror="this.closest('figure').style.display='none'"><figcaption>Deal pipeline, your stages</figcaption></figure>
+            <figure><img class="shot" src="/assets/screens/access-map.png" alt="Access map showing three roles" loading="lazy" onerror="this.closest('figure').style.display='none'"><figcaption>Access map, three roles</figcaption></figure>
+            <figure><img class="shot" src="/assets/screens/investor-view.png" alt="Investor update generated in one click" loading="lazy" onerror="this.closest('figure').style.display='none'"><figcaption>Investor update, one click</figcaption></figure>
           </div>
         </div>
       </div>
@@ -354,7 +353,7 @@ bc_name: "Investor-Ready Sprint"
   <section class="faq">
     <h2>Questions</h2>
     <details><summary>Notion is $20 a month. Why is this $15,000?</summary>
-      <p>The licence is the software. This is the system that runs in it, and the reason it still works six months later. Set it against one deal going sideways, not against the subscription.</p></details>
+      <p>The license is the software. This is the system that runs in it, and the reason it still works six months later. Set it against one deal going sideways, not against the subscription.</p></details>
     <details><summary>Can't we just do this ourselves, or with ChatGPT?</summary>
       <p>You can, and plenty do. What usually comes back is a long list of databases nobody on the team opens. The build is the easy half. Deciding what your firm actually needs, and getting people to use it, is the half that takes the experience.</p></details>
     <details><summary>Do we have to hand over confidential investor data?</summary>
