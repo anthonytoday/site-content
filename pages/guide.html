@@ -9,6 +9,11 @@ schema_type: "Article"
 bc_name: "Ultimate Notion Guide"
 bc_parent_name: "Notion Consulting"
 bc_parent_url: /notion/
+# The guide screenshots are still served from Webflow's CDN. Opening the
+# connection early removes the DNS, TCP and TLS cost from the moment the
+# reader scrolls to them. Delete this once the images are served locally.
+preconnect:
+  - https://cdn.prod.website-files.com
 ---
 <style>
   *{margin:0;padding:0;box-sizing:border-box}

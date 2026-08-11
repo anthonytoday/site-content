@@ -4,6 +4,11 @@ on:
     paths:
       - 'assets/template-images-manifest.json'
   workflow_dispatch:
+  # Anything still missing is retried automatically. A push-triggered run that
+  # never fires, or a CDN having a bad day, then heals itself within six hours
+  # instead of waiting for someone to notice.
+  schedule:
+    - cron: '0 */6 * * *'
 permissions:
   contents: write
 jobs:
@@ -56,10 +61,10 @@ jobs:
               print('\nfailures:')
               for p, url, e in failures:
                   print(f'  {p}\n    {url}\n    {e}')
-          # Fail the run only if nothing at all could be fetched, so partial
-          # progress is still committed and visible.
-          if failed and not done and not skipped:
-              sys.exit(1)
+          # Record the outcome for the next step: commit first, then fail, so
+          # partial progress is never thrown away by a non-zero exit.
+          with open('import-outcome.txt', 'w') as fh:
+              fh.write(f'{done} {skipped} {failed}')
           PYEOF
       - name: Commit and push
         run: |
@@ -72,4 +77,13 @@ jobs:
             git commit -m "Import images listed in the manifest"
             git pull --rebase --autostash
             git push
+          fi
+      - name: Fail if anything is still missing
+        run: |
+          read done skipped failed < import-outcome.txt
+          rm -f import-outcome.txt
+          echo "downloaded=$done already-present=$skipped failed=$failed"
+          if [ "$failed" -gt 0 ]; then
+            echo "::error::$failed image(s) could not be downloaded. See the log above for each URL and reason."
+            exit 1
           fi
