@@ -14,27 +14,62 @@ jobs:
       - name: Download images
         run: |
           python3 - <<'PYEOF'
-          import json, os, urllib.request
+          import json, os, urllib.request, urllib.error, sys
+
           items = json.load(open('assets/template-images-manifest.json'))
-          ok = 0
+          done = skipped = failed = 0
+          failures = []
+
           for it in items:
-              p = it['path']
+              p, url = it['path'], it['url']
+
+              # Already present: nothing to fetch. Keeps re-runs cheap and lets the
+              # manifest stay as a permanent record rather than a queue to empty.
+              if os.path.exists(p) and os.path.getsize(p) > 0:
+                  skipped += 1
+                  continue
+
               os.makedirs(os.path.dirname(p), exist_ok=True)
-              req = urllib.request.Request(it['url'], headers={'User-Agent': 'Mozilla/5.0'})
-              with urllib.request.urlopen(req, timeout=60) as r, open(p, 'wb') as f:
-                  f.write(r.read())
-              ok += 1
-              print('ok', p)
-          print('downloaded', ok)
+              req = urllib.request.Request(url, headers={
+                  'User-Agent': 'Mozilla/5.0 (compatible; anthonytoday-site-import/1.0)',
+                  'Accept': 'image/avif,image/webp,image/png,image/jpeg,*/*',
+              })
+              try:
+                  with urllib.request.urlopen(req, timeout=60) as r:
+                      data = r.read()
+                  if len(data) < 100:
+                      raise ValueError(f'suspiciously small response: {len(data)} bytes')
+                  with open(p, 'wb') as f:
+                      f.write(data)
+                  done += 1
+                  print(f'ok      {p}  ({len(data)//1024} KB)')
+              except Exception as e:
+                  # One bad URL must not discard every good download in the same run.
+                  failed += 1
+                  failures.append((p, url, str(e)))
+                  print(f'FAILED  {p}  <- {url}\n        {e}')
+                  if os.path.exists(p) and os.path.getsize(p) == 0:
+                      os.remove(p)
+
+          print(f'\ndownloaded {done}, already present {skipped}, failed {failed}')
+          if failures:
+              print('\nfailures:')
+              for p, url, e in failures:
+                  print(f'  {p}\n    {url}\n    {e}')
+          # Fail the run only if nothing at all could be fetched, so partial
+          # progress is still committed and visible.
+          if failed and not done and not skipped:
+              sys.exit(1)
           PYEOF
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/templates
+          git add assets
           if git diff --cached --quiet; then
-            echo "no changes"
+            echo "no new images to commit"
           else
-            git commit -m "Import template listing pictures (rows 21-50)"
+            git commit -m "Import images listed in the manifest"
+            git pull --rebase --autostash
             git push
           fi
