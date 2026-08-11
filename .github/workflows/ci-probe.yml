@@ -1,0 +1,40 @@
+name: CI probe
+# Temporary. Answers one question: does a push made with the site-content-sync
+# PAT trigger workflows at all? If this commits, Actions runs and the image
+# import is failing for its own reasons. If it never commits, no PAT-driven
+# push triggers anything and the import can only be run manually.
+on:
+  push:
+    paths:
+      - '.github/probe-trigger.txt'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Record that the runner executed
+        run: |
+          mkdir -p .github
+          {
+            echo "run_id=${GITHUB_RUN_ID}"
+            echo "event=${GITHUB_EVENT_NAME}"
+            echo "actor=${GITHUB_ACTOR}"
+            echo "at=$(date -u +%FT%TZ)"
+          } > .github/probe-result.txt
+          cat .github/probe-result.txt
+      - name: Can the runner reach Webflow's CDN?
+        continue-on-error: true
+        run: |
+          URL="https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b8009_681b574cd8925322ad971469_cleanshot_2025_05_07_at_14_36_16_2x_1_2x.webp"
+          code=$(curl -s -o /tmp/probe.img -w '%{http_code}' -A 'Mozilla/5.0' "$URL" || echo "curl-failed")
+          size=$(stat -c%s /tmp/probe.img 2>/dev/null || echo 0)
+          echo "webflow_http=$code webflow_bytes=$size" | tee -a .github/probe-result.txt
+      - name: Commit the result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/probe-result.txt
+          git diff --cached --quiet || { git commit -m "CI probe result"; git pull --rebase --autostash; git push; }
