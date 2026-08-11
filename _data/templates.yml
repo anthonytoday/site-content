@@ -2202,3 +2202,107 @@
     title: "Agent IA consultant business (Lite)"
     blurb: "Un agent IA Notion qui challenge votre raisonnement comme le ferait un consultant."
   rank: 246
+- id: agenda-page-make-time
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/agenda-page-make-time
+  page: /templates/agenda-page-make-time/
+  page_fr: /fr/templates/agenda-page-make-time/
+  tags:
+    - agenda
+    - planning
+    - focus
+    - time
+    - productivity
+  en:
+    title: "Agenda Page, Make Time"
+    blurb: "A single agenda page that shows what deserves your hours this week."
+  fr:
+    title: "Page agenda, degagez du temps"
+    blurb: "Une page agenda unique qui montre ce qui merite vos heures cette semaine."
+  rank: 247
+
+- id: top-tech-consultant-ai-agent
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/top-tech-consultant-ai-agent
+  page: /templates/top-tech-consultant-ai-agent/
+  page_fr: /fr/templates/top-tech-consultant-ai-agent/
+  tags:
+    - ai
+    - agent
+    - technology
+    - consulting
+    - architecture
+  en:
+    title: "Top Tech Consultant AI Agent"
+    blurb: "An AI agent that reviews architecture and risk the way a senior consultant would."
+  fr:
+    title: "Agent IA consultant tech senior"
+    blurb: "Un agent IA qui examine l'architecture et le risque comme un consultant senior."
+  rank: 248
+
+- id: tech-consultant-ai-agent
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/tech-consultant-ai-agent
+  page: /templates/tech-consultant-ai-agent/
+  page_fr: /fr/templates/tech-consultant-ai-agent/
+  tags:
+    - ai
+    - agent
+    - technology
+    - starter
+    - notion
+  en:
+    title: "Tech Consultant AI Agent, Starter Pack (Lite)"
+    blurb: "The lighter version: an AI agent for everyday technology questions."
+  fr:
+    title: "Agent IA consultant tech, pack de demarrage (Lite)"
+    blurb: "La version legere : un agent IA pour les questions technologiques du quotidien."
+  rank: 249
+
+- id: snoopy-everything-hub
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/snoopy-everything-hub
+  page: /templates/snoopy-everything-hub/
+  page_fr: /fr/templates/snoopy-everything-hub/
+  tags:
+    - personal
+    - hub
+    - notes
+    - tasks
+    - fun
+  en:
+    title: "Snoopy Everything Hub"
+    blurb: "A cheerful all-in-one hub for notes, tasks, links and everything else."
+  fr:
+    title: "Snoopy, hub tout-en-un"
+    blurb: "Un hub tout-en-un joyeux pour notes, taches, liens et tout le reste."
+  rank: 250
+
+- id: finance-cert-bundle-3x-premium
+  status: live
+  free: true
+  category: finance
+  marketplace: https://www.notion.com/templates/finance-cert-bundle-3x-premium
+  page: /templates/finance-cert-bundle-3x-premium/
+  page_fr: /fr/templates/finance-cert-bundle-3x-premium/
+  tags:
+    - finance
+    - cfa
+    - cpa
+    - bundle
+    - exam
+  en:
+    title: "Finance Cert Bundle (3x)"
+    blurb: "Three finance certification study systems in one bundle: CFA, CPA and the Personal Financial Planner."
+  fr:
+    title: "Pack certifications finance (3x)"
+    blurb: "Trois systemes de revision finance en un pack : CFA, CPA et le Personal Financial Planner."
+  rank: 251
