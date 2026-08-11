@@ -327,7 +327,7 @@
   category: study
   price: 79
   stripe: https://pay.anthonytoday.com/b/aFa9AV8Yo7I19zJb8R1ZS02
-  cover: /assets/templates/cpa-exam-prep/cover.png
+  cover: /assets/templates/cpa-exam-prep/cover.webp
   marketplace: https://www.notion.com/templates/cpa-exam-study-plan
   page: /templates/cpa-exam-prep/
   page_fr: /fr/templates/cpa-exam-prep/
@@ -446,7 +446,7 @@
   category: business
   price: 169
   stripe: https://pay.anthonytoday.com/b/4gMcN73E4e6paDN90J1ZS01
-  cover: /assets/templates/ultimate-content-manager/cover.png
+  cover: /assets/templates/ultimate-content-manager/cover.webp
   marketplace_delisted: https://www.notion.com/templates/ultimate-content-manager-590
   page: /templates/ultimate-content-manager/
   page_fr: /fr/templates/ultimate-content-manager/
