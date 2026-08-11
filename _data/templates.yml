@@ -2057,3 +2057,26 @@
     title: Planificateur d evenement, partageable avec vos invites
     blurb: Deroule, invites, prestataires et budget sur une page partageable avec tous.
   rank: 240
+- id: company-home-system
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/company-home-system
+  page: /templates/company-home-system/
+  page_fr: /fr/templates/company-home-system/
+  tags:
+    - company
+    - intranet
+    - onboarding
+    - team
+    - starter
+  cover: /assets/templates/company-home-system/company-home-system-desktop.jpg
+  mobile:
+    - /assets/templates/company-home-system/company-home-system-mobile.jpg
+  en:
+    title: Company Home System
+    blurb: "One home page for the company: announcements, people, documents and tools."
+  fr:
+    title: Page d accueil d entreprise
+    blurb: "Une page d accueil pour toute l entreprise : annonces, equipe, documents et outils."
+  rank: 241

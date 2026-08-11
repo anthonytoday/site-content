@@ -57,12 +57,23 @@
       the full gallery.
       {%- endif -%}
     {%- else -%}
-      {%- if L == "fr" -%}
-      D'autres captures et une video de presentation sont en cours de production. Achetez avec le
-      remboursement 14 jours en attendant, ou <a href="/fr/contact/">posez-moi vos questions avant</a>.
+      {%- comment -%} A free listing must never be told to "buy with the 14-day refund".
+          There is nothing to refund, and it reads as a bait and switch. {%- endcomment -%}
+      {%- if t.free -%}
+        {%- if L == "fr" -%}
+        D'autres captures arrivent. En attendant, la fiche complete est visible sur le Notion
+        Marketplace, ou <a href="/fr/contact/">posez-moi vos questions</a>.
+        {%- else -%}
+        {%- if t.video -%}Watch the walkthrough below. More screenshots are on the way.{%- else -%}More screenshots are on the way. In the meantime the full listing is visible on the Notion Marketplace, or <a href="/contact/">ask me anything</a>.{%- endif -%}
+        {%- endif -%}
       {%- else -%}
-      {%- if t.video -%}Watch the walkthrough below. More screenshots are on the way, so buy with the 14-day refund in the{%- else -%}More screenshots and a walkthrough video are being produced. Buy with the 14-day refund in the
-      meantime, or <a href="/contact/">ask me anything first</a>.{%- endif -%}
+        {%- if L == "fr" -%}
+        D'autres captures et une video de presentation sont en cours de production. Achetez avec le
+        remboursement 14 jours en attendant, ou <a href="/fr/contact/">posez-moi vos questions avant</a>.
+        {%- else -%}
+        {%- if t.video -%}Watch the walkthrough below. More screenshots are on the way, so buy with the 14-day refund in the{%- else -%}More screenshots and a walkthrough video are being produced. Buy with the 14-day refund in the
+        meantime, or <a href="/contact/">ask me anything first</a>.{%- endif -%}
+        {%- endif -%}
       {%- endif -%}
     {%- endif -%}
   </p></div>
