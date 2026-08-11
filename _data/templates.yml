@@ -1936,3 +1936,124 @@
     title: Pack de demarrage freelance et petite entreprise
     blurb: Clients, projets, factures et depenses au meme endroit, des le premier client.
   rank: 236
+- id: coach-creator-starter-pack-free
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/coach-creator-starter-pack-free
+  page: /templates/coach-creator-starter-pack-free/
+  page_fr: /fr/templates/coach-creator-starter-pack-free/
+  tags:
+    - coaching
+    - creators
+    - clients
+    - content
+    - starter
+  cover: /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g1-desktop.jpg
+  gallery:
+    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g2-desktop.jpg
+    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g3-desktop.jpg
+    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g4-desktop.jpg
+    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g5-desktop.jpg
+  mobile:
+    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g1-mobile.jpg
+    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g2-mobile.jpg
+    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g3-mobile.jpg
+    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g4-mobile.jpg
+    - /assets/templates/coach-creator-starter-pack-free/coach-creator-starter-pack-free-g5-mobile.jpg
+  en:
+    title: The All-in-One Pack for Coaches & Creators
+    blurb: Clients, sessions, content and offers in one workspace, built for a coaching or creator business.
+  fr:
+    title: Pack tout-en-un pour coachs et createurs
+    blurb: Clients, seances, contenus et offres dans un seul espace, pour une activite de coach ou de createur.
+  rank: 237
+
+- id: real-estate-starter-pack-new-investors-landlords
+  status: live
+  free: true
+  category: real-estate
+  marketplace: https://www.notion.com/templates/real-estate-starter-pack-new-investors-landlords
+  page: /templates/real-estate-starter-pack-new-investors-landlords/
+  page_fr: /fr/templates/real-estate-starter-pack-new-investors-landlords/
+  tags:
+    - real-estate
+    - landlord
+    - rent
+    - investing
+    - starter
+  cover: /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g1-desktop.jpg
+  gallery:
+    - /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g2-desktop.jpg
+    - /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g3-desktop.jpg
+    - /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g4-desktop.jpg
+  mobile:
+    - /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g1-mobile.jpg
+    - /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g2-mobile.jpg
+    - /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g3-mobile.jpg
+    - /assets/templates/real-estate-starter-pack-new-investors-landlords/real-estate-starter-pack-new-investors-landlords-g4-mobile.jpg
+  en:
+    title: Real Estate Starter Pack for Investors & Landlords
+    blurb: Properties, tenants, rent and expenses tracked from your first unit.
+  fr:
+    title: Pack de demarrage immobilier pour investisseurs et bailleurs
+    blurb: Biens, locataires, loyers et depenses suivis des le premier lot.
+  rank: 238
+
+- id: trading-journal-starter-pack-lite
+  status: live
+  free: true
+  category: finance
+  marketplace: https://www.notion.com/templates/trading-journal-starter-pack-lite
+  page: /templates/trading-journal-starter-pack-lite/
+  page_fr: /fr/templates/trading-journal-starter-pack-lite/
+  tags:
+    - trading
+    - journal
+    - investing
+    - discipline
+    - starter
+  cover: /assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g1-desktop.jpg
+  gallery:
+    - /assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g2-desktop.jpg
+    - /assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g3-desktop.jpg
+  mobile:
+    - /assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g1-mobile.jpg
+    - /assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g2-mobile.jpg
+    - /assets/templates/trading-journal-starter-pack-lite/trading-journal-starter-pack-lite-g3-mobile.jpg
+  en:
+    title: Trading Journal Starter Pack (Lite)
+    blurb: Log every trade, tag the setup, and see which ones actually make money.
+  fr:
+    title: Journal de trading, pack de demarrage (Lite)
+    blurb: Enregistrez chaque trade, taguez le setup, et voyez lesquels rapportent vraiment.
+  rank: 239
+
+- id: event-planner-run-flawless-events
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/event-planner-run-flawless-events
+  page: /templates/event-planner-run-flawless-events/
+  page_fr: /fr/templates/event-planner-run-flawless-events/
+  tags:
+    - events
+    - planning
+    - guests
+    - budget
+    - starter
+  cover: /assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g1-desktop.jpg
+  gallery:
+    - /assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g2-desktop.jpg
+    - /assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g3-desktop.jpg
+  mobile:
+    - /assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g1-mobile.jpg
+    - /assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g2-mobile.jpg
+    - /assets/templates/event-planner-run-flawless-events/event-planner-run-flawless-events-g3-mobile.jpg
+  en:
+    title: Event Planner, Shareable With Your Guests
+    blurb: Timeline, guests, vendors and budget in one page you can share with everyone.
+  fr:
+    title: Planificateur d evenement, partageable avec vos invites
+    blurb: Deroule, invites, prestataires et budget sur une page partageable avec tous.
+  rank: 240

@@ -1,42 +1,90 @@
 [
-  {
-    "path": "assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g1-desktop.jpg",
-    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/3d778359-5671-46f5-8be2-d840381f49c1/1782881110067/desktop.jpg"
-  },
-  {
-    "path": "assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g1-mobile.jpg",
-    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/3d778359-5671-46f5-8be2-d840381f49c1/1782881110067/mobile.jpg"
-  },
-  {
-    "path": "assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g2-desktop.jpg",
-    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/053c0355-df5c-41e7-b687-32ea7e9e1bd7/1782881137840/desktop.jpg"
-  },
-  {
-    "path": "assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g2-mobile.jpg",
-    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/053c0355-df5c-41e7-b687-32ea7e9e1bd7/1782881137840/mobile.jpg"
-  },
-  {
-    "path": "assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g3-desktop.jpg",
-    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/590af44e-3ec4-4b2d-91c4-bcfc2a377b88/1782881178535/desktop.jpg"
-  },
-  {
-    "path": "assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g3-mobile.jpg",
-    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/590af44e-3ec4-4b2d-91c4-bcfc2a377b88/1782881178535/mobile.jpg"
-  },
-  {
-    "path": "assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g4-desktop.jpg",
-    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/249c0dfb-48d5-46d6-87a0-ceef0b87842d/1782881218210/desktop.jpg"
-  },
-  {
-    "path": "assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g4-mobile.jpg",
-    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/249c0dfb-48d5-46d6-87a0-ceef0b87842d/1782881218210/mobile.jpg"
-  },
-  {
-    "path": "assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g5-desktop.jpg",
-    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/3b6c9cbb-3e02-44b7-a95f-0b79efe3cbab/1782881262056/desktop.jpg"
-  },
-  {
-    "path": "assets/templates/freelancer-small-business-starter-pack/freelancer-small-business-starter-pack-g5-mobile.jpg",
-    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/3b6c9cbb-3e02-44b7-a95f-0b79efe3cbab/1782881262056/mobile.jpg"
-  }
+ {
+  "path": "assets/templates/airbnb-manager-lite/airbnb-manager-lite-video.jpg",
+  "url": "https://img.youtube.com/vi/MP3FvpNbHxE/maxresdefault.jpg"
+ },
+ {
+  "path": "assets/templates/airbnb-manager-ultimate/airbnb-manager-ultimate-video.jpg",
+  "url": "https://img.youtube.com/vi/MP3FvpNbHxE/maxresdefault.jpg"
+ },
+ {
+  "path": "assets/templates/cfa-exam-study-plan/cfa-exam-study-plan-video.jpg",
+  "url": "https://img.youtube.com/vi/SoYlLKqrk_c/maxresdefault.jpg"
+ },
+ {
+  "path": "assets/templates/cfa-exam-study-plan-lite/cfa-exam-study-plan-lite-video.jpg",
+  "url": "https://img.youtube.com/vi/SoYlLKqrk_c/maxresdefault.jpg"
+ },
+ {
+  "path": "assets/templates/comptia-security-v7-exam-study-plan/comptia-security-v7-exam-study-plan-video.jpg",
+  "url": "https://img.youtube.com/vi/RsBdyNZ30vc/maxresdefault.jpg"
+ },
+ {
+  "path": "assets/templates/comptia-security-v7-exam-study-plan-lite/comptia-security-v7-exam-study-plan-lite-video.jpg",
+  "url": "https://img.youtube.com/vi/RsBdyNZ30vc/maxresdefault.jpg"
+ },
+ {
+  "path": "assets/templates/cpa-exam-study-plan/cpa-exam-study-plan-video.jpg",
+  "url": "https://img.youtube.com/vi/cetcAXvyIpc/maxresdefault.jpg"
+ },
+ {
+  "path": "assets/templates/cpa-exam-study-plan-lite/cpa-exam-study-plan-lite-video.jpg",
+  "url": "https://img.youtube.com/vi/cetcAXvyIpc/maxresdefault.jpg"
+ },
+ {
+  "path": "assets/templates/dental-clinic-management/dental-clinic-management-video.jpg",
+  "url": "https://img.youtube.com/vi/H7YaFXgX2wg/maxresdefault.jpg"
+ },
+ {
+  "path": "assets/templates/dental-clinic-management-lite/dental-clinic-management-lite-video.jpg",
+  "url": "https://img.youtube.com/vi/H7YaFXgX2wg/maxresdefault.jpg"
+ },
+ {
+  "path": "assets/templates/free-cissp-study-plan/free-cissp-study-plan-video.jpg",
+  "url": "https://img.youtube.com/vi/g8OUELhXH9c/maxresdefault.jpg"
+ },
+ {
+  "path": "assets/templates/cissp-exam-prep-full/cissp-exam-prep-full-video.jpg",
+  "url": "https://img.youtube.com/vi/g8OUELhXH9c/maxresdefault.jpg"
+ },
+ {
+  "path": "assets/templates/real-estate-portfolio/cover.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/1391cbb9-a82c-49e6-9212-2b9e42773e60/1765685189717/desktop.jpg"
+ },
+ {
+  "path": "assets/templates/real-estate-portfolio/desktop/02.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/32750556-7908-4eb6-a965-92a54340bfcb/1765685262710/desktop.jpg"
+ },
+ {
+  "path": "assets/templates/real-estate-portfolio/desktop/03.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/4284a146-ad81-43fd-96c4-cfb6955251aa/1765685396227/desktop.jpg"
+ },
+ {
+  "path": "assets/templates/real-estate-portfolio/desktop/04.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/98983a22-980d-48bd-a305-e1836da944b6/1765686633479/desktop.jpg"
+ },
+ {
+  "path": "assets/templates/real-estate-portfolio/desktop/05.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/7d894f18-0f56-473e-83fe-c1bd766f894a/1765691204723/desktop.jpg"
+ },
+ {
+  "path": "assets/templates/real-estate-portfolio/mobile/01.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/1391cbb9-a82c-49e6-9212-2b9e42773e60/1765685189717/mobile.jpg"
+ },
+ {
+  "path": "assets/templates/real-estate-portfolio/mobile/02.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/32750556-7908-4eb6-a965-92a54340bfcb/1765685262710/mobile.jpg"
+ },
+ {
+  "path": "assets/templates/real-estate-portfolio/mobile/03.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/4284a146-ad81-43fd-96c4-cfb6955251aa/1765685396227/mobile.jpg"
+ },
+ {
+  "path": "assets/templates/real-estate-portfolio/mobile/04.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/98983a22-980d-48bd-a305-e1836da944b6/1765686633479/mobile.jpg"
+ },
+ {
+  "path": "assets/templates/real-estate-portfolio/mobile/05.jpg",
+  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/7d894f18-0f56-473e-83fe-c1bd766f894a/1765691204723/mobile.jpg"
+ }
 ]
