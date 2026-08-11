@@ -3,6 +3,8 @@ on:
   push:
     paths:
       - 'assets/template-images-manifest.json'
+      - '.github/scripts/import_images.py'
+      - '.github/workflows/import-template-images.yml'
   workflow_dispatch:
   # Anything still missing is retried automatically, so a run that fails or
   # never fires heals itself within six hours instead of waiting to be noticed.
