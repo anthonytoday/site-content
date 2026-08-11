@@ -64,6 +64,24 @@ bc_name: "Accueil"
   .engagement-types p{font-size:14px;color:var(--text-gray);margin-bottom:12px}
   .engagement-badges{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
   .badge{background:var(--white);border:1px solid var(--border);padding:8px 16px;border-radius:20px;font-size:13px;font-weight:500;color:var(--navy)}
+
+  /* Booking facade: a static card that only pulls in Cal.com once someone asks for it.
+     The embed is several hundred KB of JavaScript plus its own network calls, and it
+     was loading eagerly on the most visited page for every visitor, including the
+     large majority who never book. */
+  .cal-facade{width:100%;border:1px solid var(--border);border-radius:10px;background:var(--white);
+    padding:40px 28px;text-align:center;cursor:pointer;font-family:inherit;display:block;
+    transition:border-color .2s,box-shadow .2s}
+  .cal-facade:hover{border-color:#C9D4FF;box-shadow:0 10px 30px rgba(5,28,44,.08)}
+  .cal-facade:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+  .cal-facade .cf-ico{width:52px;height:52px;border-radius:50%;background:var(--navy);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+  .cal-facade .cf-t{display:block;font-size:19px;font-weight:600;color:var(--navy);margin-bottom:6px}
+  .cal-facade .cf-s{display:block;font-size:14.5px;color:var(--text-gray);line-height:1.6;
+    max-width:420px;margin:0 auto 18px}
+  .cal-facade .cf-btn{display:inline-block;background:var(--blue);color:var(--white);
+    padding:13px 30px;border-radius:6px;font-weight:600;font-size:15px}
+  .cal-facade .cf-note{display:block;font-size:12.5px;color:var(--text-gray);margin-top:14px}
   .booking-section{max-width:1000px;margin:20px auto 80px;padding:60px 20px;text-align:center}
   .booking-section h2{font-size:28px;margin-bottom:12px;color:var(--navy)}
   .booking-intro{font-size:15px;color:var(--text-gray);margin-bottom:40px}
@@ -164,8 +182,38 @@ bc_name: "Accueil"
 <h2>Réservez votre appel découverte</h2>
 <p class="booking-intro">Un appel de 30 minutes à 79 $. Ce n'est pas un appel commercial : apportez un problème réel et nous le traitons ensemble, en direct. Choisissez un créneau ci-dessous, sans allers-retours.</p>
 <div class="booking-embed">
-<iframe src="https://cal.com/anthonytoday/consultation?embed=1" style="width:100%;height:860px;min-height:860px;border:none;border-radius:8px;"></iframe>
-</div>
+        <button type="button" class="cal-facade" id="cal-facade">
+          <span class="cf-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+          <span class="cf-t">Choisissez un créneau qui vous convient</span>
+          <span class="cf-s">Un appel de 30 minutes à 79 $. Le calendrier s'ouvre ici, vous réservez sans quitter la page.</span>
+          <span class="cf-btn">Voir les créneaux disponibles</span>
+          <span class="cf-note">Charge le calendrier de réservation</span>
+        </button>
+    </div>
+    <script>
+    (function(){
+      var b=document.getElementById('cal-facade');
+      if(!b) return;
+      var loaded=false;
+      function load(){
+        if(loaded) return; loaded=true;
+        var f=document.createElement('iframe');
+        f.src='https://cal.com/anthonytoday/consultation?embed=1';
+        f.title='Réserver une consultation';
+        f.loading='lazy';
+        f.setAttribute('style','width:100%;height:860px;min-height:860px;border:none;border-radius:8px;');
+        b.replaceWith(f);
+      }
+      b.addEventListener('click', load);
+      // Warm it up on intent, so the click feels instant without costing anything on load.
+      b.addEventListener('mouseenter', function(){
+        if(loaded||document.getElementById('cal-pre')) return;
+        var l=document.createElement('link');
+        l.id='cal-pre'; l.rel='preconnect'; l.href='https://cal.com';
+        document.head.appendChild(l);
+      });
+    })();
+    </script>
 </section>
 <section class="value-section">
 <p class="eyebrow">Ce que vous obtenez</p>
