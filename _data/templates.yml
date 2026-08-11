@@ -447,7 +447,7 @@
   price: 169
   stripe: https://pay.anthonytoday.com/b/4gMcN73E4e6paDN90J1ZS01
   cover: /assets/templates/ultimate-content-manager/cover.png
-  marketplace: https://www.notion.com/templates/ultimate-content-manager-590
+  marketplace_delisted: https://www.notion.com/templates/ultimate-content-manager-590
   page: /templates/ultimate-content-manager/
   page_fr: /fr/templates/ultimate-content-manager/
   tags:
@@ -1877,7 +1877,7 @@
   category: grc
   price: 47
   stripe: https://pay.anthonytoday.com/b/fZufZj7UkbYhbHR7WF1ZS0p
-  marketplace: https://www.notion.com/templates/cissp-exam-prep-with-peace-of-mind
+  marketplace: https://www.notion.com/templates/cissp-exam-prep-full
   page: /templates/cissp-exam-prep/
   page_fr: /fr/templates/cissp-exam-prep/
   tags:
@@ -2080,3 +2080,125 @@
     title: Page d accueil d entreprise
     blurb: "Une page d accueil pour toute l entreprise : annonces, equipe, documents et outils."
   rank: 241
+- id: life-os-simple-all-in-one-dashboard
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/life-os-simple-all-in-one-dashboard
+  page: /templates/life-os-simple-all-in-one-dashboard/
+  page_fr: /fr/templates/life-os-simple-all-in-one-dashboard/
+  tags:
+    - life
+    - productivity
+    - habits
+    - goals
+    - starter
+  cover: /assets/templates/life-os-simple-all-in-one-dashboard/life-os-simple-all-in-one-dashboard-g1-desktop.jpg
+  gallery:
+    - /assets/templates/life-os-simple-all-in-one-dashboard/life-os-simple-all-in-one-dashboard-g2-desktop.jpg
+  mobile:
+    - /assets/templates/life-os-simple-all-in-one-dashboard/life-os-simple-all-in-one-dashboard-g1-mobile.jpg
+    - /assets/templates/life-os-simple-all-in-one-dashboard/life-os-simple-all-in-one-dashboard-g2-mobile.jpg
+  en:
+    title: "Life OS, Simple All-in-One Dashboard"
+    blurb: "Tasks, notes, goals and habits on one page, without the usual complexity."
+  fr:
+    title: "Life OS, tableau de bord tout-en-un simple"
+    blurb: "Taches, notes, objectifs et habitudes sur une page, sans la complexite habituelle."
+  rank: 242
+
+- id: business-framework-solo-founder-startup
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/business-framework-solo-founder-startup
+  page: /templates/business-framework-solo-founder-startup/
+  page_fr: /fr/templates/business-framework-solo-founder-startup/
+  tags:
+    - startup
+    - founder
+    - strategy
+    - business
+    - starter
+  cover: /assets/templates/business-framework-solo-founder-startup/business-framework-solo-founder-startup-desktop.jpg
+  mobile:
+    - /assets/templates/business-framework-solo-founder-startup/business-framework-solo-founder-startup-mobile.jpg
+  en:
+    title: "Business Framework for Solo Founders"
+    blurb: "Strategy, offers, customers and numbers in one frame, for a company of one."
+  fr:
+    title: "Cadre business pour fondateurs solo"
+    blurb: "Strategie, offres, clients et chiffres dans un seul cadre, pour une entreprise d une personne."
+  rank: 243
+
+- id: cv-in-ats-format
+  status: live
+  free: true
+  category: study
+  marketplace: https://www.notion.com/templates/cv-in-ats-format
+  page: /templates/cv-in-ats-format/
+  page_fr: /fr/templates/cv-in-ats-format/
+  tags:
+    - cv
+    - resume
+    - ats
+    - jobsearch
+    - career
+  cover: /assets/templates/cv-in-ats-format/cv-in-ats-format-desktop.jpg
+  mobile:
+    - /assets/templates/cv-in-ats-format/cv-in-ats-format-mobile.jpg
+  en:
+    title: "CV in ATS Format"
+    blurb: "A CV that applicant tracking systems can actually read, written in Notion."
+  fr:
+    title: "CV au format ATS"
+    blurb: "Un CV que les systemes de suivi de candidatures savent lire, redige dans Notion."
+  rank: 244
+
+- id: sop-standard-operating-procedures-834
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/sop-standard-operating-procedures-834
+  page: /templates/sop-standard-operating-procedures-834/
+  page_fr: /fr/templates/sop-standard-operating-procedures-834/
+  tags:
+    - sop
+    - process
+    - operations
+    - governance
+    - team
+  cover: /assets/templates/sop-standard-operating-procedures-834/sop-standard-operating-procedures-834-desktop.jpg
+  mobile:
+    - /assets/templates/sop-standard-operating-procedures-834/sop-standard-operating-procedures-834-mobile.jpg
+  en:
+    title: "Standard Operating Procedures Library"
+    blurb: "Write a process once, and have anyone follow it the same way every time."
+  fr:
+    title: "Bibliotheque de procedures operationnelles"
+    blurb: "Redigez un processus une fois, et faites-le suivre a l identique par tous."
+  rank: 245
+
+- id: business-consultant-agent-management-consulting-lite
+  status: live
+  free: true
+  category: business
+  marketplace: https://www.notion.com/templates/business-consultant-agent-management-consulting-lite
+  page: /templates/business-consultant-agent-management-consulting-lite/
+  page_fr: /fr/templates/business-consultant-agent-management-consulting-lite/
+  tags:
+    - ai
+    - agent
+    - consulting
+    - strategy
+    - notion
+  cover: /assets/templates/business-consultant-agent-management-consulting-lite/business-consultant-agent-management-consulting-lite-desktop.jpg
+  mobile:
+    - /assets/templates/business-consultant-agent-management-consulting-lite/business-consultant-agent-management-consulting-lite-mobile.jpg
+  en:
+    title: "Business Consultant AI Agent (Lite)"
+    blurb: "A Notion AI agent that pressure-tests your thinking like a consultant would."
+  fr:
+    title: "Agent IA consultant business (Lite)"
+    blurb: "Un agent IA Notion qui challenge votre raisonnement comme le ferait un consultant."
+  rank: 246
