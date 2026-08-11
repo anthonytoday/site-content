@@ -1,90 +1,142 @@
 [
- {
-  "path": "assets/templates/airbnb-manager-lite/airbnb-manager-lite-video.jpg",
-  "url": "https://img.youtube.com/vi/MP3FvpNbHxE/maxresdefault.jpg"
- },
- {
-  "path": "assets/templates/airbnb-manager-ultimate/airbnb-manager-ultimate-video.jpg",
-  "url": "https://img.youtube.com/vi/MP3FvpNbHxE/maxresdefault.jpg"
- },
- {
-  "path": "assets/templates/cfa-exam-study-plan/cfa-exam-study-plan-video.jpg",
-  "url": "https://img.youtube.com/vi/SoYlLKqrk_c/maxresdefault.jpg"
- },
- {
-  "path": "assets/templates/cfa-exam-study-plan-lite/cfa-exam-study-plan-lite-video.jpg",
-  "url": "https://img.youtube.com/vi/SoYlLKqrk_c/maxresdefault.jpg"
- },
- {
-  "path": "assets/templates/comptia-security-v7-exam-study-plan/comptia-security-v7-exam-study-plan-video.jpg",
-  "url": "https://img.youtube.com/vi/RsBdyNZ30vc/maxresdefault.jpg"
- },
- {
-  "path": "assets/templates/comptia-security-v7-exam-study-plan-lite/comptia-security-v7-exam-study-plan-lite-video.jpg",
-  "url": "https://img.youtube.com/vi/RsBdyNZ30vc/maxresdefault.jpg"
- },
- {
-  "path": "assets/templates/cpa-exam-study-plan/cpa-exam-study-plan-video.jpg",
-  "url": "https://img.youtube.com/vi/cetcAXvyIpc/maxresdefault.jpg"
- },
- {
-  "path": "assets/templates/cpa-exam-study-plan-lite/cpa-exam-study-plan-lite-video.jpg",
-  "url": "https://img.youtube.com/vi/cetcAXvyIpc/maxresdefault.jpg"
- },
- {
-  "path": "assets/templates/dental-clinic-management/dental-clinic-management-video.jpg",
-  "url": "https://img.youtube.com/vi/H7YaFXgX2wg/maxresdefault.jpg"
- },
- {
-  "path": "assets/templates/dental-clinic-management-lite/dental-clinic-management-lite-video.jpg",
-  "url": "https://img.youtube.com/vi/H7YaFXgX2wg/maxresdefault.jpg"
- },
- {
-  "path": "assets/templates/free-cissp-study-plan/free-cissp-study-plan-video.jpg",
-  "url": "https://img.youtube.com/vi/g8OUELhXH9c/maxresdefault.jpg"
- },
- {
-  "path": "assets/templates/cissp-exam-prep-full/cissp-exam-prep-full-video.jpg",
-  "url": "https://img.youtube.com/vi/g8OUELhXH9c/maxresdefault.jpg"
- },
- {
-  "path": "assets/templates/real-estate-portfolio/cover.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/1391cbb9-a82c-49e6-9212-2b9e42773e60/1765685189717/desktop.jpg"
- },
- {
-  "path": "assets/templates/real-estate-portfolio/desktop/02.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/32750556-7908-4eb6-a965-92a54340bfcb/1765685262710/desktop.jpg"
- },
- {
-  "path": "assets/templates/real-estate-portfolio/desktop/03.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/4284a146-ad81-43fd-96c4-cfb6955251aa/1765685396227/desktop.jpg"
- },
- {
-  "path": "assets/templates/real-estate-portfolio/desktop/04.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/98983a22-980d-48bd-a305-e1836da944b6/1765686633479/desktop.jpg"
- },
- {
-  "path": "assets/templates/real-estate-portfolio/desktop/05.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/7d894f18-0f56-473e-83fe-c1bd766f894a/1765691204723/desktop.jpg"
- },
- {
-  "path": "assets/templates/real-estate-portfolio/mobile/01.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/1391cbb9-a82c-49e6-9212-2b9e42773e60/1765685189717/mobile.jpg"
- },
- {
-  "path": "assets/templates/real-estate-portfolio/mobile/02.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/32750556-7908-4eb6-a965-92a54340bfcb/1765685262710/mobile.jpg"
- },
- {
-  "path": "assets/templates/real-estate-portfolio/mobile/03.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/4284a146-ad81-43fd-96c4-cfb6955251aa/1765685396227/mobile.jpg"
- },
- {
-  "path": "assets/templates/real-estate-portfolio/mobile/04.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/98983a22-980d-48bd-a305-e1836da944b6/1765686633479/mobile.jpg"
- },
- {
-  "path": "assets/templates/real-estate-portfolio/mobile/05.jpg",
-  "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/7d894f18-0f56-473e-83fe-c1bd766f894a/1765691204723/mobile.jpg"
- }
+  {
+    "path": "assets/templates/airbnb-manager-lite/airbnb-manager-lite-video.jpg",
+    "url": "https://img.youtube.com/vi/MP3FvpNbHxE/maxresdefault.jpg"
+  },
+  {
+    "path": "assets/templates/airbnb-manager-ultimate/airbnb-manager-ultimate-video.jpg",
+    "url": "https://img.youtube.com/vi/MP3FvpNbHxE/maxresdefault.jpg"
+  },
+  {
+    "path": "assets/templates/cfa-exam-study-plan/cfa-exam-study-plan-video.jpg",
+    "url": "https://img.youtube.com/vi/SoYlLKqrk_c/maxresdefault.jpg"
+  },
+  {
+    "path": "assets/templates/cfa-exam-study-plan-lite/cfa-exam-study-plan-lite-video.jpg",
+    "url": "https://img.youtube.com/vi/SoYlLKqrk_c/maxresdefault.jpg"
+  },
+  {
+    "path": "assets/templates/comptia-security-v7-exam-study-plan/comptia-security-v7-exam-study-plan-video.jpg",
+    "url": "https://img.youtube.com/vi/RsBdyNZ30vc/maxresdefault.jpg"
+  },
+  {
+    "path": "assets/templates/comptia-security-v7-exam-study-plan-lite/comptia-security-v7-exam-study-plan-lite-video.jpg",
+    "url": "https://img.youtube.com/vi/RsBdyNZ30vc/maxresdefault.jpg"
+  },
+  {
+    "path": "assets/templates/cpa-exam-study-plan/cpa-exam-study-plan-video.jpg",
+    "url": "https://img.youtube.com/vi/cetcAXvyIpc/maxresdefault.jpg"
+  },
+  {
+    "path": "assets/templates/cpa-exam-study-plan-lite/cpa-exam-study-plan-lite-video.jpg",
+    "url": "https://img.youtube.com/vi/cetcAXvyIpc/maxresdefault.jpg"
+  },
+  {
+    "path": "assets/templates/dental-clinic-management/dental-clinic-management-video.jpg",
+    "url": "https://img.youtube.com/vi/H7YaFXgX2wg/maxresdefault.jpg"
+  },
+  {
+    "path": "assets/templates/dental-clinic-management-lite/dental-clinic-management-lite-video.jpg",
+    "url": "https://img.youtube.com/vi/H7YaFXgX2wg/maxresdefault.jpg"
+  },
+  {
+    "path": "assets/templates/free-cissp-study-plan/free-cissp-study-plan-video.jpg",
+    "url": "https://img.youtube.com/vi/g8OUELhXH9c/maxresdefault.jpg"
+  },
+  {
+    "path": "assets/templates/cissp-exam-prep-full/cissp-exam-prep-full-video.jpg",
+    "url": "https://img.youtube.com/vi/g8OUELhXH9c/maxresdefault.jpg"
+  },
+  {
+    "path": "assets/templates/real-estate-portfolio/cover.jpg",
+    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/1391cbb9-a82c-49e6-9212-2b9e42773e60/1765685189717/desktop.jpg"
+  },
+  {
+    "path": "assets/templates/real-estate-portfolio/desktop/02.jpg",
+    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/32750556-7908-4eb6-a965-92a54340bfcb/1765685262710/desktop.jpg"
+  },
+  {
+    "path": "assets/templates/real-estate-portfolio/desktop/03.jpg",
+    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/4284a146-ad81-43fd-96c4-cfb6955251aa/1765685396227/desktop.jpg"
+  },
+  {
+    "path": "assets/templates/real-estate-portfolio/desktop/04.jpg",
+    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/98983a22-980d-48bd-a305-e1836da944b6/1765686633479/desktop.jpg"
+  },
+  {
+    "path": "assets/templates/real-estate-portfolio/desktop/05.jpg",
+    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/7d894f18-0f56-473e-83fe-c1bd766f894a/1765691204723/desktop.jpg"
+  },
+  {
+    "path": "assets/templates/real-estate-portfolio/mobile/01.jpg",
+    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/1391cbb9-a82c-49e6-9212-2b9e42773e60/1765685189717/mobile.jpg"
+  },
+  {
+    "path": "assets/templates/real-estate-portfolio/mobile/02.jpg",
+    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/32750556-7908-4eb6-a965-92a54340bfcb/1765685262710/mobile.jpg"
+  },
+  {
+    "path": "assets/templates/real-estate-portfolio/mobile/03.jpg",
+    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/4284a146-ad81-43fd-96c4-cfb6955251aa/1765685396227/mobile.jpg"
+  },
+  {
+    "path": "assets/templates/real-estate-portfolio/mobile/04.jpg",
+    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/98983a22-980d-48bd-a305-e1836da944b6/1765686633479/mobile.jpg"
+  },
+  {
+    "path": "assets/templates/real-estate-portfolio/mobile/05.jpg",
+    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/7d894f18-0f56-473e-83fe-c1bd766f894a/1765691204723/mobile.jpg"
+  },
+  {
+    "path": "assets/guides/notion/131b8009-cleanshot-2025-05-07-at-14-36-16-2x-1-2x-web.webp",
+    "url": "https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b8009_681b574cd8925322ad971469_cleanshot_2025_05_07_at_14_36_16_2x_1_2x.webp"
+  },
+  {
+    "path": "assets/guides/notion/131b800c-cleanshot-2025-05-07-at-14-41-30-2x-1-2x-web.webp",
+    "url": "https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b800c_681b5776d3939de827f25a19_cleanshot_2025_05_07_at_14_41_30_2x_1_2x.webp"
+  },
+  {
+    "path": "assets/guides/notion/131b800f-cleanshot-2025-05-07-at-14-39-27-2x-1-2x-web.webp",
+    "url": "https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b800f_681b5765836c736ebecbe00b_cleanshot_2025_05_07_at_14_39_27_2x_1_2x.webp"
+  },
+  {
+    "path": "assets/guides/notion/131b8012-cleanshot-2025-05-07-at-14-41-50-2x-1-2x-web.webp",
+    "url": "https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b8012_681b578cd3939de827f2650e_cleanshot_2025_05_07_at_14_41_50_2x_1_2x.webp"
+  },
+  {
+    "path": "assets/guides/notion/131b8015-cleanshot-2025-05-07-at-14-44-23-2x-1-2x-web.webp",
+    "url": "https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b8015_681b579c17738ce3cf612e60_cleanshot_2025_05_07_at_14_44_23_2x_1_2x.webp"
+  },
+  {
+    "path": "assets/guides/notion/131b8018-cleanshot-2025-05-07-at-14-46-06-2x-1-2x-web.webp",
+    "url": "https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b8018_681b57ae29e8a8d7d1b54460_cleanshot_2025_05_07_at_14_46_06_2x_1_2x.webp"
+  },
+  {
+    "path": "assets/guides/notion/131b801b-cleanshot-2025-05-07-at-14-49-47-2x-1-2x-web.webp",
+    "url": "https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b801b_681b57bcfc95f99c732e2696_cleanshot_2025_05_07_at_14_49_47_2x_1_2x.webp"
+  },
+  {
+    "path": "assets/guides/notion/131b801e-cleanshot-2025-05-07-at-14-54-24-2x-1-2x-web.webp",
+    "url": "https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b801e_681b5960ce22b718857f9e62_cleanshot_2025_05_07_at_14_54_24_2x_1_2x.webp"
+  },
+  {
+    "path": "assets/guides/notion/131b8021-cleanshot-2025-05-07-at-14-58-41-2x-1-2x-web.webp",
+    "url": "https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b8021_681b597b20df969e1e6c9ca5_cleanshot_2025_05_07_at_14_58_41_2x_1_2x.webp"
+  },
+  {
+    "path": "assets/guides/notion/131b802c-fsdfd-webp",
+    "url": "https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fd01e08bb7131b802c_681b5d7ead4ae860eea86335_fsdfd.webp"
+  },
+  {
+    "path": "assets/guides/notion/131b802f-webp",
+    "url": "https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fd01e08bb7131b802f_681b5e0f85c9143050ca1bc5_a.webp"
+  },
+  {
+    "path": "assets/guides/notion/131b8035-webp",
+    "url": "https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fd01e08bb7131b8035_681b67f9ff04fa920e28ee6e_aaa.webp"
+  },
+  {
+    "path": "assets/guides/notion/131b80a8-cleanshot-2025-05-07-at-10-29-27-2x-1-2x-web.webp",
+    "url": "https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fd01e08bb7131b80a8_681b23e0feae178e13f36062_cleanshot_2025_05_07_at_10_29_27_2x_1_2x.webp"
+  }
 ]
