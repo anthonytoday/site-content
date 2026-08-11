@@ -1,0 +1,17 @@
+/* Footer styling, previously repeated inline on 16 to 20 pages.
+   Served once and cached across navigations, so moving between pages no
+   longer re-downloads it every time.
+
+   Scoped to .footer-* and .social-links only. Global selectors (*, a, body)
+   stay inline on purpose: they interact with each page's own reset, and
+   hoisting a{text-decoration:none} would have stripped link underlines from
+   the 77 product pages, which never carried that rule. */
+.footer-bottom{border-top:1px solid var(--border);padding-top:30px;text-align:center;color:var(--text-gray);font-size:13px}
+.footer-content{max-width:1000px;margin:0 auto}
+.footer-main{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-bottom:40px}
+.footer-section a:hover{color:var(--blue)}
+.footer-section h4{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
+.footer-section p{font-size:13px;color:var(--text-gray);line-height:1.8}
+.social-links a:hover{background:var(--blue)}
+.social-links a{display:flex;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--white);align-items:center;justify-content:center;font-size:15px;transition:background .2s;margin:0}
+.social-links{display:flex;gap:15px;margin-top:18px}
