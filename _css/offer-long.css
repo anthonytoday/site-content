@@ -1,0 +1,119 @@
+/* ==========================================================================
+   Long-form offer page  ->  /investor-ready-sprint/
+   Source of truth for the styles added in the v2 rewrite. Appended to the
+   page's base bundle by _css/build_offer_bundle.py, which re-hashes the
+   output and rewrites css_bundle in the page front matter.
+   ========================================================================== */
+
+.sec-lede{color:var(--text-gray);font-size:16px;line-height:1.7;margin-top:8px;max-width:680px}
+
+/* --- the at-a-glance summary, rendered twice --------------------------- */
+.osum{border:1px solid var(--border);border-radius:14px;overflow:hidden;margin:26px 0;background:#fff}
+.osum-head{display:flex;justify-content:space-between;align-items:flex-start;gap:22px;
+           padding:22px 26px 18px;background:var(--navy);color:#fff}
+.osum-k{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:#A8B4C2;font-weight:600}
+.osum-t{font-size:21px;line-height:1.3;margin-top:7px;letter-spacing:-.02em;color:#fff}
+.osum-price{text-align:right;flex-shrink:0}
+.osum-big{font-size:33px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.osum-sm{font-size:12.5px;color:#A8B4C2;margin-top:3px}
+.osum-pay{display:flex;gap:0;border-bottom:1px solid var(--border);background:#F5F8FF}
+.osum-payi{flex:1;padding:12px 26px;font-size:14px;color:var(--text-gray)}
+.osum-payi+.osum-payi{border-left:1px solid var(--border)}
+.osum-payi b{color:var(--navy);font-size:16px}
+.osum-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.osum-c{padding:18px 26px}
+.osum-c+.osum-c{border-left:1px solid var(--border)}
+.osum-d{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+        font-weight:700;padding:3px 9px;border-radius:4px;background:var(--blue);color:#fff}
+.osum-d.alt{background:var(--navy)}
+.osum-d.plain{background:#E8EDF3;color:var(--navy)}
+.osum-c p{font-size:14px;color:var(--text-gray);margin-top:9px;line-height:1.62}
+.osum-c p b{color:var(--navy)}
+.osum-foot{padding:13px 26px;background:#FAFBFC;border-top:1px solid var(--border);
+           font-size:13.5px;color:var(--text-gray)}
+.osum-foot b{color:var(--navy)}
+.osum-foot .sep{margin:0 9px;color:#C7D0DB}
+
+/* --- phases ------------------------------------------------------------ */
+.phase{display:grid;grid-template-columns:180px 1fr;gap:26px;padding:24px 0;
+       border-top:1px solid var(--border);margin-top:22px}
+.phase-mark{position:sticky;top:90px;align-self:start}
+.phase-d{display:block;font-size:11px;letter-spacing:.11em;text-transform:uppercase;
+         color:var(--text-gray);font-weight:700}
+.phase-n{display:inline-block;margin-top:6px;font-size:19px;font-weight:700;letter-spacing:-.02em;
+         padding-bottom:5px;border-bottom:3px solid var(--blue)}
+.phase.b .phase-n{border-bottom-color:var(--navy)}
+.phase-body h3{font-size:21px;letter-spacing:-.02em}
+.phase-body>p{color:var(--text-gray);font-size:15.5px;line-height:1.72;margin-top:9px}
+ul.deliv{list-style:none;margin-top:15px}
+ul.deliv li{position:relative;padding:8px 0 8px 22px;font-size:15px;line-height:1.65;
+            color:var(--text-gray)}
+ul.deliv li:before{content:"";position:absolute;left:2px;top:15px;width:7px;height:7px;
+                   border-radius:50%;background:var(--blue)}
+.phase.b ul.deliv li:before{background:var(--navy)}
+ul.deliv li b{color:var(--navy);font-weight:650}
+.notin{margin-top:15px;padding:14px 17px;background:#FAFBFC;border-left:3px solid #D9DDE3;
+       border-radius:0 8px 8px 0;font-size:14.5px;color:var(--text-gray);line-height:1.65}
+.notin b{color:var(--navy)}
+
+/* --- day 10 gate ------------------------------------------------------- */
+.gate-sec{background:var(--navy);color:#fff;border-radius:14px;padding:28px 30px;margin:30px 0}
+.gate-sec h2{color:#fff}
+.gate-sec .sec-lede{color:#B9C4D0}
+.gate3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.g3{background:rgba(255,255,255,.055);border:1px solid rgba(199,208,219,.2);
+    border-radius:10px;padding:17px 19px}
+.g3n{width:24px;height:24px;border-radius:50%;background:#fff;color:var(--navy);
+     font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.g3 h4{font-size:15.5px;margin-top:11px;color:#fff;letter-spacing:-.01em}
+.g3 p{font-size:14px;color:#B9C4D0;margin-top:6px;line-height:1.62}
+
+/* --- value stack ------------------------------------------------------- */
+.stack{display:grid;grid-template-columns:1.5fr 1fr;gap:26px;margin-top:18px;align-items:start}
+table.stack-t{width:100%;border-collapse:collapse}
+table.stack-t td{padding:9px 0;font-size:15px;border-bottom:1px solid var(--border)}
+table.stack-t td.v{text-align:right;white-space:nowrap;font-weight:650;width:96px}
+table.stack-t tr.sh td{border-bottom:0;padding:15px 0 3px;font-size:11px;letter-spacing:.11em;
+                       text-transform:uppercase;color:var(--text-gray);font-weight:700}
+table.stack-t tr.free td{color:var(--blue)}
+table.stack-t tr.stot td{border-bottom:0;padding-top:14px;font-size:16.5px;font-weight:700}
+table.stack-t tr.stot td.v s{color:var(--text-gray)}
+.stack-pay{background:var(--navy);color:#fff;border-radius:12px;padding:20px 22px}
+.sp-k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#A8B4C2;font-weight:700}
+.sp-n{font-size:38px;font-weight:700;letter-spacing:-.03em;margin-top:3px;line-height:1}
+.sp-d{font-size:13.5px;color:#B9C4D0;margin-top:11px;line-height:1.62}
+
+/* --- risk panel -------------------------------------------------------- */
+.risk-sec{background:linear-gradient(180deg,#F5F8FF 0%,#fff 70%);border:1px solid var(--border);
+          border-radius:14px;padding:28px 30px;margin:30px 0}
+.risk-big{font-size:52px;font-weight:700;letter-spacing:-.035em;color:var(--blue);
+          line-height:1;margin-top:4px}
+.risk2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:20px}
+.rk{display:flex;gap:13px;align-items:flex-start}
+.rkn{flex-shrink:0;width:25px;height:25px;border-radius:50%;background:var(--navy);color:#fff;
+     font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.rk h4{font-size:16px;letter-spacing:-.01em}
+.rk p{font-size:14.5px;color:var(--text-gray);margin-top:5px;line-height:1.65}
+.risk-note{margin-top:20px;padding-top:15px;border-top:1px solid var(--border);
+           font-size:14.5px;color:var(--text-gray);line-height:1.65}
+.risk-note b{color:var(--navy)}
+
+/* --- after handover ---------------------------------------------------- */
+.after{display:grid;grid-template-columns:190px 1fr;gap:26px;margin-top:16px;
+       border:1px solid var(--border);border-radius:12px;padding:20px 24px;align-items:center}
+.after-p{font-size:34px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.after-p span{font-size:15px;font-weight:500;color:var(--text-gray);letter-spacing:0}
+.after-l ul.deliv{margin-top:0}
+.after-l ul.deliv li{padding:5px 0 5px 22px;font-size:14.5px}
+.after-l ul.deliv li:before{top:12px}
+
+@media(max-width:820px){
+  .osum-head{flex-direction:column;gap:12px}
+  .osum-price{text-align:left}
+  .osum-pay,.osum-grid,.gate3,.stack,.risk2,.after{grid-template-columns:1fr}
+  .osum-payi+.osum-payi,.osum-c+.osum-c{border-left:0;border-top:1px solid var(--border)}
+  .phase{grid-template-columns:1fr;gap:14px}
+  .phase-mark{position:static}
+  .risk-big{font-size:42px}
+  .gate-sec,.risk-sec{padding:22px 20px}
+}
