@@ -9,14 +9,19 @@
 # stripe is present and empty on every entry. Paste a payment link into it and
 # the buy button switches from Etsy to native checkout with no page edit.
 #
+# etsy, etsy_slug and etsy_listing_id are the real listing, transcribed from the
+# Etsy extraction captured 12 Aug 2026. etsy_slug is also the folder name the
+# image import Action writes to under assets/etsy/.
+#
 # English only. No French twin page, no second-language block, no marketplace fields.
 
 - id: cissp-flashcards
   status: live
   category: cyber
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1835704395/cissp-certification-anki-flashcards
   etsy_slug: cissp-certification-anki-flashcards
+  etsy_listing_id: 1835704395
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/cissp-flashcards/
   cards: TBC
@@ -36,8 +41,9 @@
   status: live
   category: cyber
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
-  etsy_slug: cism-exam-prep-isaca-certification-flashcard
+  etsy: https://www.etsy.com/listing/1821501820/cism-exam-prep-isaca-certification
+  etsy_slug: cism-exam-prep-isaca-certification
+  etsy_listing_id: 1821501820
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/cism-flashcards/
   cards: TBC
@@ -57,8 +63,9 @@
   status: live
   category: cyber
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
-  etsy_slug: cisa-exam-prep-flashcards-anki
+  etsy: https://www.etsy.com/listing/1835698299/cisa-exam-prep-flashcards-anki-official
+  etsy_slug: cisa-exam-prep-flashcards-anki-official
+  etsy_listing_id: 1835698299
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/cisa-flashcards/
   cards: TBC
@@ -78,8 +85,9 @@
   status: live
   category: cyber
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1835467403/comptia-security-v7-flashcards-anki
   etsy_slug: comptia-security-v7-flashcards-anki
+  etsy_listing_id: 1835467403
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/comptia-security-plus-flashcards/
   cards: TBC
@@ -106,8 +114,9 @@
   status: live
   category: cyber
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1835463169/comptia-cysa-cs0-003-anki-flashcards
   etsy_slug: comptia-cysa-cs0-003-anki-flashcards
+  etsy_listing_id: 1835463169
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/comptia-cysa-flashcards/
   cards: TBC
@@ -127,8 +136,9 @@
   status: live
   category: cyber
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
-  etsy_slug: comptia-securityx-v5-flashcards-anki
+  etsy: https://www.etsy.com/listing/1838198579/comptia-securityx-v5-flashcards-anki-cas
+  etsy_slug: comptia-securityx-v5-flashcards-anki-cas
+  etsy_listing_id: 1838198579
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/comptia-securityx-flashcards/
   cards: TBC
@@ -148,8 +158,9 @@
   status: live
   category: cyber
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1824559724/comptia-pentest-pt0-003-exam-prep
   etsy_slug: comptia-pentest-pt0-003-exam-prep
+  etsy_listing_id: 1824559724
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/comptia-pentest-flashcards/
   cards: TBC
@@ -169,8 +180,9 @@
   status: live
   category: cyber
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1854425881/ccsp-certification-flashcards-anki
   etsy_slug: ccsp-certification-flashcards-anki
+  etsy_listing_id: 1854425881
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/ccsp-flashcards/
   cards: TBC
@@ -190,8 +202,9 @@
   status: live
   category: cyber
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
-  etsy_slug: aws-solutions-architect-exam-prep
+  etsy: https://www.etsy.com/listing/1838765599/aws-solutions-architect-exam-prep-saa
+  etsy_slug: aws-solutions-architect-exam-prep-saa
+  etsy_listing_id: 1838765599
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/aws-solutions-architect-flashcards/
   cards: TBC
@@ -211,8 +224,9 @@
   status: live
   category: cyber
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
-  etsy_slug: aws-security-specialty-flashcards
+  etsy: https://www.etsy.com/listing/1824562190/aws-security-specialty-flashcards-anki
+  etsy_slug: aws-security-specialty-flashcards-anki
+  etsy_listing_id: 1824562190
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/aws-security-specialty-flashcards/
   cards: TBC
@@ -232,8 +246,9 @@
   status: live
   category: cyber
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1839171852/aws-cloud-practitioner-flashcards-anki
   etsy_slug: aws-cloud-practitioner-flashcards-anki
+  etsy_listing_id: 1839171852
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/aws-cloud-practitioner-flashcards/
   cards: TBC
@@ -253,8 +268,9 @@
   status: live
   category: finance
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1835237483/2026-cfa-level-1-exam-prep-5000-anki
   etsy_slug: 2026-cfa-level-1-exam-prep-5000-anki
+  etsy_listing_id: 1835237483
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/cfa-level-1-flashcards/
   cards: TBC
@@ -274,8 +290,9 @@
   status: live
   category: finance
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1835238957/cfa-level-2-exam-prep-complete-anki
   etsy_slug: cfa-level-2-exam-prep-complete-anki
+  etsy_listing_id: 1835238957
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/cfa-level-2-flashcards/
   cards: TBC
@@ -295,8 +312,9 @@
   status: live
   category: finance
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1824642060/cfa-level-3-exam-prep-anki-flashcards
   etsy_slug: cfa-level-3-exam-prep-anki-flashcards
+  etsy_listing_id: 1824642060
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/cfa-level-3-flashcards/
   cards: TBC
@@ -316,8 +334,9 @@
   status: live
   category: pm
   price: 27.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1838893201/pmi-pmp-exam-prep-flashcards-anki
   etsy_slug: pmi-pmp-exam-prep-flashcards-anki
+  etsy_listing_id: 1838893201
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/pmp-flashcards/
   cards: TBC
@@ -337,8 +356,9 @@
   status: live
   category: pm
   price: 27.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1854432399/pmi-acp-exam-prep-anki-flashcards
   etsy_slug: pmi-acp-exam-prep-anki-flashcards
+  etsy_listing_id: 1854432399
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/pmi-acp-flashcards/
   cards: TBC
@@ -358,8 +378,9 @@
   status: live
   category: pm
   price: 27.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
-  etsy_slug: pmi-capm-flashcards-anki
+  etsy: https://www.etsy.com/listing/1840294186/pmi-capm-flashcards-anki-project-manager
+  etsy_slug: pmi-capm-flashcards-anki-project-manager
+  etsy_listing_id: 1840294186
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/capm-flashcards/
   cards: TBC
@@ -379,8 +400,9 @@
   status: live
   category: languages
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
-  etsy_slug: spanish-flashcards-with-audio
+  etsy: https://www.etsy.com/listing/1836747956/spanish-flashcards-with-audio-anki
+  etsy_slug: spanish-flashcards-with-audio-anki
+  etsy_listing_id: 1836747956
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/spanish-flashcards/
   cards: TBC
@@ -400,8 +422,9 @@
   status: live
   category: languages
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1838705701/french-flashcards-with-audio-anki
   etsy_slug: french-flashcards-with-audio-anki
+  etsy_listing_id: 1838705701
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/french-flashcards/
   cards: TBC
@@ -421,8 +444,9 @@
   status: live
   category: languages
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1833535168/german-anki-flashcards-with-audio
   etsy_slug: german-anki-flashcards-with-audio
+  etsy_listing_id: 1833535168
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/german-flashcards/
   cards: TBC
@@ -442,8 +466,9 @@
   status: live
   category: languages
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1838718119/german-goethe-zertifikate-flashcards
   etsy_slug: german-goethe-zertifikate-flashcards
+  etsy_listing_id: 1838718119
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/german-goethe-flashcards/
   cards: TBC
@@ -463,8 +488,9 @@
   status: live
   category: languages
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1836719244/complete-chinese-flashcards-with-audio
   etsy_slug: complete-chinese-flashcards-with-audio
+  etsy_listing_id: 1836719244
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/chinese-flashcards/
   cards: TBC
@@ -484,8 +510,9 @@
   status: live
   category: languages
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1833551384/complete-russian-flashcards-with-audio
   etsy_slug: complete-russian-flashcards-with-audio
+  etsy_listing_id: 1833551384
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/russian-flashcards/
   cards: TBC
@@ -505,8 +532,9 @@
   status: live
   category: languages
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
-  etsy_slug: quranic-arabic-flashcard-with-audio
+  etsy: https://www.etsy.com/listing/1847747819/quranic-arabic-flashcards-with-audio
+  etsy_slug: quranic-arabic-flashcards-with-audio
+  etsy_listing_id: 1847747819
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/quranic-arabic-flashcards/
   cards: TBC
@@ -526,8 +554,9 @@
   status: live
   category: languages
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
-  etsy_slug: hebrew-anki-flashcards
+  etsy: https://www.etsy.com/listing/1833542750/hebrew-anki-flashcards-audio-card
+  etsy_slug: hebrew-anki-flashcards-audio-card
+  etsy_listing_id: 1833542750
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/hebrew-flashcards/
   cards: TBC
@@ -547,8 +576,9 @@
   status: live
   category: languages
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1838746095/gre-toefl-vocabulary-flashcards-anki
   etsy_slug: gre-toefl-vocabulary-flashcards-anki
+  etsy_listing_id: 1838746095
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/gre-toefl-vocabulary-flashcards/
   cards: TBC
@@ -568,8 +598,9 @@
   status: live
   category: academic
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1854536595/a-level-biology-ocr-anki-flashcards
   etsy_slug: a-level-biology-ocr-anki-flashcards
+  etsy_listing_id: 1854536595
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/a-level-biology-ocr-flashcards/
   cards: TBC
@@ -589,8 +620,9 @@
   status: live
   category: academic
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1840349102/a-level-chemistry-ocr-anki-flashcards
   etsy_slug: a-level-chemistry-ocr-anki-flashcards
+  etsy_listing_id: 1840349102
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/a-level-chemistry-ocr-flashcards/
   cards: TBC
@@ -610,8 +642,9 @@
   status: live
   category: academic
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1849577891/a-level-physics-ocr-anki-flashcards
   etsy_slug: a-level-physics-ocr-anki-flashcards
+  etsy_listing_id: 1849577891
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/a-level-physics-ocr-flashcards/
   cards: TBC
@@ -631,8 +664,9 @@
   status: live
   category: academic
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1840720398/a-level-psychology-ocr-flashcards-anki
   etsy_slug: a-level-psychology-ocr-flashcards-anki
+  etsy_listing_id: 1840720398
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/a-level-psychology-ocr-flashcards/
   cards: TBC
@@ -652,8 +686,9 @@
   status: live
   category: academic
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1840737292/ocr-a-level-computer-science-anki
   etsy_slug: ocr-a-level-computer-science-anki
+  etsy_listing_id: 1840737292
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/a-level-computer-science-ocr-flashcards/
   cards: TBC
@@ -673,8 +708,9 @@
   status: live
   category: academic
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy: https://www.etsy.com/listing/1824636834/veterinary-nurse-flashcards-anki
   etsy_slug: veterinary-nurse-flashcards-anki
+  etsy_listing_id: 1824636834
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/veterinary-nurse-flashcards/
   cards: TBC
@@ -694,12 +730,13 @@
   status: live
   category: tools
   price: 21.75
-  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
-  etsy_slug: cyber-exam-prep-planner-digital-timetable
+  etsy: https://www.etsy.com/listing/1838697141/cyber-exam-prep-planner-digital
+  etsy_slug: cyber-exam-prep-planner-digital
+  etsy_listing_id: 1838697141
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/cyber-exam-prep-planner/
   cards: TBC
-  format: TBC
+  format: PDF
   tags:
   - study-planner
   - ipad
