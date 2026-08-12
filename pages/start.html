@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Start Here | Investor-Ready Sprint | Anthony Today"
-description: "Six questions. If it's a fit you'll get a booking link, and if it isn't I'll tell you and point you somewhere useful."
+title: "Start Here | The 10-Day Notion Build | Anthony Today"
+description: "Six questions, about two minutes. If the 10-Day Notion Build is a fit you get a booking link. If it is not, I say so and point you somewhere useful."
 permalink: /start/
 lang: en
 alt_url: /fr/start/
@@ -31,34 +31,34 @@ css_bundle: /assets/css/b-4d78392669.css
           <input type="email" id="f-email" name="email" required></div>
       </div>
 
-      <div class="q"><label class="qlabel" for="f-company">Firm name and website</label>
-        <input type="text" id="f-company" name="company" placeholder="Acme Capital &middot; acmecapital.com" required></div>
+      <div class="q"><label class="qlabel" for="f-company">Business name and website</label>
+        <input type="text" id="f-company" name="company" placeholder="Acme Studio &middot; acmestudio.com" required></div>
 
       <div class="q">
-        <label class="qlabel">1. What kind of firm is it?</label>
+        <label class="qlabel">1. What would the workspace run?</label>
         <div class="opts" data-name="firm">
-          <label class="opt"><input type="radio" name="firm" value="investment" required> Real estate investment or development</label>
-          <label class="opt"><input type="radio" name="firm" value="property"> Property management or brokerage</label>
-          <label class="opt"><input type="radio" name="firm" value="other"> Something else</label>
+          <label class="opt"><input type="radio" name="firm" value="business" required> A whole business: clients, projects, delivery</label>
+          <label class="opt"><input type="radio" name="firm" value="function"> One function: content, sales, ops, knowledge base or SOPs</label>
+          <label class="opt"><input type="radio" name="firm" value="personal"> Mostly personal or side-project use</label>
         </div>
       </div>
 
       <div class="q">
-        <label class="qlabel">2. How many people work in the firm?</label>
+        <label class="qlabel">2. How many people will use it?</label>
         <div class="opts" data-name="size">
-          <label class="opt"><input type="radio" name="size" value="1-4" required> 1&ndash;4</label>
-          <label class="opt"><input type="radio" name="size" value="5-25"> 5&ndash;25</label>
-          <label class="opt"><input type="radio" name="size" value="25+"> 25 or more</label>
+          <label class="opt"><input type="radio" name="size" value="1-4" required> Just me, or up to 4</label>
+          <label class="opt"><input type="radio" name="size" value="5-25"> 5 to 25</label>
+          <label class="opt"><input type="radio" name="size" value="25+"> More than 25</label>
         </div>
       </div>
 
       <div class="q">
-        <label class="qlabel">3. What budget range are you working with?</label>
+        <label class="qlabel">3. What budget are you working with?</label>
         <p class="hint">Rough is fine. It only decides what we'd sensibly talk about.</p>
         <div class="opts" data-name="budget">
           <label class="opt"><input type="radio" name="budget" value="under2500" required> Under $2,500</label>
-          <label class="opt"><input type="radio" name="budget" value="2500-10000"> $2,500 &ndash; $10,000</label>
-          <label class="opt"><input type="radio" name="budget" value="10000+"> $10,000 or more</label>
+          <label class="opt"><input type="radio" name="budget" value="2500-10000"> Around $2,500, the price of the build</label>
+          <label class="opt"><input type="radio" name="budget" value="10000+"> More than $10,000</label>
           <label class="opt"><input type="radio" name="budget" value="unknown"> Don't know yet</label>
         </div>
       </div>
@@ -87,7 +87,7 @@ css_bundle: /assets/css/b-4d78392669.css
       </div>
 
       <label class="consent"><input type="checkbox" id="f-consent" name="consent">
-        <span>Send me the occasional email about Notion systems for property firms. Nothing else, and one click to stop.</span></label>
+        <span>Send me the occasional email about building and running Notion systems. Nothing else, and one click to stop.</span></label>
 
       <input type="checkbox" name="botcheck" id="botcheck" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" tabindex="-1" autocomplete="off">
 
@@ -106,7 +106,7 @@ css_bundle: /assets/css/b-4d78392669.css
   var ENDPOINT   = "https://api.web3forms.com/submit";
   var ACCESS_KEY = "c11e0f6b-725b-41be-a276-e2427ef8c1b3";
   var CAL_LINK   = "https://cal.com/anthonytoday/qualification";
-  var STRIPE_LINK= "https://pay.anthonytoday.com/b/14AcN72A04vP9zJ6SB1ZS00";
+  var STRIPE_LINK= "https://pay.anthonytoday.com/b/eVqaEZeiI5zT3blccV1ZS0s";
   var AFFILIATE  = "https://affiliate.notion.so/0x8u16p4sff1";
   var TEMPLATES  = "https://www.notion.com/@anthonytoday";
   var MIN_GOOD   = 200;   // routing threshold
@@ -115,15 +115,15 @@ css_bundle: /assets/css/b-4d78392669.css
   // ---- TEST MODE: append ?test=1 to the URL to exercise routing without sending a lead ----
   var TEST_MODE = /[?&]test=1(&|$)/.test(location.search);
   function why(d){
-    if (d.firm==='other') return 'Q1 firm type is "other"';
-    if (d.size==='1-4') return 'Q2 team size is 1-4';
-    if (d.budget==='under2500') return 'Q3 budget is below the $2,500 entry price';
+    if (d.firm==='personal') return 'Q1 is personal or side-project use';
+    if (d.budget==='under2500') return 'Q3 budget is below the $2,500 price';
+    if (d.size==='25+') return 'Q2 is more than 25 people, which is a larger engagement and always earns a call';
     if (d.timeline==='later') return 'Q4 has no fixed timeline';
     if (d.budget==='10000+') return 'Q3 budget is $10,000+, which earns a call regardless of Q5/Q6 length';
     if (d.budget==='unknown' && d.timeline!=='30days') return 'Q3 budget unknown and Q4 is not immediate';
     if (d.problem.trim().length < MIN_GOOD || d.tried.trim().length < MIN_GOOD)
       return 'Q5 is ' + d.problem.trim().length + ' chars and Q6 is ' + d.tried.trim().length + ', one is under the ' + MIN_GOOD + ' threshold';
-    return 'right firm, right size, real budget, real timeline, and both written answers over ' + MIN_GOOD + ' characters';
+    return 'real use case, budget at or above the price, a real timeline, and both written answers over ' + MIN_GOOD + ' characters';
   }
   function testBanner(bucket, d){
     var colour = bucket==='hot' ? '#0F7A32' : (bucket==='warm' ? '#B26A00' : '#6B7280');
@@ -158,11 +158,13 @@ css_bundle: /assets/css/b-4d78392669.css
   wire('f-problem','c-problem'); wire('f-tried','c-tried');
 
   function route(d){
-    // never a fit
-    if (d.firm==='other' || d.size==='1-4' || d.budget==='under2500') return 'cold';
+    // only two hard disqualifiers now: personal use, or below the price
+    if (d.firm==='personal' || d.budget==='under2500') return 'cold';
+    // more than 25 people is a bigger engagement than this offer, so it always earns a conversation
+    if (d.size==='25+') return 'hot';
     // no timeline means no decision to make yet
     if (d.timeline==='later') return 'warm';
-    // real budget + a real timeline always earns a call, regardless of how much they typed
+    // budget at or above the price plus a real timeline earns a call
     if (d.budget==='10000+') return 'hot';
     // unknown budget only converts on urgency
     if (d.budget==='unknown' && d.timeline!=='30days') return 'warm';
@@ -180,13 +182,13 @@ css_bundle: /assets/css/b-4d78392669.css
     hot: '<div class="rcard r-hot"><h2>Thanks. This sounds like a fit.</h2>'
        + '<p>Pick a time below. Twenty minutes, no pitch. I will have read your answers before we start, so we begin at the actual problem rather than at introductions.</p></div>'
        + '<div class="calwrap"><div id="cal-inline"></div></div>'
-       + '<p class="calalt">Would rather not book a call? You can <a href="'+STRIPE_LINK+'" target="_blank" rel="noopener">start the Blueprint now</a>: $2,500, working in 10 days or it is free.</p>',
+       + '<p class="calalt">Would rather not book a call? You can <a href="'+STRIPE_LINK+'" target="_blank" rel="noopener">start the build now</a>: $2,500, working in 10 days or it is free.</p>',
 
     warm: '<div class="rcard r-warm"><h2>Thanks. Here is what I would suggest.</h2>'
-       + '<p>From your answers, I would not start with a call. I would start with the Blueprint: I build a working version of your firm in Notion within 10 days, so you can look at something real instead of reading a proposal.</p>'
-       + '<p>It is $2,500, credited in full if you go on to the full build, and free if it is not working in 10 days. That way you find out whether this is right for you before committing to anything larger.</p>'
-       + '<a class="btn" href="/notion-for-real-estate/">See what is involved &rarr;</a>'
-       + '<a class="btn ghost" href="'+STRIPE_LINK+'" target="_blank" rel="noopener">Start the Blueprint</a>'
+       + '<p>From your answers, I would not start with a call. I would start with the build itself: ten working days, and your workspace is live and running on your own work rather than described in a proposal.</p>'
+       + '<p>It is $2,500, one payment, no change orders. If it is not working on day ten you pay nothing and you keep the workspace anyway, so the decision is reversible.</p>'
+       + '<a class="btn" href="/notion-build/">See what is involved &rarr;</a>'
+       + '<a class="btn ghost" href="'+STRIPE_LINK+'" target="_blank" rel="noopener">Start the build</a>'
        + '<p class="alt">Either way I will email you within a day. If you would rather talk it through first, just reply and we will find a time.</p></div>' + NEXT,
 
     cold: '<div class="rcard r-cold"><h2>Thanks for taking the time to fill this in.</h2>'
@@ -194,7 +196,7 @@ css_bundle: /assets/css/b-4d78392669.css
        + '<p>Two things that will genuinely help in the meantime, both free:</p>'
        + '<ul class="rlist">'
        + '<li><a href="'+AFFILIATE+'" target="_blank" rel="noopener" style="color:#2251FF;text-decoration:underline">Notion Business, free for 3 months</a>: worth around $1,500 for a 20-person team</li>'
-       + '<li><a href="'+TEMPLATES+'" target="_blank" rel="noopener" style="color:#2251FF;text-decoration:underline">My templates</a>: 70+, free, downloaded in 50+ countries</li>'
+       + '<li><a href="'+TEMPLATES+'" target="_blank" rel="noopener" style="color:#2251FF;text-decoration:underline">My templates</a>: 77 of them, used in 50+ countries</li>'
        + '</ul>'
        + '<p class="alt">When the team grows, or when keeping track of things starts costing you real time, come back. I will still be here.<br><span style="font-size:12.5px">The Notion link is a referral link. If you upgrade through it I may earn a commission, at no cost to you.</span></p></div>'
   };
@@ -218,7 +220,7 @@ css_bundle: /assets/css/b-4d78392669.css
     var payload = {
       access_key: ACCESS_KEY,
       subject: '[' + bucket.toUpperCase() + '] ' + d.company + ' | ' + d.name,
-      from_name: 'Investor-Ready Sprint form',
+      from_name: '10-Day Notion Build form',
       replyto: d.email,
       marketing_consent: document.getElementById('f-consent').checked ? 'YES' : 'no',
       copy_paste: d.name + ' <' + d.email + '> | ' + d.company + ' | ' + bucket.toUpperCase() + ' | consent=' + (document.getElementById('f-consent').checked ? 'YES' : 'no'),
