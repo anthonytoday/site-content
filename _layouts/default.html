@@ -2,7 +2,7 @@
 {% assign lang = page.lang | default: "en" %}
 {% if lang == "fr" %}{% assign en_url = page.alt_url %}{% assign fr_url = page.url %}{% assign p = "/fr" %}
 {% else %}{% assign en_url = page.url %}{% assign fr_url = page.alt_url %}{% assign p = "" %}{% endif %}
-{% assign u_home = p | append: "/" %}{% assign u_notion = p | append: "/notion/" %}{% assign u_guide = p | append: "/guide/" %}{% assign u_usecase = p | append: "/use-case/" %}{% assign u_cyber = p | append: "/cyber/" %}{% assign u_grc = p | append: "/cyber-grc/" %}{% assign u_ciso = p | append: "/fractional-ciso/" %}{% assign u_templates = p | append: "/templates/" %}{% assign u_tools = p | append: "/tools/" %}{% assign u_contact = p | append: "/contact/" %}{% if page.lang == "fr" %}{% assign u_sprint = "/fr/investor-ready-sprint/" %}{% else %}{% assign u_sprint = "/notion-for-real-estate/" %}{% endif %}{% assign u_start = p | append: "/start/" %}{% assign u_challenges = p | append: "/notion/challenges/" %}
+{% assign u_home = p | append: "/" %}{% assign u_notion = p | append: "/notion/" %}{% assign u_guide = p | append: "/guide/" %}{% assign u_usecase = p | append: "/use-case/" %}{% assign u_cyber = p | append: "/cyber/" %}{% assign u_grc = p | append: "/cyber-grc/" %}{% assign u_ciso = p | append: "/fractional-ciso/" %}{% assign u_templates = p | append: "/templates/" %}{% assign u_tools = p | append: "/tools/" %}{% assign u_contact = p | append: "/contact/" %}{% if page.lang == "fr" %}{% assign u_sprint = "/fr/investor-ready-sprint/" %}{% else %}{% assign u_sprint = "/notion-for-real-estate/" %}{% endif %}{% assign u_build = "/notion-build/" %}{% assign u_start = p | append: "/start/" %}{% assign u_challenges = p | append: "/notion/challenges/" %}
 <html lang="{{ lang }}">
 <head>
 <meta charset="utf-8">
@@ -159,6 +159,7 @@
           <a href="{{ u_challenges }}"{% if page.url == u_challenges %} aria-current="page"{% endif %}>{% if lang == "fr" %}Top 10 questions{% else %}Top 10 Questions{% endif %}</a>
           <a href="{{ u_guide }}"{% if page.url == u_guide %} aria-current="page"{% endif %}>{% if lang == "fr" %}Guides{% else %}Guide{% endif %}</a>
           <a href="{{ u_usecase }}"{% if page.url == u_usecase %} aria-current="page"{% endif %}>{% if lang == "fr" %}Cas clients{% else %}Use Cases{% endif %}</a>
+          {% if lang != "fr" %}<a href="{{ u_build }}"{% if page.url == u_build %} aria-current="page"{% endif %}>10-Day Notion Build</a>{% endif %}
           <a href="{{ u_sprint }}"{% if page.url == u_sprint %} aria-current="page"{% endif %}>{% if lang == "fr" %}Offre Immobilier{% else %}Real Estate Offer{% endif %}</a>
           <a href="{{ u_templates }}"{% if page.url == u_templates %} aria-current="page"{% endif %}>eShop</a>
         </div>
