@@ -37,6 +37,7 @@
 {%- elsif page.lcp_image -%}
 <link rel="preload" as="image" href="{{ page.lcp_image }}" fetchpriority="high">
 {%- endif %}
+<link rel="dns-prefetch" href="https://pay.anthonytoday.com">
 <link rel="stylesheet" href="{{ page.css_bundle }}">
 {%- for href in page.extra_css %}
 <link rel="stylesheet" href="{{ href }}">

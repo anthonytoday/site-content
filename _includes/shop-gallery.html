@@ -22,7 +22,7 @@
   {%- comment -%} No width/height here on purpose. Covers vary (1600x999, 1920x1199) and the
       frame already declares aspect-ratio:16/10 in CSS, which reserves the space correctly.
       The old hardcoded 1000x700 was a 1.43 ratio against 1.60 files and contradicted it. {%- endcomment -%}
-  {%- if t.cover %}<img class="cover" fetchpriority="high" src="{{ t.cover }}" alt="{{ c.title }}"{%- assign _ss = site.data.cover_srcset[t.cover] -%}{%- if _ss %} srcset="{{ _ss }}" sizes="(max-width:900px) 100vw, 590px"{%- endif -%}{%- assign _d = site.data.image_dims[t.cover] -%}{%- if _d -%}{%- assign _wh = _d | split: "x" -%} width="{{ _wh[0] }}" height="{{ _wh[1] }}"{%- endif -%} onerror="this.remove()">{% endif -%}
+  {%- if t.cover %}<img class="cover" fetchpriority="high" src="{{ t.cover }}" alt="{{ c.title }}"{%- assign _ss = site.data.cover_srcset[t.cover] -%}{%- if _ss %} srcset="{{ _ss }}" sizes="(max-width:900px) 100vw, 590px"{%- endif -%}{%- assign _d = site.data.image_dims[t.cover] -%}{%- if _d -%}{%- assign _wh = _d | split: "x" -%} width="{{ _wh[0] }}" height="{{ _wh[1] }}"{%- endif -%} decoding="async" onerror="this.remove()">{% endif -%}
   {%- if nslides > 0 %}<span class="lb-hint" aria-hidden="true">{% if L == "fr" %}Cliquer pour agrandir{% else %}Click to enlarge{% endif %}</span>{% endif -%}
 </div>
 
@@ -31,7 +31,7 @@
   {%- for s in slides limit: ndesk -%}
   <button type="button" class="gthumb lb-open{% if forloop.first %} on{% endif %}" data-lb-index="{{ forloop.index0 }}"
           aria-label="{% if L == 'fr' %}Voir l'image{% else %}View image{% endif %} {{ forloop.index }}">
-    <img class="cover" src="{{ s }}" alt="" loading="lazy"{%- assign _d = site.data.image_dims[s] -%}{%- if _d -%}{%- assign _wh = _d | split: "x" -%} width="{{ _wh[0] }}" height="{{ _wh[1] }}"{%- endif -%} onerror="this.remove()">
+    <img class="cover" src="{{ s }}" alt="" loading="lazy"{%- assign _d = site.data.image_dims[s] -%}{%- if _d -%}{%- assign _wh = _d | split: "x" -%} width="{{ _wh[0] }}" height="{{ _wh[1] }}"{%- endif -%} decoding="async" onerror="this.remove()">
   </button>
   {%- endfor -%}
   {%- assign placeholders = 4 | minus: ndesk -%}
@@ -47,7 +47,7 @@
     {%- assign midx = forloop.index0 | plus: ndesk2 -%}
     <button type="button" class="phone-frame lb-open" data-lb-index="{{ midx }}"
             aria-label="{% if L == 'fr' %}Voir la vue mobile{% else %}View mobile screenshot{% endif %} {{ forloop.index }}">
-      <img class="cover" src="{{ m }}" alt="" loading="lazy"{%- assign _d = site.data.image_dims[m] -%}{%- if _d -%}{%- assign _wh = _d | split: "x" -%} width="{{ _wh[0] }}" height="{{ _wh[1] }}"{%- endif -%} onerror="this.remove()">
+      <img class="cover" src="{{ m }}" alt="" loading="lazy"{%- assign _d = site.data.image_dims[m] -%}{%- if _d -%}{%- assign _wh = _d | split: "x" -%} width="{{ _wh[0] }}" height="{{ _wh[1] }}"{%- endif -%} decoding="async" onerror="this.remove()">
     </button>
     {%- endfor -%}
   {%- else -%}
@@ -89,7 +89,7 @@
 <div class="vid-card">
   <a href="https://www.youtube.com/watch?v={{ t.video.id }}" target="_blank" rel="noopener"
      aria-label="{% if L == 'fr' %}Voir la video de presentation{% else %}Watch the walkthrough video{% endif %}">
-    <img src="{{ t.video.thumb }}" alt="{{ t.video.title }}" loading="lazy" width="480" height="270" onerror="this.remove()">
+    <img src="{{ t.video.thumb }}" alt="{{ t.video.title }}" loading="lazy" width="480" height="270" decoding="async" onerror="this.remove()">
     <span class="vid-play" aria-hidden="true"><span>&#9654;</span></span>
   </a>
   <div class="vid-meta">
