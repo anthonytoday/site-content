@@ -3,6 +3,7 @@
     nothing if an image is not in the map, rather than guessing. {%- endcomment -%}
 {%- assign L = "en" -%}{%- if page.lang == "fr" -%}{%- assign L = "fr" -%}{%- endif -%}
 {%- assign catalogue_src = include.catalogue | default: site.data.templates -%}
+{%- assign noun = include.noun | default: "template" -%}
 {%- assign wanted = include.id | default: page.template_id -%}
 {%- assign t = nil -%}
 {%- for x in catalogue_src -%}{%- if x.id == wanted -%}{%- assign t = x -%}{%- endif -%}{%- endfor -%}
@@ -61,7 +62,7 @@
       Le template est concu pour le mobile autant que pour le bureau. Cliquez sur une image pour
       l'agrandir et parcourir la galerie complete.
       {%- else -%}
-      The template is built for phone as much as desktop. Click any image to enlarge it and browse
+      The {{ noun }} is built for phone as much as desktop. Click any image to enlarge it and browse
       the full gallery.
       {%- endif -%}
     {%- else -%}
@@ -72,7 +73,7 @@
         D'autres captures arrivent. En attendant, la fiche complete est visible sur le Notion
         Marketplace, ou <a href="/fr/contact/">posez-moi vos questions</a>.
         {%- else -%}
-        {%- if t.video -%}Watch the walkthrough below. More screenshots are on the way.{%- else -%}More screenshots are on the way. In the meantime the full listing is visible on the Notion Marketplace, or <a href="/contact/">ask me anything</a>.{%- endif -%}
+        {%- if t.video -%}Watch the walkthrough below. More screenshots are on the way.{%- else -%}More screenshots are on the way. In the meantime the full listing is visible on {% if t.marketplace %}the Notion Marketplace{% else %}Etsy{% endif %}, or <a href="/contact/">ask me anything</a>.{%- endif -%}
         {%- endif -%}
       {%- else -%}
         {%- if L == "fr" -%}
