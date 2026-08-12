@@ -97,11 +97,11 @@
   },
   {
     "path": "assets/guides/notion/131b800f-cleanshot-2025-05-07-at-14-39-27-2x-1-2x-web.webp",
-    "url": "https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b800f_681b5765836c736ebecbe00b_cleanshot_2025_05_07_at_14_39_27_2x_1_2x.webp"
+    "url": "https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b800f_681b5765836c736ebecbe00b_681b5d7ead4ae860eea86335_fsdfd.webp"
   },
   {
     "path": "assets/guides/notion/131b8012-cleanshot-2025-05-07-at-14-41-50-2x-1-2x-web.webp",
-    "url": "https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b8012_681b578cd3939de827f2650e_cleanshot_2025_05_07_at_14_41_50_2x_1_2x.webp"
+    "url": "https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fc01e08bb7131b8012_681b579c17738ce3cf612e60_cleanshot_2025_05_07_at_14_41_50_2x_1_2x.webp"
   },
   {
     "path": "assets/guides/notion/131b8015-cleanshot-2025-05-07-at-14-44-23-2x-1-2x-web.webp",
@@ -138,5 +138,25 @@
   {
     "path": "assets/guides/notion/131b80a8-cleanshot-2025-05-07-at-10-29-27-2x-1-2x-web.webp",
     "url": "https://cdn.prod.website-files.com/64f6d2ace102eb12e147f7a6/699167fd01e08bb7131b80a8_681b23e0feae178e13f36062_cleanshot_2025_05_07_at_10_29_27_2x_1_2x.webp"
+  },
+  {
+    "path": "assets/etsy/comptia-security-v7-flashcards-anki/gallery-1-desktop.jpg",
+    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/7f81219f-3bf8-4224-b9dd-4bbadb788fcc/1765354977789/desktop.jpg"
+  },
+  {
+    "path": "assets/etsy/comptia-security-v7-flashcards-anki/gallery-1-mobile.jpg",
+    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/7f81219f-3bf8-4224-b9dd-4bbadb788fcc/1765354977789/mobile.jpg"
+  },
+  {
+    "path": "assets/etsy/comptia-security-v7-flashcards-anki/gallery-2-desktop.jpg",
+    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/f9b722ba-cc98-40e9-8922-5310e3856358/1757448962420/desktop.jpg"
+  },
+  {
+    "path": "assets/etsy/comptia-security-v7-flashcards-anki/gallery-2-mobile.jpg",
+    "url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/f9b722ba-cc98-40e9-8922-5310e3856358/1757448962420/mobile.jpg"
+  },
+  {
+    "path": "assets/etsy/comptia-security-v7-flashcards-anki/video-frame.jpg",
+    "url": "https://img.youtube.com/vi/RsBdyNZ30vc/maxresdefault.jpg"
   }
 ]
