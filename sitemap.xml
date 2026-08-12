@@ -20,7 +20,7 @@ permalink: /sitemap.xml
     <xhtml:link rel="alternate" hreflang="x-default" href="{{ en | absolute_url }}"/>
 {%- endif %}
     <changefreq>{% if p.permalink == "/" or p.permalink == "/fr/" %}weekly{% else %}monthly{% endif %}</changefreq>
-    <priority>{% if p.permalink == "/" %}1.0{% elsif p.permalink == "/fr/" %}0.9{% elsif p.lang == "fr" %}0.7{% else %}0.8{% endif %}</priority>
+    <priority>{% if p.permalink == "/" %}1.0{% elsif p.permalink == "/notion-build/" or p.permalink == "/notion-for-real-estate/" %}0.9{% elsif p.permalink == "/fr/" %}0.9{% elsif p.lang == "fr" %}0.7{% else %}0.8{% endif %}</priority>
   </url>
 {%- endfor %}
 </urlset>
