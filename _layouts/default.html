@@ -189,5 +189,8 @@
 {{ content }}
 </main>
 
+{%- if site.cf_analytics_token and site.cf_analytics_token != "" %}
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ site.cf_analytics_token }}"}'></script>
+{%- endif %}
 </body>
 </html>

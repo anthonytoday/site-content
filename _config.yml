@@ -16,3 +16,8 @@ exclude:
   - credentials.md
   - "*.py"
   - i18n/
+
+# Cloudflare Web Analytics. Paste the site token from
+# Cloudflare dashboard -> Web Analytics -> Add a site -> anthonytoday.com.
+# Leave empty and no beacon is emitted at all.
+cf_analytics_token: ""
