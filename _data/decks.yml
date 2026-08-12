@@ -176,6 +176,28 @@
     blurb: Scoping, tooling and exploitation terms drilled the way the PT0-003 exam tests them.
   rank: 70
 
+- id: comptia-network-plus-flashcards
+  status: live
+  category: cyber
+  price: 21.75
+  etsy: https://www.etsy.com/listing/1839687588/comptia-network-plus-v9-anki-flashcards
+  etsy_slug: comptia-network-plus-v9-anki-flashcards
+  etsy_listing_id: 1839687588
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/comptia-network-plus-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - network-plus
+  - comptia
+  - networking
+  - exam-prep
+  - anki
+  en:
+    title: CompTIA Network+ V9 Flashcards
+    blurb: Ports, protocols, topologies and troubleshooting, drilled for the N10-009 exam.
+  rank: 75
+
 - id: ccsp-flashcards
   status: live
   category: cyber
