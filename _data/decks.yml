@@ -1,0 +1,712 @@
+# Catalog for /flashcards/
+#
+# Anki decks. Same field shape as _data/templates.yml, so the shared includes
+# (shop-grid, pd-buybox, shop-gallery, last-updated) drive both shops.
+#
+# status: live     -> card is clickable, price and buy button shown
+# status: pending  -> card renders the hatched placeholder, not clickable
+#
+# stripe is present and empty on every entry. Paste a payment link into it and
+# the buy button switches from Etsy to native checkout with no page edit.
+#
+# English only. No French twin page, no second-language block, no marketplace fields.
+
+- id: cissp-flashcards
+  status: live
+  category: cyber
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: cissp-certification-anki-flashcards
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/cissp-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - cissp
+  - isc2
+  - cyber-security
+  - exam-prep
+  - anki
+  en:
+    title: CISSP Certification Flashcards
+    blurb: Every ISC2 domain drilled to recall, so the definitions hold up under exam pressure.
+  rank: 10
+
+- id: cism-flashcards
+  status: live
+  category: cyber
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: cism-exam-prep-isaca-certification-flashcard
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/cism-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - cism
+  - isaca
+  - security-management
+  - exam-prep
+  - anki
+  en:
+    title: CISM Exam Prep Flashcards
+    blurb: The four ISACA CISM domains turned into recall practice you can do in short sittings.
+  rank: 20
+
+- id: cisa-flashcards
+  status: live
+  category: cyber
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: cisa-exam-prep-flashcards-anki
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/cisa-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - cisa
+  - isaca
+  - it-audit
+  - exam-prep
+  - anki
+  en:
+    title: CISA Exam Prep Flashcards
+    blurb: Audit process, governance and IT operations, drilled the way the CISA exam asks them.
+  rank: 30
+
+- id: comptia-security-plus-flashcards
+  status: live
+  category: cyber
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: comptia-security-v7-flashcards-anki
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/comptia-security-plus-flashcards/
+  cards: TBC
+  format: apkg
+  cover: /assets/etsy/comptia-security-v7-flashcards-anki/gallery-1-desktop.jpg
+  gallery:
+  - /assets/etsy/comptia-security-v7-flashcards-anki/gallery-1-desktop.jpg
+  - /assets/etsy/comptia-security-v7-flashcards-anki/gallery-2-desktop.jpg
+  mobile:
+  - /assets/etsy/comptia-security-v7-flashcards-anki/gallery-1-mobile.jpg
+  - /assets/etsy/comptia-security-v7-flashcards-anki/gallery-2-mobile.jpg
+  tags:
+  - security-plus
+  - comptia
+  - cyber-security
+  - exam-prep
+  - anki
+  en:
+    title: CompTIA Security+ v7 Flashcards
+    blurb: The full Security+ v7 objective list turned into cards you review a few minutes a day.
+  rank: 40
+
+- id: comptia-cysa-flashcards
+  status: live
+  category: cyber
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: comptia-cysa-cs0-003-anki-flashcards
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/comptia-cysa-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - cysa
+  - comptia
+  - blue-team
+  - exam-prep
+  - anki
+  en:
+    title: CompTIA CySA+ CS0-003 Flashcards
+    blurb: Detection, threat hunting and incident response terms drilled for the CS0-003 exam.
+  rank: 50
+
+- id: comptia-securityx-flashcards
+  status: live
+  category: cyber
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: comptia-securityx-v5-flashcards-anki
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/comptia-securityx-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - securityx
+  - comptia
+  - security-architecture
+  - exam-prep
+  - anki
+  en:
+    title: CompTIA SecurityX CAS-005 Flashcards
+    blurb: Enterprise security architecture and governance terms drilled for the CAS-005 exam.
+  rank: 60
+
+- id: comptia-pentest-flashcards
+  status: live
+  category: cyber
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: comptia-pentest-pt0-003-exam-prep
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/comptia-pentest-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - pentest-plus
+  - comptia
+  - penetration-testing
+  - exam-prep
+  - anki
+  en:
+    title: CompTIA PenTest+ PT0-003 Flashcards
+    blurb: Scoping, tooling and exploitation terms drilled the way the PT0-003 exam tests them.
+  rank: 70
+
+- id: ccsp-flashcards
+  status: live
+  category: cyber
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: ccsp-certification-flashcards-anki
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/ccsp-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - ccsp
+  - isc2
+  - cloud-security
+  - exam-prep
+  - anki
+  en:
+    title: CCSP Cloud Security Flashcards
+    blurb: All six CCSP domains turned into recall practice, from cloud data to legal and risk.
+  rank: 80
+
+- id: aws-solutions-architect-flashcards
+  status: live
+  category: cyber
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: aws-solutions-architect-exam-prep
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/aws-solutions-architect-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - aws
+  - solutions-architect
+  - cloud
+  - exam-prep
+  - anki
+  en:
+    title: AWS Solutions Architect Flashcards
+    blurb: AWS services, limits and design trade-offs drilled for the Solutions Architect exam.
+  rank: 100
+
+- id: aws-security-specialty-flashcards
+  status: live
+  category: cyber
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: aws-security-specialty-flashcards
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/aws-security-specialty-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - aws
+  - security-specialty
+  - cloud-security
+  - exam-prep
+  - anki
+  en:
+    title: AWS Security Specialty Flashcards
+    blurb: Identity, detection, data protection and incident response across the AWS platform.
+  rank: 110
+
+- id: aws-cloud-practitioner-flashcards
+  status: live
+  category: cyber
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: aws-cloud-practitioner-flashcards-anki
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/aws-cloud-practitioner-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - aws
+  - cloud-practitioner
+  - cloud
+  - exam-prep
+  - anki
+  en:
+    title: AWS Cloud Practitioner Flashcards
+    blurb: Core AWS services, pricing models and shared responsibility, drilled from zero.
+  rank: 120
+
+- id: cfa-level-1-flashcards
+  status: live
+  category: finance
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: 2026-cfa-level-1-exam-prep-5000-anki
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/cfa-level-1-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - cfa
+  - cfa-level-1
+  - finance
+  - exam-prep
+  - anki
+  en:
+    title: CFA Level 1 Flashcards
+    blurb: Every Level 1 topic area drilled to recall, from ethics through to portfolio management.
+  rank: 200
+
+- id: cfa-level-2-flashcards
+  status: live
+  category: finance
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: cfa-level-2-exam-prep-complete-anki
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/cfa-level-2-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - cfa
+  - cfa-level-2
+  - finance
+  - exam-prep
+  - anki
+  en:
+    title: CFA Level 2 Flashcards
+    blurb: Level 2 valuation and analysis drilled the way the vignettes ask you to apply it.
+  rank: 210
+
+- id: cfa-level-3-flashcards
+  status: live
+  category: finance
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: cfa-level-3-exam-prep-anki-flashcards
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/cfa-level-3-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - cfa
+  - cfa-level-3
+  - finance
+  - exam-prep
+  - anki
+  en:
+    title: CFA Level 3 Flashcards
+    blurb: Portfolio construction, wealth planning and the Level 3 essay vocabulary, drilled.
+  rank: 220
+
+- id: pmp-flashcards
+  status: live
+  category: pm
+  price: 27.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: pmi-pmp-exam-prep-flashcards-anki
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/pmp-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - pmp
+  - pmi
+  - project-management
+  - exam-prep
+  - anki
+  en:
+    title: PMI PMP Exam Prep Flashcards
+    blurb: People, process and business environment, drilled against the current PMP outline.
+  rank: 300
+
+- id: pmi-acp-flashcards
+  status: live
+  category: pm
+  price: 27.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: pmi-acp-exam-prep-anki-flashcards
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/pmi-acp-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - pmi-acp
+  - pmi
+  - agile
+  - exam-prep
+  - anki
+  en:
+    title: PMI-ACP Exam Prep Flashcards
+    blurb: Agile principles, frameworks and metrics drilled the way the PMI-ACP exam asks them.
+  rank: 310
+
+- id: capm-flashcards
+  status: live
+  category: pm
+  price: 27.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: pmi-capm-flashcards-anki
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/capm-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - capm
+  - pmi
+  - project-management
+  - exam-prep
+  - anki
+  en:
+    title: PMI CAPM Flashcards
+    blurb: Project management fundamentals and terminology, drilled for the CAPM exam.
+  rank: 320
+
+- id: spanish-flashcards
+  status: live
+  category: languages
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: spanish-flashcards-with-audio
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/spanish-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - spanish
+  - languages
+  - vocabulary
+  - audio
+  - anki
+  en:
+    title: Spanish Flashcards with Audio
+    blurb: Everyday Spanish vocabulary with native audio on every card, for listening and recall.
+  rank: 400
+
+- id: french-flashcards
+  status: live
+  category: languages
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: french-flashcards-with-audio-anki
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/french-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - french
+  - languages
+  - vocabulary
+  - audio
+  - anki
+  en:
+    title: French Flashcards with Audio
+    blurb: Everyday French vocabulary with native audio on every card, for listening and recall.
+  rank: 410
+
+- id: german-flashcards
+  status: live
+  category: languages
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: german-anki-flashcards-with-audio
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/german-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - german
+  - languages
+  - vocabulary
+  - audio
+  - anki
+  en:
+    title: German Flashcards with Audio
+    blurb: Everyday German vocabulary with native audio on every card, for listening and recall.
+  rank: 420
+
+- id: german-goethe-flashcards
+  status: live
+  category: languages
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: german-goethe-zertifikate-flashcards
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/german-goethe-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - german
+  - goethe
+  - certification
+  - audio
+  - anki
+  en:
+    title: German Goethe Zertifikat Flashcards
+    blurb: German vocabulary organised by Goethe Zertifikat level, with audio on every card.
+  rank: 430
+
+- id: chinese-flashcards
+  status: live
+  category: languages
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: complete-chinese-flashcards-with-audio
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/chinese-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - chinese
+  - mandarin
+  - vocabulary
+  - audio
+  - anki
+  en:
+    title: Chinese Flashcards with Audio
+    blurb: Mandarin vocabulary with characters, pinyin and native audio on every card.
+  rank: 440
+
+- id: russian-flashcards
+  status: live
+  category: languages
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: complete-russian-flashcards-with-audio
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/russian-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - russian
+  - languages
+  - vocabulary
+  - audio
+  - anki
+  en:
+    title: Russian Flashcards with Audio
+    blurb: Russian vocabulary with Cyrillic script and native audio on every card.
+  rank: 450
+
+- id: quranic-arabic-flashcards
+  status: live
+  category: languages
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: quranic-arabic-flashcard-with-audio
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/quranic-arabic-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - arabic
+  - quran
+  - vocabulary
+  - audio
+  - anki
+  en:
+    title: Quranic Arabic Flashcards with Audio
+    blurb: Quranic Arabic vocabulary with recitation audio on every card, for reading and recall.
+  rank: 460
+
+- id: hebrew-flashcards
+  status: live
+  category: languages
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: hebrew-anki-flashcards
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/hebrew-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - hebrew
+  - languages
+  - vocabulary
+  - audio
+  - anki
+  en:
+    title: Hebrew Flashcards with Audio
+    blurb: Hebrew vocabulary with script, transliteration and native audio on every card.
+  rank: 470
+
+- id: gre-toefl-vocabulary-flashcards
+  status: live
+  category: languages
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: gre-toefl-vocabulary-flashcards-anki
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/gre-toefl-vocabulary-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - gre
+  - toefl
+  - vocabulary
+  - exam-prep
+  - anki
+  en:
+    title: GRE and TOEFL Vocabulary Flashcards
+    blurb: The academic vocabulary the GRE and TOEFL keep testing, drilled to recall.
+  rank: 480
+
+- id: a-level-biology-ocr-flashcards
+  status: live
+  category: academic
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: a-level-biology-ocr-anki-flashcards
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/a-level-biology-ocr-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - a-level
+  - biology
+  - ocr
+  - exam-prep
+  - anki
+  en:
+    title: A-Level Biology OCR Flashcards
+    blurb: The OCR A-Level Biology specification turned into cards you review a few minutes a day.
+  rank: 500
+
+- id: a-level-chemistry-ocr-flashcards
+  status: live
+  category: academic
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: a-level-chemistry-ocr-anki-flashcards
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/a-level-chemistry-ocr-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - a-level
+  - chemistry
+  - ocr
+  - exam-prep
+  - anki
+  en:
+    title: A-Level Chemistry OCR Flashcards
+    blurb: The OCR A-Level Chemistry specification turned into recall practice, module by module.
+  rank: 510
+
+- id: a-level-physics-ocr-flashcards
+  status: live
+  category: academic
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: a-level-physics-ocr-anki-flashcards
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/a-level-physics-ocr-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - a-level
+  - physics
+  - ocr
+  - exam-prep
+  - anki
+  en:
+    title: A-Level Physics OCR Flashcards
+    blurb: The OCR A-Level Physics specification turned into recall practice, module by module.
+  rank: 520
+
+- id: a-level-psychology-ocr-flashcards
+  status: live
+  category: academic
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: a-level-psychology-ocr-flashcards-anki
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/a-level-psychology-ocr-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - a-level
+  - psychology
+  - ocr
+  - exam-prep
+  - anki
+  en:
+    title: A-Level Psychology OCR Flashcards
+    blurb: OCR A-Level Psychology studies, theories and evaluation points, drilled to recall.
+  rank: 530
+
+- id: a-level-computer-science-ocr-flashcards
+  status: live
+  category: academic
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: ocr-a-level-computer-science-anki
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/a-level-computer-science-ocr-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - a-level
+  - computer-science
+  - ocr
+  - exam-prep
+  - anki
+  en:
+    title: OCR A-Level Computer Science Flashcards
+    blurb: The OCR A-Level Computer Science specification, drilled from theory to algorithms.
+  rank: 540
+
+- id: veterinary-nurse-flashcards
+  status: live
+  category: academic
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: veterinary-nurse-flashcards-anki
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/veterinary-nurse-flashcards/
+  cards: TBC
+  format: apkg
+  tags:
+  - veterinary-nursing
+  - animal-care
+  - pharmacology
+  - exam-prep
+  - anki
+  en:
+    title: Veterinary Nurse Flashcards
+    blurb: Anatomy, nursing care and pharmacology terms drilled for veterinary nurse training.
+  rank: 550
+
+- id: cyber-exam-prep-planner
+  status: live
+  category: tools
+  price: 21.75
+  etsy: https://www.etsy.com/shop/StudyAnkiCards   # PLACEHOLDER: per-listing URL when known
+  etsy_slug: cyber-exam-prep-planner-digital-timetable
+  stripe: ''                       # set this and the buy button switches to native checkout
+  page: /flashcards/cyber-exam-prep-planner/
+  cards: TBC
+  format: TBC
+  tags:
+  - study-planner
+  - ipad
+  - timetable
+  - exam-prep
+  - cyber-security
+  en:
+    title: Cyber Exam Prep Planner for iPad
+    blurb: A study timetable for your certification exam, built to annotate on an iPad.
+  rank: 600

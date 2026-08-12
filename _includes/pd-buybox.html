@@ -1,11 +1,14 @@
 {%- comment -%}
   The whole price / call-to-action / upgrade block for a product page.
   Driven entirely by _data/templates.yml, so a copy change happens once, here,
-  rather than in 24 separate product pages. Requires page.template_id.
+  rather than in 24 separate product pages. Reads page.template_id by default, or
+  the catalogue and id passed in by the caller, so a second shop reuses this file.
 {%- endcomment -%}
 {%- assign L = "en" -%}{%- if page.lang == "fr" -%}{%- assign L = "fr" -%}{%- endif -%}
+{%- assign catalogue_src = include.catalogue | default: site.data.templates -%}
+{%- assign wanted = include.id | default: page.template_id -%}
 {%- assign t = nil -%}
-{%- for x in site.data.templates -%}{%- if x.id == page.template_id -%}{%- assign t = x -%}{%- endif -%}{%- endfor -%}
+{%- for x in catalogue_src -%}{%- if x.id == wanted -%}{%- assign t = x -%}{%- endif -%}{%- endfor -%}
 
 {%- if t.free -%}
   {%- comment -%} Send people to the listing in the language of the page when that
@@ -49,6 +52,9 @@
   {%- if t.stripe and t.stripe != "" -%}
       <a class="btn btn-block" href="{{ t.stripe }}" rel="noopener">{% if L == "fr" %}Acheter{% else %}Buy now{% endif %} &nbsp;&middot;&nbsp; ${{ t.price }}</a>
       <p class="stripe-note">{% if L == "fr" %}Paiement sécurisé par Stripe. Carte, Apple Pay, Google Pay, Link.{% else %}Secure checkout by Stripe. Card, Apple Pay, Google Pay, Link.{% endif %}</p>
+  {%- elsif t.etsy -%}
+      <a class="btn btn-block" href="{{ t.etsy }}" target="_blank" rel="noopener">Buy on Etsy &nbsp;&middot;&nbsp; ${{ t.price }}</a>
+      <p class="stripe-note">Payment and delivery handled by Etsy, where this deck has sold since 2025. Direct checkout is coming here shortly.</p>
   {%- elsif t.marketplace -%}
       <a class="btn btn-block" href="{{ t.marketplace }}" target="_blank" rel="noopener">{% if L == "fr" %}Acheter sur le Notion Marketplace{% else %}Buy on the Notion Marketplace{% endif %} &nbsp;&middot;&nbsp; ${{ t.price }}</a>
       <p class="stripe-note">{% if L == "fr" %}Paiement et livraison gérés par Notion. Checkout direct bientôt disponible ici.{% else %}Payment and delivery handled by Notion. Direct checkout is coming here shortly.{% endif %}</p>
@@ -59,7 +65,7 @@
     listing itself, so it can never drift out of sync with what is actually on sale. {%- endcomment -%}
 {%- if t.upsell -%}
   {%- assign u = nil -%}
-  {%- for x in site.data.templates -%}{%- if x.id == t.upsell -%}{%- assign u = x -%}{%- endif -%}{%- endfor -%}
+  {%- for x in catalogue_src -%}{%- if x.id == t.upsell -%}{%- assign u = x -%}{%- endif -%}{%- endfor -%}
   {%- if u -%}
     {%- if L == "fr" -%}{%- assign uhref = u.page_fr -%}{%- else -%}{%- assign uhref = u.page -%}{%- endif -%}
       <a class="pd-upsell" href="{{ uhref }}">

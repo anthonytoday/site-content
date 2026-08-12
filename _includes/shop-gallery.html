@@ -2,8 +2,10 @@
     so the browser knows the aspect ratio even before CSS is applied. Falls back to
     nothing if an image is not in the map, rather than guessing. {%- endcomment -%}
 {%- assign L = "en" -%}{%- if page.lang == "fr" -%}{%- assign L = "fr" -%}{%- endif -%}
+{%- assign catalogue_src = include.catalogue | default: site.data.templates -%}
+{%- assign wanted = include.id | default: page.template_id -%}
 {%- assign t = nil -%}
-{%- for x in site.data.templates -%}{%- if x.id == page.template_id -%}{%- assign t = x -%}{%- endif -%}{%- endfor -%}
+{%- for x in catalogue_src -%}{%- if x.id == wanted -%}{%- assign t = x -%}{%- endif -%}{%- endfor -%}
 {%- assign c = t[L] -%}
 {%- comment -%} slides = cover first, then any extra gallery images {%- endcomment -%}
 {%- comment -%} Jekyll's Liquid has no push filter, so build a delimited string and split it. {%- endcomment -%}

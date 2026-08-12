@@ -3,7 +3,8 @@
 {%- comment -%} Pinned listings lead the grid in every view, then everything else by rank.
     Filters still apply to pins: a pinned card hides when it does not match the active
     facet, exactly like the Notion marketplace. {%- endcomment -%}
-{%- assign by_rank = site.data.templates | sort: "rank" -%}
+{%- assign catalogue_src = include.catalogue | default: site.data.templates -%}
+{%- assign by_rank = catalogue_src | sort: "rank" -%}
 {%- assign pins = by_rank | where_exp: "t", "t.pinned" | sort: "pinned" -%}
 {%- assign rest = by_rank | where_exp: "t", "t.pinned == nil" -%}
 {%- assign catalogue = pins | concat: rest -%}
@@ -39,9 +40,11 @@
   </a>
   {%- else -%}
   {%- comment -%} A pending template with a marketplace listing sends people somewhere
-      they can actually get it today, rather than dead-ending on a disabled card. {%- endcomment -%}
-  {%- if t.marketplace -%}
-  <a class="card is-pending" href="{{ t.marketplace }}" target="_blank" rel="noopener"
+      they can actually get it today, rather than dead-ending on a disabled card.
+      A deck with no Notion listing falls back to its Etsy listing the same way. {%- endcomment -%}
+  {%- assign ext = t.marketplace | default: t.etsy -%}
+  {%- if ext -%}
+  <a class="card is-pending" href="{{ ext }}" target="_blank" rel="noopener"
      data-cat="{{ t.category }}"
      data-price="{% if t.free %}free{% else %}premium{% endif %}"
      data-search="{{ c.title | downcase }} {{ c.blurb | downcase }} {{ t.category }} {% for tg in t.tags %}#{{ tg }} {% endfor %}">
@@ -65,15 +68,15 @@
       <p class="blurb">{{ c.blurb }}</p>
       <div class="card-tags">{% for tg in t.tags limit:3 %}<span class="tagpill">#{{ tg }}</span>{% endfor %}</div>
       <div class="price-row">
-        {%- if t.marketplace -%}
-        <span class="price soon">{% if L == "fr" %}Sur le Notion Marketplace{% else %}On the Notion Marketplace{% endif %}</span>
+        {%- if ext -%}
+        <span class="price soon">{% if t.marketplace %}{% if L == "fr" %}Sur le Notion Marketplace{% else %}On the Notion Marketplace{% endif %}{% else %}{% if L == "fr" %}Sur Etsy{% else %}On Etsy{% endif %}{% endif %}</span>
         <span class="card-cta">{% if L == "fr" %}Ouvrir{% else %}Open{% endif %} &nearr;</span>
         {%- else -%}
         <span class="price soon">{% if L == "fr" %}En preparation{% else %}In production{% endif %}</span>
         {%- endif -%}
       </div>
     </div>
-  {%- if t.marketplace -%}</a>{%- else -%}</div>{%- endif -%}
+  {%- if ext -%}</a>{%- else -%}</div>{%- endif -%}
   {%- endif -%}
 {%- endfor -%}
 </div>

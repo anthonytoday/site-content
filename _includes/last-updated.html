@@ -6,8 +6,10 @@
   when that particular template gets a real content update.
 {%- endcomment -%}
 {%- assign L = "en" -%}{%- if page.lang == "fr" -%}{%- assign L = "fr" -%}{%- endif -%}
+{%- assign catalogue_src = include.catalogue | default: site.data.templates -%}
+{%- assign wanted = include.id | default: page.template_id -%}
 {%- assign t = nil -%}
-{%- for x in site.data.templates -%}{%- if x.id == page.template_id -%}{%- assign t = x -%}{%- endif -%}{%- endfor -%}
+{%- for x in catalogue_src -%}{%- if x.id == wanted -%}{%- assign t = x -%}{%- endif -%}{%- endfor -%}
 {%- if t.updated -%}{{ t.updated }}
 {%- else -%}
 {%- assign mm = site.time | date: "%m" -%}

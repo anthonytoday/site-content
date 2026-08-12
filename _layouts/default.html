@@ -17,10 +17,10 @@
 {% endif %}<meta property="og:title" content="{{ page.title | default: site.title }}">
 <meta property="og:description" content="{{ page.description | default: site.description }}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
-<meta property="og:type" content="{% if page.template_id %}product{% else %}website{% endif %}">
+<meta property="og:type" content="{% if page.template_id or page.deck_id %}product{% else %}website{% endif %}">
 <meta property="og:locale" content="{% if lang == 'fr' %}fr_FR{% else %}en_US{% endif %}">
 {% if en_url and fr_url %}<meta property="og:locale:alternate" content="{% if lang == 'fr' %}en_US{% else %}fr_FR{% endif %}">
-{% endif %}{% assign og_image = page.og_image %}{% if page.template_id %}{% assign tpl = site.data.templates | where: "id", page.template_id | first %}{% if tpl and tpl.cover %}{% assign og_image = tpl.cover %}{% endif %}{% endif %}{% unless og_image %}{% assign og_image = "/assets/brand/anthony-profile.webp" %}{% endunless %}<meta property="og:image" content="{{ og_image | absolute_url }}">
+{% endif %}{% assign og_image = page.og_image %}{% if page.template_id %}{% assign tpl = site.data.templates | where: "id", page.template_id | first %}{% if tpl and tpl.cover %}{% assign og_image = tpl.cover %}{% endif %}{% endif %}{% if page.deck_id %}{% assign dck = site.data.decks | where: "id", page.deck_id | first %}{% if dck and dck.cover %}{% assign og_image = dck.cover %}{% endif %}{% endif %}{% unless og_image %}{% assign og_image = "/assets/brand/anthony-profile.webp" %}{% endunless %}<meta property="og:image" content="{{ og_image | absolute_url }}">
 <meta property="og:image:alt" content="{{ page.title | default: site.title }}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{{ og_image | absolute_url }}">
@@ -33,6 +33,11 @@
 {%- for x in site.data.templates -%}{%- if x.id == page.template_id -%}{%- assign _lt = x -%}{%- endif -%}{%- endfor -%}
 {%- if _lt.cover -%}{%- assign _lss = site.data.cover_srcset[_lt.cover] -%}
 <link rel="preload" as="image" href="{{ _lt.cover }}"{% if _lss %} imagesrcset="{{ _lss }}" imagesizes="(max-width:900px) 100vw, 590px"{% endif %} fetchpriority="high">
+{%- endif -%}
+{%- elsif page.deck_id -%}
+{%- for x in site.data.decks -%}{%- if x.id == page.deck_id -%}{%- assign _ld = x -%}{%- endif -%}{%- endfor -%}
+{%- if _ld.cover -%}
+<link rel="preload" as="image" href="{{ _ld.cover }}" fetchpriority="high">
 {%- endif -%}
 {%- elsif page.lcp_image -%}
 <link rel="preload" as="image" href="{{ page.lcp_image }}" fetchpriority="high">
