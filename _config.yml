@@ -17,7 +17,16 @@ exclude:
   - "*.py"
   - i18n/
 
-# Cloudflare Web Analytics. Paste the site token from
-# Cloudflare dashboard -> Web Analytics -> Add a site -> anthonytoday.com.
-# Leave empty and no beacon is emitted at all.
+# Cloudflare Web Analytics beacon token. Empty means the site emits no beacon at
+# all and nothing is measurable, the shops included.
+#
+# www.anthonytoday.com is already proxied through Cloudflare, so the simpler route
+# is Cloudflare dashboard, Analytics and Logs, Web Analytics, add the site with
+# automatic setup. Cloudflare injects the beacon itself and this stays empty.
+# Only fill this in for manual setup: paste the token out of the snippet Cloudflare
+# shows. The layout emits nothing while it is "".
 cf_analytics_token: ""
+
+# Reveals the Shop menu in the header: Notion Templates, Anki Flashcards, Help.
+# false keeps the navigation exactly as it is today. Flip to true to launch.
+shop_nav: false

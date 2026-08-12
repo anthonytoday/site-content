@@ -8,6 +8,7 @@ schema_type: "CollectionPage"
 bc_name: "Templates"
 css_bundle: /assets/css/b-425be4fa1e.css
 ---
+{%- assign live_count = site.data.templates | where: "status", "live" | size -%}
 <div class="wrap shop-hero">
   <div class="eyebrow">Notion Templates</div>
   <h1>Instant access. Use it today.</h1>
@@ -56,7 +57,6 @@ css_bundle: /assets/css/b-425be4fa1e.css
 
   <div class="note">
     <h3>The shop is being built in public</h3>
-    {%- assign live_count = site.data.templates | where: "status", "live" | size -%}
     <p>{{ live_count }} templates are live today, every one of them buildable into your own workspace
        in about two minutes. More ship as their screenshots and documentation are finished. If the
        thing you need is not here yet, <a href="/contact/">tell me</a> and I will move it to the
