@@ -1,10 +1,39 @@
-started=2026-08-13T03:57:12Z
-german-anki-flashcards-with-audio: via=None found=0 downloaded=0 already_present=0
-comptia-security-v7-flashcards-anki: already_complete files=5
-cissp-certification-anki-flashcards: already_complete files=9
-cism-exam-prep-isaca-certification: already_complete files=6
-comptia-cysa-cs0-003-anki-flashcards: already_complete files=10
-cisa-exam-prep-flashcards-anki-official: via=None found=0 downloaded=0 already_present=0
-comptia-securityx-v5-flashcards-anki-cas: via=None found=0 downloaded=0 already_present=0
-aborting: all fetch strategies blocked on 3 consecutive listings
+started=2026-08-13T07:51:40Z
+german-anki-flashcards-with-audio: already_complete files=28
+comptia-security-v7-flashcards-anki: already_complete files=12
+cissp-certification-anki-flashcards: already_complete files=22
+cism-exam-prep-isaca-certification: already_complete files=16
+comptia-cysa-cs0-003-anki-flashcards: already_complete files=31
+cisa-exam-prep-flashcards-anki-official: already_complete files=11
+comptia-securityx-v5-flashcards-anki-cas: already_complete files=31
+comptia-pentest-pt0-003-exam-prep: already_complete files=31
+comptia-network-plus-v9-anki-flashcards: already_complete files=31
+ccsp-certification-flashcards-anki: already_complete files=31
+aws-solutions-architect-exam-prep-saa: already_complete files=31
+aws-security-specialty-flashcards-anki: already_complete files=31
+aws-cloud-practitioner-flashcards-anki: already_complete files=31
+cyber-exam-prep-planner-digital: already_complete files=31
+complete-russian-flashcards-with-audio: already_complete files=31
+german-goethe-zertifikate-flashcards: already_complete files=31
+quranic-arabic-flashcards-with-audio: already_complete files=28
+complete-chinese-flashcards-with-audio: already_complete files=31
+hebrew-anki-flashcards-audio-card: already_complete files=31
+french-flashcards-with-audio-anki: already_complete files=31
+spanish-flashcards-with-audio-anki: already_complete files=31
+gre-toefl-vocabulary-flashcards-anki: already_complete files=31
+cfa-exam-study-plan-notion-template: already_complete files=11
+cpa-exam-study-plan-notion-template: already_complete files=5
+2026-cfa-level-1-exam-prep-5000-anki: already_complete files=40
+cfa-level-2-exam-prep-complete-anki: already_complete files=31
+cfa-level-3-exam-prep-anki-flashcards: already_complete files=31
+a-level-biology-ocr-anki-flashcards: already_complete files=31
+a-level-chemistry-ocr-anki-flashcards: already_complete files=31
+a-level-physics-ocr-anki-flashcards: already_complete files=28
+a-level-psychology-ocr-flashcards-anki: already_complete files=31
+ocr-a-level-computer-science-anki: already_complete files=31
+veterinary-nurse-flashcards-anki: already_complete files=31
+pmi-pmp-exam-prep-flashcards-anki: already_complete files=21
+pmi-capm-flashcards-anki-project-manager: already_complete files=31
+pmi-acp-exam-prep-anki-flashcards: already_complete files=31
+real-estate-rental-tracker-notion: already_complete files=8
 total_new=0
