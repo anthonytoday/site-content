@@ -148,6 +148,18 @@
   page: /flashcards/comptia-cysa-flashcards/
   cards: TBC
   format: apkg
+  cover: /assets/etsy/comptia-cysa-cs0-003-anki-flashcards/gallery-1.jpg
+  gallery:
+  - /assets/etsy/comptia-cysa-cs0-003-anki-flashcards/gallery-1.jpg
+  - /assets/etsy/comptia-cysa-cs0-003-anki-flashcards/gallery-2.jpg
+  - /assets/etsy/comptia-cysa-cs0-003-anki-flashcards/gallery-3.jpg
+  - /assets/etsy/comptia-cysa-cs0-003-anki-flashcards/gallery-4.jpg
+  - /assets/etsy/comptia-cysa-cs0-003-anki-flashcards/gallery-5.jpg
+  - /assets/etsy/comptia-cysa-cs0-003-anki-flashcards/gallery-6.jpg
+  - /assets/etsy/comptia-cysa-cs0-003-anki-flashcards/gallery-7.jpg
+  - /assets/etsy/comptia-cysa-cs0-003-anki-flashcards/gallery-8.jpg
+  - /assets/etsy/comptia-cysa-cs0-003-anki-flashcards/gallery-9.jpg
+  - /assets/etsy/comptia-cysa-cs0-003-anki-flashcards/gallery-10.jpg
   tags:
   - cysa
   - comptia
