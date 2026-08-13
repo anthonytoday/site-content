@@ -23,7 +23,7 @@ lcp_image: /assets/brand/anthony-profile.webp
     <div class="cred-flex">
       <div class="cred-photo">
         <div class="photo-frame">
-          <img class="cred-photo-img" src="/assets/brand/anthony-profile.webp" alt="Anthony Today" width="400" height="400">
+          <img class="cred-photo-img" src="/assets/brand/anthony-profile.webp" alt="Anthony Today" width="400" height="400" fetchpriority="high" decoding="async">
         </div>
         <p class="cred-caption">Anthony Today, Certified Notion Consultant</p>
       </div>
@@ -38,7 +38,7 @@ lcp_image: /assets/brand/anthony-profile.webp
             <div class="badge-img-placeholder"><img src="/assets/brand/notion-certified-admin.webp" width="256" height="256" alt="Notion Consulting Partner badge" onerror="this.style.display='none';this.parentElement.textContent='Notion Consulting Partner';" loading="lazy" decoding="async"></div>
             <span class="badge-label">Certified Admin</span>
           </a>
-          <a href="#" class="badge-item" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.notion.so/consulting-partners/anthonytoday" class="badge-item" target="_blank" rel="noopener noreferrer">
             <div class="badge-img-placeholder"><img src="/assets/brand/notion-service-specialist.webp" width="256" height="256" alt="Notion certification badge" onerror="this.style.display='none';this.parentElement.textContent='Notion Certified';" loading="lazy" decoding="async"></div>
             <span class="badge-label">Service Specialist</span>
           </a>
@@ -51,7 +51,7 @@ lcp_image: /assets/brand/anthony-profile.webp
   <div class="stats">
     <div class="stat"><div class="n">15+</div><div class="l">years designing secure enterprise systems</div></div>
     <div class="stat"><div class="n">60+</div><div class="l">engagements delivered</div></div>
-    <div class="stat"><div class="n">4.92/5</div><div class="l">average client satisfaction</div></div>
+    <div class="stat"><div class="n">4.92/5</div><div class="l">average template customer rating</div></div>
     <div class="stat"><div class="n">Zero</div><div class="l">vendor lock-in, you own the system</div></div>
   </div>
 
@@ -150,7 +150,7 @@ lcp_image: /assets/brand/anthony-profile.webp
   <!-- WHY -->
   <section class="block">
     <div class="why">
-      <h2>Pay once. Build it right.</h2>
+      <h2>One price. Built right.</h2>
       <div class="why-list">
         <p>You could hire a freelancer for less and spend the next year fixing what breaks.</p>
         <p>You could stitch together templates and tutorials and hope they hold.</p>
@@ -354,37 +354,7 @@ lcp_image: /assets/brand/anthony-profile.webp
 {% include start-here.html %}
 
 
-<footer>
-    <div class="footer-content">
-      <div class="footer-main">
-        <div class="footer-section">
-          <h4>Consulting</h4>
-          <a href="https://cal.com/anthonytoday/consultation">Book a Discovery Call ($79)</a>
-          <a href="https://store.anthonytoday.com/l/notion-ops-audit">Notion Ops Audit ($197)</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#services">Services</a>
-        </div>
-        <div class="footer-section">
-          <h4>Products</h4>
-          <a href="https://store.anthonytoday.com">Gumroad Store</a>
-          <a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">Etsy Shop</a>
-          <a href="https://www.notion.com/@anthonytoday">Notion Profile</a>
-          <a href="https://www.anthonytoday.com/tools">Tools</a>
-        </div>
-        <div class="footer-section">
-          <h4>Connect</h4>
-          <p style="margin-bottom:15px">Follow for updates, resources, and new templates.</p>
-          <div class="social-links">
-            <a href="https://www.linkedin.com/in/anthony-kieffer/" title="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
-            <a href="mailto:info@anthonytoday.com" title="Email">@</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Anthony Today. All rights reserved. &middot; <a href="/privacy/" style="color:inherit">Privacy</a></p>
-      </div>
-    </div>
-  </footer>
+{% include site-footer.html %}
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
