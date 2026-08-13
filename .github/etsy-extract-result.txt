@@ -1,39 +1,10 @@
-started=2026-08-13T02:57:16Z
-comptia-security-v7-flashcards-anki: found=0 downloaded=0 already_present=0
-cissp-certification-anki-flashcards: found=0 downloaded=0 already_present=0
-cism-exam-prep-isaca-certification: found=0 downloaded=0 already_present=0
-comptia-cysa-cs0-003-anki-flashcards: found=0 downloaded=0 already_present=0
-cisa-exam-prep-flashcards-anki-official: found=0 downloaded=0 already_present=0
-comptia-securityx-v5-flashcards-anki-cas: found=0 downloaded=0 already_present=0
-comptia-pentest-pt0-003-exam-prep: found=0 downloaded=0 already_present=0
-comptia-network-plus-v9-anki-flashcards: found=0 downloaded=0 already_present=0
-ccsp-certification-flashcards-anki: found=0 downloaded=0 already_present=0
-aws-solutions-architect-exam-prep-saa: found=0 downloaded=0 already_present=0
-aws-security-specialty-flashcards-anki: found=0 downloaded=0 already_present=0
-aws-cloud-practitioner-flashcards-anki: found=0 downloaded=0 already_present=0
-cyber-exam-prep-planner-digital: found=0 downloaded=0 already_present=0
-complete-russian-flashcards-with-audio: found=0 downloaded=0 already_present=0
-german-anki-flashcards-with-audio: found=0 downloaded=0 already_present=0
-german-goethe-zertifikate-flashcards: found=0 downloaded=0 already_present=0
-quranic-arabic-flashcards-with-audio: found=0 downloaded=0 already_present=0
-complete-chinese-flashcards-with-audio: found=0 downloaded=0 already_present=0
-hebrew-anki-flashcards-audio-card: found=0 downloaded=0 already_present=0
-french-flashcards-with-audio-anki: found=0 downloaded=0 already_present=0
-spanish-flashcards-with-audio-anki: found=0 downloaded=0 already_present=0
-gre-toefl-vocabulary-flashcards-anki: found=0 downloaded=0 already_present=0
-cfa-exam-study-plan-notion-template: found=0 downloaded=0 already_present=0
-cpa-exam-study-plan-notion-template: found=0 downloaded=0 already_present=0
-2026-cfa-level-1-exam-prep-5000-anki: found=0 downloaded=0 already_present=0
-cfa-level-2-exam-prep-complete-anki: found=0 downloaded=0 already_present=0
-cfa-level-3-exam-prep-anki-flashcards: found=0 downloaded=0 already_present=0
-a-level-biology-ocr-anki-flashcards: found=0 downloaded=0 already_present=0
-a-level-chemistry-ocr-anki-flashcards: found=0 downloaded=0 already_present=0
-a-level-physics-ocr-anki-flashcards: found=0 downloaded=0 already_present=0
-a-level-psychology-ocr-flashcards-anki: found=0 downloaded=0 already_present=0
-ocr-a-level-computer-science-anki: found=0 downloaded=0 already_present=0
-veterinary-nurse-flashcards-anki: found=0 downloaded=0 already_present=0
-pmi-pmp-exam-prep-flashcards-anki: found=0 downloaded=0 already_present=0
-pmi-capm-flashcards-anki-project-manager: found=0 downloaded=0 already_present=0
-pmi-acp-exam-prep-anki-flashcards: found=0 downloaded=0 already_present=0
-real-estate-rental-tracker-notion: found=0 downloaded=0 already_present=0
+started=2026-08-13T03:57:12Z
+german-anki-flashcards-with-audio: via=None found=0 downloaded=0 already_present=0
+comptia-security-v7-flashcards-anki: already_complete files=5
+cissp-certification-anki-flashcards: already_complete files=9
+cism-exam-prep-isaca-certification: already_complete files=6
+comptia-cysa-cs0-003-anki-flashcards: already_complete files=10
+cisa-exam-prep-flashcards-anki-official: via=None found=0 downloaded=0 already_present=0
+comptia-securityx-v5-flashcards-anki-cas: via=None found=0 downloaded=0 already_present=0
+aborting: all fetch strategies blocked on 3 consecutive listings
 total_new=0
