@@ -34,7 +34,7 @@
   {%- for s in slides limit: ndesk -%}
   <button type="button" class="gthumb lb-open{% if forloop.first %} on{% endif %}" data-lb-index="{{ forloop.index0 }}"
           aria-label="{% if L == 'fr' %}Voir l'image{% else %}View image{% endif %} {{ forloop.index }}">
-    <img class="cover" src="{{ s }}" alt="" loading="lazy"{%- assign _d = site.data.image_dims[s] -%}{%- if _d -%}{%- assign _wh = _d | split: "x" -%} width="{{ _wh[0] }}" height="{{ _wh[1] }}"{%- endif -%} decoding="async" onerror="this.remove()">
+    <img class="cover" src="{{ s }}"{% if t.kind %}{% assign _gs = site.data.cover_srcset[s] %}{% if _gs %} srcset="{{ _gs }}" sizes="90px"{% endif %}{% endif %} alt="" loading="lazy"{%- assign _d = site.data.image_dims[s] -%}{%- if _d -%}{%- assign _wh = _d | split: "x" -%} width="{{ _wh[0] }}" height="{{ _wh[1] }}"{%- endif -%} decoding="async" onerror="this.remove()">
   </button>
   {%- endfor -%}
   {%- assign placeholders = 4 | minus: ndesk -%}
@@ -50,7 +50,7 @@
     {%- assign midx = forloop.index0 | plus: ndesk2 -%}
     <button type="button" class="phone-frame lb-open" data-lb-index="{{ midx }}"
             aria-label="{% if L == 'fr' %}Voir la vue mobile{% else %}View mobile screenshot{% endif %} {{ forloop.index }}">
-      <img class="cover" src="{{ m }}" alt="" loading="lazy"{%- assign _d = site.data.image_dims[m] -%}{%- if _d -%}{%- assign _wh = _d | split: "x" -%} width="{{ _wh[0] }}" height="{{ _wh[1] }}"{%- endif -%} decoding="async" onerror="this.remove()">
+      <img class="cover" src="{{ m }}"{% if t.kind %}{% assign _ms = site.data.cover_srcset[m] %}{% if _ms %} srcset="{{ _ms }}" sizes="(max-width:600px) 40vw, 150px"{% endif %}{% endif %} alt="" loading="lazy"{%- assign _d = site.data.image_dims[m] -%}{%- if _d -%}{%- assign _wh = _d | split: "x" -%} width="{{ _wh[0] }}" height="{{ _wh[1] }}"{%- endif -%} decoding="async" onerror="this.remove()">
     </button>
     {%- endfor -%}
   {%- else -%}
