@@ -40,7 +40,7 @@
     {%- assign saving = t.compare_at | minus: t.price -%}
     {%- assign pct = saving | times: 100 | divided_by: t.compare_at -%}
       <p class="pd-price">${{ t.price }} <span class="pd-was">${{ t.compare_at }}</span></p>
-      <p class="pd-save">{% if L == "fr" %}Économie de ${{ saving }}, soit {{ pct }} % de moins qu'en achetant les templates séparément.{% else %}Save ${{ saving }}, {{ pct }}% less than buying the templates separately.{% endif %}</p>
+      {% if t.kind %}<p class="pd-save">Save ${{ saving }}, {{ pct | round }}% off the usual price.</p>{% else %}<p class="pd-save">{% if L == "fr" %}Économie de ${{ saving }}, soit {{ pct }} % de moins qu'en achetant les templates séparément.{% else %}Save ${{ saving }}, {{ pct }}% less than buying the templates separately.{% endif %}</p>{% endif %}
   {%- else -%}
       <p class="pd-price">${{ t.price }}</p>
   {%- endif -%}

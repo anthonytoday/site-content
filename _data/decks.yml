@@ -13,6 +13,9 @@
 # Etsy extraction captured 12 Aug 2026. etsy_slug is also the folder name the
 # image import Action writes to under assets/etsy/.
 #
+# compare_at is the Etsy list price, so the page shows what the deck normally costs
+# next to what it costs here. price stays the reference price for this site.
+#
 # kind: anki | notion | pdf. Drives the product-type badge on the card and the
 # Format cell on the page, so a Notion template can never be mistaken for a deck.
 #
@@ -22,6 +25,7 @@
   status: live
   category: cyber
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1835704395/cissp-certification-anki-flashcards
   etsy_slug: cissp-certification-anki-flashcards
   etsy_listing_id: 1835704395
@@ -56,6 +60,7 @@
   status: live
   category: cyber
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1821501820/cism-exam-prep-isaca-certification
   etsy_slug: cism-exam-prep-isaca-certification
   etsy_listing_id: 1821501820
@@ -88,6 +93,7 @@
   status: live
   category: cyber
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1835698299/cisa-exam-prep-flashcards-anki-official
   etsy_slug: cisa-exam-prep-flashcards-anki-official
   etsy_listing_id: 1835698299
@@ -118,6 +124,7 @@
   status: live
   category: cyber
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1835467403/comptia-security-v7-flashcards-anki
   etsy_slug: comptia-security-v7-flashcards-anki
   etsy_listing_id: 1835467403
@@ -148,6 +155,7 @@
   status: live
   category: cyber
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1835463169/comptia-cysa-cs0-003-anki-flashcards
   etsy_slug: comptia-cysa-cs0-003-anki-flashcards
   etsy_listing_id: 1835463169
@@ -183,6 +191,7 @@
   status: live
   category: cyber
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1838198579/comptia-securityx-v5-flashcards-anki-cas
   etsy_slug: comptia-securityx-v5-flashcards-anki-cas
   etsy_listing_id: 1838198579
@@ -218,6 +227,7 @@
   status: live
   category: cyber
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1824559724/comptia-pentest-pt0-003-exam-prep
   etsy_slug: comptia-pentest-pt0-003-exam-prep
   etsy_listing_id: 1824559724
@@ -253,6 +263,7 @@
   status: live
   category: cyber
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1839687588/comptia-network-plus-v9-anki-flashcards
   etsy_slug: comptia-network-plus-v9-anki-flashcards
   etsy_listing_id: 1839687588
@@ -288,6 +299,7 @@
   status: live
   category: cyber
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1854425881/ccsp-certification-flashcards-anki
   etsy_slug: ccsp-certification-flashcards-anki
   etsy_listing_id: 1854425881
@@ -323,6 +335,7 @@
   status: live
   category: cyber
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1838765599/aws-solutions-architect-exam-prep-saa
   etsy_slug: aws-solutions-architect-exam-prep-saa
   etsy_listing_id: 1838765599
@@ -358,6 +371,7 @@
   status: live
   category: cyber
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1824562190/aws-security-specialty-flashcards-anki
   etsy_slug: aws-security-specialty-flashcards-anki
   etsy_listing_id: 1824562190
@@ -393,6 +407,7 @@
   status: live
   category: cyber
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1839171852/aws-cloud-practitioner-flashcards-anki
   etsy_slug: aws-cloud-practitioner-flashcards-anki
   etsy_listing_id: 1839171852
@@ -428,6 +443,7 @@
   status: live
   category: finance
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1835237483/2026-cfa-level-1-exam-prep-5000-anki
   etsy_slug: 2026-cfa-level-1-exam-prep-5000-anki
   etsy_listing_id: 1835237483
@@ -466,6 +482,7 @@
   status: live
   category: finance
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1835238957/cfa-level-2-exam-prep-complete-anki
   etsy_slug: cfa-level-2-exam-prep-complete-anki
   etsy_listing_id: 1835238957
@@ -501,6 +518,7 @@
   status: live
   category: finance
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1824642060/cfa-level-3-exam-prep-anki-flashcards
   etsy_slug: cfa-level-3-exam-prep-anki-flashcards
   etsy_listing_id: 1824642060
@@ -536,6 +554,7 @@
   status: live
   category: pm
   price: 27.75
+  compare_at: 37
   etsy: https://www.etsy.com/listing/1838893201/pmi-pmp-exam-prep-flashcards-anki
   etsy_slug: pmi-pmp-exam-prep-flashcards-anki
   etsy_listing_id: 1838893201
@@ -570,6 +589,7 @@
   status: live
   category: pm
   price: 27.75
+  compare_at: 37
   etsy: https://www.etsy.com/listing/1854432399/pmi-acp-exam-prep-anki-flashcards
   etsy_slug: pmi-acp-exam-prep-anki-flashcards
   etsy_listing_id: 1854432399
@@ -605,6 +625,7 @@
   status: live
   category: pm
   price: 27.75
+  compare_at: 37
   etsy: https://www.etsy.com/listing/1840294186/pmi-capm-flashcards-anki-project-manager
   etsy_slug: pmi-capm-flashcards-anki-project-manager
   etsy_listing_id: 1840294186
@@ -640,6 +661,7 @@
   status: live
   category: languages
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1836747956/spanish-flashcards-with-audio-anki
   etsy_slug: spanish-flashcards-with-audio-anki
   etsy_listing_id: 1836747956
@@ -675,6 +697,7 @@
   status: live
   category: languages
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1838705701/french-flashcards-with-audio-anki
   etsy_slug: french-flashcards-with-audio-anki
   etsy_listing_id: 1838705701
@@ -710,6 +733,7 @@
   status: live
   category: languages
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1833535168/german-anki-flashcards-with-audio
   etsy_slug: german-anki-flashcards-with-audio
   etsy_listing_id: 1833535168
@@ -744,6 +768,7 @@
   status: live
   category: languages
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1838718119/german-goethe-zertifikate-flashcards
   etsy_slug: german-goethe-zertifikate-flashcards
   etsy_listing_id: 1838718119
@@ -779,6 +804,7 @@
   status: live
   category: languages
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1836719244/complete-chinese-flashcards-with-audio
   etsy_slug: complete-chinese-flashcards-with-audio
   etsy_listing_id: 1836719244
@@ -814,6 +840,7 @@
   status: live
   category: languages
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1833551384/complete-russian-flashcards-with-audio
   etsy_slug: complete-russian-flashcards-with-audio
   etsy_listing_id: 1833551384
@@ -849,6 +876,7 @@
   status: live
   category: languages
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1847747819/quranic-arabic-flashcards-with-audio
   etsy_slug: quranic-arabic-flashcards-with-audio
   etsy_listing_id: 1847747819
@@ -883,6 +911,7 @@
   status: live
   category: languages
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1833542750/hebrew-anki-flashcards-audio-card
   etsy_slug: hebrew-anki-flashcards-audio-card
   etsy_listing_id: 1833542750
@@ -918,6 +947,7 @@
   status: live
   category: languages
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1838746095/gre-toefl-vocabulary-flashcards-anki
   etsy_slug: gre-toefl-vocabulary-flashcards-anki
   etsy_listing_id: 1838746095
@@ -953,6 +983,7 @@
   status: live
   category: academic
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1854536595/a-level-biology-ocr-anki-flashcards
   etsy_slug: a-level-biology-ocr-anki-flashcards
   etsy_listing_id: 1854536595
@@ -988,6 +1019,7 @@
   status: live
   category: academic
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1840349102/a-level-chemistry-ocr-anki-flashcards
   etsy_slug: a-level-chemistry-ocr-anki-flashcards
   etsy_listing_id: 1840349102
@@ -1023,6 +1055,7 @@
   status: live
   category: academic
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1849577891/a-level-physics-ocr-anki-flashcards
   etsy_slug: a-level-physics-ocr-anki-flashcards
   etsy_listing_id: 1849577891
@@ -1057,6 +1090,7 @@
   status: live
   category: academic
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1840720398/a-level-psychology-ocr-flashcards-anki
   etsy_slug: a-level-psychology-ocr-flashcards-anki
   etsy_listing_id: 1840720398
@@ -1092,6 +1126,7 @@
   status: live
   category: academic
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1840737292/ocr-a-level-computer-science-anki
   etsy_slug: ocr-a-level-computer-science-anki
   etsy_listing_id: 1840737292
@@ -1127,6 +1162,7 @@
   status: live
   category: academic
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1824636834/veterinary-nurse-flashcards-anki
   etsy_slug: veterinary-nurse-flashcards-anki
   etsy_listing_id: 1824636834
@@ -1162,6 +1198,7 @@
   status: live
   category: tools
   price: 21.75
+  compare_at: 29
   etsy: https://www.etsy.com/listing/1838697141/cyber-exam-prep-planner-digital
   etsy_slug: cyber-exam-prep-planner-digital
   etsy_listing_id: 1838697141
