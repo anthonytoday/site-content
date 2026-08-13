@@ -1449,6 +1449,18 @@
   marketplace: https://www.notion.com/templates/real-estate-portfolio-management-ultimate-dashboard
   page: /templates/real-estate-portfolio/
   page_fr: /fr/templates/real-estate-portfolio/
+  cover: /assets/templates/real-estate-portfolio/cover.webp
+  gallery:
+    - /assets/templates/real-estate-portfolio/desktop/02.webp
+    - /assets/templates/real-estate-portfolio/desktop/03.webp
+    - /assets/templates/real-estate-portfolio/desktop/04.webp
+    - /assets/templates/real-estate-portfolio/desktop/05.webp
+  mobile:
+    - /assets/templates/real-estate-portfolio/mobile/01.webp
+    - /assets/templates/real-estate-portfolio/mobile/02.webp
+    - /assets/templates/real-estate-portfolio/mobile/03.webp
+    - /assets/templates/real-estate-portfolio/mobile/04.webp
+    - /assets/templates/real-estate-portfolio/mobile/05.webp
   tags:
   - real-estate
   - investing
