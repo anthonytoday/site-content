@@ -1,0 +1,28 @@
+name: Extract Etsy listing images
+
+on:
+  push:
+    paths:
+      - assets/etsy/listings.json
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract and download listing images
+        run: python3 .github/scripts/extract_etsy_images.py
+      - name: Commit downloaded images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/etsy .github/etsy-extract-result.txt
+          git diff --cached --quiet || git commit -m "Extract Etsy listing images"
+          git pull --rebase
+          git push
