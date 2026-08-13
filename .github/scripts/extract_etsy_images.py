@@ -3,8 +3,9 @@
 Extract gallery image URLs from Etsy listing pages and download them into
 assets/etsy/<slug>/ folders. Idempotent: skips files that already exist.
 Strategy per listing: plain HTTP first, then headless Chrome (real DOM),
-then the reader proxy. Writes index.json per folder and a summary to
-.github/etsy-extract-result.txt.
+then the reader proxy. Writes index.json per folder and appends progress to
+.github/etsy-extract-result.txt after EVERY listing so partial runs are
+visible and committable.
 """
 import json
 import os
@@ -28,25 +29,24 @@ SIZE_RE = re.compile(r"il_\d+x\d+\.")
 KEEP = ("il_570xN", "il_794xN", "il_1588xN", "il_fullxfull", "il_300x300", "il_340x270")
 
 
-def fetch_http(url, tries=2, timeout=30):
+def fetch_http(url, tries=1, timeout=20):
     for i in range(tries):
         try:
             req = urllib.request.Request(url, headers=HEADERS)
             with urllib.request.urlopen(req, timeout=timeout) as r:
                 return r.read()
         except Exception as e:
-            print(f"  http attempt {i+1} failed: {e}")
-            time.sleep(3)
+            print(f"  http attempt {i+1} failed: {e}", flush=True)
     return None
 
 
-def fetch_browser(url, timeout=90):
+def fetch_browser(url, timeout=60):
     """Render the page with headless Chrome and return the serialized DOM."""
     for binary in ("google-chrome", "google-chrome-stable", "chromium", "chromium-browser"):
         try:
             out = subprocess.run(
                 [binary, "--headless=new", "--disable-gpu", "--no-sandbox",
-                 "--disable-dev-shm-usage", "--virtual-time-budget=15000",
+                 "--disable-dev-shm-usage", "--virtual-time-budget=12000",
                  "--dump-dom", url],
                 capture_output=True, timeout=timeout)
             if out.returncode == 0 and out.stdout:
@@ -54,13 +54,13 @@ def fetch_browser(url, timeout=90):
         except FileNotFoundError:
             continue
         except Exception as e:
-            print(f"  browser fetch failed ({binary}): {e}")
+            print(f"  browser fetch failed ({binary}): {e}", flush=True)
             return None
     return None
 
 
 def fetch_reader(url):
-    return fetch_http("https://r.jina.ai/" + url, tries=1, timeout=120)
+    return fetch_http("https://r.jina.ai/" + url, tries=1, timeout=60)
 
 
 def extract_image_urls(raw):
@@ -76,7 +76,7 @@ def extract_image_urls(raw):
 
 def main():
     listings = json.load(open(CFG))
-    lines = []
+    open(RESULT, "w").write(f"started={time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())}\n")
     total_new = 0
     for item in listings:
         slug, url = item["slug"], item["url"]
@@ -85,10 +85,10 @@ def main():
         print(f"== {slug}", flush=True)
         data = fetch_http(url)
         if not data or b"etsystatic" not in data:
-            print("  http blocked/empty, trying headless browser")
+            print("  http blocked/empty, trying headless browser", flush=True)
             data = fetch_browser(url)
         if not data or b"etsystatic" not in data:
-            print("  browser blocked/empty, trying reader proxy")
+            print("  browser blocked/empty, trying reader proxy", flush=True)
             data = fetch_reader(url)
         urls = extract_image_urls(data) if data else []
         saved, present, pairs = 0, 0, []
@@ -99,7 +99,7 @@ def main():
             if os.path.exists(dest):
                 present += 1
                 continue
-            content = fetch_http(u, tries=2, timeout=60)
+            content = fetch_http(u, tries=2, timeout=45)
             if content and len(content) > 1000:
                 with open(dest, "wb") as f:
                     f.write(content)
@@ -109,11 +109,12 @@ def main():
             json.dump({"slug": slug, "source": url, "images": pairs}, f, indent=2)
         line = f"{slug}: found={len(urls)} downloaded={saved} already_present={present}"
         print(line, flush=True)
-        lines.append(line)
+        with open(RESULT, "a") as f:
+            f.write(line + "\n")
         total_new += saved
         time.sleep(1)
-    with open(RESULT, "w") as f:
-        f.write("\n".join(lines) + f"\ntotal_new={total_new}\n")
+    with open(RESULT, "a") as f:
+        f.write(f"total_new={total_new}\n")
 
 
 if __name__ == "__main__":
