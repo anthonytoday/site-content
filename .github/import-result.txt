@@ -1,1 +1,1 @@
-downloaded=0 already_present=83 failed=0
+downloaded=8 already_present=83 failed=0
