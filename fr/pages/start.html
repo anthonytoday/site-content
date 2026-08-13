@@ -159,6 +159,11 @@ css_bundle: /assets/css/b-4d78392669.css
     + '<div class="ns"><span>2</span><div><b>Vous avez de mes nouvelles sous un jour ouvré</b>Quelle que soit l\'issue. Pas de séquence, pas de liste.</div></div>'
     + '<div class="ns"><span>3</span><div><b>Vous décidez, sans pression de ma part</b>Si ce n\'est pas le bon moment, je vous le dirai.</div></div></div>';
 
+  var FALLBACK = '<div id="qf-fallback" style="display:none;border:2px solid #B00020;border-radius:12px;padding:16px 18px;margin:20px 0 0;background:#fff;font-size:14.5px;line-height:1.55">'
+    + '<b>Vos r&eacute;ponses ne sont peut-&ecirc;tre pas arriv&eacute;es.</b><br>'
+    + 'Une erreur r&eacute;seau a emp&ecirc;ch&eacute; l\'envoi. Pour que rien ne se perde, &eacute;crivez-moi &agrave; <a href="mailto:admin@anthonytoday.com" style="color:#2251FF;text-decoration:underline">admin@anthonytoday.com</a> ou sur <a href="https://wa.me/33695845150" target="_blank" rel="noopener" style="color:#2251FF;text-decoration:underline">WhatsApp</a>.'
+    + '</div>';
+
   var VIEWS = {
     hot: '<div class="rcard r-hot"><h2>Merci : cela ressemble à un bon match.</h2>'
        + '<p>Choisissez un créneau ci-dessous. Vingt minutes, sans argumentaire. J\'aurai lu vos réponses avant qu\'on commence, pour qu\'on démarre sur le vrai sujet plutôt que sur les présentations.</p></div>'
@@ -168,7 +173,7 @@ css_bundle: /assets/css/b-4d78392669.css
     warm: '<div class="rcard r-warm"><h2>Merci. Voici ce que je vous suggère.</h2>'
        + '<p>D\'après vos réponses, je ne commencerais pas par un appel. Je commencerais par le build lui-même : dix jours ouvrés, et votre espace de travail tourne sur votre activité réelle au lieu d\'être décrit dans une proposition.</p>'
        + '<p>C\'est 2 500 $, un seul paiement, sans avenant. Si ce n\'est pas opérationnel au dixième jour, vous ne payez rien et vous gardez l\'espace de travail. La décision est donc réversible.</p>'
-       + '<a class="btn" href="/notion-build/">Voir ce que cela implique &rarr; <span style="opacity:.7;font-weight:400">(page en anglais)</span></a>'
+       + '<a class="btn" href="/fr/notion-build/">Voir ce que cela implique &rarr;</a>'
        + '<a class="btn ghost" href="'+STRIPE_LINK+'" target="_blank" rel="noopener">Démarrer le build</a>'
        + '<p class="alt">Dans les deux cas je vous écris sous un jour. Si vous préférez en parler d\'abord, répondez simplement et nous trouverons un créneau.</p></div>' + NEXT,
 
@@ -216,13 +221,15 @@ css_bundle: /assets/css/b-4d78392669.css
       console.log('[test mode] route =', bucket, payload);
     } else {
       fetch(ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json', Accept:'application/json'},
-        body:JSON.stringify(payload)}).catch(function(){});
+        body:JSON.stringify(payload)})
+        .then(function(res){ if(!res.ok){ throw new Error('http ' + res.status); } })
+        .catch(function(){ var w=document.getElementById('qf-fallback'); if(w){ w.style.display='block'; } });
     }
 
     document.getElementById('qf-head').style.display='none';
     form.style.display='none';
     var r=document.getElementById('qf-result');
-    r.innerHTML=(TEST_MODE ? testBanner(bucket, d) : '') + VIEWS[bucket];
+    r.innerHTML=(TEST_MODE ? testBanner(bucket, d) : '') + VIEWS[bucket] + FALLBACK;
     r.classList.add('on');
 
     if (bucket === 'hot'){

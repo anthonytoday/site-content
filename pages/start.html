@@ -178,6 +178,11 @@ css_bundle: /assets/css/b-4d78392669.css
     + '<div class="ns"><span>2</span><div><b>You hear from me within one working day</b>Whatever the outcome. No sequence, no list.</div></div>'
     + '<div class="ns"><span>3</span><div><b>You decide, with no pressure from me</b>If it is not right, I will say so.</div></div></div>';
 
+  var FALLBACK = '<div id="qf-fallback" style="display:none;border:2px solid #B00020;border-radius:12px;padding:16px 18px;margin:20px 0 0;background:#fff;font-size:14.5px;line-height:1.55">'
+    + '<b>Your answers may not have reached me.</b><br>'
+    + 'A network error blocked the submission. So that nothing is lost, email me at <a href="mailto:admin@anthonytoday.com" style="color:#2251FF;text-decoration:underline">admin@anthonytoday.com</a> or message me on <a href="https://wa.me/33695845150" target="_blank" rel="noopener" style="color:#2251FF;text-decoration:underline">WhatsApp</a>.'
+    + '</div>';
+
   var VIEWS = {
     hot: '<div class="rcard r-hot"><h2>Thanks. This sounds like a fit.</h2>'
        + '<p>Pick a time below. Twenty minutes, no pitch. I will have read your answers before we start, so we begin at the actual problem rather than at introductions.</p></div>'
@@ -235,13 +240,15 @@ css_bundle: /assets/css/b-4d78392669.css
       console.log('[test mode] route =', bucket, payload);
     } else {
       fetch(ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json', Accept:'application/json'},
-        body:JSON.stringify(payload)}).catch(function(){});
+        body:JSON.stringify(payload)})
+        .then(function(res){ if(!res.ok){ throw new Error('http ' + res.status); } })
+        .catch(function(){ var w=document.getElementById('qf-fallback'); if(w){ w.style.display='block'; } });
     }
 
     document.getElementById('qf-head').style.display='none';
     form.style.display='none';
     var r=document.getElementById('qf-result');
-    r.innerHTML=(TEST_MODE ? testBanner(bucket, d) : '') + VIEWS[bucket];
+    r.innerHTML=(TEST_MODE ? testBanner(bucket, d) : '') + VIEWS[bucket] + FALLBACK;
     r.classList.add('on');
 
     if (bucket === 'hot'){
