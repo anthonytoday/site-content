@@ -22,6 +22,18 @@
         <div class="la-bar l"></div><div class="la-bar s"></div>
         <div class="la-bar m accent"></div><div class="la-bar l"></div>
       </div></div>
+      {%- comment -%} Product type. The shop sells Anki decks, plus the odd PDF or Notion
+      template, and a buyer must not have to guess which one they are looking at. The badge is
+      white so both brand marks keep their own colours instead of being knocked out against
+      navy. Templates carry no `kind`, so their cards render exactly as before. {%- endcomment -%}
+      {%- if t.kind -%}
+      <div class="badges"><span class="badge" style="background:#fff;color:var(--navy);border:1px solid #D8DEE7;display:inline-flex;align-items:center;gap:5px">
+        {%- if t.kind == "notion" -%}<img src="/assets/logos/notion.webp" alt="" width="13" height="13" loading="lazy" decoding="async">Notion template
+        {%- elsif t.kind == "pdf" -%}PDF planner
+        {%- else -%}<img src="/assets/logos/anki.webp" alt="" width="13" height="13" loading="lazy" decoding="async">Anki deck
+        {%- endif -%}
+      </span></div>
+      {%- endif -%}
       {%- if t.cover %}<img class="cover" src="{{ t.cover }}"{%- assign _ss = site.data.cover_srcset[t.cover] -%}{%- if _ss %} srcset="{{ _ss }}" sizes="(max-width:600px) 100vw, (max-width:900px) 46vw, 330px"{%- endif -%} alt="{{ c.title }}" loading="lazy"{%- assign _d = site.data.image_dims[t.cover] -%}{%- if _d -%}{%- assign _wh = _d | split: "x" -%} width="{{ _wh[0] }}" height="{{ _wh[1] }}"{%- endif -%} decoding="async" onerror="this.remove()">{% endif -%}
     </div>
     <div class="card-body">

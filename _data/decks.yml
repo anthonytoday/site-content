@@ -13,6 +13,9 @@
 # Etsy extraction captured 12 Aug 2026. etsy_slug is also the folder name the
 # image import Action writes to under assets/etsy/.
 #
+# kind: anki | notion | pdf. Drives the product-type badge on the card and the
+# Format cell on the page, so a Notion template can never be mistaken for a deck.
+#
 # English only. No French twin page, no second-language block, no marketplace fields.
 
 - id: cissp-flashcards
@@ -26,6 +29,7 @@
   page: /flashcards/cissp-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   cover: /assets/etsy/cissp-certification-anki-flashcards/gallery-1-desktop.jpg
   gallery:
   - /assets/etsy/cissp-certification-anki-flashcards/gallery-1-desktop.jpg
@@ -59,6 +63,7 @@
   page: /flashcards/cism-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   cover: /assets/etsy/cism-exam-prep-isaca-certification/gallery-1-desktop.jpg
   gallery:
   - /assets/etsy/cism-exam-prep-isaca-certification/gallery-1-desktop.jpg
@@ -90,6 +95,7 @@
   page: /flashcards/cisa-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   cover: /assets/etsy/cisa-exam-prep-flashcards-anki-official/gallery-1-desktop.jpg
   gallery:
   - /assets/etsy/cisa-exam-prep-flashcards-anki-official/gallery-1-desktop.jpg
@@ -119,6 +125,7 @@
   page: /flashcards/comptia-security-plus-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   cover: /assets/etsy/comptia-security-v7-flashcards-anki/gallery-1-desktop.jpg
   gallery:
   - /assets/etsy/comptia-security-v7-flashcards-anki/gallery-1-desktop.jpg
@@ -148,6 +155,7 @@
   page: /flashcards/comptia-cysa-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   cover: /assets/etsy/comptia-cysa-cs0-003-anki-flashcards/gallery-1.jpg
   gallery:
   - /assets/etsy/comptia-cysa-cs0-003-anki-flashcards/gallery-1.jpg
@@ -182,6 +190,7 @@
   page: /flashcards/comptia-securityx-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - securityx
   - comptia
@@ -204,6 +213,7 @@
   page: /flashcards/comptia-pentest-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - pentest-plus
   - comptia
@@ -226,6 +236,7 @@
   page: /flashcards/comptia-network-plus-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - network-plus
   - comptia
@@ -248,6 +259,7 @@
   page: /flashcards/ccsp-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - ccsp
   - isc2
@@ -270,6 +282,7 @@
   page: /flashcards/aws-solutions-architect-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - aws
   - solutions-architect
@@ -292,6 +305,7 @@
   page: /flashcards/aws-security-specialty-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - aws
   - security-specialty
@@ -314,6 +328,7 @@
   page: /flashcards/aws-cloud-practitioner-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - aws
   - cloud-practitioner
@@ -336,6 +351,7 @@
   page: /flashcards/cfa-level-1-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - cfa
   - cfa-level-1
@@ -358,6 +374,7 @@
   page: /flashcards/cfa-level-2-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - cfa
   - cfa-level-2
@@ -380,6 +397,7 @@
   page: /flashcards/cfa-level-3-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - cfa
   - cfa-level-3
@@ -402,6 +420,7 @@
   page: /flashcards/pmp-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   cover: /assets/etsy/pmi-pmp-exam-prep-flashcards-anki/gallery-1-desktop.jpg
   gallery:
   - /assets/etsy/pmi-pmp-exam-prep-flashcards-anki/gallery-1-desktop.jpg
@@ -435,6 +454,7 @@
   page: /flashcards/pmi-acp-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - pmi-acp
   - pmi
@@ -457,6 +477,7 @@
   page: /flashcards/capm-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - capm
   - pmi
@@ -479,6 +500,7 @@
   page: /flashcards/spanish-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - spanish
   - languages
@@ -501,6 +523,7 @@
   page: /flashcards/french-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - french
   - languages
@@ -523,6 +546,7 @@
   page: /flashcards/german-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - german
   - languages
@@ -545,6 +569,7 @@
   page: /flashcards/german-goethe-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - german
   - goethe
@@ -567,6 +592,7 @@
   page: /flashcards/chinese-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - chinese
   - mandarin
@@ -589,6 +615,7 @@
   page: /flashcards/russian-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - russian
   - languages
@@ -611,6 +638,7 @@
   page: /flashcards/quranic-arabic-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - arabic
   - quran
@@ -633,6 +661,7 @@
   page: /flashcards/hebrew-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - hebrew
   - languages
@@ -655,6 +684,7 @@
   page: /flashcards/gre-toefl-vocabulary-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - gre
   - toefl
@@ -677,6 +707,7 @@
   page: /flashcards/a-level-biology-ocr-flashcards/
   cards: 2377
   format: apkg
+  kind: anki
   cover: /assets/etsy/a-level-biology-ocr-anki-flashcards/gallery-1.jpg
   gallery:
   - /assets/etsy/a-level-biology-ocr-anki-flashcards/gallery-1.jpg
@@ -711,6 +742,7 @@
   page: /flashcards/a-level-chemistry-ocr-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - a-level
   - chemistry
@@ -733,6 +765,7 @@
   page: /flashcards/a-level-physics-ocr-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - a-level
   - physics
@@ -755,6 +788,7 @@
   page: /flashcards/a-level-psychology-ocr-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - a-level
   - psychology
@@ -777,6 +811,7 @@
   page: /flashcards/a-level-computer-science-ocr-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - a-level
   - computer-science
@@ -799,6 +834,7 @@
   page: /flashcards/veterinary-nurse-flashcards/
   cards: TBC
   format: apkg
+  kind: anki
   tags:
   - veterinary-nursing
   - animal-care
@@ -821,6 +857,7 @@
   page: /flashcards/cyber-exam-prep-planner/
   cards: TBC
   format: PDF
+  kind: pdf
   tags:
   - study-planner
   - ipad
