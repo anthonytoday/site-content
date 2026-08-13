@@ -663,8 +663,20 @@
   etsy_listing_id: 1854536595
   stripe: ''                       # set this and the buy button switches to native checkout
   page: /flashcards/a-level-biology-ocr-flashcards/
-  cards: TBC
+  cards: 2377
   format: apkg
+  cover: /assets/etsy/a-level-biology-ocr-anki-flashcards/gallery-1.jpg
+  gallery:
+  - /assets/etsy/a-level-biology-ocr-anki-flashcards/gallery-1.jpg
+  - /assets/etsy/a-level-biology-ocr-anki-flashcards/gallery-2.jpg
+  - /assets/etsy/a-level-biology-ocr-anki-flashcards/gallery-3.jpg
+  - /assets/etsy/a-level-biology-ocr-anki-flashcards/gallery-4.jpg
+  - /assets/etsy/a-level-biology-ocr-anki-flashcards/gallery-5.jpg
+  - /assets/etsy/a-level-biology-ocr-anki-flashcards/gallery-6.jpg
+  - /assets/etsy/a-level-biology-ocr-anki-flashcards/gallery-7.jpg
+  - /assets/etsy/a-level-biology-ocr-anki-flashcards/gallery-8.jpg
+  - /assets/etsy/a-level-biology-ocr-anki-flashcards/gallery-9.jpg
+  - /assets/etsy/a-level-biology-ocr-anki-flashcards/gallery-10.jpg
   tags:
   - a-level
   - biology
