@@ -26,6 +26,17 @@
   page: /flashcards/cissp-flashcards/
   cards: TBC
   format: apkg
+  cover: /assets/etsy/cissp-certification-anki-flashcards/gallery-1-desktop.jpg
+  gallery:
+  - /assets/etsy/cissp-certification-anki-flashcards/gallery-1-desktop.jpg
+  - /assets/etsy/cissp-certification-anki-flashcards/gallery-2-desktop.jpg
+  - /assets/etsy/cissp-certification-anki-flashcards/gallery-3-desktop.jpg
+  - /assets/etsy/cissp-certification-anki-flashcards/gallery-4-desktop.jpg
+  mobile:
+  - /assets/etsy/cissp-certification-anki-flashcards/gallery-1-mobile.jpg
+  - /assets/etsy/cissp-certification-anki-flashcards/gallery-2-mobile.jpg
+  - /assets/etsy/cissp-certification-anki-flashcards/gallery-3-mobile.jpg
+  - /assets/etsy/cissp-certification-anki-flashcards/gallery-4-mobile.jpg
   tags:
   - cissp
   - isc2
@@ -48,6 +59,15 @@
   page: /flashcards/cism-flashcards/
   cards: TBC
   format: apkg
+  cover: /assets/etsy/cism-exam-prep-isaca-certification/gallery-1-desktop.jpg
+  gallery:
+  - /assets/etsy/cism-exam-prep-isaca-certification/gallery-1-desktop.jpg
+  - /assets/etsy/cism-exam-prep-isaca-certification/gallery-2-desktop.jpg
+  - /assets/etsy/cism-exam-prep-isaca-certification/gallery-3-desktop.jpg
+  mobile:
+  - /assets/etsy/cism-exam-prep-isaca-certification/gallery-1-mobile.jpg
+  - /assets/etsy/cism-exam-prep-isaca-certification/gallery-2-mobile.jpg
+  - /assets/etsy/cism-exam-prep-isaca-certification/gallery-3-mobile.jpg
   tags:
   - cism
   - isaca
@@ -70,6 +90,13 @@
   page: /flashcards/cisa-flashcards/
   cards: TBC
   format: apkg
+  cover: /assets/etsy/cisa-exam-prep-flashcards-anki-official/gallery-1-desktop.jpg
+  gallery:
+  - /assets/etsy/cisa-exam-prep-flashcards-anki-official/gallery-1-desktop.jpg
+  - /assets/etsy/cisa-exam-prep-flashcards-anki-official/gallery-2-desktop.jpg
+  mobile:
+  - /assets/etsy/cisa-exam-prep-flashcards-anki-official/gallery-1-mobile.jpg
+  - /assets/etsy/cisa-exam-prep-flashcards-anki-official/gallery-2-mobile.jpg
   tags:
   - cisa
   - isaca
@@ -363,6 +390,17 @@
   page: /flashcards/pmp-flashcards/
   cards: TBC
   format: apkg
+  cover: /assets/etsy/pmi-pmp-exam-prep-flashcards-anki/gallery-1-desktop.jpg
+  gallery:
+  - /assets/etsy/pmi-pmp-exam-prep-flashcards-anki/gallery-1-desktop.jpg
+  - /assets/etsy/pmi-pmp-exam-prep-flashcards-anki/gallery-2-desktop.jpg
+  - /assets/etsy/pmi-pmp-exam-prep-flashcards-anki/gallery-3-desktop.jpg
+  - /assets/etsy/pmi-pmp-exam-prep-flashcards-anki/gallery-4-desktop.jpg
+  mobile:
+  - /assets/etsy/pmi-pmp-exam-prep-flashcards-anki/gallery-1-mobile.jpg
+  - /assets/etsy/pmi-pmp-exam-prep-flashcards-anki/gallery-2-mobile.jpg
+  - /assets/etsy/pmi-pmp-exam-prep-flashcards-anki/gallery-3-mobile.jpg
+  - /assets/etsy/pmi-pmp-exam-prep-flashcards-anki/gallery-4-mobile.jpg
   tags:
   - pmp
   - pmi
