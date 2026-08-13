@@ -1,52 +1,98 @@
 # site-content
 
-Source for **www.anthonytoday.com**, published directly by **GitHub Pages** (Jekyll) from `main`.
+Source for **www.anthonytoday.com**, published by **GitHub Pages** (Jekyll) from `main`.
+Every push rebuilds the live site in one to three minutes.
 
-Previously these files were HTML fragments loaded into MailerLite landing pages at runtime. That loader is gone. Each page is now a real page.
+## Layout
 
-## How it works
+| Path | What it holds |
+| --- | --- |
+| `_config.yml` | Site title, canonical URL, analytics token, feature flags |
+| `_layouts/default.html` | The `<head>`, header and navigation. **Edit the nav here once and every page updates.** |
+| `_includes/` | Shared Liquid partials. See "Shared includes" below |
+| `_data/` | The catalogues. `templates.yml`, `decks.yml`, `image_dims.yml`, `cover_srcset.yml` |
+| `_css/` | CSS sources. The built bundles live in `assets/css/` and are content-hashed |
+| `templates/` | The Notion template shop: hub, how-it-works, and one page per template |
+| `flashcards/` | The Anki deck shop: hub, how-it-works, instructions, and one page per deck |
+| `shop/` | Shared shop pages, currently the help page |
+| `services/`, `pages/` | Marketing and service pages |
+| `fr/` | French pages |
+| `redirects/` | Redirect stubs, all `noindex` |
+| `assets/` | Images, CSS bundles, JS. See "Who owns what" below |
+| `home.html`, `404.html` | Homepage and not-found page |
+| `robots.txt`, `sitemap.xml`, `llms.txt`, `CNAME` | Site plumbing. Do not delete `CNAME` |
 
-- `_config.yml` — site-wide title, description, canonical URL.
-- `_layouts/default.html` — the `<head>`, site header and navigation. **Edit the nav here once and every page updates.**
-- `*.html` — one file per page. Each starts with front matter setting `title`, `description` and `permalink`.
-- `CNAME` — custom domain. Do not delete.
-- `assets/` — images, served from this repo (no CDN).
+Each page carries front matter with at least `title`, `description` and `permalink`.
+Pages with `noindex: true` and `sitemap: false` are hidden: no robots, no sitemap entry.
 
-## Page map
+## The two shops
 
-| File | URL |
-|---|---|
-| `home.html` | `/` |
-| `notion.html` | `/notion/` |
-| `cyber.html` | `/cyber/` |
-| `cyber-grc.html` | `/cyber-grc/` |
-| `fractional-ciso.html` | `/fractional-ciso/` |
-| `tools.html` | `/tools/` |
-| `use-case.html` | `/use-case/` |
-| `guide.html` | `/guide/` |
-| `contact.html` | `/contact/` |
-| `investor-ready-sprint.html` | `/investor-ready-sprint/` |
-| `start.html` | `/start/` |
-| `fr/*.html` | `/fr/…` (French twin of each page above) |
+Both shops run on **one implementation**. The includes are parameterised, never forked.
 
-## Adding a page
-
-Create `newpage.html` with front matter, then add it to the nav list in `_layouts/default.html`:
-
-```
----
-layout: default
-title: "Page title for search results"
-description: "Meta description, roughly 150 characters."
-permalink: /newpage/
----
+```liquid
+{% include shop-grid.html catalogue=site.data.decks %}
+{% include pd-buybox.html catalogue=site.data.decks id="cissp-flashcards" %}
 ```
 
-Push to `main`. GitHub Pages rebuilds in about a minute.
+Called bare, they default to `site.data.templates` and `page.template_id`, so every
+templates page behaves exactly as it always did.
 
-## Outstanding
+| Include | Job |
+| --- | --- |
+| `shop-grid.html` | The card grid, filters and product-type badge |
+| `pd-buybox.html` | Price, buy button and upgrade band. Resolves Stripe, then Etsy, then Notion Marketplace |
+| `shop-gallery.html` | Gallery, phone strip, lightbox. Takes `noun` so a deck page does not say "template" |
+| `last-updated.html` | The Last updated cell |
+| `shop-footer.html` | Shop footer |
 
-- 13 images still hotlink `cdn.prod.website-files.com` (Webflow). Re-host under `assets/`.
-- The first badge on `/notion/` is labelled **Certified Consultant** using the circular stamp. If you hold a distinct *Notion Consulting Partner* badge asset, drop it in `assets/images/` and relabel.
-- `assets/brand/notion-certified-consultant-wide.png` (horizontal lockup) is stored but unused.
-- Each page still carries its own duplicated `<style>` block and footer. Consolidate into the layout when convenient.
+**Adding a product is a data-only change.** Add an entry to `_data/templates.yml` or
+`_data/decks.yml` and create the page from an existing one. The hub, counts, filters,
+search and badges all follow automatically.
+
+**Switching a deck to native checkout** is one field: paste a payment link into `stripe:`
+and the buy button stops pointing at Etsy. No page edit.
+
+## Who owns what under `assets/`
+
+This repo has **two writers**, and the split matters.
+
+| Path | Owner | Rule |
+| --- | --- | --- |
+| `assets/templates/`, `assets/etsy/` | The image-import Action | Do not hand-edit. Add a `{path, url}` pair to `assets/template-images-manifest.json` and the Action downloads and commits it |
+| `assets/template-images-manifest.json` | The image-import Action | Append only, never rewrite |
+| `.github/` | The Action | Leave alone unless changing the pipeline itself |
+| everything else | People | Normal edits |
+
+`.github/import-result.txt` records the last run, for example
+`downloaded=270 already_present=132 failed=0`.
+
+After images land, point the catalogue at them:
+
+```
+python3 wire-deck-images.py <repo> --write
+```
+
+It reads what is actually on disk, sorts photos by pixel shape (portrait becomes the
+phone strip, landscape the gallery) and appends real dimensions to `image_dims.yml`,
+so nothing shifts while a page loads.
+
+## Feature flags in `_config.yml`
+
+| Flag | Effect |
+| --- | --- |
+| `shop_nav` | `false` hides the Shop menu. `true` reveals Notion Templates, Anki Flashcards and Help in the header |
+| `cf_analytics_token` | Empty means no analytics beacon is emitted at all |
+
+## Before you push
+
+The site has no test suite, so changes are verified by rendering. Confirm that:
+
+1. every catalogue id has a page and every page has a catalogue entry
+2. permalinks are unique across the whole site
+3. product pages still match the reference page structurally
+4. pages that should be hidden still carry `noindex` and `sitemap: false`
+5. no page that already existed renders differently unless you meant it to
+
+House style: **no em dashes anywhere**, including commit messages. English only in
+the flashcards shop. Never invent a card count, price, rating or review: unknown
+values are the literal string `TBC`.
