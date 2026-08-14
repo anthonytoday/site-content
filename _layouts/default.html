@@ -168,7 +168,7 @@
           {% comment %}Real Estate Offer temporarily hidden from EN navigation. The page stays live and indexed because the South Florida outreach links to it directly.{% endcomment %}
           {% if lang == "fr" %}<a href="{{ u_build }}"{% if page.url == u_build %} aria-current="page"{% endif %}>Notion Build 10 jours</a>
           <a href="{{ u_sprint }}"{% if page.url == u_sprint %} aria-current="page"{% endif %}>Offre Immobilier</a>{% else %}<a href="{{ u_build }}"{% if page.url == u_build %} aria-current="page"{% endif %}>10-Day Notion Build</a>{% endif %}
-          {% unless site.shop_nav %}<a href="{{ u_templates }}"{% if page.url == u_templates %} aria-current="page"{% endif %}>eShop</a>{% endunless %}
+          {% unless site.shop_nav %}<a href="{{ u_templates }}"{% if page.url == u_templates %} aria-current="page"{% endif %}>{% if lang == "fr" %}Templates Notion{% else %}Notion Templates{% endif %}</a>{% endunless %}
         </div>
       </div>
 
