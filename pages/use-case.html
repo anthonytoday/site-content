@@ -7,117 +7,144 @@ lang: en
 alt_url: /fr/use-case/
 schema_type: "Article"
 bc_name: "Notion Governance Case Study"
-bc_parent_name: "Notion Consulting"
-bc_parent_url: /notion/
-css_bundle: /assets/css/b-37f8019337.css
+css_bundle: /assets/css/b-d750951b64.css
 ---
-<section class="uc-hero">
-  <span class="uc-tag">Case Study</span>
-  <h1>Notion Governance Remediation: $2,880 in annual license cost recovered, access risk reduced from High to Low.</h1>
-  <p>How a 28-person B2B SaaS company moved from uncontrolled workspace access to a documented, governed system in 21 days.</p>
-  <div class="uc-note">Composite scenario based on findings typical of a Notion Ops Audit. Company details are illustrative, not a specific client.</div>
+
+{% if page.lang == "fr" %}{% assign p = "/fr" %}{% else %}{% assign p = "" %}{% endif %}
+
+<div class="x">
+
+<div class="xh">
+  <div class="w">
+    <div class="eb">Case study &middot; Notion governance remediation</div>
+    <h1>$2,880 in annual license cost recovered, access risk reduced from High to Low.</h1>
+    <p class="sub">How a 28-person B2B SaaS company moved from uncontrolled workspace access
+       to a documented, governed system <b>in 21 days</b>.</p>
+    <div class="fine">Composite scenario based on findings typical of a Notion Ops Audit.
+       Company details are illustrative, not a specific client.</div>
+    <div class="xtrust">
+      <span><b>$2,880</b> annual license cost recovered</span>
+      <span><b>78%</b> reduction in onboarding time</span>
+      <span><b>High &rarr; Low</b> access risk classification</span>
+      <span><b>21</b> days from audit to full remediation</span>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="w">
+    <div class="k">The engagement</div>
+    <h2>Seven findings on day zero.<br>Every one of them closed by day 21.</h2>
+    <p class="lede">A new hire, added to a shared teamspace during onboarding, was able to view
+       contract terms belonging to a different client. No breach occurred. The COO could not
+       confirm who had access to what across the workspace.</p>
+    <div class="xba">
+      <div class="xc no">
+        <div class="ct">Audit findings, rated by risk</div>
+        <ul>
+          <li><b>Critical:</b> 3 teamspaces set to open-edit with no access review. No control over who can modify client-facing content.</li>
+          <li><b>High:</b> no offboarding process to revoke access when contractors or employees leave. A structural gap: it recurs with every departure.</li>
+          <li><b>High:</b> 14 guest accounts still active from engagements closed 6+ months prior. Live, unreviewed access existing today.</li>
+          <li><b>Medium:</b> 12 paid seats assigned to inactive or departed users. Recurring licensing cost with no corresponding usage.</li>
+          <li><b>Medium:</b> no approval step before new databases go live. Unmanaged data sprawl over time.</li>
+          <li><b>Medium:</b> 1 database with 40+ properties, no owner assigned. Reporting errors, duplicated manual work.</li>
+          <li><b>Low:</b> no standardized templates for recurring project types. Inconsistent formatting, minor onboarding friction, no security exposure.</li>
+        </ul>
+      </div>
+      <div class="xc yes">
+        <div class="ct">Day 21, after remediation</div>
+        <ul>
+          <li>Access rebuilt on least-privilege principles, guest accounts reduced from 14 to 2</li>
+          <li>All open-edit teamspaces converted to role-based permissions with named owners</li>
+          <li>Offboarding checklist added to the HR termination workflow, tied to Notion admin access removal</li>
+          <li>Master database split into 3 purpose-built databases with defined ownership</li>
+          <li>Approval step added before any new database is created</li>
+          <li>12 inactive paid seats identified and removed at the next billing cycle</li>
+          <li>Risk classification moved from High to Low (Acceptable)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="xval">
+      <div class="l">Findings 2 and 3 are related. The missing offboarding process is the
+         structural cause, the <b>14 live guest accounts</b> are its current, visible consequence.
+         Both were tracked and resolved separately.</div>
+      <div class="r">Risk: <s>High</s> &nbsp;&rarr;&nbsp; <b style="color:var(--nv)">Low (Acceptable)</b></div>
+    </div>
+  </div>
 </section>
 
-<div class="stats-row">
-  <div class="stat-card"><div class="num">$2,880</div><div class="label">annual license cost recovered</div></div>
-  <div class="stat-card"><div class="num">78%</div><div class="label">reduction in onboarding time</div></div>
-  <div class="stat-card"><div class="num">High → Low</div><div class="label">access risk classification</div></div>
-  <div class="stat-card"><div class="num">21</div><div class="label">days from audit to full remediation</div></div>
-</div>
-
-<div class="uc-body">
-
-  <div class="uc-act">
-    <span class="act-label">Situation</span>
-    <h2>Trigger event</h2>
-    <p>A 28-person B2B SaaS company ran sales, product, and client operations entirely in Notion. A new hire, added to a shared teamspace during onboarding, was able to view contract terms belonging to a different client. No breach occurred. The COO could not confirm who had access to what across the workspace. She engaged a Notion Ops Audit: 90 minutes, $197.</p>
-  </div>
-
-  <div class="uc-act">
-    <span class="act-label">Findings</span>
-    <h2>Audit results, rated by risk</h2>
-    <table class="findings">
-      <tr><th>#</th><th>Finding</th><th>Risk</th><th>Business impact</th></tr>
-      <tr><td>1</td><td>3 teamspaces set to open-edit with no access review</td><td><span class="risk-pill risk-critical">Critical</span></td><td>No control over who can modify client-facing content</td></tr>
-      <tr><td>2</td><td>No offboarding process to revoke access when contractors or employees leave</td><td><span class="risk-pill risk-high">High</span></td><td>Structural gap: access loss is not a one-time issue, it recurs with every departure</td></tr>
-      <tr><td>3</td><td>14 guest accounts still active from engagements closed 6+ months prior</td><td><span class="risk-pill risk-high">High</span></td><td>Direct consequence of finding #2: live, unreviewed access existing today</td></tr>
-      <tr><td>4</td><td>12 paid seats assigned to inactive or departed users</td><td><span class="risk-pill risk-medium">Medium</span></td><td>Recurring licensing cost with no corresponding usage</td></tr>
-      <tr><td>5</td><td>No approval step before new databases go live</td><td><span class="risk-pill risk-medium">Medium</span></td><td>Unmanaged data sprawl over time</td></tr>
-      <tr><td>6</td><td>1 database with 40+ properties, no owner assigned</td><td><span class="risk-pill risk-medium">Medium</span></td><td>Reporting errors, duplicated manual work</td></tr>
-      <tr><td>7</td><td>No standardized templates for recurring project types</td><td><span class="risk-pill risk-low">Low</span></td><td>Inconsistent formatting, minor onboarding friction, no security exposure</td></tr>
-    </table>
-    <p style="font-size:13px;color:var(--text-gray)">Findings #2 and #3 are related: #2 is the structural cause, #3 is its current, visible consequence. Both are tracked and resolved separately below.</p>
-  </div>
-
-  <div class="uc-act">
-    <span class="act-label">Remediation (21 days)</span>
-    <h2>Actions taken</h2>
-    <ul>
-      <li>Access rebuilt on least-privilege principles; guest accounts reduced from 14 to 2</li>
-      <li>All open-edit teamspaces converted to role-based permissions with named owners</li>
-      <li>Offboarding checklist added to the HR termination workflow, tied to Notion admin access removal</li>
-      <li>Master database split into 3 purpose-built databases with defined ownership</li>
-      <li>Approval step added before any new database is created</li>
-      <li>12 inactive paid seats identified and removed at the next billing cycle</li>
-    </ul>
-  </div>
-
-  <div class="uc-act">
-    <span class="act-label">Result</span>
-    <h2>Risk classification: before and after, day 21</h2>
-    <div class="risk-transition">
-      <div class="risk-box before">
-        <div class="risk-level">HIGH</div>
-        <div class="risk-sub">Uncontrolled guest access, no offboarding process, unowned teamspaces</div>
-      </div>
-      <div class="risk-arrow">→</div>
-      <div class="risk-box after">
-        <div class="risk-level">LOW (Acceptable)</div>
-        <div class="risk-sub">Named owners, revocation on offboarding, quarterly access review scheduled</div>
-      </div>
+<section style="padding-top:0">
+  <div class="w">
+    <div class="k">How it ran</div>
+    <h2>Audit first. Then remediation. Then a control that holds.</h2>
+    <p class="lede">The company ran sales, product and client operations entirely in Notion.</p>
+    <div class="xtl">
+      <div class="xtli"><span class="d">Day zero</span>
+        <h3>Notion Ops Audit ($197)</h3>
+        <p>Teamspaces, guests, paid seats and database ownership reviewed. Seven findings,
+           each rated Critical, High, Medium or Low, each with its business impact written down.</p></div>
+      <div class="xtli"><span class="d">Days 1 to 21</span>
+        <h3>Remediation</h3>
+        <p>Access rebuilt on least-privilege principles: named owners, role-based permissions,
+           an offboarding checklist tied to admin access removal, and an approval step before
+           any new database goes live.</p></div>
+      <div class="xtli"><span class="d">Day 21</span>
+        <h3>Risk reclassified</h3>
+        <p>Reduced to an acceptable level defined by three controls: every teamspace has a named
+           owner, access is revoked automatically at offboarding, and permissions are reviewed
+           quarterly rather than left indefinitely.</p></div>
     </div>
-    <p>Risk was reduced to an acceptable level defined by three controls: every teamspace has a named owner, access is revoked automatically at offboarding, and permissions are reviewed quarterly rather than left indefinitely.</p>
   </div>
+</section>
 
-</div>
-
-<div class="benefits-section">
-  <h2>Cost savings: Notion licensing</h2>
-  <table class="cost-table">
-    <tr><th>Item</th><th>Detail</th><th>Annual value</th></tr>
-    <tr><td>Inactive seats removed</td><td>12 seats on Notion Business ($20/user/month, billed annually)</td><td>$2,880</td></tr>
-    <tr><td>Admin time recovered</td><td>~5 hours/month previously spent manually tracking access, now handled by the offboarding workflow</td><td>60 hrs/year</td></tr>
-  </table>
-  <div class="cost-summary">
-    <div class="cs-card"><div class="cs-num">$2,880/year</div><div class="cs-label">recovered license cost</div></div>
-    <div class="cs-card"><div class="cs-num">60 hrs/year</div><div class="cs-label">admin time redirected to other work</div></div>
-  </div>
-  <p style="font-size:13px;color:var(--text-gray);text-align:center;margin-top:14px">Based on Notion's published Business plan pricing of $20/user/month (annual billing). Actual savings scale with your seat count and plan tier.</p>
-</div>
-
-<div class="benefits-section">
-  <h2>Additional business outcomes</h2>
-  <div class="benefit-grid">
-    <div class="benefit-card">
-      <h3>Onboarding time</h3>
-      <p>Reduced from 2 weeks to 3 days. Role-based views meant new hires saw only what their role required from day one, removing manual access provisioning.</p>
+<section style="padding-top:0">
+  <div class="w">
+    <div class="k">Measured outcomes</div>
+    <h2>What changed, in numbers</h2>
+    <p class="lede">Cost, time and risk, all from the same engagement.</p>
+    <div class="xg">
+      <div class="xgi"><div class="i"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M14.5 9.2A3 3 0 0 0 12 8c-1.6 0-2.6.8-2.6 1.9 0 2.7 5.4 1.4 5.4 4.2 0 1.2-1.1 1.9-2.8 1.9a3.2 3.2 0 0 1-2.6-1.2"/><path d="M12 6.3v1.6M12 16v1.7"/></svg></div>
+        <h3>$2,880 a year recovered</h3><p>12 paid seats sat with inactive or departed users. Removed at the next billing cycle: 12 seats on Notion Business ($20/user/month, billed annually).</p></div>
+      <div class="xgi"><div class="i"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.2l3.4 2"/></svg></div>
+        <h3>60 hrs/year of admin time</h3><p>About 5 hours a month went on manually tracking access. The offboarding workflow handles it now, and that time is redirected to other work.</p></div>
+      <div class="xgi"><div class="i"><svg viewBox="0 0 24 24"><path d="M16.5 20v-1.8a3.4 3.4 0 0 0-3.4-3.4H6.9A3.4 3.4 0 0 0 3.5 18.2V20"/><circle cx="10" cy="7.4" r="3.4"/><path d="M17 11.2l1.8 1.8 3.2-3.4"/></svg></div>
+        <h3>Onboarding: 2 weeks to 3 days</h3><p>A 78% reduction. Role-based views meant new hires saw only what their role required from day one, removing manual access provisioning.</p></div>
+      <div class="xgi"><div class="i"><svg viewBox="0 0 24 24"><path d="M15.5 20v-1.8a3.4 3.4 0 0 0-3.4-3.4H5.9a3.4 3.4 0 0 0-3.4 3.4V20"/><circle cx="9" cy="7.4" r="3.4"/><path d="M16.5 4.2a3.4 3.4 0 0 1 0 6.5M18.5 20v-1.8a3.4 3.4 0 0 0-2.5-3.3"/></svg></div>
+        <h3>Guest accounts: 14 to 2</h3><p>14 guests were still active from engagements closed 6+ months prior. Access was rebuilt on least-privilege principles.</p></div>
+      <div class="xgi"><div class="i"><svg viewBox="0 0 24 24"><path d="M12 3.2l7 2.6v5.3c0 4.2-2.9 7.6-7 9.7-4.1-2.1-7-5.5-7-9.7V5.8z"/><path d="M9.2 12.1l1.9 1.9 3.7-4"/></svg></div>
+        <h3>Access risk: High to Low</h3><p>Day zero: uncontrolled guest access, no offboarding process, unowned teamspaces. Day 21: named owners, revocation on offboarding, quarterly access review scheduled.</p></div>
+      <div class="xgi"><div class="i"><svg viewBox="0 0 24 24"><path d="M14 3.2H7a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.2z"/><path d="M14 3.2v5h5"/><path d="M8.8 14.4l1.8 1.8 3.6-3.9"/></svg></div>
+        <h3>Security questionnaire in one sitting</h3><p>A customer security questionnaire was completed in one sitting, replacing what had previously been a week-long, multi-person scramble.</p></div>
     </div>
-    <div class="benefit-card">
-      <h3>Sales cycle friction</h3>
-      <p>A customer security questionnaire was completed in one sitting, replacing what had previously been a week-long, multi-person scramble.</p>
+    <div class="xval">
+      <div class="l">Based on Notion's published Business plan pricing of <b>$20/user/month</b>
+         (annual billing).</div>
+      <div class="r">Actual savings scale with your seat count and plan tier.</div>
+    </div>
+  </div>
+</section>
+
+<div class="xcl">
+  <div class="w">
+    <h2>Get your license cost and access risk assessed</h2>
+    <p>Findings like these surface in the audit. Start with the same first step this company did.</p>
+    <a class="xbtn" href="https://store.anthonytoday.com/l/notion-ops-audit">Book the Notion Ops Audit &middot; $197</a>
+    <div class="scar">Every finding above was rated, tracked and closed <b>separately</b>.</div>
+    <div class="xnext" style="max-width:760px;margin-left:auto;margin-right:auto;text-align:left">
+      <div><div class="t">Need the workspace built, not just assessed?</div>
+        <div class="s">The 10-Day Notion Build: architecture, migration, a documented access model and training. $2,500, ten days.</div></div>
+      <a href="{{ p }}/notion-build/">See the build &rarr;</a>
+    </div>
+    <div class="xnext" style="max-width:760px;margin-left:auto;margin-right:auto;text-align:left">
+      <div><div class="t">Already have a workspace to keep governed?</div>
+        <div class="s">Notion Consultant as a Service keeps a certified consultant on call, ongoing support from $247 a month.</div></div>
+      <a href="{{ p }}/notion-consultant-as-a-service/">See the plan &rarr;</a>
     </div>
   </div>
 </div>
 
-<div class="uc-cta">
-  <h2>Get your license cost and access risk assessed</h2>
-  <p>Findings like these surface in the first 90 minutes of an audit. Start with the same first step this company did.</p>
-  <a href="https://store.anthonytoday.com/l/notion-ops-audit" class="uc-cta-button">Book the Notion Ops Audit ($197)</a>
 </div>
 
-<!-- FOOTER, light background, exact match to Notion page -->
-
-{% include start-here.html %}
-
+<div class="disclosure" style="max-width:1080px;margin:0 auto;padding:0 32px 40px;font-size:13px;color:#8A98A8;text-align:center">If you upgrade your Notion plan through a link I share, I may earn a commission at no additional cost to you. <a href="{{ p }}/privacy/" style="color:inherit">Privacy policy</a>.</div>
 
 {% include site-footer.html %}

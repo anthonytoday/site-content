@@ -7,106 +7,137 @@ lang: fr
 alt_url: /use-case/
 schema_type: "Article"
 bc_name: "Étude de cas gouvernance Notion"
-bc_parent_name: "Conseil Notion"
-bc_parent_url: /fr/notion/
-css_bundle: /assets/css/b-37f8019337.css
+css_bundle: /assets/css/b-d750951b64.css
 ---
-<section class="uc-hero">
-<span class="uc-tag">Étude de cas</span>
-<h1>Remise en gouvernance d'un espace Notion : 2 880 $ de licences annuelles récupérés, risque d'accès ramené d'Élevé à Faible.</h1>
-<p>Comment un éditeur SaaS B2B de 28 personnes est passé d'un accès non maîtrisé à un système documenté et gouverné en 21 jours.</p>
-<div class="uc-note">Scénario composite construit à partir de constats typiques d'un Audit Notion Ops. Les détails de l'entreprise sont illustratifs et ne désignent pas un client précis.</div>
-</section>
-<div class="stats-row">
-<div class="stat-card"><div class="num">2 880 $</div><div class="label">de licences annuelles récupérées</div></div>
-<div class="stat-card"><div class="num">78 %</div><div class="label">de réduction du temps d'intégration</div></div>
-<div class="stat-card"><div class="num">Élevé → Faible</div><div class="label">classification du risque d'accès</div></div>
-<div class="stat-card"><div class="num">21</div><div class="label">jours entre l'audit et la remédiation complète</div></div>
+
+{% if page.lang == "fr" %}{% assign p = "/fr" %}{% else %}{% assign p = "" %}{% endif %}
+
+<div class="x">
+<div class="xh">
+<div class="w">
+<div class="eb">Étude de cas · Gouvernance Notion remise en ordre</div>
+<h1>2 880 $ de coûts de licence annuels récupérés, risque d'accès ramené d'Élevé à Faible.</h1>
+<p class="sub">Comment un éditeur B2B SaaS de 28 personnes est passé d'un espace de travail
+       ouvert à tous vents à un système documenté et gouverné <b>en 21 jours</b>.</p>
+<div class="fine">Scénario composite bâti sur des constats typiques d'un Notion Ops Audit.
+       Les détails de l'entreprise sont illustratifs et ne visent aucun client précis.</div>
+<div class="xtrust">
+<span><b>2 880 $</b> de coûts de licence récupérés chaque année</span>
+<span><b>78 %</b> de temps d'intégration en moins</span>
+<span><b>Élevé → Faible</b> classification du risque d'accès</span>
+<span><b>21</b> jours entre l'audit et la remédiation complète</span>
 </div>
-<div class="uc-body">
-<div class="uc-act">
-<span class="act-label">Situation</span>
-<h2>L'élément déclencheur</h2>
-<p>Un éditeur SaaS B2B de 28 personnes pilotait ses ventes, son produit et ses opérations clients entièrement dans Notion. Une nouvelle recrue, ajoutée à un teamspace partagé pendant son intégration, a pu consulter les conditions contractuelles d'un autre client. Aucune fuite n'a eu lieu. La COO était incapable de confirmer qui avait accès à quoi dans l'espace de travail. Elle a commandé un Audit Notion Ops : 90 minutes, 197 $.</p>
 </div>
-<div class="uc-act">
-<span class="act-label">Constats</span>
-<h2>Résultats de l'audit, classés par risque</h2>
-<table class="findings">
-<tr><th>#</th><th>Constat</th><th>Risque</th><th>Impact métier</th></tr>
-<tr><td>1</td><td>3 teamspaces en édition ouverte, sans aucune revue des accès</td><td><span class="risk-pill risk-critical">Critique</span></td><td>Aucun contrôle sur qui peut modifier les contenus vus par les clients</td></tr>
-<tr><td>2</td><td>Aucun processus de départ pour révoquer les accès des prestataires ou des salariés qui partent</td><td><span class="risk-pill risk-high">Élevé</span></td><td>Faille structurelle : la perte de maîtrise des accès n'est pas ponctuelle, elle se répète à chaque départ</td></tr>
-<tr><td>3</td><td>14 comptes invités encore actifs après des missions closes depuis plus de 6 mois</td><td><span class="risk-pill risk-high">Élevé</span></td><td>Conséquence directe du constat n° 2 : des accès bien réels, non revus, ouverts aujourd'hui</td></tr>
-<tr><td>4</td><td>12 licences payantes attribuées à des utilisateurs inactifs ou partis</td><td><span class="risk-pill risk-medium">Moyen</span></td><td>Coût de licence récurrent sans usage correspondant</td></tr>
-<tr><td>5</td><td>Aucune étape de validation avant la mise en service d'une nouvelle base de données</td><td><span class="risk-pill risk-medium">Moyen</span></td><td>Prolifération incontrôlée des données dans le temps</td></tr>
-<tr><td>6</td><td>1 base de données de plus de 40 propriétés, sans propriétaire désigné</td><td><span class="risk-pill risk-medium">Moyen</span></td><td>Erreurs de reporting, travail manuel dupliqué</td></tr>
-<tr><td>7</td><td>Aucun template standardisé pour les types de projets récurrents</td><td><span class="risk-pill risk-low">Faible</span></td><td>Mise en forme incohérente, friction légère à l'intégration, aucune exposition sécurité</td></tr>
-</table>
-<p style="font-size:13px;color:var(--text-gray)">Les constats n° 2 et n° 3 sont liés : le n° 2 est la cause structurelle, le n° 3 en est la conséquence visible aujourd'hui. Les deux sont suivis et traités séparément ci-dessous.</p>
 </div>
-<div class="uc-act">
-<span class="act-label">Remédiation (21 jours)</span>
-<h2>Actions menées</h2>
+<section>
+<div class="w">
+<div class="k">La mission</div>
+<h2>Sept constats au jour zéro.<br/>Tous refermés au jour 21.</h2>
+<p class="lede">Une nouvelle recrue, ajoutée à un espace d'équipe partagé pendant son intégration, a pu
+       consulter les conditions contractuelles d'un autre client. Aucune fuite n'a eu lieu. Le COO,
+       lui, était incapable de dire qui avait accès à quoi dans l'espace de travail.</p>
+<div class="xba">
+<div class="xc no">
+<div class="ct">Constats de l'audit, classés par niveau de risque</div>
 <ul>
-<li>Accès reconstruits selon le principe du moindre privilège ; comptes invités ramenés de 14 à 2</li>
-<li>Tous les teamspaces en édition ouverte convertis en permissions par rôle, avec des propriétaires nommés</li>
-<li>Checklist de départ intégrée au processus RH de fin de contrat, reliée au retrait des accès dans l'admin Notion</li>
-<li>Base de données maîtresse scindée en 3 bases dédiées, avec une responsabilité définie</li>
-<li>Étape de validation ajoutée avant la création de toute nouvelle base de données</li>
-<li>12 licences payantes inactives identifiées et supprimées au cycle de facturation suivant</li>
+<li><b>Critique :</b> 3 espaces d'équipe en édition ouverte, sans aucune revue des accès. Aucun contrôle sur qui peut modifier les contenus vus par les clients.</li>
+<li><b>Élevé :</b> aucun processus de départ pour retirer les accès quand un prestataire ou un salarié s'en va. Une faille structurelle : elle se rejoue à chaque départ.</li>
+<li><b>Élevé :</b> 14 comptes invités encore actifs, hérités de missions clôturées il y a plus de 6 mois. Des accès bien réels, jamais revus, ouverts aujourd'hui même.</li>
+<li><b>Moyen :</b> 12 licences payantes attribuées à des utilisateurs inactifs ou partis. Un coût de licence récurrent sans usage en face.</li>
+<li><b>Moyen :</b> aucune étape de validation avant la mise en service d'une nouvelle base de données. Prolifération de données non maîtrisée avec le temps.</li>
+<li><b>Moyen :</b> 1 base de données de plus de 40 propriétés, sans propriétaire désigné. Erreurs de reporting, travail manuel fait deux fois.</li>
+<li><b>Faible :</b> aucun modèle standardisé pour les types de projets récurrents. Mise en forme irrégulière, léger frein à l'intégration, aucune exposition côté sécurité.</li>
 </ul>
 </div>
-<div class="uc-act">
-<span class="act-label">Résultat</span>
-<h2>Classification du risque : avant et après, au 21e jour</h2>
-<div class="risk-transition">
-<div class="risk-box before">
-<div class="risk-level">ÉLEVÉ</div>
-<div class="risk-sub">Accès invités non maîtrisés, aucun processus de départ, teamspaces sans propriétaire</div>
-</div>
-<div class="risk-arrow">→</div>
-<div class="risk-box after">
-<div class="risk-level">FAIBLE (Acceptable)</div>
-<div class="risk-sub">Propriétaires nommés, révocation au départ, revue des accès planifiée chaque trimestre</div>
-</div>
-</div>
-<p>Le risque a été ramené à un niveau acceptable défini par trois contrôles : chaque teamspace a un propriétaire nommé, les accès sont révoqués automatiquement au départ, et les permissions sont revues chaque trimestre au lieu d'être laissées en l'état indéfiniment.</p>
+<div class="xc yes">
+<div class="ct">Jour 21, après remédiation</div>
+<ul>
+<li>Accès reconstruits sur le principe du moindre privilège, comptes invités ramenés de 14 à 2</li>
+<li>Tous les espaces d'équipe en édition ouverte convertis en permissions par rôle, avec des propriétaires nommés</li>
+<li>Check-list de départ intégrée au processus RH de fin de contrat, reliée au retrait des accès administrateur Notion</li>
+<li>Base de données principale scindée en 3 bases dédiées, chacune avec un propriétaire clairement défini</li>
+<li>Étape de validation ajoutée avant la création de toute nouvelle base de données</li>
+<li>12 licences payantes inactives repérées et supprimées au cycle de facturation suivant</li>
+<li>Classification du risque passée d'Élevé à Faible (acceptable)</li>
+</ul>
 </div>
 </div>
-<div class="benefits-section">
-<h2>Économies réalisées : licences Notion</h2>
-<table class="cost-table">
-<tr><th>Poste</th><th>Détail</th><th>Valeur annuelle</th></tr>
-<tr><td>Licences inactives supprimées</td><td>12 licences Notion Business (20 $/utilisateur/mois, facturation annuelle)</td><td>2 880 $</td></tr>
-<tr><td>Temps d'administration récupéré</td><td>~5 heures/mois auparavant consacrées au suivi manuel des accès, désormais pris en charge par le processus de départ</td><td>60 h/an</td></tr>
-</table>
-<div class="cost-summary">
-<div class="cs-card"><div class="cs-num">2 880 $/an</div><div class="cs-label">de coût de licence récupéré</div></div>
-<div class="cs-card"><div class="cs-num">60 h/an</div><div class="cs-label">de temps d'administration réaffecté à autre chose</div></div>
-</div>
-<p style="font-size:13px;color:var(--text-gray);text-align:center;margin-top:14px">Calcul basé sur le tarif public du plan Notion Business, 20 $/utilisateur/mois en facturation annuelle. Les économies réelles varient selon votre nombre de licences et votre plan.</p>
-</div>
-<div class="benefits-section">
-<h2>Autres bénéfices métier</h2>
-<div class="benefit-grid">
-<div class="benefit-card">
-<h3>Temps d'intégration</h3>
-<p>Ramené de 2 semaines à 3 jours. Les vues par rôle font que les nouvelles recrues ne voient que ce que leur rôle exige, dès le premier jour, ce qui supprime l'attribution manuelle des accès.</p>
-</div>
-<div class="benefit-card">
-<h3>Friction dans le cycle de vente</h3>
-<p>Un questionnaire de sécurité client a été complété en une seule fois, là où il fallait auparavant une semaine et la mobilisation de plusieurs personnes.</p>
+<div class="xval">
+<div class="l">Les constats 2 et 3 vont ensemble. L'absence de processus de départ en est la
+         cause structurelle, les <b>14 comptes invités actifs</b> en sont la conséquence visible aujourd'hui.
+         Les deux ont été suivis et résolus séparément.</div>
+<div class="r">Risque : <s>Élevé</s>  →  <b style="color:var(--nv)">Faible (acceptable)</b></div>
 </div>
 </div>
+</section>
+<section style="padding-top:0">
+<div class="w">
+<div class="k">Le déroulé</div>
+<h2>L'audit d'abord. La remédiation ensuite. Puis un contrôle qui tient dans la durée.</h2>
+<p class="lede">L'entreprise pilotait ses ventes, son produit et ses opérations client entièrement dans Notion.</p>
+<div class="xtl">
+<div class="xtli"><span class="d">Jour zéro</span>
+<h3>Notion Ops Audit (197 $)</h3>
+<p>Revue des espaces d'équipe, des invités, des licences payantes et de la propriété des bases de
+           données. Sept constats, chacun classé Critique, Élevé, Moyen ou Faible, chacun avec son impact métier écrit noir sur blanc.</p></div>
+<div class="xtli"><span class="d">Jours 1 à 21</span>
+<h3>Remédiation</h3>
+<p>Accès reconstruits sur le principe du moindre privilège : propriétaires nommés, permissions par rôle,
+           une check-list de départ reliée au retrait des accès administrateur, et une étape de validation avant
+           la mise en service de toute nouvelle base de données.</p></div>
+<div class="xtli"><span class="d">Jour 21</span>
+<h3>Risque reclassé</h3>
+<p>Ramené à un niveau acceptable défini par trois contrôles : chaque espace d'équipe a un propriétaire
+           nommé, les accès sont retirés automatiquement au départ d'une personne, et les permissions sont
+           revues chaque trimestre au lieu d'être laissées en l'état indéfiniment.</p></div>
 </div>
-<div class="uc-cta">
-<h2>Faites évaluer votre coût de licences et votre risque d'accès</h2>
-<p>Des constats de ce type ressortent dès les 90 premières minutes d'un audit. Commencez par la même première étape que cette entreprise.</p>
-<a class="uc-cta-button" href="https://store.anthonytoday.com/l/notion-ops-audit">Commander l'Audit Notion Ops (197 $)</a>
 </div>
-<!-- FOOTER: light background, exact match to Notion page -->
-
-{% include start-here.html %}
-
+</section>
+<section style="padding-top:0">
+<div class="w">
+<div class="k">Résultats mesurés</div>
+<h2>Ce qui a changé, en chiffres</h2>
+<p class="lede">Coût, temps et risque : tout sort de la même mission.</p>
+<div class="xg">
+<div class="xgi"><div class="i"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M14.5 9.2A3 3 0 0 0 12 8c-1.6 0-2.6.8-2.6 1.9 0 2.7 5.4 1.4 5.4 4.2 0 1.2-1.1 1.9-2.8 1.9a3.2 3.2 0 0 1-2.6-1.2"></path><path d="M12 6.3v1.6M12 16v1.7"></path></svg></div>
+<h3>2 880 $ récupérés par an</h3><p>12 licences payantes dormaient sur des utilisateurs inactifs ou partis. Supprimées au cycle de facturation suivant : 12 licences sur Notion Business (20 $ par utilisateur et par mois, facturation annuelle).</p></div>
+<div class="xgi"><div class="i"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7v5.2l3.4 2"></path></svg></div>
+<h3>60 h/an de temps d'administration</h3><p>Environ 5 heures par mois partaient dans le suivi manuel des accès. Le processus de départ s'en charge désormais, et ce temps est réinvesti ailleurs.</p></div>
+<div class="xgi"><div class="i"><svg viewbox="0 0 24 24"><path d="M16.5 20v-1.8a3.4 3.4 0 0 0-3.4-3.4H6.9A3.4 3.4 0 0 0 3.5 18.2V20"></path><circle cx="10" cy="7.4" r="3.4"></circle><path d="M17 11.2l1.8 1.8 3.2-3.4"></path></svg></div>
+<h3>Intégration : de 2 semaines à 3 jours</h3><p>Soit 78 % de moins. Grâce aux vues par rôle, chaque nouvelle recrue ne voit que ce que son rôle exige, dès le premier jour, sans provisionnement manuel des accès.</p></div>
+<div class="xgi"><div class="i"><svg viewbox="0 0 24 24"><path d="M15.5 20v-1.8a3.4 3.4 0 0 0-3.4-3.4H5.9a3.4 3.4 0 0 0-3.4 3.4V20"></path><circle cx="9" cy="7.4" r="3.4"></circle><path d="M16.5 4.2a3.4 3.4 0 0 1 0 6.5M18.5 20v-1.8a3.4 3.4 0 0 0-2.5-3.3"></path></svg></div>
+<h3>Comptes invités : de 14 à 2</h3><p>14 invités étaient encore actifs, hérités de missions clôturées il y a plus de 6 mois. Les accès ont été reconstruits sur le principe du moindre privilège.</p></div>
+<div class="xgi"><div class="i"><svg viewbox="0 0 24 24"><path d="M12 3.2l7 2.6v5.3c0 4.2-2.9 7.6-7 9.7-4.1-2.1-7-5.5-7-9.7V5.8z"></path><path d="M9.2 12.1l1.9 1.9 3.7-4"></path></svg></div>
+<h3>Risque d'accès : d'Élevé à Faible</h3><p>Jour zéro : accès invités incontrôlés, aucun processus de départ, espaces d'équipe sans propriétaire. Jour 21 : propriétaires nommés, révocation dès le départ, revue des accès planifiée chaque trimestre.</p></div>
+<div class="xgi"><div class="i"><svg viewbox="0 0 24 24"><path d="M14 3.2H7a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.2z"></path><path d="M14 3.2v5h5"></path><path d="M8.8 14.4l1.8 1.8 3.6-3.9"></path></svg></div>
+<h3>Questionnaire de sécurité bouclé d'une traite</h3><p>Un questionnaire de sécurité client a été rempli d'une seule traite, là où il fallait auparavant mobiliser plusieurs personnes pendant une semaine.</p></div>
+</div>
+<div class="xval">
+<div class="l">D'après le tarif public du plan Notion Business, soit <b>20 $ par utilisateur et par mois</b>
+         (facturation annuelle).</div>
+<div class="r">Les économies réelles dépendent de votre nombre de licences et de votre niveau de plan.</div>
+</div>
+</div>
+</section>
+<div class="xcl">
+<div class="w">
+<h2>Faites évaluer vos coûts de licence et votre risque d'accès</h2>
+<p>Ce genre de constats ressort de l'audit. Commencez par la même première étape que cette entreprise.</p>
+<a class="xbtn" href="https://store.anthonytoday.com/l/notion-ops-audit">Réserver le Notion Ops Audit · 197 $</a>
+<div class="scar">Chaque constat ci-dessus a été noté, suivi et refermé <b>séparément</b>.</div>
+<div class="xnext" style="max-width:760px;margin-left:auto;margin-right:auto;text-align:left">
+<div><div class="t">Vous voulez faire construire l'espace de travail, pas seulement l'évaluer ?</div>
+<div class="s">Le Notion Build en 10 jours : architecture, migration, modèle d'accès documenté et formation. 2 500 $, dix jours.</div></div>
+<a href="{{ p }}/notion-build/">Voir le Notion Build →</a>
+</div>
+<div class="xnext" style="max-width:760px;margin-left:auto;margin-right:auto;text-align:left">
+<div><div class="t">Vous avez déjà un espace de travail à garder sous contrôle ?</div>
+<div class="s">Notion Consultant as a Service garde un consultant certifié à portée de main, accompagnement continu à partir de 247 $ par mois.</div></div>
+<a href="{{ p }}/notion-consultant-as-a-service/">Voir l'offre →</a>
+</div>
+</div>
+</div>
+</div>
+<div class="disclosure" style="max-width:1080px;margin:0 auto;padding:0 32px 40px;font-size:13px;color:#8A98A8;text-align:center">Si vous passez à un plan Notion supérieur via un lien que je partage, je peux percevoir une commission, sans aucun coût supplémentaire pour vous. <a href="{{ p }}/privacy/" style="color:inherit">Politique de confidentialité</a>.</div>
 
 {% include site-footer.html %}
