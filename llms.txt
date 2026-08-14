@@ -10,7 +10,7 @@ permalink: /llms.txt
 
 Primary offer first. Prices are in USD and current as of August 2026.
 
-- [Notion Consulting](https://www.anthonytoday.com/notion/): workspace architecture, workflow automation, AI workflows, governance and security. Entry point: Notion Ops Audit at $197. Discovery Call $79. Audit and Design $1,500 to $6,000. Risk and Governance Build $5,000 to $20,000+.
+- [Notion Consulting](https://www.anthonytoday.com/notion/): workspace architecture, workflow automation, AI workflows, governance and security. Two offers: the 10-Day Notion Build at $2,500, and Notion Consultant as a Service at $247 a month.
 - [Cybersecurity and GRC](https://www.anthonytoday.com/cyber/): risk management frameworks, compliance remediation, audit readiness.
 - [GRC](https://www.anthonytoday.com/cyber-grc/): governance, risk and compliance programs.
 - [Fractional CISO](https://www.anthonytoday.com/fractional-ciso/): part-time security leadership.

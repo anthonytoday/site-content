@@ -95,7 +95,6 @@
     "@type":"OfferCatalog",
     "name":{% if lang == "fr" %}"Prestations"{% else %}"Services"{% endif %},
     "itemListElement":[
-     {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"Audit Notion Ops"{% else %}"Notion Ops Audit"{% endif %},"serviceType":"Notion workspace audit"},"price":"197","priceCurrency":"USD"},
      {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"Appel découverte"{% else %}"Discovery Call"{% endif %},"serviceType":"Consulting"},"price":"79","priceCurrency":"USD"},
      {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"Audit et conception"{% else %}"Audit & Design"{% endif %},"serviceType":"Notion workspace architecture"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"1500","maxPrice":"6000","priceCurrency":"USD"}},
      {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"Chantier risque et gouvernance"{% else %}"Risk & Governance Build"{% endif %},"serviceType":"Governance risk and compliance"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"5000","maxPrice":"20000","priceCurrency":"USD"}},
@@ -162,12 +161,8 @@
       <div class="nav-item">
         <a href="{{ u_notion }}"{% if page.url == u_notion %} aria-current="page"{% endif %}>Notion</a>
         <div class="sub">
-          <a href="{{ u_challenges }}"{% if page.url == u_challenges %} aria-current="page"{% endif %}>{% if lang == "fr" %}Top 10 questions{% else %}Top 10 Questions{% endif %}</a>
-          <a href="{{ u_guide }}"{% if page.url == u_guide %} aria-current="page"{% endif %}>{% if lang == "fr" %}Guides{% else %}Guide{% endif %}</a>
-          <a href="{{ u_usecase }}"{% if page.url == u_usecase %} aria-current="page"{% endif %}>{% if lang == "fr" %}Cas clients{% else %}Use Cases{% endif %}</a>
-          {% comment %}Real Estate Offer temporarily hidden from EN navigation. The page stays live and indexed because the South Florida outreach links to it directly.{% endcomment %}
-          {% if lang == "fr" %}<a href="{{ u_build }}"{% if page.url == u_build %} aria-current="page"{% endif %}>Notion Build 10 jours</a>
-          <a href="{{ u_sprint }}"{% if page.url == u_sprint %} aria-current="page"{% endif %}>Offre Immobilier</a>{% else %}<a href="{{ u_build }}"{% if page.url == u_build %} aria-current="page"{% endif %}>10-Day Notion Build</a>{% endif %}
+          {% comment %}Aug 14, 2026: the Notion dropdown carries the two offers and the shop only. Top 10 Questions, Guide, Use Cases and the Real Estate offer stay live and are reached from body links, not from the header.{% endcomment %}
+          <a href="{{ u_build }}"{% if page.url == u_build %} aria-current="page"{% endif %}>{% if lang == "fr" %}Notion Build 10 jours{% else %}10-Day Notion Build{% endif %}</a>
           <a href="{{ u_caas }}"{% if page.url == u_caas %} aria-current="page"{% endif %}>{% if lang == "fr" %}Consultant Notion en continu{% else %}Notion Consultant as a Service{% endif %}</a>
           {% unless site.shop_nav %}<a href="{{ u_templates }}"{% if page.url == u_templates %} aria-current="page"{% endif %}>eShop</a>{% endunless %}
         </div>
