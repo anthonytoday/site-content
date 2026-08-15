@@ -1,0 +1,9 @@
+---
+layout: null
+permalink: /.well-known/security.txt
+---
+# Security contact for anthonytoday.com (RFC 9116)
+Contact: mailto:info@anthonytoday.com
+Expires: 2027-08-15T00:00:00.000Z
+Preferred-Languages: en, fr
+Canonical: https://www.anthonytoday.com/.well-known/security.txt

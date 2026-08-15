@@ -1,0 +1,46 @@
+name: Build gate
+
+# Mirrors the local pre-push gate in CI, so breakage from web edits or the
+# image bots (which push straight to main) fails loudly here instead of
+# publishing to the live site. Read-only: this workflow never pushes.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-gate
+  cancel-in-progress: true
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+
+      # No Gemfile in this repo: the site is vanilla Jekyll (data files,
+      # includes, layouts, no plugins), so a plain install is enough and
+      # matches how GitHub Pages builds it.
+      - name: Install Jekyll
+        run: gem install jekyll --no-document
+
+      - name: Build the site
+        run: jekyll build --trace
+
+      # PRIVATE_NAME is an optional repository secret. When set, the gate
+      # asserts the private name appears nowhere outside the agreed
+      # carve-outs (the LinkedIn URL and the noindex /go/ redirect stubs).
+      # The name itself is never written into the repo.
+      - name: Run the gate
+        env:
+          PRIVATE_NAME: ${{ secrets.PRIVATE_NAME }}
+        run: python3 .github/scripts/gate.py _site .
