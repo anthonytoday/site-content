@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop | Anthony Today</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Notion templates, exam prep flashcards, and business dashboards. Buy directly on this page via Gumroad.">
+<script src="https://gumroad.com/js/gumroad.js"></script>
+<script src="https://gumroad.com/js/gumroad-embed.js"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+        --navy: #051C2C;
+        --blue: #2251FF;
+        --white: #FFFFFF;
+        --light-gray: #F5F5F5;
+        --text-gray: #6B7280;
+        --border: #E5E7EB;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        line-height: 1.6;
+        color: var(--navy);
+        background: var(--white);
+    }
+
+    /* ---------- Header ---------- */
+    header {
+        background: var(--white);
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    .header-content {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo { font-size: 18px; font-weight: 600; color: var(--navy); text-decoration: none; }
+    nav a {
+        color: var(--text-gray);
+        text-decoration: none;
+        font-size: 14px;
+        margin-left: 24px;
+        font-weight: 500;
+    }
+    nav a:hover, nav a.active { color: var(--blue); }
+
+    /* ---------- Hero ---------- */
+    .hero {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 70px 20px 40px;
+        text-align: center;
+    }
+    .hero .eyebrow {
+        color: var(--blue);
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 14px;
+    }
+    .hero h1 { font-size: 40px; font-weight: 600; line-height: 1.2; margin-bottom: 16px; }
+    .hero p { font-size: 17px; color: var(--text-gray); max-width: 640px; margin: 0 auto 28px; }
+    .trust-bar {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        flex-wrap: wrap;
+        font-size: 14px;
+        color: var(--text-gray);
+    }
+    .trust-bar strong { color: var(--navy); }
+
+    /* ---------- Sections ---------- */
+    section { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+    .section-label {
+        color: var(--blue);
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 8px;
+    }
+    h2 { font-size: 28px; font-weight: 600; margin-bottom: 8px; }
+    .section-sub { color: var(--text-gray); font-size: 15px; margin-bottom: 30px; }
+
+    /* ---------- Featured embeds (Gumroad HTML block) ---------- */
+    .embed-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 24px;
+    }
+    .embed-card {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+        background: var(--white);
+        display: flex;
+        flex-direction: column;
+    }
+    .embed-card .card-tag {
+        background: var(--navy);
+        color: var(--white);
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 8px 16px;
+    }
+    .gumroad-product-embed { min-height: 480px; }
+    .gumroad-product-embed a { display:block; padding: 24px; color: var(--text-gray); }
+
+    /* ---------- Overlay buttons ---------- */
+    .quick-buy {
+        background: var(--light-gray);
+        border-radius: 12px;
+        padding: 36px;
+        text-align: center;
+    }
+    .quick-buy .btn-row {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 22px;
+    }
+    .gum-btn {
+        display: inline-block;
+        background: var(--blue);
+        color: var(--white);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 13px 22px;
+        border-radius: 8px;
+        transition: opacity .15s;
+    }
+    .gum-btn:hover { opacity: .88; }
+    .gum-btn.secondary { background: var(--white); color: var(--navy); border: 1px solid var(--border); }
+
+    /* ---------- CTA ---------- */
+    .cta {
+        background: var(--navy);
+        color: var(--white);
+        border-radius: 12px;
+        padding: 48px 36px;
+        text-align: center;
+    }
+    .cta h2 { color: var(--white); }
+    .cta p { color: #C7CDD4; margin-bottom: 24px; }
+
+    footer {
+        border-top: 1px solid var(--border);
+        margin-top: 40px;
+        padding: 30px 20px;
+        text-align: center;
+        color: var(--text-gray);
+        font-size: 13px;
+    }
+    footer a { color: var(--text-gray); }
+
+    @media (max-width: 640px) {
+        .hero h1 { font-size: 30px; }
+        nav a { margin-left: 14px; }
+    }
+</style>
+</head>
+<body>
+
+<div style="background:#FEF3C7;color:#92400E;text-align:center;font-size:13px;font-weight:600;padding:8px 16px;">Work in progress: preview page, not linked from the site.</div>
+
+<header>
+    <div class="header-content">
+        <a class="logo" href="https://www.anthonytoday.com/">Anthony Today</a>
+        <nav>
+            <a href="https://www.anthonytoday.com/">Home</a>
+            <a href="https://www.anthonytoday.com/notion/">Notion</a>
+            <a href="https://www.anthonytoday.com/cyber/">Cyber</a>
+            <a href="#shop" class="active">Shop</a>
+            <a href="https://www.anthonytoday.com/contact/">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="eyebrow">Digital Products</div>
+    <h1>Ready-made systems. No consulting engagement required.</h1>
+    <p>Notion templates, certification flashcards, and business dashboards, built from 15+ years in cybersecurity and systems design. Buy directly on this page: checkout happens right here via Gumroad.</p>
+    <div class="trust-bar">
+        <span><strong>60+</strong> completed engagements</span>
+        <span><strong>4.92/5</strong> client satisfaction</span>
+        <span><strong>23,000+</strong> professionals helped</span>
+    </div>
+</div>
+
+<!-- ============================================================
+     GUMROAD HTML BLOCK #1: Inline product embeds
+     Each card renders the full Gumroad product page inline,
+     with working checkout, without leaving your site.
+     ============================================================ -->
+<section id="shop">
+    <div class="section-label">Best Sellers</div>
+    <h2>Featured products</h2>
+    <p class="section-sub">Full product pages embedded inline. Checkout without leaving anthonytoday.com.</p>
+
+    <div class="embed-grid">
+        <div class="embed-card">
+            <div class="card-tag">Top Seller · Test Prep</div>
+            <div class="gumroad-product-embed">
+                <a href="https://anthonytoday.gumroad.com/l/cazwm">Loading CFA Level 1, 2, 3 Bundle…</a>
+            </div>
+        </div>
+        <div class="embed-card">
+            <div class="card-tag">Templates</div>
+            <div class="gumroad-product-embed">
+                <a href="https://anthonytoday.gumroad.com/l/guetnz">Loading Business Expenses Tracker…</a>
+            </div>
+        </div>
+        <div class="embed-card">
+            <div class="card-tag">Cybersecurity</div>
+            <div class="gumroad-product-embed">
+                <a href="https://anthonytoday.gumroad.com/l/olfnb">Loading Security+ v7 Flashcards…</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     GUMROAD HTML BLOCK #2: Overlay checkout buttons
+     Clicking opens Gumroad checkout in an overlay on top of
+     this page (gumroad.js handles it automatically).
+     ============================================================ -->
+<section>
+    <div class="quick-buy">
+        <div class="section-label">One-Click Overlay Checkout</div>
+        <h2>More from the shop</h2>
+        <p class="section-sub" style="margin-bottom:0">These buttons open Gumroad checkout in an overlay, right on top of this page.</p>
+        <div class="btn-row">
+            <a class="gum-btn" href="https://anthonytoday.gumroad.com/l/sjtzh">Ultimate Business Dashboard · CHF 99</a>
+            <a class="gum-btn" href="https://anthonytoday.gumroad.com/l/dpklzy">Real Estate Portfolio Manager · CHF 29</a>
+            <a class="gum-btn" href="https://store.anthonytoday.com/l/notion-ops-audit">Notion Ops Audit · $197</a>
+            <a class="gum-btn secondary" href="https://store.anthonytoday.com" target="_blank" rel="noopener">Browse the full store →</a>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="cta">
+        <h2>Need it built for you instead?</h2>
+        <p>Bring one real problem to a 30-minute call. You leave with a fix or a clear read on what to do next.</p>
+        <a class="gum-btn" href="https://cal.com/anthonytoday/consultation">Book a Discovery Call ($79)</a>
+    </div>
+</section>
+
+<footer>
+    © 2026 Anthony Today. All rights reserved. · <a href="https://www.anthonytoday.com/privacy/">Privacy</a>
+</footer>
+
+</body>
+</html>
