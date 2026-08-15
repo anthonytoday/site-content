@@ -150,6 +150,25 @@ const DEFAULT_BUDGET = 42;
 /** A Gumroad-assigned permalink is short and lowercase. A custom one is not. */
 const DEFAULT_PERMALINK = /^[a-z0-9]{4,8}$/;
 
+/**
+ * Ids for products the API cannot surface on its own.
+ *
+ * A product that carries a custom permalink, sits outside the 10 newest and
+ * has never sold is invisible three ways over: GET /products hides it, GET
+ * /products/:custom-permalink returns "not found", and no sale exists to carry
+ * its id. These three were read out of Gumroad live on 15 Aug 2026 and are
+ * used only as lookup keys; every field is still fetched fresh.
+ *
+ * Anything discovered later belongs in KV via gumroad_seed_product_ids, not
+ * here. This list exists because a connector holds its tool list until it is
+ * reconnected, and the catalogue had to be complete before that.
+ */
+const BOOTSTRAP_IDS = {
+  'CFA-Exam-study-plan': 'glZzGl1z8szth8nGUWR_Dw==',
+  'AQA-Chemistry-Flashcards': 'vQUYu5J6_vr8YhzZzQbI2Q==',
+  'AQA-Psychology-Flashcards': 'uQ_H2Y5mJxYKmAUz5I1ibw==',
+};
+
 const EMPTY_INDEX = () => ({ byPermalink: {}, products: {}, salesCursor: null, salesDone: false, updated_at: null });
 
 async function readIndex(env) {
@@ -191,7 +210,7 @@ export async function allProducts(env, opts = {}) {
   const spend = () => { left -= 1; };
 
   const index = opts.refresh ? EMPTY_INDEX() : await readIndex(env);
-  const byPermalink = new Map(Object.entries(index.byPermalink || {}));
+  const byPermalink = new Map([...Object.entries(BOOTSTRAP_IDS), ...Object.entries(index.byPermalink || {})]);
 
   // Products already discovered on a previous call. Without this the sales
   // walk would rediscover the same catalogue every time and the coverage

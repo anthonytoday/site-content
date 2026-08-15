@@ -416,5 +416,18 @@ await t('an id referenced inside another product is mined, not missed', async ()
   assert.equal(out.count, 2);
 });
 
+await t('every bootstrapped id resolves to the permalink it claims', async () => {
+  calls.length = 0;
+  const { allProducts } = await import('./src/gumroad.js');
+  const links = ['CFA-Exam-study-plan', 'AQA-Chemistry-Flashcards', 'AQA-Psychology-Flashcards'];
+  const ids = ['glZzGl1z8szth8nGUWR_Dw==', 'vQUYu5J6_vr8YhzZzQbI2Q==', 'uQ_H2Y5mJxYKmAUz5I1ibw=='];
+  const byKey = Object.fromEntries(ids.map((id, i) => [id, prod(id, 'zzzz' + i, { custom_permalink: links[i] })]));
+  shop({ links, products: [], sales: [], byKey });
+  const out = await allProducts(ENV, {});
+  assert.equal(out.coverage.complete, true, JSON.stringify(out.coverage));
+  // Reached by id, never by the custom permalink, which Gumroad 404s.
+  for (const l of links) assert.ok(!calls.some((c) => c.url.includes(l)), l);
+});
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
