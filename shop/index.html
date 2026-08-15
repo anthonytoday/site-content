@@ -11,7 +11,10 @@ css_bundle: /assets/css/b-425be4fa1e.css
 <link rel="preconnect" href="https://gumroad.com">
 <link rel="preconnect" href="https://public-files.gumroad.com">
 <link rel="dns-prefetch" href="https://app.gumroad.com">
-<script src="https://gumroad.com/js/gumroad.js" defer></script>
+<!-- gumroad.js is no longer loaded here. The inline script at the bottom of
+     this page loads it on the first sign of intent (hover, touch or focus on a
+     product card), the same facade pattern the homepage uses for Cal.com.
+     Until then, card clicks degrade gracefully to the Gumroad product page. -->
 <style>
   .gs-hero { max-width: 1180px; margin: 0 auto; padding: 46px 20px 16px; text-align: center; }
   .gs-hero .gs-eyebrow { color: #2251FF; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; }
@@ -130,7 +133,7 @@ css_bundle: /assets/css/b-425be4fa1e.css
 </section>
 
 <section class="gs-section" id="exams">
-    <h2>Exams & Certifications</h2>
+    <h2>Exams &amp; Certifications</h2>
     <div class="gs-grid">
             <a class="gs-card" href="https://anthonytoday.gumroad.com/l/cazwm" data-search="bundle: cfa level 1, 2, 3 exam prep flashcards cfa cfa exam cfa hacks accounting cfa level 1 exams &amp; certifications">
                 <div class="gs-thumb"><img src="https://public-files.gumroad.com/pzrszpe10g2bb61fu08pqk978qpc" alt="Bundle: CFA Level 1, 2, 3 Exam Prep Flashcards" loading="lazy"></div>
@@ -306,6 +309,28 @@ css_bundle: /assets/css/b-425be4fa1e.css
 (function() {
   var q = document.getElementById('q');
   var cards = Array.prototype.slice.call(document.querySelectorAll('.gs-card'));
+
+  // gumroad.js powers the overlay checkout, but it is the heaviest third-party
+  // script on the site. Load it on the first sign of intent: hover, touch, or
+  // keyboard focus on any product card. A click that lands before the script
+  // is ready simply opens the Gumroad product page instead of the overlay, so
+  // no click is ever lost. Same facade pattern as the Cal.com loader on the
+  // homepage.
+  var gumroadLoaded = false;
+  function loadGumroad() {
+    if (gumroadLoaded) return;
+    gumroadLoaded = true;
+    var s = document.createElement('script');
+    s.src = 'https://gumroad.com/js/gumroad.js';
+    s.async = true;
+    document.head.appendChild(s);
+  }
+  cards.forEach(function(card) {
+    card.addEventListener('pointerenter', loadGumroad, { once: true });
+    card.addEventListener('touchstart', loadGumroad, { once: true, passive: true });
+    card.addEventListener('focusin', loadGumroad, { once: true });
+  });
+
   var sectionsEls = Array.prototype.slice.call(document.querySelectorAll('.gs-section'));
   var count = document.getElementById('count');
   var empty = document.getElementById('empty');
