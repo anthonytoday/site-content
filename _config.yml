@@ -13,6 +13,7 @@ social:
     - https://www.notion.so/consulting-partners/anthonytoday
 exclude:
   - README.md
+  - gumroad-mcp/
   - credentials.md
   - "*.py"
   - i18n/

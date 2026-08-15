@@ -1,0 +1,10 @@
+name = "gumroad-mcp"
+main = "src/index.js"
+compatibility_date = "2026-08-08"
+
+[observability]
+enabled = true
+
+# Two secrets, both set with `wrangler secret put`. Neither belongs in this file.
+#   GUMROAD_ACCESS_TOKEN  the account-wide Gumroad token
+#   MCP_AUTH_TOKEN        the bearer Claude presents to reach /mcp
