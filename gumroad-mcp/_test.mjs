@@ -340,5 +340,66 @@ await t('bulk targeting sees the whole catalogue, not one page', async () => {
   assert.equal(out.would_update, 3);
 });
 
+await t('progress accumulates instead of going backwards', async () => {
+  const store = new Map();
+  const KV = {
+    get: async (k) => { const v = store.get(k); return v ? JSON.parse(v) : null; },
+    put: async (k, v) => { store.set(k, v); },
+  };
+  const envKv = { ...ENV, CATALOG: KV };
+
+  // First call: only the sales walk can reach 'hidden-one', and it is the last
+  // row of the only page, so a tight budget stops before hydrating it.
+  shop({
+    links: ['aaaaa', 'hidden-one'],
+    products: [],
+    sales: [{ product_id: 'p9', product_permalink: 'qqqqq' }],
+    byKey: { aaaaa: prod('p1', 'aaaaa'), p9: prod('p9', 'qqqqq', { custom_permalink: 'hidden-one' }) },
+  });
+  const first = await findTool('gumroad_list_products').handler(envKv, {});
+  assert.equal(first.coverage.complete, true);
+
+  // Second call must not lose what the first one learned.
+  const second = await findTool('gumroad_list_products').handler(envKv, {});
+  assert.ok(second.coverage.resolved >= first.coverage.resolved, 'coverage regressed');
+  assert.equal(second.count, first.count);
+});
+
+await t('seeding an id rescues a product the API cannot reach', async () => {
+  const store = new Map();
+  const KV = { get: async (k) => { const v = store.get(k); return v ? JSON.parse(v) : null; }, put: async (k, v) => { store.set(k, v); } };
+  const envKv = { ...ENV, CATALOG: KV };
+
+  shop({
+    links: ['ghost-permalink'],
+    products: [],
+    sales: [],
+    byKey: { GHOSTID: prod('GHOSTID', 'zzzzz', { custom_permalink: 'ghost-permalink' }) },
+  });
+
+  const before = await findTool('gumroad_list_products').handler(envKv, {});
+  assert.equal(before.coverage.complete, false);
+
+  const seeded = await findTool('gumroad_seed_product_ids').handler(envKv, {
+    pairs: [{ permalink: 'ghost-permalink', product_id: 'GHOSTID' }],
+  });
+  assert.equal(seeded.seeded, 1);
+
+  const after = await findTool('gumroad_list_products').handler(envKv, {});
+  assert.equal(after.coverage.complete, true);
+  assert.equal(after.count, 1);
+});
+
+await t('a bad seed reports the failure rather than poisoning the cache', async () => {
+  const store = new Map();
+  const KV = { get: async (k) => { const v = store.get(k); return v ? JSON.parse(v) : null; }, put: async (k, v) => { store.set(k, v); } };
+  shop({ links: [], products: [], sales: [], byKey: {} });
+  const out = await findTool('gumroad_seed_product_ids').handler({ ...ENV, CATALOG: KV }, {
+    pairs: [{ permalink: 'nope', product_id: 'WRONG' }],
+  });
+  assert.equal(out.seeded, 0);
+  assert.equal(out.results[0].ok, false);
+});
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

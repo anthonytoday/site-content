@@ -6,7 +6,7 @@
  * reachable through gumroad_request, so the Worker never becomes the ceiling.
  */
 
-import { get, post, put, del, call, allSales, allProducts, GumroadError } from './gumroad.js';
+import { get, post, put, del, call, allSales, allProducts, seedProductIds, GumroadError } from './gumroad.js';
 
 /* Parameters Gumroad accepts on product writes, taken from the CLI's create.go
    and update.go. Unknown keys are dropped rather than sent, so a typo fails
@@ -118,6 +118,29 @@ const TOOLS = [
         })),
       };
     },
+  },
+  {
+    name: 'gumroad_seed_product_ids',
+    description: 'Teach the catalogue cache the id behind a permalink. Needed only for a product that has a custom permalink, is outside the 10 newest and has no sales, which is the one combination the Gumroad API cannot resolve on its own. The id is the string in the dashboard URL at app.gumroad.com/products/<id>/edit.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        pairs: {
+          type: 'array',
+          description: 'One entry per product.',
+          items: {
+            type: 'object',
+            properties: {
+              permalink: { type: 'string', description: 'The permalink as /user reports it, for example AQA-Chemistry-Flashcards.' },
+              product_id: { type: 'string', description: 'The product id from the dashboard URL.' },
+            },
+            required: ['permalink', 'product_id'],
+          },
+        },
+      },
+      required: ['pairs'],
+    },
+    handler: (env, a) => seedProductIds(env, a.pairs || []),
   },
   {
     name: 'gumroad_get_product',

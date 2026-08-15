@@ -150,7 +150,7 @@ const DEFAULT_BUDGET = 42;
 /** A Gumroad-assigned permalink is short and lowercase. A custom one is not. */
 const DEFAULT_PERMALINK = /^[a-z0-9]{4,8}$/;
 
-const EMPTY_INDEX = () => ({ byPermalink: {}, salesCursor: null, salesDone: false, updated_at: null });
+const EMPTY_INDEX = () => ({ byPermalink: {}, products: {}, salesCursor: null, salesDone: false, updated_at: null });
 
 async function readIndex(env) {
   if (!env.CATALOG) return EMPTY_INDEX();
@@ -192,7 +192,11 @@ export async function allProducts(env, opts = {}) {
 
   const index = opts.refresh ? EMPTY_INDEX() : await readIndex(env);
   const byPermalink = new Map(Object.entries(index.byPermalink || {}));
-  const byId = new Map();
+
+  // Products already discovered on a previous call. Without this the sales
+  // walk would rediscover the same catalogue every time and the coverage
+  // figure would go backwards whenever the budget landed differently.
+  const byId = new Map(Object.entries(index.products || {}));
 
   // 1. The authoritative permalink list.
   spend();
@@ -233,7 +237,10 @@ export async function allProducts(env, opts = {}) {
     if (DEFAULT_PERMALINK.test(link)) await hydrate(link);
   }
 
-  // 4. Custom permalinks resolve through an id the cache already holds.
+  // 4. Custom permalinks resolve through an id the cache already holds. An id
+  //     can also be seeded by hand for a product that has a custom permalink,
+  //     sits outside the 10-item window and has no sales to surface it. Those
+  //     three conditions together make a product invisible to the whole API.
   for (const link of outstanding()) {
     if (left <= 0) break;
     const id = byPermalink.get(link);
@@ -267,6 +274,7 @@ export async function allProducts(env, opts = {}) {
 
   await writeIndex(env, {
     byPermalink: Object.fromEntries(byPermalink),
+    products: Object.fromEntries(byId),
     salesCursor: cursor,
     salesDone,
   });
@@ -284,4 +292,37 @@ export async function allProducts(env, opts = {}) {
         : undefined,
     },
   };
+}
+
+
+/**
+ * Teaches the catalogue cache an id for a permalink.
+ *
+ * A product that carries a custom permalink, falls outside the 10 newest and
+ * has no sales cannot be reached by any documented endpoint: GET /products
+ * hides it, GET /products/:custom-permalink returns "not found", and there is
+ * no sale to carry its id. Seeding the id once is the only way through, and
+ * once seeded it persists.
+ */
+export async function seedProductIds(env, pairs) {
+  const index = await readIndex(env);
+  const byPermalink = new Map(Object.entries(index.byPermalink || {}));
+  const products = { ...(index.products || {}) };
+  const results = [];
+
+  for (const { permalink, product_id } of pairs) {
+    try {
+      const p = (await get(env, `/products/${encodeURIComponent(product_id)}`)).product;
+      if (!p) throw new Error('No product in response.');
+      byPermalink.set(permalink, p.id);
+      for (const k of keysOf(p)) byPermalink.set(k, p.id);
+      products[p.id] = p;
+      results.push({ permalink, product_id, ok: true, name: p.name });
+    } catch (e) {
+      results.push({ permalink, product_id, ok: false, error: e.message });
+    }
+  }
+
+  await writeIndex(env, { ...index, byPermalink: Object.fromEntries(byPermalink), products });
+  return { seeded: results.filter((r) => r.ok).length, results };
 }
