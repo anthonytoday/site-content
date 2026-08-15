@@ -1,0 +1,338 @@
+---
+layout: default
+title: "Shop | Anthony Today"
+description: "Notion templates, certification flashcards, and business dashboards. Checkout happens right on the page via Gumroad."
+permalink: /shop/
+lang: en
+schema_type: "CollectionPage"
+bc_name: "Shop"
+css_bundle: /assets/css/b-425be4fa1e.css
+---
+<link rel="preconnect" href="https://gumroad.com">
+<link rel="preconnect" href="https://public-files.gumroad.com">
+<link rel="dns-prefetch" href="https://app.gumroad.com">
+<script src="https://gumroad.com/js/gumroad.js" defer></script>
+<style>
+  .gs-hero { max-width: 1180px; margin: 0 auto; padding: 46px 20px 16px; text-align: center; }
+  .gs-hero .gs-eyebrow { color: #2251FF; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; }
+  .gs-hero h1 { font-size: 36px; font-weight: 600; line-height: 1.2; margin-bottom: 14px; color: #051C2C; }
+  .gs-hero p { font-size: 16px; color: #6B7280; max-width: 620px; margin: 0 auto 22px; }
+  .gs-trust { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; font-size: 14px; color: #6B7280; }
+  .gs-trust strong { color: #051C2C; }
+  .gs-controls { max-width: 1180px; margin: 0 auto; padding: 10px 20px 0; }
+  .gs-searchbox { display: flex; align-items: center; gap: 10px; max-width: 560px; margin: 0 auto; border: 1px solid #051C2C; border-radius: 10px; padding: 12px 16px; background: #fff; }
+  .gs-searchbox .gs-ico { font-size: 16px; color: #6B7280; }
+  .gs-searchbox input { border: 0; outline: 0; flex: 1; font-size: 15px; color: #051C2C; background: transparent; }
+  .gs-count { text-align: center; font-size: 13px; color: #6B7280; margin-top: 10px; min-height: 20px; }
+  .gs-empty { text-align: center; color: #6B7280; padding: 30px 20px; display: none; }
+  .gs-pillnav { max-width: 1180px; margin: 0 auto; padding: 14px 20px 4px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .gs-pill { border: 1px solid #000; border-radius: 999px; padding: 8px 18px; font-size: 14px; font-weight: 500; color: #000; text-decoration: none; background: #fff; }
+  .gs-pill:hover { background: #000; color: #fff; }
+  .gs-section { max-width: 1180px; margin: 0 auto; padding: 34px 20px 6px; }
+  .gs-section h2 { font-size: 22px; font-weight: 600; margin-bottom: 18px; color: #051C2C; }
+  .gs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 22px; }
+  .gs-card { background: #fff; border: 1px solid #000; border-radius: 6px; overflow: hidden; text-decoration: none; color: #000; display: flex; flex-direction: column; transition: transform .12s, box-shadow .12s; }
+  .gs-card:hover { transform: translate(-3px,-3px); box-shadow: 4px 4px 0 #000; }
+  .gs-thumb { aspect-ratio: 1 / 1; background: #F5F5F5; border-bottom: 1px solid #000; }
+  .gs-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gs-title { font-size: 16px; font-weight: 400; line-height: 1.4; padding: 14px 16px; flex: 1; }
+  .gs-footer { border-top: 1px solid #000; padding: 12px 16px; }
+  .gs-price { position: relative; display: inline-block; background: #2251FF; color: #fff; font-size: 14px; font-weight: 500; padding: 3px 18px 3px 12px; border: 1px solid #000; clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 50%, 100% 100%, 0 100%); }
+  .gs-price s { opacity: .75; margin-right: 4px; }
+  .gs-cta-wrap { max-width: 1180px; margin: 0 auto; padding: 40px 20px; }
+  .gs-cta { background: #051C2C; color: #fff; border-radius: 12px; padding: 48px 36px; text-align: center; }
+  .gs-cta h2 { color: #fff; font-size: 28px; font-weight: 600; margin-bottom: 8px; }
+  .gs-cta p { color: #C7CDD4; margin-bottom: 24px; }
+  .gs-btn { display: inline-block; background: #2251FF; color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 13px 22px; border-radius: 8px; }
+  .gs-btn:hover { opacity: .88; }
+  @media (max-width: 640px) {
+    .gs-hero h1 { font-size: 27px; }
+    .gs-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .gs-title { font-size: 14px; padding: 10px 12px; }
+  }
+</style>
+
+<div class="gs-hero">
+  <div class="gs-eyebrow">Digital Products</div>
+  <h1>Ready-made systems. No consulting engagement required.</h1>
+  <p>Notion templates, certification flashcards, and business dashboards. Click any product: the full listing and checkout open right here.</p>
+  <div class="gs-trust">
+    <span><strong>60+</strong> completed engagements</span>
+    <span><strong>4.92/5</strong> client satisfaction</span>
+    <span><strong>23,000+</strong> professionals helped</span>
+  </div>
+</div>
+
+<div class="gs-controls">
+  <div class="gs-searchbox">
+    <span class="gs-ico">&#8981;</span>
+    <label for="q" style="position:absolute;left:-9999px">Search products</label>
+    <input id="q" type="search" placeholder="Search products, tags and categories" autocomplete="off">
+  </div>
+  <p class="gs-count" id="count"></p>
+</div>
+
+<div class="gs-pillnav">
+  <a class="gs-pill" href="#pro">&#128188; Notion for Professionals</a>
+  <a class="gs-pill" href="#exams">&#128274; Exams &amp; Certifications</a>
+  <a class="gs-pill" href="#student">&#10084;&#65039; Notion for Students</a>
+  <a class="gs-pill" href="#creator">&#128200; Creator Tools</a>
+</div>
+
+<section class="gs-section" id="pro">
+    <h2>Notion for Professionals</h2>
+    <div class="gs-grid">
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/real-estate-starter-pack" data-search="real estate starter pack — notion notion template notion dashboard freelancing real estate real estate template">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/8j8aop6z77bzc4huz9skppj03ukk" data-fb="https://public-files.gumroad.com/1mau6an6vgomqschcyt10c141yxz" alt="Real Estate Starter Pack — Notion" loading="lazy"></div>
+                <div class="gs-title">Real Estate Starter Pack — Notion</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/event-page-notion-template" data-search="event planner [to share with your guest] — notion notion template notion dashboard event event planning event planner">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/4btc8ch0u9m5yhx3yogpasmgzq8q" data-fb="https://public-files.gumroad.com/as6bsv449lf0bgshq4fyvfb35h3d" alt="Event Planner [To Share with Your Guest] — Notion" loading="lazy"></div>
+                <div class="gs-title">Event Planner [To Share with Your Guest] — Notion</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/notion-ops-audit" data-search="notion ops audit (90 min) notion template consulting notion expert notion business notion consulting">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/gfxl1f1n6he0yye38hqqhywgt37r" data-fb="https://public-files.gumroad.com/vymq6xqr0fx1wrqhwj3l7a3kcao7" alt="Notion Ops Audit (90 min)" loading="lazy"></div>
+                <div class="gs-title">Notion Ops Audit (90 min)</div>
+                <div class="gs-footer"><span class="gs-price"><s>$497</s> $197</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/guetnz" data-search="business expenses tracker - tax ready notion template notion dashboard business finance tracker financial planning notion for professionals">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/yvem1s607pd6f3lj9iz7ph5zbl8j" alt="Business Expenses Tracker - Tax Ready" loading="lazy"></div>
+                <div class="gs-title">Business Expenses Tracker - Tax Ready</div>
+                <div class="gs-footer"><span class="gs-price">CHF15+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/Notion-business-dashboard" data-search="ultimate business dashboard notion template notion dashboard business planning notion planner freelance notion for professionals">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/xps44irts7cfh602d5fdnnwxluxz" alt="Ultimate Business Dashboard" loading="lazy"></div>
+                <div class="gs-title">Ultimate Business Dashboard — Notion</div>
+                <div class="gs-footer"><span class="gs-price">CHF99+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/dpklzy" data-search="real estate portfolio manager dashboard notion template notion dashboard notion planner real estate real estate template notion for professionals">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/psc5gkzzl18prrai0btxtqjr3yxa" alt="Real Estate Portfolio Manager Dashboard" loading="lazy"></div>
+                <div class="gs-title">Real Estate Portfolio Manager Dashboard</div>
+                <div class="gs-footer"><span class="gs-price">CHF29+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/vcrvv" data-search="finance tracker - income expenses notion template notion dashboard business finance tracker financial planning notion for professionals">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/m33c6gx83yb6rns08m9f5awxtt2z" alt="Finance Tracker - Income Expenses" loading="lazy"></div>
+                <div class="gs-title">Finance Tracker - Income Expenses</div>
+                <div class="gs-footer"><span class="gs-price">CHF7+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/pmp-pmi-study-plan" data-search="pmi pmp exam prep study plan — notion notion template pmp exam pmp certification pmp prep pmp">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/ovzks0mnu5lqeqqn2yvtntnpyqyh" data-fb="https://public-files.gumroad.com/lj05mumz6cp35gndsuqrcmgz2qwx" alt="PMI PMP Exam Prep Study Plan — Notion" loading="lazy"></div>
+                <div class="gs-title">PMI PMP Exam Prep Study Plan — Notion</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/rrszk" data-search="personal financial tracker notion template notion planner financial planning notion finance personal finance notion for professionals">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/sn7i7hscfl4ah52o0dsq76qf6tix" alt="Personal Financial Tracker" loading="lazy"></div>
+                <div class="gs-title">Personal Financial Tracker</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+    </div>
+</section>
+
+<section class="gs-section" id="exams">
+    <h2>Exams & Certifications</h2>
+    <div class="gs-grid">
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/cazwm" data-search="bundle: cfa level 1, 2, 3 exam prep flashcards cfa cfa exam cfa hacks accounting cfa level 1 exams &amp; certifications">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/pzrszpe10g2bb61fu08pqk978qpc" alt="Bundle: CFA Level 1, 2, 3 Exam Prep Flashcards" loading="lazy"></div>
+                <div class="gs-title">Bundle: CFA Level 1, 2, 3 Exam Prep Flashcards</div>
+                <div class="gs-footer"><span class="gs-price">CHF67+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/afwzv" data-search="cfa level 1 exam prep flashcards cfa cfa exam cfa level 1 cfa level 1 hacks cfa hacks exams &amp; certifications">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/533zf20gz9s5cgmfxua7rev5knya" alt="CFA Level 1 Exam Prep Flashcards" loading="lazy"></div>
+                <div class="gs-title">CFA Level 1 Exam Prep Flashcards</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/olfnb" data-search="security+ v7 exam prep flashcards cybersecurity comptia sec+ security cyber comptia exams &amp; certifications">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/659imq5l692mo60vxs4lgw53i6on" alt="Security+ v7 Exam Prep Flashcards" loading="lazy"></div>
+                <div class="gs-title">Security+ v7 Exam Prep Flashcards</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/olyyvs" data-search="cism exam prep flashcards cism cism exam prep cism exam dump cism flashcards cism exam exams &amp; certifications">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/gwih1qjvcul3xev2c6ane5xqrjmj" alt="CISM Exam Prep Flashcards" loading="lazy"></div>
+                <div class="gs-title">CISM Exam Prep Flashcards</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/vbfyqp" data-search="cisa exam prep flashcards cisa cisa exam cisa exam prep cisa flashcards cisa questions exams &amp; certifications">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/j01xajmc1cc1acligpuhzcujplv7" alt="CISA Exam Prep Flashcards" loading="lazy"></div>
+                <div class="gs-title">CISA Exam Prep Flashcards</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/zgmejv" data-search="cissp exam prep flashcards cissp cissp exam cissp domains cybersecurity cyber exams &amp; certifications">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/vq20ydft06zighhya9y8efinb4m9" alt="CISSP Exam Prep Flashcards" loading="lazy"></div>
+                <div class="gs-title">CISSP Exam Prep Flashcards</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/tjdmt" data-search="cpa exam study plan  notion template cpa cpa exam exam planner exam prep exams &amp; certifications">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/dd81gj44wb4qwyu3jwvefu9ium1a" alt="CPA Exam Study Plan" loading="lazy"></div>
+                <div class="gs-title">CPA Exam Study Plan</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/rdthf" data-search="cfa level 2 exam prep flashcards cfa cfa exam cfa hacks cfa level 2 accounting exams &amp; certifications">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/ehbai4752s63hyl5da0y8nrwh6cj" alt="CFA Level 2 Exam Prep Flashcards" loading="lazy"></div>
+                <div class="gs-title">CFA Level 2 Exam Prep Flashcards</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/plmnyt" data-search="crisc exam prep flashcards crisc exam prep crisc exam dump crisc exam crisc crisc flashcards exams &amp; certifications">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/d1m4ngw7nf7e2g15gs1emznsvc0o" alt="CRISC Exam Prep Flashcards" loading="lazy"></div>
+                <div class="gs-title">CRISC Exam Prep Flashcards</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/amptx" data-search="cfa level 3 exam prep flashcards cfa cfa exam cfa hacks accounting cfa level 3 exams &amp; certifications">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/zyx7hf5iw6eves9z35hcijm33u6w" alt="CFA Level 3 Exam Prep Flashcards" loading="lazy"></div>
+                <div class="gs-title">CFA Level 3 Exam Prep Flashcards</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/PMP-PMI-Flashcards" data-search="pmi pmp exam prep flashcards - anki pmp exam pmp certification pmp prep pmp test pmp">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/q92hswzp220blzburyvnwovnxscc" data-fb="https://public-files.gumroad.com/j6vluimhz0649erbf4artxs383db" alt="PMI PMP Exam Prep Flashcards - Anki" loading="lazy"></div>
+                <div class="gs-title">PMI PMP Exam Prep Flashcards - Anki</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/saexc" data-search="cfa exam prep study plan notion template exam prep cfa cfa exam cfa level 1 exams &amp; certifications">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/6v95qr47i6302jh8mmzt5zljyd1d" alt="CFA Exam Prep Study Plan" loading="lazy"></div>
+                <div class="gs-title">CFA Exam Prep Study Plan</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+    </div>
+</section>
+
+<section class="gs-section" id="student">
+    <h2>Notion for Students</h2>
+    <div class="gs-grid">
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/sgkgn" data-search="ocr math exam prep flashcards math flashcards revision study a level notion for students">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/3hy6dd6q37zl5zfnu9fu9yc048lq" data-fb="https://public-files.gumroad.com/7k8v867edex40vzkmy4l3ueiu6s1" alt="OCR Math Exam Prep Flashcards" loading="lazy"></div>
+                <div class="gs-title">OCR Math Exam Prep Flashcards</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/pouabr" data-search="student dashboard ultimate students notion template notion dashboard notion planner notion notion for students">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/jbg8xatqb5r421om9wv1y8y4x3sm" alt="Student Dashboard Ultimate" loading="lazy"></div>
+                <div class="gs-title">Student Dashboard Ultimate</div>
+                <div class="gs-footer"><span class="gs-price">CHF22+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/sbnjn" data-search="learn chinese vocabulary with audio flashcards chinese language simplified chinese chinese china learning languages notion for students">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/fulogln9104t2l8391ri6vx6j1ty" alt="Learn Chinese Vocabulary with Audio Flashcards" loading="lazy"></div>
+                <div class="gs-title">Learn Chinese Vocabulary with Audio Flashcards</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/OCR-physics-Flashcards" data-search="ocr physics exam prep flashcards — anki flashcards ocr physics physics a h556">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/gvnezzbnv8oh0xcg2pjs611mhpah" data-fb="https://public-files.gumroad.com/0eo4ekwadqj9dcdm7o2nptx3sjp3" alt="OCR Physics Exam Prep Flashcards — Anki" loading="lazy"></div>
+                <div class="gs-title">OCR Physics Exam Prep Flashcards — Anki</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/OCR-Psychology-Flashcards" data-search="ocr psychology exam prep flashcards — anki flashcards ocr psychology psychology books psycho">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/nvhh0qhfixqfte4ufq3ujuczsmid" data-fb="https://public-files.gumroad.com/sngjpzvqh9pmo7cfqqfy7zp8hegd" alt="OCR Psychology Exam Prep Flashcards — Anki" loading="lazy"></div>
+                <div class="gs-title">OCR Psychology Exam Prep Flashcards — Anki</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/OCR-Biology-Flashcards" data-search="ocr biology exam prep flashcards — anki flashcards ocr gcse biology biology notes">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/n85b930nqf0pt1cvbe304gywhj6x" data-fb="https://public-files.gumroad.com/r9ltpvlo4yp4hqtz9alywj1u16s9" alt="OCR Biology Exam Prep Flashcards — Anki" loading="lazy"></div>
+                <div class="gs-title">OCR Biology Exam Prep Flashcards — Anki</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/OCR-Computer-Science-Flashcards" data-search="ocr computer science exam prep flashcards — anki flashcards ocr computer science gcse gcse computing">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/htjljnjjpu1fr9ybw1t99sjkvy0g" data-fb="https://public-files.gumroad.com/tam9aluj954nagsprqkxc4ljarws" alt="OCR Computer Science Exam Prep Flashcards — Anki" loading="lazy"></div>
+                <div class="gs-title">OCR Computer Science Exam Prep Flashcards — Anki</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/AQA-Psychology-Flashcards" data-search="aqa psychology exam prep flashcards flashcards a level aqa psychology psychology psychology books">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/1ft29gvidibiu00evmyoxsj5c1p5" data-fb="https://public-files.gumroad.com/gcct38ihyzbfhuz8d59caiq606g6" alt="AQA Psychology Exam Prep Flashcards" loading="lazy"></div>
+                <div class="gs-title">AQA Psychology Exam Prep Flashcards</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/yssch" data-search="aqa chemistry exam prep flashcards flashcards a level aqa chemistry chemistry chemistry notes notion for students">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/dp1sy0ssdjz8rm3hkjaimaaz69v2" alt="AQA Chemistry Exam Prep Flashcards" loading="lazy"></div>
+                <div class="gs-title">AQA Chemistry Exam Prep Flashcards</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/hkqml" data-search="aqa biology exam prep flashcards flashcards a level biology aqa biology biology notes notion for students">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/nhurcjq3qotxv4t6t3bbttjdqkj8" alt="AQA Biology Exam Prep Flashcards" loading="lazy"></div>
+                <div class="gs-title">AQA Biology Exam Prep Flashcards</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/ykdvx" data-search="dream travel planner notion template notion dashboard travel planner travel guide holiday planner notion for students">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/72jpwo7ttxkavhp75padag2t2alu" alt="Dream Travel Planner" loading="lazy"></div>
+                <div class="gs-title">Dream Travel Planner</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/gnbbcr" data-search="learn russian vocabulary with audio flashcards russian russia russian language learn russian russian flashcards notion for students">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/v9ez8xrwd6x3jndp2m3rav7ouofu" alt="Learn Russian Vocabulary with Audio Flashcards" loading="lazy"></div>
+                <div class="gs-title">Learn Russian Vocabulary with Audio Flashcards</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/akzpj" data-search="learn quran vocabulary with audio flashcards quran arabic quran classes islam islamic notion for students">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/84qgf7ugs13hosxah5vre6ficvsj" alt="Learn Quran Vocabulary with Audio Flashcards" loading="lazy"></div>
+                <div class="gs-title">Learn Quran Vocabulary with Audio Flashcards</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/fcnudf" data-search="gre exam prep with audio flashcards gre test prep english exam prep graduate english learning notion for students">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/inoiuqdok3nbjm75trhmckc6u63y" alt="GRE Exam Prep with Audio Flashcards" loading="lazy"></div>
+                <div class="gs-title">GRE Exam Prep with Audio Flashcards</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/arryk" data-search="student revision pack templates bundle exam planner exam prep student planner study planner study notion for students">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/htob7hzqrt2ekhpo0yabdy6sgn54" alt="Student Revision Pack Templates Bundle" loading="lazy"></div>
+                <div class="gs-title">Student Revision Pack Templates Bundle</div>
+                <div class="gs-footer"><span class="gs-price">CHF7+</span></div>
+            </a>
+    </div>
+</section>
+
+<section class="gs-section" id="creator">
+    <h2>Creator Tools</h2>
+    <div class="gs-grid">
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/chatgpt-seo-prompts-Twitter-Creators" data-search="100 seo prompts for twitter creators chatgpt chatgpt prompts chatgpt resources twitter twitter marketing creator tools">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/c7yvc7l1fe5l2u2dpgy8mj0wtl9n" alt="100 SEO Prompts for Twitter Creators" loading="lazy"></div>
+                <div class="gs-title">100 SEO Prompts for Twitter Creators</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+            <a class="gs-card" href="https://anthonytoday.gumroad.com/l/seo-prompts-chat-gpt" data-search="100 seo prompts for chatgpt chatgpt chatgpt prompts seo chatgpt resources seo guide creator tools">
+                <div class="gs-thumb"><img src="https://public-files.gumroad.com/ynhfz4e2og9coral2fungm38t0vc" alt="100 SEO Prompts for ChatGPT" loading="lazy"></div>
+                <div class="gs-title">100 SEO Prompts for ChatGPT</div>
+                <div class="gs-footer"><span class="gs-price">CHF0+</span></div>
+            </a>
+    </div>
+</section>
+
+<p class="gs-empty" id="empty"><b>No products match that search.</b><br>Try clearing it, or search a tag like <i>cfa</i> or <i>notion template</i>.</p>
+
+<div class="gs-cta-wrap">
+  <div class="gs-cta">
+    <h2>Need it built for you instead?</h2>
+    <p>Bring me one real problem in a 30-minute call. You leave with a fix or a clear read on what to do next.</p>
+    <a class="gs-btn" href="https://cal.com/anthonytoday/consultation">Book a Discovery Call ($79)</a>
+  </div>
+</div>
+
+<script>
+(function() {
+  var q = document.getElementById('q');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.gs-card'));
+  var sectionsEls = Array.prototype.slice.call(document.querySelectorAll('.gs-section'));
+  var count = document.getElementById('count');
+  var empty = document.getElementById('empty');
+  var TOTAL = cards.length;
+  function apply() {
+    var term = q.value.trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function(card) {
+      var ok = !term || card.getAttribute('data-search').indexOf(term) !== -1;
+      card.style.display = ok ? '' : 'none';
+      if (ok) shown++;
+    });
+    sectionsEls.forEach(function(sec) {
+      var any = sec.querySelectorAll('.gs-card:not([style*="none"])').length > 0;
+      sec.style.display = any ? '' : 'none';
+    });
+    count.textContent = term ? (shown + ' of ' + TOTAL + ' products') : '';
+    empty.style.display = shown === 0 ? 'block' : 'none';
+  }
+  q.addEventListener('input', apply);
+  document.querySelectorAll('.gs-thumb img').forEach(function(im) {
+    im.addEventListener('error', function() {
+      var fb = im.getAttribute('data-fb');
+      if (fb && im.src !== fb) { im.src = fb; }
+      else { im.closest('.gs-thumb').style.display = 'none'; }
+    });
+  });
+})();
+</script>
