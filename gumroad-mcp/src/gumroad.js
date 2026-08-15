@@ -247,7 +247,24 @@ export async function allProducts(env, opts = {}) {
     if (id && !byId.has(id)) await hydrate(id);
   }
 
-  // 5. Whatever is left needs the sales walk to surface an id.
+  // 5. Products cross-reference each other by id inside their own page
+  //     content: upsell cards, "more like this" blocks and bundle entries all
+  //     carry a productId. Mining the records already in hand costs nothing and
+  //     reaches products that /products hides and /sales cannot surface,
+  //     because a product with no sales can still be recommended by one.
+  if (outstanding().length && left > 1) {
+    const referenced = new Set();
+    for (const p of byId.values()) {
+      for (const m of JSON.stringify(p).matchAll(/"productId":"([^"]+)"/g)) referenced.add(m[1]);
+      for (const b of p.bundle_products || []) if (b.product_id) referenced.add(b.product_id);
+    }
+    for (const id of referenced) {
+      if (left <= 1 || !outstanding().length) break;
+      if (!byId.has(id)) await hydrate(id);
+    }
+  }
+
+  // 6. Whatever is left needs the sales walk to surface an id.
   let cursor = index.salesCursor;
   let salesDone = index.salesDone;
   while (outstanding().length && left > 2 && !salesDone) {

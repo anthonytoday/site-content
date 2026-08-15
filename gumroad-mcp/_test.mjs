@@ -401,5 +401,20 @@ await t('a bad seed reports the failure rather than poisoning the cache', async 
   assert.equal(out.results[0].ok, false);
 });
 
+await t('an id referenced inside another product is mined, not missed', async () => {
+  calls.length = 0;
+  const host = prod('p1', 'aaaaa');
+  host.rich_content = [{ description: { content: [{ type: 'upsellCard', attrs: { productId: 'HIDDEN' } }] } }];
+  shop({
+    links: ['aaaaa', 'no-sales-custom'],
+    products: [],
+    sales: [],
+    byKey: { aaaaa: host, HIDDEN: prod('HIDDEN', 'wwwww', { custom_permalink: 'no-sales-custom' }) },
+  });
+  const out = await findTool('gumroad_list_products').handler(ENV, {});
+  assert.equal(out.coverage.complete, true, JSON.stringify(out.coverage));
+  assert.equal(out.count, 2);
+});
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
