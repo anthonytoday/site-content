@@ -35,3 +35,12 @@
     </div>
   </div>
 </footer>
+{%- if page.lang == "fr" %}
+{%- comment -%}French typography: headings render as authored (sentence case).
+The shared CSS base title-cases h1-h4, an English convention that produces
+wrong French ("Les Problèmes Qui Atterrissent Sur Mon Bureau"). Emitted in
+both footer includes so every French content page is covered without
+touching the shared bundles; html[lang] outranks the bare base rule and
+wins ties against class-level rules because this block renders last.{%- endcomment -%}
+<style>html[lang="fr"] h1,html[lang="fr"] h2,html[lang="fr"] h3,html[lang="fr"] h4{text-transform:none}</style>
+{%- endif %}

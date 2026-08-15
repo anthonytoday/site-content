@@ -32,3 +32,9 @@
     </div>
   </div>
 </footer>
+{%- if page.lang == "fr" %}
+{%- comment -%}French typography: headings render as authored (sentence case).
+Twin of the override in site-footer.html; see that file for the rationale.
+Covered here as well so shop and template pages get the fix too.{%- endcomment -%}
+<style>html[lang="fr"] h1,html[lang="fr"] h2,html[lang="fr"] h3,html[lang="fr"] h4{text-transform:none}</style>
+{%- endif %}
