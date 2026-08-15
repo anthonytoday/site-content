@@ -78,6 +78,27 @@ async function resolveTargets(env, args) {
   return products.map((p) => p.id);
 }
 
+/**
+ * Turns a Gumroad description into reviewable plain text.
+ *
+ * Descriptions are stored as HTML. Reading them as HTML wastes most of the
+ * response on markup, so headings and list items are flattened to lines and
+ * everything else is stripped. Links are kept as "text (url)" because a dead
+ * or wrong link is exactly the kind of thing a copy review has to catch.
+ */
+function toReviewText(html) {
+  if (!html) return '';
+  return String(html)
+    .replace(/<a\b[^>]*href="([^"]*)"[^>]*>([\s\S]*?)<\/a>/gi, (_m, href, txt) => `${txt.replace(/<[^>]+>/g, '')} (${href})`)
+    .replace(/<\/(h[1-6]|p|li|div|figure|tr)>/gi, '\n')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li\b[^>]*>/gi, '- ')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'")
+    .split('\n').map((l) => l.trim()).filter(Boolean).join('\n');
+}
+
 const TOOLS = [
   /* ---------- account ---------- */
   {
@@ -97,10 +118,39 @@ const TOOLS = [
         summary: { type: 'boolean', description: 'Return a compact row per product instead of the full record. Default true.' },
         limit: { type: 'integer', description: 'Only with summary false. Full records are large, so this caps at 10 and defaults to 5.' },
         refresh: { type: 'boolean', description: 'Discard the cached permalink map and rediscover the catalogue from scratch.' },
+        view: { type: 'string', description: 'Set to "copy" for a proofreading view: name, summary, tags and the description as plain text, with links kept as text (url). Pages with limit and offset.' },
+        offset: { type: 'integer', description: 'Only with view copy. Skip this many products.' },
       },
     },
     handler: async (env, args) => {
       const { products, coverage } = await allProducts(env, { refresh: args.refresh === true });
+
+      // Copy review: names, summaries, tags and the description as plain text.
+      // Everything a proofread needs and none of the covers, variants or rich
+      // content that make a full record 10 KB.
+      if (args.view === 'copy') {
+        const offset = Math.max(0, args.offset || 0);
+        const limit = Math.min(args.limit || 12, 20);
+        const page = products.slice(offset, offset + limit);
+        return {
+          coverage,
+          count: products.length,
+          offset,
+          returned: page.length,
+          products: page.map((p) => ({
+            id: p.id,
+            name: p.name,
+            permalink: p.custom_permalink || (p.short_url || '').split('/l/')[1] || null,
+            price: p.formatted_price,
+            published: p.published,
+            sales_count: p.sales_count,
+            tags: p.tags,
+            custom_summary: p.custom_summary,
+            description: toReviewText(p.description),
+          })),
+        };
+      }
+
       if (args.summary === false) {
         // Full records run to roughly 10 KB each and overflow a tool response
         // well before the catalogue ends, so this is capped deliberately.

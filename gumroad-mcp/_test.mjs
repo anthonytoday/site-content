@@ -429,5 +429,30 @@ await t('every bootstrapped id resolves to the permalink it claims', async () =>
   for (const l of links) assert.ok(!calls.some((c) => c.url.includes(l)), l);
 });
 
+await t('the copy view flattens HTML and keeps link targets', async () => {
+  const html = '<h2>Pass the CFA</h2><p>Study <strong>smarter</strong>.</p><ul><li>Item one</li><li>See <a href="https://notion.com" target="_blank">Notion</a></li></ul>';
+  shop({ links: ['aaaaa'], products: [], sales: [], byKey: { aaaaa: prod('p1', 'aaaaa', { description: html, custom_summary: 'CFA plan', formatted_price: 'CHF 0+' }) } });
+  const out = await findTool('gumroad_list_products').handler(ENV, { view: 'copy' });
+  const d = out.products[0].description;
+  assert.ok(!d.includes('<'), 'markup survived');
+  assert.ok(d.includes('Pass the CFA'));
+  assert.ok(d.includes('- Item one'));
+  assert.ok(d.includes('Notion (https://notion.com)'), d);
+  assert.equal(out.products[0].custom_summary, 'CFA plan');
+  assert.equal(out.products[0].price, 'CHF 0+');
+});
+
+await t('the copy view pages so a big catalogue cannot overflow', async () => {
+  const links = Array.from({ length: 8 }, (_, i) => `cop${i}0`);
+  const byKey = Object.fromEntries(links.map((k, i) => [k, prod(`c${i}`, k, { description: '<p>x</p>' })]));
+  shop({ links, products: [], sales: [], byKey });
+  const first = await findTool('gumroad_list_products').handler(ENV, { view: 'copy', limit: 3 });
+  assert.equal(first.returned, 3);
+  assert.equal(first.count, 8);
+  const second = await findTool('gumroad_list_products').handler(ENV, { view: 'copy', limit: 3, offset: 6 });
+  assert.equal(second.returned, 2);
+  assert.equal(second.offset, 6);
+});
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
