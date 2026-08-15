@@ -2,6 +2,11 @@ name = "gumroad-mcp"
 main = "src/index.js"
 compatibility_date = "2026-08-08"
 
+# Declared rather than left to Cloudflare to guess, which is what the build log
+# warned about. workers.dev is how Claude and Notion reach the MCP endpoint.
+workers_dev = true
+preview_urls = false
+
 [observability]
 enabled = true
 

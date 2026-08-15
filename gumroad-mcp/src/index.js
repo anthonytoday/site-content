@@ -52,8 +52,8 @@ function statusPage(env) {
      <h1>Gumroad MCP Server</h1>
      <p>Status: <strong class="${ready ? 'ok' : 'bad'}">${ready ? 'ready' : 'not configured'}</strong></p>
      <ul>
-       <li>Gumroad token: ${env.GUMROAD_ACCESS_TOKEN ? 'set' : 'missing, run <code>wrangler secret put GUMROAD_ACCESS_TOKEN</code>'}</li>
-       <li>MCP bearer: ${env.MCP_AUTH_TOKEN ? 'set' : 'missing, run <code>wrangler secret put MCP_AUTH_TOKEN</code>'}</li>
+       <li>Gumroad token: ${env.GUMROAD_ACCESS_TOKEN ? 'set' : 'missing. Cloudflare dashboard, this Worker, Settings, Variables and Secrets, Add, type <b>Secret</b>, key <code>GUMROAD_ACCESS_TOKEN</code>'}</li>
+       <li>MCP bearer: ${env.MCP_AUTH_TOKEN ? 'set' : 'missing. Same place, key <code>MCP_AUTH_TOKEN</code>. A build variable is not enough: it must be a Secret, or it never reaches the runtime.'}</li>
      </ul>
      <p>Connect Claude to <code>POST /mcp</code> with the MCP bearer token.</p>`,
     { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } }
