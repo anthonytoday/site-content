@@ -196,5 +196,32 @@ await t('sales paginate with page_key until exhausted', async () => {
   assert.ok(calls[1].url.includes('page_key=k2'));
 });
 
+/* ---- auth on the /mcp route, both accepted forms ---- */
+import worker from './src/index.js';
+await t('/mcp rejects a request with no credential', async () => {
+  const r = await worker.fetch(new Request('https://x/mcp', { method: 'POST', body: '{}' }), ENV);
+  assert.equal(r.status, 401);
+});
+await t('/mcp accepts the bearer header', async () => {
+  const r = await worker.fetch(new Request('https://x/mcp', {
+    method: 'POST', headers: { Authorization: 'Bearer mcp_test', 'Content-Type': 'application/json' },
+    body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'tools/list' }) }), ENV);
+  assert.equal((await r.json()).result.tools.length, TOOL_SPECS.length);
+});
+await t('/mcp accepts the same token as ?key=', async () => {
+  const r = await worker.fetch(new Request('https://x/mcp?key=mcp_test', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'tools/list' }) }), ENV);
+  assert.equal((await r.json()).result.tools.length, TOOL_SPECS.length);
+});
+await t('/mcp rejects a wrong ?key=', async () => {
+  const r = await worker.fetch(new Request('https://x/mcp?key=nope', { method: 'POST', body: '{}' }), ENV);
+  assert.equal(r.status, 401);
+});
+await t('an unset MCP_AUTH_TOKEN fails closed', async () => {
+  const r = await worker.fetch(new Request('https://x/mcp?key=', { method: 'POST', body: '{}' }), {});
+  assert.equal(r.status, 401);
+});
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

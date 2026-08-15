@@ -1,12 +1,5 @@
 /**
- * gumroad-mcp — single file build, for pasting straight into the Cloudflare
- * dashboard editor. No terminal, no wrangler, no build step.
- *
- * Set two secrets under Settings, Variables and Secrets:
- *   GUMROAD_ACCESS_TOKEN   your Gumroad account token
- *   MCP_AUTH_TOKEN         a long random string Claude presents as a bearer
- *
- * Generated from src/. Edit the modules, not this file.
+ * gumroad-mcp single file build. Generated from src/. Edit the modules, not this file.
  */
 
 /* ==== src/gumroad.js ==== */
@@ -673,6 +666,17 @@ function bearerOk(request, env) {
   return match ? safeEqual(match[1].trim(), expected) : false;
 }
 
+/**
+ * Fallback for MCP clients whose connector dialog has no custom-header field:
+ * the same token may be presented as ?key= on the /mcp URL. A header is
+ * preferred, because query strings turn up in logs and referrers.
+ */
+function keyParamOk(url, env) {
+  const expected = env.MCP_AUTH_TOKEN;
+  if (!expected) return false;
+  return safeEqual(url.searchParams.get('key') || '', expected);
+}
+
 function statusPage(env) {
   const ready = Boolean(env.GUMROAD_ACCESS_TOKEN) && Boolean(env.MCP_AUTH_TOKEN);
   return new Response(
@@ -709,7 +713,7 @@ export default {
     }
 
     if (url.pathname === '/mcp') {
-      if (!bearerOk(request, env)) {
+      if (!bearerOk(request, env) && !keyParamOk(url, env)) {
         return new Response(
           JSON.stringify({ jsonrpc: '2.0', id: null, error: { code: -32001, message: 'Unauthorized.' } }),
           { status: 401, headers: { 'Content-Type': 'application/json', 'WWW-Authenticate': 'Bearer' } }
