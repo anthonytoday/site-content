@@ -118,3 +118,27 @@ export async function allSales(env, filters = {}, maxPages = 40) {
   }
   return out;
 }
+
+/**
+ * Walks every page of /products.
+ *
+ * Gumroad's docs claim this endpoint returns all products and document no
+ * pagination. In practice it caps at 10, newest first, which silently hides
+ * the rest of a catalogue. This follows ?page= until a page repeats or comes
+ * back short, and de-duplicates by id so a server that ignores the parameter
+ * degrades to a single page rather than looping.
+ */
+export async function allProducts(env, maxPages = 30) {
+  const byId = new Map();
+  for (let page = 1; page <= maxPages; page++) {
+    const body = await get(env, '/products', page > 1 ? { page } : {});
+    const batch = body.products || [];
+    if (batch.length === 0) break;
+    const before = byId.size;
+    for (const p of batch) byId.set(p.id, p);
+    // No new ids means the parameter is being ignored. Stop rather than spin.
+    if (byId.size === before) break;
+    if (batch.length < 10) break;
+  }
+  return [...byId.values()];
+}

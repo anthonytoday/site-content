@@ -223,5 +223,47 @@ await t('an unset MCP_AUTH_TOKEN fails closed', async () => {
   assert.equal(r.status, 401);
 });
 
+/* ---- product pagination ---- */
+await t('list products follows ?page= past the 10-item cap', async () => {
+  calls.length = 0;
+  const page = (n, size) => ({ success: true, products: Array.from({length:size},(_,i)=>({ id:`p${n}_${i}`, name:'x', published:true })) });
+  let n = 0;
+  stub(() => { n++; return n === 1 ? page(1,10) : n === 2 ? page(2,10) : page(3,4); });
+  const out = await findTool('gumroad_list_products').handler(ENV, {});
+  assert.equal(out.count, 24);
+  assert.equal(calls.length, 3);
+  assert.ok(calls[1].url.includes('page=2'));
+});
+await t('a server ignoring ?page= does not loop forever', async () => {
+  calls.length = 0;
+  stub(() => ({ success: true, products: Array.from({length:10},(_,i)=>({ id:`same${i}`, published:true })) }));
+  const out = await findTool('gumroad_list_products').handler(ENV, {});
+  assert.equal(out.count, 10);
+  assert.equal(calls.length, 2); // one real page, one that returned nothing new
+});
+await t('a short first page ends the walk immediately', async () => {
+  calls.length = 0;
+  stub(() => ({ success: true, products: [{ id: 'only', published: true }] }));
+  const out = await findTool('gumroad_list_products').handler(ENV, {});
+  assert.equal(out.count, 1);
+  assert.equal(calls.length, 1);
+});
+await t('full records are capped so a response cannot overflow', async () => {
+  stub(() => ({ success: true, products: Array.from({length:10},(_,i)=>({ id:`f${i}`, description:'x'.repeat(500) })) }));
+  const out = await findTool('gumroad_list_products').handler(ENV, { summary: false });
+  assert.equal(out.returned, 5);
+  assert.equal(out.products.length, 5);
+  assert.equal(out.count, 10);
+});
+await t('bulk targeting sees the whole catalogue, not one page', async () => {
+  calls.length = 0;
+  let n = 0;
+  stub(() => { n++; return n === 1
+    ? { success: true, products: Array.from({length:10},(_,i)=>({ id:`a${i}`, price:0, published:true })) }
+    : { success: true, products: [{ id:'b0', price:0, published:true }] }; });
+  const out = await findTool('gumroad_bulk_update_products').handler(ENV, { filter:{ free:true }, patch:{ name:'x' } });
+  assert.equal(out.would_update, 11);
+});
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

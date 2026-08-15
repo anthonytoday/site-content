@@ -124,6 +124,30 @@ async function allSales(env, filters = {}, maxPages = 40) {
   return out;
 }
 
+/**
+ * Walks every page of /products.
+ *
+ * Gumroad's docs claim this endpoint returns all products and document no
+ * pagination. In practice it caps at 10, newest first, which silently hides
+ * the rest of a catalogue. This follows ?page= until a page repeats or comes
+ * back short, and de-duplicates by id so a server that ignores the parameter
+ * degrades to a single page rather than looping.
+ */
+async function allProducts(env, maxPages = 30) {
+  const byId = new Map();
+  for (let page = 1; page <= maxPages; page++) {
+    const body = await get(env, '/products', page > 1 ? { page } : {});
+    const batch = body.products || [];
+    if (batch.length === 0) break;
+    const before = byId.size;
+    for (const p of batch) byId.set(p.id, p);
+    // No new ids means the parameter is being ignored. Stop rather than spin.
+    if (byId.size === before) break;
+    if (batch.length < 10) break;
+  }
+  return [...byId.values()];
+}
+
 /* ==== src/tools.js ==== */
 /**
  * MCP tool surface for the Gumroad shop.
@@ -190,8 +214,7 @@ async function overIds(ids, fn, concurrency = 4) {
 /** Resolves a target set: explicit ids, or every product matching a filter. */
 async function resolveTargets(env, args) {
   if (Array.isArray(args.product_ids) && args.product_ids.length) return args.product_ids;
-  const body = await get(env, '/products');
-  let products = body.products || [];
+  let products = await allProducts(env);
   const f = args.filter || {};
   if (f.published !== undefined) products = products.filter((p) => Boolean(p.published) === Boolean(f.published));
   if (f.name_contains) {
@@ -222,12 +245,17 @@ const TOOLS = [
       type: 'object',
       properties: {
         summary: { type: 'boolean', description: 'Return a compact row per product instead of the full record. Default true.' },
+        limit: { type: 'integer', description: 'Only with summary false. Full records are large, so this caps at 10 and defaults to 5.' },
       },
     },
     handler: async (env, args) => {
-      const body = await get(env, '/products');
-      const products = body.products || [];
-      if (args.summary === false) return body;
+      const products = await allProducts(env);
+      if (args.summary === false) {
+        // Full records run to roughly 10 KB each and overflow a tool response
+        // well before the catalogue ends, so this is capped deliberately.
+        const limit = Math.min(args.limit || 5, 10);
+        return { count: products.length, returned: limit, products: products.slice(0, limit) };
+      }
       return {
         count: products.length,
         products: products.map((p) => ({

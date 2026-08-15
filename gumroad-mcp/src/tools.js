@@ -6,7 +6,7 @@
  * reachable through gumroad_request, so the Worker never becomes the ceiling.
  */
 
-import { get, post, put, del, call, allSales, GumroadError } from './gumroad.js';
+import { get, post, put, del, call, allSales, allProducts, GumroadError } from './gumroad.js';
 
 /* Parameters Gumroad accepts on product writes, taken from the CLI's create.go
    and update.go. Unknown keys are dropped rather than sent, so a typo fails
@@ -64,8 +64,7 @@ async function overIds(ids, fn, concurrency = 4) {
 /** Resolves a target set: explicit ids, or every product matching a filter. */
 async function resolveTargets(env, args) {
   if (Array.isArray(args.product_ids) && args.product_ids.length) return args.product_ids;
-  const body = await get(env, '/products');
-  let products = body.products || [];
+  let products = await allProducts(env);
   const f = args.filter || {};
   if (f.published !== undefined) products = products.filter((p) => Boolean(p.published) === Boolean(f.published));
   if (f.name_contains) {
@@ -96,12 +95,17 @@ const TOOLS = [
       type: 'object',
       properties: {
         summary: { type: 'boolean', description: 'Return a compact row per product instead of the full record. Default true.' },
+        limit: { type: 'integer', description: 'Only with summary false. Full records are large, so this caps at 10 and defaults to 5.' },
       },
     },
     handler: async (env, args) => {
-      const body = await get(env, '/products');
-      const products = body.products || [];
-      if (args.summary === false) return body;
+      const products = await allProducts(env);
+      if (args.summary === false) {
+        // Full records run to roughly 10 KB each and overflow a tool response
+        // well before the catalogue ends, so this is capped deliberately.
+        const limit = Math.min(args.limit || 5, 10);
+        return { count: products.length, returned: limit, products: products.slice(0, limit) };
+      }
       return {
         count: products.length,
         products: products.map((p) => ({
