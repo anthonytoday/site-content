@@ -120,25 +120,168 @@ export async function allSales(env, filters = {}, maxPages = 40) {
 }
 
 /**
- * Walks every page of /products.
+ * Live catalogue enumeration.
  *
- * Gumroad's docs claim this endpoint returns all products and document no
- * pagination. In practice it caps at 10, newest first, which silently hides
- * the rest of a catalogue. This follows ?page= until a page repeats or comes
- * back short, and de-duplicates by id so a server that ignores the parameter
- * degrades to a single page rather than looping.
+ * Gumroad has three blind spots that only work around each other:
+ *
+ *  1. GET /products is a hard cap of 10, newest first. It documents no
+ *     pagination, ignores ?page=, and silently hides the rest of the shop.
+ *     Proven on 15 Aug 2026: creating one product pushed it in at position 1
+ *     and dropped another off the bottom.
+ *  2. GET /user returns every permalink, which is the only authoritative
+ *     product count the API offers.
+ *  3. GET /products/:key resolves a product id or a *default* permalink
+ *     ("afwzv") and returns "product not found" for a *custom* permalink
+ *     ("CPA-Exam-Study-Plan"), which is what /user hands back for every
+ *     product that has one.
+ *
+ * The bridge is /sales: every sale carries product_id next to the default
+ * permalink, so walking sales resolves the custom-permalink products. That
+ * walk is fixed at 10 rows a page (page_size and the date filters are both
+ * ignored), so the permalink-to-id map and the walk cursor are cached in KV
+ * and the walk only resumes while permalinks remain unaccounted for.
  */
-export async function allProducts(env, maxPages = 30) {
-  const byId = new Map();
-  for (let page = 1; page <= maxPages; page++) {
-    const body = await get(env, '/products', page > 1 ? { page } : {});
-    const batch = body.products || [];
-    if (batch.length === 0) break;
-    const before = byId.size;
-    for (const p of batch) byId.set(p.id, p);
-    // No new ids means the parameter is being ignored. Stop rather than spin.
-    if (byId.size === before) break;
-    if (batch.length < 10) break;
+
+const CATALOG_KEY = 'catalog:v1';
+
+/** Cloudflare allows 50 subrequests per request on the free plan. Leave headroom. */
+const DEFAULT_BUDGET = 42;
+
+/** A Gumroad-assigned permalink is short and lowercase. A custom one is not. */
+const DEFAULT_PERMALINK = /^[a-z0-9]{4,8}$/;
+
+const EMPTY_INDEX = () => ({ byPermalink: {}, salesCursor: null, salesDone: false, updated_at: null });
+
+async function readIndex(env) {
+  if (!env.CATALOG) return EMPTY_INDEX();
+  try {
+    return (await env.CATALOG.get(CATALOG_KEY, 'json')) || EMPTY_INDEX();
+  } catch {
+    return EMPTY_INDEX();
   }
-  return [...byId.values()];
+}
+
+async function writeIndex(env, index) {
+  if (!env.CATALOG) return;
+  try {
+    await env.CATALOG.put(CATALOG_KEY, JSON.stringify({ ...index, updated_at: new Date().toISOString() }));
+  } catch {
+    // A cache write failing must never fail the read it was meant to speed up.
+  }
+}
+
+/** The permalink a product answers to on GET /products/:key. */
+function keysOf(product) {
+  const keys = [];
+  if (product.custom_permalink) keys.push(product.custom_permalink);
+  const tail = (product.short_url || '').split('/l/')[1];
+  if (tail) keys.push(tail);
+  return keys;
+}
+
+/**
+ * Every product in the shop, read live.
+ *
+ * Returns { products, coverage }. coverage.complete is false when the
+ * subrequest budget ran out before every permalink was accounted for; calling
+ * again resumes from the cached cursor and finishes the job.
+ */
+export async function allProducts(env, opts = {}) {
+  let left = opts.budget || DEFAULT_BUDGET;
+  const spend = () => { left -= 1; };
+
+  const index = opts.refresh ? EMPTY_INDEX() : await readIndex(env);
+  const byPermalink = new Map(Object.entries(index.byPermalink || {}));
+  const byId = new Map();
+
+  // 1. The authoritative permalink list.
+  spend();
+  const user = (await get(env, '/user')).user || {};
+  const links = Array.isArray(user.links) ? user.links : [];
+
+  // 2. The 10 newest arrive complete, ids included.
+  spend();
+  for (const p of (await get(env, '/products')).products || []) {
+    byId.set(p.id, p);
+    for (const k of keysOf(p)) byPermalink.set(k, p.id);
+  }
+
+  const resolved = () => {
+    const hit = new Set();
+    for (const p of byId.values()) for (const k of keysOf(p)) hit.add(k);
+    return hit;
+  };
+  const outstanding = () => links.filter((l) => !resolved().has(l));
+
+  const hydrate = async (key) => {
+    if (left <= 0) return false;
+    spend();
+    try {
+      const p = (await get(env, `/products/${encodeURIComponent(key)}`)).product;
+      if (!p) return false;
+      byId.set(p.id, p);
+      for (const k of keysOf(p)) byPermalink.set(k, p.id);
+      return true;
+    } catch {
+      return false;
+    }
+  };
+
+  // 3. Permalinks Gumroad assigned itself resolve directly.
+  for (const link of outstanding()) {
+    if (left <= 0) break;
+    if (DEFAULT_PERMALINK.test(link)) await hydrate(link);
+  }
+
+  // 4. Custom permalinks resolve through an id the cache already holds.
+  for (const link of outstanding()) {
+    if (left <= 0) break;
+    const id = byPermalink.get(link);
+    if (id && !byId.has(id)) await hydrate(id);
+  }
+
+  // 5. Whatever is left needs the sales walk to surface an id.
+  let cursor = index.salesCursor;
+  let salesDone = index.salesDone;
+  while (outstanding().length && left > 2 && !salesDone) {
+    spend();
+    let body;
+    try {
+      body = await get(env, '/sales', cursor ? { page_key: cursor } : {});
+    } catch {
+      break;
+    }
+    const seen = [];
+    for (const s of body.sales || []) {
+      if (!s.product_id || byId.has(s.product_id)) continue;
+      if (!seen.includes(s.product_id)) seen.push(s.product_id);
+      if (s.product_permalink) byPermalink.set(s.product_permalink, s.product_id);
+    }
+    for (const id of seen) {
+      if (left <= 1) break;
+      await hydrate(id);
+    }
+    cursor = body.next_page_key || null;
+    if (!cursor) { salesDone = true; break; }
+  }
+
+  await writeIndex(env, {
+    byPermalink: Object.fromEntries(byPermalink),
+    salesCursor: cursor,
+    salesDone,
+  });
+
+  const missing = outstanding();
+  return {
+    products: [...byId.values()],
+    coverage: {
+      expected: links.length,
+      resolved: links.length - missing.length,
+      complete: missing.length === 0,
+      unresolved: missing,
+      note: missing.length
+        ? 'Call again to resume. The walk picks up from the cached cursor.'
+        : undefined,
+    },
+  };
 }

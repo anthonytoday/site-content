@@ -77,13 +77,18 @@ await t('a missing Gumroad token fails loudly', async () => {
 });
 
 /* ---- endpoint shapes, checked against the Gumroad CLI ---- */
-await t('list products calls GET /v2/products', async () => {
-  calls.length = 0; stub(() => ({ success: true, products: [{ id: 'p1', name: 'A', published: true, sales_count: 3 }] }));
+await t('listing starts at /user, then reads /products', async () => {
+  calls.length = 0;
+  stub((c) => new URL(c.url).pathname.endsWith('/user')
+    ? { success: true, user: { links: ['aaaaa'] } }
+    : { success: true, products: [{ id: 'p1', name: 'A', published: true, sales_count: 3, short_url: 'https://x.gumroad.com/l/aaaaa' }] });
   const out = await findTool('gumroad_list_products').handler(ENV, {});
-  assert.equal(calls[0].url, 'https://api.gumroad.com/v2/products');
+  assert.equal(calls[0].url, 'https://api.gumroad.com/v2/user');
+  assert.equal(calls[1].url, 'https://api.gumroad.com/v2/products');
   assert.equal(calls[0].method, 'GET');
   assert.equal(out.count, 1);
   assert.equal(out.products[0].id, 'p1');
+  assert.equal(out.coverage.complete, true);
 });
 await t('create posts form-encoded fields to /v2/products', async () => {
   calls.length = 0; stub(() => ({ success: true, product: { id: 'new' } }));
@@ -134,13 +139,15 @@ await t('gumroad_request blocks writes without confirm', async () => {
 /* ---- bulk ---- */
 await t('bulk update defaults to a dry run and touches nothing', async () => {
   calls.length = 0;
-  stub(() => ({ success: true, products: [
-    { id: 'a', name: 'Free thing', price: 0, published: true, sales_count: 0 },
-    { id: 'b', name: 'Paid thing', price: 900, published: true, sales_count: 12 }] }));
+  stub((c) => new URL(c.url).pathname.endsWith('/user')
+    ? { success: true, user: { links: ['aaaaa', 'bbbbb'] } }
+    : { success: true, products: [
+        { id: 'a', name: 'Free thing', price: 0, published: true, sales_count: 0, short_url: 'https://x.gumroad.com/l/aaaaa' },
+        { id: 'b', name: 'Paid thing', price: 900, published: true, sales_count: 12, short_url: 'https://x.gumroad.com/l/bbbbb' }] });
   const out = await findTool('gumroad_bulk_update_products').handler(ENV, { filter: { free: true }, patch: { name: 'x' } });
   assert.equal(out.dry_run, true);
   assert.deepEqual(out.product_ids, ['a']);
-  assert.equal(calls.length, 1); // the catalogue read only
+  assert.ok(calls.every((c) => c.method === 'GET'), 'a dry run must not write');
 });
 await t('bulk update with dry_run false writes to each target', async () => {
   calls.length = 0;
@@ -223,46 +230,114 @@ await t('an unset MCP_AUTH_TOKEN fails closed', async () => {
   assert.equal(r.status, 401);
 });
 
-/* ---- product pagination ---- */
-await t('list products follows ?page= past the 10-item cap', async () => {
-  calls.length = 0;
-  const page = (n, size) => ({ success: true, products: Array.from({length:size},(_,i)=>({ id:`p${n}_${i}`, name:'x', published:true })) });
-  let n = 0;
-  stub(() => { n++; return n === 1 ? page(1,10) : n === 2 ? page(2,10) : page(3,4); });
-  const out = await findTool('gumroad_list_products').handler(ENV, {});
-  assert.equal(out.count, 24);
-  assert.equal(calls.length, 3);
-  assert.ok(calls[1].url.includes('page=2'));
+/* ---- catalogue enumeration ---- */
+
+/**
+ * Routes the stub by path so a test can describe the three endpoints the
+ * enumeration actually leans on: /user for the authoritative permalink list,
+ * /products for the 10 newest, /sales for everything /products hides.
+ */
+function shop({ links = [], products = [], byKey = {}, sales = [] }) {
+  stub((c) => {
+    const path = new URL(c.url).pathname.replace('/v2', '');
+    if (path === '/user') return { success: true, user: { links } };
+    if (path === '/products') return { success: true, products };
+    if (path === '/sales') return { success: true, sales, next_page_key: null };
+    if (path.startsWith('/products/')) {
+      const key = decodeURIComponent(path.slice('/products/'.length));
+      return byKey[key] ? { success: true, product: byKey[key] } : { __status: 404, success: false, message: 'The product was not found.' };
+    }
+    return { success: true };
+  });
+}
+const prod = (id, permalink, extra = {}) => ({
+  id, name: id, price: 0, published: true,
+  short_url: `https://anthonytoday.gumroad.com/l/${permalink}`,
+  ...extra,
 });
-await t('a server ignoring ?page= does not loop forever', async () => {
+
+await t('the catalogue comes from /user, not the 10-item /products cap', async () => {
   calls.length = 0;
-  stub(() => ({ success: true, products: Array.from({length:10},(_,i)=>({ id:`same${i}`, published:true })) }));
+  shop({
+    links: ['aaaaa', 'bbbbb', 'my-custom-one'],
+    products: [prod('p3', 'my-custom-one', { custom_permalink: 'my-custom-one' })],
+    byKey: { aaaaa: prod('p1', 'aaaaa'), bbbbb: prod('p2', 'bbbbb') },
+  });
   const out = await findTool('gumroad_list_products').handler(ENV, {});
-  assert.equal(out.count, 10);
-  assert.equal(calls.length, 2); // one real page, one that returned nothing new
+  assert.equal(out.count, 3);
+  assert.equal(out.coverage.expected, 3);
+  assert.equal(out.coverage.complete, true);
 });
-await t('a short first page ends the walk immediately', async () => {
+
+await t('a custom permalink is never fetched directly, because Gumroad 404s it', async () => {
   calls.length = 0;
-  stub(() => ({ success: true, products: [{ id: 'only', published: true }] }));
+  shop({
+    links: ['CPA-Exam-Study-Plan'],
+    products: [],
+    sales: [{ product_id: 'pX', product_permalink: 'zzzzz' }],
+    byKey: { pX: prod('pX', 'zzzzz', { custom_permalink: 'CPA-Exam-Study-Plan' }) },
+  });
   const out = await findTool('gumroad_list_products').handler(ENV, {});
+  assert.equal(out.coverage.complete, true);
   assert.equal(out.count, 1);
-  assert.equal(calls.length, 1);
+  assert.ok(!calls.some((c) => c.url.includes('CPA-Exam-Study-Plan')), 'must not GET a custom permalink');
 });
+
+await t('the sales walk resolves what /products hides', async () => {
+  calls.length = 0;
+  shop({
+    links: ['aaaaa', 'hidden-one'],
+    products: [prod('p1', 'aaaaa')],
+    sales: [{ product_id: 'p9', product_permalink: 'qqqqq' }],
+    byKey: {
+      aaaaa: prod('p1', 'aaaaa'),
+      p9: prod('p9', 'qqqqq', { custom_permalink: 'hidden-one' }),
+    },
+  });
+  const out = await findTool('gumroad_list_products').handler(ENV, {});
+  assert.equal(out.count, 2);
+  assert.equal(out.coverage.complete, true);
+  assert.ok(calls.some((c) => c.url.includes('/sales')), 'sales must be walked');
+});
+
+await t('coverage reports honestly when a permalink cannot be resolved', async () => {
+  calls.length = 0;
+  shop({ links: ['aaaaa', 'ghost-product'], products: [], byKey: { aaaaa: prod('p1', 'aaaaa') }, sales: [] });
+  const out = await findTool('gumroad_list_products').handler(ENV, {});
+  assert.equal(out.coverage.complete, false);
+  assert.deepEqual(out.coverage.unresolved, ['ghost-product']);
+});
+
+await t('the subrequest budget is respected rather than blown', async () => {
+  calls.length = 0;
+  const links = Array.from({ length: 60 }, (_, i) => `k${String(i).padStart(4, '0')}`);
+  const byKey = Object.fromEntries(links.map((k, i) => [k, prod(`id${i}`, k)]));
+  shop({ links, products: [], byKey, sales: [] });
+  const out = await findTool('gumroad_list_products').handler(ENV, {});
+  assert.ok(calls.length <= 42, `spent ${calls.length} subrequests`);
+  assert.equal(out.coverage.complete, false);
+  assert.ok(out.coverage.note.includes('Call again'));
+});
+
 await t('full records are capped so a response cannot overflow', async () => {
-  stub(() => ({ success: true, products: Array.from({length:10},(_,i)=>({ id:`f${i}`, description:'x'.repeat(500) })) }));
+  const links = Array.from({ length: 10 }, (_, i) => `cap${i}0`);
+  const byKey = Object.fromEntries(links.map((k, i) => [k, prod(`f${i}`, k, { description: 'x'.repeat(500) })]));
+  shop({ links, products: [], byKey, sales: [] });
   const out = await findTool('gumroad_list_products').handler(ENV, { summary: false });
   assert.equal(out.returned, 5);
   assert.equal(out.products.length, 5);
   assert.equal(out.count, 10);
 });
+
 await t('bulk targeting sees the whole catalogue, not one page', async () => {
   calls.length = 0;
-  let n = 0;
-  stub(() => { n++; return n === 1
-    ? { success: true, products: Array.from({length:10},(_,i)=>({ id:`a${i}`, price:0, published:true })) }
-    : { success: true, products: [{ id:'b0', price:0, published:true }] }; });
+  shop({
+    links: ['aaaaa', 'bbbbb', 'ccccc'],
+    products: [prod('p1', 'aaaaa')],
+    byKey: { aaaaa: prod('p1','aaaaa'), bbbbb: prod('p2','bbbbb'), ccccc: prod('p3','ccccc') },
+  });
   const out = await findTool('gumroad_bulk_update_products').handler(ENV, { filter:{ free:true }, patch:{ name:'x' } });
-  assert.equal(out.would_update, 11);
+  assert.equal(out.would_update, 3);
 });
 
 console.log(`\n${pass} passed, ${fail} failed`);

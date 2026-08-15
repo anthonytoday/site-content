@@ -13,3 +13,10 @@ enabled = true
 # Two secrets, both set with `wrangler secret put`. Neither belongs in this file.
 #   GUMROAD_ACCESS_TOKEN  the account-wide Gumroad token
 #   MCP_AUTH_TOKEN        the bearer Claude presents to reach /mcp
+
+# Caches the permalink-to-id map and the sales-walk cursor. /products caps at
+# 10 and custom permalinks do not resolve, so the full catalogue is discovered
+# through /sales once and then read from here.
+[[kv_namespaces]]
+binding = "CATALOG"
+id = "b659e57707164a2fbabf74b0ffc543f8"

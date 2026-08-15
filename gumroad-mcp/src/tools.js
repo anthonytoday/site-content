@@ -64,7 +64,7 @@ async function overIds(ids, fn, concurrency = 4) {
 /** Resolves a target set: explicit ids, or every product matching a filter. */
 async function resolveTargets(env, args) {
   if (Array.isArray(args.product_ids) && args.product_ids.length) return args.product_ids;
-  let products = await allProducts(env);
+  let products = (await allProducts(env)).products;
   const f = args.filter || {};
   if (f.published !== undefined) products = products.filter((p) => Boolean(p.published) === Boolean(f.published));
   if (f.name_contains) {
@@ -96,23 +96,25 @@ const TOOLS = [
       properties: {
         summary: { type: 'boolean', description: 'Return a compact row per product instead of the full record. Default true.' },
         limit: { type: 'integer', description: 'Only with summary false. Full records are large, so this caps at 10 and defaults to 5.' },
+        refresh: { type: 'boolean', description: 'Discard the cached permalink map and rediscover the catalogue from scratch.' },
       },
     },
     handler: async (env, args) => {
-      const products = await allProducts(env);
+      const { products, coverage } = await allProducts(env, { refresh: args.refresh === true });
       if (args.summary === false) {
         // Full records run to roughly 10 KB each and overflow a tool response
         // well before the catalogue ends, so this is capped deliberately.
         const limit = Math.min(args.limit || 5, 10);
-        return { count: products.length, returned: limit, products: products.slice(0, limit) };
+        return { coverage, count: products.length, returned: limit, products: products.slice(0, limit) };
       }
       return {
+        coverage,
         count: products.length,
         products: products.map((p) => ({
           id: p.id, name: p.name, price: p.price, currency: p.currency,
           published: p.published, sales_count: p.sales_count,
           sales_usd_cents: p.sales_usd_cents, tags: p.tags,
-          url: p.short_url, permalink: p.custom_permalink,
+          url: p.short_url, permalink: p.custom_permalink || (p.short_url || '').split('/l/')[1] || null,
         })),
       };
     },
