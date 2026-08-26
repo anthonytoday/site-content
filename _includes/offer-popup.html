@@ -9,10 +9,10 @@
       <p class="atop-eyebrow"><span class="atop-dot"></span>{% if is_fr %}Offre exclusive{% else %}Exclusive offer{% endif %}</p>
     </div>
     <h2 class="atop-title" id="atOfferTitle">{% if is_fr %}Notion Business, gratuitement{% else %}Notion Business, for free{% endif %}</h2>
-    <p class="atop-sub">{% if is_fr %}IA complete, sans carte bancaire, jusqu'a <strong>6 000 $</strong> d'economies. Notion peut fermer l'offre a tout moment.{% else %}Full AI access, no credit card, worth up to <strong>$6,000</strong>. Notion can close this offer at any time.{% endif %}</p>
+    <p class="atop-sub">{% if is_fr %}<strong>3 mois offerts</strong> avec l'IA complete, sans carte bancaire. Jusqu'a <strong>6 000 $</strong> d'economies. Notion peut fermer l'offre a tout moment.{% else %}<strong>3 months free</strong> with full AI access, no credit card. Worth up to <strong>$6,000</strong>. Notion can close this offer at any time.{% endif %}</p>
 
     <form class="atop-form" id="atOfferForm" novalidate>
-      <label class="atop-label" for="atOfferEmail">{% if is_fr %}Votre adresse e-mail{% else %}Your email address{% endif %}</label>
+      <label class="atop-label" for="atOfferEmail">{% if is_fr %}Votre meilleure adresse e-mail{% else %}Your preferred email address{% endif %}</label>
       <input class="atop-input" id="atOfferEmail" type="email" name="email" autocomplete="email"
              placeholder="name@company.com" required aria-describedby="atOfferErr">
 
@@ -39,8 +39,8 @@
 .atop[hidden]{display:none}
 .atop{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px}
 .atop-veil{position:absolute;inset:0;background:rgba(5,28,44,.62)}
-.atop-card{position:relative;background:#fff;border-radius:14px;max-width:440px;width:100%;
-  padding:32px 30px 26px;box-shadow:0 18px 50px rgba(5,28,44,.28);text-align:left;
+.atop-card{position:relative;background:#fff;border-radius:14px;max-width:490px;width:100%;
+  padding:36px 36px 30px;box-shadow:0 18px 50px rgba(5,28,44,.28);text-align:left;
   animation:atopIn .22s ease-out}
 @keyframes atopIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .atop-x{position:absolute;top:10px;right:14px;background:none;border:0;font-size:26px;line-height:1;
@@ -52,8 +52,8 @@
 .atop-dot{width:6px;height:6px;border-radius:50%;background:#2251FF;flex:0 0 auto;animation:atopPulse 1.6s ease-in-out infinite}
 @keyframes atopPulse{0%,100%{opacity:1}50%{opacity:.25}}
 @media (prefers-reduced-motion:reduce){.atop-dot{animation:none}.atop-card{animation:none}}
-.atop-title{margin:0 0 10px;font-size:25px;line-height:1.2;font-weight:700;color:#051C2C}
-.atop-sub{margin:0 0 18px;font-size:15px;line-height:1.55;color:#4A5464}
+.atop-title{margin:0 0 11px;font-size:27px;line-height:1.2;font-weight:700;color:#051C2C}
+.atop-sub{margin:0 0 20px;font-size:15.5px;line-height:1.6;color:#4A5464}
 .atop-label{display:block;font-size:13px;font-weight:600;color:#051C2C;margin-bottom:6px}
 .atop-input{width:100%;padding:12px 14px;font-size:15px;border:1px solid #C9CED6;border-radius:8px;
   background:#fff;color:#051C2C;box-sizing:border-box}
@@ -71,14 +71,14 @@
 .atop-fine a{color:#6B7280;text-decoration:underline}
 .atop-donetitle{margin:0 0 8px;font-size:19px;font-weight:700;color:#051C2C}
 .atop-done[hidden]{display:none}
-@media (max-width:480px){.atop-card{padding:28px 20px 22px}.atop-title{font-size:22px}}
+@media (max-width:520px){.atop-card{padding:28px 22px 24px}.atop-title{font-size:22px}.atop-sub{font-size:15px}}
 </style>
 
 <script>
 (function(){
   var API = "{{ site.offer_api | default: 'https://offer-capture.learningamazonfba.workers.dev/api/claim-offer' }}";
   var KEY = "at_offer_v1";
-  var DAYS = 7;
+  var DAYS = 1;
   var root = document.getElementById("atOffer");
   if (!root) return;
 
@@ -88,9 +88,15 @@
   var force = /[?&]popup=1\b/.test(location.search);
   var state = {};
   try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { state = {}; }
-  if (force) { try { localStorage.removeItem(KEY); } catch (e) {} state = {}; }
+  if (force) {
+    try { localStorage.removeItem(KEY); sessionStorage.removeItem(KEY); } catch (e) {}
+    state = {};
+  }
+  var shownThisSession = false;
+  try { shownThisSession = sessionStorage.getItem(KEY) === "1"; } catch (e) {}
   if (!force) {
     if (state.claimed) return;
+    if (shownThisSession) return;
     if (state.seen && (Date.now() - state.seen) < DAYS * 864e5) return;
   }
 
@@ -127,6 +133,7 @@
     lastFocus = document.activeElement;
     root.hidden = false; root.setAttribute("aria-hidden", "false");
     save({ seen: Date.now() });
+    try { sessionStorage.setItem(KEY, "1"); } catch (e) {}
     setTimeout(function(){ input.focus(); }, 60);
     document.addEventListener("keydown", onKey);
   }
