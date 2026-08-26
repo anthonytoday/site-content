@@ -1,0 +1,43 @@
+name: Sync Notion Marketplace gallery
+# Captures every listing gallery from the Notion Marketplace into
+# assets/templates/<slug>/. Runs on a GitHub runner because it needs open
+# internet access, which the local sandbox does not have, and repo write
+# through the built-in GITHUB_TOKEN so no credential is stored anywhere.
+on:
+  push:
+    paths:
+      - '.github/scripts/sync_marketplace_gallery.py'
+      - '.github/workflows/sync-marketplace-gallery.yml'
+  workflow_dispatch:
+  # New listings appear whenever Notion approves a submission, and a failed or
+  # skipped run heals itself rather than waiting to be noticed.
+  schedule:
+    - cron: '40 3 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: marketplace-gallery
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Pillow
+        run: python3 -m pip install --quiet Pillow
+      - name: Capture galleries
+        run: python3 .github/scripts/sync_marketplace_gallery.py
+      - name: Commit whatever arrived
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets .github/marketplace-gallery-result.txt
+          if git diff --cached --quiet; then
+            echo "nothing new to commit"
+          else
+            git commit -m "Capture Notion Marketplace listing galleries"
+            git pull --rebase --autostash
+            git push
+          fi
+      - name: Report
+        run: cat .github/marketplace-gallery-result.txt
