@@ -168,9 +168,21 @@
     });
   });
 
-  var timer = setTimeout(openIt, 20000);
-  document.addEventListener("mouseout", function(e){
-    if (!e.relatedTarget && e.clientY <= 0) { clearTimeout(timer); openIt(); }
-  });
+  var touch = window.matchMedia && window.matchMedia("(hover: none)").matches;
+  var timer = setTimeout(openIt, touch ? 45000 : 30000);
+
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    if (h > 0 && (window.scrollY / h) >= 0.5) { clearTimeout(timer); openIt(); cleanup(); }
+  }
+  function onExit(e){
+    if (!e.relatedTarget && e.clientY <= 0) { clearTimeout(timer); openIt(); cleanup(); }
+  }
+  function cleanup(){
+    window.removeEventListener("scroll", onScroll);
+    document.removeEventListener("mouseout", onExit);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  if (!touch) document.addEventListener("mouseout", onExit);
 })();
 </script>
