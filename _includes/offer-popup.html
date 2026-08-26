@@ -4,9 +4,12 @@
   <div class="atop-card" role="dialog" aria-modal="true" aria-labelledby="atOfferTitle">
     <button type="button" class="atop-x" data-atop-close aria-label="{% if is_fr %}Fermer{% else %}Close{% endif %}">&times;</button>
 
-    <p class="atop-eyebrow">{% if is_fr %}Offre exclusive{% else %}Exclusive offer{% endif %}</p>
+    <div class="atop-head">
+      <img class="atop-logo" src="/assets/logos/notion.webp" alt="Notion" width="34" height="34" loading="lazy">
+      <p class="atop-eyebrow"><span class="atop-dot"></span>{% if is_fr %}Offre limitee{% else %}Limited time{% endif %}</p>
+    </div>
     <h2 class="atop-title" id="atOfferTitle">{% if is_fr %}Notion Business, gratuitement{% else %}Notion Business, for free{% endif %}</h2>
-    <p class="atop-sub">{% if is_fr %}Accedez au plan <strong>Notion Business</strong> avec l'IA complete, sans carte bancaire. Jusqu'a <strong>6 000 $</strong> d'economies.{% else %}Get the <strong>Notion Business</strong> plan with full AI access, no credit card required. Worth up to <strong>$6,000</strong>.{% endif %}</p>
+    <p class="atop-sub">{% if is_fr %}IA complete, sans carte bancaire, jusqu'a <strong>6 000 $</strong> d'economies. Notion peut fermer l'offre a tout moment.{% else %}Full AI access, no credit card, worth up to <strong>$6,000</strong>. Notion can close this offer at any time.{% endif %}</p>
 
     <form class="atop-form" id="atOfferForm" novalidate>
       <label class="atop-label" for="atOfferEmail">{% if is_fr %}Votre adresse e-mail{% else %}Your email address{% endif %}</label>
@@ -19,7 +22,7 @@
       </label>
 
       <p class="atop-err" id="atOfferErr" role="alert" hidden></p>
-      <button class="atop-btn" type="submit" id="atOfferBtn">{% if is_fr %}Recevoir le lien{% else %}Reveal my link{% endif %}</button>
+      <button class="atop-btn" type="submit" id="atOfferBtn">{% if is_fr %}Obtenir mon lien{% else %}Get my free link{% endif %}</button>
       <p class="atop-fine">{% if is_fr %}Voir notre <a href="/fr/privacy/">politique de confidentialite</a>.{% else %}Read our <a href="/privacy/">privacy policy</a>.{% endif %}</p>
     </form>
 
@@ -43,7 +46,12 @@
 .atop-x{position:absolute;top:10px;right:14px;background:none;border:0;font-size:26px;line-height:1;
   color:#6B7280;cursor:pointer;padding:4px 8px}
 .atop-x:hover{color:#051C2C}
-.atop-eyebrow{margin:0 0 6px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#2251FF}
+.atop-head{display:flex;align-items:center;gap:11px;margin:0 0 12px}
+.atop-logo{width:34px;height:34px;border-radius:7px;flex:0 0 auto;display:block}
+.atop-eyebrow{margin:0;display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#B4460E;background:#FDF0E7;padding:5px 11px;border-radius:999px}
+.atop-dot{width:6px;height:6px;border-radius:50%;background:#D85A30;flex:0 0 auto;animation:atopPulse 1.6s ease-in-out infinite}
+@keyframes atopPulse{0%,100%{opacity:1}50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.atop-dot{animation:none}.atop-card{animation:none}}
 .atop-title{margin:0 0 10px;font-size:25px;line-height:1.2;font-weight:700;color:#051C2C}
 .atop-sub{margin:0 0 18px;font-size:15px;line-height:1.55;color:#4A5464}
 .atop-label{display:block;font-size:13px;font-weight:600;color:#051C2C;margin-bottom:6px}
@@ -163,7 +171,7 @@
       setTimeout(function(){ link.focus(); }, 60);
     })["catch"](function(){
       btn.disabled = false;
-      btn.textContent = FR ? "Recevoir le lien" : "Reveal my link";
+      btn.textContent = FR ? "Obtenir mon lien" : "Get my free link";
       fail(MSG.fail);
     });
   });
