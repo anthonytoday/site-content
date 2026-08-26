@@ -78,17 +78,21 @@
 (function(){
   var API = "{{ site.offer_api | default: 'https://offer-capture.learningamazonfba.workers.dev/api/claim-offer' }}";
   var KEY = "at_offer_v1";
-  var DAYS = 30;
+  var DAYS = 7;
   var root = document.getElementById("atOffer");
   if (!root) return;
 
   var path = location.pathname;
   if (/\/(privacy|contact)\//.test(path)) return;
 
+  var force = /[?&]popup=1\b/.test(location.search);
   var state = {};
   try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { state = {}; }
-  if (state.claimed) return;
-  if (state.seen && (Date.now() - state.seen) < DAYS * 864e5) return;
+  if (force) { try { localStorage.removeItem(KEY); } catch (e) {} state = {}; }
+  if (!force) {
+    if (state.claimed) return;
+    if (state.seen && (Date.now() - state.seen) < DAYS * 864e5) return;
+  }
 
   var form = document.getElementById("atOfferForm");
   var done = document.getElementById("atOfferDone");
@@ -177,7 +181,7 @@
   });
 
   var touch = window.matchMedia && window.matchMedia("(hover: none)").matches;
-  var timer = setTimeout(openIt, 20000);
+  var timer = setTimeout(openIt, force ? 300 : 20000);
 
   function onScroll(){
     var h = document.documentElement.scrollHeight - window.innerHeight;
