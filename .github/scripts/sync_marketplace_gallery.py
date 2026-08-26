@@ -124,8 +124,21 @@ def save_webp(url, path):
     if len(raw) < 500:
         raise ValueError("response too small: %d bytes" % len(raw))
     im = Image.open(io.BytesIO(raw))
+    im.load()
     if im.mode in ("RGBA", "LA", "P"):
         im = im.convert("RGB")
+
+    # Notion occasionally serves a blank white frame for a screenshot that did
+    # not render. It is a valid image, so nothing downstream catches it: the
+    # first run wrote one and still reported failed=0. Reject anything with no
+    # tonal variation rather than commit a white rectangle.
+    try:
+        from PIL import ImageStat
+        if max(ImageStat.Stat(im.convert("RGB")).stddev) < 2.0:
+            raise ValueError("blank image: no tonal variation")
+    except ImportError:
+        pass
+
     os.makedirs(os.path.dirname(path), exist_ok=True)
     im.save(path, "WEBP", quality=86, method=5)
     return "new"
