@@ -1,1 +1,1 @@
-listings_mine=0 new=0 already_present=0 failed=0
+listings_mine=78 new=154 already_present=292 failed=0
