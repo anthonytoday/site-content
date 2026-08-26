@@ -22,7 +22,7 @@
       </label>
 
       <p class="atop-err" id="atOfferErr" role="alert" hidden></p>
-      <button class="atop-btn" type="submit" id="atOfferBtn">{% if is_fr %}Obtenir mon lien{% else %}Get my free link{% endif %}</button>
+      <button class="atop-btn" type="submit" id="atOfferBtn">{% if is_fr %}Obtenir l'offre exclusive{% else %}Claim the exclusive offer{% endif %}</button>
       <p class="atop-fine">{% if is_fr %}Voir notre <a href="/fr/privacy/">politique de confidentialite</a>.{% else %}Read our <a href="/privacy/">privacy policy</a>.{% endif %}</p>
     </form>
 
@@ -175,7 +175,7 @@
       setTimeout(function(){ link.focus(); }, 60);
     })["catch"](function(){
       btn.disabled = false;
-      btn.textContent = FR ? "Obtenir mon lien" : "Get my free link";
+      btn.textContent = FR ? "Obtenir l'offre exclusive" : "Claim the exclusive offer";
       fail(MSG.fail);
     });
   });
