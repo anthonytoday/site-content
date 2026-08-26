@@ -79,6 +79,21 @@ def seed_slugs(bid):
         print("profile fetch failed: %s" % e)
     if os.path.isdir(ROOT):
         found.update(d for d in os.listdir(ROOT) if os.path.isdir(os.path.join(ROOT, d)))
+
+    # The repo already records marketplace URLs across pages and data files.
+    # related_templates only returns UUIDs, so this is the reliable way to
+    # reach listings the profile JSON hides behind its "Load more" pagination.
+    pat = re.compile(r"notion\.com/templates/([a-z0-9][a-z0-9\-]{3,80})")
+    for dirpath, dirnames, files in os.walk("."):
+        dirnames[:] = [d for d in dirnames if d not in (".git", "_site", "node_modules", "assets")]
+        for name in files:
+            if not name.endswith((".html", ".json", ".yml", ".yaml", ".md")):
+                continue
+            try:
+                with open(os.path.join(dirpath, name), encoding="utf-8", errors="ignore") as fh:
+                    found.update(pat.findall(fh.read()))
+            except Exception:
+                pass
     return found
 
 
@@ -124,23 +139,16 @@ def main():
     print("seed slugs: %d" % len(queue))
 
     visited, cache = set(), {}
-    while queue:
-        slug = queue.pop(0)
+    for slug in queue:
         if slug in visited:
             continue
         visited.add(slug)
         tpl = listing(bid, slug)
-        if not tpl:
-            continue
-        cache[slug] = tpl
-        for rel in ((tpl.get("attributes") or {}).get("related_templates") or []):
-            rs = rel.get("slug") if isinstance(rel, dict) else rel
-            if isinstance(rs, str) and rs not in visited:
-                queue.append(rs)
+        if tpl:
+            cache[slug] = tpl
 
     mine = {s: t for s, t in cache.items()
-            if ((t.get("profile") or {}).get("slug") == CREATOR
-                or (t.get("creator") or {}).get("slug") == CREATOR)}
+            if (t.get("profile") or {}).get("username") == CREATOR}
     print("reachable listings: %d, mine: %d" % (len(cache), len(mine)))
 
     new = skipped = failed = 0
