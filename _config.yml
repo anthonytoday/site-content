@@ -33,7 +33,7 @@ cf_analytics_token: ""
 shop_nav: false
 
 # Lead capture popup. Flip to true once the email-ops Worker is deployed.
-offer_popup_enabled: false
+offer_popup_enabled: true
 
 # Lead capture popup endpoint (Cloudflare Worker, email-ops)
-offer_api: "https://email-ops.learningamazonfba.workers.dev/api/claim-offer"
+offer_api: "https://offer-capture.learningamazonfba.workers.dev/api/claim-offer"

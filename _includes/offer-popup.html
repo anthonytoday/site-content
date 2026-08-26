@@ -68,7 +68,7 @@
 
 <script>
 (function(){
-  var API = "{{ site.offer_api | default: 'https://email-ops.learningamazonfba.workers.dev/api/claim-offer' }}";
+  var API = "{{ site.offer_api | default: 'https://offer-capture.learningamazonfba.workers.dev/api/claim-offer' }}";
   var KEY = "at_offer_v1";
   var DAYS = 30;
   var root = document.getElementById("atOffer");
@@ -169,7 +169,7 @@
   });
 
   var touch = window.matchMedia && window.matchMedia("(hover: none)").matches;
-  var timer = setTimeout(openIt, touch ? 45000 : 30000);
+  var timer = setTimeout(openIt, 20000);
 
   function onScroll(){
     var h = document.documentElement.scrollHeight - window.innerHeight;
