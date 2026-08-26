@@ -204,5 +204,6 @@
 {%- if site.cf_analytics_token and site.cf_analytics_token != "" %}
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ site.cf_analytics_token }}"}'></script>
 {%- endif %}
+{% if site.offer_popup_enabled and page.no_offer_popup != true %}{% include offer-popup.html %}{% endif %}
 </body>
 </html>

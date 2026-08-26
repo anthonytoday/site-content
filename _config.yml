@@ -31,3 +31,9 @@ cf_analytics_token: ""
 # Reveals the Shop menu in the header: Notion Templates, Anki Flashcards, Help.
 # false keeps the navigation exactly as it is today. Flip to true to launch.
 shop_nav: false
+
+# Lead capture popup. Flip to true once the email-ops Worker is deployed.
+offer_popup_enabled: false
+
+# Lead capture popup endpoint (Cloudflare Worker, email-ops)
+offer_api: "https://email-ops.learningamazonfba.workers.dev/api/claim-offer"

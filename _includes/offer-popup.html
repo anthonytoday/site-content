@@ -1,0 +1,176 @@
+{% assign is_fr = false %}{% if page.lang == "fr" %}{% assign is_fr = true %}{% endif %}
+<div class="atop" id="atOffer" hidden aria-hidden="true">
+  <div class="atop-veil" data-atop-close></div>
+  <div class="atop-card" role="dialog" aria-modal="true" aria-labelledby="atOfferTitle">
+    <button type="button" class="atop-x" data-atop-close aria-label="{% if is_fr %}Fermer{% else %}Close{% endif %}">&times;</button>
+
+    <p class="atop-eyebrow">{% if is_fr %}Offre exclusive{% else %}Exclusive offer{% endif %}</p>
+    <h2 class="atop-title" id="atOfferTitle">{% if is_fr %}Notion Business, gratuitement{% else %}Notion Business, for free{% endif %}</h2>
+    <p class="atop-sub">{% if is_fr %}Accedez au plan <strong>Notion Business</strong> avec l'IA complete, sans carte bancaire. Jusqu'a <strong>6 000 $</strong> d'economies.{% else %}Get the <strong>Notion Business</strong> plan with full AI access, no credit card required. Worth up to <strong>$6,000</strong>.{% endif %}</p>
+
+    <form class="atop-form" id="atOfferForm" novalidate>
+      <label class="atop-label" for="atOfferEmail">{% if is_fr %}Votre adresse e-mail{% else %}Your email address{% endif %}</label>
+      <input class="atop-input" id="atOfferEmail" type="email" name="email" autocomplete="email"
+             placeholder="name@company.com" required aria-describedby="atOfferErr">
+
+      <label class="atop-check">
+        <input type="checkbox" id="atOfferConsent" required>
+        <span>{% if is_fr %}J'accepte de recevoir des messages d'AnthonyToday. Desinscription a tout moment.{% else %}I agree to receive messages from AnthonyToday. Unsubscribe at any time.{% endif %}</span>
+      </label>
+
+      <p class="atop-err" id="atOfferErr" role="alert" hidden></p>
+      <button class="atop-btn" type="submit" id="atOfferBtn">{% if is_fr %}Recevoir le lien{% else %}Reveal my link{% endif %}</button>
+      <p class="atop-fine">{% if is_fr %}Voir notre <a href="/fr/privacy/">politique de confidentialite</a>.{% else %}Read our <a href="/privacy/">privacy policy</a>.{% endif %}</p>
+    </form>
+
+    <div class="atop-done" id="atOfferDone" hidden>
+      <p class="atop-donetitle">{% if is_fr %}C'est pret.{% else %}You are in.{% endif %}</p>
+      <p class="atop-sub">{% if is_fr %}Cliquez ci-dessous pour activer votre plan Notion Business.{% else %}Click below to activate your Notion Business plan.{% endif %}</p>
+      <a class="atop-btn" id="atOfferLink" href="#" target="_blank" rel="noopener noreferrer nofollow">{% if is_fr %}Activer mon offre{% else %}Claim my offer{% endif %}</a>
+      <p class="atop-fine">{% if is_fr %}Le lien s'ouvre sur notion.com.{% else %}The link opens on notion.com.{% endif %}</p>
+    </div>
+  </div>
+</div>
+
+<style>
+.atop[hidden]{display:none}
+.atop{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px}
+.atop-veil{position:absolute;inset:0;background:rgba(5,28,44,.62)}
+.atop-card{position:relative;background:#fff;border-radius:14px;max-width:440px;width:100%;
+  padding:32px 30px 26px;box-shadow:0 18px 50px rgba(5,28,44,.28);text-align:left;
+  animation:atopIn .22s ease-out}
+@keyframes atopIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.atop-x{position:absolute;top:10px;right:14px;background:none;border:0;font-size:26px;line-height:1;
+  color:#6B7280;cursor:pointer;padding:4px 8px}
+.atop-x:hover{color:#051C2C}
+.atop-eyebrow{margin:0 0 6px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#2251FF}
+.atop-title{margin:0 0 10px;font-size:25px;line-height:1.2;font-weight:700;color:#051C2C}
+.atop-sub{margin:0 0 18px;font-size:15px;line-height:1.55;color:#4A5464}
+.atop-label{display:block;font-size:13px;font-weight:600;color:#051C2C;margin-bottom:6px}
+.atop-input{width:100%;padding:12px 14px;font-size:15px;border:1px solid #C9CED6;border-radius:8px;
+  background:#fff;color:#051C2C;box-sizing:border-box}
+.atop-input:focus{outline:none;border-color:#2251FF;box-shadow:0 0 0 3px rgba(34,81,255,.16)}
+.atop-check{display:flex;gap:9px;align-items:flex-start;margin:14px 0 4px;font-size:13px;line-height:1.5;color:#4A5464;cursor:pointer}
+.atop-check input{margin-top:2px;flex:0 0 auto;width:16px;height:16px;accent-color:#2251FF}
+.atop-err{margin:10px 0 0;font-size:13px;color:#C0392B}
+.atop-err[hidden]{display:none}
+.atop-btn{display:block;width:100%;margin-top:16px;padding:14px 18px;font-size:16px;font-weight:700;
+  border:0;border-radius:8px;background:#2251FF;color:#fff;cursor:pointer;text-align:center;
+  text-decoration:none;box-sizing:border-box;transition:background .15s}
+.atop-btn:hover{background:#051C2C;color:#fff}
+.atop-btn[disabled]{opacity:.6;cursor:default}
+.atop-fine{margin:12px 0 0;font-size:12px;color:#6B7280;text-align:center}
+.atop-fine a{color:#6B7280;text-decoration:underline}
+.atop-donetitle{margin:0 0 8px;font-size:19px;font-weight:700;color:#051C2C}
+.atop-done[hidden]{display:none}
+@media (max-width:480px){.atop-card{padding:28px 20px 22px}.atop-title{font-size:22px}}
+</style>
+
+<script>
+(function(){
+  var API = "{{ site.offer_api | default: 'https://email-ops.learningamazonfba.workers.dev/api/claim-offer' }}";
+  var KEY = "at_offer_v1";
+  var DAYS = 30;
+  var root = document.getElementById("atOffer");
+  if (!root) return;
+
+  var path = location.pathname;
+  if (/\/(privacy|contact)\//.test(path)) return;
+
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { state = {}; }
+  if (state.claimed) return;
+  if (state.seen && (Date.now() - state.seen) < DAYS * 864e5) return;
+
+  var form = document.getElementById("atOfferForm");
+  var done = document.getElementById("atOfferDone");
+  var input = document.getElementById("atOfferEmail");
+  var consent = document.getElementById("atOfferConsent");
+  var err = document.getElementById("atOfferErr");
+  var btn = document.getElementById("atOfferBtn");
+  var link = document.getElementById("atOfferLink");
+  var lastFocus = null, opened = false;
+
+  var FR = document.documentElement.lang === "fr" || /^\/fr\//.test(path);
+  var MSG = FR ? {
+    email: "Entrez une adresse e-mail valide.",
+    consent: "Cochez la case pour continuer.",
+    fail: "Une erreur est survenue. Reessayez."
+  } : {
+    email: "Enter a valid email address.",
+    consent: "Tick the box to continue.",
+    fail: "Something went wrong. Try again."
+  };
+
+  function save(patch){
+    try {
+      var next = {}; for (var k in state) next[k] = state[k];
+      for (var j in patch) next[j] = patch[j];
+      state = next; localStorage.setItem(KEY, JSON.stringify(next));
+    } catch (e) {}
+  }
+
+  function openIt(){
+    if (opened) return; opened = true;
+    lastFocus = document.activeElement;
+    root.hidden = false; root.setAttribute("aria-hidden", "false");
+    save({ seen: Date.now() });
+    setTimeout(function(){ input.focus(); }, 60);
+    document.addEventListener("keydown", onKey);
+  }
+  function closeIt(){
+    root.hidden = true; root.setAttribute("aria-hidden", "true");
+    document.removeEventListener("keydown", onKey);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  function onKey(e){
+    if (e.key === "Escape") { closeIt(); return; }
+    if (e.key !== "Tab") return;
+    var f = root.querySelectorAll("button,[href],input:not([type=hidden])");
+    if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+  function fail(m){ err.textContent = m; err.hidden = false; }
+
+  Array.prototype.forEach.call(root.querySelectorAll("[data-atop-close]"), function(el){
+    el.addEventListener("click", closeIt);
+  });
+  input.addEventListener("input", function(){ err.hidden = true; });
+  consent.addEventListener("change", function(){ err.hidden = true; });
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    err.hidden = true;
+    var email = (input.value || "").trim().toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) { fail(MSG.email); input.focus(); return; }
+    if (!consent.checked) { fail(MSG.consent); consent.focus(); return; }
+
+    btn.disabled = true;
+    btn.textContent = FR ? "Envoi..." : "Sending...";
+
+    fetch(API, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ email: email, consent: true, lang: FR ? "fr" : "en", page: path })
+    }).then(function(r){ return r.json(); }).then(function(j){
+      if (!j || !j.ok || !j.url) throw new Error("bad");
+      link.href = j.url;
+      form.hidden = true;
+      done.hidden = false;
+      save({ claimed: true, at: Date.now() });
+      setTimeout(function(){ link.focus(); }, 60);
+    })["catch"](function(){
+      btn.disabled = false;
+      btn.textContent = FR ? "Recevoir le lien" : "Reveal my link";
+      fail(MSG.fail);
+    });
+  });
+
+  var timer = setTimeout(openIt, 20000);
+  document.addEventListener("mouseout", function(e){
+    if (!e.relatedTarget && e.clientY <= 0) { clearTimeout(timer); openIt(); }
+  });
+})();
+</script>
