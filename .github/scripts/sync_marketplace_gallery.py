@@ -189,8 +189,37 @@ def main():
                     if os.path.exists(path) and os.path.getsize(path) == 0:
                         os.remove(path)
 
-    summary = ("listings_mine=%d new=%d already_present=%d failed=%d"
-               % (len(mine), new, skipped, failed))
+    # Gumroad's thumbnail endpoint accepts a URL but rejects anything that is
+    # not square, and every marketplace shot is 1920x1199 or 600x1200. Build a
+    # 600x600 JPEG per listing, the lead desktop shot scaled to fit on white,
+    # so the storefront card and the dashboard list stop showing a broken
+    # image placeholder. JPEG because Gumroad rejects WebP.
+    thumbs = 0
+    for slug in sorted(mine):
+        d, _ = shots(mine[slug])
+        if not d:
+            continue
+        path = os.path.join(ROOT, slug, "%s-thumb.jpg" % slug)
+        if os.path.exists(path) and os.path.getsize(path) > 0:
+            continue
+        try:
+            raw = get(d[0], binary=True)
+            im = Image.open(io.BytesIO(raw))
+            im.load()
+            im = im.convert("RGB")
+            im.thumbnail((600, 600), Image.LANCZOS)
+            canvas = Image.new("RGB", (600, 600), (255, 255, 255))
+            canvas.paste(im, ((600 - im.width) // 2, (600 - im.height) // 2))
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+            canvas.save(path, "JPEG", quality=88, optimize=True)
+            thumbs += 1
+            print("thumb %s" % path)
+        except Exception as e:
+            lines.append("THUMB FAILED %s : %s" % (slug, e))
+            print(lines[-1])
+
+    summary = ("listings_mine=%d new=%d already_present=%d failed=%d thumbs=%d"
+               % (len(mine), new, skipped, failed, thumbs))
     print("\n" + summary)
     os.makedirs(".github", exist_ok=True)
     with open(RESULT, "w") as f:
