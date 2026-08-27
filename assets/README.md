@@ -1,4 +1,4 @@
-# assets/ — where images live and what they are called
+# assets/: where images live and what they are called
 
 One rule: **an image lives in the folder of the thing it belongs to.** If you cannot say which
 template or page an image serves, it does not belong in `assets/`.

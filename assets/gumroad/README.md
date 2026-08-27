@@ -4,9 +4,9 @@ Designed cover and thumbnail images for the Gumroad catalogue (anthonytoday.gumr
 
 ## Convention
 
-- `assets/gumroad/<permalink>/` — one folder per listing
-- `thumbnail.png` — the designed square thumbnail shown in the shop profile and Gumroad Discover
-- `cover.png` — the designed main cover, first image in the listing gallery
+- `assets/gumroad/<permalink>/`: one folder per listing
+- `thumbnail.png`: the designed square thumbnail shown in the shop profile and Gumroad Discover
+- `cover.png`: the designed main cover, first image in the listing gallery
 - Filenames stay stable; replace the file to update the art, git history keeps every version
 
 ## Pending uploads (2026-08-17)
