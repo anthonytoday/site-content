@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "The Architecture Behind the Real Estate Voice-to-Action System | Anthony Today"
-description: "A layer-by-layer look at the real estate automation: what each piece does, from an iPhone Shortcut to a multi-agent execution loop, and the specific business value it is built to deliver."
+description: "A visual, layer-by-layer look at the real estate automation: what each piece does, from an iPhone Shortcut to a multi-agent execution loop, and the business value it is built to deliver."
 permalink: /notion/real-estate-ops-architecture/
 lang: en
 alt_url: /fr/notion/real-estate-ops-architecture/
@@ -14,8 +14,7 @@ css_bundle: /assets/css/b-fd589967b8.css
 <section class="uc-hero">
   <span class="uc-tag">Technical Architecture</span>
   <h1>Inside the system: what each layer does, and what it is worth</h1>
-  <p>A layer-by-layer look at the real estate voice-to-action build: the mechanism behind it, and
-     the specific business outcome each layer is designed to produce.</p>
+  <p>The mechanism behind the real estate voice-to-action build, laid out end to end.</p>
   <div class="uc-note">Companion to <a href="/notion/real-estate-ops/">the real estate operations
      case study</a>. That page tells the story; this one opens up the mechanism.</div>
 </section>
@@ -27,37 +26,100 @@ css_bundle: /assets/css/b-fd589967b8.css
   <div class="stat-card"><div class="num">Portfolio-wide</div><div class="label">one architecture, every property and project</div></div>
 </div>
 
-<div class="flow-wrap">
-  <div class="flow-cap">The pipeline, in five steps</div>
-  <div class="flow-row">
-    <div class="flow-step"><span class="flow-n">01 Speak</span><h3>iPhone Shortcut</h3><p>A Back Tap or Lock Screen shortcut opens Wispr Flow and starts listening.</p></div>
-    <div class="flow-arrow">&rarr;</div>
-    <div class="flow-step"><span class="flow-n">02 Land</span><h3>Notion inbox</h3><p>The transcript lands in one inbox database, timestamped and tagged to the property.</p></div>
-    <div class="flow-arrow">&rarr;</div>
-    <div class="flow-step"><span class="flow-n">03 Read</span><h3>AI triage</h3><p>Notion AI and ChatGPT parse the transcript into what happened, where, and how urgent it is.</p></div>
-    <div class="flow-arrow">&rarr;</div>
-    <div class="flow-step"><span class="flow-n">04 Act</span><h3>Agent execution</h3><p>Sub-agents run the action in parallel; a QA reviewer checks the work against the note.</p></div>
-    <div class="flow-arrow">&rarr;</div>
-    <div class="flow-step"><span class="flow-n">05 Close</span><h3>Tracked record</h3><p>Status, owner and outcome sit on one page per property and, where relevant, per project.</p></div>
+<div class="arch-wrap">
+  <div class="arch-scroll">
+  <svg viewBox="0 0 920 780" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture diagram: a voice note moves from an iPhone Shortcut into a Notion inbox, is triaged by AI, routed to three parallel agents, checked by a QA agent and a human, then closed as a tracked record.">
+    <defs>
+      <marker id="arr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#6B7280"/></marker>
+    </defs>
+    <style>
+      .n-title{font:600 14px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#051C2C}
+      .n-sub{font:400 11px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#6B7280}
+      .n-eyebrow{font:700 10px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#2251FF;letter-spacing:.06em}
+      .conn{stroke:#6B7280;stroke-width:1.6;fill:none;marker-end:url(#arr)}
+      .box{fill:#F5F5F5;stroke:#E5E7EB;stroke-width:1}
+      .box-gate{fill:#051C2C}
+    </style>
+
+    <!-- 01 Speak -->
+    <rect class="box" x="350" y="16" width="220" height="64" rx="10"/>
+    <text class="n-eyebrow" x="460" y="34" text-anchor="middle">01 SPEAK</text>
+    <text class="n-title" x="460" y="52" text-anchor="middle">iPhone Shortcut</text>
+    <text class="n-sub" x="460" y="68" text-anchor="middle">Back Tap opens Wispr Flow</text>
+    <path class="conn" d="M460,80 L460,112"/>
+
+    <!-- 02 Land -->
+    <rect class="box" x="350" y="116" width="220" height="64" rx="10"/>
+    <text class="n-eyebrow" x="460" y="134" text-anchor="middle">02 LAND</text>
+    <text class="n-title" x="460" y="152" text-anchor="middle">Notion inbox</text>
+    <text class="n-sub" x="460" y="168" text-anchor="middle">One database, every property</text>
+    <path class="conn" d="M460,180 L460,212"/>
+
+    <!-- 03 Read -->
+    <rect class="box" x="330" y="216" width="260" height="64" rx="10"/>
+    <text class="n-eyebrow" x="460" y="234" text-anchor="middle">03 READ</text>
+    <text class="n-title" x="460" y="252" text-anchor="middle">AI triage</text>
+    <text class="n-sub" x="460" y="268" text-anchor="middle">Notion AI + ChatGPT structure it</text>
+    <path class="conn" d="M460,280 L460,312"/>
+
+    <!-- Router -->
+    <rect class="box" x="380" y="316" width="160" height="56" rx="10"/>
+    <text class="n-eyebrow" x="460" y="336" text-anchor="middle">ROUTE</text>
+    <text class="n-title" x="460" y="356" text-anchor="middle">Router agent</text>
+
+    <!-- fan out to 3 parallel agents -->
+    <path class="conn" d="M420,372 C380,392 220,400 150,414"/>
+    <path class="conn" d="M460,372 L460,414"/>
+    <path class="conn" d="M500,372 C540,392 700,400 770,414"/>
+
+    <!-- 04 Act: three parallel agents -->
+    <rect class="box" x="40" y="418" width="220" height="70" rx="10"/>
+    <text class="n-eyebrow" x="150" y="438" text-anchor="middle">04 ACT</text>
+    <text class="n-title" x="150" y="457" text-anchor="middle">Maintenance dispatch</text>
+    <text class="n-sub" x="150" y="473" text-anchor="middle">runs in parallel</text>
+
+    <rect class="box" x="350" y="418" width="220" height="70" rx="10"/>
+    <text class="n-eyebrow" x="460" y="438" text-anchor="middle">04 ACT</text>
+    <text class="n-title" x="460" y="457" text-anchor="middle">Vendor follow-up</text>
+    <text class="n-sub" x="460" y="473" text-anchor="middle">runs in parallel</text>
+
+    <rect class="box" x="660" y="418" width="220" height="70" rx="10"/>
+    <text class="n-eyebrow" x="770" y="438" text-anchor="middle">04 ACT</text>
+    <text class="n-title" x="770" y="457" text-anchor="middle">Tenant communication</text>
+    <text class="n-sub" x="770" y="473" text-anchor="middle">runs in parallel</text>
+
+    <!-- converge to QA -->
+    <path class="conn" d="M150,488 C160,520 380,545 440,560"/>
+    <path class="conn" d="M460,488 L460,556"/>
+    <path class="conn" d="M770,488 C760,520 540,545 480,560"/>
+
+    <!-- QA reviewer -->
+    <rect class="box" x="330" y="560" width="260" height="60" rx="10"/>
+    <text class="n-eyebrow" x="460" y="580" text-anchor="middle">05 CHECK</text>
+    <text class="n-title" x="460" y="599" text-anchor="middle">QA reviewer agent</text>
+    <text class="n-sub" x="460" y="613" text-anchor="middle">checks output against the original note</text>
+    <path class="conn" d="M460,620 L460,652"/>
+
+    <!-- Human checkpoint -->
+    <rect class="box-gate" x="350" y="656" width="220" height="52" rx="10"/>
+    <text class="n-title" x="460" y="678" text-anchor="middle" fill="#FFFFFF" style="fill:#FFFFFF">06 Human checkpoint</text>
+    <text class="n-sub" x="460" y="694" text-anchor="middle" style="fill:#C9D4E8">approves or rejects, not skipped</text>
+    <path class="conn" d="M460,708 L460,724"/>
+
+    <!-- Tracked record -->
+    <rect class="box" x="300" y="726" width="320" height="48" rx="10"/>
+    <text class="n-title" x="460" y="748" text-anchor="middle">Tracked record</text>
+    <text class="n-sub" x="460" y="764" text-anchor="middle">by property and, where relevant, by project</text>
+  </svg>
   </div>
+
 </div>
 
-<div class="uc-body">
-
-  <div class="uc-act">
-    <span class="act-label">Layer by layer</span>
-    <h2>What each piece does, and the value it is built to produce</h2>
-    <table class="findings">
-      <tr><th>Layer</th><th>What it does</th><th>Business value</th></tr>
-      <tr><td>Capture, iPhone Shortcut and Wispr Flow</td><td>Turns a spoken note into a timestamped Notion page in one tap, no app switching, no typing.</td><td>Removes the one barrier that kept the person closest to an issue from reporting it, so nothing is lost between the moment and the record.</td></tr>
-      <tr><td>Inbox, a single Notion database</td><td>Every voice note lands in one place, tagged to its property, before anything else happens to it.</td><td>One system of record for the whole portfolio, not a mix of texts, calls and memory.</td></tr>
-      <tr><td>Triage, Notion AI and ChatGPT</td><td>Reads the raw, unpunctuated transcript and extracts the property, the urgency and the action required.</td><td>Turns a rambling voice note into something a manager or an agent can act on immediately, without replaying the recording.</td></tr>
-      <tr><td>Execution, router and parallel sub-agents</td><td>Assigns each action to the specialist agent built for it, and runs several actions at once across different properties.</td><td>Work moves without waiting on one person to sort a shared inbox; a maintenance dispatch and a tenant reply happen at the same time, not in sequence.</td></tr>
-      <tr><td>Oversight, QA reviewer and a human checkpoint</td><td>Checks every agent's output against the original note before status can move to Done, and escalates anything it is not confident about.</td><td>Keeps a person in the decision loop, so speed never costs a wrong action reaching a tenant or a vendor.</td></tr>
-      <tr><td>Record, tracked property and project log</td><td>Every action, open or closed, sits on a page tied to its property and, where relevant, its project.</td><td>One place to see status across every property and every active project, without asking anyone for an update.</td></tr>
-    </table>
-  </div>
-
+<div class="chip-row">
+  <span class="chip">No typing on site</span>
+  <span class="chip">3 agents run at once</span>
+  <span class="chip">Nothing closes without QA and a human</span>
+  <span class="chip">One record per property and project</span>
 </div>
 
 <div class="benefits-section">
@@ -65,20 +127,15 @@ css_bundle: /assets/css/b-fd589967b8.css
   <div class="who-grid">
     <div class="benefit-card">
       <h3>The person overseeing operations</h3>
-      <p>Status across every property and every active project from one view, without chasing
-         anyone for it. A record of what was reported, by whom, and what happened next. Work
-         distributed to the right agent instead of piling into one inbox to sort by hand.</p>
+      <p>Status across every property and project from one view, without chasing anyone for it.
+         Work distributed to the right agent instead of piling into one inbox.</p>
     </div>
     <div class="benefit-card">
       <h3>The person on site</h3>
-      <p>A way to speak up the moment something needs attention: an issue, a delay, a status update
-         on the work in front of them, or a challenge blocking it. Hands stay free, and there is
-         nothing to learn beyond talking into a phone.</p>
+      <p>An issue, a delay, or a status update gets reported the moment it happens. Hands stay
+         free, and there is nothing to learn beyond talking into a phone.</p>
     </div>
   </div>
-  <p style="font-size:13px;color:var(--text-gray);text-align:center;margin-top:14px">The structural
-     effect: adding a property or a project to the portfolio does not add a proportional amount of
-     admin overhead, because the same four layers absorb it.</p>
 </div>
 
 <div class="uc-cta">

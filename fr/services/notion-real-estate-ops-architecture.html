@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "L'architecture du système immobilier voix vers action"
-description: "Un décryptage couche par couche de l'automatisation immobilière : ce que fait chaque élément, du raccourci iPhone à la boucle d'exécution multi-agents, et la valeur métier qu'il est conçu pour produire."
+description: "Un décryptage visuel, couche par couche, de l'automatisation immobilière : ce que fait chaque élément, du raccourci iPhone à la boucle d'exécution multi-agents, et la valeur métier qu'il est conçu pour produire."
 permalink: /fr/notion/real-estate-ops-architecture/
 lang: fr
 alt_url: /notion/real-estate-ops-architecture/
@@ -14,8 +14,7 @@ css_bundle: /assets/css/b-fd589967b8.css
 <section class="uc-hero">
   <span class="uc-tag">Architecture technique</span>
   <h1>À l'intérieur du système : ce que fait chaque couche, et ce qu'elle vaut</h1>
-  <p>Un décryptage couche par couche du système immobilier voix vers action : le mécanisme qui le
-     compose, et le résultat métier que chaque couche est conçue pour produire.</p>
+  <p>Le mécanisme du système immobilier voix vers action, présenté de bout en bout.</p>
   <div class="uc-note">Complément de <a href="/fr/notion/real-estate-ops/">l'étude de cas
      opérations immobilières</a>. Cette page-là raconte l'histoire ; celle-ci ouvre le mécanisme.</div>
 </section>
@@ -27,37 +26,90 @@ css_bundle: /assets/css/b-fd589967b8.css
   <div class="stat-card"><div class="num">Tout le portefeuille</div><div class="label">une seule architecture, chaque bien et chaque projet</div></div>
 </div>
 
-<div class="flow-wrap">
-  <div class="flow-cap">Le circuit, en cinq étapes</div>
-  <div class="flow-row">
-    <div class="flow-step"><span class="flow-n">01 Parler</span><h3>Raccourci iPhone</h3><p>Un Back Tap ou un raccourci depuis l'écran verrouillé ouvre Wispr Flow et démarre l'écoute.</p></div>
-    <div class="flow-arrow">&rarr;</div>
-    <div class="flow-step"><span class="flow-n">02 Arriver</span><h3>Boîte Notion</h3><p>La transcription arrive dans une base de réception unique, horodatée et rattachée au bien.</p></div>
-    <div class="flow-arrow">&rarr;</div>
-    <div class="flow-step"><span class="flow-n">03 Lire</span><h3>Tri par IA</h3><p>Notion AI et ChatGPT analysent la transcription pour en tirer ce qui s'est passé, où, et l'urgence.</p></div>
-    <div class="flow-arrow">&rarr;</div>
-    <div class="flow-step"><span class="flow-n">04 Agir</span><h3>Exécution par agents</h3><p>Des sous-agents traitent l'action en parallèle ; un agent de contrôle qualité vérifie le résultat.</p></div>
-    <div class="flow-arrow">&rarr;</div>
-    <div class="flow-step"><span class="flow-n">05 Clôturer</span><h3>Registre suivi</h3><p>Statut, responsable et résultat figurent sur une page par bien et, le cas échéant, par projet.</p></div>
+<div class="arch-wrap">
+  <div class="arch-scroll">
+  <svg viewBox="0 0 920 780" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schéma d'architecture : une note vocale part d'un raccourci iPhone vers une boîte Notion, est triée par IA, orientée vers trois agents en parallèle, vérifiée par un agent qualité et une personne, puis clôturée comme registre suivi.">
+    <defs>
+      <marker id="arr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#6B7280"/></marker>
+    </defs>
+    <style>
+      .n-title{font:600 14px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#051C2C}
+      .n-sub{font:400 11px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#6B7280}
+      .n-eyebrow{font:700 10px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#2251FF;letter-spacing:.06em}
+      .conn{stroke:#6B7280;stroke-width:1.6;fill:none;marker-end:url(#arr)}
+      .box{fill:#F5F5F5;stroke:#E5E7EB;stroke-width:1}
+      .box-gate{fill:#051C2C}
+    </style>
+
+    <rect class="box" x="350" y="16" width="220" height="64" rx="10"/>
+    <text class="n-eyebrow" x="460" y="34" text-anchor="middle">01 PARLER</text>
+    <text class="n-title" x="460" y="52" text-anchor="middle">Raccourci iPhone</text>
+    <text class="n-sub" x="460" y="68" text-anchor="middle">Back Tap ouvre Wispr Flow</text>
+    <path class="conn" d="M460,80 L460,112"/>
+
+    <rect class="box" x="350" y="116" width="220" height="64" rx="10"/>
+    <text class="n-eyebrow" x="460" y="134" text-anchor="middle">02 ARRIVER</text>
+    <text class="n-title" x="460" y="152" text-anchor="middle">Boîte Notion</text>
+    <text class="n-sub" x="460" y="168" text-anchor="middle">Une base, chaque bien</text>
+    <path class="conn" d="M460,180 L460,212"/>
+
+    <rect class="box" x="330" y="216" width="260" height="64" rx="10"/>
+    <text class="n-eyebrow" x="460" y="234" text-anchor="middle">03 LIRE</text>
+    <text class="n-title" x="460" y="252" text-anchor="middle">Tri par IA</text>
+    <text class="n-sub" x="460" y="268" text-anchor="middle">Notion AI + ChatGPT structurent</text>
+    <path class="conn" d="M460,280 L460,312"/>
+
+    <rect class="box" x="380" y="316" width="160" height="56" rx="10"/>
+    <text class="n-eyebrow" x="460" y="336" text-anchor="middle">ORIENTER</text>
+    <text class="n-title" x="460" y="356" text-anchor="middle">Agent orienteur</text>
+
+    <path class="conn" d="M420,372 C380,392 220,400 150,414"/>
+    <path class="conn" d="M460,372 L460,414"/>
+    <path class="conn" d="M500,372 C540,392 700,400 770,414"/>
+
+    <rect class="box" x="40" y="418" width="220" height="70" rx="10"/>
+    <text class="n-eyebrow" x="150" y="438" text-anchor="middle">04 AGIR</text>
+    <text class="n-title" x="150" y="457" text-anchor="middle">Dispatch maintenance</text>
+    <text class="n-sub" x="150" y="473" text-anchor="middle">en parallèle</text>
+
+    <rect class="box" x="350" y="418" width="220" height="70" rx="10"/>
+    <text class="n-eyebrow" x="460" y="438" text-anchor="middle">04 AGIR</text>
+    <text class="n-title" x="460" y="457" text-anchor="middle">Relance fournisseur</text>
+    <text class="n-sub" x="460" y="473" text-anchor="middle">en parallèle</text>
+
+    <rect class="box" x="660" y="418" width="220" height="70" rx="10"/>
+    <text class="n-eyebrow" x="770" y="438" text-anchor="middle">04 AGIR</text>
+    <text class="n-title" x="770" y="457" text-anchor="middle">Communication locataire</text>
+    <text class="n-sub" x="770" y="473" text-anchor="middle">en parallèle</text>
+
+    <path class="conn" d="M150,488 C160,520 380,545 440,560"/>
+    <path class="conn" d="M460,488 L460,556"/>
+    <path class="conn" d="M770,488 C760,520 540,545 480,560"/>
+
+    <rect class="box" x="330" y="560" width="260" height="60" rx="10"/>
+    <text class="n-eyebrow" x="460" y="580" text-anchor="middle">05 VÉRIFIER</text>
+    <text class="n-title" x="460" y="599" text-anchor="middle">Agent de contrôle qualité</text>
+    <text class="n-sub" x="460" y="613" text-anchor="middle">vérifie le résultat par rapport à la note</text>
+    <path class="conn" d="M460,620 L460,652"/>
+
+    <rect class="box-gate" x="350" y="656" width="220" height="52" rx="10"/>
+    <text class="n-title" x="460" y="678" text-anchor="middle" style="fill:#FFFFFF">06 Point de contrôle humain</text>
+    <text class="n-sub" x="460" y="694" text-anchor="middle" style="fill:#C9D4E8">valide ou rejette, jamais ignoré</text>
+    <path class="conn" d="M460,708 L460,724"/>
+
+    <rect class="box" x="300" y="726" width="320" height="48" rx="10"/>
+    <text class="n-title" x="460" y="748" text-anchor="middle">Registre suivi</text>
+    <text class="n-sub" x="460" y="764" text-anchor="middle">par bien et, le cas échéant, par projet</text>
+  </svg>
   </div>
+
 </div>
 
-<div class="uc-body">
-
-  <div class="uc-act">
-    <span class="act-label">Couche par couche</span>
-    <h2>Ce que fait chaque élément, et la valeur qu'il produit</h2>
-    <table class="findings">
-      <tr><th>Couche</th><th>Ce qu'elle fait</th><th>Valeur métier</th></tr>
-      <tr><td>Capture, raccourci iPhone et Wispr Flow</td><td>Transforme une note dite en page Notion horodatée en un seul geste, sans changer d'application ni taper.</td><td>Supprime le seul frein qui empêchait la personne la plus proche d'un problème de le signaler, pour que rien ne se perde entre l'instant et le registre.</td></tr>
-      <tr><td>Boîte de réception, une base Notion unique</td><td>Chaque note vocale arrive au même endroit, rattachée à son bien, avant tout autre traitement.</td><td>Un seul registre pour tout le portefeuille, plutôt qu'un mélange de messages, d'appels et de mémoire.</td></tr>
-      <tr><td>Tri, Notion AI et ChatGPT</td><td>Lit la transcription brute, sans ponctuation, et en extrait le bien, l'urgence et l'action requise.</td><td>Transforme une note vocale décousue en quelque chose qu'un gestionnaire ou un agent peut traiter immédiatement, sans réécouter l'enregistrement.</td></tr>
-      <tr><td>Exécution, orienteur et sous-agents en parallèle</td><td>Assigne chaque action au sous-agent spécialisé adapté, et en traite plusieurs à la fois sur différents biens.</td><td>Le travail avance sans attendre qu'une seule personne trie une boîte partagée ; un dispatch de maintenance et une réponse locataire se font en même temps, pas l'un après l'autre.</td></tr>
-      <tr><td>Contrôle, agent qualité et point de contrôle humain</td><td>Vérifie chaque résultat d'agent par rapport à la note d'origine avant que le statut ne passe à Terminé, et transmet à une personne ce dont il n'est pas certain.</td><td>Maintient une personne dans la décision, pour que la rapidité ne coûte jamais une action erronée envoyée à un locataire ou un prestataire.</td></tr>
-      <tr><td>Registre, suivi des biens et des projets</td><td>Chaque action, ouverte ou clôturée, se trouve sur une page rattachée à son bien et, le cas échéant, à son projet.</td><td>Un seul endroit pour voir le statut de chaque bien et de chaque projet actif, sans demander de mise à jour à personne.</td></tr>
-    </table>
-  </div>
-
+<div class="chip-row">
+  <span class="chip">Aucune saisie sur le terrain</span>
+  <span class="chip">3 agents en même temps</span>
+  <span class="chip">Rien ne se clôture sans contrôle qualité et une personne</span>
+  <span class="chip">Un registre par bien et par projet</span>
 </div>
 
 <div class="benefits-section">
@@ -65,20 +117,15 @@ css_bundle: /assets/css/b-fd589967b8.css
   <div class="who-grid">
     <div class="benefit-card">
       <h3>La personne qui supervise les opérations</h3>
-      <p>Le statut de chaque bien et de chaque projet actif depuis une seule vue, sans le demander à
-         personne. Un registre de qui a signalé quoi, et ce qui s'est passé ensuite. Le travail
-         réparti vers le bon agent plutôt qu'entassé dans une seule boîte à trier à la main.</p>
+      <p>Le statut de chaque bien et de chaque projet depuis une seule vue, sans le demander à
+         personne. Le travail réparti vers le bon agent plutôt qu'entassé dans une seule boîte.</p>
     </div>
     <div class="benefit-card">
       <h3>La personne sur le terrain</h3>
-      <p>Un moyen de s'exprimer dès qu'une attention est nécessaire : un problème, un retard, une
-         mise à jour sur le travail en cours, ou un obstacle qui le bloque. Les mains restent
+      <p>Un problème, un retard ou une mise à jour signalé dès qu'il survient. Les mains restent
          libres, et il n'y a rien de nouveau à apprendre au-delà de parler dans un téléphone.</p>
     </div>
   </div>
-  <p style="font-size:13px;color:var(--text-gray);text-align:center;margin-top:14px">L'effet
-     structurel : ajouter un bien ou un projet au portefeuille n'ajoute pas une charge administrative
-     proportionnelle, car les quatre mêmes couches l'absorbent.</p>
 </div>
 
 <div class="uc-cta">
