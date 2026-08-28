@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "L'architecture du système immobilier voix vers action"
-description: "Un décryptage visuel, couche par couche, de l'automatisation immobilière : ce que fait chaque élément, du raccourci iPhone à la boucle d'exécution multi-agents, et la valeur métier qu'il est conçu pour produire."
+description: "L'architecture en trois plans de l'automatisation immobilière : le problème qu'elle résout, ce que coûte le statu quo, et comment capture, tri par IA, agents parallèles et point de contrôle humain s'articulent."
 permalink: /fr/notion/real-estate-ops-architecture/
 lang: fr
 alt_url: /notion/real-estate-ops-architecture/
@@ -11,98 +11,243 @@ bc_parent_name: "Notion Consulting"
 bc_parent_url: /fr/notion/
 css_bundle: /assets/css/b-fd589967b8.css
 ---
-<section class="uc-hero">
-  <span class="uc-tag">Architecture technique</span>
-  <h1>À l'intérieur du système : ce que fait chaque couche, et ce qu'elle vaut</h1>
-  <p>Le mécanisme du système immobilier voix vers action, présenté de bout en bout.</p>
-  <div class="uc-note">Complément de <a href="/fr/notion/real-estate-ops/">l'étude de cas
-     opérations immobilières</a>. Cette page-là raconte l'histoire ; celle-ci ouvre le mécanisme.</div>
+<style>
+.arch-hero{max-width:1040px;margin:0 auto;padding:62px 20px 0}
+.arch-hero .eyebrow{display:block;font-size:11px;font-weight:700;color:var(--blue);letter-spacing:.1em;margin-bottom:18px}
+.arch-hero h1{font-size:43px;line-height:1.16;font-weight:600;color:var(--navy);letter-spacing:-.015em;text-transform:none;max-width:20ch;margin:0 0 20px}
+.arch-hero .deck{font-size:18px;line-height:1.65;color:var(--text-gray);max-width:62ch;margin:0}
+.arch-meta{max-width:1040px;margin:26px auto 0;padding:14px 20px 0;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:8px 26px;font-size:13px;color:var(--text-gray)}
+.arch-meta span{white-space:nowrap}
+.arch-meta a{color:var(--blue);font-weight:600}
+.arch-meta a:hover{text-decoration:underline}
+.arch-stats{max-width:1040px}
+.scr{max-width:1040px;margin:56px auto 0;padding:0 20px}
+.scr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--navy)}
+.scr-card{padding:26px 26px 30px;border-right:1px solid var(--border)}
+.scr-card:last-child{border-right:none}
+.scr-card .scr-n{display:block;font-size:11px;font-weight:700;color:var(--blue);letter-spacing:.1em;margin-bottom:10px}
+.scr-card h3{font-size:17px;font-weight:600;color:var(--navy);text-transform:none;margin:0 0 10px;line-height:1.35}
+.scr-card p{font-size:14.5px;line-height:1.72;color:var(--text-gray);margin:0}
+.scr-card.is-solution{background:var(--light-gray)}
+.exhibit-cap{max-width:1040px;margin:62px auto 0;padding:0 20px}
+.exhibit-cap .ex-n{display:block;font-size:11px;font-weight:700;color:var(--text-gray);letter-spacing:.1em;margin-bottom:6px}
+.exhibit-cap h2{font-size:22px;font-weight:600;color:var(--navy);text-transform:none;margin:0 0 6px}
+.exhibit-cap p{font-size:14px;color:var(--text-gray);margin:0;max-width:74ch}
+.arch-wrap.wide{max-width:1180px;margin:22px auto 6px}
+.arch-wrap.wide .arch-scroll svg{min-width:940px;max-width:1180px}
+.plane-note{max-width:1040px;margin:10px auto 0;padding:0 20px;font-size:12.5px;color:var(--text-gray);text-align:center}
+.layer-wrap{max-width:1040px;margin:54px auto 0;padding:0 20px;overflow-x:auto}
+.layer-tbl{width:100%;border-collapse:collapse;margin:0;font-size:14.5px}
+.layer-tbl th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-gray);padding:10px 12px;border-bottom:2px solid var(--navy);font-weight:700}
+.layer-tbl td{padding:14px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.65;color:var(--text-gray)}
+.layer-tbl td:first-child{font-weight:600;color:var(--navy);white-space:nowrap;width:22%}
+@media(max-width:860px){.scr-grid{grid-template-columns:1fr !important}.scr-card{border-right:none;border-bottom:1px solid var(--border)}.scr-card:last-child{border-bottom:none}}
+@media(max-width:768px){.arch-hero{padding-top:38px}.arch-hero h1{font-size:29px !important;line-height:1.22 !important;max-width:none}.arch-hero .deck{font-size:16px}}
+@media(max-width:600px){.layer-tbl{font-size:13px}.layer-tbl td:first-child{white-space:normal}}
+</style>
+<section class="arch-hero">
+  <span class="eyebrow">ARCHITECTURE TECHNIQUE</span>
+  <h1>Comment une note vocale sur le terrain devient une action close et auditable</h1>
+  <p class="deck">Les équipes immobilières ne perdent pas du travail par négligence. Elles le perdent parce que
+     le moment où quelque chose mérite d'être consigné est celui où personne ne peut le consigner.
+     Voici l'architecture construite pour combler cet écart, plan par plan.</p>
 </section>
 
-<div class="stats-row">
-  <div class="stat-card"><div class="num">4 couches</div><div class="label">capture, tri, exécution et contrôle humain</div></div>
-  <div class="stat-card"><div class="num">Parallèle</div><div class="label">les sous-agents traitent plusieurs actions à la fois</div></div>
-  <div class="stat-card"><div class="num">Verrouillé</div><div class="label">aucune action ne se clôture sans contrôle qualité ni validation humaine</div></div>
-  <div class="stat-card"><div class="num">Tout le portefeuille</div><div class="label">une seule architecture, chaque bien et chaque projet</div></div>
+<div class="arch-meta">
+  <span>Opérations immobilières</span>
+  <span>Notion, tri par IA et agents</span>
+  <span>Complément de <a href="/fr/notion/real-estate-ops/">l'étude de cas</a></span>
 </div>
 
-<div class="arch-wrap">
+<div class="stats-row arch-stats">
+  <div class="stat-card"><div class="num">3 plans</div><div class="label">contrôle, exécution et données, séparés par conception</div></div>
+  <div class="stat-card"><div class="num">5 étapes</div><div class="label">capture, ingestion, interprétation, routage, exécution</div></div>
+  <div class="stat-card"><div class="num">3 agents</div><div class="label">traitent une note en parallèle, pas en file</div></div>
+  <div class="stat-card"><div class="num">2 verrous</div><div class="label">un agent qualité et une personne, les deux requis</div></div>
+</div>
+
+<section class="scr">
+  <div class="scr-grid">
+    <div class="scr-card">
+      <span class="scr-n">LE PROBLÈME</span>
+      <h3>Les personnes les plus proches du problème sont les moins en mesure de le consigner</h3>
+      <p>Une fuite, un artisan en retard, une plainte de locataire : tout cela se constate sur le
+         terrain, par quelqu'un dont les mains sont prises et dont l'ordinateur est ailleurs. Le
+         système de référence est à un bureau. L'information, non.</p>
+    </div>
+    <div class="scr-card">
+      <span class="scr-n">LA DOULEUR TRAITÉE</span>
+      <h3>Le travail est retenu de mémoire au lieu d'être consigné, et la facture arrive plus tard</h3>
+      <p>Les problèmes ressortent des jours plus tard sous forme d'appel, de fil de messages ou de
+         plainte. Personne ne peut dire ce qui est ouvert par bien, qui a été prévenu, ni quand
+         cela a été clos. Tout s'empile derrière la boîte d'une seule personne, qui devient le
+         goulot d'étranglement.</p>
+    </div>
+    <div class="scr-card is-solution">
+      <span class="scr-n">LA SOLUTION</span>
+      <h3>Pousser la capture au plus près du terrain, garder le jugement et la validation au centre</h3>
+      <p>Un seul geste transforme la parole en enregistrement structuré. Le tri par IA détermine de
+         quoi il s'agit et où cela appartient, un routeur confie l'action à l'agent qui traite
+         cette catégorie de travail, et rien n'est marqué comme fait tant qu'un agent qualité et
+         une personne n'ont pas validé.</p>
+    </div>
+  </div>
+</section>
+
+<div class="exhibit-cap">
+  <span class="ex-n">FIGURE 1</span>
+  <h2>L'architecture en trois plans</h2>
+  <p>Le plan d'exécution porte le travail de gauche à droite. Le plan de contrôle se situe au dessus
+     et contient les deux verrous qui décident si quelque chose se clôture. Le plan de données se
+     situe en dessous et contient les enregistrements que chaque étape lit et écrit.</p>
+</div>
+
+<div class="arch-wrap wide">
   <div class="arch-scroll">
-  <svg viewBox="0 0 920 780" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schéma d'architecture : une note vocale part d'un raccourci iPhone vers une boîte Notion, est triée par IA, orientée vers trois agents en parallèle, vérifiée par un agent qualité et une personne, puis clôturée comme registre suivi.">
+  <svg viewBox="-60 0 1320 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture en trois plans. Plan d'exécution de gauche à droite : capture Back Tap iPhone, boîte Notion, tri par IA, agent routeur, puis trois agents d'exécution en parallèle. Plan de contrôle au dessus : un agent réviseur qualité et un point de contrôle humain qui valide vers l'enregistrement suivi ou renvoie le travail. Plan de données en dessous : boîte de réception, registre des biens, annuaire des contacts et enregistrement suivi.">
     <defs>
-      <marker id="arr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#6B7280"/></marker>
+      <marker id="a-sol" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#6B7280"/></marker>
+      <marker id="a-dsh" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#9AA3AF"/></marker>
     </defs>
     <style>
-      .n-title{font:600 14px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#051C2C}
-      .n-sub{font:400 11px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#6B7280}
-      .n-eyebrow{font:700 10px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#2251FF;letter-spacing:.06em}
-      .conn{stroke:#6B7280;stroke-width:1.6;fill:none;marker-end:url(#arr)}
-      .box{fill:#F5F5F5;stroke:#E5E7EB;stroke-width:1}
-      .box-gate{fill:#051C2C}
+      .at{font:600 14px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#051C2C}
+      .as{font:400 11px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#6B7280}
+      .ae{font:700 10px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#2251FF;letter-spacing:.08em}
+      .ap{font:700 11px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#051C2C;letter-spacing:.09em}
+      .apx{font:400 10.5px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#9AA3AF}
+      .am{font:600 10.5px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#6B7280}
+      .ab{fill:#FFFFFF;stroke:#E5E7EB;stroke-width:1}
+      .ag{fill:#FAFAFB;stroke:#E5E7EB;stroke-width:1;stroke-dasharray:5 4}
+      .ak{fill:#051C2C}
+      .ac{stroke:#6B7280;stroke-width:1.6;fill:none;marker-end:url(#a-sol)}
+      .ad{stroke:#9AA3AF;stroke-width:1.4;fill:none;stroke-dasharray:5 4;marker-end:url(#a-dsh)}
+      .amini{fill:#F5F5F5;stroke:#E5E7EB;stroke-width:1}
+      .aminit{font:600 10.5px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#051C2C}
     </style>
 
-    <rect class="box" x="350" y="16" width="220" height="64" rx="10"/>
-    <text class="n-eyebrow" x="460" y="34" text-anchor="middle">01 PARLER</text>
-    <text class="n-title" x="460" y="52" text-anchor="middle">Raccourci iPhone</text>
-    <text class="n-sub" x="460" y="68" text-anchor="middle">Back Tap ouvre Wispr Flow</text>
-    <path class="conn" d="M460,80 L460,112"/>
+    <rect class="ag" x="130" y="30" width="1110" height="120" rx="12"/>
+    <rect class="ag" x="130" y="185" width="1110" height="155" rx="12"/>
+    <rect class="ag" x="130" y="430" width="1110" height="122" rx="12"/>
 
-    <rect class="box" x="350" y="116" width="220" height="64" rx="10"/>
-    <text class="n-eyebrow" x="460" y="134" text-anchor="middle">02 ARRIVER</text>
-    <text class="n-title" x="460" y="152" text-anchor="middle">Boîte Notion</text>
-    <text class="n-sub" x="460" y="168" text-anchor="middle">Une base, chaque bien</text>
-    <path class="conn" d="M460,180 L460,212"/>
+    <text class="ap" x="110" y="86" text-anchor="end">PLAN DE CONTRÔLE</text>
+    <text class="apx" x="110" y="102" text-anchor="end">assurance</text>
+    <text class="ap" x="110" y="256" text-anchor="end">PLAN D'EXÉCUTION</text>
+    <text class="apx" x="110" y="272" text-anchor="end">flux</text>
+    <text class="ap" x="110" y="500" text-anchor="end">PLAN DE DONNÉES</text>
+    <text class="apx" x="110" y="516" text-anchor="end">système de référence</text>
 
-    <rect class="box" x="330" y="216" width="260" height="64" rx="10"/>
-    <text class="n-eyebrow" x="460" y="234" text-anchor="middle">03 LIRE</text>
-    <text class="n-title" x="460" y="252" text-anchor="middle">Tri par IA</text>
-    <text class="n-sub" x="460" y="268" text-anchor="middle">Notion AI + ChatGPT structurent</text>
-    <path class="conn" d="M460,280 L460,312"/>
+    <text class="as" x="152" y="66">Assurance et validation. Rien n'est marqué comme fait</text>
+    <text class="as" x="152" y="84">dans le plan d'exécution, et le travail rejeté</text>
+    <text class="as" x="152" y="102">repart directement à l'étape 05.</text>
 
-    <rect class="box" x="380" y="316" width="160" height="56" rx="10"/>
-    <text class="n-eyebrow" x="460" y="336" text-anchor="middle">ORIENTER</text>
-    <text class="n-title" x="460" y="356" text-anchor="middle">Agent orienteur</text>
+    <rect class="ab" x="820" y="72" width="190" height="62" rx="10"/>
+    <text class="ae" x="915" y="91" text-anchor="middle">06 CONTRÔLE</text>
+    <text class="at" x="915" y="111" text-anchor="middle">Agent réviseur qualité</text>
+    <text class="as" x="915" y="127" text-anchor="middle">sortie comparée à la note d'origine</text>
 
-    <path class="conn" d="M420,372 C380,392 220,400 150,414"/>
-    <path class="conn" d="M460,372 L460,414"/>
-    <path class="conn" d="M500,372 C540,392 700,400 770,414"/>
+    <rect class="ak" x="1035" y="72" width="190" height="62" rx="10"/>
+    <text class="ae" x="1130" y="91" text-anchor="middle" style="fill:#7FA0FF">07 VALIDER</text>
+    <text class="at" x="1130" y="111" text-anchor="middle" style="fill:#FFFFFF">Point de contrôle humain</text>
+    <text class="as" x="1130" y="127" text-anchor="middle" style="fill:#C9D4E8">non contournable</text>
+    <path class="ac" d="M1010,103 L1031,103"/>
 
-    <rect class="box" x="40" y="418" width="220" height="70" rx="10"/>
-    <text class="n-eyebrow" x="150" y="438" text-anchor="middle">04 AGIR</text>
-    <text class="n-title" x="150" y="457" text-anchor="middle">Dispatch maintenance</text>
-    <text class="n-sub" x="150" y="473" text-anchor="middle">en parallèle</text>
+    <rect class="ab" x="150" y="215" width="175" height="90" rx="10"/>
+    <text class="ae" x="237" y="241" text-anchor="middle">01 CAPTURE</text>
+    <text class="at" x="237" y="264" text-anchor="middle">Back Tap iPhone</text>
+    <text class="as" x="237" y="283" text-anchor="middle">dictée Wispr Flow</text>
 
-    <rect class="box" x="350" y="418" width="220" height="70" rx="10"/>
-    <text class="n-eyebrow" x="460" y="438" text-anchor="middle">04 AGIR</text>
-    <text class="n-title" x="460" y="457" text-anchor="middle">Relance fournisseur</text>
-    <text class="n-sub" x="460" y="473" text-anchor="middle">en parallèle</text>
+    <rect class="ab" x="355" y="215" width="175" height="90" rx="10"/>
+    <text class="ae" x="443" y="241" text-anchor="middle">02 INGESTION</text>
+    <text class="at" x="443" y="264" text-anchor="middle">Boîte Notion</text>
+    <text class="as" x="443" y="283" text-anchor="middle">une ligne par note vocale</text>
 
-    <rect class="box" x="660" y="418" width="220" height="70" rx="10"/>
-    <text class="n-eyebrow" x="770" y="438" text-anchor="middle">04 AGIR</text>
-    <text class="n-title" x="770" y="457" text-anchor="middle">Communication locataire</text>
-    <text class="n-sub" x="770" y="473" text-anchor="middle">en parallèle</text>
+    <rect class="ab" x="560" y="215" width="175" height="90" rx="10"/>
+    <text class="ae" x="648" y="241" text-anchor="middle">03 INTERPRÉTATION</text>
+    <text class="at" x="648" y="264" text-anchor="middle">Tri par IA</text>
+    <text class="as" x="648" y="283" text-anchor="middle">Notion AI plus ChatGPT</text>
 
-    <path class="conn" d="M150,488 C160,520 380,545 440,560"/>
-    <path class="conn" d="M460,488 L460,556"/>
-    <path class="conn" d="M770,488 C760,520 540,545 480,560"/>
+    <rect class="ab" x="765" y="215" width="130" height="90" rx="10"/>
+    <text class="ae" x="830" y="241" text-anchor="middle">04 ROUTAGE</text>
+    <text class="at" x="830" y="264" text-anchor="middle">Agent routeur</text>
+    <text class="as" x="830" y="283" text-anchor="middle">un responsable</text>
 
-    <rect class="box" x="330" y="560" width="260" height="60" rx="10"/>
-    <text class="n-eyebrow" x="460" y="580" text-anchor="middle">05 VÉRIFIER</text>
-    <text class="n-title" x="460" y="599" text-anchor="middle">Agent de contrôle qualité</text>
-    <text class="n-sub" x="460" y="613" text-anchor="middle">vérifie le résultat par rapport à la note</text>
-    <path class="conn" d="M460,620 L460,652"/>
+    <rect class="ab" x="925" y="200" width="180" height="120" rx="10"/>
+    <text class="ae" x="1015" y="222" text-anchor="middle">05 EXÉCUTION, EN PARALLÈLE</text>
+    <rect class="amini" x="940" y="232" width="150" height="24" rx="5"/>
+    <text class="aminit" x="1015" y="248" text-anchor="middle">Dépannage maintenance</text>
+    <rect class="amini" x="940" y="262" width="150" height="24" rx="5"/>
+    <text class="aminit" x="1015" y="278" text-anchor="middle">Relance prestataire</text>
+    <rect class="amini" x="940" y="292" width="150" height="24" rx="5"/>
+    <text class="aminit" x="1015" y="308" text-anchor="middle">Communication locataire</text>
 
-    <rect class="box-gate" x="350" y="656" width="220" height="52" rx="10"/>
-    <text class="n-title" x="460" y="678" text-anchor="middle" style="fill:#FFFFFF">06 Point de contrôle humain</text>
-    <text class="n-sub" x="460" y="694" text-anchor="middle" style="fill:#C9D4E8">valide ou rejette, jamais ignoré</text>
-    <path class="conn" d="M460,708 L460,724"/>
+    <path class="ac" d="M325,260 L349,260"/>
+    <path class="ac" d="M530,260 L554,260"/>
+    <path class="ac" d="M735,260 L759,260"/>
+    <path class="ac" d="M895,260 L919,260"/>
 
-    <rect class="box" x="300" y="726" width="320" height="48" rx="10"/>
-    <text class="n-title" x="460" y="748" text-anchor="middle">Registre suivi</text>
-    <text class="n-sub" x="460" y="764" text-anchor="middle">par bien et, le cas échéant, par projet</text>
+    <path class="ac" d="M960,200 L960,140"/>
+    <text class="am" x="952" y="172" text-anchor="end">soumis</text>
+    <path class="ad" d="M1090,134 L1090,194"/>
+    <text class="am" x="1098" y="172">rejeté</text>
+    <path class="ac" d="M1160,134 L1160,422"/>
+    <text class="am" x="1152" y="290" text-anchor="end">validé</text>
+
+    <rect class="ab" x="355" y="460" width="175" height="66" rx="10"/>
+    <text class="at" x="443" y="487" text-anchor="middle">Boîte de réception</text>
+    <text class="as" x="443" y="505" text-anchor="middle">note, horodatage, bien</text>
+
+    <rect class="ab" x="560" y="460" width="175" height="66" rx="10"/>
+    <text class="at" x="648" y="487" text-anchor="middle">Registre des biens</text>
+    <text class="as" x="648" y="505" text-anchor="middle">un enregistrement par bien</text>
+
+    <rect class="ab" x="765" y="460" width="200" height="66" rx="10"/>
+    <text class="at" x="865" y="487" text-anchor="middle">Annuaire des contacts</text>
+    <text class="as" x="865" y="505" text-anchor="middle">prestataires et locataires, par bien</text>
+
+    <rect class="ab" x="1035" y="460" width="190" height="66" rx="10"/>
+    <text class="at" x="1130" y="487" text-anchor="middle">Enregistrement suivi</text>
+    <text class="as" x="1130" y="505" text-anchor="middle">par bien et par projet</text>
+
+    <path class="ad" d="M443,305 L443,456"/>
+    <path class="ad" d="M648,305 L648,456"/>
+    <path class="ad" d="M1015,320 C1010,390 900,402 868,452"/>
+
+    <path d="M150,578 L182,578" stroke="#6B7280" stroke-width="1.6" fill="none"/>
+    <text class="as" x="190" y="582">flux d'action</text>
+    <path d="M300,578 L332,578" stroke="#9AA3AF" stroke-width="1.4" fill="none" stroke-dasharray="5 4"/>
+    <text class="as" x="340" y="582">lecture et écriture de données</text>
   </svg>
   </div>
+</div>
 
+<p class="plane-note">Faites défiler la figure latéralement sur un écran étroit.</p>
+
+<div class="layer-wrap">
+  <table class="layer-tbl">
+    <thead><tr><th>Plan</th><th>Ce qu'il fait</th><th>Ce qu'il apporte</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Contrôle</td>
+        <td>Un agent réviseur compare la sortie à la note vocale d'origine, puis une personne valide
+            ou rejette. Le travail rejeté repart à l'étape 05.</td>
+        <td>Une piste d'audit par action, et un arrêt net qui empêche une erreur d'IA d'être consignée
+            comme un travail terminé.</td>
+      </tr>
+      <tr>
+        <td>Exécution</td>
+        <td>Capture sur le téléphone, ingestion dans une seule boîte, tri par IA, routage, puis trois
+            agents qui traitent l'action en parallèle.</td>
+        <td>Le délai entre constater un problème et disposer d'une action consignée et attribuée tombe
+            à la durée d'une phrase.</td>
+      </tr>
+      <tr>
+        <td>Données</td>
+        <td>La base de réception, le registre des biens, l'annuaire des contacts et l'enregistrement
+            clos, le tout dans Notion.</td>
+        <td>Un seul endroit pour répondre : quoi d'ouvert, sur quel bien, avec qui, depuis quand.</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 <div class="chip-row">
@@ -123,7 +268,7 @@ css_bundle: /assets/css/b-fd589967b8.css
     <div class="benefit-card">
       <h3>La personne sur le terrain</h3>
       <p>Un problème, un retard ou une mise à jour signalé dès qu'il survient. Les mains restent
-         libres, et il n'y a rien de nouveau à apprendre au-delà de parler dans un téléphone.</p>
+         libres, et il n'y a rien de nouveau à apprendre au delà de parler dans un téléphone.</p>
     </div>
   </div>
 </div>
