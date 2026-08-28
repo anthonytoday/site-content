@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+
+
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notion for Real Estate Operations: Voice to Action</title>
+<meta name="description" content="A working system for property management teams. An iPhone Shortcut captures a spoken note on site and a multi agent loop turns it into a closed action.">
+<link rel="canonical" href="https://www.anthonytoday.com/notion/real-estate-ops/">
+<link rel="alternate" hreflang="en" href="https://www.anthonytoday.com/notion/real-estate-ops/">
+<link rel="alternate" hreflang="fr" href="https://www.anthonytoday.com/fr/notion/real-estate-ops/">
+<link rel="alternate" hreflang="x-default" href="https://www.anthonytoday.com/notion/real-estate-ops/">
+<meta property="og:title" content="Notion for Real Estate Operations: Voice to Action">
+<meta property="og:description" content="A working system for property management teams. An iPhone Shortcut captures a spoken note on site and a multi agent loop turns it into a closed action.">
+<meta property="og:url" content="https://www.anthonytoday.com/notion/real-estate-ops/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:image" content="https://www.anthonytoday.com/assets/brand/anthony-profile.webp">
+<meta property="og:image:alt" content="Notion for Real Estate Operations: Voice to Action">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.anthonytoday.com/assets/brand/anthony-profile.webp">
+<link rel="dns-prefetch" href="https://pay.anthonytoday.com">
+<link rel="stylesheet" href="/assets/css/b-fd589967b8.css">
+<link rel="icon" href="/assets/brand/favicon.png">
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"><script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@graph":[
+  {
+   "@type":"Person",
+   "@id":"https://www.anthonytoday.com/#anthony",
+   "name":"Anthony",
+   "givenName":"Anthony",
+   "url":"https://www.anthonytoday.com/",
+   "image":"https://www.anthonytoday.com/assets/brand/anthony-profile.webp",
+   "jobTitle":"Cybersecurity, GRC and Notion Consultant",
+   "description":"Certified Notion Consulting Partner and ex-EY cybersecurity consultant. 15+ years in technology risk and IT audit across Luxembourg, Switzerland and the USA.",
+   "knowsLanguage":["en","fr"],
+   "knowsAbout":["Notion","Notion workspace architecture","Cybersecurity","Governance Risk and Compliance","ISO 27001","NIST Cybersecurity Framework","AI governance","IT audit","Information security management","Fractional CISO","Third-party risk management"],
+   "alumniOf":{"@type":"CollegeOrUniversity","name":"ETH Zürich"},
+   "hasCredential":[
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CISSP","recognizedBy":{"@type":"Organization","name":"ISC2"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CISA","recognizedBy":{"@type":"Organization","name":"ISACA"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CISM","recognizedBy":{"@type":"Organization","name":"ISACA"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CRISC","recognizedBy":{"@type":"Organization","name":"ISACA"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"AIGP","recognizedBy":{"@type":"Organization","name":"IAPP"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"ISO 27001 Lead Implementer"},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"Notion Certified Consultant","recognizedBy":{"@type":"Organization","name":"Notion"}}
+   ],
+   "sameAs":["https://www.linkedin.com/in/anthony-kieffer/","https://www.notion.com/@anthonytoday","https://certs.notion.so/5c2a6cd2c3b14e83a585c1dedb40852d"],
+   "worksFor":{"@id":"https://www.anthonytoday.com/#business"}
+  },
+  {
+   "@type":"ProfessionalService",
+   "@id":"https://www.anthonytoday.com/#business",
+   "name":"Anthony Today",
+   "url":"https://www.anthonytoday.com/",
+   "image":"https://www.anthonytoday.com/assets/brand/anthony-profile.webp",
+   "logo":"https://www.anthonytoday.com/assets/brand/favicon.png",
+   "description":"Certified Notion consulting, governance risk and cybersecurity advisory. Workspace architecture, audit readiness and fractional security leadership.",
+   "founder":{"@id":"https://www.anthonytoday.com/#anthony"},
+   "email":"info@anthonytoday.com",
+   "priceRange":"$79-$20000",
+   "availableLanguage":["en","fr"],
+   "areaServed":[{"@type":"Country","name":"Luxembourg"},{"@type":"Country","name":"Switzerland"},{"@type":"Country","name":"United States"},{"@type":"Country","name":"United Arab Emirates"},{"@type":"Country","name":"France"},{"@type":"Country","name":"Belgium"}],
+   "sameAs":["https://www.linkedin.com/in/anthony-kieffer/","https://www.notion.com/@anthonytoday","https://certs.notion.so/5c2a6cd2c3b14e83a585c1dedb40852d"],
+   "hasOfferCatalog":{
+    "@type":"OfferCatalog",
+    "name":"Services",
+    "itemListElement":[
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Discovery Call","serviceType":"Consulting"},"price":"79","priceCurrency":"USD"},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Audit & Design","serviceType":"Notion workspace architecture"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"1500","maxPrice":"6000","priceCurrency":"USD"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Risk & Governance Build","serviceType":"Governance risk and compliance"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"5000","maxPrice":"20000","priceCurrency":"USD"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Fractional CISO","serviceType":"Fractional security leadership"}}
+    ]
+   }
+  },
+  {
+   "@type":"WebSite",
+   "@id":"https://www.anthonytoday.com/#website",
+   "url":"https://www.anthonytoday.com/",
+   "name":"Anthony Today",
+   "publisher":{"@id":"https://www.anthonytoday.com/#business"},
+   "inLanguage":["en-US","fr-FR"]
+  },
+  {
+   "@type":"Article",
+   "@id":"https://www.anthonytoday.com/notion/real-estate-ops/#webpage",
+   "url":"https://www.anthonytoday.com/notion/real-estate-ops/",
+   "name":"Notion for Real Estate Operations: Voice to Action",
+   "description":"A working system for property management teams. An iPhone Shortcut captures a spoken note on site and a multi agent loop turns it into a closed action.",
+   "inLanguage":"en-US",
+   "isPartOf":{"@id":"https://www.anthonytoday.com/#website"},
+   "about":{"@id":"https://www.anthonytoday.com/#business"},
+   "author":{"@id":"https://www.anthonytoday.com/#anthony"},
+   "publisher":{"@id":"https://www.anthonytoday.com/#business"},
+   "primaryImageOfPage":"https://www.anthonytoday.com/assets/brand/anthony-profile.webp"},
+  {
+   "@type":"BreadcrumbList",
+   "@id":"https://www.anthonytoday.com/notion/real-estate-ops/#breadcrumb",
+   "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.anthonytoday.com/"},
+    {"@type":"ListItem","position":2,"name":"Notion Consulting","item":"https://www.anthonytoday.com/notion/"},
+    {"@type":"ListItem","position":3,"name":"Real Estate Operations, Voice to Action","item":"https://www.anthonytoday.com/notion/real-estate-ops/"}
+   ]
+  }
+ ]
+}
+</script>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="/">Anthony Today</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">&#9776;</button>
+    <nav id="nav">
+      <a href="/">Home</a>
+
+      <div class="nav-item">
+        <a href="/notion/">Notion</a>
+        <div class="sub">
+          
+          <a href="/notion-build/">10-Day Notion Build</a>
+          <a href="/notion-consultant-as-a-service/">Notion Consultant as a Service</a>
+          <a href="/shop/">Shop</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="/cyber/">Cyber</a>
+        <div class="sub">
+          <a href="/cyber-grc/">GRC</a>
+          <a href="/fractional-ciso/">Fractional CISO</a>
+        </div>
+      </div>
+
+      <a href="/tools/">Tools</a>
+      <a class="cta" href="/contact/">Contact</a>
+
+      <div class="lang-switch">
+        <span class="on">EN</span><a class="off" href="/fr/notion/real-estate-ops/" hreflang="fr" lang="fr" title="Lire cette page en fran&ccedil;ais">FR</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="uc-hero">
+  <span class="uc-tag">Use Case, Notion + AI Agents</span>
+  <h1>From a spoken note on site to a tracked, closed action in Notion</h1>
+  <p>A system built for a real estate property management operation, where the people closest to
+     the problem are the least able to open a laptop and type it up.</p>
+  <div class="uc-note">This describes a system built and running for a property management client.
+     Property and reporter details are not shown; the architecture is.</div>
+</section>
+
+<div class="stats-row">
+  <div class="stat-card"><div class="num">1 tap</div><div class="label">from a spoken note to a logged item</div></div>
+  <div class="stat-card"><div class="num">3 agents</div><div class="label">route, execute and review every action</div></div>
+  <div class="stat-card"><div class="num">Human</div><div class="label">checkpoint before anything counts as done</div></div>
+  <div class="stat-card"><div class="num">1 inbox</div><div class="label">for every property and every crew</div></div>
+</div>
+
+<div class="flow-wrap">
+  <div class="flow-cap">The pipeline, in five steps</div>
+  <div class="flow-row">
+    <div class="flow-step"><span class="flow-n">01 Speak</span><h3>iPhone Shortcut</h3><p>A Back Tap or Lock Screen shortcut opens Wispr Flow and starts listening. No unlock, no app to find.</p></div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step"><span class="flow-n">02 Land</span><h3>Notion inbox</h3><p>The transcript is written straight into one inbox database, timestamped and tagged to the property.</p></div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step"><span class="flow-n">03 Read</span><h3>AI triage</h3><p>Notion AI and ChatGPT parse the raw transcript into what happened, where, and how urgent it is.</p></div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step"><span class="flow-n">04 Act</span><h3>Agent execution</h3><p>Sub-agents run the action in parallel; a QA reviewer agent checks the work against the note.</p></div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step"><span class="flow-n">05 Close</span><h3>Tracked record</h3><p>Status, owner and outcome sit on one page per property, visible to whoever needs it.</p></div>
+  </div>
+  <div class="flow-note">The QA agent and a human reviewer both sit between step 4 and a status of "Done." Neither
+     the AI triage nor the execution agents are trusted to close an action on their own.</div>
+</div>
+
+<div class="uc-body">
+
+  <div class="uc-act">
+    <span class="act-label">The problem</span>
+    <h2>Typing is not an option on a job site or during a turnover</h2>
+    <p>A property manager overseeing several sites cannot be everywhere, and the people who are on
+       site, maintenance crews, contractors, turnover staff, are rarely in a position to open a
+       phone and type a clean report. Hands are full, gloves are on, or the moment passes before
+       anyone reaches a keyboard. Whatever does not get written down when it happens gets
+       remembered later, badly, or not at all.</p>
+    <p>The cost is not one missed note. It is a portfolio with no shared, current record of what is
+       happening at each property, and the same issue resurfacing because nothing tracked
+       it the first time.</p>
+  </div>
+
+  <div class="uc-act">
+    <span class="act-label">Capture</span>
+    <h2>A Shortcut turns speech into a Notion page in one motion</h2>
+    <p>The entry point is a custom iPhone Shortcut, triggered by Back Tap or from the Lock Screen,
+       that opens Wispr Flow and transcribes speech on the spot. The Shortcut then hands that
+       transcript to a Notion automation, which creates one page in a single inbox database,
+       stamped with the property, the time and who reported it.</p>
+    <p>There is no separate app to learn beyond talking, no switching screens, and no keyboard
+       involved at any point. The bar for reporting a problem drops to the same effort as leaving a
+       voicemail.</p>
+  </div>
+
+  <div class="uc-act">
+    <span class="act-label">Triage</span>
+    <h2>AI reads the transcript before any person has to</h2>
+    <p>A spoken note is noisy: no punctuation, false starts, a property named halfway through the
+       sentence. An automation passes each new inbox item to Notion AI and ChatGPT, which extract
+       what happened, the property and unit involved, the urgency, and the action required, then
+       write those back as structured properties on the same page. The item moves from "Note" to
+       "Action" only once that structure exists.</p>
+  </div>
+
+  <div class="uc-act">
+    <span class="act-label">Execution</span>
+    <h2>A router hands the action to sub-agents; a reviewer checks the result</h2>
+    <p>Once an item is marked "Action," a router agent assigns it to the specialist sub-agent built
+       for that kind of work: maintenance dispatch, vendor follow-up, tenant communication. Several
+       of these run in parallel across different open actions, so a maintenance dispatch and a
+       tenant reply are not waiting on each other.</p>
+    <p>A separate quality reviewer agent checks every output against the original note before the
+       status can move to "Done." Anything the reviewer is not confident about goes to a person for
+       a quick approve or reject rather than closing on its own. The loop is built to catch a
+       mistaken action, not to remove the person from the decision.</p>
+  </div>
+
+  <div class="uc-act">
+    <span class="act-label">Result</span>
+    <h2>One owned record per property, not a scattered text thread</h2>
+    <p>Every voice note ends up as a visible, timestamped, owned item inside the same Notion
+       workspace the rest of the portfolio already runs on. Nothing depends on a text message
+       surviving in someone's phone, or a manager remembering to chase a status update.</p>
+  </div>
+
+</div>
+
+<div class="benefits-section">
+  <h2>Who this changes work for</h2>
+  <div class="who-grid">
+    <div class="benefit-card">
+      <h3>The person overseeing operations</h3>
+      <p>Visibility into every property from one view, without asking anyone for an update. A
+         record of who reported what, and when. Work distributed to the right agent instead of
+         landing in one shared inbox for someone to sort by hand.</p>
+    </div>
+    <div class="benefit-card">
+      <h3>The person on site</h3>
+      <p>A problem gets reported the moment it is noticed, hands stay free, and there is nothing
+         new to learn beyond talking into a phone. Confirmation that the note went somewhere,
+         instead of wondering if anyone will see it.</p>
+    </div>
+  </div>
+</div>
+
+<p style="text-align:center;font-size:14px;color:var(--text-gray);margin:0 0 30px"><a href="/notion/real-estate-ops-architecture/">See the architecture behind each layer, and the business value it delivers &rarr;</a></p>
+
+<div class="uc-cta">
+  <h2>Build a system like this for your operation</h2>
+  <p>The pieces here (capture, triage, agent execution, and a human review gate) are how a Notion
+     build gets designed once your team's actual workflow is mapped, not adapted from a generic
+     template.</p>
+  <a href="/notion-build/" class="uc-cta-button">See the 10-Day Notion Build</a>
+</div>
+
+<section style="max-width:1000px;margin:0 auto;padding:44px 24px">
+  <div style="background:#F7F9FF;border:1px solid #D8E0FF;border-radius:12px;padding:34px 30px">
+
+    <h2 style="font-size:24px;font-weight:600;color:#051C2C;margin:0 0 10px;text-align:center;letter-spacing:-.01em">How we get started</h2>
+    <p style="font-size:15px;color:#4A5568;line-height:1.7;margin:0 auto 30px;text-align:center;max-width:640px">Two steps, in this order. Notion only allows an external consultant into a workspace on a paid plan, so the upgrade has to come first. It costs you nothing to do it.</p>
+
+    <div class="start-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:22px">
+
+      <div style="background:#FFFFFF;border:1px solid #E3E8F0;border-radius:10px;padding:26px 24px;display:flex;flex-direction:column">
+        <span style="display:inline-block;align-self:flex-start;background:#2251FF;color:#FFFFFF;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:20px;margin-bottom:14px">Step 1</span>
+        <h3 style="font-size:18px;font-weight:600;color:#051C2C;margin:0 0 10px">Notion Business for FREE</h3>
+        <p style="font-size:14px;color:#4A5568;line-height:1.7;margin:0 0 20px">Free for 3 months, no card required. This unlocks the permissions and admin controls I need to audit and rebuild your workspace properly.</p>
+        <a href="https://affiliate.notion.so/0x8u16p4sff1" target="_blank" rel="noopener noreferrer sponsored" style="margin-top:auto;display:block;text-align:center;background:#2251FF;color:#FFFFFF;font-size:14px;font-weight:600;padding:12px 20px;border-radius:6px;text-decoration:none">Notion Business for FREE, no credit card &rarr;</a>
+      </div>
+
+      <div style="background:#FFFFFF;border:1px solid #E3E8F0;border-radius:10px;padding:26px 24px;display:flex;flex-direction:column">
+        <span style="display:inline-block;align-self:flex-start;background:#051C2C;color:#FFFFFF;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:20px;margin-bottom:14px">Step 2</span>
+        <h3 style="font-size:18px;font-weight:600;color:#051C2C;margin:0 0 10px">Book a 30-minute call</h3>
+        <p style="font-size:14px;color:#4A5568;line-height:1.7;margin:0 0 20px">Bring one real problem. You leave with a fix or a clear next step, whether or not we work together after that.</p>
+        <a href="https://cal.com/anthonytoday/consultation" target="_blank" rel="noopener noreferrer" style="margin-top:auto;display:block;text-align:center;background:#FFFFFF;color:#051C2C;border:1px solid #051C2C;font-size:14px;font-weight:600;padding:12px 20px;border-radius:6px;text-decoration:none">Book a Discovery Call &rarr;</a>
+      </div>
+
+    </div>
+
+    <p style="font-size:10.5px;color:#9AA3B2;line-height:1.5;margin:18px 0 0;text-align:center">Affiliate disclosure: the Notion upgrade link is a referral link. If you upgrade through it I may earn a commission, at no additional cost to you.</p>
+  </div>
+</section>
+
+
+
+
+<footer class="site-foot">
+  <div class="footer-content">
+    <div class="footer-main">
+      <div class="footer-section">
+        <h4>Consulting</h4>
+        <a href="/notion-build/">10-Day Notion Build</a>
+        <a href="/notion/">Notion Services</a>
+        <a href="https://cal.com/anthonytoday/consultation">Discovery Call ($79)</a>
+        <a href="/notion-consultant-as-a-service/">Notion Consultant as a Service</a>
+        <a href="/notion/#services">Services</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <div class="footer-section">
+        <h4>Templates</h4>
+        <a href="/shop/">All templates</a>
+        <a href="/how-to-duplicate/">How to duplicate</a>
+        <a href="https://www.notion.com/@anthonytoday">Notion Profile</a>
+        <a href="https://store.anthonytoday.com">Gumroad Store</a>
+        <a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">Etsy Shop</a>
+        <a href="/tools/">Tools</a>
+      </div>
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <p style="margin-bottom:15px">Follow for updates, resources, and new templates.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/anthony-kieffer/" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+          <a href="mailto:info@anthonytoday.com" title="Email" aria-label="Email">@</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Anthony Today.
+        All rights reserved. &middot; <a href="/privacy/">Privacy</a></p>
+    </div>
+  </div>
+</footer>
+
+
+</main>
+
+<div class="atop" id="atOffer" hidden aria-hidden="true">
+  <div class="atop-veil" data-atop-close></div>
+  <div class="atop-card" role="dialog" aria-modal="true" aria-labelledby="atOfferTitle">
+    <button type="button" class="atop-x" data-atop-close aria-label="Close">&times;</button>
+
+    <div class="atop-head">
+      <img class="atop-logo" src="/assets/logos/notion.webp" alt="Notion" width="34" height="34" loading="lazy">
+      <p class="atop-eyebrow"><span class="atop-dot"></span>Exclusive offer</p>
+    </div>
+    <h2 class="atop-title" id="atOfferTitle">Notion Business, for free</h2>
+    <p class="atop-sub"><strong>3 months free</strong> with full AI access, no credit card. Worth up to <strong>$6,000</strong>. Limited-time offer.</p>
+
+    <form class="atop-form" id="atOfferForm" novalidate>
+      <label class="atop-label" for="atOfferEmail">Your preferred email address</label>
+      <input class="atop-input" id="atOfferEmail" type="email" name="email" autocomplete="email"
+             placeholder="name@company.com" required aria-describedby="atOfferErr">
+
+      <label class="atop-check">
+        <input type="checkbox" id="atOfferConsent" required>
+        <span>I agree to receive messages from AnthonyToday. Unsubscribe at any time.</span>
+      </label>
+
+      <p class="atop-err" id="atOfferErr" role="alert" hidden></p>
+      <button class="atop-btn" type="submit" id="atOfferBtn">Claim the exclusive offer</button>
+      <p class="atop-fine">Read our <a href="/privacy/">privacy policy</a>.</p>
+    </form>
+
+    <div class="atop-done" id="atOfferDone" hidden>
+      <p class="atop-donetitle">You are in.</p>
+      <p class="atop-sub">Click below to activate your Notion Business plan.</p>
+      <a class="atop-btn" id="atOfferLink" href="#" target="_blank" rel="noopener noreferrer nofollow">Claim my offer</a>
+      <p class="atop-fine">The link opens on notion.com.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+.atop[hidden]{display:none}
+.atop{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px}
+.atop-veil{position:absolute;inset:0;background:rgba(5,28,44,.62)}
+.atop-card{position:relative;background:#fff;border-radius:14px;max-width:490px;width:100%;
+  padding:36px 36px 30px;box-shadow:0 18px 50px rgba(5,28,44,.28);text-align:left;
+  animation:atopIn .22s ease-out}
+@keyframes atopIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.atop-x{position:absolute;top:10px;right:14px;background:none;border:0;font-size:26px;line-height:1;
+  color:#6B7280;cursor:pointer;padding:4px 8px}
+.atop-x:hover{color:#051C2C}
+.atop-head{display:flex;align-items:center;gap:11px;margin:0 0 12px}
+.atop-logo{width:34px;height:34px;border-radius:7px;flex:0 0 auto;display:block}
+.atop-eyebrow{margin:0;display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#2251FF;background:#EDF1FF;padding:5px 11px;border-radius:999px}
+.atop-dot{width:6px;height:6px;border-radius:50%;background:#2251FF;flex:0 0 auto;animation:atopPulse 1.6s ease-in-out infinite}
+@keyframes atopPulse{0%,100%{opacity:1}50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.atop-dot{animation:none}.atop-card{animation:none}}
+.atop-title{margin:0 0 11px;font-size:27px;line-height:1.2;font-weight:700;color:#051C2C}
+.atop-sub{margin:0 0 20px;font-size:15.5px;line-height:1.6;color:#4A5464}
+.atop-label{display:block;font-size:13px;font-weight:600;color:#051C2C;margin-bottom:6px}
+.atop-input{width:100%;padding:12px 14px;font-size:15px;border:1px solid #C9CED6;border-radius:8px;
+  background:#fff;color:#051C2C;box-sizing:border-box}
+.atop-input:focus{outline:none;border-color:#2251FF;box-shadow:0 0 0 3px rgba(34,81,255,.16)}
+.atop-check{display:flex;gap:9px;align-items:flex-start;margin:14px 0 4px;font-size:13px;line-height:1.5;color:#4A5464;cursor:pointer}
+.atop-check input{margin-top:2px;flex:0 0 auto;width:16px;height:16px;accent-color:#2251FF}
+.atop-err{margin:10px 0 0;font-size:13px;color:#C0392B}
+.atop-err[hidden]{display:none}
+.atop-btn{display:block;width:100%;margin-top:16px;padding:14px 18px;font-size:16px;font-weight:700;
+  border:0;border-radius:8px;background:#2251FF;color:#fff;cursor:pointer;text-align:center;
+  text-decoration:none;box-sizing:border-box;transition:background .15s}
+.atop-btn:hover{background:#051C2C;color:#fff}
+.atop-btn[disabled]{opacity:.6;cursor:default}
+.atop-fine{margin:12px 0 0;font-size:12px;color:#6B7280;text-align:center}
+.atop-fine a{color:#6B7280;text-decoration:underline}
+.atop-donetitle{margin:0 0 8px;font-size:19px;font-weight:700;color:#051C2C}
+.atop-done[hidden]{display:none}
+@media (max-width:520px){.atop-card{padding:28px 22px 24px}.atop-title{font-size:22px}.atop-sub{font-size:15px}}
+</style>
+
+<script>
+(function(){
+  var API = "https://offer-capture.learningamazonfba.workers.dev/api/claim-offer";
+  var KEY = "at_offer_v1";
+  var DAYS = 1;
+  var root = document.getElementById("atOffer");
+  if (!root) return;
+
+  var path = location.pathname;
+  if (/\/(privacy|contact)\//.test(path)) return;
+
+  var force = /[?&]popup=1\b/.test(location.search);
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { state = {}; }
+  if (force) {
+    try { localStorage.removeItem(KEY); sessionStorage.removeItem(KEY); } catch (e) {}
+    state = {};
+  }
+  var shownThisSession = false;
+  try { shownThisSession = sessionStorage.getItem(KEY) === "1"; } catch (e) {}
+  if (!force) {
+    if (state.claimed) return;
+    if (shownThisSession) return;
+    if (state.seen && (Date.now() - state.seen) < DAYS * 864e5) return;
+  }
+
+  var form = document.getElementById("atOfferForm");
+  var done = document.getElementById("atOfferDone");
+  var input = document.getElementById("atOfferEmail");
+  var consent = document.getElementById("atOfferConsent");
+  var err = document.getElementById("atOfferErr");
+  var btn = document.getElementById("atOfferBtn");
+  var link = document.getElementById("atOfferLink");
+  var lastFocus = null, opened = false;
+
+  var FR = document.documentElement.lang === "fr" || /^\/fr\//.test(path);
+  var MSG = FR ? {
+    email: "Entrez une adresse e-mail valide.",
+    consent: "Cochez la case pour continuer.",
+    fail: "Une erreur est survenue. Reessayez."
+  } : {
+    email: "Enter a valid email address.",
+    consent: "Tick the box to continue.",
+    fail: "Something went wrong. Try again."
+  };
+
+  function save(patch){
+    try {
+      var next = {}; for (var k in state) next[k] = state[k];
+      for (var j in patch) next[j] = patch[j];
+      state = next; localStorage.setItem(KEY, JSON.stringify(next));
+    } catch (e) {}
+  }
+
+  function openIt(){
+    if (opened) return; opened = true;
+    lastFocus = document.activeElement;
+    root.hidden = false; root.setAttribute("aria-hidden", "false");
+    save({ seen: Date.now() });
+    try { sessionStorage.setItem(KEY, "1"); } catch (e) {}
+    setTimeout(function(){ input.focus(); }, 60);
+    document.addEventListener("keydown", onKey);
+  }
+  function closeIt(){
+    root.hidden = true; root.setAttribute("aria-hidden", "true");
+    document.removeEventListener("keydown", onKey);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  function onKey(e){
+    if (e.key === "Escape") { closeIt(); return; }
+    if (e.key !== "Tab") return;
+    var f = root.querySelectorAll("button,[href],input:not([type=hidden])");
+    if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+  function fail(m){ err.textContent = m; err.hidden = false; }
+
+  Array.prototype.forEach.call(root.querySelectorAll("[data-atop-close]"), function(el){
+    el.addEventListener("click", closeIt);
+  });
+  input.addEventListener("input", function(){ err.hidden = true; });
+  consent.addEventListener("change", function(){ err.hidden = true; });
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    err.hidden = true;
+    var email = (input.value || "").trim().toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) { fail(MSG.email); input.focus(); return; }
+    if (!consent.checked) { fail(MSG.consent); consent.focus(); return; }
+
+    btn.disabled = true;
+    btn.textContent = FR ? "Envoi..." : "Sending...";
+
+    fetch(API, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ email: email, consent: true, lang: FR ? "fr" : "en", page: path })
+    }).then(function(r){ return r.json(); }).then(function(j){
+      if (!j || !j.ok || !j.url) throw new Error("bad");
+      link.href = j.url;
+      form.hidden = true;
+      done.hidden = false;
+      save({ claimed: true, at: Date.now() });
+      setTimeout(function(){ link.focus(); }, 60);
+    })["catch"](function(){
+      btn.disabled = false;
+      btn.textContent = FR ? "Obtenir l'offre exclusive" : "Claim the exclusive offer";
+      fail(MSG.fail);
+    });
+  });
+
+  var touch = window.matchMedia && window.matchMedia("(hover: none)").matches;
+  var timer = setTimeout(openIt, force ? 300 : 20000);
+
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    if (h > 0 && (window.scrollY / h) >= 0.5) { clearTimeout(timer); openIt(); cleanup(); }
+  }
+  function onExit(e){
+    if (!e.relatedTarget && e.clientY <= 0) { clearTimeout(timer); openIt(); cleanup(); }
+  }
+  function cleanup(){
+    window.removeEventListener("scroll", onScroll);
+    document.removeEventListener("mouseout", onExit);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  if (!touch) document.addEventListener("mouseout", onExit);
+})();
+</script>
+
+</body>
+</html>

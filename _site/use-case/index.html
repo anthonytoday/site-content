@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+
+
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Client Use Cases | Anthony Today</title>
+<meta name="description" content="Real engagements across security, compliance and Notion workspace delivery. What the problem was, what got built, and what changed afterwards.">
+<link rel="canonical" href="https://www.anthonytoday.com/use-case/">
+<link rel="alternate" hreflang="en" href="https://www.anthonytoday.com/use-case/">
+<link rel="alternate" hreflang="fr" href="https://www.anthonytoday.com/fr/use-case/">
+<link rel="alternate" hreflang="x-default" href="https://www.anthonytoday.com/use-case/">
+<meta property="og:title" content="Client Use Cases | Anthony Today">
+<meta property="og:description" content="Real engagements across security, compliance and Notion workspace delivery. What the problem was, what got built, and what changed afterwards.">
+<meta property="og:url" content="https://www.anthonytoday.com/use-case/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:image" content="https://www.anthonytoday.com/assets/brand/anthony-profile.webp">
+<meta property="og:image:alt" content="Client Use Cases | Anthony Today">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.anthonytoday.com/assets/brand/anthony-profile.webp">
+<link rel="dns-prefetch" href="https://pay.anthonytoday.com">
+<link rel="stylesheet" href="/assets/css/b-37f8019337.css">
+<link rel="icon" href="/assets/brand/favicon.png">
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"><script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@graph":[
+  {
+   "@type":"Person",
+   "@id":"https://www.anthonytoday.com/#anthony",
+   "name":"Anthony",
+   "givenName":"Anthony",
+   "url":"https://www.anthonytoday.com/",
+   "image":"https://www.anthonytoday.com/assets/brand/anthony-profile.webp",
+   "jobTitle":"Cybersecurity, GRC and Notion Consultant",
+   "description":"Certified Notion Consulting Partner and ex-EY cybersecurity consultant. 15+ years in technology risk and IT audit across Luxembourg, Switzerland and the USA.",
+   "knowsLanguage":["en","fr"],
+   "knowsAbout":["Notion","Notion workspace architecture","Cybersecurity","Governance Risk and Compliance","ISO 27001","NIST Cybersecurity Framework","AI governance","IT audit","Information security management","Fractional CISO","Third-party risk management"],
+   "alumniOf":{"@type":"CollegeOrUniversity","name":"ETH Zürich"},
+   "hasCredential":[
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CISSP","recognizedBy":{"@type":"Organization","name":"ISC2"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CISA","recognizedBy":{"@type":"Organization","name":"ISACA"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CISM","recognizedBy":{"@type":"Organization","name":"ISACA"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CRISC","recognizedBy":{"@type":"Organization","name":"ISACA"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"AIGP","recognizedBy":{"@type":"Organization","name":"IAPP"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"ISO 27001 Lead Implementer"},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"Notion Certified Consultant","recognizedBy":{"@type":"Organization","name":"Notion"}}
+   ],
+   "sameAs":["https://www.linkedin.com/in/anthony-kieffer/","https://www.notion.com/@anthonytoday","https://certs.notion.so/5c2a6cd2c3b14e83a585c1dedb40852d"],
+   "worksFor":{"@id":"https://www.anthonytoday.com/#business"}
+  },
+  {
+   "@type":"ProfessionalService",
+   "@id":"https://www.anthonytoday.com/#business",
+   "name":"Anthony Today",
+   "url":"https://www.anthonytoday.com/",
+   "image":"https://www.anthonytoday.com/assets/brand/anthony-profile.webp",
+   "logo":"https://www.anthonytoday.com/assets/brand/favicon.png",
+   "description":"Certified Notion consulting, governance risk and cybersecurity advisory. Workspace architecture, audit readiness and fractional security leadership.",
+   "founder":{"@id":"https://www.anthonytoday.com/#anthony"},
+   "email":"info@anthonytoday.com",
+   "priceRange":"$79-$20000",
+   "availableLanguage":["en","fr"],
+   "areaServed":[{"@type":"Country","name":"Luxembourg"},{"@type":"Country","name":"Switzerland"},{"@type":"Country","name":"United States"},{"@type":"Country","name":"United Arab Emirates"},{"@type":"Country","name":"France"},{"@type":"Country","name":"Belgium"}],
+   "sameAs":["https://www.linkedin.com/in/anthony-kieffer/","https://www.notion.com/@anthonytoday","https://certs.notion.so/5c2a6cd2c3b14e83a585c1dedb40852d"],
+   "hasOfferCatalog":{
+    "@type":"OfferCatalog",
+    "name":"Services",
+    "itemListElement":[
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Discovery Call","serviceType":"Consulting"},"price":"79","priceCurrency":"USD"},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Audit & Design","serviceType":"Notion workspace architecture"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"1500","maxPrice":"6000","priceCurrency":"USD"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Risk & Governance Build","serviceType":"Governance risk and compliance"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"5000","maxPrice":"20000","priceCurrency":"USD"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Fractional CISO","serviceType":"Fractional security leadership"}}
+    ]
+   }
+  },
+  {
+   "@type":"WebSite",
+   "@id":"https://www.anthonytoday.com/#website",
+   "url":"https://www.anthonytoday.com/",
+   "name":"Anthony Today",
+   "publisher":{"@id":"https://www.anthonytoday.com/#business"},
+   "inLanguage":["en-US","fr-FR"]
+  },
+  {
+   "@type":"Article",
+   "@id":"https://www.anthonytoday.com/use-case/#webpage",
+   "url":"https://www.anthonytoday.com/use-case/",
+   "name":"Client Use Cases | Anthony Today",
+   "description":"Real engagements across security, compliance and Notion workspace delivery. What the problem was, what got built, and what changed afterwards.",
+   "inLanguage":"en-US",
+   "isPartOf":{"@id":"https://www.anthonytoday.com/#website"},
+   "about":{"@id":"https://www.anthonytoday.com/#business"},
+   "author":{"@id":"https://www.anthonytoday.com/#anthony"},
+   "publisher":{"@id":"https://www.anthonytoday.com/#business"},
+   "primaryImageOfPage":"https://www.anthonytoday.com/assets/brand/anthony-profile.webp"},
+  {
+   "@type":"BreadcrumbList",
+   "@id":"https://www.anthonytoday.com/use-case/#breadcrumb",
+   "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.anthonytoday.com/"},
+    {"@type":"ListItem","position":2,"name":"Notion Consulting","item":"https://www.anthonytoday.com/notion/"},
+    {"@type":"ListItem","position":3,"name":"Notion Governance Case Study","item":"https://www.anthonytoday.com/use-case/"}
+   ]
+  }
+ ]
+}
+</script>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="/">Anthony Today</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">&#9776;</button>
+    <nav id="nav">
+      <a href="/">Home</a>
+
+      <div class="nav-item">
+        <a href="/notion/">Notion</a>
+        <div class="sub">
+          
+          <a href="/notion-build/">10-Day Notion Build</a>
+          <a href="/notion-consultant-as-a-service/">Notion Consultant as a Service</a>
+          <a href="/shop/">Shop</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="/cyber/">Cyber</a>
+        <div class="sub">
+          <a href="/cyber-grc/">GRC</a>
+          <a href="/fractional-ciso/">Fractional CISO</a>
+        </div>
+      </div>
+
+      <a href="/tools/">Tools</a>
+      <a class="cta" href="/contact/">Contact</a>
+
+      <div class="lang-switch">
+        <span class="on">EN</span><a class="off" href="/fr/use-case/" hreflang="fr" lang="fr" title="Lire cette page en fran&ccedil;ais">FR</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="uc-hero">
+  <span class="uc-tag">Case Study</span>
+  <h1>Notion Governance Remediation: $2,880 in annual license cost recovered, access risk reduced from High to Low.</h1>
+  <p>How a 28-person B2B SaaS company moved from uncontrolled workspace access to a documented, governed system in 21 days.</p>
+  <div class="uc-note">Composite scenario based on findings typical of a Notion workspace review. Company details are illustrative, not a specific client.</div>
+</section>
+
+<div class="stats-row">
+  <div class="stat-card"><div class="num">$2,880</div><div class="label">annual license cost recovered</div></div>
+  <div class="stat-card"><div class="num">78%</div><div class="label">reduction in onboarding time</div></div>
+  <div class="stat-card"><div class="num">High → Low</div><div class="label">access risk classification</div></div>
+  <div class="stat-card"><div class="num">21</div><div class="label">days from audit to full remediation</div></div>
+</div>
+
+<div class="uc-body">
+
+  <div class="uc-act">
+    <span class="act-label">Situation</span>
+    <h2>Trigger event</h2>
+    <p>A 28-person B2B SaaS company ran sales, product, and client operations entirely in Notion. A new hire, added to a shared teamspace during onboarding, was able to view contract terms belonging to a different client. No breach occurred. The COO could not confirm who had access to what across the workspace. She brought in an outside Notion consultant to find out.</p>
+  </div>
+
+  <div class="uc-act">
+    <span class="act-label">Findings</span>
+    <h2>Audit results, rated by risk</h2>
+    <table class="findings">
+      <tr><th>#</th><th>Finding</th><th>Risk</th><th>Business impact</th></tr>
+      <tr><td>1</td><td>3 teamspaces set to open-edit with no access review</td><td><span class="risk-pill risk-critical">Critical</span></td><td>No control over who can modify client-facing content</td></tr>
+      <tr><td>2</td><td>No offboarding process to revoke access when contractors or employees leave</td><td><span class="risk-pill risk-high">High</span></td><td>Structural gap: access loss is not a one-time issue, it recurs with every departure</td></tr>
+      <tr><td>3</td><td>14 guest accounts still active from engagements closed 6+ months prior</td><td><span class="risk-pill risk-high">High</span></td><td>Direct consequence of finding #2: live, unreviewed access existing today</td></tr>
+      <tr><td>4</td><td>12 paid seats assigned to inactive or departed users</td><td><span class="risk-pill risk-medium">Medium</span></td><td>Recurring licensing cost with no corresponding usage</td></tr>
+      <tr><td>5</td><td>No approval step before new databases go live</td><td><span class="risk-pill risk-medium">Medium</span></td><td>Unmanaged data sprawl over time</td></tr>
+      <tr><td>6</td><td>1 database with 40+ properties, no owner assigned</td><td><span class="risk-pill risk-medium">Medium</span></td><td>Reporting errors, duplicated manual work</td></tr>
+      <tr><td>7</td><td>No standardized templates for recurring project types</td><td><span class="risk-pill risk-low">Low</span></td><td>Inconsistent formatting, minor onboarding friction, no security exposure</td></tr>
+    </table>
+    <p style="font-size:13px;color:var(--text-gray)">Findings #2 and #3 are related: #2 is the structural cause, #3 is its current, visible consequence. Both are tracked and resolved separately below.</p>
+  </div>
+
+  <div class="uc-act">
+    <span class="act-label">Remediation (21 days)</span>
+    <h2>Actions taken</h2>
+    <ul>
+      <li>Access rebuilt on least-privilege principles; guest accounts reduced from 14 to 2</li>
+      <li>All open-edit teamspaces converted to role-based permissions with named owners</li>
+      <li>Offboarding checklist added to the HR termination workflow, tied to Notion admin access removal</li>
+      <li>Master database split into 3 purpose-built databases with defined ownership</li>
+      <li>Approval step added before any new database is created</li>
+      <li>12 inactive paid seats identified and removed at the next billing cycle</li>
+    </ul>
+  </div>
+
+  <div class="uc-act">
+    <span class="act-label">Result</span>
+    <h2>Risk classification: before and after, day 21</h2>
+    <div class="risk-transition">
+      <div class="risk-box before">
+        <div class="risk-level">HIGH</div>
+        <div class="risk-sub">Uncontrolled guest access, no offboarding process, unowned teamspaces</div>
+      </div>
+      <div class="risk-arrow">→</div>
+      <div class="risk-box after">
+        <div class="risk-level">LOW (Acceptable)</div>
+        <div class="risk-sub">Named owners, revocation on offboarding, quarterly access review scheduled</div>
+      </div>
+    </div>
+    <p>Risk was reduced to an acceptable level defined by three controls: every teamspace has a named owner, access is revoked automatically at offboarding, and permissions are reviewed quarterly rather than left indefinitely.</p>
+  </div>
+
+</div>
+
+<div class="benefits-section">
+  <h2>Cost savings: Notion licensing</h2>
+  <table class="cost-table">
+    <tr><th>Item</th><th>Detail</th><th>Annual value</th></tr>
+    <tr><td>Inactive seats removed</td><td>12 seats on Notion Business ($20/user/month, billed annually)</td><td>$2,880</td></tr>
+    <tr><td>Admin time recovered</td><td>~5 hours/month previously spent manually tracking access, now handled by the offboarding workflow</td><td>60 hrs/year</td></tr>
+  </table>
+  <div class="cost-summary">
+    <div class="cs-card"><div class="cs-num">$2,880/year</div><div class="cs-label">recovered license cost</div></div>
+    <div class="cs-card"><div class="cs-num">60 hrs/year</div><div class="cs-label">admin time redirected to other work</div></div>
+  </div>
+  <p style="font-size:13px;color:var(--text-gray);text-align:center;margin-top:14px">Based on Notion's published Business plan pricing of $20/user/month (annual billing). Actual savings scale with your seat count and plan tier.</p>
+</div>
+
+<div class="benefits-section">
+  <h2>Additional business outcomes</h2>
+  <div class="benefit-grid">
+    <div class="benefit-card">
+      <h3>Onboarding time</h3>
+      <p>Reduced from 2 weeks to 3 days. Role-based views meant new hires saw only what their role required from day one, removing manual access provisioning.</p>
+    </div>
+    <div class="benefit-card">
+      <h3>Sales cycle friction</h3>
+      <p>A customer security questionnaire was completed in one sitting, replacing what had previously been a week-long, multi-person scramble.</p>
+    </div>
+  </div>
+</div>
+
+<div class="uc-cta">
+  <h2>Get your license cost and access risk assessed</h2>
+  <p>Findings like these are what the first days of a build are for. Start where this company did.</p>
+  <a href="/notion-build/" class="uc-cta-button">See the 10-Day Notion Build</a>
+</div>
+
+<!-- FOOTER, light background, exact match to Notion page -->
+
+<section style="max-width:1000px;margin:0 auto;padding:44px 24px">
+  <div style="background:#F7F9FF;border:1px solid #D8E0FF;border-radius:12px;padding:34px 30px">
+
+    <h2 style="font-size:24px;font-weight:600;color:#051C2C;margin:0 0 10px;text-align:center;letter-spacing:-.01em">How we get started</h2>
+    <p style="font-size:15px;color:#4A5568;line-height:1.7;margin:0 auto 30px;text-align:center;max-width:640px">Two steps, in this order. Notion only allows an external consultant into a workspace on a paid plan, so the upgrade has to come first. It costs you nothing to do it.</p>
+
+    <div class="start-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:22px">
+
+      <div style="background:#FFFFFF;border:1px solid #E3E8F0;border-radius:10px;padding:26px 24px;display:flex;flex-direction:column">
+        <span style="display:inline-block;align-self:flex-start;background:#2251FF;color:#FFFFFF;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:20px;margin-bottom:14px">Step 1</span>
+        <h3 style="font-size:18px;font-weight:600;color:#051C2C;margin:0 0 10px">Notion Business for FREE</h3>
+        <p style="font-size:14px;color:#4A5568;line-height:1.7;margin:0 0 20px">Free for 3 months, no card required. This unlocks the permissions and admin controls I need to audit and rebuild your workspace properly.</p>
+        <a href="https://affiliate.notion.so/0x8u16p4sff1" target="_blank" rel="noopener noreferrer sponsored" style="margin-top:auto;display:block;text-align:center;background:#2251FF;color:#FFFFFF;font-size:14px;font-weight:600;padding:12px 20px;border-radius:6px;text-decoration:none">Notion Business for FREE, no credit card &rarr;</a>
+      </div>
+
+      <div style="background:#FFFFFF;border:1px solid #E3E8F0;border-radius:10px;padding:26px 24px;display:flex;flex-direction:column">
+        <span style="display:inline-block;align-self:flex-start;background:#051C2C;color:#FFFFFF;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:20px;margin-bottom:14px">Step 2</span>
+        <h3 style="font-size:18px;font-weight:600;color:#051C2C;margin:0 0 10px">Book a 30-minute call</h3>
+        <p style="font-size:14px;color:#4A5568;line-height:1.7;margin:0 0 20px">Bring one real problem. You leave with a fix or a clear next step, whether or not we work together after that.</p>
+        <a href="https://cal.com/anthonytoday/consultation" target="_blank" rel="noopener noreferrer" style="margin-top:auto;display:block;text-align:center;background:#FFFFFF;color:#051C2C;border:1px solid #051C2C;font-size:14px;font-weight:600;padding:12px 20px;border-radius:6px;text-decoration:none">Book a Discovery Call &rarr;</a>
+      </div>
+
+    </div>
+
+    <p style="font-size:10.5px;color:#9AA3B2;line-height:1.5;margin:18px 0 0;text-align:center">Affiliate disclosure: the Notion upgrade link is a referral link. If you upgrade through it I may earn a commission, at no additional cost to you.</p>
+  </div>
+</section>
+
+
+
+
+
+<footer class="site-foot">
+  <div class="footer-content">
+    <div class="footer-main">
+      <div class="footer-section">
+        <h4>Consulting</h4>
+        <a href="/notion-build/">10-Day Notion Build</a>
+        <a href="/notion/">Notion Services</a>
+        <a href="https://cal.com/anthonytoday/consultation">Discovery Call ($79)</a>
+        <a href="/notion-consultant-as-a-service/">Notion Consultant as a Service</a>
+        <a href="/notion/#services">Services</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <div class="footer-section">
+        <h4>Templates</h4>
+        <a href="/shop/">All templates</a>
+        <a href="/how-to-duplicate/">How to duplicate</a>
+        <a href="https://www.notion.com/@anthonytoday">Notion Profile</a>
+        <a href="https://store.anthonytoday.com">Gumroad Store</a>
+        <a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">Etsy Shop</a>
+        <a href="/tools/">Tools</a>
+      </div>
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <p style="margin-bottom:15px">Follow for updates, resources, and new templates.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/anthony-kieffer/" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+          <a href="mailto:info@anthonytoday.com" title="Email" aria-label="Email">@</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Anthony Today.
+        All rights reserved. &middot; <a href="/privacy/">Privacy</a></p>
+    </div>
+  </div>
+</footer>
+
+
+</main>
+
+<div class="atop" id="atOffer" hidden aria-hidden="true">
+  <div class="atop-veil" data-atop-close></div>
+  <div class="atop-card" role="dialog" aria-modal="true" aria-labelledby="atOfferTitle">
+    <button type="button" class="atop-x" data-atop-close aria-label="Close">&times;</button>
+
+    <div class="atop-head">
+      <img class="atop-logo" src="/assets/logos/notion.webp" alt="Notion" width="34" height="34" loading="lazy">
+      <p class="atop-eyebrow"><span class="atop-dot"></span>Exclusive offer</p>
+    </div>
+    <h2 class="atop-title" id="atOfferTitle">Notion Business, for free</h2>
+    <p class="atop-sub"><strong>3 months free</strong> with full AI access, no credit card. Worth up to <strong>$6,000</strong>. Limited-time offer.</p>
+
+    <form class="atop-form" id="atOfferForm" novalidate>
+      <label class="atop-label" for="atOfferEmail">Your preferred email address</label>
+      <input class="atop-input" id="atOfferEmail" type="email" name="email" autocomplete="email"
+             placeholder="name@company.com" required aria-describedby="atOfferErr">
+
+      <label class="atop-check">
+        <input type="checkbox" id="atOfferConsent" required>
+        <span>I agree to receive messages from AnthonyToday. Unsubscribe at any time.</span>
+      </label>
+
+      <p class="atop-err" id="atOfferErr" role="alert" hidden></p>
+      <button class="atop-btn" type="submit" id="atOfferBtn">Claim the exclusive offer</button>
+      <p class="atop-fine">Read our <a href="/privacy/">privacy policy</a>.</p>
+    </form>
+
+    <div class="atop-done" id="atOfferDone" hidden>
+      <p class="atop-donetitle">You are in.</p>
+      <p class="atop-sub">Click below to activate your Notion Business plan.</p>
+      <a class="atop-btn" id="atOfferLink" href="#" target="_blank" rel="noopener noreferrer nofollow">Claim my offer</a>
+      <p class="atop-fine">The link opens on notion.com.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+.atop[hidden]{display:none}
+.atop{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px}
+.atop-veil{position:absolute;inset:0;background:rgba(5,28,44,.62)}
+.atop-card{position:relative;background:#fff;border-radius:14px;max-width:490px;width:100%;
+  padding:36px 36px 30px;box-shadow:0 18px 50px rgba(5,28,44,.28);text-align:left;
+  animation:atopIn .22s ease-out}
+@keyframes atopIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.atop-x{position:absolute;top:10px;right:14px;background:none;border:0;font-size:26px;line-height:1;
+  color:#6B7280;cursor:pointer;padding:4px 8px}
+.atop-x:hover{color:#051C2C}
+.atop-head{display:flex;align-items:center;gap:11px;margin:0 0 12px}
+.atop-logo{width:34px;height:34px;border-radius:7px;flex:0 0 auto;display:block}
+.atop-eyebrow{margin:0;display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#2251FF;background:#EDF1FF;padding:5px 11px;border-radius:999px}
+.atop-dot{width:6px;height:6px;border-radius:50%;background:#2251FF;flex:0 0 auto;animation:atopPulse 1.6s ease-in-out infinite}
+@keyframes atopPulse{0%,100%{opacity:1}50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.atop-dot{animation:none}.atop-card{animation:none}}
+.atop-title{margin:0 0 11px;font-size:27px;line-height:1.2;font-weight:700;color:#051C2C}
+.atop-sub{margin:0 0 20px;font-size:15.5px;line-height:1.6;color:#4A5464}
+.atop-label{display:block;font-size:13px;font-weight:600;color:#051C2C;margin-bottom:6px}
+.atop-input{width:100%;padding:12px 14px;font-size:15px;border:1px solid #C9CED6;border-radius:8px;
+  background:#fff;color:#051C2C;box-sizing:border-box}
+.atop-input:focus{outline:none;border-color:#2251FF;box-shadow:0 0 0 3px rgba(34,81,255,.16)}
+.atop-check{display:flex;gap:9px;align-items:flex-start;margin:14px 0 4px;font-size:13px;line-height:1.5;color:#4A5464;cursor:pointer}
+.atop-check input{margin-top:2px;flex:0 0 auto;width:16px;height:16px;accent-color:#2251FF}
+.atop-err{margin:10px 0 0;font-size:13px;color:#C0392B}
+.atop-err[hidden]{display:none}
+.atop-btn{display:block;width:100%;margin-top:16px;padding:14px 18px;font-size:16px;font-weight:700;
+  border:0;border-radius:8px;background:#2251FF;color:#fff;cursor:pointer;text-align:center;
+  text-decoration:none;box-sizing:border-box;transition:background .15s}
+.atop-btn:hover{background:#051C2C;color:#fff}
+.atop-btn[disabled]{opacity:.6;cursor:default}
+.atop-fine{margin:12px 0 0;font-size:12px;color:#6B7280;text-align:center}
+.atop-fine a{color:#6B7280;text-decoration:underline}
+.atop-donetitle{margin:0 0 8px;font-size:19px;font-weight:700;color:#051C2C}
+.atop-done[hidden]{display:none}
+@media (max-width:520px){.atop-card{padding:28px 22px 24px}.atop-title{font-size:22px}.atop-sub{font-size:15px}}
+</style>
+
+<script>
+(function(){
+  var API = "https://offer-capture.learningamazonfba.workers.dev/api/claim-offer";
+  var KEY = "at_offer_v1";
+  var DAYS = 1;
+  var root = document.getElementById("atOffer");
+  if (!root) return;
+
+  var path = location.pathname;
+  if (/\/(privacy|contact)\//.test(path)) return;
+
+  var force = /[?&]popup=1\b/.test(location.search);
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { state = {}; }
+  if (force) {
+    try { localStorage.removeItem(KEY); sessionStorage.removeItem(KEY); } catch (e) {}
+    state = {};
+  }
+  var shownThisSession = false;
+  try { shownThisSession = sessionStorage.getItem(KEY) === "1"; } catch (e) {}
+  if (!force) {
+    if (state.claimed) return;
+    if (shownThisSession) return;
+    if (state.seen && (Date.now() - state.seen) < DAYS * 864e5) return;
+  }
+
+  var form = document.getElementById("atOfferForm");
+  var done = document.getElementById("atOfferDone");
+  var input = document.getElementById("atOfferEmail");
+  var consent = document.getElementById("atOfferConsent");
+  var err = document.getElementById("atOfferErr");
+  var btn = document.getElementById("atOfferBtn");
+  var link = document.getElementById("atOfferLink");
+  var lastFocus = null, opened = false;
+
+  var FR = document.documentElement.lang === "fr" || /^\/fr\//.test(path);
+  var MSG = FR ? {
+    email: "Entrez une adresse e-mail valide.",
+    consent: "Cochez la case pour continuer.",
+    fail: "Une erreur est survenue. Reessayez."
+  } : {
+    email: "Enter a valid email address.",
+    consent: "Tick the box to continue.",
+    fail: "Something went wrong. Try again."
+  };
+
+  function save(patch){
+    try {
+      var next = {}; for (var k in state) next[k] = state[k];
+      for (var j in patch) next[j] = patch[j];
+      state = next; localStorage.setItem(KEY, JSON.stringify(next));
+    } catch (e) {}
+  }
+
+  function openIt(){
+    if (opened) return; opened = true;
+    lastFocus = document.activeElement;
+    root.hidden = false; root.setAttribute("aria-hidden", "false");
+    save({ seen: Date.now() });
+    try { sessionStorage.setItem(KEY, "1"); } catch (e) {}
+    setTimeout(function(){ input.focus(); }, 60);
+    document.addEventListener("keydown", onKey);
+  }
+  function closeIt(){
+    root.hidden = true; root.setAttribute("aria-hidden", "true");
+    document.removeEventListener("keydown", onKey);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  function onKey(e){
+    if (e.key === "Escape") { closeIt(); return; }
+    if (e.key !== "Tab") return;
+    var f = root.querySelectorAll("button,[href],input:not([type=hidden])");
+    if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+  function fail(m){ err.textContent = m; err.hidden = false; }
+
+  Array.prototype.forEach.call(root.querySelectorAll("[data-atop-close]"), function(el){
+    el.addEventListener("click", closeIt);
+  });
+  input.addEventListener("input", function(){ err.hidden = true; });
+  consent.addEventListener("change", function(){ err.hidden = true; });
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    err.hidden = true;
+    var email = (input.value || "").trim().toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) { fail(MSG.email); input.focus(); return; }
+    if (!consent.checked) { fail(MSG.consent); consent.focus(); return; }
+
+    btn.disabled = true;
+    btn.textContent = FR ? "Envoi..." : "Sending...";
+
+    fetch(API, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ email: email, consent: true, lang: FR ? "fr" : "en", page: path })
+    }).then(function(r){ return r.json(); }).then(function(j){
+      if (!j || !j.ok || !j.url) throw new Error("bad");
+      link.href = j.url;
+      form.hidden = true;
+      done.hidden = false;
+      save({ claimed: true, at: Date.now() });
+      setTimeout(function(){ link.focus(); }, 60);
+    })["catch"](function(){
+      btn.disabled = false;
+      btn.textContent = FR ? "Obtenir l'offre exclusive" : "Claim the exclusive offer";
+      fail(MSG.fail);
+    });
+  });
+
+  var touch = window.matchMedia && window.matchMedia("(hover: none)").matches;
+  var timer = setTimeout(openIt, force ? 300 : 20000);
+
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    if (h > 0 && (window.scrollY / h) >= 0.5) { clearTimeout(timer); openIt(); cleanup(); }
+  }
+  function onExit(e){
+    if (!e.relatedTarget && e.clientY <= 0) { clearTimeout(timer); openIt(); cleanup(); }
+  }
+  function cleanup(){
+    window.removeEventListener("scroll", onScroll);
+    document.removeEventListener("mouseout", onExit);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  if (!touch) document.addEventListener("mouseout", onExit);
+})();
+</script>
+
+</body>
+</html>

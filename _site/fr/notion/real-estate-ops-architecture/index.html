@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+
+
+
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L'architecture du système immobilier voix vers action</title>
+<meta name="description" content="L'architecture en trois plans de l'automatisation immobilière : le problème résolu, le coût du statu quo, et l'articulation capture, tri IA et contrôle.">
+<link rel="canonical" href="https://www.anthonytoday.com/fr/notion/real-estate-ops-architecture/">
+<link rel="alternate" hreflang="en" href="https://www.anthonytoday.com/notion/real-estate-ops-architecture/">
+<link rel="alternate" hreflang="fr" href="https://www.anthonytoday.com/fr/notion/real-estate-ops-architecture/">
+<link rel="alternate" hreflang="x-default" href="https://www.anthonytoday.com/notion/real-estate-ops-architecture/">
+<meta property="og:title" content="L'architecture du système immobilier voix vers action">
+<meta property="og:description" content="L'architecture en trois plans de l'automatisation immobilière : le problème résolu, le coût du statu quo, et l'articulation capture, tri IA et contrôle.">
+<meta property="og:url" content="https://www.anthonytoday.com/fr/notion/real-estate-ops-architecture/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:image" content="https://www.anthonytoday.com/assets/brand/anthony-profile.webp">
+<meta property="og:image:alt" content="L'architecture du système immobilier voix vers action">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.anthonytoday.com/assets/brand/anthony-profile.webp">
+<link rel="dns-prefetch" href="https://pay.anthonytoday.com">
+<link rel="stylesheet" href="/assets/css/b-fd589967b8.css">
+<link rel="icon" href="/assets/brand/favicon.png">
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"><script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@graph":[
+  {
+   "@type":"Person",
+   "@id":"https://www.anthonytoday.com/#anthony",
+   "name":"Anthony",
+   "givenName":"Anthony",
+   "url":"https://www.anthonytoday.com/",
+   "image":"https://www.anthonytoday.com/assets/brand/anthony-profile.webp",
+   "jobTitle":"Consultant en cybersécurité, GRC et Notion",
+   "description":"Notion Consulting Partner certifié et ex-consultant cybersécurité chez EY. 15+ ans de risque technologique et d'audit IT entre le Luxembourg, la Suisse et les États-Unis.",
+   "knowsLanguage":["en","fr"],
+   "knowsAbout":["Notion","Notion workspace architecture","Cybersecurity","Governance Risk and Compliance","ISO 27001","NIST Cybersecurity Framework","AI governance","IT audit","Information security management","Fractional CISO","Third-party risk management"],
+   "alumniOf":{"@type":"CollegeOrUniversity","name":"ETH Zürich"},
+   "hasCredential":[
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CISSP","recognizedBy":{"@type":"Organization","name":"ISC2"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CISA","recognizedBy":{"@type":"Organization","name":"ISACA"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CISM","recognizedBy":{"@type":"Organization","name":"ISACA"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CRISC","recognizedBy":{"@type":"Organization","name":"ISACA"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"AIGP","recognizedBy":{"@type":"Organization","name":"IAPP"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"ISO 27001 Lead Implementer"},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"Notion Certified Consultant","recognizedBy":{"@type":"Organization","name":"Notion"}}
+   ],
+   "sameAs":["https://www.linkedin.com/in/anthony-kieffer/","https://www.notion.com/@anthonytoday","https://certs.notion.so/5c2a6cd2c3b14e83a585c1dedb40852d"],
+   "worksFor":{"@id":"https://www.anthonytoday.com/#business"}
+  },
+  {
+   "@type":"ProfessionalService",
+   "@id":"https://www.anthonytoday.com/#business",
+   "name":"Anthony Today",
+   "url":"https://www.anthonytoday.com/",
+   "image":"https://www.anthonytoday.com/assets/brand/anthony-profile.webp",
+   "logo":"https://www.anthonytoday.com/assets/brand/favicon.png",
+   "description":"Conseil Notion certifié, gouvernance des risques et cybersécurité. Architecture d'espace de travail, préparation à l'audit et direction sécurité à temps partagé.",
+   "founder":{"@id":"https://www.anthonytoday.com/#anthony"},
+   "email":"info@anthonytoday.com",
+   "priceRange":"$79-$20000",
+   "availableLanguage":["en","fr"],
+   "areaServed":[{"@type":"Country","name":"Luxembourg"},{"@type":"Country","name":"Switzerland"},{"@type":"Country","name":"United States"},{"@type":"Country","name":"United Arab Emirates"},{"@type":"Country","name":"France"},{"@type":"Country","name":"Belgium"}],
+   "sameAs":["https://www.linkedin.com/in/anthony-kieffer/","https://www.notion.com/@anthonytoday","https://certs.notion.so/5c2a6cd2c3b14e83a585c1dedb40852d"],
+   "hasOfferCatalog":{
+    "@type":"OfferCatalog",
+    "name":"Prestations",
+    "itemListElement":[
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Appel découverte","serviceType":"Consulting"},"price":"79","priceCurrency":"USD"},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Audit et conception","serviceType":"Notion workspace architecture"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"1500","maxPrice":"6000","priceCurrency":"USD"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Chantier risque et gouvernance","serviceType":"Governance risk and compliance"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"5000","maxPrice":"20000","priceCurrency":"USD"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"CISO externalisé","serviceType":"Fractional security leadership"}}
+    ]
+   }
+  },
+  {
+   "@type":"WebSite",
+   "@id":"https://www.anthonytoday.com/#website",
+   "url":"https://www.anthonytoday.com/",
+   "name":"Anthony Today",
+   "publisher":{"@id":"https://www.anthonytoday.com/#business"},
+   "inLanguage":["en-US","fr-FR"]
+  },
+  {
+   "@type":"Article",
+   "@id":"https://www.anthonytoday.com/fr/notion/real-estate-ops-architecture/#webpage",
+   "url":"https://www.anthonytoday.com/fr/notion/real-estate-ops-architecture/",
+   "name":"L'architecture du système immobilier voix vers action",
+   "description":"L'architecture en trois plans de l'automatisation immobilière : le problème résolu, le coût du statu quo, et l'articulation capture, tri IA et contrôle.",
+   "inLanguage":"fr-FR",
+   "isPartOf":{"@id":"https://www.anthonytoday.com/#website"},
+   "about":{"@id":"https://www.anthonytoday.com/#business"},
+   "author":{"@id":"https://www.anthonytoday.com/#anthony"},
+   "publisher":{"@id":"https://www.anthonytoday.com/#business"},
+   "primaryImageOfPage":"https://www.anthonytoday.com/assets/brand/anthony-profile.webp"},
+  {
+   "@type":"BreadcrumbList",
+   "@id":"https://www.anthonytoday.com/fr/notion/real-estate-ops-architecture/#breadcrumb",
+   "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.anthonytoday.com/fr/"},
+    {"@type":"ListItem","position":2,"name":"Notion Consulting","item":"https://www.anthonytoday.com/fr/notion/"},
+    {"@type":"ListItem","position":3,"name":"Automatisation immobilière, architecture et valeur","item":"https://www.anthonytoday.com/fr/notion/real-estate-ops-architecture/"}
+   ]
+  }
+ ]
+}
+</script>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="/fr/">Anthony Today</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">&#9776;</button>
+    <nav id="nav">
+      <a href="/fr/">Accueil</a>
+
+      <div class="nav-item">
+        <a href="/fr/notion/">Notion</a>
+        <div class="sub">
+          
+          <a href="/fr/notion-build/">Notion Build 10 jours</a>
+          <a href="/fr/notion-consultant-as-a-service/">Consultant Notion en continu</a>
+          <a href="/shop/">Boutique</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="/fr/cyber/">Cyber</a>
+        <div class="sub">
+          <a href="/fr/cyber-grc/">GRC</a>
+          <a href="/fr/fractional-ciso/">CISO externalis&eacute;</a>
+        </div>
+      </div>
+
+      <a href="/fr/tools/">Outils</a>
+      <a class="cta" href="/fr/contact/">Contact</a>
+
+      <div class="lang-switch">
+        <a class="off" href="/notion/real-estate-ops-architecture/" hreflang="en" lang="en" title="Read this page in English">EN</a><span class="on">FR</span>
+        
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+<style>
+.arch-hero{max-width:1040px;margin:0 auto;padding:62px 20px 0}
+.arch-hero .eyebrow{display:block;font-size:11px;font-weight:700;color:var(--blue);letter-spacing:.1em;margin-bottom:18px}
+.arch-hero h1{font-size:43px;line-height:1.16;font-weight:600;color:var(--navy);letter-spacing:-.015em;text-transform:none;max-width:20ch;margin:0 0 20px}
+.arch-hero .deck{font-size:18px;line-height:1.65;color:var(--text-gray);max-width:62ch;margin:0}
+.arch-meta{max-width:1040px;margin:26px auto 0;padding:14px 20px 0;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:8px 26px;font-size:13px;color:var(--text-gray)}
+.arch-meta span{white-space:nowrap}
+.arch-meta a{color:var(--blue);font-weight:600}
+.arch-meta a:hover{text-decoration:underline}
+.arch-stats{max-width:1040px}
+.scr{max-width:1040px;margin:56px auto 0;padding:0 20px}
+.scr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--navy)}
+.scr-card{padding:26px 26px 30px;border-right:1px solid var(--border)}
+.scr-card:last-child{border-right:none}
+.scr-card .scr-n{display:block;font-size:11px;font-weight:700;color:var(--blue);letter-spacing:.1em;margin-bottom:10px}
+.scr-card h3{font-size:17px;font-weight:600;color:var(--navy);text-transform:none;margin:0 0 10px;line-height:1.35}
+.scr-card p{font-size:14.5px;line-height:1.72;color:var(--text-gray);margin:0}
+.scr-card.is-solution{background:var(--light-gray)}
+.exhibit-cap{max-width:1040px;margin:62px auto 0;padding:0 20px}
+.exhibit-cap .ex-n{display:block;font-size:11px;font-weight:700;color:var(--text-gray);letter-spacing:.1em;margin-bottom:6px}
+.exhibit-cap h2{font-size:22px;font-weight:600;color:var(--navy);text-transform:none;margin:0 0 6px}
+.exhibit-cap p{font-size:14px;color:var(--text-gray);margin:0;max-width:74ch}
+.arch-wrap.wide{max-width:1180px;margin:22px auto 6px}
+.arch-wrap.wide .arch-scroll svg{min-width:940px;max-width:1180px}
+.plane-note{max-width:1040px;margin:10px auto 0;padding:0 20px;font-size:12.5px;color:var(--text-gray);text-align:center}
+.layer-wrap{max-width:1040px;margin:54px auto 0;padding:0 20px;overflow-x:auto}
+.layer-tbl{width:100%;border-collapse:collapse;margin:0;font-size:14.5px}
+.layer-tbl th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-gray);padding:10px 12px;border-bottom:2px solid var(--navy);font-weight:700}
+.layer-tbl td{padding:14px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.65;color:var(--text-gray)}
+.layer-tbl td:first-child{font-weight:600;color:var(--navy);white-space:nowrap;width:22%}
+@media(max-width:860px){.scr-grid{grid-template-columns:1fr !important}.scr-card{border-right:none;border-bottom:1px solid var(--border)}.scr-card:last-child{border-bottom:none}}
+@media(max-width:768px){.arch-hero{padding-top:38px}.arch-hero h1{font-size:29px !important;line-height:1.22 !important;max-width:none}.arch-hero .deck{font-size:16px}}
+@media(max-width:600px){.layer-tbl{font-size:13px}.layer-tbl td:first-child{white-space:normal}}
+</style>
+<section class="arch-hero">
+  <span class="eyebrow">ARCHITECTURE TECHNIQUE</span>
+  <h1>Comment une note vocale sur le terrain devient une action close et auditable</h1>
+  <p class="deck">Les équipes immobilières ne perdent pas du travail par négligence. Elles le perdent parce que
+     le moment où quelque chose mérite d'être consigné est celui où personne ne peut le consigner.
+     Voici l'architecture construite pour combler cet écart, plan par plan.</p>
+</section>
+
+<div class="arch-meta">
+  <span>Opérations immobilières</span>
+  <span>Notion, tri par IA et agents</span>
+  <span>Complément de <a href="/fr/notion/real-estate-ops/">l'étude de cas</a></span>
+</div>
+
+<div class="stats-row arch-stats">
+  <div class="stat-card"><div class="num">3 plans</div><div class="label">contrôle, exécution et données, séparés par conception</div></div>
+  <div class="stat-card"><div class="num">5 étapes</div><div class="label">capture, ingestion, interprétation, routage, exécution</div></div>
+  <div class="stat-card"><div class="num">3 agents</div><div class="label">traitent une note en parallèle, pas en file</div></div>
+  <div class="stat-card"><div class="num">2 verrous</div><div class="label">un agent qualité et une personne, les deux requis</div></div>
+</div>
+
+<section class="scr">
+  <div class="scr-grid">
+    <div class="scr-card">
+      <span class="scr-n">LE PROBLÈME</span>
+      <h3>Les personnes les plus proches du problème sont les moins en mesure de le consigner</h3>
+      <p>Une fuite, un artisan en retard, une plainte de locataire : tout cela se constate sur le
+         terrain, par quelqu'un dont les mains sont prises et dont l'ordinateur est ailleurs. Le
+         système de référence est à un bureau. L'information, non.</p>
+    </div>
+    <div class="scr-card">
+      <span class="scr-n">LA DOULEUR TRAITÉE</span>
+      <h3>Le travail est retenu de mémoire au lieu d'être consigné, et la facture arrive plus tard</h3>
+      <p>Les problèmes ressortent des jours plus tard sous forme d'appel, de fil de messages ou de
+         plainte. Personne ne peut dire ce qui est ouvert par bien, qui a été prévenu, ni quand
+         cela a été clos. Tout s'empile derrière la boîte d'une seule personne, qui devient le
+         goulot d'étranglement.</p>
+    </div>
+    <div class="scr-card is-solution">
+      <span class="scr-n">LA SOLUTION</span>
+      <h3>Pousser la capture au plus près du terrain, garder le jugement et la validation au centre</h3>
+      <p>Un seul geste transforme la parole en enregistrement structuré. Le tri par IA détermine de
+         quoi il s'agit et où cela appartient, un routeur confie l'action à l'agent qui traite
+         cette catégorie de travail, et rien n'est marqué comme fait tant qu'un agent qualité et
+         une personne n'ont pas validé.</p>
+    </div>
+  </div>
+</section>
+
+<div class="exhibit-cap">
+  <span class="ex-n">FIGURE 1</span>
+  <h2>L'architecture en trois plans</h2>
+  <p>Le plan d'exécution porte le travail de gauche à droite. Le plan de contrôle se situe au dessus
+     et contient les deux verrous qui décident si quelque chose se clôture. Le plan de données se
+     situe en dessous et contient les enregistrements que chaque étape lit et écrit.</p>
+</div>
+
+<div class="arch-wrap wide">
+  <div class="arch-scroll">
+  <svg viewBox="-60 0 1320 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture en trois plans. Plan d'exécution de gauche à droite : capture Back Tap iPhone, boîte Notion, tri par IA, agent routeur, puis trois agents d'exécution en parallèle. Plan de contrôle au dessus : un agent réviseur qualité et un point de contrôle humain qui valide vers l'enregistrement suivi ou renvoie le travail. Plan de données en dessous : boîte de réception, registre des biens, annuaire des contacts et enregistrement suivi.">
+    <defs>
+      <marker id="a-sol" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#6B7280"/></marker>
+      <marker id="a-dsh" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#9AA3AF"/></marker>
+    </defs>
+    <style>
+      .at{font:600 14px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#051C2C}
+      .as{font:400 11px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#6B7280}
+      .ae{font:700 10px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#2251FF;letter-spacing:.08em}
+      .ap{font:700 11px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#051C2C;letter-spacing:.09em}
+      .apx{font:400 10.5px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#9AA3AF}
+      .am{font:600 10.5px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#6B7280}
+      .ab{fill:#FFFFFF;stroke:#E5E7EB;stroke-width:1}
+      .ag{fill:#FAFAFB;stroke:#E5E7EB;stroke-width:1;stroke-dasharray:5 4}
+      .ak{fill:#051C2C}
+      .ac{stroke:#6B7280;stroke-width:1.6;fill:none;marker-end:url(#a-sol)}
+      .ad{stroke:#9AA3AF;stroke-width:1.4;fill:none;stroke-dasharray:5 4;marker-end:url(#a-dsh)}
+      .amini{fill:#F5F5F5;stroke:#E5E7EB;stroke-width:1}
+      .aminit{font:600 10.5px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#051C2C}
+    </style>
+
+    <rect class="ag" x="130" y="30" width="1110" height="120" rx="12"/>
+    <rect class="ag" x="130" y="185" width="1110" height="155" rx="12"/>
+    <rect class="ag" x="130" y="430" width="1110" height="122" rx="12"/>
+
+    <text class="ap" x="110" y="86" text-anchor="end">PLAN DE CONTRÔLE</text>
+    <text class="apx" x="110" y="102" text-anchor="end">assurance</text>
+    <text class="ap" x="110" y="256" text-anchor="end">PLAN D'EXÉCUTION</text>
+    <text class="apx" x="110" y="272" text-anchor="end">flux</text>
+    <text class="ap" x="110" y="500" text-anchor="end">PLAN DE DONNÉES</text>
+    <text class="apx" x="110" y="516" text-anchor="end">système de référence</text>
+
+    <text class="as" x="152" y="66">Assurance et validation. Rien n'est marqué comme fait</text>
+    <text class="as" x="152" y="84">dans le plan d'exécution, et le travail rejeté</text>
+    <text class="as" x="152" y="102">repart directement à l'étape 05.</text>
+
+    <rect class="ab" x="820" y="72" width="190" height="62" rx="10"/>
+    <text class="ae" x="915" y="91" text-anchor="middle">06 CONTRÔLE</text>
+    <text class="at" x="915" y="111" text-anchor="middle">Agent réviseur qualité</text>
+    <text class="as" x="915" y="127" text-anchor="middle">sortie comparée à la note d'origine</text>
+
+    <rect class="ak" x="1035" y="72" width="190" height="62" rx="10"/>
+    <text class="ae" x="1130" y="91" text-anchor="middle" style="fill:#7FA0FF">07 VALIDER</text>
+    <text class="at" x="1130" y="111" text-anchor="middle" style="fill:#FFFFFF">Point de contrôle humain</text>
+    <text class="as" x="1130" y="127" text-anchor="middle" style="fill:#C9D4E8">non contournable</text>
+    <path class="ac" d="M1010,103 L1031,103"/>
+
+    <rect class="ab" x="150" y="215" width="175" height="90" rx="10"/>
+    <text class="ae" x="237" y="241" text-anchor="middle">01 CAPTURE</text>
+    <text class="at" x="237" y="264" text-anchor="middle">Back Tap iPhone</text>
+    <text class="as" x="237" y="283" text-anchor="middle">dictée Wispr Flow</text>
+
+    <rect class="ab" x="355" y="215" width="175" height="90" rx="10"/>
+    <text class="ae" x="443" y="241" text-anchor="middle">02 INGESTION</text>
+    <text class="at" x="443" y="264" text-anchor="middle">Boîte Notion</text>
+    <text class="as" x="443" y="283" text-anchor="middle">une ligne par note vocale</text>
+
+    <rect class="ab" x="560" y="215" width="175" height="90" rx="10"/>
+    <text class="ae" x="648" y="241" text-anchor="middle">03 INTERPRÉTATION</text>
+    <text class="at" x="648" y="264" text-anchor="middle">Tri par IA</text>
+    <text class="as" x="648" y="283" text-anchor="middle">Notion AI plus ChatGPT</text>
+
+    <rect class="ab" x="765" y="215" width="130" height="90" rx="10"/>
+    <text class="ae" x="830" y="241" text-anchor="middle">04 ROUTAGE</text>
+    <text class="at" x="830" y="264" text-anchor="middle">Agent routeur</text>
+    <text class="as" x="830" y="283" text-anchor="middle">un responsable</text>
+
+    <rect class="ab" x="925" y="200" width="180" height="120" rx="10"/>
+    <text class="ae" x="1015" y="222" text-anchor="middle">05 EXÉCUTION, EN PARALLÈLE</text>
+    <rect class="amini" x="940" y="232" width="150" height="24" rx="5"/>
+    <text class="aminit" x="1015" y="248" text-anchor="middle">Dépannage maintenance</text>
+    <rect class="amini" x="940" y="262" width="150" height="24" rx="5"/>
+    <text class="aminit" x="1015" y="278" text-anchor="middle">Relance prestataire</text>
+    <rect class="amini" x="940" y="292" width="150" height="24" rx="5"/>
+    <text class="aminit" x="1015" y="308" text-anchor="middle">Communication locataire</text>
+
+    <path class="ac" d="M325,260 L349,260"/>
+    <path class="ac" d="M530,260 L554,260"/>
+    <path class="ac" d="M735,260 L759,260"/>
+    <path class="ac" d="M895,260 L919,260"/>
+
+    <path class="ac" d="M960,200 L960,140"/>
+    <text class="am" x="952" y="172" text-anchor="end">soumis</text>
+    <path class="ad" d="M1090,134 L1090,194"/>
+    <text class="am" x="1098" y="172">rejeté</text>
+    <path class="ac" d="M1160,134 L1160,422"/>
+    <text class="am" x="1152" y="290" text-anchor="end">validé</text>
+
+    <rect class="ab" x="355" y="460" width="175" height="66" rx="10"/>
+    <text class="at" x="443" y="487" text-anchor="middle">Boîte de réception</text>
+    <text class="as" x="443" y="505" text-anchor="middle">note, horodatage, bien</text>
+
+    <rect class="ab" x="560" y="460" width="175" height="66" rx="10"/>
+    <text class="at" x="648" y="487" text-anchor="middle">Registre des biens</text>
+    <text class="as" x="648" y="505" text-anchor="middle">un enregistrement par bien</text>
+
+    <rect class="ab" x="765" y="460" width="200" height="66" rx="10"/>
+    <text class="at" x="865" y="487" text-anchor="middle">Annuaire des contacts</text>
+    <text class="as" x="865" y="505" text-anchor="middle">prestataires et locataires, par bien</text>
+
+    <rect class="ab" x="1035" y="460" width="190" height="66" rx="10"/>
+    <text class="at" x="1130" y="487" text-anchor="middle">Enregistrement suivi</text>
+    <text class="as" x="1130" y="505" text-anchor="middle">par bien et par projet</text>
+
+    <path class="ad" d="M443,305 L443,456"/>
+    <path class="ad" d="M648,305 L648,456"/>
+    <path class="ad" d="M1015,320 C1010,390 900,402 868,452"/>
+
+    <path d="M150,578 L182,578" stroke="#6B7280" stroke-width="1.6" fill="none"/>
+    <text class="as" x="190" y="582">flux d'action</text>
+    <path d="M300,578 L332,578" stroke="#9AA3AF" stroke-width="1.4" fill="none" stroke-dasharray="5 4"/>
+    <text class="as" x="340" y="582">lecture et écriture de données</text>
+  </svg>
+  </div>
+</div>
+
+<p class="plane-note">Faites défiler la figure latéralement sur un écran étroit.</p>
+
+<div class="layer-wrap">
+  <table class="layer-tbl">
+    <thead><tr><th>Plan</th><th>Ce qu'il fait</th><th>Ce qu'il apporte</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Contrôle</td>
+        <td>Un agent réviseur compare la sortie à la note vocale d'origine, puis une personne valide
+            ou rejette. Le travail rejeté repart à l'étape 05.</td>
+        <td>Une piste d'audit par action, et un arrêt net qui empêche une erreur d'IA d'être consignée
+            comme un travail terminé.</td>
+      </tr>
+      <tr>
+        <td>Exécution</td>
+        <td>Capture sur le téléphone, ingestion dans une seule boîte, tri par IA, routage, puis trois
+            agents qui traitent l'action en parallèle.</td>
+        <td>Le délai entre constater un problème et disposer d'une action consignée et attribuée tombe
+            à la durée d'une phrase.</td>
+      </tr>
+      <tr>
+        <td>Données</td>
+        <td>La base de réception, le registre des biens, l'annuaire des contacts et l'enregistrement
+            clos, le tout dans Notion.</td>
+        <td>Un seul endroit pour répondre : quoi d'ouvert, sur quel bien, avec qui, depuis quand.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="chip-row">
+  <span class="chip">Aucune saisie sur le terrain</span>
+  <span class="chip">3 agents en même temps</span>
+  <span class="chip">Rien ne se clôture sans contrôle qualité et une personne</span>
+  <span class="chip">Un registre par bien et par projet</span>
+</div>
+
+<div class="benefits-section">
+  <h2>Ce que cela vaut, selon qui l'utilise</h2>
+  <div class="who-grid">
+    <div class="benefit-card">
+      <h3>La personne qui supervise les opérations</h3>
+      <p>Le statut de chaque bien et de chaque projet depuis une seule vue, sans le demander à
+         personne. Le travail réparti vers le bon agent plutôt qu'entassé dans une seule boîte.</p>
+    </div>
+    <div class="benefit-card">
+      <h3>La personne sur le terrain</h3>
+      <p>Un problème, un retard ou une mise à jour signalé dès qu'il survient. Les mains restent
+         libres, et il n'y a rien de nouveau à apprendre au delà de parler dans un téléphone.</p>
+    </div>
+  </div>
+</div>
+
+<div class="uc-cta">
+  <h2>Faites construire ce schéma pour votre activité</h2>
+  <p>Capture, tri, exécution en parallèle et point de contrôle humain : voici ce que donne la
+     conception d'un espace Notion une fois le flux de travail réel de votre équipe cartographié.</p>
+  <a href="/fr/notion-build/" class="uc-cta-button">Voir le Notion Build 10 jours</a>
+</div>
+
+<p style="text-align:center;font-size:14px;color:var(--text-gray);margin:0 0 40px"><a href="/fr/notion/real-estate-ops/">Lire l'étude de cas que cette architecture soutient &rarr;</a></p>
+
+
+<footer class="site-foot">
+  <div class="footer-content">
+    <div class="footer-main">
+      <div class="footer-section">
+        <h4>Conseil</h4>
+        <a href="/fr/notion-build/">Notion Build 10 jours</a>
+        <a href="/fr/notion/">Prestations Notion</a>
+        <a href="https://cal.com/anthonytoday/consultation">Appel découverte (79 $)</a>
+        <a href="/fr/notion-consultant-as-a-service/">Consultant Notion en continu</a>
+        <a href="/fr/notion/#services">Prestations</a>
+        <a href="/fr/contact/">Contact</a>
+      </div>
+      <div class="footer-section">
+        <h4>Templates</h4>
+        <a href="/shop/">Tous les templates</a>
+        <a href="/how-to-duplicate/">Comment dupliquer</a>
+        <a href="https://www.notion.com/@anthonytoday">Profil Notion</a>
+        <a href="https://store.anthonytoday.com">Boutique Gumroad</a>
+        <a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">Boutique Etsy</a>
+        <a href="/fr/tools/">Outils</a>
+      </div>
+      <div class="footer-section">
+        <h4>Rester en contact</h4>
+        <p style="margin-bottom:15px">Actualités, ressources et nouveaux templates.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/anthony-kieffer/" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+          <a href="mailto:info@anthonytoday.com" title="Email" aria-label="Email">@</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Anthony Today.
+        Tous droits réservés. &middot; <a href="/fr/privacy/">Confidentialité</a></p>
+    </div>
+  </div>
+</footer><style>html[lang="fr"] h1,html[lang="fr"] h2,html[lang="fr"] h3,html[lang="fr"] h4{text-transform:none}</style>
+
+
+</main>
+
+<div class="atop" id="atOffer" hidden aria-hidden="true">
+  <div class="atop-veil" data-atop-close></div>
+  <div class="atop-card" role="dialog" aria-modal="true" aria-labelledby="atOfferTitle">
+    <button type="button" class="atop-x" data-atop-close aria-label="Fermer">&times;</button>
+
+    <div class="atop-head">
+      <img class="atop-logo" src="/assets/logos/notion.webp" alt="Notion" width="34" height="34" loading="lazy">
+      <p class="atop-eyebrow"><span class="atop-dot"></span>Offre exclusive</p>
+    </div>
+    <h2 class="atop-title" id="atOfferTitle">Notion Business, gratuitement</h2>
+    <p class="atop-sub"><strong>3 mois offerts</strong> avec l'IA complete, sans carte bancaire. Jusqu'a <strong>6 000 $</strong> d'economies. Offre a duree limitee.</p>
+
+    <form class="atop-form" id="atOfferForm" novalidate>
+      <label class="atop-label" for="atOfferEmail">Votre meilleure adresse e-mail</label>
+      <input class="atop-input" id="atOfferEmail" type="email" name="email" autocomplete="email"
+             placeholder="name@company.com" required aria-describedby="atOfferErr">
+
+      <label class="atop-check">
+        <input type="checkbox" id="atOfferConsent" required>
+        <span>J'accepte de recevoir des messages d'AnthonyToday. Desinscription a tout moment.</span>
+      </label>
+
+      <p class="atop-err" id="atOfferErr" role="alert" hidden></p>
+      <button class="atop-btn" type="submit" id="atOfferBtn">Obtenir l'offre exclusive</button>
+      <p class="atop-fine">Voir notre <a href="/fr/privacy/">politique de confidentialite</a>.</p>
+    </form>
+
+    <div class="atop-done" id="atOfferDone" hidden>
+      <p class="atop-donetitle">C'est pret.</p>
+      <p class="atop-sub">Cliquez ci-dessous pour activer votre plan Notion Business.</p>
+      <a class="atop-btn" id="atOfferLink" href="#" target="_blank" rel="noopener noreferrer nofollow">Activer mon offre</a>
+      <p class="atop-fine">Le lien s'ouvre sur notion.com.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+.atop[hidden]{display:none}
+.atop{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px}
+.atop-veil{position:absolute;inset:0;background:rgba(5,28,44,.62)}
+.atop-card{position:relative;background:#fff;border-radius:14px;max-width:490px;width:100%;
+  padding:36px 36px 30px;box-shadow:0 18px 50px rgba(5,28,44,.28);text-align:left;
+  animation:atopIn .22s ease-out}
+@keyframes atopIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.atop-x{position:absolute;top:10px;right:14px;background:none;border:0;font-size:26px;line-height:1;
+  color:#6B7280;cursor:pointer;padding:4px 8px}
+.atop-x:hover{color:#051C2C}
+.atop-head{display:flex;align-items:center;gap:11px;margin:0 0 12px}
+.atop-logo{width:34px;height:34px;border-radius:7px;flex:0 0 auto;display:block}
+.atop-eyebrow{margin:0;display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#2251FF;background:#EDF1FF;padding:5px 11px;border-radius:999px}
+.atop-dot{width:6px;height:6px;border-radius:50%;background:#2251FF;flex:0 0 auto;animation:atopPulse 1.6s ease-in-out infinite}
+@keyframes atopPulse{0%,100%{opacity:1}50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.atop-dot{animation:none}.atop-card{animation:none}}
+.atop-title{margin:0 0 11px;font-size:27px;line-height:1.2;font-weight:700;color:#051C2C}
+.atop-sub{margin:0 0 20px;font-size:15.5px;line-height:1.6;color:#4A5464}
+.atop-label{display:block;font-size:13px;font-weight:600;color:#051C2C;margin-bottom:6px}
+.atop-input{width:100%;padding:12px 14px;font-size:15px;border:1px solid #C9CED6;border-radius:8px;
+  background:#fff;color:#051C2C;box-sizing:border-box}
+.atop-input:focus{outline:none;border-color:#2251FF;box-shadow:0 0 0 3px rgba(34,81,255,.16)}
+.atop-check{display:flex;gap:9px;align-items:flex-start;margin:14px 0 4px;font-size:13px;line-height:1.5;color:#4A5464;cursor:pointer}
+.atop-check input{margin-top:2px;flex:0 0 auto;width:16px;height:16px;accent-color:#2251FF}
+.atop-err{margin:10px 0 0;font-size:13px;color:#C0392B}
+.atop-err[hidden]{display:none}
+.atop-btn{display:block;width:100%;margin-top:16px;padding:14px 18px;font-size:16px;font-weight:700;
+  border:0;border-radius:8px;background:#2251FF;color:#fff;cursor:pointer;text-align:center;
+  text-decoration:none;box-sizing:border-box;transition:background .15s}
+.atop-btn:hover{background:#051C2C;color:#fff}
+.atop-btn[disabled]{opacity:.6;cursor:default}
+.atop-fine{margin:12px 0 0;font-size:12px;color:#6B7280;text-align:center}
+.atop-fine a{color:#6B7280;text-decoration:underline}
+.atop-donetitle{margin:0 0 8px;font-size:19px;font-weight:700;color:#051C2C}
+.atop-done[hidden]{display:none}
+@media (max-width:520px){.atop-card{padding:28px 22px 24px}.atop-title{font-size:22px}.atop-sub{font-size:15px}}
+</style>
+
+<script>
+(function(){
+  var API = "https://offer-capture.learningamazonfba.workers.dev/api/claim-offer";
+  var KEY = "at_offer_v1";
+  var DAYS = 1;
+  var root = document.getElementById("atOffer");
+  if (!root) return;
+
+  var path = location.pathname;
+  if (/\/(privacy|contact)\//.test(path)) return;
+
+  var force = /[?&]popup=1\b/.test(location.search);
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { state = {}; }
+  if (force) {
+    try { localStorage.removeItem(KEY); sessionStorage.removeItem(KEY); } catch (e) {}
+    state = {};
+  }
+  var shownThisSession = false;
+  try { shownThisSession = sessionStorage.getItem(KEY) === "1"; } catch (e) {}
+  if (!force) {
+    if (state.claimed) return;
+    if (shownThisSession) return;
+    if (state.seen && (Date.now() - state.seen) < DAYS * 864e5) return;
+  }
+
+  var form = document.getElementById("atOfferForm");
+  var done = document.getElementById("atOfferDone");
+  var input = document.getElementById("atOfferEmail");
+  var consent = document.getElementById("atOfferConsent");
+  var err = document.getElementById("atOfferErr");
+  var btn = document.getElementById("atOfferBtn");
+  var link = document.getElementById("atOfferLink");
+  var lastFocus = null, opened = false;
+
+  var FR = document.documentElement.lang === "fr" || /^\/fr\//.test(path);
+  var MSG = FR ? {
+    email: "Entrez une adresse e-mail valide.",
+    consent: "Cochez la case pour continuer.",
+    fail: "Une erreur est survenue. Reessayez."
+  } : {
+    email: "Enter a valid email address.",
+    consent: "Tick the box to continue.",
+    fail: "Something went wrong. Try again."
+  };
+
+  function save(patch){
+    try {
+      var next = {}; for (var k in state) next[k] = state[k];
+      for (var j in patch) next[j] = patch[j];
+      state = next; localStorage.setItem(KEY, JSON.stringify(next));
+    } catch (e) {}
+  }
+
+  function openIt(){
+    if (opened) return; opened = true;
+    lastFocus = document.activeElement;
+    root.hidden = false; root.setAttribute("aria-hidden", "false");
+    save({ seen: Date.now() });
+    try { sessionStorage.setItem(KEY, "1"); } catch (e) {}
+    setTimeout(function(){ input.focus(); }, 60);
+    document.addEventListener("keydown", onKey);
+  }
+  function closeIt(){
+    root.hidden = true; root.setAttribute("aria-hidden", "true");
+    document.removeEventListener("keydown", onKey);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  function onKey(e){
+    if (e.key === "Escape") { closeIt(); return; }
+    if (e.key !== "Tab") return;
+    var f = root.querySelectorAll("button,[href],input:not([type=hidden])");
+    if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+  function fail(m){ err.textContent = m; err.hidden = false; }
+
+  Array.prototype.forEach.call(root.querySelectorAll("[data-atop-close]"), function(el){
+    el.addEventListener("click", closeIt);
+  });
+  input.addEventListener("input", function(){ err.hidden = true; });
+  consent.addEventListener("change", function(){ err.hidden = true; });
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    err.hidden = true;
+    var email = (input.value || "").trim().toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) { fail(MSG.email); input.focus(); return; }
+    if (!consent.checked) { fail(MSG.consent); consent.focus(); return; }
+
+    btn.disabled = true;
+    btn.textContent = FR ? "Envoi..." : "Sending...";
+
+    fetch(API, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ email: email, consent: true, lang: FR ? "fr" : "en", page: path })
+    }).then(function(r){ return r.json(); }).then(function(j){
+      if (!j || !j.ok || !j.url) throw new Error("bad");
+      link.href = j.url;
+      form.hidden = true;
+      done.hidden = false;
+      save({ claimed: true, at: Date.now() });
+      setTimeout(function(){ link.focus(); }, 60);
+    })["catch"](function(){
+      btn.disabled = false;
+      btn.textContent = FR ? "Obtenir l'offre exclusive" : "Claim the exclusive offer";
+      fail(MSG.fail);
+    });
+  });
+
+  var touch = window.matchMedia && window.matchMedia("(hover: none)").matches;
+  var timer = setTimeout(openIt, force ? 300 : 20000);
+
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    if (h > 0 && (window.scrollY / h) >= 0.5) { clearTimeout(timer); openIt(); cleanup(); }
+  }
+  function onExit(e){
+    if (!e.relatedTarget && e.clientY <= 0) { clearTimeout(timer); openIt(); cleanup(); }
+  }
+  function cleanup(){
+    window.removeEventListener("scroll", onScroll);
+    document.removeEventListener("mouseout", onExit);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  if (!touch) document.addEventListener("mouseout", onExit);
+})();
+</script>
+
+</body>
+</html>

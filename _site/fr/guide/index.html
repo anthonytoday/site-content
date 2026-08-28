@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+
+
+
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guides et playbooks | Anthony Today</title>
+<meta name="description" content="Des guides longs sur les opérations de sécurité, la conformité et la construction de systèmes qui tiennent en audit. Écrits depuis des missions réelles.">
+<link rel="canonical" href="https://www.anthonytoday.com/fr/guide/">
+<link rel="alternate" hreflang="en" href="https://www.anthonytoday.com/guide/">
+<link rel="alternate" hreflang="fr" href="https://www.anthonytoday.com/fr/guide/">
+<link rel="alternate" hreflang="x-default" href="https://www.anthonytoday.com/guide/">
+<meta property="og:title" content="Guides et playbooks | Anthony Today">
+<meta property="og:description" content="Des guides longs sur les opérations de sécurité, la conformité et la construction de systèmes qui tiennent en audit. Écrits depuis des missions réelles.">
+<meta property="og:url" content="https://www.anthonytoday.com/fr/guide/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:image" content="https://www.anthonytoday.com/assets/brand/anthony-profile.webp">
+<meta property="og:image:alt" content="Guides et playbooks | Anthony Today">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.anthonytoday.com/assets/brand/anthony-profile.webp">
+<link rel="dns-prefetch" href="https://pay.anthonytoday.com">
+<link rel="stylesheet" href="/assets/css/b-ebd0c0fcfe.css">
+<link rel="icon" href="/assets/brand/favicon.png">
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"><script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@graph":[
+  {
+   "@type":"Person",
+   "@id":"https://www.anthonytoday.com/#anthony",
+   "name":"Anthony",
+   "givenName":"Anthony",
+   "url":"https://www.anthonytoday.com/",
+   "image":"https://www.anthonytoday.com/assets/brand/anthony-profile.webp",
+   "jobTitle":"Consultant en cybersécurité, GRC et Notion",
+   "description":"Notion Consulting Partner certifié et ex-consultant cybersécurité chez EY. 15+ ans de risque technologique et d'audit IT entre le Luxembourg, la Suisse et les États-Unis.",
+   "knowsLanguage":["en","fr"],
+   "knowsAbout":["Notion","Notion workspace architecture","Cybersecurity","Governance Risk and Compliance","ISO 27001","NIST Cybersecurity Framework","AI governance","IT audit","Information security management","Fractional CISO","Third-party risk management"],
+   "alumniOf":{"@type":"CollegeOrUniversity","name":"ETH Zürich"},
+   "hasCredential":[
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CISSP","recognizedBy":{"@type":"Organization","name":"ISC2"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CISA","recognizedBy":{"@type":"Organization","name":"ISACA"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CISM","recognizedBy":{"@type":"Organization","name":"ISACA"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CRISC","recognizedBy":{"@type":"Organization","name":"ISACA"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"AIGP","recognizedBy":{"@type":"Organization","name":"IAPP"}},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"ISO 27001 Lead Implementer"},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"Notion Certified Consultant","recognizedBy":{"@type":"Organization","name":"Notion"}}
+   ],
+   "sameAs":["https://www.linkedin.com/in/anthony-kieffer/","https://www.notion.com/@anthonytoday","https://certs.notion.so/5c2a6cd2c3b14e83a585c1dedb40852d"],
+   "worksFor":{"@id":"https://www.anthonytoday.com/#business"}
+  },
+  {
+   "@type":"ProfessionalService",
+   "@id":"https://www.anthonytoday.com/#business",
+   "name":"Anthony Today",
+   "url":"https://www.anthonytoday.com/",
+   "image":"https://www.anthonytoday.com/assets/brand/anthony-profile.webp",
+   "logo":"https://www.anthonytoday.com/assets/brand/favicon.png",
+   "description":"Conseil Notion certifié, gouvernance des risques et cybersécurité. Architecture d'espace de travail, préparation à l'audit et direction sécurité à temps partagé.",
+   "founder":{"@id":"https://www.anthonytoday.com/#anthony"},
+   "email":"info@anthonytoday.com",
+   "priceRange":"$79-$20000",
+   "availableLanguage":["en","fr"],
+   "areaServed":[{"@type":"Country","name":"Luxembourg"},{"@type":"Country","name":"Switzerland"},{"@type":"Country","name":"United States"},{"@type":"Country","name":"United Arab Emirates"},{"@type":"Country","name":"France"},{"@type":"Country","name":"Belgium"}],
+   "sameAs":["https://www.linkedin.com/in/anthony-kieffer/","https://www.notion.com/@anthonytoday","https://certs.notion.so/5c2a6cd2c3b14e83a585c1dedb40852d"],
+   "hasOfferCatalog":{
+    "@type":"OfferCatalog",
+    "name":"Prestations",
+    "itemListElement":[
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Appel découverte","serviceType":"Consulting"},"price":"79","priceCurrency":"USD"},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Audit et conception","serviceType":"Notion workspace architecture"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"1500","maxPrice":"6000","priceCurrency":"USD"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Chantier risque et gouvernance","serviceType":"Governance risk and compliance"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"5000","maxPrice":"20000","priceCurrency":"USD"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"CISO externalisé","serviceType":"Fractional security leadership"}}
+    ]
+   }
+  },
+  {
+   "@type":"WebSite",
+   "@id":"https://www.anthonytoday.com/#website",
+   "url":"https://www.anthonytoday.com/",
+   "name":"Anthony Today",
+   "publisher":{"@id":"https://www.anthonytoday.com/#business"},
+   "inLanguage":["en-US","fr-FR"]
+  },
+  {
+   "@type":"Article",
+   "@id":"https://www.anthonytoday.com/fr/guide/#webpage",
+   "url":"https://www.anthonytoday.com/fr/guide/",
+   "name":"Guides et playbooks | Anthony Today",
+   "description":"Des guides longs sur les opérations de sécurité, la conformité et la construction de systèmes qui tiennent en audit. Écrits depuis des missions réelles.",
+   "inLanguage":"fr-FR",
+   "isPartOf":{"@id":"https://www.anthonytoday.com/#website"},
+   "about":{"@id":"https://www.anthonytoday.com/#business"},
+   "author":{"@id":"https://www.anthonytoday.com/#anthony"},
+   "publisher":{"@id":"https://www.anthonytoday.com/#business"},
+   "primaryImageOfPage":"https://www.anthonytoday.com/assets/brand/anthony-profile.webp"},
+  {
+   "@type":"BreadcrumbList",
+   "@id":"https://www.anthonytoday.com/fr/guide/#breadcrumb",
+   "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.anthonytoday.com/fr/"},
+    {"@type":"ListItem","position":2,"name":"Conseil Notion","item":"https://www.anthonytoday.com/fr/notion/"},
+    {"@type":"ListItem","position":3,"name":"Guide Notion ultime","item":"https://www.anthonytoday.com/fr/guide/"}
+   ]
+  }
+ ]
+}
+</script>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="/fr/">Anthony Today</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">&#9776;</button>
+    <nav id="nav">
+      <a href="/fr/">Accueil</a>
+
+      <div class="nav-item">
+        <a href="/fr/notion/">Notion</a>
+        <div class="sub">
+          
+          <a href="/fr/notion-build/">Notion Build 10 jours</a>
+          <a href="/fr/notion-consultant-as-a-service/">Consultant Notion en continu</a>
+          <a href="/shop/">Boutique</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="/fr/cyber/">Cyber</a>
+        <div class="sub">
+          <a href="/fr/cyber-grc/">GRC</a>
+          <a href="/fr/fractional-ciso/">CISO externalis&eacute;</a>
+        </div>
+      </div>
+
+      <a href="/fr/tools/">Outils</a>
+      <a class="cta" href="/fr/contact/">Contact</a>
+
+      <div class="lang-switch">
+        <a class="off" href="/guide/" hreflang="en" lang="en" title="Read this page in English">EN</a><span class="on">FR</span>
+        
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- INTRO -->
+<div class="guide-intro">
+<p class="eyebrow">Guide gratuit</p>
+<h1>Guide Notion ultime : du débutant au pro</h1>
+<p>Tout ce qu'il vous faut pour passer de votre première page à un espace de travail entièrement connecté : pages, blocs, bases de données, automatisations, formules, partage et bien plus.</p>
+</div>
+<div class="guide-layout">
+<nav class="guide-toc"><p class="toc-label">Sur cette page</p><ul>
+<li><a href="#what-is-notion">Qu'est-ce que Notion ?</a></li>
+<li><a href="#why-use-notion-for-task-management">Pourquoi utiliser Notion pour gérer ses tâches ?</a></li>
+<li><a href="#workspace-sidebar">Espace de travail et barre latérale</a></li>
+<li><a href="#pages-blocks">Pages et blocs</a></li>
+<li><a href="#wikis">Wikis</a></li>
+<li><a href="#organize-format-your-content">Organiser et mettre en forme votre contenu</a></li>
+<li><a href="#tables-simple-vs-database">Tableaux : simple ou base de données</a></li>
+<li><a href="#code-blocks">Blocs de code</a></li>
+<li><a href="#advanced-features">Fonctionnalités avancées</a></li>
+<li><a href="#what-is-a-notion-database">Qu'est-ce qu'une base de données Notion ?</a></li>
+<li><a href="#sharing-collaboration">Partage et collaboration</a></li>
+<li><a href="#notion-api-custom-integrations">API Notion et intégrations sur mesure</a></li>
+<li><a href="#automations-in-notion">Les automatisations dans Notion</a></li>
+<li><a href="#formulas-in-notion">Les formules dans Notion</a></li>
+<li><a href="#notion-pricing-guide">Guide des tarifs Notion</a></li>
+<li><a href="#workspace-administration">Administration de l'espace de travail</a></li>
+<li><a href="#settings-in-notion">Les paramètres dans Notion</a></li>
+<li><a href="#notion-ai">Notion AI</a></li>
+<li><a href="#notion-calendar">Notion Calendar</a></li>
+<li><a href="#notion-sites">Notion Sites</a></li>
+<li><a href="#marketplace">Marketplace</a></li>
+<li><a href="#wrapping-up">Pour conclure</a></li>
+</ul></nav>
+<div class="guide-wrap guide-content">
+<h2 id="what-is-notion">Qu'est-ce que Notion ?</h2>
+<p>D'une façon ou d'une autre, tout le monde finit par découvrir Notion. Que ce soit pour son interface minimaliste, sa construction par blocs ou sa publication de pages en direct. Pour moi, ce fut l'esthétique presque griffonnée et la personnalisation des espaces de travail que j'ai créés au fil des années. Toutes ces nuances font de Notion ce qu'il est aujourd'hui : une centrale pour la gestion de projet, le suivi des tâches et la simple prise de notes.</p>
+<p>Vous pouvez créer des pages, des listes de tâches, des calendriers et des bases de données pour piloter n'importe quel projet. Ensuite, vous organisez l'information, vous collaborez avec d'autres et vous construisez des systèmes puissants, taillés pour votre façon de travailler.</p>
+<p>Au fond, Notion repose sur un concept simple mais puissant : tout est un « bloc ». Qu'il s'agisse de texte, d'une image, d'une liste à cocher, d'un tableau ou même d'un fichier intégré. Vous créez des pages pour stocker ces blocs, puis vous imbriquez des pages dans des pages pour bâtir un système très organisé.</p>
+<p>Notion propose toute une variété de templates et d'outils de construction, pour donner aux débutants un démarrage facile et mettre en place des workflows de gestion de tâches, de suivi de projet, de prise de notes ou de journal personnel. Avec l'édition par glisser-déposer et des bases de données personnalisables, Notion vous donne le contrôle total sur la façon dont vous capturez et organisez votre travail et vos idées.</p>
+<p>Mais <em>on apprend d'abord les notes, ensuite on joue la musique.</em> Dans ce guide, nous allons parcourir toutes les bases à connaître, pour qu'à la fin vous soyez à l'aise pour créer et organiser vos projets et vos documents dans Notion sans template, en utilisateur intermédiaire.</p>
+<table class="guide-table"> <tr> <th><strong>Type d'utilisateur</strong></th> <th><strong>À maîtriser</strong></th> <th><strong>Bon à savoir</strong></th> </tr> <tr> <td>Débutant</td> <td>Pages, texte, listes à cocher</td> <td>Comment utiliser les templates</td> </tr> <tr> <td>Intermédiaire</td> <td>Bases de données, vues, filtres</td> <td>Relations, rollups</td> </tr> <tr> <td>Utilisateur avancé</td> <td>Workflows sur mesure, automatisations</td> <td>API, intégrations (Zapier, Slack, etc.)</td> </tr> </table>
+<h2 id="why-use-notion-for-task-management">Pourquoi utiliser Notion pour gérer ses tâches ?</h2>
+<p>Notion vous laisse personnaliser entièrement vos listes de tâches, ajouter des échéances, attribuer des priorités et relier les tâches à des projets ou à des ressources plus larges. Vous pouvez choisir différentes vues, comme les tableaux kanban, les calendriers ou les simples listes, selon la façon dont vous aimez visualiser votre travail.</p>
+<p>La gestion des tâches dans Notion est particulièrement puissante parce que vous pouvez y intégrer vos notes, vos documents et vos workflows aux côtés de vos to-do.</p>
+<p>Un grand nombre d'outils s'intègrent à Notion pour augmenter la productivité de vos projets. Quand je <a href="/fr/use-case/" rel="noopener noreferrer" target="_blank">travaille avec des clients</a>, je tombe toujours sur une liste de to-do gigantesque : les systèmes prêts à l'emploi d'<a href="/fr/notion/" rel="noopener noreferrer" target="_blank">AnthonyToday.com</a> m'aident alors à visualiser et à prioriser la tâche à attaquer, pour frapper là où ça compte sans passer des heures à planifier et enfin faire le travail.</p>
+<h3>Démarrer rapidement avec Notion</h3>
+<p>Commencez par créer un compte Notion gratuit en ligne ou depuis l'application mobile. Une fois à l'intérieur, vous découvrez un espace de travail épuré où vous pouvez commencer à créer des pages. Une page dans Notion peut être n'importe quoi : une liste de tâches, un journal, un ordre du jour de réunion ou même une base de données de projet complète.</p>
+<p>Un moyen simple de démarrer est d'utiliser les templates intégrés de Notion, qui proposent des mises en page prêtes pour la gestion de tâches, les objectifs personnels, le suivi de projet et bien d'autres usages. Vous pouvez les personnaliser en ajoutant du texte, des titres, des listes à cocher, des images et d'autres « blocs ».</p>
+<p>Regroupez les pages liées entre elles et utilisez les bases de données liées, les tags et les filtres pour une installation intégrée et organisée. À mesure que vous prenez vos aises, vous pouvez enrichir votre configuration avec des options avancées comme les formules, les relations entre bases de données et les automatisations. La clé du succès avec Notion : commencer simple, construire progressivement et ajuster votre espace de travail à mesure que vos besoins évoluent.</p>
+<h3>Prérequis</h3>
+<ol>
+<li>Un compte Notion gratuit.</li>
+<li>L'application web ou l'application Notion installée.</li>
+<li>Une connexion Internet (l'accès hors ligne est limité et la synchronisation exige une connexion).</li>
+</ol>
+<h2 id="workspace-sidebar">Espace de travail et barre latérale</h2>
+<p>Votre application Notion se divise en deux zones principales : la barre latérale et l'éditeur. Nous allons parcourir les deux, avec des conseils pour démarrer.</p>
+<h3>Vue d'ensemble de la barre latérale</h3>
+<p>La barre latérale est votre centre de commande pour accéder aux pages, aux bases de données, aux teamspaces, aux paramètres et au reste. Tout ce que vous créez, pages, tâches ou bases de données, apparaît ici. Elle se déploie, se replie et se personnalise entièrement, et vous pouvez imbriquer les pages à l'infini pour obtenir une structure qui colle à votre organisation personnelle ou à celle de votre équipe.</p>
+<p>La barre latérale se divise en plusieurs sections :</p>
+<ul>
+<li><strong>Teamspaces</strong> (sur les <a href="https://affiliate.notion.so/0x8u16p4sff1" rel="noopener noreferrer" target="_blank">plans payants</a>) : organiser le travail par équipe ou par département.</li>
+<li><strong>Partagé</strong> : les pages partagées avec des membres précis.</li>
+<li><strong>Privé</strong> : les pages que vous seul pouvez voir.</li>
+<li><strong>Favoris</strong> : les pages que vous avez mises en favori pour y accéder vite. En cliquant sur ⭐ en haut de la page, celle-ci apparaît sous Favoris, ce qui garde vos pages de projet clés à portée de main.</li>
+</ul>
+<img alt="Capture d'écran du Guide Notion ultime : du débutant au pro" class="guide-img" loading="lazy" src="/assets/guides/notion/131b8009-cleanshot-2025-05-07-at-14-36-16-2x-1-2x-web.webp" width="1990" height="1120">
+<p>À côté de Créer une page, vous pouvez cliquer sur fermer la barre latérale, ou faire cmd + \ pour replier les sections et garder les choses nettes. Glissez-déposez les éléments pour réorganiser votre barre latérale exactement comme vous le voulez.</p>
+<p>Le haut de la barre latérale rassemble des outils puissants :</p>
+<ul>
+<li><strong>Sélecteur d'espace de travail</strong> : basculer entre différents espaces ou en créer un nouveau.</li>
+<li><strong>Recherche</strong> : retrouver rapidement n'importe quelle page, base de données ou activité récente.</li>
+<li><strong>Accueil</strong> : voir vos pages les plus importantes et vos actions à mener.</li>
+<li><strong>Boîte de réception</strong> : retrouver toutes les notifications, mentions et attributions de travail au même endroit.</li>
+<li><strong>Paramètres</strong> : tout régler, de l'apparence aux notifications.</li>
+<li><strong>Templates</strong> : démarrer vite un nouveau projet avec des modèles prêts à l'emploi.</li>
+<li><strong>Corbeille</strong> : les pages supprimées y séjournent temporairement et peuvent être restaurées au besoin.</li>
+<li><strong>📝 Créer une nouvelle page : </strong>en haut de la barre latérale, utilisez le raccourci <code>cmd/ctrl + N</code>, ou touchez 📝 en bas de l'application mobile.</li>
+</ul>
+<p>Vous trouverez aussi des raccourcis vers Paramètres, Templates et Corbeille en bas de la barre latérale.</p>
+<div class="guide-callout"><span class="callout-icon">💡</span><p>Astuce : glisser une page dans la section Privé la rend instantanément visible par vous seul. Pratique pour les notes confidentielles ou les brouillons.</p></div>
+<h3>Vue d'ensemble de l'éditeur</h3>
+<p>L'éditeur est l'espace où vous créez et gérez le contenu. Voyez-le comme une toile vierge pour écrire, planifier, réfléchir ou construire des systèmes entiers.</p>
+<img alt="Capture d'écran du Guide Notion ultime : du débutant au pro" class="guide-img" loading="lazy" src="/assets/guides/notion/131b800f-cleanshot-2025-05-07-at-14-39-27-2x-1-2x-web.webp" width="1990" height="1119">
+<p>Les fonctions clés de l'éditeur :</p>
+<ul>
+<li><strong>Un minimum de distractions</strong> : dès que vous commencez à taper, les menus s'effacent à l'arrière-plan et vous aident à vous concentrer en profondeur.</li>
+<li><strong>Présence des collaborateurs</strong> : voir en direct les photos de profil des coéquipiers qui consultent ou modifient la même page.</li>
+<li><strong>Menu Partager</strong> : gérer facilement les permissions, partager le lien d'une page ou inviter des collaborateurs par e-mail.</li>
+</ul>
+<p>L'éditeur prend en charge des dizaines de types de blocs (texte, titres, listes, images, tableaux, bases de données, intégrations, etc.), ce qui vous donne une liberté totale dans la structuration du contenu.</p>
+<h3>Espaces d'équipe et espaces personnels</h3>
+<h4>Espaces de travail personnels</h4>
+<img alt="Capture d'écran du Guide Notion ultime : du débutant au pro" class="guide-img" loading="lazy" src="/assets/guides/notion/131b800c-cleanshot-2025-05-07-at-14-41-30-2x-1-2x-web.webp" width="1990" height="1121">
+<p>Les pages nouvellement créées sont privées par défaut.</p>
+<h4>Espaces de travail d'équipe (plans Plus, Business ou Enterprise)</h4>
+<img alt="Capture d'écran du Guide Notion ultime : du débutant au pro" class="guide-img" loading="lazy" src="/assets/guides/notion/131b8012-cleanshot-2025-05-07-at-14-41-50-2x-1-2x-web.webp" width="1990" height="1121">
+<p>L'organisation de la barre latérale sous Teamspaces est partagée entre les membres. Tout le monde voit la même structure, mais chacun peut replier ou déplier les arborescences de pages sans affecter les autres.</p>
+<p>Sur les plans d'équipe, les administrateurs peuvent gérer les permissions des membres et contrôler la visibilité des pages plus finement.</p>
+<h2 id="pages-blocks">Pages et blocs</h2>
+<p>Notion repose sur la notion de pages et de blocs, ce qui vous donne une souplesse remarquable pour écrire, planifier, organiser et relier l'information. Que vous construisiez une base de connaissances, rédigiez un article de blog ou conceviez un tableau de bord, comprendre l'usage des blocs, des pages, des liens et du contenu synchronisé vous donne le contrôle total de votre espace de travail.</p>
+<h3>Les pages Notion</h3>
+<p>Les pages abritent tout votre contenu. Ce sont des documents autonomes, imbriqués dans d'autres pages, ou liés dans tout votre espace de travail. Vous créez une page depuis la barre latérale, avec la commande /page ou avec des raccourcis clavier. Une page peut contenir du texte, des images, des bases de données, des fichiers intégrés et d'autres pages.</p>
+<img alt="Capture d'écran du Guide Notion ultime : du débutant au pro" class="guide-img" loading="lazy" src="/assets/guides/notion/131b8015-cleanshot-2025-05-07-at-14-44-23-2x-1-2x-web.webp" width="1990" height="1120">
+<h3>Les blocs Notion</h3>
+<p>À l'intérieur des pages, tout le contenu est fait de blocs. Les paragraphes, les listes, les titres, les médias, les tableaux, les bases de données et le reste.</p>
+<p>Ces blocs peuvent être :</p>
+<img alt="Capture d'écran du Guide Notion ultime : du débutant au pro" class="guide-img" loading="lazy" src="/assets/guides/notion/131b8018-cleanshot-2025-05-07-at-14-46-06-2x-1-2x-web.webp" width="1983" height="1114">
+<ul>
+<li>Glissés et déposés</li>
+<li>Modifiés en ligne</li>
+<li>Convertis en d'autres types</li>
+<li>Imbriqués dans des toggles, des blocs synchronisés ou des colonnes</li>
+</ul>
+<div class="guide-callout"><span class="callout-icon">💡</span><p>Astuce : vous pouvez ajouter des blocs avec la commande /, qui permet d'insérer à peu près n'importe quoi (par exemple /heading, /image, /table, /syncedblock).</p></div>
+<h3>Relier le contenu dans Notion</h3>
+<p>Notion facilite la création d'un espace de travail connecté en reliant les pages et les blocs entre eux. Un espace connecté rassemble tous vos outils, vos informations et vos collaborateurs au même endroit, dans le but de réduire les changements de contexte et d'améliorer la collaboration.</p>
+<ul>
+<li><strong>@-mention, </strong><strong><code>[[</code></strong><strong>,</strong> ou <strong><code>+</code></strong> suivi d'un nom de page crée un lien en ligne vers une autre page Notion.</li>
+<li>Utilisez <strong><code>/link to page</code></strong> pour créer un bloc visuel qui pointe vers une autre page (elle apparaîtra aussi dans votre barre latérale comme sous-page).</li>
+<li>Chaque bloc a un lien unique : cliquez sur la poignée ⋮⋮ → <strong>Copier le lien</strong> pour le partager.</li>
+<li>Collez les URL de sites externes pour créer des favoris web avec aperçu.</li>
+</ul>
+<h3>Contenu synchronisé</h3>
+<p>Les blocs synchronisés permettent de refléter du contenu sur plusieurs pages ou au sein d'une même page, de sorte qu'une mise à jour à un endroit apparaisse partout ailleurs.</p>
+<h4>Comment synchroniser du contenu entre les pages</h4>
+<ol>
+<li>Sélectionnez un ou plusieurs blocs.</li>
+<li>Copiez avec <strong><code>cmd/ctrl + C</code></strong>.</li>
+<li>Collez dans une autre page.</li>
+<li>Choisissez <strong>Coller et synchroniser</strong> : un contour rouge apparaît autour des blocs synchronisés.</li>
+</ol>
+<img alt="Capture d'écran du Guide Notion ultime : du débutant au pro" class="guide-img" loading="lazy" src="/assets/guides/notion/131b801b-cleanshot-2025-05-07-at-14-49-47-2x-1-2x-web.webp" width="1982" height="1115">
+<h4>Créer de nouveaux blocs synchronisés de zéro</h4>
+<ul>
+<li>Tapez <strong><code>/syncedblock</code></strong> ou passez par le menu <strong>+</strong></li>
+<li>Ajoutez ou glissez du contenu dans le bloc synchronisé</li>
+<li>Utilisez <strong>Copier</strong> <strong>et synchroniser</strong> pour coller à d'autres endroits</li>
+</ul>
+<h4>Identifier et modifier les blocs synchronisés</h4>
+<ul>
+<li>Les blocs synchronisés affichent une bordure rouge au survol</li>
+<li>Cliquer à l'intérieur permet de modifier le contenu, ce qui met à jour toutes les instances</li>
+<li>Le menu Modification dans ↙ X autres pages permet de voir tous les emplacements</li>
+<li>Le bloc d'origine porte la mention ORIGINAL</li>
+</ul>
+<img alt="Capture d'écran du Guide Notion ultime : du débutant au pro" class="guide-img" loading="lazy" src="/assets/guides/notion/131b801e-cleanshot-2025-05-07-at-14-54-24-2x-1-2x-web.webp" width="1982" height="1115">
+<h4>Désynchroniser du contenu</h4>
+<p>Les blocs synchronisés sont parfaits pour des FAQ réutilisables, de la documentation de processus, des points d'avancement ou des encarts récurrents sur différentes pages.</p>
+<ul>
+<li>Pour désynchroniser une seule instance, cliquez sur ⋮⋮ → <strong>Désynchroniser</strong></li>
+<li>Pour tout désynchroniser, allez sur le bloc d'origine → ⋮⋮ → <strong>Tout désynchroniser</strong></li>
+</ul>
+<h2 id="wikis">Wikis</h2>
+<p>Notion permet de transformer n'importe quelle page en wiki, idéal pour organiser la documentation d'entreprise, les manuels d'équipe ou les centres de formation.</p>
+<h3>Comment créer un wiki</h3>
+<ol>
+<li>Ouvrez une page → cliquez sur •• → <strong>Transformer en wiki</strong></li>
+</ol>
+<img alt="Capture d'écran du Guide Notion ultime : du débutant au pro" class="guide-img" loading="lazy" src="/assets/guides/notion/131b8021-cleanshot-2025-05-07-at-14-58-41-2x-1-2x-web.webp" width="1982" height="1115">
+<p>Les wikis arrivent avec trois vues intégrées :</p>
+<ul>
+<li><strong>Accueil</strong> : une page d'atterrissage personnalisée</li>
+<li><strong>Toutes les pages</strong> : une base de données de chaque page du wiki</li>
+<li><strong>Pages dont je suis propriétaire</strong> : uniquement les pages qui vous sont attribuées</li>
+</ul>
+<p>Vous pouvez ajouter d'autres vues comme des chronologies, des calendriers ou des tableaux kanban.</p>
+<h3>Pages vérifiées et propriétaires</h3>
+<p>Les pages peuvent être vérifiées pour confirmer leur exactitude et leur responsabilité. Une page vérifiée affiche un badge ✅ et peut expirer selon un calendrier défini, ce qui prévient son propriétaire quand vient le moment de la revoir ou de la mettre à jour.</p>
+<h3>Annuler un wiki</h3>
+<p>Cliquez sur ••• → Annuler le wiki pour le reconvertir en page normale.</p>
+<h2 id="organize-format-your-content">Organiser et mettre en forme votre contenu</h2>
+<h3>Titres</h3>
+<p>Ajoutez de la hiérarchie et de la lisibilité avec <strong>/h1, /h2, </strong>et <strong>/h3</strong>. Vous pouvez aussi transformer les titres en toggles pour replier le contenu.</p>
+<h3>Colonnes</h3>
+<p>Glissez un bloc à côté d'un autre pour créer des colonnes. Vous pouvez construire des mises en page multi-colonnes et même placer des blocs média côte à côte.</p>
+<h3>Séparateurs</h3>
+<p>Insérez des séparateurs avec <strong>/divider</strong> ou en tapant <strong>---</strong> pour aérer visuellement le contenu.</p>
+<h3>Table des matières</h3>
+<p>Utilisez <strong>/table of contents</strong> pour générer automatiquement une liste cliquable des titres de votre page : idéal pour les longs documents ou les wikis.</p>
+<img alt="Capture d'écran du Guide Notion ultime : du débutant au pro" class="guide-img" loading="lazy" src="/assets/guides/notion/131b802c-fsdfd-webp" width="1967" height="1106">
+<h3>Médias et fichiers intégrés</h3>
+<p>Notion prend en charge un large éventail de formats :</p>
+<ul>
+<li><strong>Images</strong> : JPG, PNG, GIF, WEBP, SVG, HEIC, etc.</li>
+<li><strong>Vidéos</strong> : MP4, YouTube, Vimeo</li>
+<li><strong>Audio</strong> : MP3, WAV, OGG</li>
+<li><strong>Documents</strong> : PDF</li>
+</ul>
+<p>Vous pouvez :</p>
+<ul>
+<li>Glisser-déposer des médias</li>
+<li>Utiliser <strong><code>/image</code></strong><strong>, </strong><strong><code>/video</code></strong><strong>, </strong><strong><code>/audio</code></strong><strong>, </strong><strong><code>/file</code></strong><strong>,</strong> ou <strong><code>/embed</code></strong></li>
+<li>Redimensionner, recadrer, aligner, masquer ou légender</li>
+<li>Afficher en plein écran, télécharger ou remplacer les fichiers</li>
+</ul>
+<div class="guide-callout"><span class="callout-icon">💡</span><p>Astuce : chaque bloc média accepte un texte alternatif pour l'accessibilité et peut être hyperlié ou commenté.</p></div>
+<h2 id="tables-simple-vs-database">Tableaux : simple ou base de données</h2>
+<p>Besoin d'une matrice rapide ? Utilisez un tableau simple :</p>
+<ul>
+<li>Insérez-le avec <strong><code>/table</code></strong></li>
+<li>Ajoutez ou retirez des lignes et des colonnes avec le bouton +</li>
+<li>Servez-vous des options d'en-tête et de largeur de colonne</li>
+</ul>
+<img alt="Capture d'écran du Guide Notion ultime : du débutant au pro" class="guide-img" loading="lazy" src="/assets/guides/notion/131b802f-webp" width="1966" height="1107">
+<p>Les bases de données apportent des fonctions avancées comme les filtres, les tris ou les relations. En cliquant sur ••• → vous transformez un tableau en base de données. Voyez le chapitre Base de données pour en savoir plus.</p>
+<h2 id="code-blocks">Blocs de code</h2>
+<p>Les blocs de code de Notion sont parfaits pour les développeurs, les rédacteurs techniques ou quiconque entretient une bibliothèque personnelle de scripts et d'extraits. Ils permettent de présenter du code avec une mise en forme propre, une indentation correcte et la coloration syntaxique, tout en gardant votre contenu principal lisible.</p>
+<h3>Ajouter un bloc de code</h3>
+<p>Pour insérer un bloc de code :</p>
+<ul>
+<li>Tapez <strong><code>/code</code></strong> et appuyez sur <strong>Entrée</strong></li>
+<li>Ou cliquez sur l'icône <strong>+</strong> dans la marge gauche et choisissez <strong>Code</strong></li>
+</ul>
+<p>Cela crée un bloc distinct, en police à chasse fixe, où vous pouvez taper ou coller votre code.</p>
+<h3>Coloration syntaxique</h3>
+<p>Notion gère la coloration syntaxique de nombreux langages répandus, dont JavaScript, Python, HTML, CSS, SQL, Bash et d'autres.</p>
+<p>Pour choisir votre langage :</p>
+<ul>
+<li>Cliquez sur le nom du langage en haut à gauche du bloc de code</li>
+<li>Commencez à taper pour chercher le langage voulu, puis sélectionnez-le</li>
+</ul>
+<p>Votre code est ainsi coloré et formaté correctement, ce qui le rend plus facile à lire et à comprendre.</p>
+<h3>Renvoyer le code à la ligne</h3>
+<p>Par défaut, les longues lignes de code peuvent exiger un défilement horizontal. Pour renvoyer les lignes à l'intérieur du bloc :</p>
+<ul>
+<li>Survolez le bloc de code et cliquez sur le menu <strong>•</strong></li>
+<li>Activez Renvoyer le code à la ligne : cela ajoute des sauts de ligne pour tenir dans la largeur du bloc</li>
+</ul>
+<h3>Copier ou légender les blocs de code</h3>
+<p>Quand vous survolez un bloc de code, vous voyez les options suivantes :</p>
+<ul>
+<li><strong>Copier</strong> : copier instantanément tout le bloc dans le presse-papiers</li>
+<li><strong>Légende</strong> : ajouter une brève description ou un intitulé à votre code</li>
+</ul>
+<p>Vous y accédez aussi depuis le menu <code>•••</code>, qui propose des options supplémentaires comme l'alignement et la duplication du bloc.</p>
+<h2 id="advanced-features">Fonctionnalités avancées</h2>
+<p>Nous allons maintenant plonger dans les bases de données, la collaboration, les formules, les API, les paramètres, l'IA, le calendrier, les sites et la marketplace.</p>
+<h2 id="what-is-a-notion-database">Qu'est-ce qu'une base de données Notion ?</h2>
+<p>Les bases de données Notion comptent parmi les outils les plus puissants de la plateforme. Bien plus que de simples tableaux ou tableurs : chaque ligne d'une base Notion est une page entièrement modifiable, ce qui vous permet de piloter des workflows complexes, d'organiser du contenu et de suivre l'avancement.</p>
+<p>Les bases de données sont parfaites pour construire un calendrier éditorial, un suivi de projet, un CRM ou un wiki d'entreprise.</p>
+<h3>Ce qui rend les bases Notion uniques</h3>
+<ul>
+<li><strong>Chaque élément est une page</strong> : chaque entrée est une page Notion complète, qui peut contenir des notes, des listes à cocher, des médias, des sous-pages, ou tout ce que vous mettriez dans une page normale.</li>
+<li><strong>Des propriétés personnalisables</strong> : ajoutez des propriétés texte, date, tag, personne, statut, nombre, case à cocher, formule et relation. Elles vous aident à structurer et étiqueter votre contenu pour trier et filtrer facilement.</li>
+<li><strong>Plusieurs vues</strong> : visualisez vos données en tableau, tableau kanban, calendrier, galerie, liste, chronologie ou graphique. Basculez d'une vue à l'autre selon ce qui vous est le plus utile sur le moment.</li>
+</ul>
+<h4>Créer une base de données</h4>
+<p><strong>À garder en tête :</strong></p>
+<ul>
+<li>Une relation connecte une base de données à une autre (comme relier une Tâche à un Projet).</li>
+<li>Un rollup traverse cette relation et en remonte une information précise, comme l'échéance du projet ou le nombre de tâches marquées « Terminé ».</li>
+</ul>
+<table class="guide-table"> <tr> <th><strong>Nom</strong></th> <th><strong>Statut</strong></th> <th><strong>Assigné à</strong></th> <th><strong>Échéance</strong></th> <th><strong>Projet (Relation)</strong></th> </tr> <tr> <td>Concevoir l'interface de connexion</td> <td>En cours</td> <td>Jane</td> <td>5 mai</td> <td>Application mobile</td> </tr> <tr> <td>Rédiger le guide utilisateur</td> <td>Non commencé</td> <td>Alex</td> <td>10 mai</td> <td>Documentation</td> </tr> </table>
+<ul>
+<li><strong>Relation</strong> : pointe vers la base Projets</li>
+<li><strong>Rollups</strong> : peuvent remonter l'échéance ou la priorité du projet lié</li>
+</ul>
+<table class="guide-table"> <tr> <th><strong>Cas d'usage</strong></th> <th><strong>Ce que le rollup apporte</strong></th> </tr> <tr> <td>Suivi de l'avancement d'un projet</td> <td>Compter les tâches « Terminé » sur le total des tâches</td> </tr> <tr> <td>Remonter les échéances dans les vues de tâches</td> <td>Afficher l'échéance du projet sur chaque tâche</td> </tr> <tr> <td>Tableaux de bord collaborateurs</td> <td>Montrer combien de tâches sont attribuées à chaque personne</td> </tr> <tr> <td>CRM</td> <td>Afficher la date du dernier contact de chaque client depuis le journal des interactions</td> </tr> </table>
+<p><strong>Pour créer une nouvelle base de données :</strong></p>
+<ul>
+<li>Sur une nouvelle page, choisissez « <strong>Tableau</strong> » sous « <strong>Commencer avec</strong> »</li>
+<li>Utilisez la commande <code>/database</code> pour insérer une base en ligne</li>
+<li>Partez des templates suggérés, ou faites appel à ChatGPT ou à l'IA intégrée de Notion pour générer une structure de base à partir d'un prompt sur mesure</li>
+</ul>
+<p><strong>Exemple de prompt :</strong></p>
+<p><em>« Crée une structure d'espace de travail Notion avec des bases de données connectées pour [votre cas d'usage]. Elle doit inclure les entités principales (par exemple projets, tâches, membres de l'équipe), montrer comment elles se relient entre elles, et proposer des exemples de propriétés, de vues et de rollups. Rends-la modulaire, évolutive et accessible aux débutants. »</em></p>
+<p><strong>Les entités principales à considérer pour la gestion de tâches :</strong></p>
+<ul>
+<li><strong>Utilisateur</strong> : la personne qui se sert du système.</li>
+<li><strong>Tâche</strong> : l'élément central, qui représente le travail à faire.</li>
+<li><strong>Description</strong> : le détail de la tâche.</li>
+<li><strong>Échéance</strong> : la date à laquelle la tâche doit être terminée.</li>
+<li><strong>Statut</strong> : l'état actuel de la tâche, à faire, en cours ou terminé (personnalisable à volonté)</li>
+<li><strong>Priorité</strong> : la priorité de la tâche sur une période donnée.</li>
+<li><strong>Énergie requise</strong> : l'énergie nécessaire pour venir à bout de la tâche, élevée, moyenne ou faible.</li>
+<li><strong>Sous-tâches</strong> : les étapes plus petites à l'intérieur d'une tâche parente.</li>
+</ul>
+<div class="guide-callout"><span class="callout-icon">📌</span><p><strong>Note :</strong> avec <strong>mes templates de tâches</strong> et <strong>Notion</strong>, vous pouvez remonter des tâches et ajuster leurs échéances depuis votre calendrier selon le temps dont vous disposez :</p></div>
+<ul>
+<li><a href="https://www.notion.com/@anthonytoday" rel="noopener noreferrer" target="_blank"><strong>Des systèmes de tâches prêts à l'emploi</strong></a> sur la Marketplace Notion, avec les propriétés statut, priorité et énergie déjà configurées.</li>
+<li><a href="https://cal.com/anthonytoday/consultation" rel="noopener noreferrer" target="_blank"><strong>Réservez une consultation en tête-à-tête</strong></a> pour adapter la configuration à votre façon de travailler, avec un plan quotidien réaliste qui vous aide à vous concentrer sur l'essentiel et à tenir vos échéances.</li>
+</ul>
+<p><strong>Les types de bases de données Notion :</strong></p>
+<ul>
+<li><strong>Bases pleine page</strong> : elles apparaissent comme des pages à part entière dans votre barre latérale. Elles peuvent être verrouillées (via <code>•</code> → Verrouiller la base) pour empêcher les modifications de structure.</li>
+<li><strong>Bases en ligne</strong> : intégrées dans une autre page. Utilisez l'icône d'agrandissement (⤡) pour l'ouvrir en pleine page. Glissez-la dans la barre latérale pour la convertir en base pleine page.</li>
+</ul>
+<h4>Ajouter et ouvrir des pages de base de données</h4>
+<p>Chaque élément d'une base de données est une page Notion.</p>
+<p>Pour <strong>ajouter un élément</strong> :</p>
+<ul>
+<li>Cliquez sur <strong>+ Nouveau</strong> en haut de la base, ou en bas d'un tableau, d'une liste, d'un tableau kanban ou d'une galerie.</li>
+<li>Dans les calendriers, cliquez sur le <strong>+</strong> d'une date.</li>
+</ul>
+<p>Pour <strong>ouvrir un élément</strong> :</p>
+<ul>
+<li>Dans les tableaux et les listes, cliquez sur le titre ou sur le bouton <strong>OUVRIR</strong>.</li>
+<li>Dans les tableaux kanban, les galeries et les calendriers, cliquez n'importe où sur la carte.</li>
+<li>Cliquez sur ⤡ dans l'aperçu pour l'ouvrir en pleine page.</li>
+</ul>
+<p>Vous pouvez ajouter n'importe quel bloc dans les pages de base de données : texte, images, sous-pages, blocs synchronisés, etc.</p>
+<h4>Personnaliser les pages de base de données</h4>
+<p>En haut de chaque page de base, vous voyez ses propriétés. Vous pouvez choisir ce qui s'affiche et comment :</p>
+<ul>
+<li>Cliquez sur <code>•</code> → <strong>Personnaliser la page</strong></li>
+<li>Choisissez <strong>Toujours afficher, Masquer si vide</strong> ou <strong>Toujours masquer</strong> pour chaque propriété</li>
+<li>Réorganisez l'ordre des propriétés avec la poignée ⋮⋮</li>
+<li>Ajustez l'affichage des rétroliens et des commentaires</li>
+</ul>
+<p>Rétroliens : Déplié, Popover ou Désactivé</p>
+<p>Commentaires : Déplié ou Désactivé</p>
+<p>Cela aide à garder vos pages nettes, surtout quand vous manipulez beaucoup de propriétés.</p>
+<h4>Naviguer et consulter les bases de données</h4>
+<p>Chaque base embarque des outils puissants pour gérer et analyser vos données :</p>
+<ul>
+<li><strong>Vues</strong> : créez plusieurs vues pour différentes équipes ou différentes tâches (par exemple « Cette semaine », « En cours », « Terminé »)</li>
+<li><strong>Ajouter une vue</strong> : cliquez sur le menu déroulant à côté du nom de la vue → Ajouter une vue → Choisissez la mise en page (tableau, kanban, etc.)</li>
+<li><strong>Filtres et tris</strong> : appliquez des filtres pour n'afficher que l'utile ; triez par n'importe quelle propriété</li>
+<li><strong>Recherche</strong> : retrouvez instantanément les entrées correspondantes</li>
+<li><strong>Menu •</strong> : modifiez le regroupement, la mise en page et la visibilité des propriétés</li>
+</ul>
+<h4>Options sur les éléments</h4>
+<p>Faites un clic droit sur n'importe quelle ligne (ou cliquez sur la poignée ⋮⋮) pour :</p>
+<ul>
+<li><strong>Supprimer</strong> ou <strong>Dupliquer</strong> un élément</li>
+<li><strong>Copier le lien</strong> pour le partager</li>
+<li><strong>Renommer</strong> l'élément sans l'ouvrir</li>
+<li><strong>Déplacer vers</strong> un autre espace de travail ou une autre page</li>
+<li><strong>Modifier les propriétés</strong> rapidement, en ligne</li>
+</ul>
+<h4>Collaborer dans les bases de données</h4>
+<p>Les bases de données sont de puissants outils de collaboration. Notion vous donne un contrôle fin sur qui peut modifier quoi.</p>
+<h4>La permission « Peut modifier le contenu »</h4>
+<p>Cette permission autorise les utilisateurs à :</p>
+<ul>
+<li><strong>Ajouter, modifier</strong> et <strong>supprimer</strong> des pages \<em>\</em>\<em>\</em>dans la base</li>
+<li>Modifier les valeurs des propriétés</li>
+</ul>
+<p>Mais elle <strong>n'autorise pas</strong> :</p>
+<ul>
+<li>La modification de la structure de la base (propriétés, vues, filtres, tris)</li>
+<li>Le verrouillage ou le déverrouillage de la base</li>
+</ul>
+<p>Les bases liées respectent ces permissions, tout en laissant les utilisateurs créer des vues filtrées personnalisées ailleurs dans l'espace de travail.</p>
+<h4>Utiliser les bases de données liées</h4>
+<p>Vous pouvez référencer une base à plusieurs endroits grâce aux bases liées :</p>
+<ul>
+<li>Utilisez <strong><code>/linked database</code></strong> et sélectionnez celle que vous voulez</li>
+<li>Appliquez des filtres, des vues et des tris différents à chaque emplacement</li>
+<li>Les bases liées reflètent les mises à jour de la source en temps réel</li>
+</ul>
+<p>Il devient ainsi facile de présenter un même jeu de données différemment selon les équipes ou les documents.</p>
+<h4>Les templates dans les bases de données</h4>
+<p>Chaque base peut embarquer des templates personnalisés :</p>
+<ul>
+<li>Cliquez sur le menu déroulant à côté de <strong>+ Nouveau</strong> → <strong>+ Nouveau template</strong></li>
+<li>Ajoutez une structure prête pour les tâches, les comptes rendus de réunion, les rapports de bug, etc.</li>
+<li>Faites appel à Notion AI pour générer des mises en page de template</li>
+</ul>
+<p>Les templates aident à standardiser vos données et réduisent la configuration répétitive.</p>
+<h4>Verrouiller et dupliquer des bases de données</h4>
+<ul>
+<li><strong>Verrouiller la base</strong> : empêcher les modifications de structure (dans le menu <code>•</code>)</li>
+<li><strong>Dupliquer la base</strong> : choisir de copier la structure seule, ou la structure et le contenu</li>
+</ul>
+<p>La duplication est idéale pour réutiliser des mises en page entre équipes ou entre projets.</p>
+<h2 id="sharing-collaboration">Partage et collaboration</h2>
+<p>Notion est conçu pour la collaboration, que vous travailliez avec des coéquipiers dans votre espace, avec des clients extérieurs à votre entreprise ou avec votre audience. Grâce à des réglages de partage souples, vous contrôlez qui voit et modifie vos pages, vos bases de données et vos teamspaces.</p>
+<h3>Les façons de partager dans Notion</h3>
+<p>Vous pouvez partager pages et bases de données de plusieurs manières :</p>
+<ul>
+<li>Avec des personnes ou des groupes de votre espace de travail</li>
+<li>Avec des invités, par e-mail</li>
+<li>Avec des teamspaces entiers</li>
+<li>Avec le public, via un lien partageable</li>
+<li>Sous forme de Notion Site, grâce à la fonction <strong>Publier</strong></li>
+</ul>
+<p>Cliquez sur <strong>Partager</strong> en haut de n'importe quelle page pour ouvrir le <strong>menu Partager</strong>, où vous pouvez :</p>
+<ul>
+<li>Inviter des personnes sur une page</li>
+<li>Définir les niveaux de permission</li>
+<li>Copier le lien de la page</li>
+<li>Ouvrir l'onglet <strong>Publier</strong> pour rendre votre page publique</li>
+</ul>
+<p>Vous accédez aussi aux options de publication via le menu <code>•••</code> → <strong>onglet Publier</strong>.</p>
+<h4>Niveaux d'accès général</h4>
+<p>Sous Accès général, vous choisissez qui peut accéder à une page et ce qu'il peut en faire :</p>
+<ul>
+<li><strong>Seulement les personnes invitées</strong> : la page est privée et visible uniquement par vous et vos invités.</li>
+<li><strong>Tout le monde dans l'espace de travail</strong> : tous les membres peuvent trouver la page par la recherche ou avec le lien. Vous pouvez éventuellement <strong>la masquer dans la recherche</strong> pour ceux qui ne l'ont jamais visitée.</li>
+<li><strong>Toute personne disposant du lien</strong> : partage avec des utilisateurs externes. Il leur faudra un compte Notion pour commenter ou modifier. Vous pouvez aussi fixer une expiration du lien.</li>
+</ul>
+<div class="guide-callout"><span class="callout-icon">💡</span><p>Astuce : les administrateurs Enterprise peuvent désactiver les liens publics dans Paramètres → Sécurité → Désactiver la publication de sites, de formulaires et de liens publics.</p></div>
+<h4>Partager avec des personnes ou des groupes</h4>
+<p>Pour partager avec des personnes précises :</p>
+<ol>
+<li>Cliquez sur <strong>Partager</strong> en haut de la page.</li>
+<li>Saisissez le nom ou l'e-mail d'un membre de l'espace.</li>
+<li>Choisissez un <strong>niveau de permission</strong> dans le menu déroulant.</li>
+<li>Cliquez sur <strong>Inviter</strong>.</li>
+</ol>
+<p>La page apparaîtra dans leur section <strong>Partagé</strong> de la barre latérale. Vous pouvez aussi partager avec des groupes pour un contrôle d'accès plus rapide.</p>
+<h4>Partager publiquement</h4>
+<p>Pour partager avec l'ensemble d'Internet :</p>
+<ul>
+<li>Ouvrez le <strong>menu Partager</strong> → <strong>onglet Publier</strong></li>
+<li>Activez « <strong>Publier sur le web</strong> »</li>
+<li>Réglez l'accès général sur « <strong>Toute personne disposant du lien</strong> »</li>
+<li>Gérez l'expiration du lien ou intégrez la page comme <strong>Notion Site</strong></li>
+</ul>
+<p>C'est parfait pour des wikis, de la documentation publique, des pages d'événement ou des portfolios.</p>
+<h4>Partager avec un teamspace</h4>
+<p>Les teamspaces sont des sections partagées pour les équipes à l'intérieur de votre espace de travail. Chacun a ses propres membres et ses propres réglages de permission.</p>
+<p>Vous pouvez partager des pages en :</p>
+<ul>
+<li>Glissant une page dans un teamspace depuis la barre latérale</li>
+<li>Créant une nouvelle page à l'intérieur d'un teamspace</li>
+</ul>
+<p>Certains teamspaces peuvent être par défaut, ce qui signifie que tous les membres de l'espace de travail en font automatiquement partie.</p>
+<p>Pour vérifier si un teamspace est par défaut :</p>
+<ul>
+<li>Cliquez sur <code>•</code> à côté du teamspace → <strong>Paramètres du teamspace</strong> → onglet <strong>Membres</strong> → cherchez « Par défaut » sous <strong>Permissions</strong>.</li>
+</ul>
+<h4>Partager avec des invités</h4>
+<p>Les invités sont des personnes extérieures à votre espace de travail (prestataires ou clients, par exemple). Pour partager :</p>
+<ul>
+<li>Saisissez leur e-mail dans le <strong>menu Partager</strong></li>
+<li>Ils recevront une invitation à la page et auront besoin d'un compte Notion pour y accéder</li>
+</ul>
+<div class="guide-callout"><span class="callout-icon">💡</span><p>Astuce : les administrateurs Enterprise peuvent restreindre le partage avec des invités ou n'autoriser que certains domaines.</p></div>
+<h4>Arrêter le partage ou rendre une page privée</h4>
+<p>Pour révoquer l'accès :</p>
+<ul>
+<li>Glissez la page dans la section <strong>Privé</strong> de votre barre latérale (les autres perdront l'accès)</li>
+<li>Ouvrez le <strong>menu Partager</strong> → cliquez sur le menu déroulant à côté d'une personne ou d'un groupe → <strong>Retirer</strong></li>
+</ul>
+<div class="guide-callout"><span class="callout-icon">📌</span><p>Note : déplacer une page partagée vers Privé retire l'accès aux autres, mais les sous-pages conservent leurs permissions tant qu'on ne les change pas manuellement.</p></div>
+<h4>Les niveaux de permission dans Notion</h4>
+<p>Attribuez un contrôle précis aux personnes ou aux groupes :</p>
+<table class="guide-table"> <tr> <th><strong>Niveau de permission</strong></th> <th><strong>Description</strong></th> </tr> <tr> <td>Accès complet</td> <td>Modifier, partager et inviter d'autres personnes</td> </tr> <tr> <td>Peut modifier</td> <td>Modifier le contenu, mais ni partager ni inviter</td> </tr> <tr> <td>Peut modifier le contenu</td> <td><em>Bases de données uniquement :</em> modifier le contenu des entrées, mais pas la structure ni les vues</td> </tr> <tr> <td>Peut commenter</td> <td>Consulter et laisser des commentaires uniquement</td> </tr> <tr> <td>Peut consulter</td> <td>Accès en lecture seule</td> </tr> </table>
+<div class="guide-callout"><span class="callout-icon">📌</span><p>Note : c'est le niveau de permission le plus élevé qui s'applique. Par exemple, si un groupe a l'Accès complet mais qu'un individu n'a que Peut consulter, il conservera l'Accès complet par le groupe.</p></div>
+<h4>Voir qui a accès à une page</h4>
+<p>En haut d'une page, vous voyez les avatars des personnes qui y ont accès :</p>
+<ul>
+<li>Avatars <strong>estompés</strong> = personne pas en train de consulter</li>
+<li>Avatars <strong>pleins</strong> = personne en train de consulter ou de modifier en direct</li>
+</ul>
+<p>Survolez pour voir les noms, les e-mails et l'activité. Cliquer sur un avatar vous amène là où la personne est en train de modifier.</p>
+<p>Utilisez le menu <code>•••</code> → voir <strong>Dernière modification par</strong> et l'horodatage en bas.</p>
+<h4>Demander un accès ou des permissions</h4>
+<p>Vous essayez d'accéder à une page restreinte ?</p>
+<ul>
+<li>Cliquez sur <strong>Aucun accès</strong> pour demander un accès en lecture ou en modification</li>
+<li>Cela prévient le propriétaire de la page, qui peut approuver ou refuser votre demande</li>
+</ul>
+<p>Pour demander un accès en modification :</p>
+<ul>
+<li>Cliquez sur <strong>Partager</strong></li>
+<li>Ouvrez votre menu déroulant de permission</li>
+<li>Sélectionnez <strong>Demander l'accès en modification</strong></li>
+</ul>
+<h4>Des contrôles de niveau entreprise</h4>
+<p>Les propriétaires d'espaces Enterprise peuvent gérer :</p>
+<ul>
+<li>Les politiques de partage public</li>
+<li>Les contrôles d'invitation des invités</li>
+<li>Les domaines d'e-mail autorisés</li>
+<li>Les permissions par défaut des teamspaces</li>
+</ul>
+<p>Rendez-vous dans <strong>Paramètres → Sécurité</strong> pour configurer ces protections et maintenir la conformité de l'espace de travail.</p>
+<h2 id="notion-api-custom-integrations">API Notion et intégrations sur mesure</h2>
+<p>Pour les développeurs qui veulent aller au-delà des intégrations prêtes à l'emploi, l'API publique de Notion ouvre la porte à des workflows, des bots, des automatisations et des outils internes entièrement sur mesure. Avec les intégrations internes, les webhooks et des permissions fines, vous pouvez créer des connexions pour gérer du contenu, synchroniser des données ou réagir aux mises à jour en temps réel.</p>
+<h3>Créer une intégration interne</h3>
+<p>Pour en créer une :</p>
+<ol>
+<li>Allez dans <strong>Paramètres → Intégrations</strong> depuis votre barre latérale</li>
+</ol>
+<p><em>(Seuls les propriétaires de l'espace de travail ont accès à cet onglet.)</em></p>
+<ol>
+<li>Cliquez sur <strong>Développer vos propres intégrations</strong></li>
+</ol>
+<p>Votre navigateur ouvre le tableau de bord <strong>My Integrations</strong></p>
+<ol>
+<li>→ Cliquez sur <strong>+ New Integration</strong></li>
+<li>Renseignez :</li>
+</ol>
+<p>Le <strong>nom</strong> de l'intégration</p>
+<ol>
+<li>Un <strong>logo</strong>, facultatif</li>
+<li>L'<strong>espace de travail associé</strong></li>
+<li>Une fois créée, allez dans <strong>Paramètres → Connexions</strong>, trouvez votre intégration et cliquez sur <code>••</code> pour :</li>
+</ol>
+<ul>
+<li><strong>Récupérer le jeton interne</strong></li>
+<li><strong>Gérer les accès</strong></li>
+<li><strong>Déconnecter ou modifier</strong> l'intégration</li>
+</ul>
+<h3>Créer une intégration publique</h3>
+<p>Pour rendre votre intégration accessible à tous les utilisateurs de Notion :</p>
+<ol>
+<li>Créez d'abord une <strong>intégration interne</strong>, comme ci-dessus.</li>
+<li>Suivez ensuite la <a href="https://developers.notion.com/reference/intro" rel="noopener noreferrer" target="_blank">documentation développeur</a> de Notion pour la convertir en intégration publique, ce qui inclut :</li>
+</ol>
+<ul>
+<li>La mise en place du flux OAuth</li>
+<li>La définition du périmètre des permissions</li>
+<li>La publication dans la galerie d'intégrations de Notion (facultatif)</li>
+</ul>
+<h3>Des permissions fines pour les intégrations</h3>
+<p>Au moment de configurer une intégration, vous choisissez ce qu'elle peut faire et voir. Les permissions se répartissent ainsi :</p>
+<h4>Capacités sur le contenu :</h4>
+<ul>
+<li><strong>Lecture seule</strong></li>
+<li><strong>Écriture seule</strong></li>
+<li><strong>Insertion de contenu</strong> (ajout uniquement)</li>
+</ul>
+<h4>Capacités sur les utilisateurs :</h4>
+<ul>
+<li><strong>Aucune information utilisateur</strong></li>
+<li><strong>Lecture des informations utilisateur</strong> (avec ou sans e-mail)</li>
+</ul>
+<p>Ces permissions sont visibles par les utilisateurs pendant la configuration et affichées dans le <strong>menu Partager</strong> de toute page à laquelle l'intégration accède.</p>
+<h3>Les webhooks d'intégration</h3>
+<p>Notion prend en charge des webhooks en temps réel qui préviennent votre intégration des changements de contenu.</p>
+<p>Utilisez les webhooks d'intégration pour :</p>
+<ul>
+<li>Détecter les mises à jour dans les pages ou bases connectées</li>
+<li>Synchroniser instantanément les changements vers d'autres applications</li>
+<li>Déclencher des automatisations à partir de l'activité Notion</li>
+</ul>
+<h4>Actions webhook et webhooks d'intégration</h4>
+<p>Les deux peuvent envoyer des événements à des services tiers, mais ils ne servent pas la même chose :</p>
+<table class="guide-table"> <tr> <th><strong>Caractéristique</strong></th> <th><strong>Webhooks d'intégration</strong></th> <th><strong>Actions webhook</strong></th> </tr> <tr> <td>Périmètre</td> <td>Plusieurs espaces de travail</td> <td>Une seule base de données</td> </tr> <tr> <td>Complexité</td> <td>Avancée</td> <td>Simple</td> </tr> <tr> <td>Type de déclencheur</td> <td>Événements de changement de contenu</td> <td>Manuel ou règle de base de données</td> </tr> <tr> <td>Configuration</td> <td>Tableau de bord développeur</td> <td>Interface d'automatisation dans l'application</td> </tr> </table>
+<h4>Intégrations Notion recommandées</h4>
+<table class="guide-table"> <tr> <th><strong>Intégration</strong></th> <th><strong>Cas d'usage</strong></th> <th><strong>Bénéfice</strong></th> </tr> <tr> <td>Slack</td> <td>Recevoir les mises à jour Notion dans Slack ; transformer les messages Slack en tâches Notion.</td> <td>Garde les équipes synchronisées sans changer d'application.</td> </tr> <tr> <td><a href="/fr/" rel="noopener noreferrer" target="_blank">AnthonyToday.com</a></td> <td>Des templates prêts à l'emploi, des audits d'espace de travail et du conseil Notion en tête-à-tête.</td> <td>Un système opérationnel et conforme aux bonnes pratiques dès le premier jour, sans des semaines d'essais et d'erreurs.</td> </tr> <tr> <td>Zapier</td> <td>Automatiser des tâches entre Notion et plus de 5 000 applications (par exemple, soumissions de formulaire → tâches).</td> <td>Fonctionne avec presque tous les outils.</td> </tr> <tr> <td>GitHub</td> <td>Relier les issues, les pull requests et les projets GitHub aux bases Notion.</td> <td>Les développeurs gèrent le code et la documentation au même endroit.</td> </tr> <tr> <td>Miro</td> <td>Intégrer des tableaux blancs ou des sessions de brainstorming directement dans les pages Notion.</td> <td>Idéal pour le design, la planification de sprint et les rétrospectives.</td> </tr> </table>
+<h2 id="automations-in-notion">Les automatisations dans Notion</h2>
+<p>Les automatisations Notion vous aident à supprimer les tâches répétitives, à fluidifier les workflows et à faire plus en moins de clics. Avec les boutons, vous automatisez tout, de l'envoi de notifications à la modification d'entrées de base de données, sans écrire une seule ligne de code.</p>
+<p>Notion propose deux types de boutons :</p>
+<ul>
+<li><strong>Boutons de page</strong> : ajoutez des boutons interactifs à n'importe quelle page Notion</li>
+<li><strong>Boutons de base de données</strong> : automatisez des actions sur des éléments précis d'une base</li>
+</ul>
+<h3>Boutons de page : automatiser d'un clic</h3>
+<p>Avec les boutons de template sur les pages, vous pouvez :</p>
+<ul>
+<li>Déclencher des actions comme créer des pages, modifier des données ou notifier des utilisateurs</li>
+<li>Enchaîner plusieurs actions en un seul clic</li>
+<li>Personnaliser dynamiquement avec des variables, des mentions et des formules</li>
+</ul>
+<h3>Créer un bouton de page</h3>
+<ol>
+<li>Tapez <code>/button</code> sur une page</li>
+<li>Nommez le bouton et choisissez un emoji</li>
+<li>Ajoutez une ou plusieurs actions avec l'option <strong>+ Nouvelle action</strong></li>
+<li>Cliquez sur <strong>Terminé</strong> pour enregistrer</li>
+</ol>
+<h4>Actions disponibles pour les boutons de page</h4>
+<table class="guide-table"> <tr> <th><strong>Action</strong></th> <th><strong>Description</strong></th> </tr> <tr> <td>Insérer des blocs</td> <td>Ajouter des blocs de contenu n'importe où sur la page</td> </tr> <tr> <td>Ajouter une page à</td> <td>Ajouter une nouvelle entrée à une base de données choisie</td> </tr> <tr> <td>Modifier des pages dans</td> <td>Modifier les propriétés d'éléments de base existants</td> </tr> <tr> <td>Envoyer une notification à</td> <td>Notifier des utilisateurs ou des propriétés de type personne</td> </tr> <tr> <td>Envoyer un e-mail à (Payant)</td> <td>Envoyer des e-mails Gmail</td> </tr> <tr> <td>Envoyer un webhook (Payant)</td> <td>Envoyer des requêtes POST vers d'autres outils</td> </tr> <tr> <td>Afficher une confirmation</td> <td>Ajouter une fenêtre de confirmation avant exécution</td> </tr> <tr> <td>Ouvrir une page ou une URL</td> <td>Ouvrir une page Notion choisie ou un lien externe</td> </tr> <tr> <td>Envoyer une notification Slack</td> <td>Pousser des messages vers des canaux Slack</td> </tr> <tr> <td>Définir des variables</td> <td>Stocker des valeurs réutilisables pour d'autres actions</td> </tr> </table>
+<h3>Mentions et formules</h3>
+<p>Utilisez <code>@</code> pour référencer des utilisateurs, des pages ou des dates. Utilisez <code>∑</code> pour des formules comme :</p>
+<ul>
+<li><code>[Titre de la page] - Mis à jour le [Date du jour]</code></li>
+<li><code>Bonjour @Personne, votre tâche est due le ∑[Échéance]</code></li>
+</ul>
+<h3>Les boutons de base de données</h3>
+<p>Les boutons de base de données changent la donne pour les tâches structurées et répétables : validations, relances, mises à jour de statut ou suivi d'habitudes.</p>
+<p>Chaque bouton est une propriété de base de données, vit dans une ligne et exécute des actions sur cet élément précis.</p>
+<h4>Qui peut utiliser les boutons de base de données ?</h4>
+<ul>
+<li>Créer et modifier : toute personne avec l'<strong>Accès complet</strong> ou <strong>Peut modifier</strong></li>
+<li>Cliquer sur les boutons : également permis aux utilisateurs avec <strong>Peut modifier le contenu</strong></li>
+</ul>
+<h4>Créer un bouton de base de données</h4>
+<ol>
+<li>Ouvrez votre base → cliquez sur <code>••</code> → <strong>Propriétés → Nouvelle propriété → Bouton</strong></li>
+<li>Nommez votre bouton (par exemple « Approuver », « Terminé », « Envoyer un rappel »)</li>
+<li>Cliquez sur <strong>Modifier l'automatisation</strong> pour ajouter des actions</li>
+<li>Utilisez <code>@</code> ou <code>∑</code> dans les champs pour récupérer les propriétés de la ligne courante</li>
+</ol>
+<h4>Actions disponibles pour les boutons de base de données</h4>
+<table class="guide-table"> <tr> <th><strong>Action</strong></th> <th><strong>Description</strong></th> </tr> <tr> <td>Modifier une propriété</td> <td>Changer les propriétés de la ligne courante</td> </tr> <tr> <td>Ajouter une page à</td> <td>Créer une nouvelle page dans une autre base</td> </tr> <tr> <td>Modifier des pages dans</td> <td>Modifier des entrées dans d'autres bases</td> </tr> <tr> <td>Envoyer une notification à</td> <td>Notifier des personnes directement depuis le contexte de la ligne</td> </tr> <tr> <td>Envoyer un e-mail à (Payant)</td> <td>Déclencher un message Gmail rattaché à cette ligne</td> </tr> <tr> <td>Envoyer un webhook (Payant)</td> <td>Pousser des mises à jour vers des applications externes</td> </tr> <tr> <td>Afficher une confirmation</td> <td>Demander confirmation avant d'exécuter l'action</td> </tr> <tr> <td>Ouvrir une page ou une URL</td> <td>Pointer vers un site externe ou une page Notion</td> </tr> <tr> <td>Envoyer une notification Slack</td> <td>Notifier un canal (par exemple #statut-projet)</td> </tr> <tr> <td>Définir des variables</td> <td>Réutiliser des valeurs entre les actions d'une automatisation</td> </tr> </table>
+<h4>Envoyer un e-mail depuis un bouton de base de données</h4>
+<ol>
+<li>Ajoutez une propriété Bouton → Modifier l'automatisation → <strong>Envoyer un e-mail à</strong></li>
+<li>Personnalisez le <strong>Destinataire</strong>, l'<strong>Objet</strong>, le <strong>Message</strong> et le reste</li>
+<li>Utilisez des données propres à la ligne, comme :</li>
+</ol>
+<ul>
+<li>Le créateur de la page</li>
+<li>L'échéance</li>
+<li>Le statut</li>
+<li>Des formules ou des mentions personnalisées</li>
+</ul>
+<p>Vous pouvez mettre en copie, en copie cachée, définir des adresses de réponse, et même des noms d'expéditeur avec du contenu dynamique.</p>
+<h4>Définir des variables dans les boutons de base de données</h4>
+<p>Créez des variables nommées à partir de :</p>
+<ul>
+<li><code>@</code> (mentions de personnes ou de propriétés)</li>
+<li><code>∑</code> (formules comme la date du jour, ou des chaînes concaténées)</li>
+</ul>
+<p>Utilisez-les dans :</p>
+<ul>
+<li>Les objets d'e-mail</li>
+<li>Les mises à jour de propriétés</li>
+<li>Les notifications et les messages Slack</li>
+</ul>
+<h2 id="formulas-in-notion">Les formules dans Notion</h2>
+<p>Les formules Notion vous permettent de calculer, de manipuler et d'automatiser les données de vos bases. Que vous suiviez l'avancement de tâches, notiez des idées ou construisiez une logique conditionnelle pour vos automatisations, les formules transforment des données statiques en résultats dynamiques.</p>
+<h3>Où utiliser les formules dans Notion ?</h3>
+<p>Les formules s'utilisent à plusieurs endroits :</p>
+<ul>
+<li>Comme <strong>propriété de base de données</strong> (l'usage le plus courant)</li>
+<li>Dans les <strong>boutons de page</strong> et les <strong>boutons de base de données</strong></li>
+<li>Au sein des <strong>automatisations de base de données</strong>, pour définir des variables ou de la logique</li>
+</ul>
+<p>Chaque formule s'évalue et renvoie un résultat dynamique, texte, nombre, booléen (vrai/faux) ou date, à partir de vos autres propriétés ou de fonctions.</p>
+<h3>Créer et modifier une formule</h3>
+<h4>Créer une propriété Formule</h4>
+<ol>
+<li>Ouvrez votre base → cliquez sur <code>••</code> → <strong>Propriétés</strong></li>
+<li>Cliquez sur <strong>Nouvelle propriété → Formule</strong></li>
+<li>Nommez votre formule (par exemple « Score de priorité » ou « En retard ? »)</li>
+<li>Cliquez sur <strong>Modifier la formule</strong> pour ouvrir l'éditeur de formules</li>
+</ol>
+<h4>Utiliser l'éditeur de formules</h4>
+<p>L'éditeur de formules comprend :</p>
+<ul>
+<li>Un champ de texte pour saisir votre formule</li>
+<li>Un <strong>panneau de gauche</strong> listant les propriétés disponibles et les fonctions intégrées</li>
+<li>Un <strong>panneau de droite</strong> affichant les explications de syntaxe et des conseils en temps réel</li>
+<li>Un <strong>aperçu en direct</strong> du résultat quand vous éditez depuis une ligne de base de données</li>
+</ul>
+<h4>Les composants d'une formule</h4>
+<p>Les formules se construisent à partir de :</p>
+<ul>
+<li><strong>Propriétés</strong> : les données de votre base actuelle (Statut, Échéance, Priorité, etc.)</li>
+<li><strong>Éléments intégrés</strong> : opérateurs et valeurs logiques comme <code>+</code>, , <code>or</code>, <code>false</code>, <code>!=</code></li>
+<li><strong>Fonctions</strong> : des actions comme <code>replace()</code>, <code>sum()</code>, <code>length()</code>, <code>now()</code> ou <code>dateAdd()</code></li>
+</ul>
+<p>Notion prend aussi en charge le <strong>formatage de style</strong> dans les formules, ainsi que les opérateurs logiques comme <code>if()</code>, <code>and()</code>, <code>or()</code> et l'opérateur ternaire <code>X ? Y : Z</code>.</p>
+<h4>Exemples de formules</h4>
+<p><strong>Exemple en gestion de projet</strong></p>
+<table class="guide-table"> <tr> <th><strong>Objectif</strong></th> <th><strong>Formule</strong></th> </tr> <tr> <td>Fixer l'échéance deux semaines après le démarrage</td> <td><code>dateAdd(Date de début, 2, "week")</code></td> </tr> <tr> <td>Marquer comme en retard si l'échéance est passée et la tâche non terminée</td> <td><code>if(and(now() &gt; Échéance, Statut != "Terminé"), "En retard", "")</code></td> </tr> <tr> <td>Ajouter une étiquette « En retard » en rouge et en gras</td> <td><code>if(and(now() &gt; Échéance, Statut != "Terminé"), style("En retard", "red", "b"), "")</code></td> </tr> <tr> <td>Compter les tâches non terminées</td> <td><code>length(Tâches.map(current.Statut != "Terminé"))</code></td> </tr> </table>
+<p>Fonctions utilisées : dateAdd(), if(), and(), now(), style(), map(), length()</p>
+<p><strong>Exemple de priorisation de projets avec RICE</strong></p>
+<table class="guide-table"> <tr> <th><strong>Objectif</strong></th> <th><strong>Formule</strong></th> </tr> <tr> <td>Score RICE (Portée × Impact × Confiance ÷ Effort)</td> <td><code>Portée <em> Impact </em> Confiance / Effort</code></td> </tr> <tr> <td>Compter le total des votes positifs</td> <td><code>length(Voté par)</code></td> </tr> </table>
+<p>Servez-vous-en pour prioriser les projets sur un impact quantitatif et suivre l'intérêt grâce aux votes.</p>
+<p><strong>Automatisation de la gestion de tâches</strong></p>
+<p>Déclencher une automatisation quand toutes les sous-tâches passent à « Terminé » et mettre à jour la tâche parente en conséquence :</p>
+<ol>
+<li>Condition de déclenchement : quand Statut = Terminé</li>
+<li>Définir la tâche parente :</li>
+</ol>
+<p><code>3.Trigger page.Parent item.first()</code></p>
+<ol>
+<li>Vérifier que toutes les sous-tâches sont terminées :</li>
+</ol>
+<p><code>5.Parent Task.Sub-item ? Parent Task.Sub-item.every(current.Status == "Done") : false</code></p>
+<ol>
+<li>Mettre à jour le statut de la tâche parente :</li>
+</ol>
+<p><code>7.All subtasks done? ? "Done" : Parent Task.Status</code></p>
+<p>Fonctions utilisées : <code>first()</code>, <code>every()</code>, opérateur ternaire <code>X ? Y : Z</code></p>
+<p>Cette configuration est idéale pour les hiérarchies de projet où les sous-tâches déterminent l'achèvement des tâches parentes.</p>
+<div class="guide-callout"><span class="callout-icon">💡</span><p>Astuce : ce type d'automatisation est exactement ce que je mets en place pour mes clients. Si vous voulez des statuts, des rollups et une logique de tâche parente correctement configurés du premier coup, partez de l'un de mes <a href="https://www.notion.com/@anthonytoday" rel="noopener noreferrer" target="_blank">templates Marketplace</a> ou <a href="https://cal.com/anthonytoday/consultation" rel="noopener noreferrer" target="_blank">réservez une consultation</a>.</p></div>
+<h3>Utiliser les formules dans les automatisations et les boutons</h3>
+<p>Vous pouvez intégrer des formules directement dans :</p>
+<ul>
+<li><strong>Les boutons de page</strong></li>
+<li><strong>Les boutons de base de données</strong></li>
+<li><strong>Les automatisations de base de données</strong></li>
+</ul>
+<p>Utilisez les formules pour, dynamiquement :</p>
+<ul>
+<li>Insérer des noms de personnes, des titres de page ou des dates</li>
+<li>Créer des objets ou des messages d'e-mail calculés</li>
+<li>Styliser ou formater le contenu de façon conditionnelle</li>
+<li>Piloter une logique de branchement avec des évaluations booléennes</li>
+</ul>
+<h2 id="notion-pricing-guide">Guide des tarifs Notion</h2>
+<p>Notion propose des <a href="https://affiliate.notion.so/0x8u16p4sff1" rel="noopener noreferrer" target="_blank">formules tarifaires souples</a> pour les particuliers, les équipes et les entreprises, avec les fonctions essentielles incluses à chaque niveau et des montées en gamme puissantes à mesure que vous grandissez.</p>
+<p>Vous choisissez le paiement mensuel ou annuel. Tous les prix ci-dessous sont en dollars par utilisateur, facturés annuellement. La facturation mensuelle coûte légèrement plus cher. Notion a restructuré ses plans en 2025 : Notion AI est désormais inclus dans Business et Enterprise au lieu d'être vendu en option séparée.</p>
+<h3>Free : 0 $</h3>
+<p>Idéal pour les projets personnels, les plans de révision ou les activités secondaires.</p>
+<p>Comprend :</p>
+<ul>
+<li>Un espace de travail collaboratif</li>
+<li>L'intégration avec Slack, GitHub et d'autres</li>
+<li>Des statistiques de page basiques</li>
+<li>7 jours d'historique de page</li>
+<li>Jusqu'à 10 invités</li>
+<li>Notion Mail (synchronisation Gmail)</li>
+<li>Notion Calendar</li>
+</ul>
+<h3>Plus : 10 $ par utilisateur et par mois</h3>
+<p>Davantage de puissance collaborative.</p>
+<p>Tout ce que contient Free, plus :</p>
+<ul>
+<li>Des blocs illimités pour les équipes</li>
+<li>Des téléversements de fichiers illimités</li>
+<li>30 jours d'historique de page</li>
+<li>Jusqu'à 100 invités</li>
+<li>Des bases de données synchronisées avec des applications tierces</li>
+<li>Des sites web personnalisés</li>
+<li>Des automatisations personnalisées</li>
+<li>Des graphiques et des tableaux de bord</li>
+</ul>
+<h3>Business : 20 $ par utilisateur et par mois</h3>
+<p>Ajoute <a href="https://affiliate.notion.so/0x8u16p4sff1" rel="noopener noreferrer" target="_blank">Notion AI en version complète</a>, plus de contrôle et des statistiques.</p>
+<p>Tout ce que contient Plus, plus :</p>
+<ul>
+<li>Notion AI en version complète (Notion Agent, comptes rendus de réunion IA, recherche d'entreprise)</li>
+<li>SAML SSO (authentification unique)</li>
+<li>Des teamspaces privés</li>
+<li>La vérification de page</li>
+<li>L'export PDF en masse</li>
+<li>Des statistiques de page avancées</li>
+<li>90 jours d'historique de page</li>
+<li>Jusqu'à 250 invités</li>
+</ul>
+<div class="guide-promo">🚀 <strong>Obtenez 3 mois de Notion Business GRATUITS</strong> (IA incluse). Tout ce que décrit ce guide tourne encore mieux avec les fonctions du niveau Business. <a href="https://affiliate.notion.so/0x8u16p4sff1" rel="noopener noreferrer" target="_blank">Activer votre essai →</a> <span color="gray"><em>(lien d'affiliation)</em></span></div>
+<h3>Enterprise : tarif sur mesure</h3>
+<p>Ajoute une sécurité avancée, la mise à l'échelle et un support dédié.</p>
+<p>Tout ce que contient Business, plus :</p>
+<ul>
+<li>Le provisionnement des utilisateurs (SCIM)</li>
+<li>Des contrôles de sécurité et d'administration avancés</li>
+<li>Un journal d'audit</li>
+<li>Des statistiques d'espace de travail</li>
+<li>Un historique de page illimité</li>
+<li>Un Customer Success Manager dédié</li>
+<li>Des intégrations sécurité et conformité</li>
+<li>Jusqu'à 250 invités</li>
+</ul>
+<h4>Notion AI</h4>
+<p>L'option IA autonome a été retirée en 2025. Notion AI en version complète est désormais inclus dans les <a href="https://affiliate.notion.so/0x8u16p4sff1" rel="noopener noreferrer" target="_blank">plans Business et Enterprise</a>, tandis que Free et Plus donnent droit à un essai limité. Notion AI vous aide à :</p>
+<ul>
+<li>Écrire et éditer</li>
+<li>Résumer et traduire</li>
+<li>Remplir automatiquement des données</li>
+<li>Poser des questions contextuelles à l'intérieur de vos documents</li>
+<li>Les comptes rendus de réunion IA, la recherche d'entreprise et le Notion Agent</li>
+</ul>
+<p>Des options à l'usage existent aussi : les agents personnalisés sont gratuits à l'essai, puis facturés 10 $ pour 1 000 crédits Notion mensuels.</p>
+<h3>Vue d'ensemble des tarifs Notion</h3>
+<table class="guide-table"> <tr> <th><strong>Plan</strong></th> <th><strong>Idéal pour</strong></th> <th><strong>Prix (USD/mois, annuel)</strong></th> <th><strong>Historique de page</strong></th> <th><strong>Limite d'invités</strong></th> <th><strong>Synchronisations et sites</strong></th> <th><strong>SSO et sécurité</strong></th> </tr> <tr> <td>Free</td> <td>Usage personnel</td> <td>0 $</td> <td>7 jours</td> <td>10</td> <td>&ndash;</td> <td>&ndash;</td> </tr> <tr> <td>Plus</td> <td>Petites équipes et indépendants</td> <td>10 $/utilisateur</td> <td>30 jours</td> <td>100</td> <td>✓</td> <td>&ndash;</td> </tr> <tr> <td>Business</td> <td>Entreprises en croissance</td> <td>20 $/utilisateur</td> <td>90 jours</td> <td>250</td> <td>✓</td> <td>✓</td> </tr> <tr> <td>Enterprise</td> <td>Grandes organisations</td> <td>Sur mesure</td> <td>Illimité</td> <td>250</td> <td>✓</td> <td>✓ (avancé)</td> </tr> </table>
+<h2 id="workspace-administration">Administration de l'espace de travail</h2>
+<p>Les administrateurs gèrent les paramètres de l'espace de travail, invitent et retirent des membres, attribuent des rôles et contrôlent les accès. Les espaces Enterprise offrent des contrôles plus poussés comme le SAML SSO, les journaux d'audit et des permissions fines.</p>
+<h3>Les rôles d'administration d'un espace de travail Notion</h3>
+<table class="guide-table"> <tr> <th><strong>Rôle</strong></th> <th><strong>Périmètre</strong></th> <th><strong>Capacités clés</strong></th> <th><strong>Limites</strong></th> </tr> <tr> <td>Propriétaire de l'organisation</td> <td>Toute l'organisation (plusieurs espaces de travail)</td> <td>• Voir et gérer tous les espaces et tous les membres• Appliquer des réglages à l'échelle de l'organisation</td> <td>Disponible uniquement si votre organisation utilise la configuration multi-espaces de Notion</td> </tr> <tr> <td>Propriétaire de l'espace de travail</td> <td>Un seul espace de travail</td> <td>• Contrôle total sur les paramètres, la sécurité, les membres et les groupes• Peut supprimer l'espace de travail</td> <td>Sans objet (permissions complètes dans l'espace de travail)</td> </tr> <tr> <td>Administrateur des membres</td> <td>Gestion des membres et des groupes</td> <td>• Ajouter et retirer des membres dans les espaces• Gérer les groupes (ajouter et retirer des membres, des propriétaires et d'autres administrateurs des membres)</td> <td>Ne peut pas gérer les paramètres de l'espace de travailNe peut ajouter des utilisateurs qu'au rôle de membre</td> </tr> </table>
+<h2 id="settings-in-notion">Les paramètres dans Notion</h2>
+<p>Les paramètres de Notion vous donnent la main sur votre compte personnel, les préférences de l'espace de travail, l'apparence, la langue, la confidentialité et le comportement de l'application, sur ordinateur, sur le web ou sur mobile.</p>
+<img alt="Capture d'écran du Guide Notion ultime : du débutant au pro" class="guide-img" loading="lazy" src="/assets/guides/notion/131b8035-webp" width="1966" height="1108">
+<h3>Paramètres du compte</h3>
+<h4>Changer votre photo de profil</h4>
+<p>Disponible sur ordinateur et sur le web :</p>
+<ol>
+<li>Allez dans <strong>Paramètres → [Votre nom]</strong></li>
+<li>Cliquez sur votre photo actuelle (ou votre initiale) au-dessus de « Ajouter une photo »</li>
+<li>Choisissez un fichier image et cliquez sur <strong>Ouvrir</strong></li>
+</ol>
+<h4>Changer votre nom</h4>
+<ol>
+<li>Allez dans <strong>Paramètres → [Votre nom]</strong></li>
+<li>Modifiez le champ sous <strong>Nom d'usage</strong></li>
+</ol>
+<h4>Changer votre adresse e-mail</h4>
+<ol>
+<li>Allez dans <strong>Paramètres → [Votre nom] → Sécurité du compte → Changer l'e-mail</strong></li>
+<li>Suivez le parcours de vérification :</li>
+</ol>
+<ul>
+<li>Avec un mot de passe : saisissez-le</li>
+<li>Sans mot de passe : vérifiez via l'ancienne adresse e-mail</li>
+</ul>
+<ol>
+<li>Saisissez votre nouvel e-mail → Obtenir un code de vérification</li>
+<li>Collez le code → Cliquez sur <strong>Changer l'e-mail</strong></li>
+</ol>
+<h4>Définir, changer ou supprimer votre mot de passe</h4>
+<ol>
+<li>Allez dans <strong>Paramètres → [Votre nom]</strong></li>
+<li>Choisissez <strong>Définir un mot de passe</strong> ou <strong>Changer le mot de passe</strong></li>
+<li>Saisissez votre mot de passe en respectant les exigences (8 caractères minimum, 3 caractères spéciaux, 1 lettre, 1 chiffre)</li>
+</ol>
+<h3>Apparence et accessibilité</h3>
+<h4>Personnaliser l'apparence sur ordinateur</h4>
+<ol>
+<li>Allez dans <strong>Paramètres → Préférences → Apparence</strong></li>
+<li>Choisissez :</li>
+</ol>
+<ul>
+<li><strong>Utiliser le réglage du système</strong></li>
+<li><strong>Mode clair</strong></li>
+<li><strong>Mode sombre</strong></li>
+</ul>
+<div class="guide-callout"><span class="callout-icon">💡</span><p>Astuce : bascule rapide avec Cmd/Ctrl + Maj + L</p></div>
+<h4>Personnaliser l'apparence sur mobile</h4>
+<ol>
+<li>Touchez <code>••</code> dans la barre latérale → <strong>Paramètres → Apparence</strong></li>
+<li>Choisissez <strong>Réglage du système</strong>, <strong>Clair</strong> ou <strong>Sombre</strong></li>
+</ol>
+<h4>Langue, région et affichage</h4>
+<h4>Changer la langue d'affichage</h4>
+<ol>
+<li>Allez dans <strong>Paramètres → Préférences → Langue et heure → Langue</strong></li>
+<li>Choisissez parmi :</li>
+</ol>
+<ul>
+<li>anglais, coréen, japonais, français, allemand, espagnol (Espagne et Amérique latine), portugais (Brésil), chinois simplifié et traditionnel, néerlandais, norvégien, suédois, danois (bêta), finnois</li>
+</ul>
+<h4>Commencer la semaine le lundi</h4>
+<ol>
+<li>Allez dans <strong>Paramètres → Préférences → Langue et heure</strong></li>
+<li>Activez <strong>Commencer la semaine le lundi</strong></li>
+</ol>
+<h4>Changer votre fuseau horaire</h4>
+<ol>
+<li>Allez dans <strong>Paramètres → Préférences → Langue et heure</strong></li>
+<li>Réglez-le manuellement ou activez la <strong>mise à jour automatique du fuseau horaire</strong></li>
+</ol>
+<h3>Préférences de l'application de bureau</h3>
+<h4>Au démarrage</h4>
+<p>Définissez ce qui s'affiche à l'ouverture de l'application :</p>
+<ul>
+<li>Reprendre là où vous vous êtes arrêté</li>
+<li>Une page par défaut</li>
+</ul>
+<h4>Recherche de commandes et barre de menus</h4>
+<p>Activez la recherche de commandes pour lancer Notion depuis n'importe où :</p>
+<ul>
+<li>Afficher dans la <strong>barre de menus</strong></li>
+<li>Personnaliser les <strong>raccourcis clavier</strong></li>
+</ul>
+<h4>Comportement des nouveaux onglets</h4>
+<ul>
+<li>Activez <strong>Ouvrir la recherche à la création d'un onglet</strong></li>
+<li>Choisissez d'afficher plutôt une <strong>page par défaut</strong></li>
+</ul>
+<h4>Comportement des liens Notion</h4>
+<ul>
+<li>Activez <strong>Ouvrir les liens Notion dans le navigateur</strong></li>
+<li>Ou laissez les liens web <strong>rediriger vers l'application de bureau</strong></li>
+</ul>
+<h4>Ouvrir les liens dans l'application de bureau</h4>
+<p>Vous voulez que les liens Notion de votre navigateur s'ouvrent dans l'application ?</p>
+<ol>
+<li>Allez dans <strong>Paramètres → Préférences</strong></li>
+<li>Activez <strong>Ouvrir les liens dans l'application de bureau</strong></li>
+<li>Dans votre application de bureau, vérifiez que <strong>Ouvrir les liens dans le navigateur</strong> est <strong>désactivé</strong></li>
+</ol>
+<p>Si cela ne fonctionne pas :</p>
+<ul>
+<li>Ouvrez le lien dans le navigateur → Cliquez sur <code>•</code> → <strong>Ouvrir dans l'application Mac</strong></li>
+</ul>
+<h3>Confidentialité et statistiques</h3>
+<h4>Historique de consultation</h4>
+<p>Pour vous retirer du suivi statistique :</p>
+<ol>
+<li>Allez dans <strong>Paramètres → Préférences → Confidentialité</strong></li>
+<li>Sous <strong>Afficher mon historique de consultation</strong>, choisissez <strong>Ne pas enregistrer</strong></li>
+</ol>
+<h4>Visibilité du profil</h4>
+<p>Contrôlez si d'autres peuvent trouver votre profil grâce à votre e-mail :</p>
+<ol>
+<li>Allez dans <strong>Paramètres → Préférences → Confidentialité</strong></li>
+<li>Activez ou désactivez <strong>Visibilité du profil</strong></li>
+</ol>
+<h3>Supprimer votre compte Notion</h3>
+<p>Si vous ne souhaitez plus utiliser Notion, vous pouvez supprimer définitivement votre compte, mais assurez-vous d'abord d'en mesurer les conséquences.</p>
+<h4>Ce qui se passe quand vous supprimez votre compte</h4>
+<p>La suppression de votre compte Notion est définitive et affecte tous les contenus et espaces de travail associés.</p>
+<p>Voici ce qui se produit :</p>
+<ul>
+<li>Tous les espaces de travail privés dont vous êtes le seul membre seront définitivement supprimés</li>
+<li>Les espaces partagés dont vous êtes le seul administrateur seront eux aussi supprimés pour tout le monde</li>
+<li>Les espaces supprimés deviennent inaccessibles à tous les membres, pas seulement à vous</li>
+<li>Vous serez retiré de tous les espaces partagés dont vous faisiez partie</li>
+<li>Vous perdrez l'accès à toutes vos pages, y compris personnelles et privées</li>
+<li>Un message d'avertissement indiquera les espaces concernés avant votre confirmation</li>
+</ul>
+<div class="guide-callout"><span class="callout-icon">💡</span><p>Astuce : avant de supprimer votre compte, exportez toutes les données importantes que vous voulez conserver.</p></div>
+<h4>Comment supprimer votre compte</h4>
+<ol>
+<li>Allez dans <strong>Paramètres → [Votre nom]</strong></li>
+<li>Faites défiler et cliquez sur <strong>Supprimer mon compte</strong></li>
+<li>Une fenêtre affichera les espaces de travail concernés</li>
+<li>Pour confirmer, saisissez l'e-mail de votre compte</li>
+<li>Cliquez sur <strong>Supprimer définitivement le compte et {#} espaces de travail</strong></li>
+</ol>
+<h2 id="notion-ai">Notion AI</h2>
+<p>Notion AI est intégré à votre espace de travail et vous aide à chercher, écrire, résumer, réfléchir, traduire et agir, le tout sans changer d'application.</p>
+<p>Il est utile pour piloter des projets, relire des documents ou explorer des idées, car il travaille aux côtés de vos notes, de vos bases et de vos collaborateurs pour accélérer votre travail.</p>
+<h3>Où trouver Notion AI</h3>
+<p>Vous accédez à Notion AI depuis plusieurs endroits de votre espace de travail :</p>
+<ul>
+<li>L'<strong>icône Notion AI</strong> dans le coin inférieur de n'importe quelle page</li>
+<li>Le <strong>chat Notion AI</strong> depuis votre barre latérale</li>
+</ul>
+<p><strong>En ligne</strong>, en :</p>
+<ul>
+<li>Appuyant sur espace dans un nouveau bloc</li>
+<li>Cliquant sur <code>⋮⋮</code> sur n'importe quel bloc → <strong>Demander à l'IA</strong></li>
+<li>Surlignant du texte et choisissant <strong>Demander à l'IA</strong></li>
+</ul>
+<h3>Raccourcis Notion AI</h3>
+<p><strong>Raccourci sur ordinateur :</strong> <code>Maj + Cmd/Ctrl + J</code> (personnalisable via <strong>Paramètres → Préférences</strong>)</p>
+<p><strong>Accès sur iOS :</strong></p>
+<ul>
+<li>Demander à Siri d'ouvrir Notion AI</li>
+<li>Utiliser Spotlight ou l'application Raccourcis</li>
+<li>Ajouter Notion AI à votre écran d'accueil</li>
+<li>Sur iPhone 15 Pro : l'assigner au bouton Action</li>
+</ul>
+<h3>Ce que Notion AI sait faire</h3>
+<h4>Trouver des réponses</h4>
+<p>Posez vos questions à Notion AI et obtenez des réponses fondées sur :</p>
+<ul>
+<li>Les connaissances générales</li>
+<li>Les pages de votre espace de travail (auxquelles vous avez accès)</li>
+<li>Les outils connectés comme Slack et Google Drive (via les connecteurs IA)</li>
+</ul>
+<h4>Agir sur les pages</h4>
+<p>Notion AI peut suggérer et exécuter des actions utiles :</p>
+<ul>
+<li>Extraire les actions à mener</li>
+<li>Résumer une réunion</li>
+<li>Rédiger un ordre du jour</li>
+<li>Poser des questions à partir du contenu de la page en cours</li>
+</ul>
+<h4>Analyser les fichiers et images téléversés</h4>
+<p>Téléversez un PDF, un PNG ou un JPEG dans votre chat IA et posez des questions comme :</p>
+<p>« Quelles sont les principales actions à mener dans ce document ? »</p>
+<ul>
+<li>Plan gratuit : PDF et images de moins de 5 Mo</li>
+<li>Plans payants et IA : PDF jusqu'à 20 Mo, images jusqu'à 5 Mo</li>
+</ul>
+<div class="guide-callout"><span class="callout-icon">📌</span><p>Note : les fichiers et images doivent être téléversés directement dans le chat. L'IA ne peut pas lire les médias intégrés dans les pages.</p></div>
+<h4>Créer et modifier du contenu</h4>
+<p>Utilisez Notion AI pour :</p>
+<ul>
+<li>Rédiger des plans, des brouillons, des synthèses</li>
+<li>Corriger la grammaire, le ton, la longueur</li>
+<li>Traduire du contenu</li>
+<li>Construire des bases de données à partir d'un prompt.</li>
+</ul>
+<h4>Remplissage automatique</h4>
+<p>Le remplissage automatique de Notion AI peut :</p>
+<ul>
+<li>Générer des synthèses</li>
+<li>Traduire du contenu</li>
+<li>Rédiger des actions à mener directement dans les propriétés d'une base</li>
+</ul>
+<p>Parfait pour garder vos suivis de projet ou vos bases de contenu à jour automatiquement.</p>
+<h4>Tarifs de Notion AI</h4>
+<ul>
+<li><strong>Inclus</strong> dans les plans Business et Enterprise (l'option séparée a été retirée en 2025)</li>
+<li>Les plans <strong>Free et Plus</strong> donnent droit à un essai IA limité</li>
+<li><strong>Agents personnalisés</strong> : gratuits à l'essai, puis 10 $ pour 1 000 crédits Notion mensuels</li>
+</ul>
+<p><strong>Comment obtenir l'accès complet à l'IA :</strong></p>
+<ul>
+<li>Allez dans <strong>Paramètres → Changer de plan / Explorer les plans</strong></li>
+<li>Passez au plan <strong>Business</strong></li>
+</ul>
+<div class="guide-promo">🚀 <strong>Obtenez 3 mois de Notion Business GRATUITS</strong> (IA incluse). Tout ce que décrit ce guide tourne encore mieux avec les fonctions du niveau Business. <a href="https://affiliate.notion.so/0x8u16p4sff1" rel="noopener noreferrer" target="_blank">Activer votre essai →</a> <span color="gray"><em>(lien d'affiliation)</em></span></div>
+<h2 id="notion-calendar">Notion Calendar</h2>
+<img alt="Capture d'écran du Guide Notion ultime : du débutant au pro" class="guide-img" loading="lazy" src="/assets/guides/notion/131b80a8-cleanshot-2025-05-07-at-10-29-27-2x-1-2x-web.webp" width="2222" height="1250">
+<p>Notion Calendar (anciennement Cron) offre une expérience de calendrier intégrée. Vous connectez plusieurs comptes de calendrier, gérez vos événements aux côtés de vos tâches et consultez votre planning directement dans Notion.</p>
+<h3>Gérer vos calendriers</h3>
+<p>Vous pouvez connecter plusieurs calendriers à Notion Calendar. Les comptes connectés et leurs calendriers apparaissent dans la barre latérale gauche de Notion Calendar. Vous pouvez replier les comptes, les réordonner, et réordonner les calendriers à l'intérieur de chacun.</p>
+<h3>Ajouter un calendrier</h3>
+<p>Pour ajouter un calendrier à Notion Calendar :</p>
+<ol>
+<li>Allez dans <strong><code>Paramètres</code></strong> → <strong><code>Calendriers</code></strong>.</li>
+<li>Sélectionnez <strong><code>Connecter</code></strong> à côté du type de calendrier à ajouter.</li>
+</ol>
+<h3>Retirer un calendrier</h3>
+<p>Vous pouvez retirer n'importe quel calendrier de Notion Calendar. Pour cela, allez dans <strong>Paramètres</strong> → <strong>Calendriers</strong>. À côté du calendrier à retirer, sélectionnez <strong>Déconnecter</strong>.</p>
+<h3>Définir un calendrier par défaut</h3>
+<p>Notion Calendar utilise un calendrier par défaut quand vous créez de nouveaux événements.</p>
+<p>Pour définir un calendrier par défaut, allez dans <strong>Paramètres</strong> → <strong>Calendriers</strong> → <strong>Calendrier par défaut</strong> et choisissez celui que vous voulez : ce peut être une base de données Notion.</p>
+<h3>Masquer un calendrier</h3>
+<p>Pour masquer un calendrier, sélectionnez <strong>👁️</strong> à côté de son nom. Tous les événements de ce calendrier disparaissent de la vue et l'icône se barre. Pour le réafficher, sélectionnez <strong>👁️</strong> de nouveau.</p>
+<h3>Changer la couleur ou le nom d'un calendrier</h3>
+<p>Sur ordinateur ou sur le web, sélectionnez un calendrier, puis saisissez un nouveau nom ou choisissez une nouvelle couleur.</p>
+<h3>Tirer davantage de Notion Calendar</h3>
+<p>Notion Calendar couvre la planification et le time blocking de base au sein de l'écosystème Notion. Pour une planification intelligente, une structure centrée sur les tâches et un vrai soutien au travail en profondeur, c'est là qu'interviennent mes templates et mon accompagnement sur <a href="/fr/notion/" rel="noopener noreferrer" target="_blank">AnthonyToday.com</a>.</p>
+<p><em>Découvrez </em><a href="https://www.notion.com/@anthonytoday" rel="noopener noreferrer" target="_blank"><em>mes templates Marketplace</em></a><em> pour des systèmes de planification et de travail en profondeur prêts à l'emploi.</em></p>
+<table class="guide-table"> <tr> <th><strong>Domaine</strong></th> <th><strong>Notion Calendar</strong></th> <th><strong>Ce que mon système apporte</strong></th> </tr> <tr> <td>Gestion des tâches</td> <td>Pas de priorisation intégrée, pas d'étiquetage par énergie, pas de logique de tâches récurrentes</td> <td>Mes templates ajoutent des propriétés priorité, énergie et échéance, avec des vues qui font remonter la bonne tâche au bon moment</td> </tr> <tr> <td>Planification intelligente et IA</td> <td>Aucune planification intelligente ni suggestion de plan quotidien</td> <td>Des tableaux de bord de planification quotidienne bâtis sur des vues filtrées qui s'adaptent à votre énergie et à votre concentration</td> </tr> <tr> <td>Intégration des tâches entre outils</td> <td>Peu d'intégrations de tâches au-delà de Notion et Google Calendar</td> <td>Je consolide les outils de tâches éparpillés en un seul système Notion, avec une source unique de vérité</td> </tr> <tr> <td>Time blocking</td> <td>Time blocking manuel uniquement ; aucune suggestion intelligente ni planification par lots</td> <td>Ma configuration de time blocking associe les tâches à des créneaux de calendrier pour du travail en profondeur à fort impact</td> </tr> <tr> <td>Gestion multi-calendriers</td> <td>Prend en charge les comptes Google, iCloud et Outlook avec des contrôles basiques</td> <td>Un accompagnement pour connecter et organiser proprement tous vos comptes de calendrier</td> </tr> <tr> <td>Mode focus</td> <td>Aucune vue d'exécution concentrée ni superposition dédiée tâches + calendrier</td> <td>Des tableaux de bord focus qui réunissent les tâches du jour et le planning dans une seule vue épurée</td> </tr> <tr> <td>Expérience sur ordinateur</td> <td>Épurée mais limitée ; conçue comme un calendrier minimaliste</td> <td>Une structure d'espace de travail qui fait de Notion votre centre de planification et d'exécution</td> </tr> </table>
+<h3>Gérer vos événements</h3>
+<h4>Créer des événements</h4>
+<p>Pour créer un événement dans Notion Calendar, sélectionnez un créneau dans votre calendrier, puis saisissez les détails. Si vous voulez créer un événement de type focus, absence ou anniversaire, ouvrez le menu déroulant à côté d'<strong><code>Événement</code></strong> et choisissez le type voulu. Pour ajouter des participants et des salles, sélectionnez <strong><code>Participants et salles</code></strong> puis cliquez sur les personnes et les salles concernées. Une fois terminé, sélectionnez <strong><code>Envoyer l'invitation</code></strong> pour prévenir les invités.</p>
+<p>Sur mobile, sélectionnez <strong><code>+</code></strong> en bas à droite de l'application, puis saisissez les détails de votre événement. Pour terminer, sélectionnez <strong><code>Terminé</code></strong>, ou <strong><code>Envoyer l'invitation</code></strong> si vous avez ajouté d'autres participants.</p>
+<p><strong>Créer des événements sur plusieurs jours avec des heures de début et de fin</strong></p>
+<p>Pour créer un événement sur plusieurs jours avec des horaires, sélectionnez un créneau dans votre calendrier, puis faites-le glisser sur les journées que l'événement couvrira. Une fois l'événement créé, vous pouvez saisir ses heures de début et de fin.</p>
+<div class="guide-callout"><span class="callout-icon">💡</span><p>Astuce : vous pouvez utiliser des titres, des hyperliens, des listes numérotées et à puces, et bien plus, dans la description de vos événements.</p></div>
+<h4>Changer votre statut et la confidentialité de l'événement</h4>
+<ol>
+<li>Sélectionnez un événement.</li>
+<li>Dans le panneau contextuel de droite, affichez votre statut en <strong><code>Occupé</code></strong> ou <strong><code>Disponible</code></strong>.</li>
+<li>Vous pouvez aussi rendre les détails de votre événement visibles par les autres en les passant en <strong><code>Public</code></strong>, ou réservés à vous et aux participants en les passant en <strong><code>Privé</code></strong>.</li>
+</ol>
+<h4>Changer le type de votre événement</h4>
+<p>Dans Notion Calendar, il existe plusieurs types d'événements : <strong><code>Événement</code></strong>, <strong><code>Temps de focus</code></strong>, <strong><code>Absence</code></strong> et <strong><code>Anniversaire</code></strong>.</p>
+<p>Quand vous créez un événement dont le nom contient le mot « anniversaire », Notion Calendar en fait automatiquement un événement <strong><code>Anniversaire</code></strong>. Il devient un événement sur la journée entière, répété chaque année.</p>
+<h4>Écrire aux participants</h4>
+<p>Sélectionnez un événement, puis <strong><code>•••</code></strong> en haut à droite du panneau contextuel → <strong><code>Écrire aux participants</code></strong>. Cela ouvre un lien mailto:.</p>
+<p>Sur Mac, cela ouvre l'application Mail par défaut. Pour changer :</p>
+<ul>
+<li>Ouvrez l'application Mail.</li>
+<li>Allez dans <strong><code>Réglages...</code></strong>.</li>
+<li>Ouvrez le menu déroulant à côté de <strong><code>Lecteur d'e-mail par défaut</code></strong> et choisissez votre messagerie préférée.</li>
+</ul>
+<h4>Déplacer un événement vers un autre calendrier</h4>
+<p>Comme Notion Calendar réunit tous vos engagements au même endroit, il est facile de déplacer un événement d'un calendrier à un autre. Pour cela :</p>
+<ul>
+<li>Sélectionnez un événement.</li>
+<li>Dans le panneau contextuel de droite, cliquez sur le nom du calendrier actuel</li>
+<li>Dans le menu déroulant, choisissez un nouveau calendrier pour l'événement.</li>
+</ul>
+<h4>Modifier des événements en masse</h4>
+<p>Vous pouvez agir sur plusieurs événements à la fois : changer leur couleur ou les bloquer sur un autre calendrier, par exemple. Pour cela :</p>
+<ul>
+<li>Maintenez <strong><code>maj</code></strong> pendant que vous utilisez Notion Calendar sur ordinateur ou sur le web, puis sélectionnez plusieurs événements.</li>
+<li>Faites un clic droit, puis choisissez l'action voulue.</li>
+</ul>
+<p>Vous pouvez aussi décaler plusieurs événements sur votre calendrier. Pour cela :</p>
+<ul>
+<li>Maintenez <strong><code>maj</code></strong> pendant que vous utilisez Notion Calendar sur ordinateur ou sur le web, puis sélectionnez plusieurs événements.</li>
+<li>Faites glisser les événements vers les créneaux souhaités. Ils se déplaceront tous ensemble.</li>
+</ul>
+<h4>Supprimer un événement</h4>
+<p>Il existe plusieurs façons de supprimer un événement dans Notion Calendar :</p>
+<ul>
+<li>Faites un clic droit sur l'événement et choisissez <strong><code>Supprimer</code></strong>.</li>
+<li>Sélectionnez un événement et appuyez sur <strong><code>suppr</code></strong> au clavier.</li>
+<li>Sur mobile, touchez un événement, puis sélectionnez <strong><code>•</code></strong> → <strong><code>Supprimer l'événement</code></strong>.</li>
+</ul>
+<p>Si vous supprimez un événement en tant que participant, vous avez la possibilité de laisser une note de réponse.</p>
+<h2 id="notion-sites">Notion Sites</h2>
+<p>Avec Notion Sites, vous transformez n'importe quelle page Notion en site web partageable et personnalisable. Que vous construisiez un portfolio, un centre de documentation ou un wiki d'entreprise, vous publiez des pages en quelques clics. Les plans payants ajoutent des options de personnalisation et des statistiques.</p>
+<h3>Ce que vous pouvez personnaliser (plans payants uniquement)</h3>
+<p>Les utilisateurs d'un <a href="https://affiliate.notion.so/0x8u16p4sff1" rel="noopener noreferrer" target="_blank">plan Plus, Business ou Enterprise</a> peuvent :</p>
+<ul>
+<li>Ajouter un favicon personnalisé (l'icône du site dans le navigateur)</li>
+<li>Définir un thème de page (clair, sombre ou système)</li>
+<li>Modifier la barre de navigation et l'en-tête</li>
+<li>Créer un aperçu de partage personnalisé pour les liens sur les réseaux sociaux</li>
+<li>S'intégrer à Google Analytics</li>
+<li>Masquer le filigrane Notion (avec un domaine personnalisé)</li>
+</ul>
+<p>Pour un domaine personnalisé, il vous faudra l'option domaine personnalisé de Notion.</p>
+<h4>Personnaliser les aperçus de partage</h4>
+<p>Contrôlez l'apparence de votre site dans les aperçus de lien (sur les réseaux sociaux, par exemple) :</p>
+<ol>
+<li>Ouvrez la page Notion publiée → cliquez sur <strong>Partager</strong> → <strong>Publier</strong></li>
+<li>Cliquez sur <strong>Personnalisation du site</strong></li>
+<li>Sous <strong>Aperçu de partage</strong>, survolez l'aperçu et choisissez <strong>Téléverser une image</strong></li>
+<li>Cliquez sur <strong>Publier les modifications</strong> pour mettre à jour</li>
+</ol>
+<h4>Définir un thème de site</h4>
+<p>Accordez le thème de votre site à votre contenu ou à votre marque :</p>
+<ol>
+<li>Allez dans <strong>Partager → Publier → Personnalisation du site</strong></li>
+</ol>
+<p>2.Sous <strong>Thème</strong>, choisissez :</p>
+<ul>
+<li><strong>Système</strong> (suit le système d'exploitation du visiteur)</li>
+<li><strong>Clair</strong></li>
+<li><strong>Sombre</strong></li>
+</ul>
+<ol>
+<li>Cliquez sur <strong>Publier les modifications</strong></li>
+</ol>
+<h4>Personnaliser votre favicon</h4>
+<p>Pour mettre à jour la petite icône qui apparaît dans les onglets du navigateur :</p>
+<p><strong>1. Partager → Publier → Personnalisation du site</strong></p>
+<ol>
+<li>Sous <strong>Favicon</strong>, choisissez :</li>
+</ol>
+<ul>
+<li><strong>Icône de la page</strong> (votre icône Notion existante), ou</li>
+<li><strong>Téléverser une image</strong> (fichier .png ou .ico personnalisé)</li>
+</ul>
+<ol>
+<li>Cliquez sur <strong>Publier les modifications</strong></li>
+</ol>
+<h4>Personnaliser l'en-tête de votre site</h4>
+<p>L'en-tête de votre site apparaît en haut de chaque page et sert à la navigation comme à l'image de marque.</p>
+<p>Pour le personnaliser :</p>
+<p><strong>1. Partager → Publier → Personnalisation du site → En-tête</strong></p>
+<p>Vous pouvez ici :</p>
+<p><strong>Activer ou désactiver :</strong></p>
+<ul>
+<li><strong>Le fil d'Ariane</strong> (affiche la hiérarchie des pages)</li>
+<li><strong>La recherche</strong> (ajoute une barre de recherche pour les visiteurs)</li>
+<li><strong>Dupliquer comme template</strong> (permet à d'autres de copier votre site comme page Notion)</li>
+<li><strong>Le filigrane Notion</strong> (retirable uniquement avec un domaine personnalisé)</li>
+</ul>
+<p><strong>Ajouter des liens de navigation :</strong></p>
+<ul>
+<li>Sous <strong>Navigation</strong>, cliquez sur <strong>Ajouter une page</strong> pour relier d'autres pages de votre espace de travail</li>
+</ul>
+<p><strong>2. Cliquez sur Publier les modifications</strong></p>
+<h4>Connecter Google Analytics</h4>
+<p>Suivez le comportement des visiteurs et la performance du site grâce à l'intégration Google Analytics de Notion.</p>
+<p>Étapes :</p>
+<p><strong>1. Partager → Publier → Personnalisation du site</strong></p>
+<ol>
+<li>Cliquez sur <strong>Google Analytics</strong></li>
+<li>Collez votre <strong>identifiant de mesure</strong></li>
+<li>Cliquez sur <strong>Publier les modifications</strong></li>
+</ol>
+<h4>Plan gratuit et plans payants</h4>
+<table class="guide-table"> <tr> <th><strong>Fonctionnalité</strong></th> <th><strong>Plan gratuit</strong></th> <th><strong>Plans payants</strong></th> </tr> <tr> <td>Publier des pages comme sites</td> <td>✓</td> <td>✓</td> </tr> <tr> <td>Définir un favicon</td> <td>&ndash;</td> <td>✓</td> </tr> <tr> <td>Modifier l'aperçu de partage</td> <td>&ndash;</td> <td>✓</td> </tr> <tr> <td>Personnaliser la barre de navigation</td> <td>&ndash;</td> <td>✓</td> </tr> <tr> <td>Intégration Google Analytics</td> <td>&ndash;</td> <td>✓</td> </tr> <tr> <td>Utiliser des domaines personnalisés</td> <td>&ndash;</td> <td>✓ (option)</td> </tr> <tr> <td>Masquer le filigrane Notion</td> <td>&ndash;</td> <td>✓ (avec domaine)</td> </tr> </table>
+<h2 id="marketplace">Marketplace</h2>
+<p>La Marketplace Notion est la destination de confiance pour des templates gratuits et payants réalisés par des créateurs vérifiés. Ces templates couvrent aussi bien les calendriers éditoriaux que la productivité, la planification de projet, les communautés ou les finances personnelles. Les templates payants sont remboursables dans les 14 jours suivant l'achat.</p>
+<h3>Trouver des templates</h3>
+<p>Accédez à la Marketplace depuis votre barre latérale Notion :</p>
+<p><strong>Allez dans → Templates</strong></p>
+<p>Explorez les templates par :</p>
+<ul>
+<li><strong>Catégorie</strong> : travail, vie personnelle ou études</li>
+<li><strong>Recherche</strong> : utilisez la barre de recherche en haut pour trouver quelque chose de précis</li>
+<li><strong>Sélection</strong> : parcourez les plus utilisés, les tendances ou les nouveautés</li>
+</ul>
+<p>Chaque fiche affiche :</p>
+<ul>
+<li>Le prix du template (gratuit ou en $)</li>
+<li>Le nom du créateur</li>
+<li>La description et le cas d'usage</li>
+<li>Les fonctions Notion utilisées (boutons, bases de données, etc.)</li>
+<li>Le nombre d'ajouts</li>
+<li>La date de dernière mise à jour</li>
+<li>Les notes et les avis</li>
+</ul>
+<h3>Ajouter un template</h3>
+<h4>Templates gratuits</h4>
+<p>Cliquez sur <strong>Ajouter</strong> pour dupliquer instantanément le template dans votre espace de travail.</p>
+<p><strong>🎁 Astuce :</strong> parcourez mes templates prêts à l'emploi sur la <a href="https://www.notion.com/@anthonytoday" rel="noopener noreferrer" target="_blank">Marketplace Notion</a> pour cartographier vos tâches et vos projets et obtenir un système opérationnel en quelques minutes.</p>
+<h4>Templates payants</h4>
+<p>Cliquez sur <strong>Acheter pour {prix} $</strong> et suivez ces étapes :</p>
+<ol>
+<li>Choisissez où dupliquer le template (Privé ou Teamspace)</li>
+<li>Saisissez vos informations de paiement (en USD uniquement, cartes de crédit uniquement)</li>
+<li>Appliquez éventuellement un code promo</li>
+<li>Acceptez les conditions de Notion et la politique de remboursement à 14 jours</li>
+<li>Accordez l'accès à votre e-mail si le créateur le demande (facultatif)</li>
+<li>Cliquez sur <strong>Acheter</strong></li>
+</ol>
+<h3>Gérer vos templates</h3>
+<p>Pour voir les templates que vous avez ajoutés ou achetés :</p>
+<ol>
+<li>Ouvrez <strong>Templates</strong> depuis votre barre latérale</li>
+<li>Cliquez sur <strong>Ajoutés</strong> en haut</li>
+</ol>
+<p>Vous y verrez :</p>
+<ul>
+<li>La liste complète des templates ajoutés</li>
+<li>Qui a ajouté chacun d'eux</li>
+<li>Le prix payé (le cas échéant)</li>
+<li>La date d'achat</li>
+</ul>
+<h3>Laisser un avis ou contacter un créateur</h3>
+<p><strong>Laisser un avis :</strong></p>
+<ul>
+<li>Cliquez sur <strong>•</strong> à côté d'un template dans la liste Ajoutés</li>
+<li>Choisissez <strong>Laisser un avis</strong></li>
+<li>Suivez les instructions (l'avis doit rester respectueux et pertinent)</li>
+</ul>
+<p><strong>Contacter le créateur :</strong></p>
+<ul>
+<li>Cliquez sur <strong>•</strong> → <strong>Contacter le créateur</strong></li>
+</ul>
+<h2 id="wrapping-up">Pour conclure</h2>
+<p>À ce stade, vous maîtrisez les bases : pages, blocs et templates, et vous avez progressivement exploré les bases de données, les automatisations et les intégrations. La clé est de commencer simple, de construire avec intention et de faire évoluer votre espace de travail à mesure que votre façon de travailler se sophistique.</p>
+<p>Configuration recommandée :</p>
+<ul>
+<li>Slack pour transformer les messages en tâches Notion.</li>
+<li><a href="/fr/notion/" rel="noopener noreferrer" target="_blank">AnthonyToday.com</a> pour des templates prêts à l'emploi, des audits d'espace de travail et du conseil en tête-à-tête quand vous voulez un système qui fonctionne dès le premier jour.</li>
+<li>Zapier pour intégrer les outils externes.</li>
+<li>Miro pour visualiser les idées.</li>
+<li>GitHub pour relier les pull requests et les bases de données à Notion.</li>
+</ul>
+<p>Vous avez les fondations, il est temps de construire. Le meilleur système est celui qui soutient votre pensée, pas celui qui vous ralentit.</p>
+<div class="guide-promo">🚀 <strong>Obtenez 3 mois de Notion Business GRATUITS</strong> (IA incluse). Tout ce que décrit ce guide tourne encore mieux avec les fonctions du niveau Business. <a href="https://affiliate.notion.so/0x8u16p4sff1" rel="noopener noreferrer" target="_blank">Activer votre essai →</a> <span color="gray"><em>(lien d'affiliation)</em></span></div></div>
+</div><!-- /guide-layout -->
+<script data-injected="true">
+(function(){
+  var links=Array.prototype.slice.call(document.querySelectorAll('.guide-toc a'));
+  var sections=links.map(function(l){return document.getElementById(l.getAttribute('href').slice(1));}).filter(Boolean);
+  if(!sections.length) return;
+  function setActive(id){
+    links.forEach(function(l){l.classList.toggle('active', l.getAttribute('href')==='#'+id);});
+  }
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ setActive(entry.target.id); }
+    });
+  }, {rootMargin:'-15% 0px -70% 0px', threshold:0});
+  sections.forEach(function(s){observer.observe(s);});
+})();
+</script>
+<!-- FINAL CTA -->
+
+<section style="max-width:1000px;margin:0 auto;padding:44px 24px">
+  <div style="background:#F7F9FF;border:1px solid #D8E0FF;border-radius:12px;padding:34px 30px">
+
+    <h2 style="font-size:24px;font-weight:600;color:#051C2C;margin:0 0 10px;text-align:center;letter-spacing:-.01em">Comment on démarre</h2>
+    <p style="font-size:15px;color:#4A5568;line-height:1.7;margin:0 auto 30px;text-align:center;max-width:640px">Deux étapes, dans cet ordre. Notion n'autorise un consultant externe dans un espace de travail que sur un plan payant : la montée de version doit donc venir en premier. Elle ne vous coûte rien.</p>
+
+    <div class="start-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:22px">
+
+      <div style="background:#FFFFFF;border:1px solid #E3E8F0;border-radius:10px;padding:26px 24px;display:flex;flex-direction:column">
+        <span style="display:inline-block;align-self:flex-start;background:#2251FF;color:#FFFFFF;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:20px;margin-bottom:14px">Étape 1</span>
+        <h3 style="font-size:18px;font-weight:600;color:#051C2C;margin:0 0 10px">Notion Business GRATUIT</h3>
+        <p style="font-size:14px;color:#4A5568;line-height:1.7;margin:0 0 20px">Gratuit pendant 3 mois, sans carte bancaire. Cela débloque les permissions et les contrôles d'administration dont j'ai besoin pour auditer et reconstruire correctement votre espace de travail.</p>
+        <a href="https://affiliate.notion.so/0x8u16p4sff1" target="_blank" rel="noopener noreferrer sponsored" style="margin-top:auto;display:block;text-align:center;background:#2251FF;color:#FFFFFF;font-size:14px;font-weight:600;padding:12px 20px;border-radius:6px;text-decoration:none">Notion Business GRATUIT, sans carte bancaire &rarr;</a>
+      </div>
+
+      <div style="background:#FFFFFF;border:1px solid #E3E8F0;border-radius:10px;padding:26px 24px;display:flex;flex-direction:column">
+        <span style="display:inline-block;align-self:flex-start;background:#051C2C;color:#FFFFFF;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:20px;margin-bottom:14px">Étape 2</span>
+        <h3 style="font-size:18px;font-weight:600;color:#051C2C;margin:0 0 10px">Réserver un appel de 30 minutes</h3>
+        <p style="font-size:14px;color:#4A5568;line-height:1.7;margin:0 0 20px">Apportez un problème réel. Vous repartez avec une solution ou une prochaine étape claire, que nous travaillions ensemble ensuite ou non.</p>
+        <a href="https://cal.com/anthonytoday/consultation" target="_blank" rel="noopener noreferrer" style="margin-top:auto;display:block;text-align:center;background:#FFFFFF;color:#051C2C;border:1px solid #051C2C;font-size:14px;font-weight:600;padding:12px 20px;border-radius:6px;text-decoration:none">Réserver un appel découverte &rarr;</a>
+      </div>
+
+    </div>
+
+    <p style="font-size:10.5px;color:#9AA3B2;line-height:1.5;margin:18px 0 0;text-align:center">Information sur l'affiliation : le lien de montée de version Notion est un lien de parrainage. Si vous passez par lui, je peux percevoir une commission, sans coût supplémentaire pour vous.</p>
+  </div>
+</section>
+
+
+
+
+<!-- FOOTER -->
+
+<footer class="site-foot">
+  <div class="footer-content">
+    <div class="footer-main">
+      <div class="footer-section">
+        <h4>Conseil</h4>
+        <a href="/fr/notion-build/">Notion Build 10 jours</a>
+        <a href="/fr/notion/">Prestations Notion</a>
+        <a href="https://cal.com/anthonytoday/consultation">Appel découverte (79 $)</a>
+        <a href="/fr/notion-consultant-as-a-service/">Consultant Notion en continu</a>
+        <a href="/fr/notion/#services">Prestations</a>
+        <a href="/fr/contact/">Contact</a>
+      </div>
+      <div class="footer-section">
+        <h4>Templates</h4>
+        <a href="/shop/">Tous les templates</a>
+        <a href="/how-to-duplicate/">Comment dupliquer</a>
+        <a href="https://www.notion.com/@anthonytoday">Profil Notion</a>
+        <a href="https://store.anthonytoday.com">Boutique Gumroad</a>
+        <a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">Boutique Etsy</a>
+        <a href="/fr/tools/">Outils</a>
+      </div>
+      <div class="footer-section">
+        <h4>Rester en contact</h4>
+        <p style="margin-bottom:15px">Actualités, ressources et nouveaux templates.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/anthony-kieffer/" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+          <a href="mailto:info@anthonytoday.com" title="Email" aria-label="Email">@</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Anthony Today.
+        Tous droits réservés. &middot; <a href="/fr/privacy/">Confidentialité</a></p>
+    </div>
+  </div>
+</footer><style>html[lang="fr"] h1,html[lang="fr"] h2,html[lang="fr"] h3,html[lang="fr"] h4{text-transform:none}</style>
+
+
+</main>
+
+<div class="atop" id="atOffer" hidden aria-hidden="true">
+  <div class="atop-veil" data-atop-close></div>
+  <div class="atop-card" role="dialog" aria-modal="true" aria-labelledby="atOfferTitle">
+    <button type="button" class="atop-x" data-atop-close aria-label="Fermer">&times;</button>
+
+    <div class="atop-head">
+      <img class="atop-logo" src="/assets/logos/notion.webp" alt="Notion" width="34" height="34" loading="lazy">
+      <p class="atop-eyebrow"><span class="atop-dot"></span>Offre exclusive</p>
+    </div>
+    <h2 class="atop-title" id="atOfferTitle">Notion Business, gratuitement</h2>
+    <p class="atop-sub"><strong>3 mois offerts</strong> avec l'IA complete, sans carte bancaire. Jusqu'a <strong>6 000 $</strong> d'economies. Offre a duree limitee.</p>
+
+    <form class="atop-form" id="atOfferForm" novalidate>
+      <label class="atop-label" for="atOfferEmail">Votre meilleure adresse e-mail</label>
+      <input class="atop-input" id="atOfferEmail" type="email" name="email" autocomplete="email"
+             placeholder="name@company.com" required aria-describedby="atOfferErr">
+
+      <label class="atop-check">
+        <input type="checkbox" id="atOfferConsent" required>
+        <span>J'accepte de recevoir des messages d'AnthonyToday. Desinscription a tout moment.</span>
+      </label>
+
+      <p class="atop-err" id="atOfferErr" role="alert" hidden></p>
+      <button class="atop-btn" type="submit" id="atOfferBtn">Obtenir l'offre exclusive</button>
+      <p class="atop-fine">Voir notre <a href="/fr/privacy/">politique de confidentialite</a>.</p>
+    </form>
+
+    <div class="atop-done" id="atOfferDone" hidden>
+      <p class="atop-donetitle">C'est pret.</p>
+      <p class="atop-sub">Cliquez ci-dessous pour activer votre plan Notion Business.</p>
+      <a class="atop-btn" id="atOfferLink" href="#" target="_blank" rel="noopener noreferrer nofollow">Activer mon offre</a>
+      <p class="atop-fine">Le lien s'ouvre sur notion.com.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+.atop[hidden]{display:none}
+.atop{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px}
+.atop-veil{position:absolute;inset:0;background:rgba(5,28,44,.62)}
+.atop-card{position:relative;background:#fff;border-radius:14px;max-width:490px;width:100%;
+  padding:36px 36px 30px;box-shadow:0 18px 50px rgba(5,28,44,.28);text-align:left;
+  animation:atopIn .22s ease-out}
+@keyframes atopIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.atop-x{position:absolute;top:10px;right:14px;background:none;border:0;font-size:26px;line-height:1;
+  color:#6B7280;cursor:pointer;padding:4px 8px}
+.atop-x:hover{color:#051C2C}
+.atop-head{display:flex;align-items:center;gap:11px;margin:0 0 12px}
+.atop-logo{width:34px;height:34px;border-radius:7px;flex:0 0 auto;display:block}
+.atop-eyebrow{margin:0;display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#2251FF;background:#EDF1FF;padding:5px 11px;border-radius:999px}
+.atop-dot{width:6px;height:6px;border-radius:50%;background:#2251FF;flex:0 0 auto;animation:atopPulse 1.6s ease-in-out infinite}
+@keyframes atopPulse{0%,100%{opacity:1}50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.atop-dot{animation:none}.atop-card{animation:none}}
+.atop-title{margin:0 0 11px;font-size:27px;line-height:1.2;font-weight:700;color:#051C2C}
+.atop-sub{margin:0 0 20px;font-size:15.5px;line-height:1.6;color:#4A5464}
+.atop-label{display:block;font-size:13px;font-weight:600;color:#051C2C;margin-bottom:6px}
+.atop-input{width:100%;padding:12px 14px;font-size:15px;border:1px solid #C9CED6;border-radius:8px;
+  background:#fff;color:#051C2C;box-sizing:border-box}
+.atop-input:focus{outline:none;border-color:#2251FF;box-shadow:0 0 0 3px rgba(34,81,255,.16)}
+.atop-check{display:flex;gap:9px;align-items:flex-start;margin:14px 0 4px;font-size:13px;line-height:1.5;color:#4A5464;cursor:pointer}
+.atop-check input{margin-top:2px;flex:0 0 auto;width:16px;height:16px;accent-color:#2251FF}
+.atop-err{margin:10px 0 0;font-size:13px;color:#C0392B}
+.atop-err[hidden]{display:none}
+.atop-btn{display:block;width:100%;margin-top:16px;padding:14px 18px;font-size:16px;font-weight:700;
+  border:0;border-radius:8px;background:#2251FF;color:#fff;cursor:pointer;text-align:center;
+  text-decoration:none;box-sizing:border-box;transition:background .15s}
+.atop-btn:hover{background:#051C2C;color:#fff}
+.atop-btn[disabled]{opacity:.6;cursor:default}
+.atop-fine{margin:12px 0 0;font-size:12px;color:#6B7280;text-align:center}
+.atop-fine a{color:#6B7280;text-decoration:underline}
+.atop-donetitle{margin:0 0 8px;font-size:19px;font-weight:700;color:#051C2C}
+.atop-done[hidden]{display:none}
+@media (max-width:520px){.atop-card{padding:28px 22px 24px}.atop-title{font-size:22px}.atop-sub{font-size:15px}}
+</style>
+
+<script>
+(function(){
+  var API = "https://offer-capture.learningamazonfba.workers.dev/api/claim-offer";
+  var KEY = "at_offer_v1";
+  var DAYS = 1;
+  var root = document.getElementById("atOffer");
+  if (!root) return;
+
+  var path = location.pathname;
+  if (/\/(privacy|contact)\//.test(path)) return;
+
+  var force = /[?&]popup=1\b/.test(location.search);
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { state = {}; }
+  if (force) {
+    try { localStorage.removeItem(KEY); sessionStorage.removeItem(KEY); } catch (e) {}
+    state = {};
+  }
+  var shownThisSession = false;
+  try { shownThisSession = sessionStorage.getItem(KEY) === "1"; } catch (e) {}
+  if (!force) {
+    if (state.claimed) return;
+    if (shownThisSession) return;
+    if (state.seen && (Date.now() - state.seen) < DAYS * 864e5) return;
+  }
+
+  var form = document.getElementById("atOfferForm");
+  var done = document.getElementById("atOfferDone");
+  var input = document.getElementById("atOfferEmail");
+  var consent = document.getElementById("atOfferConsent");
+  var err = document.getElementById("atOfferErr");
+  var btn = document.getElementById("atOfferBtn");
+  var link = document.getElementById("atOfferLink");
+  var lastFocus = null, opened = false;
+
+  var FR = document.documentElement.lang === "fr" || /^\/fr\//.test(path);
+  var MSG = FR ? {
+    email: "Entrez une adresse e-mail valide.",
+    consent: "Cochez la case pour continuer.",
+    fail: "Une erreur est survenue. Reessayez."
+  } : {
+    email: "Enter a valid email address.",
+    consent: "Tick the box to continue.",
+    fail: "Something went wrong. Try again."
+  };
+
+  function save(patch){
+    try {
+      var next = {}; for (var k in state) next[k] = state[k];
+      for (var j in patch) next[j] = patch[j];
+      state = next; localStorage.setItem(KEY, JSON.stringify(next));
+    } catch (e) {}
+  }
+
+  function openIt(){
+    if (opened) return; opened = true;
+    lastFocus = document.activeElement;
+    root.hidden = false; root.setAttribute("aria-hidden", "false");
+    save({ seen: Date.now() });
+    try { sessionStorage.setItem(KEY, "1"); } catch (e) {}
+    setTimeout(function(){ input.focus(); }, 60);
+    document.addEventListener("keydown", onKey);
+  }
+  function closeIt(){
+    root.hidden = true; root.setAttribute("aria-hidden", "true");
+    document.removeEventListener("keydown", onKey);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  function onKey(e){
+    if (e.key === "Escape") { closeIt(); return; }
+    if (e.key !== "Tab") return;
+    var f = root.querySelectorAll("button,[href],input:not([type=hidden])");
+    if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+  function fail(m){ err.textContent = m; err.hidden = false; }
+
+  Array.prototype.forEach.call(root.querySelectorAll("[data-atop-close]"), function(el){
+    el.addEventListener("click", closeIt);
+  });
+  input.addEventListener("input", function(){ err.hidden = true; });
+  consent.addEventListener("change", function(){ err.hidden = true; });
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    err.hidden = true;
+    var email = (input.value || "").trim().toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) { fail(MSG.email); input.focus(); return; }
+    if (!consent.checked) { fail(MSG.consent); consent.focus(); return; }
+
+    btn.disabled = true;
+    btn.textContent = FR ? "Envoi..." : "Sending...";
+
+    fetch(API, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ email: email, consent: true, lang: FR ? "fr" : "en", page: path })
+    }).then(function(r){ return r.json(); }).then(function(j){
+      if (!j || !j.ok || !j.url) throw new Error("bad");
+      link.href = j.url;
+      form.hidden = true;
+      done.hidden = false;
+      save({ claimed: true, at: Date.now() });
+      setTimeout(function(){ link.focus(); }, 60);
+    })["catch"](function(){
+      btn.disabled = false;
+      btn.textContent = FR ? "Obtenir l'offre exclusive" : "Claim the exclusive offer";
+      fail(MSG.fail);
+    });
+  });
+
+  var touch = window.matchMedia && window.matchMedia("(hover: none)").matches;
+  var timer = setTimeout(openIt, force ? 300 : 20000);
+
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    if (h > 0 && (window.scrollY / h) >= 0.5) { clearTimeout(timer); openIt(); cleanup(); }
+  }
+  function onExit(e){
+    if (!e.relatedTarget && e.clientY <= 0) { clearTimeout(timer); openIt(); cleanup(); }
+  }
+  function cleanup(){
+    window.removeEventListener("scroll", onScroll);
+    document.removeEventListener("mouseout", onExit);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  if (!touch) document.addEventListener("mouseout", onExit);
+})();
+</script>
+
+</body>
+</html>
