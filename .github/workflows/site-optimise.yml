@@ -1,0 +1,98 @@
+name: Site optimise
+
+# Runs the optimisation pass (meta overrides, image dimensions, oversized
+# JPG to WebP, unreferenced CSS bundles), gates the result with the same
+# checks as build-gate.yml, and only then commits. Triggered when the
+# script or its data changes, or by hand.
+#
+# The commit is made with GITHUB_TOKEN, which by design does not trigger
+# further workflow runs, so the gate has to run here rather than relying
+# on build-gate.yml picking it up afterwards.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/scripts/optimise.py"
+      - ".github/data/meta_overrides.json"
+      - ".github/workflows/site-optimise.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: site-optimise
+  cancel-in-progress: false
+
+jobs:
+  optimise:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Pillow
+        run: python3 -m pip install --quiet Pillow
+
+      - name: Optimise
+        run: python3 .github/scripts/optimise.py | tee /tmp/optimise.log
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+
+      - name: Install Jekyll
+        run: gem install jekyll --no-document
+
+      - name: Build the site
+        run: jekyll build --trace
+
+      - name: Gate the result
+        env:
+          PRIVATE_NAME: ${{ secrets.PRIVATE_NAME }}
+        run: python3 .github/scripts/gate.py _site .
+
+      - name: Check every referenced image still resolves
+        run: |
+          python3 - <<'PY'
+          import os, re, sys
+          SKIP = {".git", "_site", "node_modules", ".github"}
+          refs = set()
+          for dp, dn, fn in os.walk("."):
+              dn[:] = [d for d in dn if d not in SKIP]
+              for n in fn:
+                  if n.lower().endswith((".html", ".yml", ".yaml", ".json", ".md", ".xml")):
+                      t = open(os.path.join(dp, n), encoding="utf-8", errors="replace").read()
+                      refs.update(re.findall(r'["\'\s(]/(assets/[^"\'\s)>]+\.(?:jpg|jpeg|png|webp|svg|gif))', t))
+          missing = sorted(r for r in refs if not os.path.exists(r))
+          known = {"assets/templates/doctor-clinic-management/doctor-clinic-management-g4-desktop.webp"}
+          new = [m for m in missing if m not in known]
+          print("image refs: %d, broken: %d, new breakage: %d" % (len(refs), len(missing), len(new)))
+          for m in new:
+              print("  MISSING", m)
+          sys.exit(1 if new else 0)
+          PY
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+            exit 0
+          fi
+          {
+            echo "Optimise the site: meta, image dimensions, WebP, dead CSS"
+            echo
+            cat /tmp/optimise.log
+            echo
+            echo "Automated by .github/workflows/site-optimise.yml"
+          } > /tmp/msg
+          git commit -F /tmp/msg
+          git push
