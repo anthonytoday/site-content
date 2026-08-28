@@ -5,6 +5,8 @@ Four jobs, each reported with counts so the run log is auditable:
 
   1. meta      apply the description and title overrides in
                .github/data/meta_overrides.json, keyed by permalink
+  1b. strayslash repair <img src="x"/ width="1"> tags left by an earlier
+               dimension pass; this exact shape is what gate.py rejects
   2. imgdims   add width and height to <img> tags whose src is a local
                /assets/ file, so the browser reserves layout before decode
   3. images    downscale oversized gallery JPGs to MAX_W and re-encode them
@@ -102,6 +104,31 @@ def job_meta():
     log.append("meta: rewrote front matter on %d pages" % changed)
 
 
+# ---------------------------------------------------------- 1b. strayslash
+STRAY = re.compile(r'((?:src|href|alt)="[^"\n]*")/(\s)')
+
+
+def job_strayslash():
+    """Repair <img src="x"/ width="1"> tags.
+
+    A previous dimension pass appended width and height after the closing
+    slash of a self closing tag, leaving the slash stranded in the middle.
+    gate.py rejects exactly this shape, which is why the build gate has been
+    failing. Idempotent: a clean tree reports zero.
+    """
+    files = fixed = 0
+    for p in walk(".", (".html",)):
+        if os.path.relpath(p, ROOT).split(os.sep)[0] in ("_site",):
+            continue
+        t = read(p)
+        n = len(STRAY.findall(t))
+        if not n:
+            continue
+        write(p, STRAY.sub(r"\1\2", t))
+        files += 1; fixed += n
+    log.append("strayslash: repaired %d malformed tags across %d pages" % (fixed, files))
+
+
 # ------------------------------------------------------------- 2. imgdims
 def job_imgdims():
     from PIL import Image
@@ -128,6 +155,8 @@ def job_imgdims():
             except Exception:
                 continue
             new = tag[:-1].rstrip()
+            if new.endswith("/"):          # self closing: drop the slash so it
+                new = new[:-1].rstrip()    # cannot end up mid tag
             if "width=" not in new:
                 new += ' width="%d"' % w
             if "height=" not in new:
@@ -234,6 +263,7 @@ def job_css():
 
 if __name__ == "__main__":
     job_meta()
+    job_strayslash()
     job_imgdims()
     job_images()
     job_css()
