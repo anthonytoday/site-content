@@ -14,6 +14,7 @@ Four jobs, each reported with counts so the run log is auditable:
                nothing points at it. Covers and thumbnails are left as JPG
                because they are the og:image and not every social scraper
                renders WebP.
+  3b. dims     drop _data/image_dims.yml keys whose file no longer exists
   4. css       delete hashed CSS bundles that no page references
 
 Usage: python3 .github/scripts/optimise.py [--dry-run]
@@ -244,6 +245,30 @@ def job_images():
         len(made), saved_before / 1048576, saved_after / 1048576, rewritten, removed, freed / 1048576))
 
 
+# ------------------------------------------------------------ 3b. dims
+def job_prune_dims():
+    """Drop _data/image_dims.yml keys whose file no longer exists.
+
+    The WebP pass renames files, and older entries can outlive their image.
+    A stale key is harmless at render time but it makes the referenced-image
+    check noisy, so it is pruned here instead of allow-listed there.
+    """
+    path = "_data/image_dims.yml"
+    if not os.path.exists(path):
+        log.append("dims: no image_dims.yml, skipped")
+        return
+    kept, dropped = [], 0
+    for line in read(path).splitlines(True):
+        m = re.match(r'^"?(/assets/[^":]+)"?:', line)
+        if m and not os.path.exists(m.group(1).lstrip("/")):
+            dropped += 1
+            continue
+        kept.append(line)
+    if dropped:
+        write(path, "".join(kept))
+    log.append("dims: pruned %d stale image_dims entries" % dropped)
+
+
 # ----------------------------------------------------------------- 4. css
 def job_css():
     used = set()
@@ -266,6 +291,7 @@ if __name__ == "__main__":
     job_strayslash()
     job_imgdims()
     job_images()
+    job_prune_dims()
     job_css()
     print("optimise%s" % (" (dry run)" if DRY else ""))
     for line in log:

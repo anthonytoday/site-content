@@ -1,9 +1,10 @@
 name: Site optimise
 
 # Runs the optimisation pass (meta overrides, malformed tag repair, image
-# dimensions, oversized JPG to WebP, unreferenced CSS bundles), gates the
-# result with the same checks as build-gate.yml, and only then commits.
-# Triggered when the script or its data changes, or by hand.
+# dimensions, oversized JPG to WebP, stale dimension keys, unreferenced CSS
+# bundles), gates the result with the same checks as build-gate.yml, and
+# only then commits. Triggered when the script or its data changes, or by
+# hand.
 #
 # The commit is made with GITHUB_TOKEN, which by design does not trigger
 # further workflow runs, so the gate has to run here rather than relying
@@ -57,7 +58,7 @@ jobs:
           PRIVATE_NAME: ${{ secrets.PRIVATE_NAME }}
         run: python3 .github/scripts/gate.py _site .
 
-      - name: Check every referenced image still resolves
+      - name: Check every referenced image resolves
         run: |
           python3 - <<'PY'
           import os, re, sys
@@ -70,13 +71,10 @@ jobs:
                       t = open(os.path.join(dp, n), encoding="utf-8", errors="replace").read()
                       refs.update(re.findall(r'["\'\s(]/(assets/[^"\'\s)>]+\.(?:jpg|jpeg|png|webp|svg|gif))', t))
           missing = sorted(r for r in refs if not os.path.exists(r))
-          # pre-existing stale entry in _data/image_dims.yml, unrelated to this pass
-          known = {"assets/templates/doctor-clinic-management/doctor-clinic-management-g4-desktop.webp"}
-          new = [m for m in missing if m not in known]
-          print("image refs: %d, broken: %d, new breakage: %d" % (len(refs), len(missing), len(new)))
-          for m in new:
+          print("image refs: %d, broken: %d" % (len(refs), len(missing)))
+          for m in missing:
               print("  MISSING", m)
-          sys.exit(1 if new else 0)
+          sys.exit(1 if missing else 0)
           PY
 
       - name: Commit
