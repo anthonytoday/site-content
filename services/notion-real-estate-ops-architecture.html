@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Real Estate Voice to Action: The Architecture"
-description: "The three plane architecture behind the real estate voice to action build: the problem it solves, what it costs to leave alone, and how the planes fit."
+title: "The Architecture Behind the Real Estate Voice-to-Action System | Anthony Today"
+description: "A visual, layer-by-layer look at the real estate automation: what each piece does, from an iPhone Shortcut to a multi-agent execution loop, and the business value it is built to deliver."
 permalink: /notion/real-estate-ops-architecture/
 lang: en
 alt_url: /fr/notion/real-estate-ops-architecture/
@@ -9,250 +9,146 @@ schema_type: "Article"
 bc_name: "Real Estate Automation, Architecture and Value"
 bc_parent_name: "Notion Consulting"
 bc_parent_url: /notion/
-css_bundle: /assets/css/b-fd589967b8.css
+css_bundle: /assets/css/b-d8d221ab68.css
 ---
-<style>
-.arch-hero{max-width:1040px;margin:0 auto;padding:62px 20px 0}
-.arch-hero .eyebrow{display:block;font-size:11px;font-weight:700;color:var(--blue);letter-spacing:.1em;margin-bottom:18px}
-.arch-hero h1{font-size:43px;line-height:1.16;font-weight:600;color:var(--navy);letter-spacing:-.015em;text-transform:none;max-width:20ch;margin:0 0 20px}
-.arch-hero .deck{font-size:18px;line-height:1.65;color:var(--text-gray);max-width:62ch;margin:0}
-.arch-meta{max-width:1040px;margin:26px auto 0;padding:14px 20px 0;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:8px 26px;font-size:13px;color:var(--text-gray)}
-.arch-meta span{white-space:nowrap}
-.arch-meta a{color:var(--blue);font-weight:600}
-.arch-meta a:hover{text-decoration:underline}
-.arch-stats{max-width:1040px}
-.scr{max-width:1040px;margin:56px auto 0;padding:0 20px}
-.scr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--navy)}
-.scr-card{padding:26px 26px 30px;border-right:1px solid var(--border)}
-.scr-card:last-child{border-right:none}
-.scr-card .scr-n{display:block;font-size:11px;font-weight:700;color:var(--blue);letter-spacing:.1em;margin-bottom:10px}
-.scr-card h3{font-size:17px;font-weight:600;color:var(--navy);text-transform:none;margin:0 0 10px;line-height:1.35}
-.scr-card p{font-size:14.5px;line-height:1.72;color:var(--text-gray);margin:0}
-.scr-card.is-solution{background:var(--light-gray)}
-.exhibit-cap{max-width:1040px;margin:62px auto 0;padding:0 20px}
-.exhibit-cap .ex-n{display:block;font-size:11px;font-weight:700;color:var(--text-gray);letter-spacing:.1em;margin-bottom:6px}
-.exhibit-cap h2{font-size:22px;font-weight:600;color:var(--navy);text-transform:none;margin:0 0 6px}
-.exhibit-cap p{font-size:14px;color:var(--text-gray);margin:0;max-width:74ch}
-.arch-wrap.wide{max-width:1180px;margin:22px auto 6px}
-.arch-wrap.wide .arch-scroll svg{min-width:940px;max-width:1180px}
-.plane-note{max-width:1040px;margin:10px auto 0;padding:0 20px;font-size:12.5px;color:var(--text-gray);text-align:center}
-.layer-wrap{max-width:1040px;margin:54px auto 0;padding:0 20px;overflow-x:auto}
-.layer-tbl{width:100%;border-collapse:collapse;margin:0;font-size:14.5px}
-.layer-tbl th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-gray);padding:10px 12px;border-bottom:2px solid var(--navy);font-weight:700}
-.layer-tbl td{padding:14px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.65;color:var(--text-gray)}
-.layer-tbl td:first-child{font-weight:600;color:var(--navy);white-space:nowrap;width:22%}
-@media(max-width:860px){.scr-grid{grid-template-columns:1fr !important}.scr-card{border-right:none;border-bottom:1px solid var(--border)}.scr-card:last-child{border-bottom:none}}
-@media(max-width:768px){.arch-hero{padding-top:38px}.arch-hero h1{font-size:29px !important;line-height:1.22 !important;max-width:none}.arch-hero .deck{font-size:16px}}
-@media(max-width:600px){.layer-tbl{font-size:13px}.layer-tbl td:first-child{white-space:normal}}
-</style>
-<section class="arch-hero">
-  <span class="eyebrow">TECHNICAL ARCHITECTURE</span>
-  <h1>How a spoken note on site becomes a closed, auditable action</h1>
-  <p class="deck">Property teams do not lose work because people are careless. They lose it because
-     the moment something is worth recording is the moment nobody can record it. This is the
-     architecture built to close that gap, plane by plane.</p>
-</section>
-
-<div class="arch-meta">
-  <span>Real estate operations</span>
-  <span>Notion, AI triage and agents</span>
-  <span>Companion to <a href="/notion/real-estate-ops/">the case study</a></span>
-</div>
-
-<div class="stats-row arch-stats">
-  <div class="stat-card"><div class="num">3 planes</div><div class="label">control, execution and data, separated by design</div></div>
-  <div class="stat-card"><div class="num">5 stages</div><div class="label">capture, ingest, interpret, route, execute</div></div>
-  <div class="stat-card"><div class="num">3 agents</div><div class="label">work one note in parallel, not in a queue</div></div>
-  <div class="stat-card"><div class="num">2 gates</div><div class="label">a QA agent and a person, both required to close</div></div>
-</div>
-
-<section class="scr">
-  <div class="scr-grid">
-    <div class="scr-card">
-      <span class="scr-n">THE PROBLEM</span>
-      <h3>The people closest to the problem are the least able to record it</h3>
-      <p>A leak, a late contractor, a tenant complaint: all of it is seen on site, by someone whose
-         hands are full and whose laptop is somewhere else. The system of record sits at a desk.
-         The information does not.</p>
-    </div>
-    <div class="scr-card">
-      <span class="scr-n">THE PAIN IT ADDRESSES</span>
-      <h3>Work gets remembered instead of recorded, and the cost lands later</h3>
-      <p>Issues resurface days later as a phone call, a message thread or a complaint. Nobody can
-         say what is open per property, who was told, or when it was closed. Everything queues
-         behind one person's inbox, and that person becomes the bottleneck.</p>
-    </div>
-    <div class="scr-card is-solution">
-      <span class="scr-n">THE SOLUTION</span>
-      <h3>Push capture to the edge, keep judgement and approval in the centre</h3>
-      <p>One tap turns speech into a structured record. AI triage decides what it is and where it
-         belongs, a router hands it to the agent that handles that class of work, and nothing is
-         marked done until a QA agent and a person have both signed it off.</p>
-    </div>
+<section class="uc-hero">
+  <span class="uc-tag">Use case, real estate operations</span>
+  <h1>From a spoken note to a task in the tracker</h1>
+  <p>A property manager walks a unit, says out loud what is wrong, and keeps walking. By the time
+     they are back in the car the issue has been read, classified, assigned and written into the
+     task tracker under the right property. Nobody opened a laptop.</p>
+  <div class="hero-actions">
+    <a href="/notion-build/" class="uc-cta-button">Have this built for your operation</a>
+    <a href="/notion/real-estate-ops/" class="uc-ghost-button">Read the case study</a>
   </div>
 </section>
 
-<div class="exhibit-cap">
-  <span class="ex-n">EXHIBIT 1</span>
-  <h2>The three plane architecture</h2>
-  <p>The execution plane carries the work from left to right. The control plane sits above it and
-     holds the two gates that decide whether anything closes. The data plane sits below it and
-     holds the records every stage reads from and writes to.</p>
+<div class="glance">
+  <div class="glance-item"><span class="glance-k">5 stages</span><span class="glance-v">speak to tracker</span></div>
+  <div class="glance-item"><span class="glance-k">0 typing</span><span class="glance-v">on site, at any point</span></div>
+  <div class="glance-item"><span class="glance-k">3 agents</span><span class="glance-v">running in parallel</span></div>
+  <div class="glance-item"><span class="glance-k">2 gates</span><span class="glance-v">QA agent, then a person</span></div>
+  <div class="glance-item"><span class="glance-k">1 inbox</span><span class="glance-v">every property, every crew</span></div>
 </div>
 
-<div class="arch-wrap wide">
+<div class="ps-grid">
+  <div class="ps-card problem">
+    <span class="ps-label">The problem</span>
+    <h3>The report never gets written</h3>
+    <p>The people closest to the problem have full hands and no keyboard: maintenance crews,
+       contractors, turnover staff. A failing valve becomes a text message, then a memory, then a
+       second call-out six weeks later. Across a portfolio there is no shared, current record of
+       what is actually happening at each property, and the manager finds out last.</p>
+  </div>
+  <div class="ps-card solution">
+    <span class="ps-label">The solution</span>
+    <h3>Speech becomes the only input</h3>
+    <p>One tap opens Wispr Flow and the spoken note lands in a single Notion inbox. AI reads the
+       transcript, a router hands it to the agent built for that kind of work, a QA agent checks the
+       output against the original words, and a person approves before anything closes. The task
+       tracker updates itself, per property and per project.</p>
+  </div>
+</div>
+
+<div class="section-lead">
+  <h2>The mechanism, end to end</h2>
+  <p>Five stages, from a phone in a gloved hand to a row in the tracker.</p>
+</div>
+
+<div class="arch-wrap">
   <div class="arch-scroll">
-  <svg viewBox="-60 0 1320 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three plane architecture. Execution plane, left to right: iPhone Back Tap capture, Notion inbox ingest, AI triage, router agent, then three execution agents running in parallel. Control plane above: a QA reviewer agent and a human checkpoint that approves work into the tracked record or sends it back. Data plane below: the Notion inbox database, the property register, the vendor and tenant directory and the tracked record.">
+  <svg viewBox="0 0 920 964" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture diagram: an iPhone Shortcut opens Wispr Flow, the dictated note lands in a Notion inbox, processing triages and routes it to parallel agents with a QA and human check, and the task tracker is updated.">
     <defs>
-      <marker id="a-sol" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#6B7280"/></marker>
-      <marker id="a-dsh" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#9AA3AF"/></marker>
+      <marker id="arr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#8A94A6"/></marker>
     </defs>
     <style>
-      .at{font:600 14px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#051C2C}
-      .as{font:400 11px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#6B7280}
-      .ae{font:700 10px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#2251FF;letter-spacing:.08em}
-      .ap{font:700 11px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#051C2C;letter-spacing:.09em}
-      .apx{font:400 10.5px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#9AA3AF}
-      .am{font:600 10.5px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#6B7280}
-      .ab{fill:#FFFFFF;stroke:#E5E7EB;stroke-width:1}
-      .ag{fill:#FAFAFB;stroke:#E5E7EB;stroke-width:1;stroke-dasharray:5 4}
-      .ak{fill:#051C2C}
-      .ac{stroke:#6B7280;stroke-width:1.6;fill:none;marker-end:url(#a-sol)}
-      .ad{stroke:#9AA3AF;stroke-width:1.4;fill:none;stroke-dasharray:5 4;marker-end:url(#a-dsh)}
-      .amini{fill:#F5F5F5;stroke:#E5E7EB;stroke-width:1}
-      .aminit{font:600 10.5px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#051C2C}
+      .n-title{font:600 14.5px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#051C2C}
+      .n-sub{font:400 11px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#6B7280}
+      .n-eyebrow{font:700 10px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#2251FF;letter-spacing:.07em}
+      .band-label{font:700 10.5px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#9AA3B2;letter-spacing:.12em}
+      .conn{stroke:#8A94A6;stroke-width:1.6;fill:none;marker-end:url(#arr)}
+      .band{fill:#F7F8FA;stroke:#EDEFF3;stroke-width:1}
+      .box{fill:#FFFFFF;stroke:#E1E5EC;stroke-width:1}
+      .box-gate{fill:#051C2C}
+      .t-inv{fill:#FFFFFF}
+      .s-inv{fill:#B9C6DA}
     </style>
-
-    <rect class="ag" x="130" y="30" width="1110" height="120" rx="12"/>
-    <rect class="ag" x="130" y="185" width="1110" height="155" rx="12"/>
-    <rect class="ag" x="130" y="430" width="1110" height="122" rx="12"/>
-
-    <text class="ap" x="110" y="86" text-anchor="end">CONTROL PLANE</text>
-    <text class="apx" x="110" y="102" text-anchor="end">assurance</text>
-    <text class="ap" x="110" y="256" text-anchor="end">EXECUTION PLANE</text>
-    <text class="apx" x="110" y="272" text-anchor="end">flow</text>
-    <text class="ap" x="110" y="500" text-anchor="end">DATA PLANE</text>
-    <text class="apx" x="110" y="516" text-anchor="end">system of record</text>
-
-    <text class="as" x="152" y="66">Assurance and approval. Nothing is marked done</text>
-    <text class="as" x="152" y="84">inside the execution plane, and rejected work</text>
-    <text class="as" x="152" y="102">is sent straight back to stage 05.</text>
-
-    <rect class="ab" x="820" y="72" width="190" height="62" rx="10"/>
-    <text class="ae" x="915" y="91" text-anchor="middle">06 CHECK</text>
-    <text class="at" x="915" y="111" text-anchor="middle">QA reviewer agent</text>
-    <text class="as" x="915" y="127" text-anchor="middle">output against the original note</text>
-
-    <rect class="ak" x="1035" y="72" width="190" height="62" rx="10"/>
-    <text class="ae" x="1130" y="91" text-anchor="middle" style="fill:#7FA0FF">07 APPROVE</text>
-    <text class="at" x="1130" y="111" text-anchor="middle" style="fill:#FFFFFF">Human checkpoint</text>
-    <text class="as" x="1130" y="127" text-anchor="middle" style="fill:#C9D4E8">cannot be skipped</text>
-    <path class="ac" d="M1010,103 L1031,103"/>
-
-    <rect class="ab" x="150" y="215" width="175" height="90" rx="10"/>
-    <text class="ae" x="237" y="241" text-anchor="middle">01 CAPTURE</text>
-    <text class="at" x="237" y="264" text-anchor="middle">iPhone Back Tap</text>
-    <text class="as" x="237" y="283" text-anchor="middle">Wispr Flow dictation</text>
-
-    <rect class="ab" x="355" y="215" width="175" height="90" rx="10"/>
-    <text class="ae" x="443" y="241" text-anchor="middle">02 INGEST</text>
-    <text class="at" x="443" y="264" text-anchor="middle">Notion inbox</text>
-    <text class="as" x="443" y="283" text-anchor="middle">one row per spoken note</text>
-
-    <rect class="ab" x="560" y="215" width="175" height="90" rx="10"/>
-    <text class="ae" x="648" y="241" text-anchor="middle">03 INTERPRET</text>
-    <text class="at" x="648" y="264" text-anchor="middle">AI triage</text>
-    <text class="as" x="648" y="283" text-anchor="middle">Notion AI plus ChatGPT</text>
-
-    <rect class="ab" x="765" y="215" width="130" height="90" rx="10"/>
-    <text class="ae" x="830" y="241" text-anchor="middle">04 ROUTE</text>
-    <text class="at" x="830" y="264" text-anchor="middle">Router agent</text>
-    <text class="as" x="830" y="283" text-anchor="middle">one owner per action</text>
-
-    <rect class="ab" x="925" y="200" width="180" height="120" rx="10"/>
-    <text class="ae" x="1015" y="222" text-anchor="middle">05 EXECUTE, IN PARALLEL</text>
-    <rect class="amini" x="940" y="232" width="150" height="24" rx="5"/>
-    <text class="aminit" x="1015" y="248" text-anchor="middle">Maintenance dispatch</text>
-    <rect class="amini" x="940" y="262" width="150" height="24" rx="5"/>
-    <text class="aminit" x="1015" y="278" text-anchor="middle">Vendor follow-up</text>
-    <rect class="amini" x="940" y="292" width="150" height="24" rx="5"/>
-    <text class="aminit" x="1015" y="308" text-anchor="middle">Tenant communication</text>
-
-    <path class="ac" d="M325,260 L349,260"/>
-    <path class="ac" d="M530,260 L554,260"/>
-    <path class="ac" d="M735,260 L759,260"/>
-    <path class="ac" d="M895,260 L919,260"/>
-
-    <path class="ac" d="M960,200 L960,140"/>
-    <text class="am" x="952" y="172" text-anchor="end">submit</text>
-    <path class="ad" d="M1090,134 L1090,194"/>
-    <text class="am" x="1098" y="172">reject</text>
-    <path class="ac" d="M1160,134 L1160,422"/>
-    <text class="am" x="1152" y="290" text-anchor="end">approved</text>
-
-    <rect class="ab" x="355" y="460" width="175" height="66" rx="10"/>
-    <text class="at" x="443" y="487" text-anchor="middle">Notion inbox database</text>
-    <text class="as" x="443" y="505" text-anchor="middle">note, timestamp, property</text>
-
-    <rect class="ab" x="560" y="460" width="175" height="66" rx="10"/>
-    <text class="at" x="648" y="487" text-anchor="middle">Property register</text>
-    <text class="as" x="648" y="505" text-anchor="middle">one record per property</text>
-
-    <rect class="ab" x="765" y="460" width="200" height="66" rx="10"/>
-    <text class="at" x="865" y="487" text-anchor="middle">Vendor and tenant directory</text>
-    <text class="as" x="865" y="505" text-anchor="middle">who to contact, per property</text>
-
-    <rect class="ab" x="1035" y="460" width="190" height="66" rx="10"/>
-    <text class="at" x="1130" y="487" text-anchor="middle">Tracked record</text>
-    <text class="as" x="1130" y="505" text-anchor="middle">by property and by project</text>
-
-    <path class="ad" d="M443,305 L443,456"/>
-    <path class="ad" d="M648,305 L648,456"/>
-    <path class="ad" d="M1015,320 C1010,390 900,402 868,452"/>
-
-    <path d="M150,578 L182,578" stroke="#6B7280" stroke-width="1.6" fill="none"/>
-    <text class="as" x="190" y="582">action flow</text>
-    <path d="M300,578 L332,578" stroke="#9AA3AF" stroke-width="1.4" fill="none" stroke-dasharray="5 4"/>
-    <text class="as" x="340" y="582">data read and write</text>
+    <rect class="band" x="30" y="16" width="860" height="160" rx="14"/>
+    <text class="band-label" x="48" y="40">ON THE PHONE</text>
+    <rect class="box" x="90" y="58" width="300" height="92" rx="10"/>
+    <text class="n-eyebrow" x="240" y="80" text-anchor="middle">01 SPEAK</text>
+    <text class="n-title" x="240" y="101" text-anchor="middle">iPhone Shortcut</text>
+    <text class="n-sub" x="240" y="119" text-anchor="middle">Back Tap or Action Button</text>
+    <text class="n-sub" x="240" y="134" text-anchor="middle">no unlock, no typing</text>
+    <rect class="box" x="530" y="58" width="300" height="92" rx="10"/>
+    <text class="n-eyebrow" x="680" y="80" text-anchor="middle">02 DICTATE</text>
+    <text class="n-title" x="680" y="101" text-anchor="middle">Wispr Flow</text>
+    <text class="n-sub" x="680" y="119" text-anchor="middle">speech transcribed as you talk</text>
+    <text class="n-sub" x="680" y="134" text-anchor="middle">punctuation and cleanup included</text>
+    <path class="conn" d="M390,104 L524,104"/>
+    <path class="conn" d="M680,150 C680,182 460,182 460,222"/>
+    <rect class="band" x="30" y="192" width="860" height="114" rx="14"/>
+    <text class="band-label" x="48" y="216">IN NOTION · CAPTURE</text>
+    <rect class="box" x="250" y="226" width="420" height="66" rx="10"/>
+    <text class="n-eyebrow" x="460" y="248" text-anchor="middle">03 LAND</text>
+    <text class="n-title" x="460" y="269" text-anchor="middle">Notion inbox</text>
+    <text class="n-sub" x="460" y="287" text-anchor="middle">one row per note: transcript, time, property</text>
+    <path class="conn" d="M460,292 L460,354"/>
+    <rect class="band" x="30" y="322" width="860" height="510" rx="14"/>
+    <text class="band-label" x="48" y="346">IN NOTION · PROCESSING</text>
+    <rect class="box" x="280" y="358" width="360" height="66" rx="10"/>
+    <text class="n-eyebrow" x="460" y="380" text-anchor="middle">04 · TRIAGE</text>
+    <text class="n-title" x="460" y="401" text-anchor="middle">AI reads the inbox</text>
+    <text class="n-sub" x="460" y="419" text-anchor="middle">what happened, which property, how urgent</text>
+    <path class="conn" d="M460,424 L460,446"/>
+    <rect class="box" x="370" y="446" width="180" height="52" rx="10"/>
+    <text class="n-eyebrow" x="460" y="468" text-anchor="middle">04 · ROUTE</text>
+    <text class="n-title" x="460" y="489" text-anchor="middle">Router agent</text>
+    <path class="conn" d="M420,498 C380,518 250,518 178,534"/>
+    <path class="conn" d="M460,498 L460,534"/>
+    <path class="conn" d="M500,498 C540,518 670,518 742,534"/>
+    <rect class="box" x="52" y="538" width="252" height="74" rx="10"/>
+    <text class="n-eyebrow" x="178" y="560" text-anchor="middle">04 · ACT</text>
+    <text class="n-title" x="178" y="581" text-anchor="middle">Maintenance dispatch</text>
+    <text class="n-sub" x="178" y="599" text-anchor="middle">runs in parallel</text>
+    <rect class="box" x="334" y="538" width="252" height="74" rx="10"/>
+    <text class="n-eyebrow" x="460" y="560" text-anchor="middle">04 · ACT</text>
+    <text class="n-title" x="460" y="581" text-anchor="middle">Vendor follow-up</text>
+    <text class="n-sub" x="460" y="599" text-anchor="middle">runs in parallel</text>
+    <rect class="box" x="616" y="538" width="252" height="74" rx="10"/>
+    <text class="n-eyebrow" x="742" y="560" text-anchor="middle">04 · ACT</text>
+    <text class="n-title" x="742" y="581" text-anchor="middle">Tenant communication</text>
+    <text class="n-sub" x="742" y="599" text-anchor="middle">runs in parallel</text>
+    <path class="conn" d="M178,612 C190,634 380,634 450,646"/>
+    <path class="conn" d="M460,612 L460,646"/>
+    <path class="conn" d="M742,612 C730,634 540,634 470,646"/>
+    <rect class="box" x="270" y="650" width="380" height="66" rx="10"/>
+    <text class="n-eyebrow" x="460" y="672" text-anchor="middle">04 · CHECK</text>
+    <text class="n-title" x="460" y="693" text-anchor="middle">QA reviewer agent</text>
+    <text class="n-sub" x="460" y="711" text-anchor="middle">output checked against the original note</text>
+    <path class="conn" d="M460,716 L460,748"/>
+    <rect class="box-gate" x="280" y="752" width="360" height="66" rx="10"/>
+    <text class="n-eyebrow" x="460" y="774" text-anchor="middle" style="fill:#7FA6FF">04 · APPROVE</text>
+    <text class="n-title t-inv" x="460" y="795" text-anchor="middle">Human checkpoint</text>
+    <text class="n-sub s-inv" x="460" y="813" text-anchor="middle">approve or reject, never skipped</text>
+    <rect class="band" x="30" y="842" width="860" height="112" rx="14"/>
+    <text class="band-label" x="48" y="866">IN NOTION · TRACKER</text>
+    <path class="conn" d="M460,818 L460,870"/>
+    <rect class="box" x="200" y="874" width="520" height="66" rx="10"/>
+    <text class="n-eyebrow" x="460" y="896" text-anchor="middle">05 TRACK</text>
+    <text class="n-title" x="460" y="917" text-anchor="middle">Task tracker updated</text>
+    <text class="n-sub" x="460" y="935" text-anchor="middle">status, owner, due date, property, linked project</text>
   </svg>
   </div>
-</div>
 
-<p class="plane-note">Scroll the exhibit sideways on a narrow screen.</p>
-
-<div class="layer-wrap">
-  <table class="layer-tbl">
-    <thead><tr><th>Plane</th><th>What it does</th><th>What it is worth</th></tr></thead>
-    <tbody>
-      <tr>
-        <td>Control</td>
-        <td>A QA reviewer agent compares the output against the original spoken note, then a person
-            approves or rejects it. Rejected work returns to stage 05.</td>
-        <td>An audit trail per action, and a hard stop that keeps an AI mistake from being recorded
-            as a finished job.</td>
-      </tr>
-      <tr>
-        <td>Execution</td>
-        <td>Capture on the phone, ingest into one inbox, AI triage, routing, then three agents
-            working the action in parallel.</td>
-        <td>Time from noticing a problem to a logged, owned action drops to the length of a spoken
-            sentence.</td>
-      </tr>
-      <tr>
-        <td>Data</td>
-        <td>The inbox database, the property register, the vendor and tenant directory, and the
-            closed record, all in Notion.</td>
-        <td>One place to answer what is open, on which property, with whom, since when.</td>
-      </tr>
-    </tbody>
-  </table>
 </div>
 
 <div class="chip-row">
   <span class="chip">No typing on site</span>
+  <span class="chip">Wispr Flow handles the dictation</span>
   <span class="chip">3 agents run at once</span>
   <span class="chip">Nothing closes without QA and a human</span>
-  <span class="chip">One record per property and project</span>
+  <span class="chip">One tracker row per property and project</span>
 </div>
 
 <div class="benefits-section">
