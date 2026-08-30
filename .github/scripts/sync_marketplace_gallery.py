@@ -218,8 +218,14 @@ def main():
             lines.append("THUMB FAILED %s : %s" % (slug, e))
             print(lines[-1])
 
-    summary = ("listings_mine=%d new=%d already_present=%d failed=%d thumbs=%d"
-               % (len(mine), new, skipped, failed, thumbs))
+    # The counts alone are byte-identical on any run that finds nothing, so the
+    # file produced no diff, the commit step said "nothing new to commit", and a
+    # job that had stopped running looked exactly like a job that found nothing.
+    # Stamping the run time guarantees a diff, so the last successful run is
+    # always visible in the commit history.
+    summary = ("run_utc=%s listings_mine=%d new=%d already_present=%d failed=%d thumbs=%d"
+               % (time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+                  len(mine), new, skipped, failed, thumbs))
     print("\n" + summary)
     os.makedirs(".github", exist_ok=True)
     with open(RESULT, "w") as f:
