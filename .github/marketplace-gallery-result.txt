@@ -1,2 +1,2 @@
-run_utc=2026-08-30T09:33:15Z listings_mine=78 new=0 already_present=445 failed=1 thumbs=0
+run_utc=2026-08-31T10:10:00Z listings_mine=78 new=2 already_present=443 failed=1 thumbs=1
 FAILED assets/templates/doctor-clinic-management/doctor-clinic-management-g4-desktop.webp <- https://s3-us-west-2.amazonaws.com/public.notion-static.com/template/74ad3856-5a71-4b79-8df0-3b29164046d3/d2f5ae20-b4e1-4d20-913b-5421ea0a27f2/1764730544771/desktop.jpg : blank image: no tonal variation
