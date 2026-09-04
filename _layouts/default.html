@@ -88,7 +88,7 @@
    "description":{% if lang == "fr" %}"Conseil Notion certifié, gouvernance des risques et cybersécurité. Architecture d'espace de travail, préparation à l'audit et direction sécurité à temps partagé."{% else %}"Certified Notion consulting, governance risk and cybersecurity advisory. Workspace architecture, audit readiness and fractional security leadership."{% endif %},
    "founder":{"@id":"https://www.anthonytoday.com/#anthony"},
    "email":"info@anthonytoday.com",
-   "priceRange":"$79-$20000",
+   "priceRange":"$750-$20000",
    "availableLanguage":["en","fr"],
    "areaServed":[{"@type":"Country","name":"Luxembourg"},{"@type":"Country","name":"Switzerland"},{"@type":"Country","name":"United States"},{"@type":"Country","name":"United Arab Emirates"},{"@type":"Country","name":"France"},{"@type":"Country","name":"Belgium"}],
    "sameAs":["https://www.linkedin.com/in/anthony-kieffer/","https://www.notion.com/@anthonytoday","https://certs.notion.so/5c2a6cd2c3b14e83a585c1dedb40852d"],
@@ -96,9 +96,11 @@
     "@type":"OfferCatalog",
     "name":{% if lang == "fr" %}"Prestations"{% else %}"Services"{% endif %},
     "itemListElement":[
-     {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"Appel découverte"{% else %}"Discovery Call"{% endif %},"serviceType":"Consulting"},"price":"79","priceCurrency":"USD"},
-     {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"Audit et conception"{% else %}"Audit & Design"{% endif %},"serviceType":"Notion workspace architecture"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"1500","maxPrice":"6000","priceCurrency":"USD"}},
-     {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"Chantier risque et gouvernance"{% else %}"Risk & Governance Build"{% endif %},"serviceType":"Governance risk and compliance"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"5000","maxPrice":"20000","priceCurrency":"USD"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"Diagnostic 5 jours"{% else %}"The 5-Day Diagnostic"{% endif %},"serviceType":"Notion workspace diagnostic"},"price":"750","priceCurrency":"USD","url":"https://www.anthonytoday.com/go/diagnostic/"},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"Notion Build 10 jours"{% else %}"The 10-Day Notion Build"{% endif %},"serviceType":"Notion workspace architecture"},"price":"2500","priceCurrency":"USD","url":"https://www.anthonytoday.com/notion-build/"},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"Chantier gouvernance 20 jours"{% else %}"The 20-Day Governance Build"{% endif %},"serviceType":"Notion governance and access architecture"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"7500","maxPrice":"20000","priceCurrency":"USD"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"Consultant Notion en continu"{% else %}"Notion Consultant as a Service"{% endif %},"serviceType":"Retained Notion consulting"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"247","maxPrice":"347","priceCurrency":"USD","unitText":"MONTH"},"url":"https://www.anthonytoday.com/notion-consultant-as-a-service/"},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"Conseil GRC indépendant"{% else %}"Independent GRC Advisor"{% endif %},"serviceType":"Governance risk and compliance"}},
      {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"CISO externalisé"{% else %}"Fractional CISO"{% endif %},"serviceType":"Fractional security leadership"}}
     ]
    }
