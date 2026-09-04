@@ -58,8 +58,8 @@ css_bundle: /assets/css/b-4d78392669.css
         <div class="opts" data-name="budget">
           <label class="opt"><input type="radio" name="budget" value="under750" required> Under $750</label>
           <label class="opt"><input type="radio" name="budget" value="750-2500"> $750 to $2,500</label>
-          <label class="opt"><input type="radio" name="budget" value="2500-7500"> $2,500 to $7,500</label>
-          <label class="opt"><input type="radio" name="budget" value="7500+"> More than $7,500</label>
+          <label class="opt"><input type="radio" name="budget" value="2500-7500"> $2,500 to $12,500</label>
+          <label class="opt"><input type="radio" name="budget" value="7500+"> $12,500 or more</label>
           <label class="opt"><input type="radio" name="budget" value="unknown"> Don't know yet</label>
         </div>
       </div>
@@ -120,7 +120,7 @@ css_bundle: /assets/css/b-4d78392669.css
     if (d.firm==='personal') return 'Q1 is personal or side-project use';
     if (d.budget==='under750') return 'Q3 budget is below the $750 Diagnostic';
     if (d.size==='25+') return 'Q2 is more than 25 people or several entities, which is the Governance Build and always earns a call';
-    if (d.budget==='7500+') return 'Q3 budget is $7,500+, which is the Governance Build and always earns a call';
+    if (d.budget==='7500+') return 'Q3 budget is $12,500+, which is the Governance Build and always earns a call';
     if (d.timeline==='later') return 'Q4 has no fixed timeline';
     if (d.budget==='750-2500') return 'Q3 budget is in the Diagnostic band';
     if (d.budget==='unknown') return 'Q3 budget unknown and Q4 is ' + (d.timeline==='30days' ? 'immediate, so the Diagnostic is the reversible first step' : 'not immediate');
@@ -195,7 +195,7 @@ css_bundle: /assets/css/b-4d78392669.css
        + '<p class="calalt">Would rather not book a call? You can <a href="'+STRIPE_LINK+'" target="_blank" rel="noopener">start the build now</a>: $2,500, working in 10 days or it is free.</p>',
 
     gov: '<div class="rcard r-hot"><h2>Thanks. This is bigger than a ten-day build, and that is fine.</h2>'
-       + '<p>Several entities, several partner organizations, or more than 25 people is the <b>20-Day Governance Build</b>: everything in the build, plus isolation across entities, an access model mapped to ISO 27001 controls, and an evidence pack you can hand to a partner or an auditor. From $7,500, fixed once scoped, two at a time.</p>'
+       + '<p>Several entities, several partner organizations, or more than 25 people is the <b>20-Day Governance Build</b>: everything in the build, plus isolation across entities, an access model mapped to ISO 27001 controls, and an evidence pack you can hand to a partner or an auditor. $12,500 fixed, a $2,500 deposit then the balance once you approve the architecture on day 10, two at a time. <a href="/notion-governance/" target="_blank" rel="noopener">See how it runs</a>.</p>'
        + '<p>Pick a time below. Twenty minutes, free. I will have read your answers, and I will tell you on the call whether the 5-Day Diagnostic should come first, so the architecture is settled before anything is priced.</p></div>'
        + CAL_EMBED,
 
