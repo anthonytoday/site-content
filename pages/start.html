@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Start Here | The 10-Day Notion Build | Anthony Today"
-description: "Six questions, about two minutes. If the 10-Day Notion Build is a fit you get a booking link. If it is not, I say so and point you somewhere useful."
+description: "Six questions, about two minutes. If it is a fit you get a booking link for a free 20-minute call and I tell you which engagement matches. If it is not, I say so and point you somewhere useful."
 permalink: /start/
 lang: en
 alt_url: /fr/start/
@@ -16,7 +16,7 @@ css_bundle: /assets/css/b-4d78392669.css
   <div class="head" id="qf-head">
     <div class="prog">Six questions &middot; about two minutes</div>
     <h1>Let's find out whether this is a fit</h1>
-    <p>If it is, you'll get a booking link at the end. If it isn't, I'll say so and point you somewhere more useful. Nobody's time gets wasted either way.</p>
+    <p>If it is, you'll get a booking link for a free 20-minute call at the end, and I'll tell you which of the three engagements matches. If it isn't, I'll say so and point you somewhere more useful. Nobody's time gets wasted either way.</p>
     <p style="margin-top:12px;font-size:14.5px">Want to fix it yourself first? Read the <a href="/notion/challenges/"><strong>10 questions clients ask most about Notion</strong></a> and the answer to each.</p>
   </div>
 
@@ -46,19 +46,20 @@ css_bundle: /assets/css/b-4d78392669.css
       <div class="q">
         <label class="qlabel">2. How many people will use it?</label>
         <div class="opts" data-name="size">
-          <label class="opt"><input type="radio" name="size" value="1-4" required> Just me, or up to 4</label>
+          <label class="opt"><input type="radio" name="size" value="1-4" required> Only me, or up to 4</label>
           <label class="opt"><input type="radio" name="size" value="5-25"> 5 to 25</label>
-          <label class="opt"><input type="radio" name="size" value="25+"> More than 25</label>
+          <label class="opt"><input type="radio" name="size" value="25+"> More than 25, or several entities or partner organizations</label>
         </div>
       </div>
 
       <div class="q">
         <label class="qlabel">3. What budget are you working with?</label>
-        <p class="hint">Rough is fine. It only decides what we'd sensibly talk about.</p>
+        <p class="hint">Rough is fine. It only decides which engagement we'd sensibly talk about.</p>
         <div class="opts" data-name="budget">
-          <label class="opt"><input type="radio" name="budget" value="under2500" required> Under $2,500</label>
-          <label class="opt"><input type="radio" name="budget" value="2500-10000"> Around $2,500, the price of the build</label>
-          <label class="opt"><input type="radio" name="budget" value="10000+"> More than $10,000</label>
+          <label class="opt"><input type="radio" name="budget" value="under750" required> Under $750</label>
+          <label class="opt"><input type="radio" name="budget" value="750-2500"> $750 to $2,500</label>
+          <label class="opt"><input type="radio" name="budget" value="2500-7500"> $2,500 to $7,500</label>
+          <label class="opt"><input type="radio" name="budget" value="7500+"> More than $7,500</label>
           <label class="opt"><input type="radio" name="budget" value="unknown"> Don't know yet</label>
         </div>
       </div>
@@ -102,11 +103,12 @@ css_bundle: /assets/css/b-4d78392669.css
 
 <script>
 (function(){
-  // ---- CONFIG: drop your endpoint + links here ----
+  // ---- CONFIG: endpoint + links. Prices live on /notion/ and in each result view below. ----
   var ENDPOINT   = "https://api.web3forms.com/submit";
   var ACCESS_KEY = "c11e0f6b-725b-41be-a276-e2427ef8c1b3";
-  var CAL_LINK   = "https://cal.com/anthonytoday/qualification";
-  var STRIPE_LINK= "https://pay.anthonytoday.com/b/eVqaEZeiI5zT3blccV1ZS0s";
+  var CAL_LINK   = "https://cal.com/anthonytoday/qualification";   // free 20-minute Fit Call
+  var STRIPE_LINK= "https://pay.anthonytoday.com/b/eVqaEZeiI5zT3blccV1ZS0s";   // 10-Day Build, $2,500
+  var DIAG_LINK  = "/go/diagnostic/";                                // 5-Day Diagnostic, $750 (redirect stub)
   var AFFILIATE  = "https://affiliate.notion.so/rw7o47pwsh6j";
   var TEMPLATES  = "https://www.notion.com/@anthonytoday";
   var MIN_GOOD   = 200;   // routing threshold
@@ -116,17 +118,18 @@ css_bundle: /assets/css/b-4d78392669.css
   var TEST_MODE = /[?&]test=1(&|$)/.test(location.search);
   function why(d){
     if (d.firm==='personal') return 'Q1 is personal or side-project use';
-    if (d.budget==='under2500') return 'Q3 budget is below the $2,500 price';
-    if (d.size==='25+') return 'Q2 is more than 25 people, which is a larger engagement and always earns a call';
+    if (d.budget==='under750') return 'Q3 budget is below the $750 Diagnostic';
+    if (d.size==='25+') return 'Q2 is more than 25 people or several entities, which is the Governance Build and always earns a call';
+    if (d.budget==='7500+') return 'Q3 budget is $7,500+, which is the Governance Build and always earns a call';
     if (d.timeline==='later') return 'Q4 has no fixed timeline';
-    if (d.budget==='10000+') return 'Q3 budget is $10,000+, which earns a call regardless of Q5/Q6 length';
-    if (d.budget==='unknown' && d.timeline!=='30days') return 'Q3 budget unknown and Q4 is not immediate';
+    if (d.budget==='750-2500') return 'Q3 budget is in the Diagnostic band';
+    if (d.budget==='unknown') return 'Q3 budget unknown and Q4 is ' + (d.timeline==='30days' ? 'immediate, so the Diagnostic is the reversible first step' : 'not immediate');
     if (d.problem.trim().length < MIN_GOOD || d.tried.trim().length < MIN_GOOD)
       return 'Q5 is ' + d.problem.trim().length + ' chars and Q6 is ' + d.tried.trim().length + ', one is under the ' + MIN_GOOD + ' threshold';
-    return 'real use case, budget at or above the price, a real timeline, and both written answers over ' + MIN_GOOD + ' characters';
+    return 'real use case, build-band budget, a real timeline, and both written answers over ' + MIN_GOOD + ' characters';
   }
   function testBanner(bucket, d){
-    var colour = bucket==='hot' ? '#0F7A32' : (bucket==='warm' ? '#B26A00' : '#6B7280');
+    var colour = (bucket==='hot' || bucket==='gov') ? '#0F7A32' : (bucket==='warm' || bucket==='diag') ? '#B26A00' : '#6B7280';
     return '<div style="border:2px dashed '+colour+';border-radius:12px;padding:16px 18px;margin:0 0 20px;font-size:14px;line-height:1.55;background:#fff">'
       + '<div style="font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:'+colour+';font-size:12px;margin-bottom:8px">TEST MODE</div>'
       + '<div><b>Routed as ' + bucket.toUpperCase() + '.</b></div>'
@@ -157,18 +160,18 @@ css_bundle: /assets/css/b-4d78392669.css
   }
   wire('f-problem','c-problem'); wire('f-tried','c-tried');
 
+  // Five buckets. Each one maps to exactly one engagement or one honest no.
+  //   cold  -> not a fit, free resources
+  //   diag  -> 5-Day Diagnostic, $750, pay now
+  //   warm  -> a fit on paper but no timeline or thin answers: Diagnostic suggested, build shown
+  //   hot   -> 10-Day Build band: free Fit Call embedded, or pay now
+  //   gov   -> 20-Day Governance Build: free Fit Call embedded, quoted after the Diagnostic
   function route(d){
-    // only two hard disqualifiers now: personal use, or below the price
-    if (d.firm==='personal' || d.budget==='under2500') return 'cold';
-    // more than 25 people is a bigger engagement than this offer, so it always earns a conversation
-    if (d.size==='25+') return 'hot';
-    // no timeline means no decision to make yet
+    if (d.firm==='personal' || d.budget==='under750') return 'cold';
+    if (d.size==='25+' || d.budget==='7500+') return 'gov';
     if (d.timeline==='later') return 'warm';
-    // budget at or above the price plus a real timeline earns a call
-    if (d.budget==='10000+') return 'hot';
-    // unknown budget only converts on urgency
-    if (d.budget==='unknown' && d.timeline!=='30days') return 'warm';
-    // mid band: the written answers decide
+    if (d.budget==='750-2500') return 'diag';
+    if (d.budget==='unknown') return d.timeline==='30days' ? 'diag' : 'warm';
     if (d.problem.trim().length < MIN_GOOD || d.tried.trim().length < MIN_GOOD) return 'warm';
     return 'hot';
   }
@@ -183,18 +186,32 @@ css_bundle: /assets/css/b-4d78392669.css
     + 'A network error blocked the submission. So that nothing is lost, email me at <a href="mailto:admin@anthonytoday.com" style="color:#2251FF;text-decoration:underline">admin@anthonytoday.com</a> or message me on <a href="https://wa.me/33695845150" target="_blank" rel="noopener" style="color:#2251FF;text-decoration:underline">WhatsApp</a>.'
     + '</div>';
 
+  var CAL_EMBED = '<div class="calwrap"><div id="cal-inline"></div></div>';
+
   var VIEWS = {
-    hot: '<div class="rcard r-hot"><h2>Thanks. This sounds like a fit.</h2>'
-       + '<p>Pick a time below. Twenty minutes, no pitch. I will have read your answers before we start, so we begin at the actual problem rather than at introductions.</p></div>'
-       + '<div class="calwrap"><div id="cal-inline"></div></div>'
+    hot: '<div class="rcard r-hot"><h2>Thanks. This sounds like the 10-Day Build.</h2>'
+       + '<p>Pick a time below. Twenty minutes, free, no pitch. I will have read your answers before we start, so we begin at the actual problem rather than at introductions.</p></div>'
+       + CAL_EMBED
        + '<p class="calalt">Would rather not book a call? You can <a href="'+STRIPE_LINK+'" target="_blank" rel="noopener">start the build now</a>: $2,500, working in 10 days or it is free.</p>',
 
+    gov: '<div class="rcard r-hot"><h2>Thanks. This is bigger than a ten-day build, and that is fine.</h2>'
+       + '<p>Several entities, several partner organizations, or more than 25 people is the <b>20-Day Governance Build</b>: everything in the build, plus isolation across entities, an access model mapped to ISO 27001 controls, and an evidence pack you can hand to a partner or an auditor. From $7,500, fixed once scoped, two at a time.</p>'
+       + '<p>Pick a time below. Twenty minutes, free. I will have read your answers, and I will tell you on the call whether the 5-Day Diagnostic should come first, so the architecture is settled before anything is priced.</p></div>'
+       + CAL_EMBED,
+
+    diag: '<div class="rcard r-warm"><h2>Thanks. Start with the 5-Day Diagnostic.</h2>'
+       + '<p>From your answers, the right first step is not a call and not a full build. It is one unresolved problem, answered with evidence: a 90-minute interview, a documented test in your own workspace, and a written recommendation in five working days, plus a readout call.</p>'
+       + '<p>It is $750, one payment. If the report names nothing you did not already know, it is refunded. If you go ahead with the build within 30 days, the full $750 comes off the price, so the decision is reversible.</p>'
+       + '<a class="btn" href="'+DIAG_LINK+'" target="_blank" rel="noopener">Start the Diagnostic &middot; $750</a>'
+       + '<a class="btn ghost" href="/notion-build/">See the full build instead</a>'
+       + '<p class="alt">Either way I will email you within a day. If you would rather talk it through first, reply to that email and we will find a time.</p></div>' + NEXT,
+
     warm: '<div class="rcard r-warm"><h2>Thanks. Here is what I would suggest.</h2>'
-       + '<p>From your answers, I would not start with a call. I would start with the build itself: ten working days, and your workspace is live and running on your own work rather than described in a proposal.</p>'
-       + '<p>It is $2,500, one payment, no change orders. If it is not working on day ten you pay nothing and you keep the workspace anyway, so the decision is reversible.</p>'
-       + '<a class="btn" href="/notion-build/">See what is involved &rarr;</a>'
-       + '<a class="btn ghost" href="'+STRIPE_LINK+'" target="_blank" rel="noopener">Start the build</a>'
-       + '<p class="alt">Either way I will email you within a day. If you would rather talk it through first, just reply and we will find a time.</p></div>' + NEXT,
+       + '<p>From your answers, I would not start with a call. I would start with the <b>5-Day Diagnostic</b>: one 90-minute interview, a documented test in your own workspace, and a written recommendation in five working days. $750, refunded if it names nothing you did not already know, and the full amount comes off the build if you go ahead within 30 days.</p>'
+       + '<p>Already certain you want the whole workspace built? The <b>10-Day Build</b> is $2,500, one payment, no change orders, working in ten days or you pay nothing.</p>'
+       + '<a class="btn" href="'+DIAG_LINK+'" target="_blank" rel="noopener">Start the Diagnostic &middot; $750</a>'
+       + '<a class="btn ghost" href="/notion-build/">See what the build involves &rarr;</a>'
+       + '<p class="alt">Either way I will email you within a day. If you would rather talk it through first, reply to that email and we will find a time.</p></div>' + NEXT,
 
     cold: '<div class="rcard r-cold"><h2>Thanks for taking the time to fill this in.</h2>'
        + '<p>Being straight with you: from what you have described, what I build would be more than you need at this stage. I would rather tell you that now than take the money and have you regret it.</p>'
@@ -251,7 +268,7 @@ css_bundle: /assets/css/b-4d78392669.css
     r.innerHTML=(TEST_MODE ? testBanner(bucket, d) : '') + VIEWS[bucket] + FALLBACK;
     r.classList.add('on');
 
-    if (bucket === 'hot'){
+    if (bucket === 'hot' || bucket === 'gov'){
       (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document;
         C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments;
           if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
