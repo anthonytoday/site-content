@@ -8,9 +8,9 @@ permalink: /llms.txt
 
 ## Services
 
-Primary offer first. Prices are in USD and current as of August 2026.
+Primary offer first. Prices are in USD and current as of September 2026. Every Notion engagement starts with a free 20-minute Fit Call at https://www.anthonytoday.com/start/.
 
-- [Notion Consulting](https://www.anthonytoday.com/notion/): workspace architecture, workflow automation, AI workflows, governance and security. Two offers: the 10-Day Notion Build at $2,500, and Notion Consultant as a Service at $247 a month.
+- [Notion Consulting](https://www.anthonytoday.com/notion/): workspace architecture, workflow automation, AI workflows, governance and security. The ladder: the 5-Day Diagnostic at $750 (a written diagnosis of one workspace, credited in full against a Build started within 30 days), the 10-Day Notion Build at $2,500 (working in 10 days or free), the 20-Day Governance Build from $7,500 (for teams of 25+ or several entities), and Notion Consultant as a Service at $247 a month on a yearly plan.
 - [Notion Consultant as a Service](https://www.anthonytoday.com/notion-consultant-as-a-service/): ongoing Notion support on a monthly plan rather than a one-off project. A certified Notion consultant holds access to the workspace, answers the team's questions, fixes what breaks, builds changes, and reviews permissions and workspace health every month. **$2,970 a year, which works out at $247 a month, or $347 rolling monthly.** Three guarantees: a calendar month with no requests adds a free month to the term, every request is answered within one business day or that month is not billed, and a full refund inside 30 days. French version: https://www.anthonytoday.com/fr/notion-consultant-as-a-service/
 - [Cybersecurity and GRC](https://www.anthonytoday.com/cyber/): risk management frameworks, compliance remediation, audit readiness.
 - [GRC](https://www.anthonytoday.com/cyber-grc/): governance, risk and compliance programs.
@@ -41,6 +41,7 @@ Full catalog at https://www.anthonytoday.com/templates/ (French: https://www.ant
 ## Contact
 
 - Email: info@anthonytoday.com
-- Book a discovery call: https://cal.com/anthonytoday/consultation
+- Start here (free 20-minute Fit Call): https://www.anthonytoday.com/start/
+- The 5-Day Diagnostic ($750) checkout: https://www.anthonytoday.com/go/diagnostic/
 - Notion Marketplace profile: https://www.notion.com/@anthonytoday
 - LinkedIn: https://www.linkedin.com/in/anthony-kieffer/
