@@ -25,7 +25,7 @@ lcp_image: /assets/brand/anthony-profile.webp
         <div class="photo-frame">
           <img class="cred-photo-img" src="/assets/brand/anthony-profile.webp" alt="Anthony Today" width="400" height="400" fetchpriority="high" decoding="async">
         </div>
-        <p class="cred-caption">Anthony Today, Certified Notion Consultant</p>
+        <p class="cred-caption">Anthony Today, Notion Certified Consultant</p>
       </div>
       <div class="badges">
         <p class="lead">Certifications in Good Standing</p>
@@ -230,38 +230,103 @@ lcp_image: /assets/brand/anthony-profile.webp
     <p style="text-align:center;margin-top:18px;font-size:14px;color:var(--text-gray)">Want to see how an engagement unfolds end to end? <a href="https://www.anthonytoday.com/use-case" style="color:var(--blue);text-decoration:underline">Read the full use case</a>.</p>
   </section>
 
-    <!-- THE TWO OFFERS -->
+    <!-- THE LADDER -->
   <section class="block" id="pricing">
-    <div class="x">
-      <div class="ow">
-        <div class="xpz">
-          <h2>Two ways to work together</h2>
-          <p class="lede">Get it built, or get it built and kept running. Either one stands on its own.</p>
-          <div class="xpg">
-            <div class="xpcard">
-              <div class="xbadge">Build it</div>
-              <div class="xamt">$2,500</div>
-              <div class="xalt">The 10-Day Notion Build. Ten working days from workspace access to a live system: architecture, migration of what already exists, automations, a written access model, training and handover.</div>
-              <div class="xor">guarantee</div>
-              <div class="xmo"><span>Working in 10 days</span><b>or it is free</b></div>
-              <a class="xbtn" href="/notion-build/">See the build &rarr;</a>
-              <div class="xfine">One price. No change orders.</div>
-            </div>
-            <div class="xplus" aria-hidden="true">+</div>
-            <div class="xpcard">
-              <div class="xbadge">Keep it running</div>
-              <div class="xamt">$247<i> / month</i></div>
-              <div class="xalt">Notion Consultant as a Service. A certified Notion expert on call: unlimited requests, a request board for your team, and a monthly permission and health review.</div>
-              <div class="xor">guarantee</div>
-              <div class="xmo"><span>A month you do not use</span><b>is free</b></div>
-              <a class="xbtn" href="/notion-consultant-as-a-service/">See the plan &rarr;</a>
-              <div class="xfine">Cancel any month. Keep everything.</div>
-            </div>
-          </div>
-          <div class="xnote">Not sure which one? If you already have a workspace, start with the ongoing plan. If you do not, start with the build. Full terms are on each page, and <a href="https://www.anthonytoday.com/use-case">this is how an engagement plays out</a>.</div>
-        </div>
+    <style>
+      .ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:26px 0 0}
+      .ladder-c{background:#FFFFFF;border:1px solid #E3E8F0;border-radius:12px;padding:26px 24px;display:flex;flex-direction:column}
+      .ladder-c.mid{border:2px solid #2251FF;box-shadow:0 8px 30px rgba(34,81,255,.10)}
+      .ladder-k{display:inline-block;align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:20px;margin-bottom:14px;background:#EEF2FF;color:#2251FF}
+      .ladder-c.mid .ladder-k{background:#2251FF;color:#FFFFFF}
+      .ladder-n{font-size:19px;font-weight:700;color:#051C2C;margin:0 0 4px;letter-spacing:-.01em}
+      .ladder-p{font-size:30px;font-weight:700;color:#051C2C;margin:0 0 4px;letter-spacing:-.02em}
+      .ladder-p i{font-style:normal;font-size:14px;font-weight:500;color:#6B7280}
+      .ladder-o{font-size:14.5px;color:#051C2C;font-weight:600;line-height:1.5;margin:0 0 12px}
+      .ladder-l{list-style:none;padding:0;margin:0 0 14px;font-size:13.5px;color:#4A5568;line-height:1.75}
+      .ladder-l li{padding-left:16px;position:relative}
+      .ladder-l li:before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:#2251FF}
+      .ladder-g{font-size:13px;color:#051C2C;background:#F7F9FF;border:1px solid #D8E0FF;border-radius:8px;padding:10px 12px;line-height:1.55;margin:0 0 16px}
+      .ladder-g b{color:#2251FF}
+      .ladder-a{margin-top:auto;display:block;text-align:center;font-size:14px;font-weight:600;padding:12px 18px;border-radius:6px;text-decoration:none;border:1px solid #051C2C;color:#051C2C;background:#FFFFFF}
+      .ladder-c.mid .ladder-a{background:#2251FF;border-color:#2251FF;color:#FFFFFF}
+      .ladder-f{font-size:12px;color:#6B7280;text-align:center;margin:8px 0 0}
+      .keep{margin:22px 0 0;background:#051C2C;color:#FFFFFF;border-radius:12px;padding:24px 26px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
+      .keep h3{font-size:18px;margin:0 0 6px;color:#FFFFFF}
+      .keep p{font-size:14px;line-height:1.65;margin:0;color:#C9D3E3}
+      .keep .kp{font-size:22px;font-weight:700;white-space:nowrap;color:#FFFFFF}
+      .keep .kp i{font-style:normal;font-size:13px;font-weight:500;color:#C9D3E3}
+      .keep a{display:inline-block;margin-top:10px;font-size:14px;font-weight:600;color:#FFFFFF;background:#2251FF;padding:10px 16px;border-radius:6px;text-decoration:none}
+      @media(max-width:860px){.ladder{grid-template-columns:1fr}.keep{grid-template-columns:1fr}}
+    </style>
+    <p class="eyebrow">What it costs</p>
+    <div class="sec-head">
+      <h2>Three ways in. Every step counts toward the next.</h2>
+      <p>Start where the problem actually is. Each engagement has a fixed price, a written scope, and a guarantee that puts the risk on me.</p>
+    </div>
+
+    <div class="ladder">
+      <div class="ladder-c">
+        <span class="ladder-k">Start here if you have one problem</span>
+        <div class="ladder-n">The 5-Day Diagnostic</div>
+        <div class="ladder-p">$750</div>
+        <p class="ladder-o">One unresolved problem, answered with evidence you can act on or hand to someone else.</p>
+        <ul class="ladder-l">
+          <li>90-minute structured interview</li>
+          <li>Technical scan of the workspace</li>
+          <li>A documented test inside your own workspace</li>
+          <li>Written recommendation and roadmap in five working days</li>
+          <li>30-minute readout call</li>
+        </ul>
+        <div class="ladder-g"><b>If the report names nothing you did not already know, it is refunded.</b> Go ahead with the build within 30 days and the full $750 comes off the price.</div>
+        <a class="ladder-a" href="/go/diagnostic/">Start the Diagnostic &rarr;</a>
+        <p class="ladder-f">One call. Five working days.</p>
+      </div>
+
+      <div class="ladder-c mid">
+        <span class="ladder-k">Most chosen</span>
+        <div class="ladder-n">The 10-Day Notion Build</div>
+        <div class="ladder-p">$2,500 <i>$7,000 of value</i></div>
+        <p class="ladder-o">Your workspace built, migrated, and handed over working, in ten days.</p>
+        <ul class="ladder-l">
+          <li>Architecture built to how you work</li>
+          <li>Migration of what already exists</li>
+          <li>Documented access model and automations</li>
+          <li>Recorded walkthrough and live training</li>
+          <li>Thirty days of support after handover</li>
+        </ul>
+        <div class="ladder-g"><b>Working in 10 days, or it is free.</b> No change orders. You keep the workspace either way.</div>
+        <a class="ladder-a" href="/notion-build/">See the build &rarr;</a>
+        <p class="ladder-f">One 45-minute call from you. A small number at a time.</p>
+      </div>
+
+      <div class="ladder-c">
+        <span class="ladder-k">Several entities or 25+ people</span>
+        <div class="ladder-n">The 20-Day Governance Build</div>
+        <div class="ladder-p">from $7,500 <i>quoted after the Diagnostic</i></div>
+        <p class="ladder-o">Every party sees only what it should, with proof you can hand to a partner, an auditor, or a DPO.</p>
+        <ul class="ladder-l">
+          <li>Everything in the 10-Day Build</li>
+          <li>Isolation architecture across entities or partners</li>
+          <li>Access model mapped to ISO 27001 Annex A controls</li>
+          <li>Evidence pack and a partner-facing summary per entity</li>
+          <li>Ninety days of support after handover</li>
+        </ul>
+        <div class="ladder-g"><b>Architecture approved by you on day 10, or you pay nothing beyond the Diagnostic.</b> Fixed price once scoped. Two at a time.</div>
+        <a class="ladder-a" href="/start/">Answer six questions &rarr;</a>
+        <p class="ladder-f">Two calls. Twenty working days.</p>
       </div>
     </div>
+
+    <div class="keep">
+      <div>
+        <h3>Then keep it running: Notion Consultant as a Service</h3>
+        <p>A certified consultant on call after any build. Unlimited requests from your whole team, a live request board, a monthly health and permission review, onboarding for new joiners. Every request answered within one business day or that month is not billed. A month you do not use is free. Ten clients at a time.</p>
+        <a href="/notion-consultant-as-a-service/">See the plan &rarr;</a>
+      </div>
+      <div class="kp">$247 <i>/ month, paid yearly</i><br>$347 <i>/ month, rolling</i></div>
+    </div>
+
+    <p style="font-size:13.5px;color:var(--text-gray);margin:18px 0 0;text-align:center">Not sure which one? <a href="/start/" style="color:var(--blue);text-decoration:underline">Six questions</a> and I tell you, whether or not we work together. <a href="https://www.anthonytoday.com/use-case" style="color:var(--blue);text-decoration:underline">This is how an engagement plays out</a>.</p>
   </section>
 
 <!-- FAQ -->
@@ -269,7 +334,7 @@ lcp_image: /assets/brand/anthony-profile.webp
     <p class="eyebrow">Questions I hear</p>
     <div class="sec-head"><h2>Before you start a conversation</h2></div>
     <div class="faq">
-      <details><summary>I am not sure exactly what I need. Can you still help?</summary><p>Yes. Most clients arrive knowing something is wrong without knowing the cause. That is what the first days of the build are for: working out what to fix first, before anything gets rebuilt.</p></details>
+      <details><summary>I am not sure exactly what I need. Can you still help?</summary><p>Yes. Most clients arrive knowing something is wrong without knowing the cause. If it is one specific problem, the 5-Day Diagnostic answers it with evidence and the fee comes off a build. If it is the whole workspace, the first days of the build work out what to fix first, before anything gets rebuilt.</p></details>
       <details><summary>How is this different from hiring an agency?</summary><p>At an agency you talk to sales, then a project manager, then maybe the person doing the work. Here you work with one senior operator from the first call to the final handoff. The person who designs your system is the person who builds it.</p></details>
       <details><summary>I am not technical. Will I understand what you build?</summary><p>That is the point. Every system ships documented, and I train your team so you can run and maintain it without me. You own it.</p></details>
       <details><summary>Why does the security and governance angle matter?</summary><p>Most Notion consultants build workflows but never check who can see what. With a 15-year cybersecurity background, I build systems that are fast and safe, which matters most for client data, finance, and regulated teams.</p></details>
@@ -295,7 +360,7 @@ lcp_image: /assets/brand/anthony-profile.webp
    "name": "I am not sure exactly what I need. Can you still help?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Yes. Most clients arrive knowing something is wrong without knowing the cause. That is what the first days of the build are for: working out what to fix first, before anything gets rebuilt."
+    "text": "Yes. Most clients arrive knowing something is wrong without knowing the cause. If it is one specific problem, the 5-Day Diagnostic answers it with evidence and the fee comes off a build. If it is the whole workspace, the first days of the build work out what to fix first, before anything gets rebuilt."
    }
   },
   {
