@@ -69,7 +69,7 @@
   {%- if u -%}
     {%- if L == "fr" -%}{%- assign uhref = u.page_fr -%}{%- else -%}{%- assign uhref = u.page -%}{%- endif -%}
       <a class="pd-upsell" href="{{ uhref }}">
-        {%- if u.cover %}<img src="{{ u.cover }}" alt="" loading="lazy"{%- assign _ud = site.data.image_dims[u.cover] -%}{%- if _ud -%}{%- assign _uwh = _ud | split: "x" -%} width="{{ _uwh[0] }}" height="{{ _uwh[1] }}"{%- endif -%} decoding="async" onerror="this.remove()">{% endif -%}
+        {%- if u.cover %}<img src="{{ u.cover }}" alt="" loading="lazy"{%- assign _ud = site.data.image_dims[u.cover] -%}{%- if _ud -%}{%- assign _uwh = _ud | split: "x" -%} width="{{ _uwh[0] }}" height="{{ _uwh[1] }}"{%- endif %} decoding="async" onerror="this.remove()">{% endif -%}
         <span class="pu-t">
           <span class="pu-k">{% if L == "fr" %}Version supérieure{% else %}Upgrade{% endif %} &middot; ${{ u.price }}</span>
           <strong>{{ t[L].upsell_hook }}</strong>
