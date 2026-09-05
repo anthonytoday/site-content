@@ -175,6 +175,8 @@
       body: JSON.stringify({ email: email, consent: true, lang: FR ? "fr" : "en", page: path })
     }).then(function(r){ return r.json(); }).then(function(j){
       if (!j || !j.ok || !j.url) throw new Error("bad");
+      var okUrl = /^https:\/\/([a-z0-9-]+\.)*(notion\.so|notion\.com|anthonytoday\.com)\//i.test(j.url);
+      if (!okUrl) throw new Error("bad url");
       link.href = j.url;
       form.hidden = true;
       done.hidden = false;
