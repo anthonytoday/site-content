@@ -4,6 +4,10 @@ name: One-off maintenance
 # (mass deletes, renames, edits to big files). Runs once on the push that
 # adds it, applies the listed changes, removes itself and its edits file,
 # and pushes. The Build gate runs afterwards via workflow_run.
+# Attempt 2: the first run failed on its own self-referential grep in the
+# image-rename step; that step is dropped because the three guide images
+# are listed in the bot-owned template-images-manifest.json and a rename
+# there needs a manifest edit first.
 
 on:
   push:
@@ -35,17 +39,6 @@ jobs:
             git rm -r -q --cached _site
           fi
 
-      - name: Give the three extensionless guide images their .webp extension
-        run: |
-          set -e
-          cd assets/guides/notion
-          for f in 131b802c-fsdfd-webp 131b802f-webp 131b8035-webp; do
-            [ -f "$f" ] && git mv "$f" "${f%-webp}.webp"
-          done
-          cd "$GITHUB_WORKSPACE"
-          sed -i 's#/assets/guides/notion/131b802c-fsdfd-webp#/assets/guides/notion/131b802c-fsdfd.webp#g; s#/assets/guides/notion/131b802f-webp#/assets/guides/notion/131b802f.webp#g; s#/assets/guides/notion/131b8035-webp#/assets/guides/notion/131b8035.webp#g' pages/guide.html fr/pages/guide.html
-          if grep -rn "131b802c-fsdfd-webp\|131b802f-webp\|131b8035-webp" --include=*.html --include=*.yml . | grep -v "^./_site"; then exit 1; fi
-
       - name: Apply the 10 line edits from the 9 Sept 2026 maintenance pass
         run: |
           python3 - <<'PY'
@@ -67,6 +60,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Maintenance 2026-09-09: untrack _site, rename 3 guide images, 10 copy, SEO and gate fixes, remove one-off workflow" \
-            -m "Symptom: _site/ (2,664 files, 127 MB) was tracked although Pages builds from source; three guide images had a -webp text suffix instead of a .webp extension; two stray self-closing slashes on the fr/notion badge images; three meta descriptions over 165 characters; French hero and stat-card wording; a missing accent in the contact title; the Certified Admin badge described as a Consulting Partner badge. Fix: git rm --cached _site, git mv the three files and update both guide pages, apply the ten exact line edits. The fallback branch fallback/pre-offer-ladder-2026-09-09 still holds the previous state."
+          git commit -m "Maintenance 2026-09-09: untrack _site, 10 copy, SEO and gate fixes, remove one-off workflow" \
+            -m "Symptom: _site/ (2,664 files, 127 MB) was tracked although Pages builds from source; two stray self-closing slashes on the fr/notion badge images; three meta descriptions over 165 characters; French hero and stat-card wording; a missing accent in the contact title; the Certified Admin badge described as a Consulting Partner badge. Fix: git rm --cached _site and apply the ten exact line edits. The fallback branch fallback/pre-offer-ladder-2026-09-09 still holds the previous state."
           git push
