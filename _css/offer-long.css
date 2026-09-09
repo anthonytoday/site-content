@@ -11,11 +11,11 @@
 .osum{border:1px solid var(--border);border-radius:14px;overflow:hidden;margin:26px 0;background:#fff}
 .osum-head{display:flex;justify-content:space-between;align-items:flex-start;gap:22px;
            padding:22px 26px 18px;background:var(--navy);color:#fff}
-.osum-k{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:#A8B4C2;font-weight:600}
+.osum-k{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:#5F6F82;font-weight:600}
 .osum-t{font-size:21px;line-height:1.3;margin-top:7px;letter-spacing:-.02em;color:#fff}
 .osum-price{text-align:right;flex-shrink:0}
 .osum-big{font-size:33px;font-weight:700;letter-spacing:-.03em;line-height:1}
-.osum-sm{font-size:12.5px;color:#A8B4C2;margin-top:3px}
+.osum-sm{font-size:12.5px;color:#5F6F82;margin-top:3px}
 .osum-pay{display:flex;gap:0;border-bottom:1px solid var(--border);background:#F5F8FF}
 .osum-payi{flex:1;padding:12px 26px;font-size:14px;color:var(--text-gray)}
 .osum-payi+.osum-payi{border-left:1px solid var(--border)}
@@ -75,7 +75,7 @@ table.stack-t tr.free td{color:var(--blue)}
 table.stack-t tr.stot td{border-bottom:0;padding-top:14px;font-size:16.5px;font-weight:700}
 table.stack-t tr.stot td.v s{color:var(--text-gray)}
 .stack-pay{background:var(--navy);color:#fff;border-radius:12px;padding:20px 22px}
-.sp-k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#A8B4C2;font-weight:700}
+.sp-k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#5F6F82;font-weight:700}
 .sp-n{font-size:38px;font-weight:700;letter-spacing:-.03em;margin-top:3px;line-height:1}
 .sp-d{font-size:13.5px;color:#B9C4D0;margin-top:11px;line-height:1.62}
 

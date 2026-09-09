@@ -9,7 +9,7 @@ Spec: JSON list of ops, applied in order. Every op must match exactly or the run
       old must occur exactly `count` times (default 1); all occurrences replaced.
   {"op":"replace_all","path":"assets/css/b-x.css","old":"#6B7280","new":"#5C6875","min":1,"ci":true}
       replace every occurrence (case-insensitive when ci); at least `min` matches required.
-  {"op":"rehash_bundle","path":"assets/css/b-546283131b.css"}
+  {"op":"rehash_bundle","path":"assets/css/b-7a3ee10ee2.css"}
       compute sha1(content)[:10], git mv to assets/css/b-<hash>.css, and rewrite every
       reference to the old filename in *.html, *.yml, *.py, *.md under the repo (skipping
       _site and .git). Run AFTER the bundle's content edits.

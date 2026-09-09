@@ -20,7 +20,7 @@
 
 <div class="gallery-main{% if nslides > 0 %} lb-open{% endif %}"
      {% if nslides > 0 %}data-lb-index="0" role="button" tabindex="0"
-     aria-label="{% if L == 'fr' %}Agrandir l'image{% else %}Enlarge image{% endif %}"{% endif %}>
+     aria-label="{% if L == 'fr' %}Cliquer pour agrandir{% else %}Click to enlarge{% endif %}"{% endif %}>
   <div class="ph-art"><span class="ph-icon">&#9635;</span>{% if L == "fr" %}Capture a venir{% else %}Screenshot pending{% endif %}</div>
   {%- comment -%} No width/height here on purpose. Covers vary (1600x999, 1920x1199) and the
       frame already declares aspect-ratio:16/10 in CSS, which reserves the space correctly.
