@@ -16,7 +16,7 @@ SITE = sys.argv[1] if len(sys.argv) > 1 else "_site"
 SRC = sys.argv[2] if len(sys.argv) > 2 else "."
 
 LD_RE = re.compile(r'<script type="application/ld\+json">(.*?)</script>', re.S)
-STRAY_RE = re.compile(r'(?:src|href|alt)="[^"\n]*"/\s')
+STRAY_RE = re.compile(r'[a-zA-Z-]+="[^"\n]*"/\s')
 STUB_MARK = '<meta http-equiv="refresh"'
 FR_OVERRIDE = 'html[lang="fr"] h1'
 DASHES = ("\u2013", "\u2014")  # en dash, em dash: house style forbids both
