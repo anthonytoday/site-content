@@ -7,6 +7,18 @@ name: Build gate
 on:
   push:
     branches: [main]
+  # Bot commits are made with GITHUB_TOKEN, which never fires push-triggered
+  # workflows, so the gate also runs after each bot workflow completes. On a
+  # workflow_run event the checkout below resolves to the head of main.
+  workflow_run:
+    workflows:
+      - Extract Etsy listing images
+      - Import template images
+      - Sync Notion Marketplace gallery
+      - Site optimise
+      - One-off maintenance
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
 
 permissions:

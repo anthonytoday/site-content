@@ -44,6 +44,10 @@ templates page behaves exactly as it always did.
 | `shop-gallery.html` | Gallery, phone strip, lightbox. Takes `noun` so a deck page does not say "template" |
 | `last-updated.html` | The Last updated cell |
 | `shop-footer.html` | Shop footer |
+| `site-footer.html` | Footer for every non-shop page, styles included. Edit once, every page updates |
+| `start-here.html` | The three-step Start here block used on service pages. EN routes step 2 to `/start/`, FR keeps its own branch |
+| `offer-popup.html` | Lead-capture popup. Emitted by the layout only when `offer_popup_enabled` is true and the page does not set `no_offer_popup: true` |
+| `offer-summary.html` | The Investor-Ready Sprint offer at a glance ($15,000, 30 days), rendered twice on `/notion-for-real-estate/` |
 
 **Adding a product is a data-only change.** Add an entry to `_data/templates.yml` or
 `_data/decks.yml` and create the page from an existing one. The hub, counts, filters,
@@ -61,6 +65,8 @@ This repo has **two writers**, and the split matters.
 | `assets/templates/`, `assets/etsy/` | The image-import Action | Do not hand-edit. Add a `{path, url}` pair to `assets/template-images-manifest.json` and the Action downloads and commits it |
 | `assets/template-images-manifest.json` | The image-import Action | Append only, never rewrite |
 | `.github/` | The Action | Leave alone unless changing the pipeline itself |
+| `assets/brand/`, `assets/logos/`, `assets/guides/`, `assets/images/`, `assets/gumroad/`, `assets/js/` | People | Normal edits |
+| `assets/css/` | The build | Content-hashed bundles built from `_css/`. Do not edit a bundle by hand; the optimise Action prunes unreferenced ones |
 | everything else | People | Normal edits |
 
 `.github/import-result.txt` records the last run, for example
@@ -82,6 +88,8 @@ so nothing shifts while a page loads.
 | --- | --- |
 | `shop_nav` | `false` hides the Shop menu. `true` reveals Notion Templates, Anki Flashcards and Help in the header |
 | `cf_analytics_token` | Empty means no analytics beacon is emitted at all |
+| `offer_popup_enabled` | `true` shows the lead-capture popup on every page except those with `no_offer_popup: true` |
+| `offer_api` | The Cloudflare Worker endpoint the popup posts to. Change it here, never in the include |
 
 ## Before you push
 
@@ -92,6 +100,11 @@ The site has no test suite, so changes are verified by rendering. Confirm that:
 3. product pages still match the reference page structurally
 4. pages that should be hidden still carry `noindex` and `sitemap: false`
 5. no page that already existed renders differently unless you meant it to
+
+In CI, `.github/scripts/gate.py` enforces the same checks on every push to `main` and
+after every bot run (the Build gate also triggers on `workflow_run`, because a push made
+with `GITHUB_TOKEN` does not fire push-triggered workflows). `_site/` is build output and
+is ignored by git: never commit it.
 
 House style: **no em dashes anywhere**, including commit messages. English only in
 the flashcards shop. Never invent a card count, price, rating or review: unknown

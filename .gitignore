@@ -1,0 +1,7 @@
+# Jekyll build output: GitHub Pages builds from source, never commit it
+_site/
+.jekyll-cache/
+.DS_Store
+*.bak
+__pycache__/
+node_modules/

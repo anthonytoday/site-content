@@ -1,0 +1,52 @@
+[
+[
+"fr/home.html",
+"<p>Satisfaction client, toutes plateformes et tous canaux de retour confondus</p>",
+"<p>Note moyenne des clients templates sur le Notion Marketplace et Gumroad</p>"
+],
+[
+"fr/pages/contact.html",
+"title: \"Contact | Reserver une consultation | Anthony Today\"",
+"title: \"Contact | Réserver une consultation | Anthony Today\""
+],
+[
+"fr/services/notion-real-estate-ops-architecture.html",
+"description: \"Un décryptage visuel, couche par couche, de l'automatisation immobilière : ce que fait chaque élément, du raccourci iPhone à la boucle d'exécution multi-agents, et la valeur métier qu'il est conçu pour produire.\"",
+"description: \"Un décryptage visuel, couche par couche, de l'automatisation immobilière : du raccourci iPhone à la boucle d'exécution multi-agents, et la valeur métier produite.\""
+],
+[
+"fr/services/notion.html",
+"<h1>L'expertise Notion. La rigueur sécurité. Un seul opérateur senior.</h1>",
+"<h1>L'expertise Notion. La rigueur en matière de sécurité. Un seul opérateur senior.</h1>"
+],
+[
+"fr/services/notion.html",
+"<div class=\"badge-img-placeholder\"><img alt=\"Badge Notion Consulting Partner\" onerror=\"this.style.display='none';this.parentElement.textContent='Notion Consulting Partner';\" src=\"/assets/brand/notion-certified-admin.webp\" width=\"256\" height=\"256\"/ loading=\"lazy\" decoding=\"async\"></div>",
+"<div class=\"badge-img-placeholder\"><img alt=\"Badge Notion Certified Admin\" onerror=\"this.style.display='none';this.parentElement.textContent='Notion Certified Admin';\" src=\"/assets/brand/notion-certified-admin.webp\" width=\"256\" height=\"256\" loading=\"lazy\" decoding=\"async\"></div>"
+],
+[
+"fr/services/notion.html",
+"<div class=\"badge-img-placeholder\"><img alt=\"Badge de certification Notion\" onerror=\"this.style.display='none';this.parentElement.textContent='Certifié Notion';\" src=\"/assets/brand/notion-service-specialist.webp\" width=\"256\" height=\"256\"/ loading=\"lazy\" decoding=\"async\"></div>",
+"<div class=\"badge-img-placeholder\"><img alt=\"Badge de certification Notion\" onerror=\"this.style.display='none';this.parentElement.textContent='Certifié Notion';\" src=\"/assets/brand/notion-service-specialist.webp\" width=\"256\" height=\"256\" loading=\"lazy\" decoding=\"async\"></div>"
+],
+[
+"services/notion-governance.html",
+"description: \"One Notion workspace for several entities or 25+ people, where every party sees only what it should, with proof for an auditor. 20 days, $12,500, deposit back if day 10 is not approved.\"",
+"description: \"A Notion workspace for several entities or 25+ people, each party seeing only what it should, audit-ready. 20 days, $12,500, deposit back if day 10 is not approved.\""
+],
+[
+"services/notion-real-estate-ops-architecture.html",
+"description: \"A visual, layer-by-layer look at the real estate automation: what each piece does, from an iPhone Shortcut to a multi-agent execution loop, and the business value it is built to deliver.\"",
+"description: \"A visual, layer-by-layer look at the real estate automation, from an iPhone Shortcut to a multi-agent execution loop, and the value it delivers.\""
+],
+[
+"services/notion.html",
+"            <div class=\"badge-img-placeholder\"><img src=\"/assets/brand/notion-certified-admin.webp\" width=\"256\" height=\"256\" alt=\"Notion Consulting Partner badge\" onerror=\"this.style.display='none';this.parentElement.textContent='Notion Consulting Partner';\" loading=\"lazy\" decoding=\"async\"></div>",
+"            <div class=\"badge-img-placeholder\"><img src=\"/assets/brand/notion-certified-admin.webp\" width=\"256\" height=\"256\" alt=\"Notion Certified Admin badge\" onerror=\"this.style.display='none';this.parentElement.textContent='Notion Certified Admin';\" loading=\"lazy\" decoding=\"async\"></div>"
+],
+[
+".github/scripts/gate.py",
+"STRAY_RE = re.compile(r'(?:src|href|alt)=\"[^\"\\n]*\"/\\s')",
+"STRAY_RE = re.compile(r'[a-zA-Z-]+=\"[^\"\\n]*\"/\\s')"
+]
+]
