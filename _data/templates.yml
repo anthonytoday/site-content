@@ -1348,7 +1348,7 @@
   - /assets/templates/finance-tracker/mobile/01.webp
   en:
     title: Finance Tracker, Income and Expenses
-    blurb: Every transaction in, every transaction out, categorised.
+    blurb: Every transaction in, every transaction out, categorized.
   fr:
     title: Finance Tracker, revenus et depenses
     blurb: Chaque transaction entrante et sortante, categorisee.

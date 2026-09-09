@@ -1,27 +1,46 @@
 {% if page.lang == "fr" %}{% assign p = "/fr" %}{% else %}{% assign p = "" %}{% endif %}
+{% comment %}Footer styles travel with the footer. Three per-page CSS bundles (start, notion-build, investor-ready-sprint FR) were generated without the footer base rules, which rendered the footer unstyled on the live site on 5 Sep 2026. This block carries every rule the footer needs with literal fallbacks, so a bundle can never drop it again.{% endcomment %}
+<style>
+footer.site-foot{background:#F5F5F5;padding:60px 20px;margin-top:100px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:#051C2C;box-sizing:border-box}
+footer.site-foot *{box-sizing:border-box}
+footer.site-foot .footer-content{max-width:1000px;margin:0 auto}
+footer.site-foot .footer-main{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin:0 0 40px}
+footer.site-foot .footer-section h2,footer.site-foot .footer-section h4{font-size:14px;font-weight:600;color:#051C2C;margin:0 0 15px;text-transform:uppercase;letter-spacing:.5px;line-height:1.4}
+footer.site-foot .footer-section a{display:block;font-size:13px;color:#6B7280;text-decoration:none;margin:0 0 8px;transition:color .2s}
+footer.site-foot .footer-section a:hover{color:#2251FF}
+footer.site-foot .footer-section p{font-size:13px;color:#6B7280;line-height:1.8;margin:0 0 15px}
+footer.site-foot .social-links{display:flex;gap:15px;margin-top:18px;align-items:center}
+footer.site-foot .social-links a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;margin:0;padding:0;border-radius:50%;background:#051C2C;color:#FFFFFF;font-size:14px;font-weight:600;text-decoration:none}
+footer.site-foot .social-links a:hover{background:#2251FF;color:#FFFFFF}
+footer.site-foot .footer-bottom{border-top:1px solid #E5E7EB;padding-top:30px;text-align:center;color:#6B7280;font-size:13px}
+footer.site-foot .footer-bottom p{margin:0}
+footer.site-foot .footer-bottom a{color:#6B7280}
+</style>
 <footer class="site-foot">
   <div class="footer-content">
     <div class="footer-main">
       <div class="footer-section">
-        <h4>{% if page.lang == "fr" %}Conseil{% else %}Consulting{% endif %}</h4>
-        {% if page.lang == "fr" %}<a href="/fr/notion-build/">Notion Build 10 jours</a>{% else %}<a href="/notion-build/">10-Day Notion Build</a>{% endif %}
+        <h2>{% if page.lang == "fr" %}Conseil{% else %}Consulting{% endif %}</h2>
+        {% if page.lang == "fr" %}<a href="/fr/notion-build/">Notion Build 10 jours</a>{% else %}<a href="/notion-build/">10-Day Notion Build</a>
+        <a href="/notion-governance/">20-Day Governance Build</a>{% endif %}
         <a href="{{ p }}/notion/">{% if page.lang == "fr" %}Prestations Notion{% else %}Notion Services{% endif %}</a>
-        <a href="https://cal.com/anthonytoday/consultation">{% if page.lang == "fr" %}Appel découverte (79 $){% else %}Discovery Call ($79){% endif %}</a>
+        {% if page.lang == "fr" %}<a href="https://cal.com/anthonytoday/consultation">Appel découverte (79 $)</a>{% else %}<a href="/start/">Start here (free Fit Call)</a>{% endif %}
         <a href="{{ p }}/notion-consultant-as-a-service/">{% if page.lang == "fr" %}Consultant Notion en continu{% else %}Notion Consultant as a Service{% endif %}</a>
         <a href="{{ p }}/notion/#services">{% if page.lang == "fr" %}Prestations{% else %}Services{% endif %}</a>
         <a href="{{ p }}/contact/">Contact</a>
       </div>
       <div class="footer-section">
-        <h4>Templates</h4>
+        <h2>Templates</h2>
         <a href="/shop/">{% if page.lang == "fr" %}Tous les templates{% else %}All templates{% endif %}</a>
         <a href="/how-to-duplicate/">{% if page.lang == "fr" %}Comment dupliquer{% else %}How to duplicate{% endif %}</a>
+        {% unless page.lang == "fr" %}<a href="/how-to-import-flashcards/">How to import flashcards</a>{% endunless %}
         <a href="https://www.notion.com/@anthonytoday">{% if page.lang == "fr" %}Profil Notion{% else %}Notion Profile{% endif %}</a>
         <a href="https://store.anthonytoday.com">{% if page.lang == "fr" %}Boutique Gumroad{% else %}Gumroad Store{% endif %}</a>
         <a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">{% if page.lang == "fr" %}Boutique Etsy{% else %}Etsy Shop{% endif %}</a>
         <a href="{{ p }}/tools/">{% if page.lang == "fr" %}Outils{% else %}Tools{% endif %}</a>
       </div>
       <div class="footer-section">
-        <h4>{% if page.lang == "fr" %}Rester en contact{% else %}Connect{% endif %}</h4>
+        <h2>{% if page.lang == "fr" %}Rester en contact{% else %}Connect{% endif %}</h2>
         <p style="margin-bottom:15px">{% if page.lang == "fr" %}Actualités, ressources et nouveaux templates.{% else %}Follow for updates, resources, and new templates.{% endif %}</p>
         <div class="social-links">
           <a href="https://www.linkedin.com/in/anthony-kieffer/" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>

@@ -10,13 +10,13 @@ social:
   links:
     - https://www.linkedin.com/in/anthony-kieffer/
     - https://www.notion.com/@anthonytoday
-    - https://www.notion.so/consulting-partners/anthonytoday
 exclude:
   - README.md
   - gumroad-mcp/
   - credentials.md
   - "*.py"
   - i18n/
+  - "**/README.md"
 
 # Cloudflare Web Analytics beacon token. Empty means the site emits no beacon at
 # all and nothing is measurable, the shops included.
