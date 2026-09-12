@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Start Here | The 10-Day Notion Build | Anthony Today"
-description: "Six questions, about two minutes. If it is a fit you get a booking link for a free 20-minute call and I tell you which engagement matches. If it is not, I say so and point you somewhere useful."
+title: "Start Here | Notion Fit Check | Anthony Today"
+description: "Five questions, two minutes. If it is a fit you book a 30-minute Working Session on the spot. If it is not, I say so and point you somewhere useful."
 permalink: /start/
 lang: en
 alt_url: /fr/start/
@@ -11,28 +11,30 @@ sitemap: false
 bc_name: "Start"
 css_bundle: /assets/css/b-55370db292.css
 ---
+<style>
+.qf form#qf-lead{padding:0;margin-top:22px}
+.qf .lead{margin-top:18px;padding:26px 26px 22px;border:1px solid var(--border);border-radius:12px;background:#fff}
+.qf .lead .q{margin-bottom:18px}
+.qf .lead .consent{margin-bottom:16px}
+.qf .lead .submit{margin-top:2px}
+.qf .lead-t{font-size:11.5px;letter-spacing:1px;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:14px}
+.qf .paynote{font-size:14.5px;color:var(--text-gray);margin-top:14px;text-align:center;line-height:1.6}
+.qf .rcard .rlist a{color:var(--blue);text-decoration:underline}
+.qf .disc{font-size:12.5px;color:var(--text-gray);margin-top:16px;line-height:1.6}
+@media(max-width:640px){.qf .lead{padding:20px 18px 18px}}
+</style>
 <div class="qf">
 
   <div class="head" id="qf-head">
-    <div class="prog">Six questions &middot; about two minutes</div>
+    <div class="prog">Five questions &middot; about two minutes</div>
     <h1>Let's find out whether this is a fit</h1>
-    <p>If it is, you'll get a booking link for a free 20-minute call at the end, and I'll tell you which of the three engagements matches. If it isn't, I'll say so and point you somewhere more useful. Nobody's time gets wasted either way.</p>
+    <p>You see the answer here, on the spot, before you give me an email address. If it is a fit you book a 30-minute Working Session and we work on one real problem in your workspace. If it is not, I say so and point you somewhere more useful.</p>
     <p style="margin-top:12px;font-size:14.5px">Want to fix it yourself first? Read the <a href="/notion/challenges/"><strong>10 questions clients ask most about Notion</strong></a> and the answer to each.</p>
   </div>
 
   <div class="wrap">
 
     <form id="qf-form" novalidate>
-
-      <div class="two">
-        <div class="q"><label class="qlabel" for="f-name">Your name</label>
-          <input type="text" id="f-name" name="name" required></div>
-        <div class="q"><label class="qlabel" for="f-email">Email</label>
-          <input type="email" id="f-email" name="email" required></div>
-      </div>
-
-      <div class="q"><label class="qlabel" for="f-company">Business name and website</label>
-        <input type="text" id="f-company" name="company" placeholder="Acme Studio &middot; acmestudio.com" required></div>
 
       <div class="q">
         <label class="qlabel">1. What would the workspace run?</label>
@@ -47,53 +49,41 @@ css_bundle: /assets/css/b-55370db292.css
         <label class="qlabel">2. How many people will use it?</label>
         <div class="opts" data-name="size">
           <label class="opt"><input type="radio" name="size" value="1-4" required> Only me, or up to 4</label>
-          <label class="opt"><input type="radio" name="size" value="5-25"> 5 to 24</label>
+          <label class="opt"><input type="radio" name="size" value="5-24"> 5 to 24</label>
           <label class="opt"><input type="radio" name="size" value="25+"> 25 or more, or several entities or partner organizations</label>
         </div>
       </div>
 
       <div class="q">
-        <label class="qlabel">3. What budget are you working with?</label>
-        <p class="hint">Rough is fine. It only decides which engagement we'd sensibly talk about.</p>
-        <div class="opts" data-name="budget">
-          <label class="opt"><input type="radio" name="budget" value="under750" required> Under $750</label>
-          <label class="opt"><input type="radio" name="budget" value="750-2500"> $750 to $2,500</label>
-          <label class="opt"><input type="radio" name="budget" value="2500-7500"> $2,500 to $12,500</label>
-          <label class="opt"><input type="radio" name="budget" value="7500+"> $12,500 or more</label>
-          <label class="opt"><input type="radio" name="budget" value="unknown"> Don't know yet</label>
+        <label class="qlabel">3. What is your role?</label>
+        <div class="opts" data-name="role">
+          <label class="opt"><input type="radio" name="role" value="owner" required> Owner or founder</label>
+          <label class="opt"><input type="radio" name="role" value="lead"> Operations, team or project lead</label>
+          <label class="opt"><input type="radio" name="role" value="member"> Team member or assistant</label>
+          <label class="opt"><input type="radio" name="role" value="solo"> Freelancer working alone</label>
         </div>
       </div>
 
       <div class="q">
         <label class="qlabel">4. When do you want this working?</label>
         <div class="opts" data-name="timeline">
-          <label class="opt"><input type="radio" name="timeline" value="30days" required> Start immediately</label>
+          <label class="opt"><input type="radio" name="timeline" value="now" required> Start immediately</label>
           <label class="opt"><input type="radio" name="timeline" value="1-3months"> 1 to 3 months</label>
           <label class="opt"><input type="radio" name="timeline" value="later"> Later, no fixed timeline</label>
         </div>
       </div>
 
       <div class="q">
-        <label class="qlabel" for="f-problem">5. What isn't working right now? Give me a recent example.</label>
-        <p class="hint">A specific moment, not a general description. The report that took three days, the document nobody could find, the deadline that slipped. Two or three sentences.</p>
+        <label class="qlabel" for="f-problem">5. What is not working right now? Give me one recent example.</label>
+        <p class="hint">A specific moment, not a general description. The report that took three days, the document nobody found, the deadline that slipped.</p>
         <textarea id="f-problem" name="problem" required></textarea>
-        <div class="counter" id="c-problem">0 characters</div>
+        <div class="counter" id="c-problem">0 characters &middot; aim for 40+</div>
       </div>
-
-      <div class="q">
-        <label class="qlabel" for="f-tried">6. What have you already tried?</label>
-        <p class="hint">Templates you bought, tools you tried, someone you hired, something you built with AI. What happened to it?</p>
-        <textarea id="f-tried" name="tried" required></textarea>
-        <div class="counter" id="c-tried">0 characters</div>
-      </div>
-
-      <label class="consent"><input type="checkbox" id="f-consent" name="consent">
-        <span>Send me the occasional email about building and running Notion systems. Nothing else, and one click to stop.</span></label>
 
       <input type="checkbox" name="botcheck" id="botcheck" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" tabindex="-1" autocomplete="off" aria-label="Leave this field empty">
 
       <button type="submit" class="submit" id="qf-submit">See if it's a fit &rarr;</button>
-      <p class="privacy">Your answers come straight to me and are never shared. You will only be added to a mailing list if you tick the box above. <a href="/privacy/" style="color:inherit">Privacy policy</a>.</p>
+      <p class="privacy">Nothing is sent until you decide to book. Your answers are never shared. <a href="/privacy/" style="color:inherit">Privacy policy</a>.</p>
     </form>
 
     <div class="result" id="qf-result"></div>
@@ -103,187 +93,222 @@ css_bundle: /assets/css/b-55370db292.css
 
 <script>
 (function(){
-  // ---- CONFIG: endpoint + links. Prices live on /notion/ and in each result view below. ----
-  var ENDPOINT   = "https://api.web3forms.com/submit";
-  var ACCESS_KEY = "c11e0f6b-725b-41be-a276-e2427ef8c1b3";
-  var CAL_LINK   = "https://cal.com/anthonytoday/qualification";   // free 20-minute Fit Call
-  var STRIPE_LINK= "https://pay.anthonytoday.com/b/eVqaEZeiI5zT3blccV1ZS0s";   // 10-Day Build, $2,500
-  var DIAG_LINK  = "/go/diagnostic/";                                // 5-Day Diagnostic, $750 (redirect stub)
-  var AFFILIATE  = "https://affiliate.notion.so/rw7o47pwsh6j";
-  var TEMPLATES  = "https://www.notion.com/@anthonytoday";
-  var MIN_GOOD   = 200;   // routing threshold
-  var MIN_SUBMIT = 40;    // hard minimum so thin leads are still captured
+  // ---- CONFIG ----
+  var ENDPOINT    = "https://api.web3forms.com/submit";
+  var ACCESS_KEY  = "c11e0f6b-725b-41be-a276-e2427ef8c1b3";
+  var CAL_LINK    = "anthonytoday/working-session";   // 30-minute Working Session, $25 at booking
+  var AFFILIATE   = "https://affiliate.notion.so/rw7o47pwsh6j";
+  var TEMPLATES   = "https://www.notion.com/@anthonytoday";
+  var CHALLENGES  = "/notion/challenges/";
+  var MIN_PROBLEM = 40;
 
-  // ---- TEST MODE: append ?test=1 to the URL to exercise routing without sending a lead ----
+  // ---- TEST MODE: append ?test=1 to the URL. Shows the outcome, skips every network call. ----
   var TEST_MODE = /[?&]test=1(&|$)/.test(location.search);
-  function why(d){
-    if (d.firm==='personal') return 'Q1 is personal or side-project use';
-    if (d.budget==='under750') return 'Q3 budget is below the $750 Diagnostic';
-    if (d.size==='25+') return 'Q2 is 25 or more people or several entities, which is the Governance Build and always earns a call';
-    if (d.budget==='7500+') return 'Q3 budget is $12,500+, which is the Governance Build and always earns a call';
-    if (d.timeline==='later') return 'Q4 has no fixed timeline';
-    if (d.budget==='750-2500') return 'Q3 budget is in the Diagnostic band';
-    if (d.budget==='unknown') return 'Q3 budget unknown and Q4 is ' + (d.timeline==='30days' ? 'immediate, so the Diagnostic is the reversible first step' : 'not immediate');
-    if (d.problem.trim().length < MIN_GOOD || d.tried.trim().length < MIN_GOOD)
-      return 'Q5 is ' + d.problem.trim().length + ' chars and Q6 is ' + d.tried.trim().length + ', one is under the ' + MIN_GOOD + ' threshold';
-    return 'real use case, build-band budget, a real timeline, and both written answers over ' + MIN_GOOD + ' characters';
+
+  // ---- Fit rule (single source of truth) ----
+  function fit(d){
+    return (d.firm === 'business' || d.firm === 'function')
+      && (d.size === '5-24' || d.size === '25+')
+      && (d.role === 'owner' || d.role === 'lead')
+      && (d.timeline === 'now' || d.timeline === '1-3months');
   }
-  function testBanner(bucket, d){
-    var colour = (bucket==='hot' || bucket==='gov') ? '#0F7A32' : (bucket==='warm' || bucket==='diag') ? '#B26A00' : '#6B7280';
-    return '<div style="border:2px dashed '+colour+';border-radius:12px;padding:16px 18px;margin:0 0 20px;font-size:14px;line-height:1.55;background:#fff">'
-      + '<div style="font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:'+colour+';font-size:12px;margin-bottom:8px">TEST MODE</div>'
-      + '<div><b>Routed as ' + bucket.toUpperCase() + '.</b></div>'
-      + '<div style="margin-top:6px;color:#334"><b>Why:</b> ' + why(d) + '</div>'
-      + '<div style="margin-top:6px;color:#334">Q1 ' + d.firm + ' &middot; Q2 ' + d.size + ' &middot; Q3 ' + d.budget + ' &middot; Q4 ' + d.timeline
-      + ' &middot; Q5 ' + d.problem.trim().length + ' chars &middot; Q6 ' + d.tried.trim().length + ' chars</div>'
-      + '<div style="margin-top:10px;color:#6B7280">Nothing was sent. Web3Forms POST skipped so your inbox stays clean. Remove <code>?test=1</code> from the URL to submit for real.</div>'
+  function reason(d){
+    if (fit(d)) return 'fit';
+    if (d.firm === 'personal') return 'personal';
+    if (d.role === 'solo') return 'solo';
+    if (d.size === '1-4') return 'small';
+    if (d.role === 'member') return 'member';
+    if (d.timeline === 'later') return 'later';
+    return 'fit';
+  }
+
+  function esc(s){
+    return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function testBanner(ok, why, d){
+    var color = ok ? '#0F7A32' : '#6B7280';
+    return '<div style="border:2px dashed '+color+';border-radius:12px;padding:16px 18px;margin:0 0 20px;font-size:14px;line-height:1.55;background:#fff">'
+      + '<div style="font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:'+color+';font-size:12px;margin-bottom:8px">TEST MODE</div>'
+      + '<div><b>Outcome: ' + (ok ? 'FIT' : 'NOT A FIT') + '.</b> Reason: ' + esc(why) + '</div>'
+      + '<div style="margin-top:6px;color:#334">Q1 ' + esc(d.firm) + ' &middot; Q2 ' + esc(d.size) + ' &middot; Q3 ' + esc(d.role) + ' &middot; Q4 ' + esc(d.timeline)
+      + ' &middot; Q5 ' + d.problem.trim().length + ' chars</div>'
+      + '<div style="margin-top:10px;color:#6B7280">Nothing is sent in test mode, at any step. Remove <code>?test=1</code> from the URL to run it for real.</div>'
       + '</div>';
   }
 
   var form = document.getElementById('qf-form');
 
   // selected-state styling
-  document.querySelectorAll('.opts').forEach(function(g){
-    g.addEventListener('change', function(){
-      g.querySelectorAll('.opt').forEach(function(o){ o.classList.toggle('sel', o.querySelector('input').checked); });
-    });
-  });
+  var groups = document.querySelectorAll('.opts');
+  for (var gi = 0; gi < groups.length; gi++) {
+    (function(g){
+      g.addEventListener('change', function(){
+        var opts = g.querySelectorAll('.opt');
+        for (var i = 0; i < opts.length; i++) {
+          if (opts[i].querySelector('input').checked) { opts[i].classList.add('sel'); } else { opts[i].classList.remove('sel'); }
+        }
+      });
+    })(groups[gi]);
+  }
 
-  // character counters
-  function wire(id, cid){
-    var t=document.getElementById(id), c=document.getElementById(cid);
+  // character counter
+  (function(){
+    var t = document.getElementById('f-problem'), c = document.getElementById('c-problem');
     t.addEventListener('input', function(){
-      var n=t.value.trim().length;
-      c.textContent = n + ' characters' + (n>=MIN_GOOD ? '' : ' · aim for ' + MIN_GOOD + '+');
-      c.classList.toggle('ok', n>=MIN_GOOD);
+      var n = t.value.trim().length;
+      c.textContent = n + ' characters' + (n >= MIN_PROBLEM ? '' : ' · aim for ' + MIN_PROBLEM + '+');
+      if (n >= MIN_PROBLEM) { c.classList.add('ok'); } else { c.classList.remove('ok'); }
     });
-  }
-  wire('f-problem','c-problem'); wire('f-tried','c-tried');
+  })();
 
-  // Five buckets. Each one maps to exactly one engagement or one honest no.
-  //   cold  -> not a fit, free resources
-  //   diag  -> 5-Day Diagnostic, $750, pay now
-  //   warm  -> a fit on paper but no timeline or thin answers: Diagnostic suggested, build shown
-  //   hot   -> 10-Day Build band: free Fit Call embedded, or pay now
-  //   gov   -> 20-Day Governance Build: free Fit Call embedded, fixed $12,500, deposit invoiced after the call
-  function route(d){
-    if (d.firm==='personal' || d.budget==='under750') return 'cold';
-    if (d.size==='25+' || d.budget==='7500+') return 'gov';
-    if (d.timeline==='later') return 'warm';
-    if (d.budget==='750-2500') return 'diag';
-    if (d.budget==='unknown') return d.timeline==='30days' ? 'diag' : 'warm';
-    if (d.problem.trim().length < MIN_GOOD || d.tried.trim().length < MIN_GOOD) return 'warm';
-    return 'hot';
+  function radio(name){
+    var el = form.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : '';
   }
-
-  var NEXT = '<div class="next"><div class="next-t">What happens next</div>'
-    + '<div class="ns"><span>1</span><div><b>I read your answers properly</b>Before anything else. You will not be asked to repeat yourself.</div></div>'
-    + '<div class="ns"><span>2</span><div><b>You hear from me within one working day</b>Whatever the outcome. No sequence, no list.</div></div>'
-    + '<div class="ns"><span>3</span><div><b>You decide, with no pressure from me</b>If it is not right, I will say so.</div></div></div>';
 
   var FALLBACK = '<div id="qf-fallback" style="display:none;border:2px solid #B00020;border-radius:12px;padding:16px 18px;margin:20px 0 0;background:#fff;font-size:14.5px;line-height:1.55">'
     + '<b>Your answers may not have reached me.</b><br>'
     + 'A network error blocked the submission. So that nothing is lost, email me at <a href="mailto:admin@anthonytoday.com" style="color:#2251FF;text-decoration:underline">admin@anthonytoday.com</a> or message me on <a href="https://wa.me/33695845150" target="_blank" rel="noopener" style="color:#2251FF;text-decoration:underline">WhatsApp</a>.'
     + '</div>';
 
-  var CAL_EMBED = '<div class="calwrap"><div id="cal-inline"></div></div>';
+  var FIT_VIEW = '<div class="rcard r-hot"><h2>This is a fit. Book the Working Session.</h2>'
+    + '<p>Thirty minutes. We open your workspace and work on one real problem. You leave with a written plan and a fixed quote within one working day.</p>'
+    + '<p>It is $25 at booking, credited against your first invoice. The $25 keeps the calendar for people ready to move.</p></div>'
+    + '<div class="lead" id="qf-leadwrap"><div class="lead-t">One step before the calendar</div>'
+    + '<form id="qf-lead" novalidate>'
+    + '<div class="two">'
+    + '<div class="q"><label class="qlabel" for="l-name">Your name</label><input type="text" id="l-name" name="name" required></div>'
+    + '<div class="q"><label class="qlabel" for="l-email">Email</label><input type="email" id="l-email" name="email" required></div>'
+    + '</div>'
+    + '<div class="q"><label class="qlabel" for="l-company">Business name and website</label><input type="text" id="l-company" name="company" placeholder="Acme Studio &middot; acmestudio.com" required></div>'
+    + '<label class="consent"><input type="checkbox" id="l-consent" name="consent"><span>Send me the occasional email about building and running Notion systems. Nothing else, and one click to stop.</span></label>'
+    + '<input type="checkbox" name="botcheck" id="l-botcheck" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" tabindex="-1" autocomplete="off" aria-label="Leave this field empty">'
+    + '<button type="submit" class="submit" id="qf-lead-submit">Continue to booking &rarr;</button>'
+    + '<p class="privacy">Your details come straight to me and are never shared. You are only added to a mailing list if you tick the box above. <a href="/privacy/" style="color:inherit">Privacy policy</a>.</p>'
+    + '</form></div>'
+    + '<div id="qf-cal"></div>';
 
-  var VIEWS = {
-    hot: '<div class="rcard r-hot"><h2>Thanks. This sounds like the 10-Day Build.</h2>'
-       + '<p>Pick a time below. Twenty minutes, free, no pitch. I will have read your answers before we start, so we begin at the actual problem rather than at introductions.</p></div>'
-       + CAL_EMBED
-       + '<p class="calalt">Would rather not book a call? You can <a href="'+STRIPE_LINK+'" target="_blank" rel="noopener">start the build now</a>: $2,500, working in 10 days or it is free.</p>',
+  var CAL_EMBED = '<div class="calwrap"><div id="cal-inline"></div></div>'
+    + '<p class="paynote">Payment of $25 is taken by the booking page. It is credited against your first invoice.</p>'
+    + '<p class="calalt">Calendar not loading? <a href="https://cal.com/anthonytoday/working-session" target="_blank" rel="noopener">Open the booking page directly</a>.</p>';
 
-    gov: '<div class="rcard r-hot"><h2>Thanks. This is bigger than a ten-day build, and that is fine.</h2>'
-       + '<p>Several entities, several partner organizations, or 25 or more people is the <b>20-Day Governance Build</b>: everything in the build, plus isolation across entities, an access model mapped to ISO 27001 controls, and an evidence pack you can hand to a partner or an auditor. $12,500 fixed, a $2,500 deposit then the balance once you approve the architecture on day 10, two at a time. <a href="/notion-governance/" target="_blank" rel="noopener">See how it runs</a>.</p>'
-       + '<p>Pick a time below. Twenty minutes, free. I will have read your answers, and I will tell you on the call whether the 5-Day Diagnostic should come first, so the architecture is settled before anything is priced.</p></div>'
-       + CAL_EMBED,
-
-    diag: '<div class="rcard r-warm"><h2>Thanks. Start with the 5-Day Diagnostic.</h2>'
-       + '<p>From your answers, the right first step is not a call and not a full build. It is one unresolved problem, answered with evidence: a 90-minute interview, a documented test in your own workspace, and a written recommendation in five working days, plus a readout call.</p>'
-       + '<p>It is $750, one payment. If the report names nothing you did not already know, it is refunded. If you go ahead with the build within 30 days, the full $750 comes off the price, so the decision is reversible.</p>'
-       + '<a class="btn" href="'+DIAG_LINK+'" target="_blank" rel="noopener">Start the Diagnostic &middot; $750</a>'
-       + '<a class="btn ghost" href="/notion-build/">See the full build instead</a>'
-       + '<p class="alt">Either way I will email you within a day. If you would rather talk it through first, reply to that email and we will find a time.</p></div>' + NEXT,
-
-    warm: '<div class="rcard r-warm"><h2>Thanks. Here is what I would suggest.</h2>'
-       + '<p>From your answers, I would not start with a call. I would start with the <b>5-Day Diagnostic</b>: one 90-minute interview, a documented test in your own workspace, and a written recommendation in five working days. $750, refunded if it names nothing you did not already know, and the full amount comes off the build if you go ahead within 30 days.</p>'
-       + '<p>Already certain you want the whole workspace built? The <b>10-Day Build</b> is $2,500, one payment, no change orders, working in ten days or you pay nothing.</p>'
-       + '<a class="btn" href="'+DIAG_LINK+'" target="_blank" rel="noopener">Start the Diagnostic &middot; $750</a>'
-       + '<a class="btn ghost" href="/notion-build/">See what the build involves &rarr;</a>'
-       + '<p class="alt">Either way I will email you within a day. If you would rather talk it through first, reply to that email and we will find a time.</p></div>' + NEXT,
-
-    cold: '<div class="rcard r-cold"><h2>Thanks for taking the time to fill this in.</h2>'
-       + '<p>Being straight with you: from what you have described, what I build would be more than you need at this stage. I would rather tell you that now than take the money and have you regret it.</p>'
-       + '<p>Two things that will genuinely help in the meantime, both free:</p>'
-       + '<ul class="rlist">'
-       + '<li><a href="'+AFFILIATE+'" target="_blank" rel="noopener" style="color:#2251FF;text-decoration:underline">Notion Business, free for 3 months</a>: worth around $1,500 for a 20-person team</li>'
-       + '<li><a href="'+TEMPLATES+'" target="_blank" rel="noopener" style="color:#2251FF;text-decoration:underline">My templates</a>: 77 of them, used in 50+ countries</li>'
-       + '</ul>'
-       + '<p class="alt">When the team grows, or when keeping track of things starts costing you real time, come back. I will still be here.<br><span style="font-size:12.5px">The Notion link is a referral link. If you upgrade through it I may earn a commission, at no cost to you.</span></p></div>'
+  var REASONS = {
+    personal: 'What I build is for teams running a business in Notion. For personal projects and side projects it is more than you need, and you would be paying for structure you will never use.',
+    solo: 'Working alone, you do not need an external builder yet. A good template and the free upgrade below get you further than a consultant at this stage. Come back when you hire.',
+    small: 'With fewer than five people, the workspace is still small enough to shape yourselves. Start with the templates below and come back when the team grows.',
+    member: 'The session needs someone who can decide on the workspace: the owner, or the person who runs operations. Send this page to them. If they see a fit, they book, and you are welcome in the session.',
+    later: 'Without a date, a plan goes stale before anyone uses it. Come back when there is a date. The five questions take two minutes and the answer is instant.'
   };
+
+  function notFitView(why){
+    return '<div class="rcard r-cold"><h2>Not a fit right now, and I would rather say so than take $25 for nothing.</h2>'
+      + '<p>' + (REASONS[why] || REASONS.later) + '</p>'
+      + '<p>Three things that help in the meantime, all free:</p>'
+      + '<ul class="rlist">'
+      + '<li><a href="' + AFFILIATE + '" target="_blank" rel="noopener noreferrer sponsored">Notion Business, free for 3 months</a>: the plan a team runs on, no card required</li>'
+      + '<li><a href="' + TEMPLATES + '" target="_blank" rel="noopener">My templates</a>: free and paid, one-click duplication</li>'
+      + '<li><a href="' + CHALLENGES + '">The 10 questions clients ask most about Notion</a>, with the answer to each</li>'
+      + '</ul>'
+      + '<p class="disc">The Notion link is a referral link. If you upgrade through it I may earn a commission, at no cost to you.</p></div>';
+  }
+
+  function mountCal(){
+    (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document;
+      C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments;
+        if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
+        if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1];
+          api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); }
+          else p(cal, ar); return; } p(cal, ar); };
+    })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "working-session", {origin:"https://app.cal.com"});
+    Cal.ns["working-session"]("inline", {
+      elementOrSelector:"#cal-inline",
+      config:{layout:"month_view"},
+      calLink:CAL_LINK
+    });
+    Cal.ns["working-session"]("ui", {hideEventTypeDetails:false, layout:"month_view"});
+  }
+
+  function wireLead(d, why){
+    var lead = document.getElementById('qf-lead');
+    if (!lead) return;
+    lead.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = document.getElementById('l-name').value.trim();
+      var email = document.getElementById('l-email').value.trim();
+      var company = document.getElementById('l-company').value.trim();
+      if (!name || !email || !company){ alert('Name, email and business name are all needed for the booking.'); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ alert('That email address does not look right.'); return; }
+
+      var consent = document.getElementById('l-consent').checked;
+      var payload = {
+        access_key: ACCESS_KEY,
+        subject: '[FIT] ' + company + ' | ' + name,
+        from_name: 'Notion fit check',
+        replyto: email,
+        name: name,
+        email: email,
+        company: company,
+        firm_type: d.firm,
+        team_size: d.size,
+        role: d.role,
+        timeline: d.timeline,
+        problem: d.problem,
+        reason: why,
+        marketing_consent: consent ? 'YES' : 'no',
+        botcheck: (document.getElementById('l-botcheck') || {}).checked || false,
+        submitted_at: new Date().toISOString()
+      };
+
+      if (TEST_MODE) {
+        if (window.console) { console.log('[test mode] payload not sent', payload); }
+      } else {
+        fetch(ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json', Accept:'application/json'},
+          body:JSON.stringify(payload)})
+          .then(function(res){ if(!res.ok){ throw new Error('http ' + res.status); } })
+          .catch(function(){ var w=document.getElementById('qf-fallback'); if(w){ w.style.display='block'; } });
+      }
+
+      document.getElementById('qf-leadwrap').style.display = 'none';
+      document.getElementById('qf-cal').innerHTML = CAL_EMBED;
+      if (TEST_MODE) {
+        document.getElementById('cal-inline').innerHTML = '<p style="padding:24px;text-align:center;color:#6B7280;font-size:14px">Test mode: the cal.com booking embed for <code>' + esc(CAL_LINK) + '</code> is not loaded here. Nothing is sent.</p>';
+      } else {
+        mountCal();
+      }
+      var top = document.getElementById('qf-result').getBoundingClientRect().top + (window.pageYOffset || 0) - 20;
+      window.scrollTo({top: top, behavior:'smooth'});
+    });
+  }
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    var d = Object.fromEntries(new FormData(form).entries());
-    d.problem = d.problem || ''; d.tried = d.tried || '';
+    var d = {
+      firm: radio('firm'),
+      size: radio('size'),
+      role: radio('role'),
+      timeline: radio('timeline'),
+      problem: document.getElementById('f-problem').value || ''
+    };
 
-    if (!d.firm || !d.size || !d.budget || !d.timeline || !d.name || !d.email || !d.company){
+    if (!d.firm || !d.size || !d.role || !d.timeline){
       alert('A few answers are still missing.'); return;
     }
-    if (d.problem.trim().length < MIN_SUBMIT || d.tried.trim().length < MIN_SUBMIT){
-      alert('Questions 5 and 6 need a bit more than that. A couple of sentences each.'); return;
+    if (d.problem.trim().length < MIN_PROBLEM){
+      alert('Question 5 needs a bit more than that. One or two sentences about a recent example.'); return;
     }
 
-    var bucket = route(d);
-    d.route = bucket;
-    d.submitted_at = new Date().toISOString();
+    var ok = fit(d);
+    var why = reason(d);
 
-    var payload = {
-      access_key: ACCESS_KEY,
-      subject: '[' + bucket.toUpperCase() + '] ' + d.company + ' | ' + d.name,
-      from_name: '10-Day Notion Build form',
-      replyto: d.email,
-      marketing_consent: document.getElementById('f-consent').checked ? 'YES' : 'no',
-      copy_paste: d.name + ' <' + d.email + '> | ' + d.company + ' | ' + bucket.toUpperCase() + ' | consent=' + (document.getElementById('f-consent').checked ? 'YES' : 'no'),
-      botcheck: (document.getElementById('botcheck')||{}).checked || false,
-      name: d.name, email: d.email, company: d.company,
-      firm_type: d.firm, team_size: d.size, budget: d.budget, timeline: d.timeline,
-      route: bucket,
-      problem: d.problem, already_tried: d.tried,
-      submitted_at: d.submitted_at
-    };
-    if (TEST_MODE) {
-      console.log('[test mode] route =', bucket, payload);
-    } else {
-      fetch(ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json', Accept:'application/json'},
-        body:JSON.stringify(payload)})
-        .then(function(res){ if(!res.ok){ throw new Error('http ' + res.status); } })
-        .catch(function(){ var w=document.getElementById('qf-fallback'); if(w){ w.style.display='block'; } });
-    }
-
-    document.getElementById('qf-head').style.display='none';
-    form.style.display='none';
-    var r=document.getElementById('qf-result');
-    r.innerHTML=(TEST_MODE ? testBanner(bucket, d) : '') + VIEWS[bucket] + FALLBACK;
+    document.getElementById('qf-head').style.display = 'none';
+    form.style.display = 'none';
+    var r = document.getElementById('qf-result');
+    r.innerHTML = (TEST_MODE ? testBanner(ok, why, d) : '') + (ok ? FIT_VIEW + FALLBACK : notFitView(why));
     r.classList.add('on');
 
-    if (bucket === 'hot' || bucket === 'gov'){
-      (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document;
-        C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments;
-          if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
-          if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1];
-            api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); }
-            else p(cal, ar); return; } p(cal, ar); };
-      })(window, "https://app.cal.com/embed/embed.js", "init");
-      Cal("init", "qualification", {origin:"https://app.cal.com"});
-      Cal.ns.qualification("inline", {
-        elementOrSelector:"#cal-inline",
-        config:{layout:"month_view"},
-        calLink:"anthonytoday/qualification"
-      });
-      Cal.ns.qualification("ui", {hideEventTypeDetails:false, layout:"month_view"});
-    }
+    if (ok) { wireLead(d, why); }
     window.scrollTo({top:0, behavior:'smooth'});
   });
 })();
