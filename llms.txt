@@ -8,10 +8,9 @@ permalink: /llms.txt
 
 ## Services
 
-Primary offer first. Prices are in USD and current as of September 2026. Every Notion engagement starts with a free 20-minute Fit Call at https://www.anthonytoday.com/start/.
+Primary offer first. Every Notion engagement starts with a two-minute fit check at https://www.anthonytoday.com/start/ that leads to a paid 30-minute Working Session ($25, credited against the first invoice). Build prices are fixed and quoted in writing after that session.
 
-- [Notion Consulting](https://www.anthonytoday.com/notion/): workspace architecture, workflow automation, AI workflows, governance and security. The ladder: the 5-Day Diagnostic at $750 (a written diagnosis of one workspace, credited in full against a Build started within 30 days), the 10-Day Notion Build at $2,500 (working in 10 days or free), the 20-Day Governance Build at $12,500 (https://www.anthonytoday.com/notion-governance/: several entities or partners, or 25+ people; $2,500 deposit refunded if the architecture is not approved on day 10, $10,000 balance on approval; evidence pack mapped to ISO 27001 Annex A; two at a time), and Notion Consultant as a Service at $247 a month on a yearly plan.
-- [Notion Consultant as a Service](https://www.anthonytoday.com/notion-consultant-as-a-service/): ongoing Notion support on a monthly plan rather than a one-off project. A certified Notion consultant holds access to the workspace, answers the team's questions, fixes what breaks, builds changes, and reviews permissions and workspace health every month. **$2,970 a year, which works out at $247 a month, or $347 rolling monthly.** Three guarantees: a calendar month with no requests adds a free month to the term, every request is answered within one business day or that month is not billed, and a full refund inside 30 days. French version: https://www.anthonytoday.com/fr/notion-consultant-as-a-service/
+- [Notion Consulting](https://www.anthonytoday.com/notion/): workspace architecture, workflows and automation, access and governance, delivered by one senior operator who designs, builds, documents and trains the team. Fixed price per build, written scope, no change orders.
 - [Cybersecurity and GRC](https://www.anthonytoday.com/cyber/): risk management frameworks, compliance remediation, audit readiness.
 - [GRC](https://www.anthonytoday.com/cyber-grc/): governance, risk and compliance programs.
 - [Fractional CISO](https://www.anthonytoday.com/fractional-ciso/): part-time security leadership.
@@ -41,7 +40,6 @@ Full catalog at https://www.anthonytoday.com/templates/ (French: https://www.ant
 ## Contact
 
 - Email: info@anthonytoday.com
-- Start here (free 20-minute Fit Call): https://www.anthonytoday.com/start/
-- The 5-Day Diagnostic ($750) checkout: https://www.anthonytoday.com/go/diagnostic/
+- Start here (two-minute fit check): https://www.anthonytoday.com/start/
 - Notion Marketplace profile: https://www.notion.com/@anthonytoday
 - LinkedIn: https://www.linkedin.com/in/anthony-kieffer/
