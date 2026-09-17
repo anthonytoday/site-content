@@ -8,6 +8,7 @@ footer.site-foot .footer-main{display:grid;grid-template-columns:repeat(auto-fit
 footer.site-foot .footer-section h2,footer.site-foot .footer-section h4{font-size:14px;font-weight:600;color:#051C2C;margin:0 0 15px;text-transform:uppercase;letter-spacing:.5px;line-height:1.4}
 footer.site-foot .footer-section a{display:block;font-size:13px;color:#5B6672;text-decoration:none;margin:0 0 8px;transition:color .2s}
 footer.site-foot .footer-section a:hover{color:#2251FF}
+footer.site-foot .footer-rule{border:0;border-top:1px solid #E5E7EB;margin:12px 0 12px;max-width:180px}
 footer.site-foot .footer-section p{font-size:13px;color:#5B6672;line-height:1.8;margin:0 0 15px}
 footer.site-foot .social-links{display:flex;gap:15px;margin-top:18px;align-items:center}
 footer.site-foot .social-links a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;margin:0;padding:0;border-radius:50%;background:#051C2C;color:#FFFFFF;font-size:14px;font-weight:600;text-decoration:none}
@@ -21,21 +22,20 @@ footer.site-foot .footer-bottom a{color:#5B6672}
     <div class="footer-main">
       <div class="footer-section">
         <h2>{% if page.lang == "fr" %}Conseil{% else %}Consulting{% endif %}</h2>
-        {% if page.lang == "fr" %}<a href="{{ p }}/notion/">Conseil Notion</a>
-        <a href="/start/">Commencer ici (test de compatibilité, en anglais)</a>
-        <a href="{{ p }}/contact/">Contact</a>{% else %}<a href="{{ p }}/notion/">Notion Consulting</a>
-        <a href="/start/">Start here (fit check)</a>
-        <a href="{{ p }}/contact/">Contact</a>{% endif %}
+        <a href="{{ p }}/cyber/">{% if page.lang == "fr" %}Cybersécurité et GRC{% else %}Cybersecurity and GRC{% endif %}</a>
+        <a href="{{ p }}/notion/">{% if page.lang == "fr" %}Conseil Notion{% else %}Notion Consulting{% endif %}</a>
+        <a href="{{ p }}/tools/">{% if page.lang == "fr" %}Outils{% else %}Tools{% endif %}</a>
+        <a href="{{ p }}/contact/">Contact</a>
       </div>
       <div class="footer-section">
-        <h2>Templates</h2>
+        <h2>{% if page.lang == "fr" %}Produits{% else %}Products{% endif %}</h2>
         <a href="/shop/">{% if page.lang == "fr" %}Tous les templates{% else %}All templates{% endif %}</a>
-        <a href="/how-to-duplicate/">{% if page.lang == "fr" %}Comment dupliquer{% else %}How to duplicate{% endif %}</a>
-        {% unless page.lang == "fr" %}<a href="/how-to-import-flashcards/">How to import flashcards</a>{% endunless %}
-        <a href="https://www.notion.com/@anthonytoday">{% if page.lang == "fr" %}Profil Notion{% else %}Notion Profile{% endif %}</a>
+        <a href="https://www.notion.com/@anthonytoday">{% if page.lang == "fr" %}Profil Notion{% else %}Notion Marketplace{% endif %}</a>
         <a href="https://store.anthonytoday.com">{% if page.lang == "fr" %}Boutique Gumroad{% else %}Gumroad Store{% endif %}</a>
         <a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">{% if page.lang == "fr" %}Boutique Etsy{% else %}Etsy Shop{% endif %}</a>
-        <a href="{{ p }}/tools/">{% if page.lang == "fr" %}Outils{% else %}Tools{% endif %}</a>
+        <hr class="footer-rule" aria-hidden="true">
+        <a href="/how-to-duplicate/">{% if page.lang == "fr" %}Comment dupliquer un template{% else %}How to duplicate a template{% endif %}</a>
+        {% unless page.lang == "fr" %}<a href="/how-to-import-flashcards/">How to import flashcards</a>{% endunless %}
       </div>
       <div class="footer-section">
         <h2>{% if page.lang == "fr" %}Rester en contact{% else %}Connect{% endif %}</h2>

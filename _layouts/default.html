@@ -98,9 +98,8 @@
     "name":{% if lang == "fr" %}"Prestations"{% else %}"Services"{% endif %},
     "itemListElement":[
      {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"Conseil Notion"{% else %}"Notion Consulting"{% endif %},"serviceType":"Notion workspace architecture, automation and governance"},"url":"https://www.anthonytoday.com/notion/"},
-     {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"Session de travail Notion"{% else %}"Notion Working Session"{% endif %},"serviceType":"20-minute working session in the client workspace"},"price":"25","priceCurrency":"USD","url":"https://www.anthonytoday.com/start/"},
-     {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"Conseil GRC indépendant"{% else %}"Independent GRC Advisor"{% endif %},"serviceType":"Governance risk and compliance"}},
-     {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"CISO externalisé"{% else %}"Fractional CISO"{% endif %},"serviceType":"Fractional security leadership"}}
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"Conseil cybersécurité et GRC"{% else %}"Cybersecurity and GRC Advisory"{% endif %},"serviceType":"Security governance, risk and compliance advisory"},"url":"https://www.anthonytoday.com/cyber/"},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":{% if lang == "fr" %}"CISO externalisé"{% else %}"Fractional CISO"{% endif %},"serviceType":"Fractional security leadership"},"url":"https://www.anthonytoday.com/cyber/"}
     ]
    }
   },
@@ -160,33 +159,10 @@
     <nav id="nav">
       <a href="{{ u_home }}"{% if page.url == u_home %} aria-current="page"{% endif %}>{% if lang == "fr" %}Accueil{% else %}Home{% endif %}</a>
 
-      <div class="nav-item">
-        <a href="{{ u_notion }}"{% if page.url == u_notion %} aria-current="page"{% endif %}>Notion</a>
-        <div class="sub">
-          {% comment %}Sep 12, 2026: the Notion dropdown carries the fit check and the shop only. Top 10 Questions, Guide, Use Cases and the Real Estate offer stay live and are reached from body links, not from the header.{% endcomment %}
-          <a href="{{ u_start }}"{% if page.url == u_start %} aria-current="page"{% endif %}>{% if lang == "fr" %}Commencer{% else %}Start here{% endif %}</a>
-          {% unless site.shop_nav %}<a href="{{ u_shop }}"{% if page.url == u_shop %} aria-current="page"{% endif %}>{% if lang == "fr" %}Boutique{% else %}Shop{% endif %}</a>{% endunless %}
-        </div>
-      </div>
-
-      <div class="nav-item">
-        <a href="{{ u_cyber }}"{% if page.url == u_cyber %} aria-current="page"{% endif %}>Cyber</a>
-        <div class="sub">
-          <a href="{{ u_grc }}"{% if page.url == u_grc %} aria-current="page"{% endif %}>GRC</a>
-          <a href="{{ u_ciso }}"{% if page.url == u_ciso %} aria-current="page"{% endif %}>{% if lang == "fr" %}CISO externalis&eacute;{% else %}Fractional CISO{% endif %}</a>
-        </div>
-      </div>
-
-{% if site.shop_nav %}      <div class="nav-item">
-        <a href="{{ u_shop }}"{% if page.url == u_shop %} aria-current="page"{% endif %}>{% if lang == "fr" %}Boutique{% else %}Shop{% endif %}</a>
-        <div class="sub">
-          <a href="{{ u_shop }}"{% if page.url == u_shop %} aria-current="page"{% endif %}>{% if lang == "fr" %}Templates Notion{% else %}Notion Templates{% endif %}</a>
-          {% unless lang == "fr" %}<a href="{{ u_flashcards }}"{% if page.url == u_flashcards %} aria-current="page"{% endif %}>Anki Flashcards</a>
-          <a href="{{ u_shophelp }}"{% if page.url == u_shophelp %} aria-current="page"{% endif %}>Help</a>{% endunless %}
-        </div>
-      </div>
-
-{% endif %}      <a href="{{ u_tools }}"{% if page.url == u_tools %} aria-current="page"{% endif %}>{% if lang == "fr" %}Outils{% else %}Tools{% endif %}</a>
+      {% comment %}Sep 17, 2026: five items, no dropdowns. Cyber and Notion are single service pages; GRC and Fractional CISO redirect to /cyber/. Tools, Guide, Use Case and Start stay reachable from body links and the footer.{% endcomment %}
+      <a href="{{ u_cyber }}"{% if page.url == u_cyber %} aria-current="page"{% endif %}>Cyber</a>
+      <a href="{{ u_notion }}"{% if page.url == u_notion %} aria-current="page"{% endif %}>Notion</a>
+      <a href="{{ u_shop }}"{% if page.url == u_shop %} aria-current="page"{% endif %}>{% if lang == "fr" %}Boutique{% else %}Shop{% endif %}</a>
       <a class="cta" href="{{ u_contact }}">Contact</a>
 
       <div class="lang-switch">
