@@ -12,6 +12,11 @@ bc_name: "Start"
 css_bundle: /assets/css/b-55370db292.css
 ---
 <style>
+.qf .head h1{text-transform:none;font-size:40px;letter-spacing:-.02em}
+.qf .head p{max-width:560px;font-size:16.5px}
+.qf .qf-alt{margin-top:14px;font-size:14px;color:var(--text-gray)}
+.qf .qf-alt a{color:var(--blue);text-decoration:underline;font-weight:500}
+@media(max-width:640px){.qf .head h1{font-size:30px}}
 .qf form#qf-lead{padding:0;margin-top:22px}
 .qf .lead{margin-top:18px;padding:26px 26px 22px;border:1px solid var(--border);border-radius:12px;background:#fff}
 .qf .lead .q{margin-bottom:18px}
@@ -26,10 +31,10 @@ css_bundle: /assets/css/b-55370db292.css
 <div class="qf">
 
   <div class="head" id="qf-head">
-    <div class="prog">Five questions &middot; about two minutes</div>
-    <h1>Let's find out whether this is a fit</h1>
-    <p>You see the answer here, on the spot, before you give me an email address. If it is a fit you book a 30-minute Working Session and we work on one real problem in your workspace. If it is not, I say so and point you somewhere more useful.</p>
-    <p style="margin-top:12px;font-size:14.5px">Want to fix it yourself first? Read the <a href="/notion/challenges/"><strong>10 questions clients ask most about Notion</strong></a> and the answer to each.</p>
+    <div class="prog">Five questions &middot; two minutes</div>
+    <h1>Is this a fit?</h1>
+    <p>Answer five questions and see the result on the spot, before you give me an email address. A fit books a 30-minute Working Session on one real problem in your workspace. Anything else, I say so and point you somewhere useful.</p>
+    <p class="qf-alt">Prefer to fix it yourself first? <a href="/notion/challenges/">The 10 questions clients ask most about Notion</a></p>
   </div>
 
   <div class="wrap">
@@ -37,45 +42,44 @@ css_bundle: /assets/css/b-55370db292.css
     <form id="qf-form" novalidate>
 
       <div class="q">
-        <label class="qlabel">1. What would the workspace run?</label>
+        <label class="qlabel">1. What would Notion run?</label>
         <div class="opts" data-name="firm">
-          <label class="opt"><input type="radio" name="firm" value="business" required> A whole business: clients, projects, delivery</label>
-          <label class="opt"><input type="radio" name="firm" value="function"> One function: content, sales, ops, knowledge base or SOPs</label>
-          <label class="opt"><input type="radio" name="firm" value="personal"> Mostly personal or side-project use</label>
+          <label class="opt"><input type="radio" name="firm" value="business" required> The whole business</label>
+          <label class="opt"><input type="radio" name="firm" value="function"> One team or function</label>
+          <label class="opt"><input type="radio" name="firm" value="personal"> Personal projects</label>
         </div>
       </div>
 
       <div class="q">
-        <label class="qlabel">2. How many people will use it?</label>
+        <label class="qlabel">2. How many people use it?</label>
         <div class="opts" data-name="size">
-          <label class="opt"><input type="radio" name="size" value="1-4" required> Only me, or up to 4</label>
+          <label class="opt"><input type="radio" name="size" value="1-4" required> 1 to 4</label>
           <label class="opt"><input type="radio" name="size" value="5-24"> 5 to 24</label>
-          <label class="opt"><input type="radio" name="size" value="25+"> 25 or more, or several entities or partner organizations</label>
+          <label class="opt"><input type="radio" name="size" value="25+"> 25 or more</label>
         </div>
       </div>
 
       <div class="q">
-        <label class="qlabel">3. What is your role?</label>
+        <label class="qlabel">3. Your role?</label>
         <div class="opts" data-name="role">
           <label class="opt"><input type="radio" name="role" value="owner" required> Owner or founder</label>
-          <label class="opt"><input type="radio" name="role" value="lead"> Operations, team or project lead</label>
-          <label class="opt"><input type="radio" name="role" value="member"> Team member or assistant</label>
-          <label class="opt"><input type="radio" name="role" value="solo"> Freelancer working alone</label>
+          <label class="opt"><input type="radio" name="role" value="lead"> Ops or team lead</label>
+          <label class="opt"><input type="radio" name="role" value="member"> Team member</label>
         </div>
       </div>
 
       <div class="q">
-        <label class="qlabel">4. When do you want this working?</label>
+        <label class="qlabel">4. When do you want it working?</label>
         <div class="opts" data-name="timeline">
-          <label class="opt"><input type="radio" name="timeline" value="now" required> Start immediately</label>
-          <label class="opt"><input type="radio" name="timeline" value="1-3months"> 1 to 3 months</label>
-          <label class="opt"><input type="radio" name="timeline" value="later"> Later, no fixed timeline</label>
+          <label class="opt"><input type="radio" name="timeline" value="now" required> Now</label>
+          <label class="opt"><input type="radio" name="timeline" value="1-3months"> Within 3 months</label>
+          <label class="opt"><input type="radio" name="timeline" value="later"> No date yet</label>
         </div>
       </div>
 
       <div class="q">
-        <label class="qlabel" for="f-problem">5. What is not working right now? Give me one recent example.</label>
-        <p class="hint">A specific moment, not a general description. The report that took three days, the document nobody found, the deadline that slipped.</p>
+        <label class="qlabel" for="f-problem">5. What is not working? One recent example.</label>
+        <p class="hint">One specific moment: the report that took three days, the document nobody found.</p>
         <textarea id="f-problem" name="problem" required></textarea>
         <div class="counter" id="c-problem">0 characters &middot; aim for 40+</div>
       </div>
@@ -115,7 +119,6 @@ css_bundle: /assets/css/b-55370db292.css
   function reason(d){
     if (fit(d)) return 'fit';
     if (d.firm === 'personal') return 'personal';
-    if (d.role === 'solo') return 'solo';
     if (d.size === '1-4') return 'small';
     if (d.role === 'member') return 'member';
     if (d.timeline === 'later') return 'later';
@@ -195,7 +198,6 @@ css_bundle: /assets/css/b-55370db292.css
 
   var REASONS = {
     personal: 'What I build is for teams running a business in Notion. For personal projects and side projects it is more than you need, and you would be paying for structure you will never use.',
-    solo: 'Working alone, you do not need an external builder yet. A good template and the free upgrade below get you further than a consultant at this stage. Come back when you hire.',
     small: 'With fewer than five people, the workspace is still small enough to shape yourselves. Start with the templates below and come back when the team grows.',
     member: 'The session needs someone who can decide on the workspace: the owner, or the person who runs operations. Send this page to them. If they see a fit, they book, and you are welcome in the session.',
     later: 'Without a date, a plan goes stale before anyone uses it. Come back when there is a date. The five questions take two minutes and the answer is instant.'
