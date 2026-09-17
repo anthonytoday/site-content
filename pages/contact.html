@@ -1,33 +1,83 @@
 ---
 layout: default
 title: "Contact | Anthony Today"
-description: "Start with a two-minute fit check or send a note. Async first, replies within one business day, and a straight answer on whether I am the right fit for the work."
+description: "Send a message, book a free 20-minute call, or connect on LinkedIn. Replies within one business day and a straight answer on whether I am the right fit."
 permalink: /contact/
 lang: en
 alt_url: /fr/contact/
 schema_type: "ContactPage"
 bc_name: "Contact"
-css_bundle: /assets/css/b-1ba7e025bb.css
+css_bundle: /assets/css/b-7876f91e7a.css
+no_offer_popup: true
 ---
-<section class="contact-hero">
-  <h1>Let's talk about what you need.</h1>
-  <p>Two ways to reach me, pick whichever works for you.</p>
+<section class="hero-svc" style="padding-bottom:24px">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h1>Tell me what you need.</h1>
+    <p class="intro">One message is enough. I reply within one business day, in English or French, and I say plainly whether I am the right person for it.</p>
+  </div>
 </section>
 
-<div class="contact-options">
-  <div class="contact-option">
-    <span class="option-tag">Option 1</span>
-    <h2>Start with a fit check</h2>
-    <p>Five questions, about two minutes. If it is a fit, you book a 30-minute Working Session ($25, credited against your first invoice). If it is not, I say so and point you somewhere more useful.</p>
-    <a href="/start/" class="cta-button">Answer five questions &rarr;</a>
+<section class="sec" style="padding-top:16px">
+  <div class="wrap contact-grid">
+    <form class="form" id="cf" method="POST" action="https://api.web3forms.com/submit" novalidate>
+      <input type="hidden" name="access_key" value="c11e0f6b-725b-41be-a276-e2427ef8c1b3">
+      <input type="hidden" name="subject" value="[Contact] New message from anthonytoday.com">
+      <input type="hidden" name="from_name" value="anthonytoday.com contact form">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="ok" id="cf-ok" role="status">Thank you. Your message is in. I reply within one business day.</div>
+      <div class="err" id="cf-err" role="alert">The form did not send. Email me directly at <a href="mailto:info@anthonytoday.com">info@anthonytoday.com</a>.</div>
+      <label for="cf-name">Name</label>
+      <input id="cf-name" name="name" type="text" required autocomplete="name">
+      <label for="cf-email">Email</label>
+      <input id="cf-email" name="email" type="email" required autocomplete="email">
+      <label for="cf-topic">Topic</label>
+      <select id="cf-topic" name="topic">
+        <option>Cybersecurity and GRC advisory</option>
+        <option>Notion workspace or automation</option>
+        <option>1:1 Notion expert session</option>
+        <option>Templates or flashcards</option>
+        <option>Something else</option>
+      </select>
+      <label for="cf-msg">Message</label>
+      <textarea id="cf-msg" name="message" required placeholder="What you are working on, what is blocking you, and any deadline."></textarea>
+      <button class="btn" type="submit" id="cf-btn">Send message</button>
+      <p class="note">Sent to info@anthonytoday.com. No newsletter, no follow-up sequence. <a href="/privacy/">Privacy</a>.</p>
+    </form>
+    <div class="ways">
+      <div class="way">
+        <h2 class="wh">Book a call</h2>
+        <p>20 minutes, free, no pitch. Bring the problem and a deadline.</p>
+        <a class="l" href="https://cal.com/anthonytoday/qualification" target="_blank" rel="noopener noreferrer">Pick a time &rarr;</a>
+      </div>
+      <div class="way">
+        <h2 class="wh">Email</h2>
+        <p>Prefer your own inbox? Write to me directly.</p>
+        <a class="l" href="mailto:info@anthonytoday.com">info@anthonytoday.com</a>
+      </div>
+      <div class="way">
+        <h2 class="wh">LinkedIn</h2>
+        <p>Profile, experience and recommendations. Connection requests with a note are welcome.</p>
+        <a class="l" href="https://www.linkedin.com/in/anthony-kieffer/" target="_blank" rel="noopener noreferrer">View my profile &rarr;</a>
+      </div>
+      <p class="small">Based in Dubai (GMT+4). Working with clients in the Gulf, Europe and the United States.</p>
+    </div>
   </div>
-  <div class="contact-option">
-    <span class="option-tag">Option 2</span>
-    <h2>Send me an email</h2>
-    <p>Have a quick question, or not ready to book yet? Email me directly and I will get back to you personally.</p>
-    <a href="mailto:info@anthonytoday.com" class="email-link">info@anthonytoday.com</a>
-  </div>
-</div>
+</section>
 
-<!-- FOOTER, light background, exact match to Notion page -->
 {% include site-footer.html %}
+<script>
+(function(){
+  var f=document.getElementById('cf'),ok=document.getElementById('cf-ok'),er=document.getElementById('cf-err'),b=document.getElementById('cf-btn');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!f.checkValidity()){f.reportValidity();return;}
+    b.disabled=true;b.textContent='Sending';
+    var fd=new FormData(f);
+    fetch(f.action,{method:'POST',body:fd,headers:{'Accept':'application/json'}}).then(function(r){return r.json();}).then(function(j){
+      if(j&&j.success){ok.style.display='block';er.style.display='none';f.reset();b.textContent='Sent';}
+      else{throw new Error('fail');}
+    }).catch(function(){er.style.display='block';b.disabled=false;b.textContent='Send message';});
+  });
+})();
+</script>
