@@ -1,31 +1,83 @@
 ---
 layout: default
 title: "Contact | Anthony Today"
-description: "Commencez par un test de compatibilité de deux minutes ou écrivez-moi. L'asynchrone d'abord, réponse sous un jour ouvré, et un avis franc sur la pertinence de la mission."
+description: "Envoyez un message, réservez un appel gratuit de 20 minutes ou retrouvez-moi sur LinkedIn. Réponse sous un jour ouvré et un avis franc sur la suite."
 permalink: /fr/contact/
 lang: fr
 alt_url: /contact/
 schema_type: "ContactPage"
 bc_name: "Contact"
-css_bundle: /assets/css/b-1ba7e025bb.css
+css_bundle: /assets/css/b-7876f91e7a.css
+no_offer_popup: true
 ---
-<section class="contact-hero">
-<h1>Parlons de ce dont vous avez besoin.</h1>
-<p>Deux façons de me joindre, choisissez celle qui vous convient.</p>
+<section class="hero-svc" style="padding-bottom:24px">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h1>Dites-moi ce dont vous avez besoin.</h1>
+    <p class="intro">Un seul message suffit. Je réponds sous un jour ouvré, en français ou en anglais, et je vous dis franchement si je suis la bonne personne pour cela.</p>
+  </div>
 </section>
-<div class="contact-options">
-<div class="contact-option">
-<span class="option-tag">Option 1</span>
-<h2>Commencer par un test de compatibilité</h2>
-<p>Cinq questions, deux minutes, en anglais. Si c'est compatible, vous réservez une Working Session de 30 minutes (25 $, déduits de votre première facture). Sinon, je vous le dis et je vous oriente ailleurs.</p>
-<a class="cta-button" href="/start/">Répondre aux cinq questions &rarr;</a>
-</div>
-<div class="contact-option">
-<span class="option-tag">Option 2</span>
-<h2>M'écrire un e-mail</h2>
-<p>Une question rapide, ou pas encore prêt à réserver ? Écrivez-moi directement, je vous réponds personnellement.</p>
-<a class="email-link" href="mailto:info@anthonytoday.com">info@anthonytoday.com</a>
-</div>
-</div>
-<!-- FOOTER: light background, exact match to Notion page -->
+
+<section class="sec" style="padding-top:16px">
+  <div class="wrap contact-grid">
+    <form class="form" id="cf" method="POST" action="https://api.web3forms.com/submit" novalidate>
+      <input type="hidden" name="access_key" value="c11e0f6b-725b-41be-a276-e2427ef8c1b3">
+      <input type="hidden" name="subject" value="[Contact] Nouveau message depuis anthonytoday.com">
+      <input type="hidden" name="from_name" value="anthonytoday.com contact form">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="ok" id="cf-ok" role="status">Merci. Votre message est bien arrivé. Je réponds sous un jour ouvré.</div>
+      <div class="err" id="cf-err" role="alert">Le formulaire n'a pas pu être envoyé. Écrivez-moi directement à <a href="mailto:info@anthonytoday.com">info@anthonytoday.com</a>.</div>
+      <label for="cf-name">Nom</label>
+      <input id="cf-name" name="name" type="text" required autocomplete="name">
+      <label for="cf-email">E-mail</label>
+      <input id="cf-email" name="email" type="email" required autocomplete="email">
+      <label for="cf-topic">Sujet</label>
+      <select id="cf-topic" name="topic">
+        <option>Conseil en cybersécurité et GRC</option>
+        <option>Espace de travail ou automatisation Notion</option>
+        <option>Session d'expert Notion 1:1</option>
+        <option>Templates ou flashcards</option>
+        <option>Autre sujet</option>
+      </select>
+      <label for="cf-msg">Message</label>
+      <textarea id="cf-msg" name="message" required placeholder="Ce sur quoi vous travaillez, ce qui vous bloque, et toute échéance."></textarea>
+      <button class="btn" type="submit" id="cf-btn">Envoyer le message</button>
+      <p class="note">Envoyé à info@anthonytoday.com. Pas de newsletter, pas de séquence de relance. <a href="/fr/privacy/">Confidentialité</a>.</p>
+    </form>
+    <div class="ways">
+      <div class="way">
+        <h2 class="wh">Réserver un appel</h2>
+        <p>20 minutes, gratuit, sans argumentaire commercial. Apportez le problème et une échéance.</p>
+        <a class="l" href="https://cal.com/anthonytoday/qualification" target="_blank" rel="noopener noreferrer">Choisir un créneau &rarr;</a>
+      </div>
+      <div class="way">
+        <h2 class="wh">E-mail</h2>
+        <p>Vous préférez votre propre messagerie ? Écrivez-moi directement.</p>
+        <a class="l" href="mailto:info@anthonytoday.com">info@anthonytoday.com</a>
+      </div>
+      <div class="way">
+        <h2 class="wh">LinkedIn</h2>
+        <p>Profil, expérience et recommandations. Les demandes de connexion accompagnées d'un mot sont les bienvenues.</p>
+        <a class="l" href="https://www.linkedin.com/in/anthony-kieffer/" target="_blank" rel="noopener noreferrer">Voir mon profil &rarr;</a>
+      </div>
+      <p class="small">Basé à Dubaï (GMT+4). Je travaille avec des clients dans le Golfe, en Europe et aux États-Unis.</p>
+    </div>
+  </div>
+</section>
+
 {% include site-footer.html %}
+<script>
+(function(){
+  var f=document.getElementById('cf'),ok=document.getElementById('cf-ok'),er=document.getElementById('cf-err'),b=document.getElementById('cf-btn');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!f.checkValidity()){f.reportValidity();return;}
+    b.disabled=true;b.textContent='Envoi';
+    var fd=new FormData(f);
+    fetch(f.action,{method:'POST',body:fd,headers:{'Accept':'application/json'}}).then(function(r){return r.json();}).then(function(j){
+      if(j&&j.success){ok.style.display='block';er.style.display='none';f.reset();b.textContent='Envoyé';}
+      else{throw new Error('fail');}
+    }).catch(function(){er.style.display='block';b.disabled=false;b.textContent='Envoyer le message';});
+  });
+})();
+</script>
