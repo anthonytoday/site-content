@@ -8,7 +8,7 @@ permalink: /llms.txt
 
 ## Services
 
-Primary offer first. Every Notion engagement starts with a two-minute fit check at https://www.anthonytoday.com/start/ that leads to a paid 30-minute Working Session ($25, credited against the first invoice). Build prices are fixed and quoted in writing after that session.
+Primary offer first. Every Notion engagement starts with a two-minute fit check at https://www.anthonytoday.com/start/ that leads to a paid 20-minute Working Session ($25, credited against the first invoice). Build prices are fixed and quoted in writing after that session.
 
 - [Notion Consulting](https://www.anthonytoday.com/notion/): workspace architecture, workflows and automation, access and governance, delivered by one senior operator who designs, builds, documents and trains the team. Fixed price per build, written scope, no change orders.
 - [Cybersecurity and GRC](https://www.anthonytoday.com/cyber/): risk management frameworks, compliance remediation, audit readiness.
