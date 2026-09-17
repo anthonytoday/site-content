@@ -16,10 +16,6 @@ Primary offer first. Every Notion engagement starts with a two-minute fit check 
 - [Fractional CISO](https://www.anthonytoday.com/fractional-ciso/): part-time security leadership.
 - [Notion for real estate](https://www.anthonytoday.com/notion/real-estate-ops/): a case study of a real estate operations workspace (deals, documents, reporting, a documented three-role access model), with a layer-by-layer architecture walkthrough at https://www.anthonytoday.com/notion/real-estate-ops-architecture/. Like every build, it is scoped and priced in writing after the Working Session. There is no published package price.
 
-## Open source
-
-- [MCP servers](https://www.anthonytoday.com/mcp/): custom Model Context Protocol servers and Cloudflare Workers Anthony built to run his business from Claude (Gumroad shop management with 19 tools, Notion Marketplace download tracking, consent-gated lead capture). MIT licensed, source at https://github.com/anthonytoday/mcp with the top five use cases and deploy steps per server.
-
 ## Guides and reference content
 
 - [Ultimate Notion Guide](https://www.anthonytoday.com/guide/): beginner-to-pro guide covering pages, blocks, databases, automations, formulas, sharing and pricing.
