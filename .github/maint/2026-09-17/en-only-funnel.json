@@ -1,0 +1,282 @@
+[
+{
+"op": "replace",
+"path": "pages/contact.html",
+"old": "description: \"Book a consultation or send a note. Async first, replies within one business day, and a straight answer on whether I am the right fit for the work.\"",
+"new": "description: \"Start with a two-minute fit check or send a note. Async first, replies within one business day, and a straight answer on whether I am the right fit for the work.\""
+},
+{
+"op": "replace",
+"path": "pages/contact.html",
+"old": "    <h2>Book a call</h2>\n    <p>A free 20-minute Fit Call. The fastest way to find out whether your setup is a fit for the 5-Day Diagnostic or a Build, and what to fix first.</p>\n    <a href=\"/start/\" class=\"cta-button\">Start here &middot; free Fit Call</a>",
+"new": "    <h2>Start with a fit check</h2>\n    <p>Five questions, about two minutes. If it is a fit, you book a 30-minute Working Session ($25, credited against your first invoice). If it is not, I say so and point you somewhere more useful.</p>\n    <a href=\"/start/\" class=\"cta-button\">Answer five questions &rarr;</a>"
+},
+{
+"op": "replace",
+"path": "services/notion-real-estate-ops.html",
+"old": "<a href=\"/notion-build/\" class=\"uc-cta-button\">See the 10-Day Notion Build</a>",
+"new": "<a href=\"/start/\" class=\"uc-cta-button\">Check if we are a fit &rarr;</a>"
+},
+{
+"op": "replace",
+"path": "services/notion-real-estate-ops-architecture.html",
+"old": "<a href=\"/notion-build/\" class=\"uc-cta-button\">Have this built for your operation</a>",
+"new": "<a href=\"/start/\" class=\"uc-cta-button\">Have this built for your operation</a>"
+},
+{
+"op": "replace",
+"path": "services/notion-real-estate-ops-architecture.html",
+"old": "<a href=\"/notion-build/\" class=\"uc-cta-button\">See the 10-Day Notion Build</a>",
+"new": "<a href=\"/start/\" class=\"uc-cta-button\">Check if we are a fit &rarr;</a>"
+},
+{
+"op": "replace",
+"path": "pages/use-case.html",
+"old": "<a href=\"/notion-build/\" class=\"uc-cta-button\">See the 10-Day Notion Build</a>",
+"new": "<a href=\"/start/\" class=\"uc-cta-button\">Check if we are a fit &rarr;</a>"
+},
+{
+"op": "replace",
+"path": "services/notion-challenges.html",
+"old": "If your workspace is already large, the\n          <a href=\"/notion-build/\">10-Day Notion Build</a> is built for exactly this.</p>",
+"new": "If your workspace is already large, a\n          <a href=\"/start/\">30-minute Working Session</a> is the fastest way to plan it.</p>"
+},
+{
+"op": "replace",
+"path": "services/notion-governance.html",
+"old": "<a href=\"/notion-build/\">10-Day Build</a>, and I will say so on the call.</p>",
+"new": "<a href=\"/start/\">fixed-price build quoted after the Working Session</a>, and I will say so on the call.</p>"
+},
+{
+"op": "replace",
+"path": "services/notion-governance.html",
+"old": "<a href=\"/notion-build/\" style=\"color:#2251FF;font-weight:600;text-decoration:underline\">See the build &rarr;</a>",
+"new": "<a href=\"/start/\" style=\"color:#2251FF;font-weight:600;text-decoration:underline\">Check if we are a fit &rarr;</a>"
+},
+{
+"op": "replace",
+"path": "llms.txt",
+"old": "- [Notion for Real Estate: The 30-Day Investor-Ready Build](https://www.anthonytoday.com/notion-for-real-estate/): the real estate engagement. A real estate investment, development or property firm gets its deals, documents and reporting into one Notion workspace with a documented, tested three-role access model, migrated from Drive and email, and handed over to a named owner. **$15,000 total for 30 days**, paid as a $2,500 refundable deposit then $12,500 at day 10 only if the client approves. Two unconditional guarantees: working in 10 days or the deposit is refunded in full, and up to 8 further hours within 60 days if the team is not running it after handover. Optional ongoing support afterwards at $1,500/month, never bundled into the price. French version: https://www.anthonytoday.com/fr/investor-ready-sprint/",
+"new": "- [Notion for real estate](https://www.anthonytoday.com/notion/real-estate-ops/): a case study of a real estate operations workspace (deals, documents, reporting, a documented three-role access model), with a layer-by-layer architecture walkthrough at https://www.anthonytoday.com/notion/real-estate-ops-architecture/. Like every build, it is scoped and priced in writing after the Working Session. There is no published package price."
+},
+{
+"op": "replace",
+"path": "llms.txt",
+"old": "The site is bilingual: English at https://www.anthonytoday.com/ and French at https://www.anthonytoday.com/fr/.",
+"new": "The site is bilingual: English at https://www.anthonytoday.com/ and French at https://www.anthonytoday.com/fr/. Consulting engagements run in English through the fit check at https://www.anthonytoday.com/start/; French pages point there."
+},
+{
+"op": "replace",
+"path": "redirects/go-diagnostic.html",
+"old": "<title>Redirecting to the 5-Day Diagnostic</title>",
+"new": "<title>Redirecting to the fit check</title>"
+},
+{
+"op": "replace",
+"path": "redirects/go-diagnostic.html",
+"old": "<!-- Single source of truth for the Diagnostic checkout (Stripe payment link).\n     To change where \"Start the Diagnostic\" lands, edit the URL on the three lines\n     below and nothing else on the site needs to change. -->\n<meta http-equiv=\"refresh\" content=\"0; url=https://pay.anthonytoday.com/b/4gM5kF6Qg8M59zJ7WF1ZS0v\">\n<script>location.replace(\"https://pay.anthonytoday.com/b/4gM5kF6Qg8M59zJ7WF1ZS0v\");</script>",
+"new": "<!-- The 5-Day Diagnostic was retired on 16 Sep 2026. Old links land on the fit check. -->\n<meta http-equiv=\"refresh\" content=\"0; url=/start/\">\n<script>location.replace(\"/start/\");</script>"
+},
+{
+"op": "replace",
+"path": "redirects/go-diagnostic.html",
+"old": "<p>Taking you to the 5-Day Diagnostic. <a href=\"https://pay.anthonytoday.com/b/4gM5kF6Qg8M59zJ7WF1ZS0v\" rel=\"nofollow noopener\">Continue</a>.</p>",
+"new": "<p>Taking you to the fit check. <a href=\"/start/\" rel=\"nofollow\">Continue</a>.</p>"
+},
+{
+"op": "replace",
+"path": "sitemap.xml",
+"old": "{% elsif p.permalink == \"/notion-build/\" or p.permalink == \"/notion-for-real-estate/\" %}0.9",
+"new": "{% elsif p.permalink == \"/notion/\" or p.permalink == \"/start/\" %}0.9"
+},
+{
+"op": "replace",
+"path": ".github/workflows/build-gate.yml",
+"old": "      - Site optimise\n      - One-off maintenance\n",
+"new": "      - Site optimise\n"
+},
+{
+"op": "replace",
+"path": "README.md",
+"old": "| `templates/` | The Notion template shop: hub, how-it-works, and one page per template |",
+"new": "| `templates/` | Redirect stubs from the old per-template pages to the Gumroad shop at `/shop/`. Catalogue data stays in `_data/templates.yml` |"
+},
+{
+"op": "replace",
+"path": "README.md",
+"old": "| `.github/` | The Action | Leave alone unless changing the pipeline itself |",
+"new": "| `.github/` | The Actions | Workflows: build gate (read-only), image import, Etsy extract, Marketplace gallery sync, site optimise. `.github/maint/` keeps the dated change specs applied with `scripts/apply_spec.py` |"
+},
+{
+"op": "replace",
+"path": "_includes/site-footer.html",
+"old": "        {% if page.lang == \"fr\" %}<a href=\"/fr/notion-build/\">Notion Build 10 jours</a>\n        <a href=\"{{ p }}/notion/\">Prestations Notion</a>\n        <a href=\"https://cal.com/anthonytoday/consultation\">Appel découverte (79 $)</a>\n        <a href=\"{{ p }}/notion-consultant-as-a-service/\">Consultant Notion en continu</a>\n        <a href=\"{{ p }}/notion/#services\">Prestations</a>\n        <a href=\"{{ p }}/contact/\">Contact</a>{% else %}",
+"new": "        {% if page.lang == \"fr\" %}<a href=\"{{ p }}/notion/\">Conseil Notion</a>\n        <a href=\"/start/\">Commencer ici (test de compatibilité, en anglais)</a>\n        <a href=\"{{ p }}/contact/\">Contact</a>{% else %}"
+},
+{
+"op": "replace",
+"path": "_includes/start-here.html",
+"old": "{% if page.lang == \"fr\" %}Réserver un appel de 30 minutes{% else %}Find out if it is a fit{% endif %}",
+"new": "{% if page.lang == \"fr\" %}Vérifier si nous sommes compatibles{% else %}Find out if it is a fit{% endif %}"
+},
+{
+"op": "replace",
+"path": "_includes/start-here.html",
+"old": "{% if page.lang == \"fr\" %}Apportez un problème réel. Vous repartez avec une solution ou une prochaine étape claire, que nous travaillions ensemble ensuite ou non.{% else %}",
+"new": "{% if page.lang == \"fr\" %}Cinq questions, deux minutes, en anglais. Si c'est compatible, vous réservez une Working Session de 30 minutes (25 $, déduits de votre première facture). Sinon, je vous le dis et je vous oriente ailleurs.{% else %}"
+},
+{
+"op": "replace",
+"path": "_includes/start-here.html",
+"old": "<a href=\"{% if page.lang == \"fr\" %}https://cal.com/anthonytoday/consultation{% else %}/start/{% endif %}\"{% if page.lang == \"fr\" %} target=\"_blank\" rel=\"noopener noreferrer\"{% endif %} style=",
+"new": "<a href=\"/start/\" style="
+},
+{
+"op": "replace",
+"path": "_includes/start-here.html",
+"old": "{% if page.lang == \"fr\" %}Réserver un appel découverte &rarr;{% else %}Answer five questions &rarr;{% endif %}",
+"new": "{% if page.lang == \"fr\" %}Répondre aux cinq questions &rarr;{% else %}Answer five questions &rarr;{% endif %}"
+},
+{
+"op": "replace",
+"path": "fr/pages/contact.html",
+"old": "title: \"Contact | Réserver une consultation | Anthony Today\"",
+"new": "title: \"Contact | Anthony Today\""
+},
+{
+"op": "replace",
+"path": "fr/pages/contact.html",
+"old": "description: \"Réservez une consultation ou écrivez-moi. L'asynchrone d'abord, réponse sous un jour ouvré, et un avis franc sur la pertinence de la mission.\"",
+"new": "description: \"Commencez par un test de compatibilité de deux minutes ou écrivez-moi. L'asynchrone d'abord, réponse sous un jour ouvré, et un avis franc sur la pertinence de la mission.\""
+},
+{
+"op": "replace",
+"path": "fr/pages/contact.html",
+"old": "<h2>Réserver un appel</h2>\n<p>Un appel découverte de 30 minutes à 79 $. Le moyen le plus rapide d'obtenir un regard ciblé sur votre configuration et de savoir exactement quoi corriger.</p>\n<a class=\"cta-button\" href=\"https://cal.com/anthonytoday/consultation\">Réserver un appel découverte (79 $)</a>",
+"new": "<h2>Commencer par un test de compatibilité</h2>\n<p>Cinq questions, deux minutes, en anglais. Si c'est compatible, vous réservez une Working Session de 30 minutes (25 $, déduits de votre première facture). Sinon, je vous le dis et je vous oriente ailleurs.</p>\n<a class=\"cta-button\" href=\"/start/\">Répondre aux cinq questions &rarr;</a>"
+},
+{
+"op": "replace",
+"path": "fr/home.html",
+"old": "<a class=\"cta-button\" href=\"#booking\">Réserver un appel découverte de 30 min (79 $) →</a>",
+"new": "<a class=\"cta-button\" href=\"/start/\">Vérifier si nous sommes compatibles →</a>"
+},
+{
+"op": "replace",
+"path": "fr/home.html",
+"old": "<h2>Réservez votre appel découverte</h2>\n<p class=\"booking-intro\">Un appel de 30 minutes à 79 $. Ce n'est pas un appel commercial : apportez un problème réel et nous le traitons ensemble, en direct. Choisissez un créneau ci-dessous, sans allers-retours.</p>",
+"new": "<h2>Commencez par un test de compatibilité</h2>\n<p class=\"booking-intro\">Cinq questions, deux minutes, en anglais. Si c'est compatible, vous réservez une Working Session de 30 minutes (25 $, déduits de votre première facture). Ce n'est pas un appel commercial : nous ouvrons votre espace et traitons un problème réel.</p>"
+},
+{
+"op": "replace",
+"path": "fr/home.html",
+"old": "          <span class=\"cf-t\">Choisissez un créneau qui vous convient</span>\n          <span class=\"cf-s\">Un appel de 30 minutes à 79 $. Le calendrier s'ouvre ici, vous réservez sans quitter la page.</span>\n          <span class=\"cf-btn\">Voir les créneaux disponibles</span>\n          <span class=\"cf-note\">Charge le calendrier de réservation</span>",
+"new": "          <span class=\"cf-t\">Répondre aux cinq questions</span>\n          <span class=\"cf-s\">Le test se fait en anglais sur la page Start here. Si c'est compatible, le calendrier s'ouvre à la fin.</span>\n          <span class=\"cf-btn\">Commencer le test</span>\n          <span class=\"cf-note\">Ouvre /start/ (en anglais)</span>"
+},
+{
+"op": "replace",
+"path": "fr/home.html",
+"old": "      function load(){\n        if(loaded) return; loaded=true;\n        var f=document.createElement('iframe');\n        f.src='https://cal.com/anthonytoday/consultation?embed=1';\n        f.title='Réserver une consultation';\n        f.loading='lazy';\n        f.setAttribute('style','width:100%;height:860px;min-height:860px;border:none;border-radius:8px;');\n        b.replaceWith(f);\n      }\n      b.addEventListener('click', load);\n      // Warm it up on intent, so the click feels instant without costing anything on load.\n      b.addEventListener('mouseenter', function(){\n        if(loaded||document.getElementById('cal-pre')) return;\n        var l=document.createElement('link');\n        l.id='cal-pre'; l.rel='preconnect'; l.href='https://cal.com';\n        document.head.appendChild(l);\n      });",
+"new": "      b.addEventListener('click', function(){ if(loaded) return; loaded=true; location.href='/start/'; });"
+},
+{
+"op": "replace",
+"path": "fr/home.html",
+"old": "<p>Apportez-moi un problème réel. En 30 minutes nous le traitons ensemble, et vous repartez soit avec une solution, soit avec un avis clair et honnête sur la suite.</p>\n<a class=\"cta-button\" href=\"#booking\">Réserver un appel découverte de 30 min (79 $)</a>",
+"new": "<p>Apportez-moi un problème réel. En 30 minutes nous le traitons ensemble, et vous repartez soit avec une solution, soit avec un avis clair et honnête sur la suite.</p>\n<a class=\"cta-button\" href=\"/start/\">Vérifier si nous sommes compatibles →</a>"
+},
+{
+"op": "replace",
+"path": "fr/services/notion.html",
+"old": "<a class=\"xbtn\" href=\"/fr/notion-build/\">Voir la construction &rarr;</a>",
+"new": "<a class=\"xbtn\" href=\"/start/\">Vérifier si nous sommes compatibles &rarr;</a>"
+},
+{
+"op": "replace",
+"path": "fr/services/notion.html",
+"old": "<a class=\"xbtn\" href=\"/fr/notion-consultant-as-a-service/\">Voir la formule &rarr;</a>",
+"new": "<a class=\"xbtn\" href=\"/start/\">Vérifier si nous sommes compatibles &rarr;</a>"
+},
+{
+"op": "replace",
+"path": "fr/services/notion.html",
+"old": "css_bundle: /assets/css/b-23013423fd.css\n",
+"new": "css_bundle: /assets/css/b-23013423fd.css\nnoindex: true\nsitemap: false\n"
+},
+{
+"op": "replace",
+"path": "fr/services/notion-build.html",
+"old": "css_bundle: /assets/css/b-0abf132192.css\n",
+"new": "css_bundle: /assets/css/b-0abf132192.css\nnoindex: true\nsitemap: false\n"
+},
+{
+"op": "replace",
+"path": "fr/services/notion-caas.html",
+"old": "css_bundle: /assets/css/b-af6ac5fc74.css\n",
+"new": "css_bundle: /assets/css/b-af6ac5fc74.css\nnoindex: true\nsitemap: false\n"
+},
+{
+"op": "replace",
+"path": "fr/services/investor-ready-sprint.html",
+"old": "css_bundle: /assets/css/b-bea942c3bf.css\n",
+"new": "css_bundle: /assets/css/b-bea942c3bf.css\nnoindex: true\nsitemap: false\n"
+},
+{
+"op": "replace",
+"path": "fr/pages/use-case.html",
+"old": "<a class=\"uc-cta-button\" href=\"/fr/notion-build/\">Voir le Notion Build 10 jours</a>",
+"new": "<a class=\"uc-cta-button\" href=\"/start/\">Vérifier si nous sommes compatibles &rarr;</a>"
+},
+{
+"op": "replace",
+"path": "fr/services/notion-real-estate-ops.html",
+"old": "<a href=\"/fr/notion-build/\" class=\"uc-cta-button\">Voir le Notion Build 10 jours</a>",
+"new": "<a href=\"/start/\" class=\"uc-cta-button\">Vérifier si nous sommes compatibles &rarr;</a>"
+},
+{
+"op": "replace",
+"path": "fr/services/notion-real-estate-ops-architecture.html",
+"old": "<a href=\"/fr/notion-build/\" class=\"uc-cta-button\">Faire construire ce système</a>",
+"new": "<a href=\"/start/\" class=\"uc-cta-button\">Faire construire ce système</a>"
+},
+{
+"op": "replace",
+"path": "fr/services/notion-real-estate-ops-architecture.html",
+"old": "<a href=\"/fr/notion-build/\" class=\"uc-cta-button\">Voir le Notion Build 10 jours</a>",
+"new": "<a href=\"/start/\" class=\"uc-cta-button\">Vérifier si nous sommes compatibles &rarr;</a>"
+},
+{
+"op": "replace",
+"path": "pages/start.html",
+"old": "alt_url: /fr/start/\n",
+"new": ""
+},
+{
+"op": "replace",
+"path": "services/notion-real-estate-ops.html",
+"old": "<div class=\"flow-cap\">The pipeline, in five steps</div>",
+"new": "<h2 class=\"flow-cap\" style=\"font-size:12px !important;line-height:1.5 !important;font-weight:600\">The pipeline, in five steps</h2>"
+},
+{
+"op": "replace",
+"path": "fr/services/notion-real-estate-ops.html",
+"old": "<div class=\"flow-cap\">Le circuit, en cinq étapes</div>",
+"new": "<h2 class=\"flow-cap\" style=\"font-size:12px !important;line-height:1.5 !important;font-weight:600\">Le circuit, en cinq étapes</h2>"
+},
+{
+"op": "replace",
+"path": "assets/css/b-98e8603a0f.css",
+"old": ".risk-high{background:#D9534F}",
+"new": ".risk-high{background:#B23B37}"
+},
+{
+"op": "replace",
+"path": "assets/css/b-98e8603a0f.css",
+"old": ".risk-medium{background:var(--amber)}",
+"new": ".risk-medium{background:#8A5A12}"
+},
+{
+"op": "rehash_bundle",
+"path": "assets/css/b-98e8603a0f.css"
+}
+]

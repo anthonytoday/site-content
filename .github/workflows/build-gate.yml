@@ -16,7 +16,6 @@ on:
       - Import template images
       - Sync Notion Marketplace gallery
       - Site optimise
-      - One-off maintenance
     types: [completed]
     branches: [main]
   workflow_dispatch:

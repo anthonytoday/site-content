@@ -4,7 +4,7 @@ permalink: /llms.txt
 ---
 # Anthony Today
 
-> Anthony is a certified Notion Consulting Partner and former EY cybersecurity consultant (CISSP, CISA, CISM, CRISC, AIGP, ISO 27001 Lead Implementer), with 15+ years in technology risk and IT audit across Luxembourg, Switzerland and the USA. This site offers Notion workspace consulting, cybersecurity and GRC advisory, fractional CISO services, and a catalog of Notion templates, free and premium. The site is bilingual: English at https://www.anthonytoday.com/ and French at https://www.anthonytoday.com/fr/.
+> Anthony is a certified Notion Consulting Partner and former EY cybersecurity consultant (CISSP, CISA, CISM, CRISC, AIGP, ISO 27001 Lead Implementer), with 15+ years in technology risk and IT audit across Luxembourg, Switzerland and the USA. This site offers Notion workspace consulting, cybersecurity and GRC advisory, fractional CISO services, and a catalog of Notion templates, free and premium. The site is bilingual: English at https://www.anthonytoday.com/ and French at https://www.anthonytoday.com/fr/. Consulting engagements run in English through the fit check at https://www.anthonytoday.com/start/; French pages point there.
 
 ## Services
 
@@ -14,7 +14,7 @@ Primary offer first. Every Notion engagement starts with a two-minute fit check 
 - [Cybersecurity and GRC](https://www.anthonytoday.com/cyber/): risk management frameworks, compliance remediation, audit readiness.
 - [GRC](https://www.anthonytoday.com/cyber-grc/): governance, risk and compliance programs.
 - [Fractional CISO](https://www.anthonytoday.com/fractional-ciso/): part-time security leadership.
-- [Notion for Real Estate: The 30-Day Investor-Ready Build](https://www.anthonytoday.com/notion-for-real-estate/): the real estate engagement. A real estate investment, development or property firm gets its deals, documents and reporting into one Notion workspace with a documented, tested three-role access model, migrated from Drive and email, and handed over to a named owner. **$15,000 total for 30 days**, paid as a $2,500 refundable deposit then $12,500 at day 10 only if the client approves. Two unconditional guarantees: working in 10 days or the deposit is refunded in full, and up to 8 further hours within 60 days if the team is not running it after handover. Optional ongoing support afterwards at $1,500/month, never bundled into the price. French version: https://www.anthonytoday.com/fr/investor-ready-sprint/
+- [Notion for real estate](https://www.anthonytoday.com/notion/real-estate-ops/): a case study of a real estate operations workspace (deals, documents, reporting, a documented three-role access model), with a layer-by-layer architecture walkthrough at https://www.anthonytoday.com/notion/real-estate-ops-architecture/. Like every build, it is scoped and priced in writing after the Working Session. There is no published package price.
 
 ## Open source
 

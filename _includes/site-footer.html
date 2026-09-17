@@ -21,11 +21,8 @@ footer.site-foot .footer-bottom a{color:#5B6672}
     <div class="footer-main">
       <div class="footer-section">
         <h2>{% if page.lang == "fr" %}Conseil{% else %}Consulting{% endif %}</h2>
-        {% if page.lang == "fr" %}<a href="/fr/notion-build/">Notion Build 10 jours</a>
-        <a href="{{ p }}/notion/">Prestations Notion</a>
-        <a href="https://cal.com/anthonytoday/consultation">Appel découverte (79 $)</a>
-        <a href="{{ p }}/notion-consultant-as-a-service/">Consultant Notion en continu</a>
-        <a href="{{ p }}/notion/#services">Prestations</a>
+        {% if page.lang == "fr" %}<a href="{{ p }}/notion/">Conseil Notion</a>
+        <a href="/start/">Commencer ici (test de compatibilité, en anglais)</a>
         <a href="{{ p }}/contact/">Contact</a>{% else %}<a href="{{ p }}/notion/">Notion Consulting</a>
         <a href="/start/">Start here (fit check)</a>
         <a href="{{ p }}/contact/">Contact</a>{% endif %}
