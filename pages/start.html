@@ -100,7 +100,7 @@ css_bundle: /assets/css/b-55370db292.css
   // ---- CONFIG ----
   var ENDPOINT    = "https://api.web3forms.com/submit";
   var ACCESS_KEY  = "c11e0f6b-725b-41be-a276-e2427ef8c1b3";
-  var CAL_LINK    = "anthonytoday/working-session";   // 30-minute Working Session, $25 at booking
+  var CAL_LINK    = "anthonytoday/qualification";   // 30-minute Working Session, $25 at booking
   var AFFILIATE   = "https://affiliate.notion.so/rw7o47pwsh6j";
   var TEMPLATES   = "https://www.notion.com/@anthonytoday";
   var CHALLENGES  = "/notion/challenges/";
@@ -194,7 +194,7 @@ css_bundle: /assets/css/b-55370db292.css
 
   var CAL_EMBED = '<div class="calwrap"><div id="cal-inline"></div></div>'
     + '<p class="paynote">Payment of $25 is taken by the booking page. It is credited against your first invoice.</p>'
-    + '<p class="calalt">Calendar not loading? <a href="https://cal.com/anthonytoday/working-session" target="_blank" rel="noopener">Open the booking page directly</a>.</p>';
+    + '<p class="calalt">Calendar not loading? <a href="https://cal.com/anthonytoday/qualification" target="_blank" rel="noopener">Open the booking page directly</a>.</p>';
 
   var REASONS = {
     personal: 'What I build is for teams running a business in Notion. For personal projects and side projects it is more than you need, and you would be paying for structure you will never use.',
@@ -223,13 +223,13 @@ css_bundle: /assets/css/b-55370db292.css
           api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); }
           else p(cal, ar); return; } p(cal, ar); };
     })(window, "https://app.cal.com/embed/embed.js", "init");
-    Cal("init", "working-session", {origin:"https://app.cal.com"});
-    Cal.ns["working-session"]("inline", {
+    Cal("init", "qualification", {origin:"https://app.cal.com"});
+    Cal.ns["qualification"]("inline", {
       elementOrSelector:"#cal-inline",
       config:{layout:"month_view"},
       calLink:CAL_LINK
     });
-    Cal.ns["working-session"]("ui", {hideEventTypeDetails:false, layout:"month_view"});
+    Cal.ns["qualification"]("ui", {hideEventTypeDetails:false, layout:"month_view"});
   }
 
   function wireLead(d, why){
