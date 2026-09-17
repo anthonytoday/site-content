@@ -26,6 +26,7 @@ def write(p, s): open(p, "w", encoding="utf-8").write(s)
 def walk_text():
     for dp, dn, fn in os.walk("."):
         dn[:] = [d for d in dn if d not in SKIP]
+        if os.path.normpath(dp).startswith(os.path.join(".github", "maint")): continue  # specs are a record; never rewrite them
         for f in fn:
             if f.endswith((".html", ".yml", ".yaml", ".py", ".md", ".txt", ".xml", ".json", ".css")):
                 yield os.path.normpath(os.path.join(dp, f))

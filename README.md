@@ -12,7 +12,7 @@ Every push rebuilds the live site in one to three minutes.
 | `_includes/` | Shared Liquid partials. See "Shared includes" below |
 | `_data/` | The catalogues. `templates.yml`, `decks.yml`, `image_dims.yml`, `cover_srcset.yml` |
 | `_css/` | CSS sources. The built bundles live in `assets/css/` and are content-hashed |
-| `templates/` | The Notion template shop: hub, how-it-works, and one page per template |
+| `templates/` | Redirect stubs from the old per-template pages to the Gumroad shop at `/shop/`. Catalogue data stays in `_data/templates.yml` |
 | `flashcards/` | The Anki deck shop: hub, how-it-works, instructions, and one page per deck |
 | `shop/` | Shared shop pages, currently the help page |
 | `services/`, `pages/` | Marketing and service pages |
@@ -64,7 +64,7 @@ This repo has **two writers**, and the split matters.
 | --- | --- | --- |
 | `assets/templates/`, `assets/etsy/` | The image-import Action | Do not hand-edit. Add a `{path, url}` pair to `assets/template-images-manifest.json` and the Action downloads and commits it |
 | `assets/template-images-manifest.json` | The image-import Action | Append only, never rewrite |
-| `.github/` | The Action | Leave alone unless changing the pipeline itself |
+| `.github/` | The Actions | Workflows: build gate (read-only), image import, Etsy extract, Marketplace gallery sync, site optimise. `.github/maint/` keeps the dated change specs applied with `scripts/apply_spec.py` |
 | `assets/brand/`, `assets/logos/`, `assets/guides/`, `assets/images/`, `assets/gumroad/`, `assets/js/` | People | Normal edits |
 | `assets/css/` | The build | Content-hashed bundles built from `_css/`. Do not edit a bundle by hand; the optimise Action prunes unreferenced ones |
 | everything else | People | Normal edits |
