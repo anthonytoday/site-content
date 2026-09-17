@@ -17,7 +17,7 @@ lcp_image: /assets/brand/anthony-profile.webp
 <p class="subtitle">Notion Consulting Partner certifié et ex-consultant cybersécurité chez EY. 15+ ans de risque technologique et d'audit IT entre le Luxembourg, la Suisse et les États-Unis, à construire des registres de risques, du suivi de contrôles, des cadres de gouvernance de l'IA et des pistes de preuves d'audit qui vivent dans votre espace de travail, et non dans un tableur oublié.</p>
 <p class="creds">CISSP · CISA · CISM · CRISC · AIGP · ISO 27001 Lead Implementer · MAS ETH Zurich</p>
 <br/>
-<a class="cta-button" href="#booking">Réserver un appel découverte de 30 min (79 $) →</a>
+<a class="cta-button" href="/start/">Vérifier si nous sommes compatibles →</a>
 </div>
 <div class="hero-image">
 <img alt="Anthony Today" src="/assets/brand/anthony-profile.webp" width="400" height="400" fetchpriority="high" decoding="async">
@@ -50,15 +50,15 @@ lcp_image: /assets/brand/anthony-profile.webp
 </div>
 </section>
 <section class="booking-section" id="booking">
-<h2>Réservez votre appel découverte</h2>
-<p class="booking-intro">Un appel de 30 minutes à 79 $. Ce n'est pas un appel commercial : apportez un problème réel et nous le traitons ensemble, en direct. Choisissez un créneau ci-dessous, sans allers-retours.</p>
+<h2>Commencez par un test de compatibilité</h2>
+<p class="booking-intro">Cinq questions, deux minutes, en anglais. Si c'est compatible, vous réservez une Working Session de 30 minutes (25 $, déduits de votre première facture). Ce n'est pas un appel commercial : nous ouvrons votre espace et traitons un problème réel.</p>
 <div class="booking-embed">
         <button type="button" class="cal-facade" id="cal-facade">
           <span class="cf-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
-          <span class="cf-t">Choisissez un créneau qui vous convient</span>
-          <span class="cf-s">Un appel de 30 minutes à 79 $. Le calendrier s'ouvre ici, vous réservez sans quitter la page.</span>
-          <span class="cf-btn">Voir les créneaux disponibles</span>
-          <span class="cf-note">Charge le calendrier de réservation</span>
+          <span class="cf-t">Répondre aux cinq questions</span>
+          <span class="cf-s">Le test se fait en anglais sur la page Start here. Si c'est compatible, le calendrier s'ouvre à la fin.</span>
+          <span class="cf-btn">Commencer le test</span>
+          <span class="cf-note">Ouvre /start/ (en anglais)</span>
         </button>
     </div>
     <script>
@@ -66,23 +66,7 @@ lcp_image: /assets/brand/anthony-profile.webp
       var b=document.getElementById('cal-facade');
       if(!b) return;
       var loaded=false;
-      function load(){
-        if(loaded) return; loaded=true;
-        var f=document.createElement('iframe');
-        f.src='https://cal.com/anthonytoday/consultation?embed=1';
-        f.title='Réserver une consultation';
-        f.loading='lazy';
-        f.setAttribute('style','width:100%;height:860px;min-height:860px;border:none;border-radius:8px;');
-        b.replaceWith(f);
-      }
-      b.addEventListener('click', load);
-      // Warm it up on intent, so the click feels instant without costing anything on load.
-      b.addEventListener('mouseenter', function(){
-        if(loaded||document.getElementById('cal-pre')) return;
-        var l=document.createElement('link');
-        l.id='cal-pre'; l.rel='preconnect'; l.href='https://cal.com';
-        document.head.appendChild(l);
-      });
+      b.addEventListener('click', function(){ if(loaded) return; loaded=true; location.href='/start/'; });
     })();
     </script>
 </section>
@@ -192,7 +176,7 @@ lcp_image: /assets/brand/anthony-profile.webp
 <section class="cta-section">
 <h2>Arrêtez de gérer le chaos. Reprenez le pilotage.</h2>
 <p>Apportez-moi un problème réel. En 30 minutes nous le traitons ensemble, et vous repartez soit avec une solution, soit avec un avis clair et honnête sur la suite.</p>
-<a class="cta-button" href="#booking">Réserver un appel découverte de 30 min (79 $)</a>
+<a class="cta-button" href="/start/">Vérifier si nous sommes compatibles →</a>
 </section>
 <!-- FOOTER: light background, exact match to Notion page -->
 {% include site-footer.html %}
