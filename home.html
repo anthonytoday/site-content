@@ -11,6 +11,21 @@ css_bundle: /assets/css/b-7876f91e7a.css
 lcp_image: /assets/brand/anthony-profile.webp
 no_offer_popup: true
 ---
+<style>
+.hm-btnicon{display:block;height:18px;width:18px;flex:0 0 auto}
+.hm-cardlogos{margin-top:auto;padding-top:18px;border-top:1px solid var(--border)}
+.hm-cardlogos-label{margin:0 0 10px;font-size:10.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--text-gray)}
+.hm-cardlogos-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;min-height:22px}
+.hm-cardlogos-row img{display:block;height:22px;width:auto;max-width:110px;object-fit:contain;filter:grayscale(1);opacity:.55;transition:filter .15s,opacity .15s}
+.hm-cardlogos-row img:hover{filter:none;opacity:1}
+.hm-mark{display:inline-flex;align-items:center;height:22px;padding:0 11px;border:1px solid var(--border);border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-gray);background:var(--white);white-space:nowrap}
+.hm-striplabel{margin:38px 0 12px;text-align:center;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text-gray)}
+.hm-strip{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:20px 36px;margin:0;padding:22px 34px;background:var(--white);border:1px solid var(--border);border-radius:12px}
+.hm-strip img{display:block;height:28px;width:auto;max-width:130px;object-fit:contain;filter:grayscale(1);opacity:.5;transition:filter .15s,opacity .15s}
+.hm-strip img:hover{filter:none;opacity:1}
+@media(max-width:600px){.hm-strip{gap:18px 22px;padding:18px 14px}.hm-strip img{height:24px;max-width:96px}.hm-striplabel{margin-top:30px}}
+</style>
+<div class="hm">
 <section class="hero-me">
   <div class="wrap">
     <div>
@@ -21,7 +36,7 @@ no_offer_popup: true
         <li>CISSP</li><li>CISA</li><li>CISM</li><li>CRISC</li><li>AIGP</li><li>PMP</li><li>ISO 27001 Lead Implementer</li><li>Notion Certified Consultant</li><li>MAS ETH Zurich</li>
       </ul>
       <div class="btn-row">
-        <a class="btn" href="https://www.linkedin.com/in/anthony-kieffer/" target="_blank" rel="noopener noreferrer">View my LinkedIn profile</a>
+        <a class="btn" href="https://www.linkedin.com/in/anthony-kieffer/" target="_blank" rel="noopener noreferrer"><!-- LinkedIn icon slot. The official mark is not in the repo and is not recreated here. Once the file lands at /assets/logos/linkedin.webp, add one img tag in this position with that src, empty alt, class hm-btnicon, width 24, height 24, decoding async. -->View my LinkedIn profile</a>
         <a class="btn ghost" href="/contact/">Get in touch</a>
       </div>
     </div>
@@ -45,7 +60,7 @@ no_offer_popup: true
 <section class="sec" style="padding-top:0" id="work">
   <div class="wrap">
     <p class="eyebrow">What I do</p>
-    <h2>Two practices, one person.</h2>
+    <h2>Two expertises, one person.</h2>
     <p class="lead">Each has its own page with the services, how an engagement runs, and how to start.</p>
     <div class="doors">
       <a class="door" href="/cyber/">
@@ -67,25 +82,39 @@ no_offer_popup: true
 <section class="sec alt" id="about">
   <div class="wrap">
     <p class="eyebrow">Background</p>
-    <h2>Where the two practices come from.</h2>
+    <h2>Where the two expertises come from.</h2>
     <div class="cards two">
       <div class="card">
         <h3>Cybersecurity and risk advisory</h3>
-        <p>I started in IT audit and technology risk at EY in Luxembourg, then led cybersecurity and governance work in Switzerland and the United States, including at Accenture. Banking, insurance and other regulated industries, with programs built on the NIST CSF and ISO 27001 and run against local supervisory requirements.</p>
+        <p>I spent 15 years in IT audit, technology risk and cybersecurity across Luxembourg, Switzerland and the United States, including at EY and Accenture. Banking, insurance and other regulated industries, with programs built on the NIST CSF and ISO 27001 and run against local supervisory requirements.</p>
+        <div class="hm-cardlogos">
+          <p class="hm-cardlogos-label">Firms I worked at</p>
+          <div class="hm-cardlogos-row">
+            <!-- Logo slots. Neither mark is in the repo and neither is recreated here. When the files land at /assets/logos/ey.webp and /assets/logos/accenture.webp, replace each span below with one img tag carrying that src, the firm name as alt, its intrinsic width and height, loading lazy and decoding async. The row styles them at 22px automatically. -->
+            <span class="hm-mark">EY</span>
+            <span class="hm-mark">Accenture</span>
+          </div>
+        </div>
       </div>
       <div class="card">
         <h3>Notion systems</h3>
         <p>I run my own consulting business on Notion and am one of a small number of Notion Certified Consultants worldwide. The same discipline I apply to security programs, documented, permissioned, auditable, goes into every workspace I build for a client.</p>
+        <div class="hm-cardlogos">
+          <p class="hm-cardlogos-label">Certified on</p>
+          <div class="hm-cardlogos-row">
+            <img src="/assets/logos/notion.webp" alt="Notion" width="512" height="512" loading="lazy" decoding="async">
+          </div>
+        </div>
       </div>
     </div>
-    <div class="logos" aria-label="Organizations I have worked with">
-      <img src="/assets/logos/linktree.webp" alt="Linktree" width="3840" height="2600" loading="lazy" decoding="async">
+    <p class="hm-striplabel">Organizations I have worked with</p>
+    <div class="hm-strip" aria-label="Organizations I have worked with">
+      <!-- Linktree slot. The file at /assets/logos/linktree.webp is a solid green tile with the wordmark knocked out of it, so inside this white panel it reads as a gray rectangle rather than a logo. It is not shown here and is not recreated. Once a background-free mark lands at /assets/logos/linktree.webp, add one img tag in this position with that src, Linktree as alt, its intrinsic width and height, loading lazy and decoding async. The strip styles it at 28px automatically. -->
       <img src="/assets/logos/dorchester.webp" alt="Dorchester Collection" width="366" height="210" loading="lazy" decoding="async">
       <img src="/assets/logos/hitachi.webp" alt="Hitachi" width="256" height="256" loading="lazy" decoding="async">
       <img src="/assets/logos/nescafe.webp" alt="Nescafe" width="739" height="415" loading="lazy" decoding="async">
       <img src="/assets/logos/hilti.webp" alt="Hilti" width="600" height="600" loading="lazy" decoding="async">
       <img src="/assets/logos/eli-lilly.webp" alt="Eli Lilly and Company" width="500" height="273" loading="lazy" decoding="async">
-      <img src="/assets/logos/notion.webp" alt="Notion" width="512" height="512" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
@@ -125,5 +154,6 @@ no_offer_popup: true
     </div>
   </div>
 </section>
+</div>
 
 {% include site-footer.html %}

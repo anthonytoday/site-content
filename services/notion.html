@@ -1,96 +1,186 @@
 ---
 layout: default
-title: "Notion Consulting | Anthony Today"
-description: "Independent Notion consulting from a Notion Certified Consultant: workspace audit, architecture and build, automation, access governance, training and handover."
+title: "Notion Consulting for Teams | Anthony Today"
+description: "Notion Certified Consultant for teams: workspace audit, architecture and build, automation, access governance, training and a clean handover."
 permalink: /notion/
 lang: en
 alt_url: /fr/notion/
 schema_type: "WebPage"
 bc_name: "Notion Consulting"
 css_bundle: /assets/css/b-23013423fd.css
-lcp_image: /assets/brand/anthony-profile.webp
+lcp_image: /assets/brand/anthony-hero.webp
 no_offer_popup: true
 ---
 <style>
-  .nfp h2.eyebrow{font-size:12px !important;line-height:1.5 !important;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin:0 0 12px}
-  .nfp .hero .nfp-btn{margin-top:22px}
-  .nfp .hero .nfp-note{font-size:13.5px;color:var(--text-gray);margin:12px 0 0}
-  .nfp .who,.nfp .build{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .nfp .who .scard h3,.nfp .build .scard h3{font-size:17px;margin:0 0 8px}
-  .nfp .who .scard p,.nfp .build .scard p{margin:0}
-  .nfp .steps{grid-template-columns:repeat(3,1fr)}
-  .nfp .plain{font-size:14.5px;color:var(--text-gray);line-height:1.7;margin:22px 0 0;text-align:center}
-  .nfp .plain a{color:var(--blue);text-decoration:underline}
-  @media(max-width:768px){.nfp .who,.nfp .build,.nfp .steps{grid-template-columns:1fr}}
+  .nfp h1,.nfp h2,.nfp h3,.nfp h4{text-transform:none}
+  .nfp .eyebrow{text-transform:uppercase}
+
+  /* HERO */
+  .nfp .hero{max-width:1080px;padding:64px 20px 0;text-align:left;display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:56px;align-items:center}
+  .nfp .hero h1{font-size:44px;line-height:1.14;letter-spacing:-.02em;margin:0 0 20px;max-width:none}
+  .nfp .hero .subtitle{font-size:17.5px;line-height:1.7;margin:0 0 26px;max-width:none}
+  .nfp .hero .cta-button{display:inline-block}
+  .nfp .hero-note{font-size:13.5px;color:var(--text-gray);line-height:1.6;margin:14px 0 0;max-width:420px}
+  .nfp .creds{font-size:12.5px;color:var(--text-gray);letter-spacing:.2px;line-height:1.9;margin:26px 0 0;padding-top:20px;border-top:1px solid var(--border)}
+  .nfp .portrait{margin:0;width:100%;max-width:420px;justify-self:end}
+  .nfp .portrait img{display:block;width:100%;height:auto;border-radius:20px;box-shadow:0 18px 44px rgba(5,28,44,.16)}
+
+  /* WHO THIS IS FOR */
+  .nfp .fit-strip{background:#F7F9FF;border:1px solid #D8E0FF;border-radius:14px;padding:34px 36px}
+  .nfp .fit-strip .lead-in{font-size:17px;font-weight:600;color:var(--navy);margin:0 0 18px}
+  .nfp .fit-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px 28px}
+  .nfp .fit-list li{display:block;position:relative;padding-left:32px;font-size:15px;color:var(--navy);line-height:1.6}
+  .nfp .fit-list svg{position:absolute;left:0;top:1px;width:22px;height:22px;color:var(--blue)}
+  .nfp .fit-after{font-size:14px;color:var(--text-gray);line-height:1.7;margin:22px 0 0}
+  .nfp .fit-after a{color:var(--blue);text-decoration:underline}
+
+  /* SERVICES */
+  .nfp .svc{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
+  .nfp .svc-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:30px 28px}
+  .nfp .svc-chip{width:48px;height:48px;border-radius:12px;background:#EFF2FF;display:flex;align-items:center;justify-content:center;color:var(--blue);margin-bottom:18px}
+  .nfp .svc-chip svg{width:24px;height:24px}
+  .nfp .svc-card h3{font-size:19px;font-weight:600;color:var(--navy);margin:0 0 10px}
+  .nfp .svc-card p{font-size:14.5px;color:var(--text-gray);line-height:1.7;margin:0 0 10px}
+  .nfp .svc-tags{font-size:12.5px;color:#8A94A0;letter-spacing:.3px;margin:16px 0 0}
+
+  /* HOW WE WORK */
+  .nfp .flow-band{background:var(--navy);border-radius:16px;padding:48px 44px;margin-top:8px}
+  .nfp .flow-band h2{font-size:26px;font-weight:600;color:var(--white);margin:0 0 32px}
+  .nfp .flow{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative}
+  .nfp .flow-step{padding:0 30px;position:relative}
+  .nfp .flow-step:first-child{padding-left:0}
+  .nfp .flow-step:last-child{padding-right:0}
+  .nfp .flow-step+.flow-step::before{content:"";position:absolute;left:0;top:17px;bottom:6px;width:1px;background:rgba(255,255,255,.16)}
+  .nfp .flow-num{width:34px;height:34px;border-radius:50%;background:var(--blue);color:var(--white);font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .nfp .flow-step h3{font-size:17px;font-weight:600;color:var(--white);margin:0 0 8px}
+  .nfp .flow-step p{font-size:14px;color:#A9B6C2;line-height:1.7;margin:0}
+
+  /* PROOF RHYTHM */
+  .nfp .stats{margin-top:64px}
+  .nfp .credibility{margin-top:64px}
+  /* the two proof bands used to meet in an empty hairline strip: close it up */
+  .nfp .credibility.logo-only{border-top:0;margin-top:0;padding-top:30px}
+  /* one uniform weight for every client mark, so no logo shouts over the others */
+  .nfp .logo-mark img{height:26px;width:auto;max-width:150px;object-fit:contain;filter:grayscale(1);opacity:.55;transition:opacity .2s,filter .2s}
+  .nfp .logo-mark img:hover{filter:grayscale(0);opacity:1}
+  .nfp .quote{margin-top:8px}
+  .nfp .badges{text-align:center}
+
+  @media(max-width:768px){
+    .nfp .eyebrow{font-size:12px !important;line-height:1.4 !important}
+    .nfp .hero{padding:38px 18px 0 !important;gap:28px !important}
+    .nfp .portrait{max-width:100%;justify-self:stretch;order:-1}
+    .nfp .hero h1{font-size:30px !important}
+    .nfp .hero-note{max-width:none}
+    .nfp .creds{line-height:1.8}
+    .nfp .fit-strip{padding:26px 22px}
+    .nfp .fit-list{grid-template-columns:1fr;gap:14px}
+    .nfp .svc{grid-template-columns:1fr}
+    .nfp .flow-band{padding:32px 22px}
+    .nfp .flow{grid-template-columns:1fr;gap:26px}
+    .nfp .flow-step,.nfp .flow-step:first-child,.nfp .flow-step:last-child{padding:0 0 0 22px}
+    .nfp .flow .flow-step::before{content:"";position:absolute;left:0;top:4px;bottom:-26px;width:1px;background:rgba(255,255,255,.16)}
+    .nfp .flow .flow-step:last-child::before{bottom:6px}
+  }
 </style>
 <div class="nfp">
 
   <!-- HERO -->
   <section class="hero">
-    <h1>Your Notion workspace, built to run the business.</h1>
-    <p class="subtitle">One senior operator, Notion Certified Consultant, 15 years in cybersecurity. I design and build the workspace your team runs on, then hand it over documented, permissioned and yours.</p>
-    <div class="nfp-btn"><a href="/contact/" class="cta-button">Get in touch &rarr;</a></div>
-    <p class="nfp-note">Tell me what you need. I reply within one business day and say plainly whether I am the right person for it.</p>
+    <div class="hero-text">
+      <h1>I build the Notion workspace your team actually runs on.</h1>
+      <p class="subtitle">Notion Certified Consultant with 15 years in cybersecurity. I design the structure, build it, document it and train your team, then hand it over. You own it and can run it without me.</p>
+      <a href="/contact/" class="cta-button">Get in touch &rarr;</a>
+      <p class="hero-note">I reply within one business day and say plainly whether I am the right person for the job.</p>
+      <p class="creds">Notion Certified Consultant &middot; CISSP &middot; ISO 27001 Lead Implementer &middot; 60+ engagements</p>
+    </div>
+    <figure class="portrait">
+      <img src="/assets/brand/anthony-hero.webp" srcset="/assets/brand/anthony-hero.webp 1x, /assets/brand/anthony-hero@2x.webp 2x" alt="Anthony Today, Notion Certified Consultant" width="560" height="560" fetchpriority="high" decoding="async">
+    </figure>
   </section>
 
   <!-- WHO THIS IS FOR -->
   <section class="block">
     <h2 class="eyebrow">Who this is for</h2>
-    <div class="who">
-      <div class="scard">
-        <h3>Teams of 5 or more</h3>
-        <p>You run clients, projects or delivery in Notion and the workspace is now business critical.</p>
-      </div>
-      <div class="scard">
-        <h3>A workspace that grew by accident</h3>
-        <p>Broken relations, formulas nobody documented, automations that fail quietly.</p>
-      </div>
-      <div class="scard">
-        <h3>An owner or ops lead</h3>
-        <p>Built right once, access under control, no consultant on permanent retainer.</p>
-      </div>
+    <div class="fit-strip">
+      <p class="lead-in">This is for you if:</p>
+      <ul class="fit-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.4 L10.9 15.3 L16 9.6"/></svg>Five or more people work in Notion.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.4 L10.9 15.3 L16 9.6"/></svg>The workspace grew by accident and nobody documented it.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.4 L10.9 15.3 L16 9.6"/></svg>You want it built right once, not a consultant on retainer.</li>
+      </ul>
+      <p class="fit-after">Working alone or on personal projects? Start with my <a href="/shop/">templates</a> and come back when the team grows.</p>
     </div>
-    <p class="plain">Working alone, or using Notion for personal projects? Start with my <a href="/shop/">templates</a> and come back when the team grows.</p>
   </section>
 
-  <!-- WHAT I BUILD -->
+  <!-- SERVICES -->
   <section class="block" id="services">
     <h2 class="eyebrow">Services</h2>
-    <div class="build">
-      <div class="scard">
-        <h3>Workspace audit</h3>
-        <p>A read-only review of what you already have. Structure, permissions, integrations and automations are scored, and you get a prioritized fix list you can act on with or without me.</p>
+    <div class="svc">
+
+      <div class="svc-card">
+        <div class="svc-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3 L21 8 L12 13 L3 8 Z"/>
+            <path d="M3 12 L12 17 L21 12"/>
+            <path d="M3 16 L12 21 L21 16"/>
+          </svg>
+        </div>
+        <h3>Design and build</h3>
+        <p>A read-only review of what you already have scores structure, permissions, integrations and automations, and you get a prioritized fix list.</p>
+        <p>Then databases, relations and views designed around how the team works, with migration of what already exists included.</p>
+        <p class="svc-tags">Workspace audit &middot; Architecture &middot; Migration</p>
       </div>
-      <div class="scard">
-        <h3>Workspace architecture</h3>
-        <p>Databases, relations and views designed around how the team works, readable by the next person who opens them. Migration of what already exists is included.</p>
+
+      <div class="svc-card">
+        <div class="svc-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M13 3 L4 13.5 H11 V21 L20 10.5 H13 Z"/>
+          </svg>
+        </div>
+        <h3>Automate and connect</h3>
+        <p>Manual, scattered routines become workflows that run on their own and report when something breaks, with a human checkpoint wherever automation is not reliable enough.</p>
+        <p>Then Notion connected to the tools the team already uses.</p>
+        <p class="svc-tags">Workflows &middot; Integrations &middot; AI where it holds up</p>
       </div>
-      <div class="scard">
-        <h3>Workflows and automation</h3>
-        <p>Manual, scattered routines turned into workflows that run on their own and report when something breaks, with a human checkpoint where automation does not hold up.</p>
+
+      <div class="svc-card">
+        <div class="svc-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2.5 L20 5.5 V11.5 C20 16 16.6 19.7 12 21 C7.4 19.7 4 16 4 11.5 V5.5 Z"/>
+            <path d="M8.8 12.2 L11.2 14.6 L15.6 10.2"/>
+          </svg>
+        </div>
+        <h3>Secure and hand over</h3>
+        <p>Who sees what, written down and enforced, with a 15-year security background applied to the workspace so client data, finance and HR stay where they belong.</p>
+        <p>Then written documentation and live training so the team runs it without me.</p>
+        <p class="svc-tags">Access model &middot; Documentation &middot; Training</p>
       </div>
-      <div class="scard">
-        <h3>Integrations and migration</h3>
-        <p>Notion connected to the tools your team already uses, and what lives in spreadsheets, documents or another platform moved in cleanly.</p>
-      </div>
-      <div class="scard">
-        <h3>Access and governance</h3>
-        <p>Who sees what, written down and enforced. A 15-year security background applied to your workspace, so client data, finance and HR stay where they belong.</p>
-      </div>
-      <div class="scard">
-        <h3>Training and support</h3>
-        <p>Written documentation and live training so your team runs the workspace without me, with an optional monthly retainer for changes once you are live.</p>
-      </div>
+
     </div>
   </section>
 
   <!-- HOW WE WORK -->
   <section class="block" id="how">
-    <h2 class="eyebrow">How we work</h2>
-    <div class="steps">
-      <div class="step"><div class="num">1</div><h3>Discovery</h3><p>One call. You show me the workspace and the problem you want solved. I tell you what I would do and whether it is worth doing.</p></div>
-      <div class="step"><div class="num">2</div><h3>Written scope</h3><p>Deliverables, timeline and a fixed price in writing within one business day. You approve before anything starts. No hourly billing and no change orders.</p></div>
-      <div class="step"><div class="num">3</div><h3>Build and handover</h3><p>The same person designs, builds, documents and trains the team. You own the workspace and can maintain it without me.</p></div>
+    <div class="flow-band">
+      <h2>How we work</h2>
+      <div class="flow">
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <h3>Discovery</h3>
+          <p>One call. You show me the workspace and the problem you want solved. I tell you what I would do and whether it is worth doing.</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <h3>Written scope</h3>
+          <p>Deliverables, timeline and a fixed price in writing within one business day. You approve before anything starts. No hourly billing and no change orders.</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <h3>Build and handover</h3>
+          <p>The same person designs, builds, documents and trains the team. You own the workspace and can maintain it without me.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -102,15 +192,9 @@ no_offer_popup: true
     <div class="stat"><div class="n">3</div><div class="l">Notion certifications in good standing</div></div>
   </div>
 
-  <!-- CREDIBILITY: photo + certifications -->
+  <!-- CREDIBILITY: certifications -->
   <div class="credibility cred-top">
     <div class="cred-flex">
-      <div class="cred-photo">
-        <div class="photo-frame">
-          <img class="cred-photo-img" src="/assets/brand/anthony-profile.webp" alt="Anthony Today" width="400" height="400" fetchpriority="high" decoding="async">
-        </div>
-        <p class="cred-caption">Anthony Today, Notion Certified Consultant</p>
-      </div>
       <div class="badges">
         <p class="lead">Certifications in Good Standing</p>
         <div class="badge-row">
@@ -166,7 +250,7 @@ no_offer_popup: true
   <section class="block">
     <h2 class="eyebrow">Questions I hear</h2>
     <div class="faq">
-      <details><summary>What does it cost?</summary><p>A fixed price per engagement, quoted in writing after the first call once I have seen the workspace. An audit is the smallest way in; a full company workspace with automation and training is a larger project. No hourly billing and no change orders.</p></details>
+      <details><summary>How is the price set?</summary><p>Every engagement is a fixed price, agreed in writing before anything starts, and it does not move afterwards. Three things set it: how much of the business the workspace has to carry, how much existing material has to be migrated, and how many people need training. The first call costs nothing, and you get the number within one business day of it. No hourly billing and no change orders.</p></details>
       <details><summary>I am not technical. Will I understand what you build?</summary><p>That is the point. Every system ships documented, and I train your team so you can run and maintain it without me. You own it.</p></details>
       <details><summary>Do you work with individuals or only teams?</summary><p>Both. Teams are where a full build pays off. For one person, an audit or a single working session is usually enough, and my <a href="/shop/">templates</a> cover the rest.</p></details>
       <details><summary>What happens after handover?</summary><p>You own the workspace and the documentation. Ongoing support exists as a monthly retainer if you want it, and it is never a condition of the build.</p></details>
@@ -189,9 +273,9 @@ no_offer_popup: true
  "@type": "FAQPage",
  "@id": "https://www.anthonytoday.com/notion/#faq",
  "mainEntity": [
-  {"@type": "Question", "name": "What does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "A fixed price per engagement, quoted in writing after the first call once I have seen the workspace. An audit is the smallest way in; a full company workspace with automation and training is a larger project. No hourly billing and no change orders."}},
-  {"@type": "Question", "name": "I am not technical. Will I understand what you build?", "acceptedAnswer": {"@type": "Answer", "text": "Every system ships documented, and I train your team so you can run and maintain it without me. You own it."}},
-  {"@type": "Question", "name": "Do you work with individuals or only teams?", "acceptedAnswer": {"@type": "Answer", "text": "Both. Teams are where a full build pays off. For one person, an audit or a single working session is usually enough, and the templates cover the rest."}},
+  {"@type": "Question", "name": "How is the price set?", "acceptedAnswer": {"@type": "Answer", "text": "Every engagement is a fixed price, agreed in writing before anything starts, and it does not move afterwards. Three things set it: how much of the business the workspace has to carry, how much existing material has to be migrated, and how many people need training. The first call costs nothing, and you get the number within one business day of it. No hourly billing and no change orders."}},
+  {"@type": "Question", "name": "I am not technical. Will I understand what you build?", "acceptedAnswer": {"@type": "Answer", "text": "That is the point. Every system ships documented, and I train your team so you can run and maintain it without me. You own it."}},
+  {"@type": "Question", "name": "Do you work with individuals or only teams?", "acceptedAnswer": {"@type": "Answer", "text": "Both. Teams are where a full build pays off. For one person, an audit or a single working session is usually enough, and my templates cover the rest."}},
   {"@type": "Question", "name": "What happens after handover?", "acceptedAnswer": {"@type": "Answer", "text": "You own the workspace and the documentation. Ongoing support exists as a monthly retainer if you want it, and it is never a condition of the build."}}
  ]
 }
