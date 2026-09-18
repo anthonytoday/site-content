@@ -1,0 +1,25 @@
+.cred{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:44px 0}
+.cred .wrap{display:flex;gap:56px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.cred-photo{flex-shrink:0;text-align:center}
+.cred-photo img{width:180px;height:180px;border-radius:50%;object-fit:cover;border:4px solid var(--white);box-shadow:0 4px 18px rgba(5,28,44,.16);display:block}
+.cred-caption{font-size:12.5px;color:var(--text-gray);max-width:180px;margin:12px auto 0;line-height:1.5}
+.badges{flex:1;min-width:300px}
+.badges .lead{font-size:12px;color:var(--text-gray);text-transform:uppercase;letter-spacing:.6px;margin:0 0 20px}
+.badge-row{display:flex;flex-wrap:wrap;gap:26px;align-items:flex-start}
+.badge-item{display:flex;flex-direction:column;align-items:center;gap:12px;flex:1;min-width:120px;text-decoration:none}
+.badge-item .img{width:112px;height:112px;display:flex;align-items:center;justify-content:center}
+.badge-item .img img{max-width:100%;max-height:100%;object-fit:contain}
+.badge-label{font-size:13.5px;font-weight:600;color:var(--navy);max-width:130px;line-height:1.4;text-align:center}
+.logo-banner{padding:44px 0;border-bottom:1px solid var(--border)}
+.logo-banner .lead{font-size:12px;color:var(--text-gray);text-transform:uppercase;letter-spacing:.6px;margin:0 0 20px;text-align:center}
+.logo-mask{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.logo-track{display:flex;width:max-content;gap:56px;align-items:center;animation:logoScroll 30s linear infinite}
+.logo-track:hover{animation-play-state:paused}
+.logo-track img{height:50px;width:auto;max-width:200px;object-fit:contain;filter:grayscale(1);opacity:.7;transition:opacity .2s,filter .2s}
+.logo-track img:hover{opacity:1;filter:grayscale(0)}
+@keyframes logoScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.logo-track{animation:none;flex-wrap:wrap;width:auto;justify-content:center;gap:32px}}
+.quote{border-left:0;padding:0;max-width:760px;margin:0 auto;text-align:center}
+.quote blockquote{font-size:21px;font-weight:500;font-style:normal;color:var(--navy);line-height:1.5;margin:0 0 16px}
+.quote cite{font-size:13.5px;color:var(--text-gray);font-style:normal}
+@media(max-width:900px){.cred .wrap{gap:32px}.cred-photo img{width:140px;height:140px}.badge-item .img{width:92px;height:92px}.quote blockquote{font-size:18px}}
