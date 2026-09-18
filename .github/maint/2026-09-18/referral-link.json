@@ -1,0 +1,58 @@
+[
+{
+"op": "replace_all",
+"path": "_includes/start-here.html",
+"old": "rw7o47pwsh6j",
+"new": "0x8u16p4sff1",
+"min": 1
+},
+{
+"op": "replace_all",
+"path": "fr/pages/guide.html",
+"old": "rw7o47pwsh6j",
+"new": "0x8u16p4sff1",
+"min": 8
+},
+{
+"op": "replace_all",
+"path": "fr/pages/tools.html",
+"old": "rw7o47pwsh6j",
+"new": "0x8u16p4sff1",
+"min": 1
+},
+{
+"op": "replace_all",
+"path": "fr/services/notion.html",
+"old": "rw7o47pwsh6j",
+"new": "0x8u16p4sff1",
+"min": 1
+},
+{
+"op": "replace_all",
+"path": "pages/guide.html",
+"old": "rw7o47pwsh6j",
+"new": "0x8u16p4sff1",
+"min": 8
+},
+{
+"op": "replace_all",
+"path": "pages/how-to-duplicate.html",
+"old": "rw7o47pwsh6j",
+"new": "0x8u16p4sff1",
+"min": 1
+},
+{
+"op": "replace_all",
+"path": "pages/start.html",
+"old": "rw7o47pwsh6j",
+"new": "0x8u16p4sff1",
+"min": 1
+},
+{
+"op": "replace_all",
+"path": "pages/tools.html",
+"old": "rw7o47pwsh6j",
+"new": "0x8u16p4sff1",
+"min": 1
+}
+]
