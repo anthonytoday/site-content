@@ -66,6 +66,15 @@ no_offer_popup: true
   .nfp .quote{margin-top:8px}
   .nfp .badges{text-align:center}
 
+  /* RESULTS */
+  .nfp .outcomes-note{font-size:12.5px;color:var(--text-gray);line-height:1.7;margin:18px auto 0;max-width:720px;text-align:center}
+  .nfp .outcomes-note a{color:var(--blue);text-decoration:underline}
+
+  /* CLOSING BAND */
+  .nfp .close-list{list-style:none;margin:26px auto 30px;padding:0;max-width:760px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:left}
+  .nfp .close-list li{position:relative;padding-left:28px;font-size:14px;line-height:1.6;color:#C6D2DE;text-align:left}
+  .nfp .close-list svg{position:absolute;left:0;top:1px;width:19px;height:19px;color:#7FA6FF}
+
   @media(max-width:768px){
     .nfp .eyebrow{font-size:12px !important;line-height:1.4 !important}
     .nfp .hero{padding:38px 18px 0 !important;gap:28px !important}
@@ -81,6 +90,7 @@ no_offer_popup: true
     .nfp .flow-step,.nfp .flow-step:first-child,.nfp .flow-step:last-child{padding:0 0 0 22px}
     .nfp .flow .flow-step::before{content:"";position:absolute;left:0;top:4px;bottom:-26px;width:1px;background:rgba(255,255,255,.16)}
     .nfp .flow .flow-step:last-child::before{bottom:6px}
+    .nfp .close-list{grid-template-columns:1fr;gap:12px;margin:22px 0 26px}
   }
 </style>
 <div class="nfp">
@@ -185,13 +195,17 @@ no_offer_popup: true
     </div>
   </section>
 
-  <!-- STATS -->
-  <div class="stats">
-    <div class="stat"><div class="n">15+</div><div class="l">years designing secure enterprise systems</div></div>
-    <div class="stat"><div class="n">60+</div><div class="l">engagements delivered</div></div>
-    <div class="stat"><div class="n">4.92/5</div><div class="l">average template customer rating</div></div>
-    <div class="stat"><div class="n">3</div><div class="l">Notion certifications in good standing</div></div>
-  </div>
+  <!-- RESULTS -->
+  <section class="block">
+    <h2 class="eyebrow">What changes</h2>
+    <div class="stats" style="margin-top:8px">
+      <div class="stat"><div class="n">$2,880</div><div class="l">a year in license spend recovered</div></div>
+      <div class="stat"><div class="n">78%</div><div class="l">less time to onboard a new joiner</div></div>
+      <div class="stat"><div class="n">21 days</div><div class="l">from audit to a governed workspace</div></div>
+      <div class="stat"><div class="n">High to Low</div><div class="l">access risk, documented and evidenced</div></div>
+    </div>
+    <p class="outcomes-note">Figures from a 28-person B2B SaaS engagement. Composite scenario based on findings typical of a Notion workspace review, so company details are illustrative. <a href="/use-case/">Read the full walkthrough</a>.</p>
+  </section>
 
   <!-- CREDIBILITY: certifications -->
   <div class="credibility cred-top">
@@ -260,8 +274,13 @@ no_offer_popup: true
 
   <!-- FINAL CTA -->
   <section class="cta-section">
-    <h2>Bring me one real problem.</h2>
-    <p>Describe the workspace and what is blocking you. I reply within one business day.</p>
+    <h2>Find out what it would take.</h2>
+    <p>Tell me what the workspace is costing your team each week. You get an honest read on whether it is worth fixing, and a written scope if it is.</p>
+    <ul class="close-list">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.4 L10.9 15.3 L16 9.6"/></svg> A reply within one business day, from me, not a sales team.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.4 L10.9 15.3 L16 9.6"/></svg> A fixed price agreed before anything starts. No hourly billing.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.4 L10.9 15.3 L16 9.6"/></svg> Documented and handed over. You own it, with or without me.</li>
+    </ul>
     <a href="/contact/" class="cta-button">Get in touch &rarr;</a>
   </section>
 
