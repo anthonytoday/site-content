@@ -112,7 +112,7 @@ no_offer_popup: true
   // ---- CONFIG ----
   var ENDPOINT    = "https://api.web3forms.com/submit";
   var ACCESS_KEY  = "c11e0f6b-725b-41be-a276-e2427ef8c1b3";
-  var CAL_LINK    = "anthonytoday/qualification";   // 20-minute call with Anthony, $25 at booking
+  var CAL_LINK    = "anthonytoday/qualification";   // 20-minute call with Anthony
   var AFFILIATE   = "https://affiliate.notion.so/0x8u16p4sff1";
   var TEMPLATES   = "https://www.notion.com/@anthonytoday";
   var CHALLENGES  = "/notion/challenges/";
@@ -198,8 +198,7 @@ no_offer_popup: true
     + '</div>';
 
   var FIT_VIEW = '<div class="rcard r-hot"><h2>This is a fit. Book a call with me.</h2>'
-    + '<p>Twenty minutes. We open your workspace and look at one real problem together. Within one business day you get a written plan and a fixed price.</p>'
-    + '<p>It is $25 at booking, credited on the project. The $25 keeps the calendar for people ready to move.</p></div>'
+    + '<p>Twenty minutes. We open your workspace and look at one real problem together. Within one business day you get a written plan and a fixed price.</p></div>'
     + '<div class="lead" id="qf-leadwrap"><div class="lead-t">One step before the calendar</div>'
     + '<form id="qf-lead" novalidate>'
     + '<div class="two">'
@@ -215,19 +214,18 @@ no_offer_popup: true
     + '<div id="qf-cal"></div>';
 
   var CAL_EMBED = '<div class="calwrap"><div id="cal-inline"></div></div>'
-    + '<p class="paynote">Payment of $25 is taken by the booking page. It is credited on the project.</p>'
     + '<p class="calalt">Calendar not loading? <a href="https://cal.com/anthonytoday/qualification" target="_blank" rel="noopener">Open the booking page directly</a>.</p>';
 
   var REASONS = {
     personal: 'What I build is for teams running a business in Notion. For personal projects and side projects it is more than you need, and you would be paying for structure you will never use.',
     small: 'With fewer than five people, the workspace is still small enough to shape yourselves. Start with the templates below and come back when the team grows.',
     member: 'The call needs someone who can decide on the workspace: the owner, or the person who runs operations. Send this page to them. If they see a fit, they book, and you are welcome on the call.',
-    budget: 'A tailored build usually starts above $1,000, so a call would cost you $25 without leading anywhere useful. The resources below get you further for the money, and the fit check is here when the budget is.',
+    budget: 'A tailored build usually starts above $1,000, so a call would not lead anywhere useful yet. The resources below get you further for the money, and the fit check is here when the budget is.',
     later: 'Without a date, a plan goes stale before anyone uses it. Come back when there is a date. The six questions take two minutes and the answer is instant.'
   };
 
   function notFitView(why){
-    return '<div class="rcard r-cold"><h2>Not a fit right now, and I would rather say so than take $25 for nothing.</h2>'
+    return '<div class="rcard r-cold"><h2>Not a fit right now, and I would rather say so than take your time for nothing.</h2>'
       + '<p>' + (REASONS[why] || REASONS.later) + '</p>'
       + '<p>Three things that help in the meantime, all free:</p>'
       + '<ul class="rlist">'
