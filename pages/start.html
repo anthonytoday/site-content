@@ -80,7 +80,7 @@ no_offer_popup: true
 
       <div class="q">
         <label class="qlabel">5. Rough budget for the project?</label>
-        <p class="hint">Only to point you to the right option. It does not change the answer.</p>
+        <p class="hint">So I can point you to the option that fits your budget.</p>
         <div class="opts" data-name="budget">
           <label class="opt"><input type="radio" name="budget" value="under-1k" required> Under $1,000</label>
           <label class="opt"><input type="radio" name="budget" value="1k-5k"> $1,000 to $5,000</label>
@@ -126,12 +126,14 @@ no_offer_popup: true
     return (d.need === 'scratch' || d.need === 'messy' || d.need === 'automate')
       && (d.size === '5-24' || d.size === '25+')
       && (d.role === 'owner' || d.role === 'lead')
-      && (d.timeline === 'now' || d.timeline === '1-3months');
+      && (d.timeline === 'now' || d.timeline === '1-3months')
+      && d.budget !== 'under-1k';
   }
   function reason(d){
     if (fit(d)) return 'fit';
     if (d.need === 'personal') return 'personal';
     if (d.size === '1-4') return 'small';
+    if (d.budget === 'under-1k') return 'budget';
     if (d.role === 'member') return 'member';
     if (d.timeline === 'later') return 'later';
     return 'fit';
@@ -220,6 +222,7 @@ no_offer_popup: true
     personal: 'What I build is for teams running a business in Notion. For personal projects and side projects it is more than you need, and you would be paying for structure you will never use.',
     small: 'With fewer than five people, the workspace is still small enough to shape yourselves. Start with the templates below and come back when the team grows.',
     member: 'The call needs someone who can decide on the workspace: the owner, or the person who runs operations. Send this page to them. If they see a fit, they book, and you are welcome on the call.',
+    budget: 'A tailored build usually starts above $1,000, so a call would cost you $25 without leading anywhere useful. The resources below get you further for the money, and the fit check is here when the budget is.',
     later: 'Without a date, a plan goes stale before anyone uses it. Come back when there is a date. The six questions take two minutes and the answer is instant.'
   };
 
