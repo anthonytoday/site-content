@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Notion Consulting for Teams | Anthony Today"
-description: "Notion Certified Consultant for teams: workspace audit, architecture and build, automation, access governance, training and a clean handover."
+description: "Notion Certified Consultant for teams. Take a two-minute fit check, then a 20-minute call with me, then a fixed price in writing before any build starts."
 permalink: /notion/
 lang: en
 alt_url: /fr/notion/
@@ -14,82 +14,90 @@ no_offer_popup: true
 <style>
   .nfp h1,.nfp h2,.nfp h3,.nfp h4{text-transform:none}
   .nfp .eyebrow{text-transform:uppercase}
+  .nfp .sec-title{font-size:28px;font-weight:600;color:var(--navy);letter-spacing:-.01em;text-align:center;margin:0 auto 10px;max-width:720px}
+  .nfp .sec-sub{font-size:15.5px;color:var(--text-gray);line-height:1.7;text-align:center;margin:0 auto 32px;max-width:640px}
 
   /* HERO */
-  .nfp .hero{max-width:1080px;padding:64px 20px 0;text-align:left;display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:56px;align-items:center}
-  .nfp .hero h1{font-size:44px;line-height:1.14;letter-spacing:-.02em;margin:0 0 20px;max-width:none}
-  .nfp .hero .subtitle{font-size:17.5px;line-height:1.7;margin:0 0 26px;max-width:none}
-  .nfp .hero .cta-button{display:inline-block}
-  .nfp .hero-note{font-size:13.5px;color:var(--text-gray);line-height:1.6;margin:14px 0 0;max-width:420px}
-  .nfp .creds{font-size:12.5px;color:var(--text-gray);letter-spacing:.2px;line-height:1.9;margin:26px 0 0;padding-top:20px;border-top:1px solid var(--border)}
-  .nfp .portrait{margin:0;width:100%;max-width:420px;justify-self:end}
+  .nfp .hero{max-width:1080px;padding:64px 20px 0;text-align:left;display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:56px;align-items:center}
+  .nfp .hero h1{font-size:46px;line-height:1.12;letter-spacing:-.02em;margin:0 0 20px;max-width:none}
+  .nfp .hero .subtitle{font-size:17.5px;line-height:1.7;margin:0 0 28px;max-width:540px}
+  .nfp .hero .cta-button{display:inline-block;width:auto;margin-top:0}
+  .nfp .hero-note{font-size:13.5px;color:var(--text-gray);line-height:1.6;margin:14px 0 0;max-width:460px}
+  .nfp .creds{font-size:12.5px;color:var(--text-gray);letter-spacing:.2px;line-height:1.9;margin:28px 0 0;padding-top:20px;border-top:1px solid var(--border)}
+  .nfp .portrait{margin:0;width:100%;max-width:400px;justify-self:end}
   .nfp .portrait img{display:block;width:100%;height:auto;border-radius:20px;box-shadow:0 18px 44px rgba(5,28,44,.16)}
 
-  /* WHO THIS IS FOR */
-  .nfp .fit-strip{background:#F7F9FF;border:1px solid #D8E0FF;border-radius:14px;padding:34px 36px}
-  .nfp .fit-strip .lead-in{font-size:17px;font-weight:600;color:var(--navy);margin:0 0 18px}
-  .nfp .fit-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px 28px}
-  .nfp .fit-list li{display:block;position:relative;padding-left:32px;font-size:15px;color:var(--navy);line-height:1.6}
-  .nfp .fit-list svg{position:absolute;left:0;top:1px;width:22px;height:22px;color:var(--blue)}
-  .nfp .fit-after{font-size:14px;color:var(--text-gray);line-height:1.7;margin:22px 0 0}
-  .nfp .fit-after a{color:var(--blue);text-decoration:underline}
+  /* HOW I CAN HELP: three situations */
+  .nfp .sit{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .nfp .sit-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:30px 28px;color:inherit;text-decoration:none;transition:border-color .2s,box-shadow .2s,transform .2s}
+  .nfp .sit-card:hover{border-color:var(--blue);box-shadow:0 12px 30px rgba(5,28,44,.08);transform:translateY(-2px);text-decoration:none}
+  .nfp .sit-chip{width:48px;height:48px;border-radius:12px;background:#EFF2FF;display:flex;align-items:center;justify-content:center;color:var(--blue);margin-bottom:18px}
+  .nfp .sit-chip svg{width:24px;height:24px}
+  .nfp .sit-q{font-size:12.5px;font-weight:600;color:var(--blue);letter-spacing:.3px;margin:0 0 6px}
+  .nfp .sit-card h3{font-size:19px;font-weight:600;color:var(--navy);margin:0 0 10px;line-height:1.35}
+  .nfp .sit-card p{font-size:14.5px;color:var(--text-gray);line-height:1.7;margin:0 0 18px}
+  .nfp .sit-go{margin-top:auto;font-size:14px;font-weight:600;color:var(--blue)}
+  .nfp .sit-after{font-size:14px;color:var(--text-gray);line-height:1.7;margin:22px 0 0;text-align:center}
+  .nfp .sit-after a{color:var(--blue);text-decoration:underline}
 
-  /* SERVICES */
-  .nfp .svc{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
-  .nfp .svc-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:30px 28px}
-  .nfp .svc-chip{width:48px;height:48px;border-radius:12px;background:#EFF2FF;display:flex;align-items:center;justify-content:center;color:var(--blue);margin-bottom:18px}
-  .nfp .svc-chip svg{width:24px;height:24px}
-  .nfp .svc-card h3{font-size:19px;font-weight:600;color:var(--navy);margin:0 0 10px}
-  .nfp .svc-card p{font-size:14.5px;color:var(--text-gray);line-height:1.7;margin:0 0 10px}
-  .nfp .svc-tags{font-size:12.5px;color:#8A94A0;letter-spacing:.3px;margin:16px 0 0}
-
-  /* HOW WE WORK */
-  .nfp .flow-band{background:var(--navy);border-radius:16px;padding:48px 44px;margin-top:8px}
-  .nfp .flow-band h2{font-size:26px;font-weight:600;color:var(--white);margin:0 0 32px}
-  .nfp .flow{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative}
-  .nfp .flow-step{padding:0 30px;position:relative}
+  /* HOW IT WORKS: four steps */
+  .nfp .flow-band{background:var(--navy);border-radius:16px;padding:48px 44px}
+  .nfp .flow-band h2{font-size:26px;font-weight:600;color:var(--white);margin:0 0 8px}
+  .nfp .flow-band .band-sub{font-size:15px;color:#A9B6C2;margin:0 0 34px;line-height:1.6}
+  .nfp .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+  .nfp .flow-step{padding:0 24px;position:relative}
   .nfp .flow-step:first-child{padding-left:0}
   .nfp .flow-step:last-child{padding-right:0}
   .nfp .flow-step+.flow-step::before{content:"";position:absolute;left:0;top:17px;bottom:6px;width:1px;background:rgba(255,255,255,.16)}
   .nfp .flow-num{width:34px;height:34px;border-radius:50%;background:var(--blue);color:var(--white);font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
-  .nfp .flow-step h3{font-size:17px;font-weight:600;color:var(--white);margin:0 0 8px}
+  .nfp .flow-step h3{font-size:17px;font-weight:600;color:var(--white);margin:0 0 4px}
+  .nfp .flow-meta{font-size:12.5px;font-weight:600;color:#7FA6FF;letter-spacing:.3px;margin:0 0 10px}
   .nfp .flow-step p{font-size:14px;color:#A9B6C2;line-height:1.7;margin:0}
+  .nfp .flow-cta{margin-top:34px;padding-top:28px;border-top:1px solid rgba(255,255,255,.12);display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .nfp .flow-cta .cta-button{width:auto;margin-top:0}
+  .nfp .flow-cta span{font-size:14px;color:#A9B6C2}
 
-  /* PROOF RHYTHM */
-  .nfp .stats{margin-top:64px}
-  .nfp .credibility{margin-top:64px}
-  /* the two proof bands used to meet in an empty hairline strip: close it up */
-  .nfp .credibility.logo-only{border-top:0;margin-top:0;padding-top:30px}
-  /* one uniform weight for every client mark, so no logo shouts over the others */
+  /* PROOF STRIP */
+  .nfp .proof{max-width:1000px;margin:0 auto;padding:64px 20px 0}
+  .nfp .proof .credibility.logo-only{border-top:0;margin-top:0;padding-top:0}
   .nfp .logo-mark img{height:26px;width:auto;max-width:150px;object-fit:contain;filter:grayscale(1);opacity:.55;transition:opacity .2s,filter .2s}
   .nfp .logo-mark img:hover{filter:grayscale(0);opacity:1}
-  .nfp .quote{margin-top:8px}
-  .nfp .badges{text-align:center}
-
-  /* RESULTS */
-  .nfp .outcomes-note{font-size:12.5px;color:var(--text-gray);line-height:1.7;margin:18px auto 0;max-width:720px;text-align:center}
-  .nfp .outcomes-note a{color:var(--blue);text-decoration:underline}
+  .nfp .proof-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center;margin-top:36px;padding:32px 36px;border:1px solid var(--border);border-radius:14px;background:#F7F9FF}
+  .nfp .proof-row blockquote{font-size:19px;font-weight:500;color:var(--navy);line-height:1.5;margin:0 0 10px}
+  .nfp .proof-row cite{font-size:13.5px;color:var(--text-gray);font-style:normal}
+  .nfp .seals{display:flex;gap:18px;align-items:center}
+  .nfp .seals a{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none}
+  .nfp .seals img{width:64px;height:64px;object-fit:contain}
+  .nfp .seals span{font-size:11.5px;color:var(--text-gray);text-align:center;line-height:1.3;max-width:86px}
 
   /* CLOSING BAND */
   .nfp .close-list{list-style:none;margin:26px auto 30px;padding:0;max-width:760px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:left}
   .nfp .close-list li{position:relative;padding-left:28px;font-size:14px;line-height:1.6;color:#C6D2DE;text-align:left}
   .nfp .close-list svg{position:absolute;left:0;top:1px;width:19px;height:19px;color:#7FA6FF}
+  .nfp .cta-section .cta-button{width:auto}
 
+  @media(max-width:900px){
+    .nfp .flow{grid-template-columns:1fr 1fr;gap:30px 0}
+    .nfp .flow-step:nth-child(3){padding-left:0}
+    .nfp .flow-step:nth-child(3)::before{display:none}
+  }
   @media(max-width:768px){
     .nfp .eyebrow{font-size:12px !important;line-height:1.4 !important}
-    .nfp .hero{padding:38px 18px 0 !important;gap:28px !important}
+    .nfp .hero{grid-template-columns:1fr;padding:38px 18px 0 !important;gap:28px !important}
     .nfp .portrait{max-width:100%;justify-self:stretch;order:-1}
-    .nfp .hero h1{font-size:30px !important}
+    .nfp .hero h1{font-size:31px !important}
+    .nfp .hero .cta-button{display:block;width:100%;text-align:center}
     .nfp .hero-note{max-width:none}
-    .nfp .creds{line-height:1.8}
-    .nfp .fit-strip{padding:26px 22px}
-    .nfp .fit-list{grid-template-columns:1fr;gap:14px}
-    .nfp .svc{grid-template-columns:1fr}
+    .nfp .sec-title{font-size:23px}
+    .nfp .sit{grid-template-columns:1fr}
     .nfp .flow-band{padding:32px 22px}
     .nfp .flow{grid-template-columns:1fr;gap:26px}
-    .nfp .flow-step,.nfp .flow-step:first-child,.nfp .flow-step:last-child{padding:0 0 0 22px}
-    .nfp .flow .flow-step::before{content:"";position:absolute;left:0;top:4px;bottom:-26px;width:1px;background:rgba(255,255,255,.16)}
+    .nfp .flow-step,.nfp .flow-step:first-child,.nfp .flow-step:last-child,.nfp .flow-step:nth-child(3){padding:0 0 0 22px}
+    .nfp .flow .flow-step::before,.nfp .flow .flow-step:nth-child(3)::before{display:block;content:"";position:absolute;left:0;top:4px;bottom:-26px;width:1px;background:rgba(255,255,255,.16)}
     .nfp .flow .flow-step:last-child::before{bottom:6px}
+    .nfp .flow-cta .cta-button{display:block;width:100%;text-align:center}
+    .nfp .proof-row{grid-template-columns:1fr;padding:26px 22px;gap:24px}
+    .nfp .seals{justify-content:space-between}
     .nfp .close-list{grid-template-columns:1fr;gap:12px;margin:22px 0 26px}
   }
 </style>
@@ -98,143 +106,97 @@ no_offer_popup: true
   <!-- HERO -->
   <section class="hero">
     <div class="hero-text">
-      <h1>I build the Notion workspace your team actually runs on.</h1>
-      <p class="subtitle">Notion Certified Consultant with 15 years in cybersecurity. I design the structure, build it, document it and train your team, then hand it over. You own it and can run it without me.</p>
-      <a href="https://cal.com/anthonytoday/qualification" class="cta-button" target="_blank" rel="noopener noreferrer">Book a call with me &rarr;</a>
-      <p class="hero-note">I reply within one business day and say plainly whether I am the right person for the job.</p>
+      <h1>A Notion workspace your team actually runs on.</h1>
+      <p class="subtitle">I am a Notion Certified Consultant with 15 years in cybersecurity. Before any work starts, I want to understand what your team needs. Two minutes tells us both whether I can help.</p>
+      <a href="/start/" class="cta-button">Take the 2-minute fit check &rarr;</a>
+      <p class="hero-note">Six questions, an answer on the spot. If it is a fit, you book a 20-minute call with me ($25, credited on the project).</p>
       <p class="creds">Notion Certified Consultant &middot; CISSP &middot; ISO 27001 Lead Implementer &middot; 60+ engagements</p>
     </div>
     <figure class="portrait">
-      <!-- Swap to /assets/brand/anthony-hero.webp with srcset "/assets/brand/anthony-hero.webp 1x, /assets/brand/anthony-hero@2x.webp 2x" and width/height 560 once those two files are uploaded to assets/brand/ -->
       <img src="/assets/brand/anthony-profile.webp" alt="Anthony Today, Notion Certified Consultant" width="400" height="400" fetchpriority="high" decoding="async">
     </figure>
   </section>
 
-  <!-- WHO THIS IS FOR -->
-  <section class="block">
-    <h2 class="eyebrow">Who this is for</h2>
-    <div class="fit-strip">
-      <p class="lead-in">This is for you if:</p>
-      <ul class="fit-list">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.4 L10.9 15.3 L16 9.6"/></svg>Five or more people work in Notion.</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.4 L10.9 15.3 L16 9.6"/></svg>The workspace grew by accident and nobody documented it.</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.4 L10.9 15.3 L16 9.6"/></svg>You want it built right once, not a consultant on retainer.</li>
-      </ul>
-      <p class="fit-after">Working alone or on personal projects? Start with my <a href="/shop/">templates</a> and come back when the team grows.</p>
-    </div>
-  </section>
+  <!-- HOW I CAN HELP -->
+  <section class="block" id="help">
+    <p class="eyebrow">How I can help</p>
+    <h2 class="sec-title">Which of these sounds like your team?</h2>
+    <p class="sec-sub">Pick the closest one. The fit check opens with it already selected.</p>
+    <div class="sit">
 
-  <!-- SERVICES -->
-  <section class="block" id="services">
-    <h2 class="eyebrow">Services</h2>
-    <div class="svc">
+      <a class="sit-card" href="/start/?need=scratch">
+        <div class="sit-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 L21 8 L12 13 L3 8 Z"/><path d="M3 12 L12 17 L21 12"/><path d="M3 16 L12 21 L21 16"/></svg></div>
+        <p class="sit-q">Starting from scratch</p>
+        <h3>We are moving to Notion, or starting over.</h3>
+        <p>I design the structure around how your team works, then move what you already have into it.</p>
+        <span class="sit-go">This is us &rarr;</span>
+      </a>
 
-      <div class="svc-card">
-        <div class="svc-chip">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 3 L21 8 L12 13 L3 8 Z"/>
-            <path d="M3 12 L12 17 L21 12"/>
-            <path d="M3 16 L12 21 L21 16"/>
-          </svg>
-        </div>
-        <h3>Design and build</h3>
-        <p>A read-only review of what you already have scores structure, permissions, integrations and automations, and you get a prioritized fix list.</p>
-        <p>Then databases, relations and views designed around how the team works, with migration of what already exists included.</p>
-        <p class="svc-tags">Workspace audit &middot; Architecture &middot; Migration</p>
-      </div>
+      <a class="sit-card" href="/start/?need=messy">
+        <div class="sit-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 L20 5.5 V11.5 C20 16 16.6 19.7 12 21 C7.4 19.7 4 16 4 11.5 V5.5 Z"/><path d="M8.8 12.2 L11.2 14.6 L15.6 10.2"/></svg></div>
+        <p class="sit-q">The workspace grew messy</p>
+        <h3>Nobody finds anything, and access is unclear.</h3>
+        <p>I review what you have, fix the structure, set who sees what, and document it so it stays clean.</p>
+        <span class="sit-go">This is us &rarr;</span>
+      </a>
 
-      <div class="svc-card">
-        <div class="svc-chip">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M13 3 L4 13.5 H11 V21 L20 10.5 H13 Z"/>
-          </svg>
-        </div>
-        <h3>Automate and connect</h3>
-        <p>Manual, scattered routines become workflows that run on their own and report when something breaks, with a human checkpoint wherever automation is not reliable enough.</p>
-        <p>Then Notion connected to the tools the team already uses.</p>
-        <p class="svc-tags">Workflows &middot; Integrations &middot; AI where it holds up</p>
-      </div>
-
-      <div class="svc-card">
-        <div class="svc-chip">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 2.5 L20 5.5 V11.5 C20 16 16.6 19.7 12 21 C7.4 19.7 4 16 4 11.5 V5.5 Z"/>
-            <path d="M8.8 12.2 L11.2 14.6 L15.6 10.2"/>
-          </svg>
-        </div>
-        <h3>Secure and hand over</h3>
-        <p>Who sees what, written down and enforced, with a 15-year security background applied to the workspace so client data, finance and HR stay where they belong.</p>
-        <p>Then written documentation and live training so the team runs it without me.</p>
-        <p class="svc-tags">Access model &middot; Documentation &middot; Training</p>
-      </div>
+      <a class="sit-card" href="/start/?need=automate">
+        <div class="sit-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3 L4 13.5 H11 V21 L20 10.5 H13 Z"/></svg></div>
+        <p class="sit-q">Automate and connect</p>
+        <h3>Too much copy and paste between tools.</h3>
+        <p>I turn manual routines into workflows that run on their own and connect Notion to the tools you already use.</p>
+        <span class="sit-go">This is us &rarr;</span>
+      </a>
 
     </div>
+    <p class="sit-after">Working alone or on personal projects? My <a href="/shop/">templates</a> are the faster route.</p>
   </section>
 
-  <!-- HOW WE WORK -->
+  <!-- HOW IT WORKS -->
   <section class="block" id="how">
     <div class="flow-band">
-      <h2>How we work</h2>
+      <h2>How it works</h2>
+      <p class="band-sub">Four steps. You decide at every one whether to go further.</p>
       <div class="flow">
         <div class="flow-step">
           <div class="flow-num">1</div>
-          <h3>Discovery</h3>
-          <p>One call. You show me the workspace and the problem you want solved. I tell you what I would do and whether it is worth doing.</p>
+          <h3>Fit check</h3>
+          <p class="flow-meta">2 minutes &middot; free</p>
+          <p>Six questions about your team and what is not working. You see the answer before you share an email address.</p>
         </div>
         <div class="flow-step">
           <div class="flow-num">2</div>
-          <h3>Written scope</h3>
-          <p>Deliverables, timeline and a fixed price in writing within one business day. You approve before anything starts. No hourly billing and no change orders.</p>
+          <h3>Call with me</h3>
+          <p class="flow-meta">20 minutes &middot; $25, credited</p>
+          <p>We open your workspace and look at one real problem. I tell you what I would do and whether it is worth doing.</p>
         </div>
         <div class="flow-step">
           <div class="flow-num">3</div>
-          <h3>Build and handover</h3>
-          <p>The same person designs, builds, documents and trains the team. You own the workspace and can maintain it without me.</p>
+          <h3>Written fixed price</h3>
+          <p class="flow-meta">Within one business day</p>
+          <p>Deliverables, timeline and one price in writing. Nothing starts until you approve it. No hourly billing.</p>
         </div>
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <h3>Build, train, hand over</h3>
+          <p class="flow-meta">You own the result</p>
+          <p>I build it, document it and train your team, so you can run it without me.</p>
+        </div>
+      </div>
+      <div class="flow-cta">
+        <a href="/start/" class="cta-button">Start with the fit check &rarr;</a>
+        <span>Two minutes, no email needed to see the result.</span>
       </div>
     </div>
   </section>
 
-  <!-- RESULTS -->
-  <section class="block">
-    <h2 class="eyebrow">What changes</h2>
-    <div class="stats" style="margin-top:8px">
-      <div class="stat"><div class="n">$2,880</div><div class="l">a year in license spend recovered</div></div>
-      <div class="stat"><div class="n">78%</div><div class="l">less time to onboard a new joiner</div></div>
-      <div class="stat"><div class="n">21 days</div><div class="l">from audit to a governed workspace</div></div>
-      <div class="stat"><div class="n">High to Low</div><div class="l">access risk, documented and evidenced</div></div>
-    </div>
-    <p class="outcomes-note">Figures from a 28-person B2B SaaS engagement. Composite scenario based on findings typical of a Notion workspace review, so company details are illustrative. <a href="/use-case/">Read the full walkthrough</a>.</p>
-  </section>
-
-  <!-- CREDIBILITY: certifications -->
-  <div class="credibility cred-top">
-    <div class="cred-flex">
-      <div class="badges">
-        <p class="lead">Certifications in Good Standing</p>
-        <div class="badge-row">
-          <a href="https://certs.notion.so/5c2a6cd2c3b14e83a585c1dedb40852d" class="badge-item" target="_blank" rel="noopener noreferrer">
-            <div class="badge-img-placeholder"><img src="/assets/logos/certified-notion-consultant.webp" alt="Notion Certified Consultant badge" width="201" height="201" loading="lazy" decoding="async"></div>
-            <span class="badge-label">Certified Consultant</span>
-          </a>
-          <a href="https://www.notion.com/@anthonytoday" class="badge-item" target="_blank" rel="noopener noreferrer">
-            <div class="badge-img-placeholder"><img src="/assets/brand/notion-certified-admin.webp" width="256" height="256" alt="Notion Certified Admin badge" loading="lazy" decoding="async"></div>
-            <span class="badge-label">Certified Admin</span>
-          </a>
-          <a href="https://www.notion.com/@anthonytoday" class="badge-item" target="_blank" rel="noopener noreferrer">
-            <div class="badge-img-placeholder"><img src="/assets/brand/notion-service-specialist.webp" width="256" height="256" alt="Notion Service Specialist badge" loading="lazy" decoding="async"></div>
-            <span class="badge-label">Service Specialist</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  <!-- PROOF -->
+  <section class="proof">
+    <p class="eyebrow">Trusted by teams including</p>
   <!-- CLIENT LOGO BANNER -->
   <div class="credibility logo-only">
     <div class="logo-banner">
-      <p class="lead">Trusted by teams including</p>
-      <div class="logo-track">
+            <div class="logo-track">
         <span class="logo-mark"><img src="/assets/logos/dorchester.webp" alt="Dorchester Collection" width="366" height="210" loading="lazy" decoding="async"></span>
         <span class="logo-mark"><img src="/assets/logos/hitachi.webp" alt="Hitachi" width="256" height="256" loading="lazy" decoding="async"></span>
         <span class="logo-mark"><img src="/assets/logos/nescafe.webp" alt="Nescafe" width="739" height="415" loading="lazy" decoding="async"></span>
@@ -253,35 +215,39 @@ no_offer_popup: true
     </div>
   </div>
 
-  <!-- QUOTE -->
-  <section class="block">
-    <div class="quote">
-      <blockquote>"Anthony understood exactly what I needed within minutes and built a clean, connected system I can actually run myself."</blockquote>
-      <cite>Client review, Notion Marketplace, 4.92 out of 5</cite>
+    <div class="proof-row">
+      <div>
+        <blockquote>"Anthony understood exactly what I needed within minutes and built a clean, connected system I can actually run myself."</blockquote>
+        <cite>Client review, Notion Marketplace, 4.92 out of 5</cite>
+      </div>
+      <div class="seals">
+        <a href="https://certs.notion.so/5c2a6cd2c3b14e83a585c1dedb40852d" target="_blank" rel="noopener noreferrer"><img src="/assets/logos/certified-notion-consultant.webp" alt="Notion Certified Consultant badge" width="201" height="201" loading="lazy" decoding="async"><span>Certified Consultant</span></a>
+        <a href="https://www.notion.com/@anthonytoday" target="_blank" rel="noopener noreferrer"><img src="/assets/brand/notion-certified-admin.webp" alt="Notion Certified Admin badge" width="256" height="256" loading="lazy" decoding="async"><span>Certified Admin</span></a>
+        <a href="https://www.notion.com/@anthonytoday" target="_blank" rel="noopener noreferrer"><img src="/assets/brand/notion-service-specialist.webp" alt="Notion Service Specialist badge" width="256" height="256" loading="lazy" decoding="async"><span>Service Specialist</span></a>
+      </div>
     </div>
   </section>
 
   <!-- FAQ -->
   <section class="block">
-    <h2 class="eyebrow">Questions I hear</h2>
+    <p class="eyebrow">Questions I hear</p>
     <div class="faq">
-      <details><summary>How is the price set?</summary><p>Every engagement is a fixed price, agreed in writing before anything starts, and it does not move afterwards. Three things set it: how much of the business the workspace has to carry, how much existing material has to be migrated, and how many people need training. You get the number within one business day of the first call. No hourly billing and no change orders.</p></details>
-      <details><summary>I am not technical. Will I understand what you build?</summary><p>That is the point. Every system ships documented, and I train your team so you can run and maintain it without me. You own it.</p></details>
-      <details><summary>Do you work with individuals or only teams?</summary><p>Both. Teams are where a full build pays off. For one person, an audit or a single working session is usually enough, and my <a href="/shop/">templates</a> cover the rest.</p></details>
-      <details><summary>What happens after handover?</summary><p>You own the workspace and the documentation. Ongoing support exists as a monthly retainer if you want it, and it is never a condition of the build.</p></details>
+      <details><summary>Why a fit check before a call?</summary><p>It saves us both time. Six questions tell me who you are and what is not working, so the call goes straight to your real problem. If I am not the right person, you find out in two minutes, not after a meeting.</p></details>
+      <details><summary>Why does the call cost $25?</summary><p>It keeps the calendar for teams ready to move, and the $25 is credited against your project if we work together. You get 20 minutes on one real problem and a clear next step either way.</p></details>
+      <details><summary>How is the price of a project set?</summary><p>Every project has one fixed price, agreed in writing before anything starts. It depends on how much the workspace has to carry, how much existing material moves over, and how many people need training. You get it within one business day of the call.</p></details>
     </div>
   </section>
 
   <!-- FINAL CTA -->
   <section class="cta-section">
-    <h2>Find out what it would take.</h2>
-    <p>Tell me what the workspace is costing your team each week. You get an honest read on whether it is worth fixing, and a written scope if it is.</p>
+    <h2>Find out if I can help.</h2>
+    <p>Two minutes, six questions, an answer on the spot.</p>
     <ul class="close-list">
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.4 L10.9 15.3 L16 9.6"/></svg> A reply within one business day, from me, not a sales team.</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.4 L10.9 15.3 L16 9.6"/></svg> A fixed price agreed before anything starts. No hourly billing.</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.4 L10.9 15.3 L16 9.6"/></svg> Documented and handed over. You own it, with or without me.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.4 L10.9 15.3 L16 9.6"/></svg> The answer before you share an email address.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.4 L10.9 15.3 L16 9.6"/></svg> A fixed price in writing before any work starts.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.4 L10.9 15.3 L16 9.6"/></svg> Documented and handed over. You own it.</li>
     </ul>
-    <a href="https://cal.com/anthonytoday/qualification" class="cta-button" target="_blank" rel="noopener noreferrer">Book a call with me &rarr;</a>
+    <a href="/start/" class="cta-button">Take the 2-minute fit check &rarr;</a>
   </section>
 
 </div>
@@ -293,10 +259,9 @@ no_offer_popup: true
  "@type": "FAQPage",
  "@id": "https://www.anthonytoday.com/notion/#faq",
  "mainEntity": [
-  {"@type": "Question", "name": "How is the price set?", "acceptedAnswer": {"@type": "Answer", "text": "Every engagement is a fixed price, agreed in writing before anything starts, and it does not move afterwards. Three things set it: how much of the business the workspace has to carry, how much existing material has to be migrated, and how many people need training. You get the number within one business day of the first call. No hourly billing and no change orders."}},
-  {"@type": "Question", "name": "I am not technical. Will I understand what you build?", "acceptedAnswer": {"@type": "Answer", "text": "That is the point. Every system ships documented, and I train your team so you can run and maintain it without me. You own it."}},
-  {"@type": "Question", "name": "Do you work with individuals or only teams?", "acceptedAnswer": {"@type": "Answer", "text": "Both. Teams are where a full build pays off. For one person, an audit or a single working session is usually enough, and my templates cover the rest."}},
-  {"@type": "Question", "name": "What happens after handover?", "acceptedAnswer": {"@type": "Answer", "text": "You own the workspace and the documentation. Ongoing support exists as a monthly retainer if you want it, and it is never a condition of the build."}}
+  {"@type": "Question", "name": "Why a fit check before a call?", "acceptedAnswer": {"@type": "Answer", "text": "It saves us both time. Six questions tell me who you are and what is not working, so the call goes straight to your real problem. If I am not the right person, you find out in two minutes, not after a meeting."}},
+  {"@type": "Question", "name": "Why does the call cost $25?", "acceptedAnswer": {"@type": "Answer", "text": "It keeps the calendar for teams ready to move, and the $25 is credited against your project if we work together. You get 20 minutes on one real problem and a clear next step either way."}},
+  {"@type": "Question", "name": "How is the price of a project set?", "acceptedAnswer": {"@type": "Answer", "text": "Every project has one fixed price, agreed in writing before anything starts. It depends on how much the workspace has to carry, how much existing material moves over, and how many people need training. You get it within one business day of the call."}}
  ]
 }
 </script>

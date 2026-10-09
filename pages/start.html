@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Start Here | Notion Fit Check | Anthony Today"
-description: "Five questions, two minutes. If it is a fit you book a 20-minute Working Session on the spot. If it is not, I say so and point you somewhere useful."
+description: "Six questions, two minutes. If it is a fit you book a 20-minute call with me on the spot. If it is not, I say so and point you somewhere useful."
 permalink: /start/
 lang: en
 schema_type: "WebPage"
@@ -9,6 +9,7 @@ noindex: true
 sitemap: false
 bc_name: "Start"
 css_bundle: /assets/css/b-55370db292.css
+no_offer_popup: true
 ---
 <style>
 .qf .head h1{text-transform:none;font-size:40px;letter-spacing:-.02em}
@@ -30,9 +31,9 @@ css_bundle: /assets/css/b-55370db292.css
 <div class="qf">
 
   <div class="head" id="qf-head">
-    <div class="prog">Five questions &middot; two minutes</div>
+    <div class="prog">Six questions &middot; two minutes</div>
     <h1>Is this a fit?</h1>
-    <p>Answer five questions and see the result on the spot, before you give me an email address. A fit books a 20-minute Working Session on one real problem in your workspace. Anything else, I say so and point you somewhere useful.</p>
+    <p>Answer six questions and see the result on the spot, before you give me an email address. If it is a fit, you book a 20-minute call with me on one real problem in your workspace. If not, I say so and point you somewhere useful.</p>
     <p class="qf-alt">Prefer to fix it yourself first? <a href="/notion/challenges/">The 10 questions clients ask most about Notion</a></p>
   </div>
 
@@ -41,11 +42,12 @@ css_bundle: /assets/css/b-55370db292.css
     <form id="qf-form" novalidate>
 
       <div class="q">
-        <label class="qlabel">1. What would Notion run?</label>
-        <div class="opts" data-name="firm">
-          <label class="opt"><input type="radio" name="firm" value="business" required> The whole business</label>
-          <label class="opt"><input type="radio" name="firm" value="function"> One team or function</label>
-          <label class="opt"><input type="radio" name="firm" value="personal"> Personal projects</label>
+        <label class="qlabel">1. Which sounds most like you?</label>
+        <div class="opts" data-name="need">
+          <label class="opt"><input type="radio" name="need" value="scratch" required> We are moving to Notion, or starting over</label>
+          <label class="opt"><input type="radio" name="need" value="messy"> Our workspace grew messy</label>
+          <label class="opt"><input type="radio" name="need" value="automate"> We want to automate and connect our tools</label>
+          <label class="opt"><input type="radio" name="need" value="personal"> It is for personal projects</label>
         </div>
       </div>
 
@@ -77,7 +79,18 @@ css_bundle: /assets/css/b-55370db292.css
       </div>
 
       <div class="q">
-        <label class="qlabel" for="f-problem">5. What is not working? One recent example.</label>
+        <label class="qlabel">5. Rough budget for the project?</label>
+        <p class="hint">Only to point you to the right option. It does not change the answer.</p>
+        <div class="opts" data-name="budget">
+          <label class="opt"><input type="radio" name="budget" value="under-1k" required> Under $1,000</label>
+          <label class="opt"><input type="radio" name="budget" value="1k-5k"> $1,000 to $5,000</label>
+          <label class="opt"><input type="radio" name="budget" value="5k-plus"> Over $5,000</label>
+          <label class="opt"><input type="radio" name="budget" value="unsure"> Not sure yet</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <label class="qlabel" for="f-problem">6. What is not working? One recent example.</label>
         <p class="hint">One specific moment: the report that took three days, the document nobody found.</p>
         <textarea id="f-problem" name="problem" required></textarea>
         <div class="counter" id="c-problem">0 characters &middot; aim for 40+</div>
@@ -99,7 +112,7 @@ css_bundle: /assets/css/b-55370db292.css
   // ---- CONFIG ----
   var ENDPOINT    = "https://api.web3forms.com/submit";
   var ACCESS_KEY  = "c11e0f6b-725b-41be-a276-e2427ef8c1b3";
-  var CAL_LINK    = "anthonytoday/qualification";   // 20-minute Working Session, $25 at booking
+  var CAL_LINK    = "anthonytoday/qualification";   // 20-minute call with Anthony, $25 at booking
   var AFFILIATE   = "https://affiliate.notion.so/0x8u16p4sff1";
   var TEMPLATES   = "https://www.notion.com/@anthonytoday";
   var CHALLENGES  = "/notion/challenges/";
@@ -110,14 +123,14 @@ css_bundle: /assets/css/b-55370db292.css
 
   // ---- Fit rule (single source of truth) ----
   function fit(d){
-    return (d.firm === 'business' || d.firm === 'function')
+    return (d.need === 'scratch' || d.need === 'messy' || d.need === 'automate')
       && (d.size === '5-24' || d.size === '25+')
       && (d.role === 'owner' || d.role === 'lead')
       && (d.timeline === 'now' || d.timeline === '1-3months');
   }
   function reason(d){
     if (fit(d)) return 'fit';
-    if (d.firm === 'personal') return 'personal';
+    if (d.need === 'personal') return 'personal';
     if (d.size === '1-4') return 'small';
     if (d.role === 'member') return 'member';
     if (d.timeline === 'later') return 'later';
@@ -133,8 +146,8 @@ css_bundle: /assets/css/b-55370db292.css
     return '<div style="border:2px dashed '+color+';border-radius:12px;padding:16px 18px;margin:0 0 20px;font-size:14px;line-height:1.55;background:#fff">'
       + '<div style="font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:'+color+';font-size:12px;margin-bottom:8px">TEST MODE</div>'
       + '<div><b>Outcome: ' + (ok ? 'FIT' : 'NOT A FIT') + '.</b> Reason: ' + esc(why) + '</div>'
-      + '<div style="margin-top:6px;color:#334">Q1 ' + esc(d.firm) + ' &middot; Q2 ' + esc(d.size) + ' &middot; Q3 ' + esc(d.role) + ' &middot; Q4 ' + esc(d.timeline)
-      + ' &middot; Q5 ' + d.problem.trim().length + ' chars</div>'
+      + '<div style="margin-top:6px;color:#334">Q1 ' + esc(d.need) + ' &middot; Q2 ' + esc(d.size) + ' &middot; Q3 ' + esc(d.role) + ' &middot; Q4 ' + esc(d.timeline)
+      + ' &middot; Q5 ' + esc(d.budget) + ' &middot; Q6 ' + d.problem.trim().length + ' chars</div>'
       + '<div style="margin-top:10px;color:#6B7280">Nothing is sent in test mode, at any step. Remove <code>?test=1</code> from the URL to run it for real.</div>'
       + '</div>';
   }
@@ -153,6 +166,14 @@ css_bundle: /assets/css/b-55370db292.css
       });
     })(groups[gi]);
   }
+
+  // preselect question 1 from the Notion page (?need=scratch|messy|automate)
+  (function(){
+    var m = /[?&]need=(scratch|messy|automate)(&|$)/.exec(location.search);
+    if (!m) return;
+    var el = form.querySelector('input[name="need"][value="' + m[1] + '"]');
+    if (el) { el.checked = true; el.dispatchEvent(new Event('change', {bubbles:true})); }
+  })();
 
   // character counter
   (function(){
@@ -174,9 +195,9 @@ css_bundle: /assets/css/b-55370db292.css
     + 'A network error blocked the submission. So that nothing is lost, email me at <a href="mailto:admin@anthonytoday.com" style="color:#2251FF;text-decoration:underline">admin@anthonytoday.com</a> or message me on <a href="https://wa.me/33695845150" target="_blank" rel="noopener" style="color:#2251FF;text-decoration:underline">WhatsApp</a>.'
     + '</div>';
 
-  var FIT_VIEW = '<div class="rcard r-hot"><h2>This is a fit. Book the Working Session.</h2>'
-    + '<p>Twenty minutes. We open your workspace and work on one real problem. You leave with a written plan and a fixed quote within one working day.</p>'
-    + '<p>It is $25 at booking, credited against your first invoice. The $25 keeps the calendar for people ready to move.</p></div>'
+  var FIT_VIEW = '<div class="rcard r-hot"><h2>This is a fit. Book a call with me.</h2>'
+    + '<p>Twenty minutes. We open your workspace and look at one real problem together. Within one business day you get a written plan and a fixed price.</p>'
+    + '<p>It is $25 at booking, credited on the project. The $25 keeps the calendar for people ready to move.</p></div>'
     + '<div class="lead" id="qf-leadwrap"><div class="lead-t">One step before the calendar</div>'
     + '<form id="qf-lead" novalidate>'
     + '<div class="two">'
@@ -192,14 +213,14 @@ css_bundle: /assets/css/b-55370db292.css
     + '<div id="qf-cal"></div>';
 
   var CAL_EMBED = '<div class="calwrap"><div id="cal-inline"></div></div>'
-    + '<p class="paynote">Payment of $25 is taken by the booking page. It is credited against your first invoice.</p>'
+    + '<p class="paynote">Payment of $25 is taken by the booking page. It is credited on the project.</p>'
     + '<p class="calalt">Calendar not loading? <a href="https://cal.com/anthonytoday/qualification" target="_blank" rel="noopener">Open the booking page directly</a>.</p>';
 
   var REASONS = {
     personal: 'What I build is for teams running a business in Notion. For personal projects and side projects it is more than you need, and you would be paying for structure you will never use.',
     small: 'With fewer than five people, the workspace is still small enough to shape yourselves. Start with the templates below and come back when the team grows.',
-    member: 'The session needs someone who can decide on the workspace: the owner, or the person who runs operations. Send this page to them. If they see a fit, they book, and you are welcome in the session.',
-    later: 'Without a date, a plan goes stale before anyone uses it. Come back when there is a date. The five questions take two minutes and the answer is instant.'
+    member: 'The call needs someone who can decide on the workspace: the owner, or the person who runs operations. Send this page to them. If they see a fit, they book, and you are welcome on the call.',
+    later: 'Without a date, a plan goes stale before anyone uses it. Come back when there is a date. The six questions take two minutes and the answer is instant.'
   };
 
   function notFitView(why){
@@ -251,7 +272,8 @@ css_bundle: /assets/css/b-55370db292.css
         name: name,
         email: email,
         company: company,
-        firm_type: d.firm,
+        need: d.need,
+        budget: d.budget,
         team_size: d.size,
         role: d.role,
         timeline: d.timeline,
@@ -286,18 +308,19 @@ css_bundle: /assets/css/b-55370db292.css
   form.addEventListener('submit', function(e){
     e.preventDefault();
     var d = {
-      firm: radio('firm'),
+      need: radio('need'),
       size: radio('size'),
       role: radio('role'),
       timeline: radio('timeline'),
+      budget: radio('budget'),
       problem: document.getElementById('f-problem').value || ''
     };
 
-    if (!d.firm || !d.size || !d.role || !d.timeline){
+    if (!d.need || !d.size || !d.role || !d.timeline || !d.budget){
       alert('A few answers are still missing.'); return;
     }
     if (d.problem.trim().length < MIN_PROBLEM){
-      alert('Question 5 needs a bit more than that. One or two sentences about a recent example.'); return;
+      alert('Question 6 needs a bit more than that. One or two sentences about a recent example.'); return;
     }
 
     var ok = fit(d);
