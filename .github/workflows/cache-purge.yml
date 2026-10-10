@@ -1,0 +1,40 @@
+name: Cloudflare cache purge
+
+# HTML is cached at the Cloudflare edge for hours (Cache Rules), so every
+# GitHub Pages deploy must purge it or visitors see the old page.
+# Needs the repo secret CLOUDFLARE_PURGE_TOKEN: a Cloudflare API token
+# with only Zone > Cache Purge on anthonytoday.com. Without it the job
+# skips and logs a notice.
+
+on:
+  page_build:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cache-purge
+  cancel-in-progress: true
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Purge the anthonytoday.com zone
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_PURGE_TOKEN }}
+          ZONE: 654138b7e404a07b2bc0893a89df57be
+        run: |
+          if [ -z "$CF_TOKEN" ]; then
+            echo "::notice::CLOUDFLARE_PURGE_TOKEN is not set; skipping the purge."
+            exit 0
+          fi
+          # Give the Pages CDN time to serve the new build before the edge refetches it.
+          sleep 45
+          out=$(curl -sS -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE/purge_cache" \
+            -H "Authorization: Bearer $CF_TOKEN" -H "Content-Type: application/json" \
+            --data '{"purge_everything":true}')
+          echo "$out" | head -c 400; echo
+          echo "$out" | grep -q '"success":true' || { echo "::error::Cloudflare purge failed"; exit 1; }
