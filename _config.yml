@@ -17,6 +17,10 @@ exclude:
   - "*.py"
   - i18n/
   - "**/README.md"
+  # Oct 13, 2026: English only. French pages kept for the archive, not built; Cloudflare redirects /fr/* to English.
+  - fr/
+  - redirects/cyber-grc-fr.html
+  - redirects/fractional-ciso-fr.html
 
 # Cloudflare Web Analytics beacon token. Empty means the site emits no beacon at
 # all and nothing is measurable, the shops included.

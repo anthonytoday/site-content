@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 {% assign lang = page.lang | default: "en" %}
 {% if lang == "fr" %}{% assign en_url = page.alt_url %}{% assign fr_url = page.url %}{% assign p = "/fr" %}
-{% else %}{% assign en_url = page.url %}{% assign fr_url = page.alt_url %}{% assign p = "" %}{% endif %}
+{% else %}{% assign en_url = page.url %}{% assign fr_url = nil %}{% assign p = "" %}{% endif %}{% comment %}Oct 13, 2026: English only. /fr/ is retired and redirects at Cloudflare; no hreflang fr, no language switch.{% endcomment %}
 {% assign u_home = p | append: "/" %}{% assign u_notion = p | append: "/notion/" %}{% assign u_guide = p | append: "/guide/" %}{% assign u_usecase = p | append: "/use-case/" %}{% assign u_cyber = p | append: "/cyber/" %}{% assign u_grc = p | append: "/cyber-grc/" %}{% assign u_ciso = p | append: "/fractional-ciso/" %}{% assign u_templates = p | append: "/templates/" %}{% assign u_tools = p | append: "/tools/" %}{% assign u_contact = p | append: "/contact/" %}{% if page.lang == "fr" %}{% assign u_sprint = "/fr/investor-ready-sprint/" %}{% else %}{% assign u_sprint = "/notion-for-real-estate/" %}{% endif %}{% if page.lang == "fr" %}{% assign u_build = "/fr/notion-build/" %}{% else %}{% assign u_build = "/notion-build/" %}{% endif %}{% if page.lang == "fr" %}{% assign u_caas = "/fr/notion-consultant-as-a-service/" %}{% else %}{% assign u_caas = "/notion-consultant-as-a-service/" %}{% endif %}{% assign u_start = p | append: "/start/" %}{% assign u_challenges = p | append: "/notion/challenges/" %}{% assign u_flashcards = "/flashcards/" %}{% assign u_shophelp = "/shop/help/" %}{% assign u_shop = "/shop/" %}
 <html lang="{{ lang }}">
 <head>
@@ -165,10 +165,6 @@
       <a href="{{ u_shop }}"{% if page.url == u_shop %} aria-current="page"{% endif %}>{% if lang == "fr" %}Boutique{% else %}Shop{% endif %}</a>
       <a class="cta" href="{{ u_contact }}">Contact</a>
 
-      <div class="lang-switch">
-        {% if lang == "fr" %}<a class="off" href="{{ en_url | default: '/' }}" hreflang="en" lang="en" title="Read this page in English">EN</a><span class="on">FR</span>
-        {% else %}<span class="on">EN</span><a class="off" href="{{ fr_url | default: '/fr/' }}" hreflang="fr" lang="fr" title="Lire cette page en fran&ccedil;ais">FR</a>{% endif %}
-      </div>
     </nav>
   </div>
 </header>
