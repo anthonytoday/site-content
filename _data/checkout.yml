@@ -1,0 +1,2 @@
+# Jumpstart checkout. Change this one value when the Stripe link is ready.
+jumpstart: "#jumpstart-checkout-pending"
