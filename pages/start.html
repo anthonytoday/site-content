@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Start Here | Free Strategy Call | Anthony Today"
-description: "Six questions, two minutes. Then book a free 20-minute strategy call: we look at how your team works today, where Notion is slowing you down, and whether working together makes sense."
+title: "Book a Free Strategy Call | Anthony Today"
+description: "Six questions, an instant result, no email needed. Book a Free Strategy Call: how your team works today, where Notion slows you down, and whether working together makes sense."
 permalink: /start/
 lang: en
 schema_type: "WebPage"
@@ -13,10 +13,18 @@ no_offer_popup: true
 ---
 <style>
 .qf .head h1{text-transform:none;font-size:40px;letter-spacing:-.02em}
-.qf .head p{max-width:560px;font-size:16.5px}
-.qf .qf-alt{margin-top:14px;font-size:14px;color:var(--text-gray)}
+.qf .qf-sub{max-width:520px;font-size:17px}
+.qf .qf-trust{display:flex;align-items:center;justify-content:center;gap:12px;margin:18px auto 0;max-width:460px;text-align:left}
+.qf .qf-trust img{width:48px;height:48px;border-radius:50%;object-fit:cover;flex:0 0 auto}
+.qf .qf-trust span{font-size:14px;font-weight:600;color:var(--navy);line-height:1.35}
+.qf .qf-checks{list-style:none;margin:16px auto 0;padding:0;max-width:460px;text-align:left}
+.qf .qf-checks li{position:relative;padding-left:28px;margin:8px 0;font-size:14.5px;line-height:1.45;color:var(--text-gray)}
+.qf .qf-checks svg{position:absolute;left:0;top:1px;width:18px;height:18px;color:var(--blue)}
+.qf fieldset.q{display:flex;flex-direction:column;border:0;padding:0;margin:0 0 34px;min-inline-size:0}
+.qf legend.qlabel{padding:0}
+.qf .qf-alt{margin-top:14px;font-size:14px;color:var(--text-gray);text-align:center}
 .qf .qf-alt a{color:var(--blue);text-decoration:underline;font-weight:500}
-@media(max-width:640px){.qf .head h1{font-size:30px}}
+@media(max-width:640px){.qf .head h1{font-size:30px}.qf .qf-trust{align-items:flex-start}}
 .qf form#qf-lead{padding:0;margin-top:22px}
 .qf .lead{margin-top:18px;padding:26px 26px 22px;border:1px solid var(--border);border-radius:12px;background:#fff}
 .qf .lead .q{margin-bottom:18px}
@@ -31,55 +39,63 @@ no_offer_popup: true
 <div class="qf">
 
   <div class="head" id="qf-head">
-    <div class="prog">Six questions &middot; two minutes</div>
-    <h1>Should we work together?</h1>
-    <p>Answer six questions and see the result on the spot, before you give me an email address. Then book a free 20-minute strategy call: we look at how your team works today, where Notion is slowing you down, and whether working together makes sense. If not, I say so and point you somewhere useful.</p>
-    <p class="qf-alt">Prefer to fix it yourself first? <a href="/notion/challenges/">The 10 questions clients ask most about Notion</a></p>
+    <div class="prog">Six Questions &middot; Two Minutes</div>
+    <h1>Find Out If I Can Help Your Team</h1>
+    <p class="qf-sub">Answer six questions and see your result right away. No email needed.</p>
+    <div class="qf-trust">
+      <img src="/assets/brand/anthony-profile.webp" alt="Anthony, Notion Certified Consultant" width="48" height="48">
+      <span>Anthony, Notion Certified Consultant</span>
+    </div>
+    <ul class="qf-checks">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.4 L10.9 15.3 L16 9.6"/></svg>Book a Free Strategy Call if it is a fit</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.4 L10.9 15.3 L16 9.6"/></svg>One fixed price in writing</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.4 L10.9 15.3 L16 9.6"/></svg>Notion Certified Consultant</li>
+    </ul>
   </div>
 
   <div class="wrap">
 
     <form id="qf-form" novalidate>
 
-      <div class="q">
-        <label class="qlabel">1. Which sounds most like you?</label>
+      <fieldset class="q">
+        <legend class="qlabel">1. Which Sounds Most Like You?</legend>
         <div class="opts" data-name="need">
           <label class="opt"><input type="radio" name="need" value="scratch" required> We are moving to Notion, or starting over</label>
           <label class="opt"><input type="radio" name="need" value="messy"> Our workspace grew messy</label>
           <label class="opt"><input type="radio" name="need" value="automate"> We want to automate and connect our tools</label>
           <label class="opt"><input type="radio" name="need" value="personal"> It is for personal projects</label>
         </div>
-      </div>
+      </fieldset>
 
-      <div class="q">
-        <label class="qlabel">2. How many people use it?</label>
+      <fieldset class="q">
+        <legend class="qlabel">2. How Many People Use It?</legend>
         <div class="opts" data-name="size">
           <label class="opt"><input type="radio" name="size" value="1-4" required> 1 to 4</label>
           <label class="opt"><input type="radio" name="size" value="5-24"> 5 to 24</label>
           <label class="opt"><input type="radio" name="size" value="25+"> 25 or more</label>
         </div>
-      </div>
+      </fieldset>
 
-      <div class="q">
-        <label class="qlabel">3. Your role?</label>
+      <fieldset class="q">
+        <legend class="qlabel">3. Your Role?</legend>
         <div class="opts" data-name="role">
           <label class="opt"><input type="radio" name="role" value="owner" required> Owner or founder</label>
           <label class="opt"><input type="radio" name="role" value="lead"> Ops or team lead</label>
           <label class="opt"><input type="radio" name="role" value="member"> Team member</label>
         </div>
-      </div>
+      </fieldset>
 
-      <div class="q">
-        <label class="qlabel">4. When do you want it working?</label>
+      <fieldset class="q">
+        <legend class="qlabel">4. When Do You Want It Working?</legend>
         <div class="opts" data-name="timeline">
           <label class="opt"><input type="radio" name="timeline" value="now" required> Now</label>
           <label class="opt"><input type="radio" name="timeline" value="1-3months"> Within 3 months</label>
           <label class="opt"><input type="radio" name="timeline" value="later"> No date yet</label>
         </div>
-      </div>
+      </fieldset>
 
-      <div class="q">
-        <label class="qlabel">5. Rough budget for the project?</label>
+      <fieldset class="q">
+        <legend class="qlabel">5. Rough Budget for the Project?</legend>
         <p class="hint">So I can point you to the option that fits your budget.</p>
         <div class="opts" data-name="budget">
           <label class="opt"><input type="radio" name="budget" value="under-1k" required> Under $1,000</label>
@@ -87,19 +103,20 @@ no_offer_popup: true
           <label class="opt"><input type="radio" name="budget" value="5k-plus"> Over $5,000</label>
           <label class="opt"><input type="radio" name="budget" value="unsure"> Not sure yet</label>
         </div>
-      </div>
+      </fieldset>
 
-      <div class="q">
-        <label class="qlabel" for="f-problem">6. What is not working? One recent example.</label>
-        <p class="hint">One specific moment: the report that took three days, the document nobody found.</p>
-        <textarea id="f-problem" name="problem" required></textarea>
+      <fieldset class="q">
+        <legend class="qlabel" id="q6-label">6. What Is Not Working? One Recent Example.</legend>
+        <p class="hint" id="q6-hint">One specific moment: the report that took three days, the document nobody found.</p>
+        <textarea id="f-problem" name="problem" required aria-labelledby="q6-label" aria-describedby="q6-hint"></textarea>
         <div class="counter" id="c-problem">0 characters &middot; aim for 40+</div>
-      </div>
+      </fieldset>
 
       <input type="checkbox" name="botcheck" id="botcheck" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" tabindex="-1" autocomplete="off" aria-label="Leave this field empty">
 
-      <button type="submit" class="submit" id="qf-submit">See your result &rarr;</button>
+      <button type="submit" class="submit" id="qf-submit">See Your Result &rarr;</button>
       <p class="privacy">Nothing is sent until you decide to book. Your answers are never shared. <a href="/privacy/" style="color:inherit">Privacy policy</a>.</p>
+      <p class="qf-alt">Prefer to fix it yourself first? <a href="/notion/challenges/">The 10 Questions Clients Ask Most About Notion</a></p>
     </form>
 
     <div class="result" id="qf-result"></div>
@@ -112,7 +129,7 @@ no_offer_popup: true
   // ---- CONFIG ----
   var ENDPOINT    = "https://api.web3forms.com/submit";
   var ACCESS_KEY  = "c11e0f6b-725b-41be-a276-e2427ef8c1b3";
-  var CAL_LINK    = "anthonytoday/qualification";   // free 20-minute strategy call with Anthony
+  var CAL_LINK    = "anthonytoday/qualification";   // Book a Free Strategy Call with Anthony
   var AFFILIATE   = "https://affiliate.notion.so/anthonytoday";
   var TEMPLATES   = "https://www.notion.com/@anthonytoday";
   var CHALLENGES  = "/notion/challenges/";
@@ -197,7 +214,7 @@ no_offer_popup: true
     + 'A network error blocked the submission. So that nothing is lost, email me at <a href="mailto:admin@anthonytoday.com" style="color:#2251FF;text-decoration:underline">admin@anthonytoday.com</a> or message me on <a href="https://wa.me/33695845150" target="_blank" rel="noopener" style="color:#2251FF;text-decoration:underline">WhatsApp</a>.'
     + '</div>';
 
-  var FIT_VIEW = '<div class="rcard r-hot"><h2>Let\'s talk. Book a call with me.</h2>'
+  var FIT_VIEW = '<div class="rcard r-hot"><h2>You Are a Fit. Let\'s Talk.</h2>'
     + '<p>Twenty minutes. We open your workspace and look at one real problem together. Within one business day you get a written plan and a fixed price.</p></div>'
     + '<div class="lead" id="qf-leadwrap"><div class="lead-t">One step before the calendar</div>'
     + '<form id="qf-lead" novalidate>'
@@ -208,7 +225,7 @@ no_offer_popup: true
     + '<div class="q"><label class="qlabel" for="l-company">Business name and website</label><input type="text" id="l-company" name="company" placeholder="Acme Studio &middot; acmestudio.com" required></div>'
     + '<label class="consent"><input type="checkbox" id="l-consent" name="consent"><span>Send me the occasional email about building and running Notion systems. Nothing else, and one click to stop.</span></label>'
     + '<input type="checkbox" name="botcheck" id="l-botcheck" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" tabindex="-1" autocomplete="off" aria-label="Leave this field empty">'
-    + '<button type="submit" class="submit" id="qf-lead-submit">Continue to booking &rarr;</button>'
+    + '<button type="submit" class="submit" id="qf-lead-submit">Book a Free Strategy Call &rarr;</button>'
     + '<p class="privacy">Your details come straight to me and are never shared. You are only added to a mailing list if you tick the box above. <a href="/privacy/" style="color:inherit">Privacy policy</a>.</p>'
     + '</form></div>'
     + '<div id="qf-cal"></div>';
@@ -220,18 +237,19 @@ no_offer_popup: true
     personal: 'What I build is for teams running a business in Notion. For personal projects and side projects it is more than you need, and you would be paying for structure you will never use.',
     small: 'With fewer than five people, the workspace is still small enough to shape yourselves. Start with the templates below and come back when the team grows.',
     member: 'The call needs someone who can decide on the workspace: the owner, or the person who runs operations. Send this page to them. If they think it makes sense, they book, and you are welcome on the call.',
-    budget: 'A tailored build usually starts above $1,000, so a call would not lead anywhere useful yet. The resources below get you further for the money, and the strategy call is here when the budget is.',
+    budget: 'A tailored build usually starts above $1,000, so a call would not lead anywhere useful yet. The resources below get you further for the money. Book a Free Strategy Call when the budget is ready.',
     later: 'Without a date, a plan goes stale before anyone uses it. Come back when there is a date. The six questions take two minutes and the answer is instant.'
   };
 
   function notFitView(why){
-    return '<div class="rcard r-cold"><h2>Not the right moment yet, and I would rather say so than take your time for nothing.</h2>'
+    return '<div class="rcard r-cold"><h2>Not the Right Moment Yet, and I Would Rather Say So Than Take Your Time for Nothing.</h2>'
+      + '<p>If not, I say so and point you somewhere useful.</p>'
       + '<p>' + (REASONS[why] || REASONS.later) + '</p>'
       + '<p>Three things that help in the meantime, all free:</p>'
       + '<ul class="rlist">'
       + '<li><a href="' + AFFILIATE + '" target="_blank" rel="noopener noreferrer sponsored">Notion Business, free for 3 months</a>: the plan a team runs on, no card required</li>'
       + '<li><a href="' + TEMPLATES + '" target="_blank" rel="noopener">My templates</a>: free and paid, one-click duplication</li>'
-      + '<li><a href="' + CHALLENGES + '">The 10 questions clients ask most about Notion</a>, with the answer to each</li>'
+      + '<li><a href="' + CHALLENGES + '">The 10 Questions Clients Ask Most About Notion</a>, with the answer to each</li>'
       + '</ul>'
       + '<p class="disc">The Notion link is a referral link. If you upgrade through it I may earn a commission, at no cost to you.</p></div>';
   }
@@ -268,7 +286,7 @@ no_offer_popup: true
       var payload = {
         access_key: ACCESS_KEY,
         subject: '[FIT] ' + company + ' | ' + name,
-        from_name: 'Notion strategy call',
+        from_name: 'Book a Free Strategy Call',
         replyto: email,
         name: name,
         email: email,

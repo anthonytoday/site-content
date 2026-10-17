@@ -13,23 +13,33 @@ no_offer_popup: true
 ---
 <style>
 .hm-btnicon{display:block;height:18px;width:18px;flex:0 0 auto}
-.hm-cardlogos{margin-top:auto;padding-top:18px;border-top:1px solid var(--border)}
-.hm-cardlogos-label{margin:0 0 10px;font-size:10.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--text-gray)}
-.hm-cardlogos-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;min-height:22px}
-.hm-cardlogos-row img{display:block;height:22px;width:auto;max-width:110px;object-fit:contain;filter:grayscale(1);opacity:.55;transition:filter .15s,opacity .15s}
-.hm-cardlogos-row img:hover{filter:none;opacity:1}
-.hm-mark{display:inline-flex;align-items:center;height:22px;padding:0 11px;border:1px solid var(--border);border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-gray);background:var(--white);white-space:nowrap}
-.hm-striplabel{margin:38px 0 12px;text-align:center;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text-gray)}
-.hm-strip{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:20px 36px;margin:0;padding:22px 34px;background:var(--white);border:1px solid var(--border);border-radius:12px}
-.hm-strip img{display:block;height:28px;width:auto;max-width:130px;object-fit:contain;filter:grayscale(1);opacity:.5;transition:filter .15s,opacity .15s}
-.hm-strip img:hover{filter:none;opacity:1}
-@media(max-width:600px){.hm-strip{gap:18px 22px;padding:18px 14px}.hm-strip img{height:24px;max-width:96px}.hm-striplabel{margin-top:30px}}
+.hm-certs{margin-top:auto;padding-top:18px;border-top:1px solid var(--border)}
+.hm-certs-label{margin:0 0 12px;font-size:11px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--text-gray)}
+.hm-certs-row{display:flex;flex-wrap:wrap;gap:12px 16px}
+.hm-cert{display:flex;flex-direction:column;align-items:center;gap:6px;max-width:96px;cursor:default}
+.hm-cert img{display:block;width:56px;height:56px;object-fit:contain}
+.hm-cert span{font-size:13px;color:var(--text-gray);text-align:center;line-height:1.3}
+.hm-striplabel{margin:38px 0 12px;text-align:center;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text-gray)}
+.hm-strip{margin:0;padding:18px 0;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.hm .logo-banner{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.hm .logo-track{display:flex;width:max-content;align-items:center;animation:logoScroll 22s linear infinite}
+.hm .logo-track:hover{animation-play-state:paused}
+.hm .logo-mark{display:flex;align-items:center;flex:0 0 auto;padding-right:56px}
+.hm .logo-mark img{display:block;height:32px;width:auto;max-width:160px;object-fit:contain;filter:grayscale(1);opacity:.75;transition:filter .15s,opacity .15s}
+.hm .logo-mark img:hover{filter:none;opacity:1}
+@keyframes logoScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){
+  .hm .logo-track{animation:none;flex-wrap:wrap;width:auto;justify-content:center;row-gap:18px;padding:0 22px}
+  .hm .logo-track [aria-hidden="true"]{display:none}
+  .hm .logo-mark{padding-right:28px}
+}
+@media(max-width:600px){.hm-striplabel{margin-top:30px}.hm .logo-mark img{height:28px;max-width:120px}.hm .logo-mark{padding-right:36px}}
 </style>
 <div class="hm">
 <section class="hero-me">
   <div class="wrap">
     <div>
-      <h1>Hi, I am Anthony.</h1>
+      <h1>Hi, I Am Anthony.</h1>
       <p class="tag">Cybersecurity and GRC advisor. Notion Certified Consultant. Based in Dubai.</p>
       <p class="intro">15 years in technology risk and IT audit across Luxembourg, Switzerland and the USA, including EY and Accenture. Today I advise regulated organizations on security governance, and I build the Notion workspaces that small teams run their business on.</p>
       <ul class="chips" aria-label="Credentials">
@@ -37,7 +47,7 @@ no_offer_popup: true
       </ul>
       <div class="btn-row">
         <a class="btn" href="https://www.linkedin.com/in/anthony-kieffer/" target="_blank" rel="noopener noreferrer"><!-- LinkedIn icon slot. The official mark is not in the repo and is not recreated here. Once the file lands at /assets/logos/linkedin.webp, add one img tag in this position with that src, empty alt, class hm-btnicon, width 24, height 24, decoding async. -->View my LinkedIn profile</a>
-        <a class="btn ghost" href="/contact/">Get in touch</a>
+        <a class="btn ghost" href="/contact/">Get in Touch</a>
       </div>
     </div>
     <div class="photo">
@@ -60,20 +70,20 @@ no_offer_popup: true
 <section class="sec" style="padding-top:0" id="work">
   <div class="wrap">
     <p class="eyebrow">What I do</p>
-    <h2>Two expertises, one person.</h2>
+    <h2>Two Areas of Expertise, One Person.</h2>
     <p class="lead">Each has its own page with the services, how an engagement runs, and how to start.</p>
     <div class="doors">
       <a class="door" href="/cyber/">
         <p class="k">Cybersecurity and GRC</p>
-        <h3>Security governance, risk and compliance advisory</h3>
+        <h3>Security Governance, Risk and Compliance Advisory</h3>
         <p>Security programs on the NIST CSF and ISO 27001, audit and regulatory readiness, board-level risk reporting, AI governance, and fractional CISO leadership for financial-sector and regulated organizations.</p>
-        <span class="go">See the cyber services &rarr;</span>
+        <span class="go">See the Cyber Services &rarr;</span>
       </a>
       <a class="door" href="/notion/">
         <p class="k">Notion</p>
-        <h3>Workspace design, automation and governance</h3>
+        <h3>Workspace Design, Automation and Governance</h3>
         <p>I design and build the Notion workspace your team runs on, automate the routines that eat your week, and put access under control. Documented, permissioned, and yours.</p>
-        <span class="go">See the Notion services &rarr;</span>
+        <span class="go">See the Notion Services &rarr;</span>
       </a>
     </div>
   </div>
@@ -82,39 +92,41 @@ no_offer_popup: true
 <section class="sec alt" id="about">
   <div class="wrap">
     <p class="eyebrow">Background</p>
-    <h2>Where the two expertises come from.</h2>
+    <h2>Where the Two Areas of Expertise Come From.</h2>
     <div class="cards two">
       <div class="card">
-        <h3>Cybersecurity and risk advisory</h3>
+        <h3>Cybersecurity and Risk Advisory</h3>
         <p>I spent 15 years in IT audit, technology risk and cybersecurity across Luxembourg, Switzerland and the United States, including at EY and Accenture. Banking, insurance and other regulated industries, with programs built on the NIST CSF and ISO 27001 and run against local supervisory requirements.</p>
-        <div class="hm-cardlogos">
-          <p class="hm-cardlogos-label">Firms I worked at</p>
-          <div class="hm-cardlogos-row">
-            <!-- Logo slots. Neither mark is in the repo and neither is recreated here. When the files land at /assets/logos/ey.webp and /assets/logos/accenture.webp, replace each span below with one img tag carrying that src, the firm name as alt, its intrinsic width and height, loading lazy and decoding async. The row styles them at 22px automatically. -->
-            <span class="hm-mark">EY</span>
-            <span class="hm-mark">Accenture</span>
-          </div>
-        </div>
       </div>
       <div class="card">
-        <h3>Notion systems</h3>
+        <h3>Notion Systems</h3>
         <p>I run my own consulting business on Notion and am one of a small number of Notion Certified Consultants worldwide. The same discipline I apply to security programs, documented, permissioned, auditable, goes into every workspace I build for a client.</p>
-        <div class="hm-cardlogos">
-          <p class="hm-cardlogos-label">Certified on</p>
-          <div class="hm-cardlogos-row">
-            <img src="/assets/logos/notion.webp" alt="Notion" width="512" height="512" loading="lazy" decoding="async">
+        <div class="hm-certs">
+          <p class="hm-certs-label">Notion Certifications</p>
+          <div class="hm-certs-row">
+            <div class="hm-cert"><img src="/assets/logos/certified-notion-consultant.webp" alt="Notion Certified Consultant badge" width="201" height="201" loading="lazy" decoding="async"><span>Certified Consultant</span></div>
+            <div class="hm-cert"><img src="/assets/brand/notion-certified-admin.webp" alt="Notion Certified Admin badge" width="256" height="256" loading="lazy" decoding="async"><span>Certified Admin</span></div>
+            <div class="hm-cert"><img src="/assets/brand/notion-service-specialist.webp" alt="Notion Service Specialist badge" width="256" height="256" loading="lazy" decoding="async"><span>Service Specialist</span></div>
           </div>
         </div>
       </div>
     </div>
-    <p class="hm-striplabel">Organizations I have worked with</p>
-    <div class="hm-strip" aria-label="Organizations I have worked with">
-      <!-- Linktree slot. The file at /assets/logos/linktree.webp is a solid green tile with the wordmark knocked out of it, so inside this white panel it reads as a gray rectangle rather than a logo. It is not shown here and is not recreated. Once a background-free mark lands at /assets/logos/linktree.webp, add one img tag in this position with that src, Linktree as alt, its intrinsic width and height, loading lazy and decoding async. The strip styles it at 28px automatically. -->
-      <img src="/assets/logos/dorchester.webp" alt="Dorchester Collection" width="366" height="210" loading="lazy" decoding="async">
-      <img src="/assets/logos/hitachi.webp" alt="Hitachi" width="256" height="256" loading="lazy" decoding="async">
-      <img src="/assets/logos/nescafe.webp" alt="Nescafe" width="739" height="415" loading="lazy" decoding="async">
-      <img src="/assets/logos/hilti.webp" alt="Hilti" width="600" height="600" loading="lazy" decoding="async">
-      <img src="/assets/logos/eli-lilly.webp" alt="Eli Lilly and Company" width="500" height="273" loading="lazy" decoding="async">
+    <p class="hm-striplabel">Organizations I Have Worked With</p>
+    <div class="hm-strip">
+      <div class="logo-banner" aria-label="Organizations I have worked with">
+        <div class="logo-track">
+          <span class="logo-mark"><img src="/assets/logos/dorchester.webp" alt="Dorchester Collection" width="366" height="210" loading="lazy" decoding="async"></span>
+          <span class="logo-mark"><img src="/assets/logos/hitachi-wordmark.webp" alt="Hitachi" width="242" height="60" loading="lazy" decoding="async"></span>
+          <span class="logo-mark"><img src="/assets/logos/nescafe.webp" alt="Nescafe" width="739" height="415" loading="lazy" decoding="async"></span>
+          <span class="logo-mark"><img src="/assets/logos/hilti-wordmark.webp" alt="Hilti" width="574" height="161" loading="lazy" decoding="async"></span>
+          <span class="logo-mark"><img src="/assets/logos/eli-lilly.webp" alt="Eli Lilly and Company" width="500" height="273" loading="lazy" decoding="async"></span>
+          <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/dorchester.webp" alt="" width="366" height="210" loading="lazy" decoding="async"></span>
+          <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/hitachi-wordmark.webp" alt="" width="242" height="60" loading="lazy" decoding="async"></span>
+          <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/nescafe.webp" alt="" width="739" height="415" loading="lazy" decoding="async"></span>
+          <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/hilti-wordmark.webp" alt="" width="574" height="161" loading="lazy" decoding="async"></span>
+          <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/eli-lilly.webp" alt="" width="500" height="273" loading="lazy" decoding="async"></span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -122,23 +134,23 @@ no_offer_popup: true
 <section class="sec" id="products">
   <div class="wrap">
     <p class="eyebrow">Digital products</p>
-    <h2>Templates and study systems you can use today.</h2>
+    <h2>Templates and Study Systems You Can Use Today.</h2>
     <p class="lead">No engagement required. Ready-made Notion templates and flashcard decks, rated 4.92/5 by customers.</p>
     <div class="cards">
       <div class="card">
-        <h3>Notion templates</h3>
+        <h3>Notion Templates</h3>
         <p>Business dashboards, exam prep systems, finance trackers, travel planners. Buy once, duplicate into your workspace.</p>
-        <a class="more" href="/shop/">Browse the shop &rarr;</a>
+        <a class="more" href="/shop/">Browse the Shop &rarr;</a>
       </div>
       <div class="card">
-        <h3>Flashcard decks</h3>
+        <h3>Flashcard Decks</h3>
         <p>Anki decks for CompTIA Security+, CISSP, CFA and other certifications, built for spaced repetition.</p>
         <a class="more" href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav" target="_blank" rel="noopener noreferrer">View on Etsy &rarr;</a>
       </div>
       <div class="card">
         <h3>Notion Marketplace</h3>
         <p>My free and paid templates on the official Notion Marketplace, including the profile and reviews.</p>
-        <a class="more" href="https://www.notion.com/@anthonytoday" target="_blank" rel="noopener noreferrer">View my profile &rarr;</a>
+        <a class="more" href="https://www.notion.com/@anthonytoday" target="_blank" rel="noopener noreferrer">View My Profile &rarr;</a>
       </div>
     </div>
   </div>
@@ -146,10 +158,11 @@ no_offer_popup: true
 
 <section class="band">
   <div class="wrap">
-    <h2>Working on something I can help with?</h2>
+    <h2>Working on Something I Can Help With?</h2>
     <p>Send me a note with what you need. I reply within one business day, and I say plainly whether I am the right person for it.</p>
     <div class="btn-row">
-      <a class="btn" href="/contact/">Contact me</a>
+      <a class="btn" href="/start/">Book a Free Strategy Call</a>
+      <a class="btn ghost" href="/contact/">Contact Me</a>
       <a class="btn ghost" href="https://www.linkedin.com/in/anthony-kieffer/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
     </div>
   </div>

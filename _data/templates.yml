@@ -1255,7 +1255,7 @@
   - planner
   - home
   - life-os
-  - organisation
+  - organization
   - free
   cover: /assets/templates/life-os/cover.webp
   gallery:
@@ -1744,7 +1744,7 @@
   - student
   - classes
   - study
-  - organisation
+  - organization
   - free
   cover: /assets/templates/student-dashboard-lite/cover.webp
   gallery:
