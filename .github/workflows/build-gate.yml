@@ -47,6 +47,12 @@ jobs:
       - name: Build the site
         run: jekyll build --trace
 
+      # A single-quoted apostrophe in an inline script is valid HTML and a
+      # valid Jekyll build, then a SyntaxError in the browser. Parse every
+      # inline script from the built HTML so that fails here instead.
+      - name: Syntax-check inline scripts
+        run: python3 .github/scripts/check-inline-js.py _site
+
       # PRIVATE_NAME is an optional repository secret. When set, the gate
       # asserts the private name appears nowhere outside the agreed
       # carve-outs (the LinkedIn URL and the noindex /go/ redirect stubs).

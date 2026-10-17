@@ -5,9 +5,18 @@ name: Cloudflare cache purge
 # Needs the repo secret CLOUDFLARE_PURGE_TOKEN: a Cloudflare API token
 # with only Zone > Cache Purge on anthonytoday.com. Without it the job
 # skips and logs a notice.
+#
+# page_build does not start this workflow when the publishing commit was
+# pushed with GITHUB_TOKEN (the image bots). Those pushes still publish
+# through the built-in Pages workflow, so chain off that workflow instead.
+# The name GitHub matches is pages-build-deployment, not the run title
+# "pages build and deployment", and the publishing branch is main.
 
 on:
-  page_build:
+  workflow_run:
+    workflows: ["pages-build-deployment"]
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
