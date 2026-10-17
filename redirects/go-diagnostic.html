@@ -7,15 +7,14 @@ sitemap: false
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Redirecting to Book a Free Strategy Call</title>
+<title>Redirecting to Notion Jumpstart</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="referrer" content="no-referrer-when-downgrade">
-<!-- The Diagnostic checkout is deactivated. This path stays as a permanent
-     redirect so old links keep working. -->
-<meta http-equiv="refresh" content="0; url=/start/">
-<script>location.replace("/start/");</script>
+<!-- The Diagnostic checkout is deactivated. Old links land on Jumpstart. -->
+<meta http-equiv="refresh" content="0; url={{ site.data.checkout.jumpstart }}">
+<script>location.replace({{ site.data.checkout.jumpstart | jsonify }});</script>
 </head>
 <body>
-<p>Taking you to Book a Free Strategy Call. <a href="/start/" rel="nofollow">Continue</a>.</p>
+<p>Taking you to Notion Jumpstart. <a href="{{ site.data.checkout.jumpstart }}" rel="nofollow noopener">Continue</a>.</p>
 </body>
 </html>
