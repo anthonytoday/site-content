@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Contact | Anthony Today"
-description: "Send a message, book a free 20-minute strategy call, or connect on LinkedIn. Replies within one business day and a straight answer on whether working together makes sense."
+description: "Send a message, Book a Free Strategy Call, or connect on LinkedIn. Replies within one business day and a straight answer on whether working together makes sense."
 permalink: /contact/
 lang: en
 alt_url: /fr/contact/
@@ -13,7 +13,7 @@ no_offer_popup: true
 <section class="hero-svc" style="padding-bottom:24px">
   <div class="wrap">
     <p class="eyebrow">Contact</p>
-    <h1>Tell me what you need.</h1>
+    <h1>Tell Me What You Need.</h1>
     <p class="intro">One message is enough. I reply within one business day, in English or French, and I say plainly whether I am the right person for it.</p>
   </div>
 </section>
@@ -41,14 +41,14 @@ no_offer_popup: true
       </select>
       <label for="cf-msg">Message</label>
       <textarea id="cf-msg" name="message" required placeholder="What you are working on, what is blocking you, and any deadline."></textarea>
-      <button class="btn" type="submit" id="cf-btn">Send message</button>
+      <button class="btn" type="submit" id="cf-btn">Send Message</button>
       <p class="note">Sent to info@anthonytoday.com. No newsletter, no follow-up sequence. <a href="/privacy/">Privacy</a>.</p>
     </form>
     <div class="ways">
       <div class="way">
-        <h2 class="wh">Book a call</h2>
-        <p>Free 20-minute strategy call: we look at how your team works today, where Notion is slowing you down, and whether working together makes sense.</p>
-        <a class="l" href="https://cal.com/anthonytoday/qualification" target="_blank" rel="noopener noreferrer">Pick a time &rarr;</a>
+        <h2 class="wh">Book a Free Strategy Call</h2>
+        <p>We look at how your team works today, where Notion is slowing you down, and whether working together makes sense.</p>
+        <a class="l" href="https://cal.com/anthonytoday/qualification" target="_blank" rel="noopener noreferrer">Book a Free Strategy Call &rarr;</a>
       </div>
       <div class="way">
         <h2 class="wh">Email</h2>
@@ -58,7 +58,7 @@ no_offer_popup: true
       <div class="way">
         <h2 class="wh">LinkedIn</h2>
         <p>Profile, experience and recommendations. Connection requests with a note are welcome.</p>
-        <a class="l" href="https://www.linkedin.com/in/anthony-kieffer/" target="_blank" rel="noopener noreferrer">View my profile &rarr;</a>
+        <a class="l" href="https://www.linkedin.com/in/anthony-kieffer/" target="_blank" rel="noopener noreferrer">View My Profile &rarr;</a>
       </div>
       <p class="small">Based in Dubai (GMT+4). Working with clients in the Gulf, Europe and the United States.</p>
     </div>
@@ -77,7 +77,7 @@ no_offer_popup: true
     fetch(f.action,{method:'POST',body:fd,headers:{'Accept':'application/json'}}).then(function(r){return r.json();}).then(function(j){
       if(j&&j.success){ok.style.display='block';er.style.display='none';f.reset();b.textContent='Sent';}
       else{throw new Error('fail');}
-    }).catch(function(){er.style.display='block';b.disabled=false;b.textContent='Send message';});
+    }).catch(function(){er.style.display='block';b.disabled=false;b.textContent='Send Message';});
   });
 })();
 </script>
