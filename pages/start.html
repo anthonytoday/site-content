@@ -10,6 +10,7 @@ sitemap: false
 bc_name: "Start"
 css_bundle: /assets/css/b-55370db292.css
 no_offer_popup: true
+offer_popup: false
 ---
 <style>
 .qf .head h1{text-transform:none;font-size:40px;letter-spacing:-.02em}
@@ -34,6 +35,11 @@ no_offer_popup: true
 .qf .paynote{font-size:14.5px;color:var(--text-gray);margin-top:14px;text-align:center;line-height:1.6}
 .qf .rcard .rlist a{color:var(--blue);text-decoration:underline}
 .qf .disc{font-size:12.5px;color:var(--text-gray);margin-top:16px;line-height:1.6}
+.qf .offer-row{margin-top:22px;padding:22px;border:1px solid var(--border);border-radius:12px;background:#fff;text-align:center}
+.qf .offer-k{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);font-weight:600;margin:0 0 8px}
+.qf .offer-note{font-size:14.5px;color:var(--text-gray);margin:0 0 12px;line-height:1.5}
+.qf .offer-btn{display:block;width:100%;box-sizing:border-box;margin:0 0 10px;padding:14px 16px;border-radius:8px;background:#2251FF;color:#fff;font-weight:600;text-decoration:none;text-align:center}
+.qf .offer-btn.offer-secondary{background:#fff;color:#051C2C;border:1px solid #051C2C}
 @media(max-width:640px){.qf .lead{padding:20px 18px 18px}}
 </style>
 <div class="qf">
@@ -134,6 +140,11 @@ no_offer_popup: true
   var TEMPLATES   = "https://www.notion.com/@anthonytoday";
   var CHALLENGES  = "/notion/challenges/";
   var MIN_PROBLEM = 40;
+  var DIAG    = "https://buy.stripe.com/4gM5kF6Qg8M59zJ7WF1ZS0v";
+  var BUILD   = "https://buy.stripe.com/eVqaEZeiI5zT3blccV1ZS0s";
+  var CAAS    = "https://buy.stripe.com/aFa14pcaA3rLaDN5Ox1ZS0t";
+  var SPRINT  = "https://buy.stripe.com/14AcN72A04vP9zJ6SB1ZS00";
+  var GOVERN  = "https://cal.com/anthonytoday/qualification";
 
   // ---- TEST MODE: append ?test=1 to the URL. Shows the outcome, skips every network call. ----
   var TEST_MODE = /[?&]test=1(&|$)/.test(location.search);
@@ -324,6 +335,42 @@ no_offer_popup: true
     });
   }
 
+  function realEstate(d){
+    var blob = ((d.need || "") + " " + (d.problem || "")).toLowerCase();
+    return blob.indexOf("real estate") !== -1
+      || blob.indexOf("property") !== -1
+      || blob.indexOf("landlord") !== -1
+      || blob.indexOf("rental") !== -1
+      || blob.indexOf("airbnb") !== -1
+      || blob.indexOf("multifamily") !== -1;
+  }
+  function offerBtn(href, label, secondary){
+    var cls = secondary ? "offer-btn offer-secondary" : "offer-btn";
+    var ext = href.indexOf("cal.com") !== -1 ? ' target="_blank" rel="noopener noreferrer"' : ' rel="noopener noreferrer"';
+    return '<a class="' + cls + '" href="' + href + '"' + ext + '>' + label + '</a>';
+  }
+  function offersFor(d, ok){
+    var html = "";
+    if (d.budget === "under-1k") {
+      html = '<p class="offer-note">Consultant as a Service, $247/mo, billed annually ($2,970).</p>'
+        + offerBtn(CAAS, "Start Consultant as a Service, $247/mo", false);
+    } else if (ok && d.budget === "1k-5k") {
+      html = offerBtn(DIAG, "Start With the Diagnostic, $750", false)
+        + offerBtn(BUILD, "Go Straight to the Build, $2,500", true);
+    } else if (ok && d.budget === "5k-plus") {
+      html = '<p class="offer-note">Governance Build, $12,500</p>'
+        + offerBtn(GOVERN, "Book a Call", false);
+      if (realEstate(d)) {
+        html += '<p class="offer-note">Investor-Ready Sprint, $15,000. The checkout charges the refundable deposit.</p>'
+          + offerBtn(SPRINT, "Pay the $2,500 Deposit", true);
+      }
+    } else if (ok && d.budget === "unsure") {
+      html = offerBtn(DIAG, "Start With the Diagnostic, $750", false);
+    }
+    if (!html) return "";
+    return '<div class="offer-row"><p class="offer-k">Buy now, in USD</p>' + html + '</div>';
+  }
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
     var d = {
@@ -348,7 +395,7 @@ no_offer_popup: true
     document.getElementById('qf-head').style.display = 'none';
     form.style.display = 'none';
     var r = document.getElementById('qf-result');
-    r.innerHTML = (TEST_MODE ? testBanner(ok, why, d) : '') + (ok ? FIT_VIEW + FALLBACK : notFitView(why));
+    r.innerHTML = (TEST_MODE ? testBanner(ok, why, d) : '') + (ok ? FIT_VIEW + FALLBACK : notFitView(why)) + offersFor(d, ok);
     r.classList.add('on');
 
     if (ok) { wireLead(d, why); }

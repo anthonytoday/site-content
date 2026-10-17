@@ -84,6 +84,7 @@
 
   var path = location.pathname;
   if (/\/(privacy|contact)\//.test(path)) return;
+  if (/^\/(notion-build|notion-consultant-as-a-service|notion-governance|notion-for-real-estate|start)\/?$/.test(path)) return;
 
   var force = /[?&]popup=1\b/.test(location.search);
   var state = {};
@@ -191,6 +192,31 @@
 
   var touch = window.matchMedia && window.matchMedia("(hover: none)").matches;
   var timer = setTimeout(openIt, force ? 300 : 20000);
+
+  function checkoutHref(node){
+    if (!node || !node.closest) return "";
+    var a = node.closest("a");
+    if (!a) return "";
+    var href = a.getAttribute("href") || "";
+    if (/buy\.stripe\.com|gumroad\.com/i.test(href)) return a.href || href;
+    return "";
+  }
+  document.addEventListener("click", function(e){
+    var href = checkoutHref(e.target);
+    var buried = "";
+    if (!href && document.elementsFromPoint) {
+      var stack = document.elementsFromPoint(e.clientX, e.clientY);
+      for (var i = 0; i < stack.length; i++) {
+        buried = checkoutHref(stack[i]);
+        if (buried) break;
+      }
+    }
+    if (!href && !buried) return;
+    clearTimeout(timer);
+    cleanup();
+    if (opened) closeIt();
+    if (!href && buried) window.location.href = buried;
+  }, true);
 
   function onScroll(){
     var h = document.documentElement.scrollHeight - window.innerHeight;
