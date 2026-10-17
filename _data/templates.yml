@@ -49,7 +49,7 @@
   status: live
   category: travel
   price: 17
-  stripe: https://pay.anthonytoday.com/b/fZu5kFa2sfat13del31ZS06
+  stripe: https://buy.stripe.com/fZu5kFa2sfat13del31ZS06
   marketplace: https://www.notion.com/templates/dream-travel-planner-ultimate
   page: /templates/dream-travel-planner-ultimate/
   page_fr: /fr/templates/dream-travel-planner-ultimate/
@@ -114,7 +114,7 @@
   pinned: 3
   category: business
   price: 99
-  stripe: https://pay.anthonytoday.com/b/eVq8wRgqQ3rLaDN90J1ZS03
+  stripe: https://buy.stripe.com/eVq8wRgqQ3rLaDN90J1ZS03
   marketplace: https://www.notion.com/templates/ultimate-business-dashboard
   page: /templates/ultimate-business-dashboard/
   page_fr: /fr/templates/ultimate-business-dashboard/
@@ -149,7 +149,7 @@
 - id: business-bundle-20x
   status: live
   price: 179
-  stripe: https://pay.anthonytoday.com/b/fZubJ3fmM7I15jtdgZ1ZS05
+  stripe: https://buy.stripe.com/fZubJ3fmM7I15jtdgZ1ZS05
   category: business
   marketplace: https://www.notion.com/templates/business-bundle-all-in-one-20-premium
   page: /templates/business-bundle-20x/
@@ -221,7 +221,7 @@
 - id: airbnb-manager-ultimate
   status: live
   price: 79
-  stripe: https://pay.anthonytoday.com/b/cNi7sN7Uk8M59zJdgZ1ZS04
+  stripe: https://buy.stripe.com/cNi7sN7Uk8M59zJdgZ1ZS04
   category: real-estate
   marketplace: https://www.notion.com/templates/airbnb-manager-ultimate
   page: /templates/airbnb-manager-ultimate/
@@ -291,7 +291,7 @@
 - id: cfa-exam-prep
   status: live
   price: 79
-  stripe: https://pay.anthonytoday.com/b/8x26oJ6Qgd2l7rBfp71ZS09
+  stripe: https://buy.stripe.com/8x26oJ6Qgd2l7rBfp71ZS09
   category: study
   marketplace: https://www.notion.com/templates/cfa-exam-study-plan
   page: /templates/cfa-exam-prep/
@@ -326,7 +326,7 @@
   status: live
   category: study
   price: 79
-  stripe: https://pay.anthonytoday.com/b/aFa9AV8Yo7I19zJb8R1ZS02
+  stripe: https://buy.stripe.com/aFa9AV8Yo7I19zJb8R1ZS02
   cover: /assets/templates/cpa-exam-prep/cover.webp
   marketplace: https://www.notion.com/templates/cpa-exam-study-plan
   page: /templates/cpa-exam-prep/
@@ -356,7 +356,7 @@
 - id: cisa-exam-prep
   status: live
   price: 59
-  stripe: https://pay.anthonytoday.com/b/aFafZj0rS2nHeU3dgZ1ZS0c
+  stripe: https://buy.stripe.com/aFafZj0rS2nHeU3dgZ1ZS0c
   category: grc
   marketplace: https://www.notion.com/templates/cisa-exam-study-plan
   page: /templates/cisa-exam-prep/
@@ -384,7 +384,7 @@
 - id: cdpse-exam-prep
   status: live
   price: 59
-  stripe: https://pay.anthonytoday.com/b/aFa00lgqQ5zTdPZ4Kt1ZS0a
+  stripe: https://buy.stripe.com/aFa00lgqQ5zTdPZ4Kt1ZS0a
   category: grc
   marketplace: https://www.notion.com/templates/cdpse-exam-study-plan
   page: /templates/cdpse-exam-prep/
@@ -414,7 +414,7 @@
 - id: cgeit-exam-prep
   status: live
   price: 59
-  stripe: https://pay.anthonytoday.com/b/dRm00l7Uk7I1cLVfp71ZS0b
+  stripe: https://buy.stripe.com/dRm00l7Uk7I1cLVfp71ZS0b
   category: grc
   marketplace: https://www.notion.com/templates/cgeit-exam-study-plan
   page: /templates/cgeit-exam-prep/
@@ -445,7 +445,7 @@
   status: live
   category: business
   price: 169
-  stripe: https://pay.anthonytoday.com/b/4gMcN73E4e6paDN90J1ZS01
+  stripe: https://buy.stripe.com/4gMcN73E4e6paDN90J1ZS01
   cover: /assets/templates/ultimate-content-manager/cover.webp
   marketplace_delisted: https://www.notion.com/templates/ultimate-content-manager-590
   page: /templates/ultimate-content-manager/
@@ -497,7 +497,7 @@
   status: live
   category: finance
   price: 27
-  stripe: https://pay.anthonytoday.com/b/dRm4gBfmMd2l3bl5Ox1ZS07
+  stripe: https://buy.stripe.com/dRm4gBfmMd2l3bl5Ox1ZS07
   marketplace: https://www.notion.com/templates/personal-financial-planner-pro
   page: /templates/personal-financial-planner-pro/
   page_fr: /fr/templates/personal-financial-planner-pro/
@@ -544,7 +544,7 @@
     blurb: Depenses categorisees, justificatifs et export de fin d'annee accepte par votre comptable.
   rank: 170
   price: 7
-  stripe: https://pay.anthonytoday.com/b/9B66oJ4I8fat7rBfp71ZS0e
+  stripe: https://buy.stripe.com/9B66oJ4I8fat7rBfp71ZS0e
   page: /templates/business-expenses-tracker/
   page_fr: /fr/templates/business-expenses-tracker/
   cover: /assets/templates/business-expenses-tracker/cover.webp
@@ -587,7 +587,7 @@
   status: live
   category: business
   price: 45
-  stripe: https://pay.anthonytoday.com/b/14A28tdeEe6peU31yh1ZS08
+  stripe: https://buy.stripe.com/14A28tdeEe6peU31yh1ZS08
   marketplace: https://www.notion.com/templates/top-ai-research-agent-100-sources-full-citations
   page: /templates/top-ai-research-agent/
   page_fr: /fr/templates/top-ai-research-agent/
@@ -609,7 +609,7 @@
 - id: business-consultant-agent
   status: live
   price: 19
-  stripe: https://pay.anthonytoday.com/b/5kQeVf0rSe6p13d2Cl1ZS0d
+  stripe: https://buy.stripe.com/5kQeVf0rSe6p13d2Cl1ZS0d
   category: business
   marketplace: https://www.notion.com/templates/business-consultant-agent-management-consulting
   page: /templates/business-consultant-agent/
@@ -721,7 +721,7 @@
   status: live
   category: grc
   price: 59
-  stripe: https://pay.anthonytoday.com/b/aFa4gBeiI5zTh2bccV1ZS0f
+  stripe: https://buy.stripe.com/aFa4gBeiI5zTh2bccV1ZS0f
   marketplace: https://www.notion.com/templates/cism-exam-study-plan
   page: /templates/cism-exam-prep/
   page_fr: /fr/templates/cism-exam-prep/
@@ -752,7 +752,7 @@
   status: live
   category: grc
   price: 59
-  stripe: https://pay.anthonytoday.com/b/8x228tgqQ2nH6nx7WF1ZS0g
+  stripe: https://buy.stripe.com/8x228tgqQ2nH6nx7WF1ZS0g
   marketplace: https://www.notion.com/templates/crisc-exam-study-plan
   page: /templates/crisc-exam-prep/
   page_fr: /fr/templates/crisc-exam-prep/
@@ -815,7 +815,7 @@
   status: live
   category: grc
   price: 49
-  stripe: https://pay.anthonytoday.com/b/cNi9AV7Uk8M58vF2Cl1ZS0h
+  stripe: https://buy.stripe.com/cNi9AV7Uk8M58vF2Cl1ZS0h
   marketplace: https://www.notion.com/templates/comptia-security-v7-exam-study-plan
   page: /templates/comptia-security-plus/
   page_fr: /fr/templates/comptia-security-plus/
@@ -1109,7 +1109,7 @@
   status: live
   category: business
   price: 59
-  stripe: https://pay.anthonytoday.com/b/00w28t8YogexdPZdgZ1ZS0i
+  stripe: https://buy.stripe.com/00w28t8YogexdPZdgZ1ZS0i
   marketplace: https://www.notion.com/templates/pmi-pmp-exam-study-plan
   page: /templates/pmp-exam-prep/
   page_fr: /fr/templates/pmp-exam-prep/
@@ -1142,7 +1142,7 @@
   status: live
   category: business
   price: 47
-  stripe: https://pay.anthonytoday.com/b/8x2fZjgqQ3rL8vFa4N1ZS0j
+  stripe: https://buy.stripe.com/8x2fZjgqQ3rL8vFa4N1ZS0j
   marketplace: https://www.notion.com/templates/dental-clinic-management
   page: /templates/dental-clinic/
   page_fr: /fr/templates/dental-clinic/
@@ -1445,7 +1445,7 @@
   status: live
   category: real-estate
   price: 39
-  stripe: https://pay.anthonytoday.com/b/dRm8wRfmMbYhaDN1yh1ZS0q
+  stripe: https://buy.stripe.com/dRm8wRfmMbYhaDN1yh1ZS0q
   marketplace: https://www.notion.com/templates/real-estate-portfolio-management-ultimate-dashboard
   page: /templates/real-estate-portfolio/
   page_fr: /fr/templates/real-estate-portfolio/
@@ -1481,7 +1481,7 @@
   compare_at: 391
   category: grc
   price: 147
-  stripe: https://pay.anthonytoday.com/b/eVqcN76Qgfat7rB6SB1ZS0k
+  stripe: https://buy.stripe.com/eVqcN76Qgfat7rB6SB1ZS0k
   marketplace: https://www.notion.com/templates/security-certification-bundle
   page: /templates/security-cert-bundle-7x/
   page_fr: /fr/templates/security-cert-bundle-7x/
@@ -1518,7 +1518,7 @@
   status: live
   category: finance
   price: 39
-  stripe: https://pay.anthonytoday.com/b/fZu3cxgqQ7I1dPZ5Ox1ZS0l
+  stripe: https://buy.stripe.com/fZu3cxgqQ7I1dPZ5Ox1ZS0l
   marketplace: https://www.notion.com/templates/trading-journal-like-a-pro
   page: /templates/trading-journal/
   page_fr: /fr/templates/trading-journal/
@@ -1551,7 +1551,7 @@
   status: live
   category: study
   price: 29
-  stripe: https://pay.anthonytoday.com/b/00w5kFfmM6DX7rB6SB1ZS0m
+  stripe: https://buy.stripe.com/00w5kFfmM6DX7rB6SB1ZS0m
   marketplace: https://www.notion.com/templates/ultimate-student-dashboard-3
   page: /templates/student-dashboard-ultimate/
   page_fr: /fr/templates/student-dashboard-ultimate/
@@ -1582,7 +1582,7 @@
   status: live
   category: grc
   price: 9
-  stripe: https://pay.anthonytoday.com/b/28E5kF1vWaUd3blccV1ZS0n
+  stripe: https://buy.stripe.com/28E5kF1vWaUd3blccV1ZS0n
   marketplace: https://www.notion.com/templates/website-privacy-policy-746
   page: /templates/website-privacy-policy/
   page_fr: /fr/templates/website-privacy-policy/
@@ -1609,7 +1609,7 @@
   status: live
   category: business
   price: 7
-  stripe: https://pay.anthonytoday.com/b/5kQdRba2s2nHdPZ5Ox1ZS0o
+  stripe: https://buy.stripe.com/5kQdRba2s2nHdPZ5Ox1ZS0o
   marketplace: https://www.notion.com/templates/2026-annual-calendar-plan-your-events
   page: /templates/annual-calendar-2026/
   page_fr: /fr/templates/annual-calendar-2026/
@@ -1890,7 +1890,7 @@
   status: live
   category: grc
   price: 47
-  stripe: https://pay.anthonytoday.com/b/fZufZj7UkbYhbHR7WF1ZS0p
+  stripe: https://buy.stripe.com/fZufZj7UkbYhbHR7WF1ZS0p
   marketplace: https://www.notion.com/templates/cissp-exam-prep-full
   page: /templates/cissp-exam-prep/
   page_fr: /fr/templates/cissp-exam-prep/
@@ -2306,7 +2306,7 @@
   compare_at: 185
   category: finance
   price: 97
-  stripe: https://pay.anthonytoday.com/b/8x200l0rS4vP5jt0ud1ZS0r
+  stripe: https://buy.stripe.com/8x200l0rS4vP5jt0ud1ZS0r
   marketplace: https://www.notion.com/templates/finance-cert-bundle-3x-premium
   page: /templates/finance-cert-bundle-3x-premium/
   page_fr: /fr/templates/finance-cert-bundle-3x-premium/
