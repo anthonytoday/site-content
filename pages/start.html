@@ -150,13 +150,24 @@ offer_popup: false
   // ---- TEST MODE: append ?test=1 to the URL. Shows the outcome, skips every network call. ----
   var TEST_MODE = /[?&]test=1(&|$)/.test(location.search);
 
-  // ---- Fit rule (single source of truth) ----
+  // Same qualification as /links/ FIT_RULE, in this form's keys.
+  // Budget $1,000 or more, team of 2 or more, timeline within 3 months.
+  // "1 to 4" is the 2-4 band on this form. There is no separate team-size 1.
+  // A team of 1 to 4 over $5,000 is not this form: they keep the direct call link.
+  // A team of 5 or more that is Not Sure still qualifies, as before.
+  // Personal, a team member, or a later timeline never qualifies.
+  var FIT_RULE = {
+    budget: { "1k-5k": true, "over-5k": true },
+    team: { "1-4": true, "5-24": true, "25+": true },
+    timeline: { "now": true, "1-3months": true }
+  };
   function fit(d){
-    return (d.need === 'scratch' || d.need === 'messy' || d.need === 'automate')
-      && (d.size === '5-24' || d.size === '25+')
-      && (d.role === 'owner' || d.role === 'lead')
-      && (d.timeline === 'now' || d.timeline === '1-3months')
-      && d.budget !== 'under-1k';
+    if (isBlocked(d)) return false;
+    if (d.need !== "scratch" && d.need !== "messy" && d.need !== "automate") return false;
+    if (d.role !== "owner" && d.role !== "lead") return false;
+    if (!FIT_RULE.timeline[d.timeline] || !FIT_RULE.team[d.size]) return false;
+    if (d.size === "1-4") return !!FIT_RULE.budget[d.budget] && d.budget !== "over-5k";
+    return d.budget !== "under-1k";
   }
   function reason(d){
     if (fit(d)) return 'fit';
@@ -416,7 +427,7 @@ offer_popup: false
     var why = reason(d);
     // Personal, a team member, or a later timeline never sees Jumpstart or a direct call link.
     var blocked = isBlocked(d);
-    // Teams of 1 to 4, and budgets under $1,000, get Jumpstart instead of a turn-away.
+    // A team of 1 to 4 that is not a fit, and any budget under $1,000, get Jumpstart instead of a turn-away.
     var offerJumpstart = (!ok && !blocked && (d.size === "1-4" || d.budget === "under-1k"));
 
     document.getElementById('qf-head').style.display = 'none';
