@@ -171,17 +171,23 @@ body:has(.bio) .site-header .cta{display:none}
   var JUMPSTART = {{ site.data.checkout.jumpstart | jsonify }};
   var SHOP = "/shop/";
 
-  // FIT RULE: budget is $1,000 or more, team size is 2 or more, and the timeline is within 3 months.
-  // "Not Sure" is not a $1,000+ budget. "Later" is not within 3 months. Team size "1" is not 2+.
-  // Tune the allowed values here.
+  // FIT RULE: within 3 months, and one of these.
+  // Budget $1,000 or more and a team of 2 or more.
+  // Not Sure qualifies only for a team of 5 or more.
+  // One person over $5,000 also qualifies, matching /start/.
+  // Not Sure does not qualify a team of 1 or 2-4. Later does not qualify.
   var FIT_RULE = {
     budget: { "1k-5k": true, "over-5k": true },
     team: { "2-4": true, "5-20": true, "21+": true },
-    timeline: { "this-month": true, "1-3-months": true }
+    timeline: { "this-month": true, "1-3-months": true },
+    unsureTeam: { "5-20": true, "21+": true }
   };
 
   function isFit(d){
-    return !!(FIT_RULE.budget[d.budget] && FIT_RULE.team[d.team] && FIT_RULE.timeline[d.timeline]);
+    if (!FIT_RULE.timeline[d.timeline]) return false;
+    if (d.budget === "unsure") return !!FIT_RULE.unsureTeam[d.team];
+    if (d.team === "1" && d.budget === "over-5k") return true;
+    return !!(FIT_RULE.budget[d.budget] && FIT_RULE.team[d.team]);
   }
 
   function utmPairs(){
@@ -312,7 +318,7 @@ body:has(.bio) .site-header .cta{display:none}
     var note = document.createElement("p");
     note.textContent = "I would start you here. I build one Notion system for your team, live in your own workspace within 7 days, plus a 45-minute handover call. Templates are there if you want to set it up yourself.";
     var reason = document.createElement("p");
-    reason.textContent = "A call opens at $1,000+, 2+ people, and a start within 3 months.";
+    reason.textContent = "A call opens within 3 months for a team of 2 or more at $1,000 or more, for a team of 5 or more that is not sure yet, or for one person over $5,000.";
     var buy = document.createElement("a");
     buy.className = "bio-btn";
     buy.href = JUMPSTART;
