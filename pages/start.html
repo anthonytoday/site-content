@@ -162,8 +162,8 @@ offer_popup: false
     if (fit(d)) return 'fit';
     if (d.need === 'personal') return 'personal';
     if (d.size === '1-4') return 'small';
-    if (d.budget === 'under-1k') return 'budget';
     if (d.role === 'member') return 'member';
+    if (d.budget === 'under-1k') return 'budget';
     if (d.timeline === 'later') return 'later';
     return 'fit';
   }
@@ -423,7 +423,7 @@ offer_popup: false
     form.style.display = 'none';
     var r = document.getElementById('qf-result');
     var main = ok ? FIT_VIEW + FALLBACK : (offerJumpstart ? jumpstartPath() : notFitView(why));
-    var offers = offersFor(d);
+    var offers = (ok && d.budget === "over-5k") ? "" : offersFor(d);
     if (offerJumpstart) offers = (d.size === "1-4") ? higherOffers(d) : "";
     r.innerHTML = (TEST_MODE ? testBanner(ok, why, d) : '') + main + offers;
     r.classList.add('on');
