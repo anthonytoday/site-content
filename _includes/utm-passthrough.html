@@ -1,0 +1,73 @@
+<script>
+(function(){
+  // Pass landing UTMs onto outbound Stripe, Gumroad, and cal.com links, and onto internal links.
+  // When the page URL has none of these, fall back to the bio/social pair.
+  var KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+  var incoming = new URLSearchParams(window.location.search);
+  var pairs = [];
+  for (var i = 0; i < KEYS.length; i++) {
+    var value = incoming.get(KEYS[i]);
+    if (value) pairs.push([KEYS[i], value]);
+  }
+  if (!pairs.length) {
+    pairs = [["utm_source", "bio"], ["utm_medium", "social"]];
+  }
+  window.AT_UTM_PAIRS = pairs;
+
+  function hostOf(url){
+    return url.hostname.toLowerCase();
+  }
+  function isGumroad(host){
+    return host === "gumroad.com" || host.slice(-12) === ".gumroad.com" || host === "store.anthonytoday.com";
+  }
+  function isCal(host){
+    return host === "cal.com" || host.slice(-8) === ".cal.com";
+  }
+  function isTarget(href){
+    if (!href || href.charAt(0) === "#" || href.indexOf("mailto:") === 0 || href.indexOf("tel:") === 0 || href.indexOf("javascript:") === 0) return false;
+    var abs;
+    try { abs = new URL(href, window.location.href); } catch (err) { return false; }
+    var host = hostOf(abs);
+    if (host === "buy.stripe.com" || isGumroad(host) || isCal(host)) return true;
+    return abs.origin === window.location.origin;
+  }
+  function apply(node){
+    if (!node || !node.getAttribute) return;
+    var href = node.getAttribute("href");
+    if (!isTarget(href)) return;
+    var abs;
+    try { abs = new URL(href, window.location.href); } catch (err) { return; }
+    for (var i = 0; i < pairs.length; i++) {
+      abs.searchParams.set(pairs[i][0], pairs[i][1]);
+    }
+    if (abs.origin === window.location.origin) {
+      node.setAttribute("href", abs.pathname + abs.search + abs.hash);
+    } else {
+      node.setAttribute("href", abs.toString());
+    }
+  }
+  function scan(root){
+    if (!root || !root.querySelectorAll) return;
+    var links = root.querySelectorAll("a[href]");
+    for (var i = 0; i < links.length; i++) apply(links[i]);
+  }
+  var scheduled = false;
+  var observer = new MutationObserver(function(){
+    if (scheduled) return;
+    scheduled = true;
+    window.requestAnimationFrame(function(){
+      scheduled = false;
+      scan(document);
+    });
+  });
+  function boot(){
+    scan(document);
+    observer.observe(document.documentElement, {childList: true, subtree: true});
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+})();
+</script>

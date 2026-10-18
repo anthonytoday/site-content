@@ -364,6 +364,32 @@ offer_popup: false
     return '<div class="offer-row"><p class="offer-k">Buy now, in USD</p>' + html + '</div>';
   }
 
+  // Teams of 1 to 4, and any budget under $1,000, get Jumpstart instead of a turn-away.
+  function jumpstartPath(){
+    return '<div class="rcard r-warm" id="qf-jumpstart"><h2>Start With Notion Jumpstart</h2>'
+      + '<p>I build the one Notion system mapped in the free setup session. It is live in your workspace within 7 days, plus a 45-minute handover call.</p>'
+      + '<p>Templates are there if you would rather set it up yourself.</p></div>'
+      + '<div class="offer-row"><p class="offer-k">Buy now, in USD</p>'
+      + offerBtn(JUMPSTART, "Buy Notion Jumpstart, $490", false, "jumpstart")
+      + '<a class="offer-btn offer-secondary" href="/shop/">Browse Templates</a>'
+      + '</div>';
+  }
+  // A small team that already named a larger budget still sees that ladder step.
+  function higherOffers(d){
+    if (d.budget === "1k-5k") {
+      return '<div class="offer-row"><p class="offer-k">Larger options</p>'
+        + offerBtn(BUILD, "Buy the 10-Day Notion Build, $2,500", true)
+        + caasOption()
+        + '</div>';
+    }
+    if (d.budget === "5k-plus") {
+      return '<div class="offer-row"><p class="offer-k">Larger projects</p>'
+        + offerBtn(CALL, "Book a Call", true)
+        + '</div>';
+    }
+    return "";
+  }
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
     var d = {
@@ -384,11 +410,16 @@ offer_popup: false
 
     var ok = fit(d);
     var why = reason(d);
+    // Teams of 1 to 4, and budgets under $1,000, get Jumpstart instead of a turn-away.
+    var offerJumpstart = (!ok && (d.size === "1-4" || d.budget === "under-1k"));
 
     document.getElementById('qf-head').style.display = 'none';
     form.style.display = 'none';
     var r = document.getElementById('qf-result');
-    r.innerHTML = (TEST_MODE ? testBanner(ok, why, d) : '') + (ok ? FIT_VIEW + FALLBACK : notFitView(why)) + offersFor(d);
+    var main = ok ? FIT_VIEW + FALLBACK : (offerJumpstart ? jumpstartPath() : notFitView(why));
+    var offers = offersFor(d);
+    if (offerJumpstart) offers = (d.size === "1-4") ? higherOffers(d) : "";
+    r.innerHTML = (TEST_MODE ? testBanner(ok, why, d) : '') + main + offers;
     r.classList.add('on');
 
     if (ok) { wireLead(d, why); }
@@ -398,3 +429,4 @@ offer_popup: false
 </script>
 
 {% include site-footer.html %}
+{% include utm-passthrough.html %}
