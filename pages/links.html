@@ -81,7 +81,12 @@ body:has(.bio) .site-header .cta{display:none}
     <p class="bio-kicker">Self-serve. Duplicate a template and use it today.</p>
     {%- assign featured = site.data.templates | where_exp: "item", "item.pinned" | sort: "pinned" -%}
     {%- for item in featured limit:3 -%}
-      {%- if item.stripe or item.marketplace -%}
+      {%- if item.id == "ultimate-business-dashboard" -%}
+        {%- comment -%}Gumroad lists this in CHF and converts it, so this row has no $99 label.{%- endcomment -%}
+    <a class="bio-item" href="https://anthonytoday.gumroad.com/l/Notion-business-dashboard" target="_blank" rel="noopener noreferrer">
+      <span class="bio-item-name">{{ item.en.title }}</span>
+    </a>
+      {%- elsif item.stripe or item.marketplace -%}
         {%- if item.free or item.price -%}
     <a class="bio-item" href="{% if item.stripe %}{{ item.stripe }}{% else %}{{ item.marketplace }}{% endif %}"{% unless item.stripe %} target="_blank"{% endunless %} rel="noopener noreferrer">
       <span class="bio-item-name">{{ item.en.title }}</span>
