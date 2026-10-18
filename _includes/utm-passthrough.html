@@ -13,6 +13,7 @@
     pairs = [["utm_source", "bio"], ["utm_medium", "social"]];
   }
   window.AT_UTM_PAIRS = pairs;
+  window.AT_UTM_SCAN = function(){ scan(document); };
 
   function hostOf(url){
     return url.hostname.toLowerCase();
@@ -51,14 +52,8 @@
     var links = root.querySelectorAll("a[href]");
     for (var i = 0; i < links.length; i++) apply(links[i]);
   }
-  var scheduled = false;
   var observer = new MutationObserver(function(){
-    if (scheduled) return;
-    scheduled = true;
-    window.requestAnimationFrame(function(){
-      scheduled = false;
-      scan(document);
-    });
+    scan(document);
   });
   function boot(){
     scan(document);

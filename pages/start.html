@@ -421,6 +421,7 @@ offer_popup: false
     if (offerJumpstart) offers = (d.size === "1-4") ? higherOffers(d) : "";
     r.innerHTML = (TEST_MODE ? testBanner(ok, why, d) : '') + main + offers;
     r.classList.add('on');
+    if (window.AT_UTM_SCAN) window.AT_UTM_SCAN();
 
     if (ok) { wireLead(d, why); }
     window.scrollTo({top:0, behavior:'smooth'});

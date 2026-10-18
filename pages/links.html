@@ -252,6 +252,7 @@ offer_popup: false
       result.appendChild(title);
       result.appendChild(copy);
       result.appendChild(link);
+      if (window.AT_UTM_SCAN) window.AT_UTM_SCAN();
       return;
     }
     result.dataset.outcome = "other";
@@ -272,6 +273,7 @@ offer_popup: false
     result.appendChild(note);
     result.appendChild(buy);
     result.appendChild(shop);
+    if (window.AT_UTM_SCAN) window.AT_UTM_SCAN();
   });
 })();
 </script>
