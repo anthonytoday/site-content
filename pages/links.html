@@ -23,8 +23,10 @@ offer_popup: false
 .bio-proof{display:flex;gap:12px;align-items:flex-start;margin:0 0 28px;padding:14px 14px 12px;border:1px solid #E6E6E6;border-radius:12px}
 .bio-proof img{width:52px;height:52px;object-fit:contain;flex:0 0 auto}
 .bio-proof blockquote{margin:0;font-size:13.5px;line-height:1.45;color:#37352F}
-.bio-proof cite{display:block;margin-top:6px;font-style:normal;font-size:12px;line-height:1.4;color:#787774}
+.bio-proof cite{display:block;margin-top:6px;font-style:normal;font-size:12px;line-height:1.4;color:#6B6B6B}
 .bio-lead{margin:0 0 18px;font-size:16px;line-height:1.5;color:#37352F}
+body:has(.bio) .site-header .cta{display:none}
+.bio-jump{display:flex;gap:8px;margin:0 0 16px}.bio-jump a{flex:1;display:flex;align-items:center;justify-content:center;min-height:44px;border:1px solid #E6E6E6;border-radius:10px;font-size:14px;font-weight:600;color:#191919;text-decoration:none}
 .bio-card{margin:0 0 16px;padding:22px 18px 18px;border:1px solid #E6E6E6;border-radius:12px;background:#fff}
 .bio-card h2{margin:0 0 8px;font-size:18px;font-weight:600;line-height:1.3}
 .bio-card h2 span[aria-hidden]{font-size:16px;margin-right:6px}
@@ -33,16 +35,18 @@ offer_popup: false
 .bio-item{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0 0 8px;padding:11px 12px;border:1px solid #E6E6E6;border-radius:8px;color:#191919;text-decoration:none}
 .bio-item-name{font-size:14.5px;line-height:1.35}
 .bio-item-price{font-size:14px;color:#6B6B6B;white-space:nowrap}
-.bio-all{display:inline-block;margin-top:4px;font-size:14px;font-weight:600;color:#191919}
+.bio-all{display:inline-flex;align-items:center;min-height:44px;margin-top:4px;font-size:14px;font-weight:600;color:#191919}
 .bio-field{margin:0 0 14px}
 .bio-field label{display:block;margin:0 0 6px;font-size:13px;font-weight:600;color:#191919}
 .bio-field select,.bio-field textarea{width:100%;box-sizing:border-box;border:1px solid #E6E6E6;border-radius:8px;padding:11px 12px;background:#fff;color:#191919;font:inherit;font-size:16px}
 .bio-field textarea{min-height:76px;resize:vertical}
 .bio-field select:focus,.bio-field textarea:focus{outline:none;border-color:#191919}
+.bio-field select:focus-visible,.bio-field textarea:focus-visible,.bio-btn:focus-visible{outline:2px solid #2251FF;outline-offset:2px}
 .bio-btn{display:block;width:100%;box-sizing:border-box;margin:0;padding:12px 14px;border:1px solid transparent;border-radius:8px;background:#111;color:#fff;font:inherit;font-size:15px;font-weight:600;line-height:1.3;text-align:center;text-decoration:none;cursor:pointer;min-height:44px}
-.bio-btn-secondary{margin-top:8px;background:#fff;color:#111;border-color:#E6E6E6}
+.bio-btn-secondary,.bio-btn-ghost{margin-top:8px;background:#fff;color:#111;border-color:#E6E6E6}
 .bio-fine{margin:10px 0 0;font-size:12.5px;line-height:1.45;color:#787774;text-align:center}
 .bio-error{margin:0 0 10px;font-size:13px;line-height:1.4;color:#9F2F2F}
+.bio-card p.bio-error{font-size:13px;color:#9F2F2F}.bio-card p.bio-kicker{font-size:13px;color:#6B6B6B;margin:0 0 8px}.bio-card p.bio-fine{font-size:12.5px;color:#6B6B6B}
 .bio-result h3{margin:0 0 8px;font-size:17px;font-weight:600}
 .bio-result[hidden]{display:none}
 @media(max-width:420px){
@@ -70,6 +74,7 @@ offer_popup: false
   </div>
 
   <p class="bio-lead">Pick the path that matches what you need.</p>
+  <nav class="bio-jump" aria-label="Paths"><a href="#templates">Templates</a><a href="#jumpstart">Jumpstart $490</a><a href="#qualify">Bigger Project</a></nav>
 
   <section class="bio-card" id="templates">
     <h2><span aria-hidden="true">&#128230;</span>Templates and Digital Products</h2>
@@ -92,7 +97,7 @@ offer_popup: false
     <h2><span aria-hidden="true">&#9889;</span>Notion Jumpstart · $490</h2>
     <p class="bio-kicker">For small teams.</p>
     <p>I build the one Notion system mapped in the free setup session. It is live in your workspace within 7 days, plus a 45-minute handover call.</p>
-    <a class="bio-btn" href="{{ site.data.checkout.jumpstart }}" rel="noopener noreferrer">Buy Notion Jumpstart, $490</a>
+    <a class="bio-btn" href="{{ site.data.checkout.jumpstart }}" data-utm-content="links-card" rel="noopener noreferrer">Buy Notion Jumpstart, $490</a>
   </section>
 
   <section class="bio-card" id="qualify">
@@ -144,7 +149,7 @@ offer_popup: false
             <option value="later">Later</option>
           </select>
         </div>
-        <p class="bio-error" id="links-error" hidden></p>
+        <p class="bio-error" id="links-error" role="alert" hidden></p>
         <button type="submit" class="bio-btn" id="links-submit">See If a Call Is a Fit</button>
         <p class="bio-fine">Nothing is sent. Your answers stay in this browser.</p>
       </div>
@@ -175,6 +180,41 @@ offer_popup: false
   function utmPairs(){
     if (window.AT_UTM_PAIRS && window.AT_UTM_PAIRS.length) return window.AT_UTM_PAIRS;
     return [["utm_source", "bio"], ["utm_medium", "social"]];
+  }
+
+  function tagOutcome(){
+    if (new URLSearchParams(window.location.search).get("utm_content")) return;
+    var nodes = document.querySelectorAll("[data-utm-content]");
+    for (var i = 0; i < nodes.length; i++) {
+      var node = nodes[i];
+      var href = node.getAttribute("href");
+      if (!href) continue;
+      var abs;
+      try { abs = new URL(href, window.location.href); } catch (err) { continue; }
+      abs.searchParams.set("utm_content", node.getAttribute("data-utm-content"));
+      if (abs.origin === window.location.origin) node.setAttribute("href", abs.pathname + abs.search + abs.hash);
+      else node.setAttribute("href", abs.toString());
+    }
+  }
+
+  function showEdit(){
+    var edit = document.createElement("button");
+    edit.type = "button";
+    edit.className = "bio-btn bio-btn-ghost";
+    edit.id = "links-edit";
+    edit.textContent = "Change My Answers";
+    edit.addEventListener("click", function(){
+      field("links-fields").hidden = false;
+      result.hidden = true;
+      result.innerHTML = "";
+      field("links-team").focus();
+    });
+    result.appendChild(edit);
+  }
+
+  function focusHeading(heading){
+    heading.tabIndex = -1;
+    heading.focus();
   }
 
   function field(id){
@@ -239,7 +279,7 @@ offer_popup: false
     if (isFit(data)) {
       result.dataset.outcome = "fit";
       var title = document.createElement("h3");
-      title.textContent = "Book a Call";
+      title.textContent = "Book a Free Strategy Call";
       var copy = document.createElement("p");
       copy.textContent = "This is a fit. Book a call and I will have your answers in the notes before we talk.";
       var link = document.createElement("a");
@@ -248,11 +288,15 @@ offer_popup: false
       link.href = bookingUrl(data);
       link.target = "_blank";
       link.rel = "noopener noreferrer";
-      link.textContent = "Book a Call";
+      link.setAttribute("data-utm-content", "links-fit");
+      link.textContent = "Book a Free Strategy Call";
       result.appendChild(title);
       result.appendChild(copy);
       result.appendChild(link);
+      showEdit();
       if (window.AT_UTM_SCAN) window.AT_UTM_SCAN();
+      tagOutcome();
+      focusHeading(title);
       return;
     }
     result.dataset.outcome = "other";
@@ -260,10 +304,13 @@ offer_popup: false
     heading.textContent = "Start With Notion Jumpstart";
     var note = document.createElement("p");
     note.textContent = "I would start you here. I build the one Notion system mapped in the free setup session. It is live in your workspace within 7 days, plus a 45-minute handover call. Templates are there if you want to set it up yourself.";
+    var reason = document.createElement("p");
+    reason.textContent = "A call opens at $1,000+, 2+ people, and a start within 3 months.";
     var buy = document.createElement("a");
     buy.className = "bio-btn";
     buy.href = JUMPSTART;
     buy.rel = "noopener noreferrer";
+    buy.setAttribute("data-utm-content", "links-nofit");
     buy.textContent = "Buy Notion Jumpstart, $490";
     var shop = document.createElement("a");
     shop.className = "bio-btn bio-btn-secondary";
@@ -271,12 +318,20 @@ offer_popup: false
     shop.textContent = "Browse Templates";
     result.appendChild(heading);
     result.appendChild(note);
+    result.appendChild(reason);
     result.appendChild(buy);
     result.appendChild(shop);
+    showEdit();
     if (window.AT_UTM_SCAN) window.AT_UTM_SCAN();
+    tagOutcome();
+    focusHeading(heading);
+  });
+
+  document.addEventListener("DOMContentLoaded", function(){
+    tagOutcome();
   });
 })();
 </script>
 
-{% include utm-passthrough.html %}
+{% include utm-passthrough.html default_bio=true %}
 {% include site-footer.html %}

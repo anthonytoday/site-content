@@ -107,7 +107,7 @@ offer_popup: false
         <div class="opts" data-name="budget">
           <label class="opt"><input type="radio" name="budget" value="under-1k" required> Under $1,000</label>
           <label class="opt"><input type="radio" name="budget" value="1k-5k"> $1,000 to $5,000</label>
-          <label class="opt"><input type="radio" name="budget" value="5k-plus"> Over $5,000</label>
+          <label class="opt"><input type="radio" name="budget" value="over-5k"> Over $5,000</label>
           <label class="opt"><input type="radio" name="budget" value="unsure"> Not sure yet</label>
         </div>
       </fieldset>
@@ -347,18 +347,22 @@ offer_popup: false
       + offerBtn(CAAS_MO, "Start Monthly, $347/mo", true)
       + '<a class="offer-alt" href="' + CAAS_YR + '" rel="noopener noreferrer">Or $2,970 billed annually</a>';
   }
+  function isBlocked(d){
+    return d.need === "personal" || d.role === "member" || d.timeline === "later";
+  }
   function offersFor(d){
+    var blocked = isBlocked(d);
     var html = "";
     if (d.budget === "under-1k") {
-      html = offerBtn(JUMPSTART, "Buy Notion Jumpstart, $490", false, "jumpstart") + caasOption();
+      html = (blocked ? "" : offerBtn(JUMPSTART, "Buy Notion Jumpstart, $490", false, "jumpstart")) + caasOption();
     } else if (d.budget === "1k-5k") {
       html = offerBtn(BUILD, "Buy the 10-Day Notion Build, $2,500", false)
-        + offerBtn(JUMPSTART, "Or Notion Jumpstart, $490", true, "jumpstart")
+        + (blocked ? "" : offerBtn(JUMPSTART, "Or Notion Jumpstart, $490", true, "jumpstart"))
         + caasOption();
-    } else if (d.budget === "5k-plus") {
-      html = '<p class="offer-note">Projects over $5,000.</p>' + offerBtn(CALL, "Book a Call", false);
+    } else if (d.budget === "over-5k") {
+      if (!isBlocked(d)) html = '<p class="offer-note">Projects over $5,000.</p>' + offerBtn(CALL, "Book a Free Strategy Call", false);
     } else if (d.budget === "unsure") {
-      html = offerBtn(JUMPSTART, "Buy Notion Jumpstart, $490", false, "jumpstart");
+      if (!blocked) html = offerBtn(JUMPSTART, "Buy Notion Jumpstart, $490", false, "jumpstart");
     }
     if (!html) return "";
     return '<div class="offer-row"><p class="offer-k">Buy now, in USD</p>' + html + '</div>';
@@ -382,9 +386,9 @@ offer_popup: false
         + caasOption()
         + '</div>';
     }
-    if (d.budget === "5k-plus") {
+    if (d.budget === "over-5k" && !isBlocked(d)) {
       return '<div class="offer-row"><p class="offer-k">Larger projects</p>'
-        + offerBtn(CALL, "Book a Call", true)
+        + offerBtn(CALL, "Book a Free Strategy Call", true)
         + '</div>';
     }
     return "";
@@ -410,8 +414,10 @@ offer_popup: false
 
     var ok = fit(d);
     var why = reason(d);
+    // Personal, a team member, or a later timeline never sees Jumpstart or a direct call link.
+    var blocked = isBlocked(d);
     // Teams of 1 to 4, and budgets under $1,000, get Jumpstart instead of a turn-away.
-    var offerJumpstart = (!ok && (d.size === "1-4" || d.budget === "under-1k"));
+    var offerJumpstart = (!ok && !blocked && (d.size === "1-4" || d.budget === "under-1k"));
 
     document.getElementById('qf-head').style.display = 'none';
     form.style.display = 'none';

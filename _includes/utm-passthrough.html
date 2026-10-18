@@ -1,7 +1,7 @@
 <script>
 (function(){
   // Pass landing UTMs onto outbound Stripe, Gumroad, and cal.com links, and onto internal links.
-  // When the page URL has none of these, fall back to the bio/social pair.
+  // The bio/social fallback is opt-in, used on /links/ only.
   var KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
   var incoming = new URLSearchParams(window.location.search);
   var pairs = [];
@@ -9,9 +9,7 @@
     var value = incoming.get(KEYS[i]);
     if (value) pairs.push([KEYS[i], value]);
   }
-  if (!pairs.length) {
-    pairs = [["utm_source", "bio"], ["utm_medium", "social"]];
-  }
+  {% if include.default_bio %}if (!pairs.length) { pairs = [["utm_source", "bio"], ["utm_medium", "social"]]; }{% endif %}
   window.AT_UTM_PAIRS = pairs;
   window.AT_UTM_SCAN = function(){ scan(document); };
 
