@@ -28,6 +28,9 @@ function rtq(runs) {
   if (parts.length < 2) return rt(runs);
   return '<span class="sqw"><span class="sq">' + parts.map((g) => '<span class="sg"><span class="sgc">' + rt(g) + "</span></span>").join("") + "</span></span>";
 }
+// Table cells wrap only between words: a hyphenated word ("2-step", "ex-contractors") is kept whole.
+const COLCLASS = { Score: "sc-num", "#": "sc-num", Profile: "sc-bar", Level: "sc-lvl" };
+const keepWords = (h) => h.replace(/(^|>)([^<]+)/g, (m, a, t) => a + t.replace(/[^\s]*[A-Za-z0-9][-\u2010\u2011][A-Za-z0-9][^\s]*/g, (w) => '<span class="sc-nw">' + w + "</span>"));
 const BG = { gray_background: "#f5f5f5", red_background: "#fdecec", blue_background: "#eaf0ff", orange_background: "#fff1e6", green_background: "#e7f7ec", yellow_background: "#fff8db" };
 export function renderBlocks(list, extra = {}) {
   let out = "", listTag = null;
@@ -49,11 +52,14 @@ export function renderBlocks(list, extra = {}) {
       const head = v.has_column_header !== false && rows[0] ? rows[0].table_row.cells.map((c) => (c || []).map((x) => (x.text ? x.text.content : x.plain_text || "")).join("").replace(/\s+/g, " ").trim()) : [];
       // A table with ✅ cells is a comparison: empty cells get a screen-reader "Not included".
       const cmp = rows.some((r) => r.table_row.cells.some((c) => (c || []).some((x) => /✅/.test(x.text ? x.text.content : x.plain_text || ""))));
-      out += '<table class="st' + (head.length ? " hh" : "") + '">' + rows.map((r, i) => "<tr>" + r.table_row.cells.map((c, j) => {
+      // Score tables (Area | Profile | Score | Level): score, bar and level cells never wrap; the score column has a fixed width.
+      const sct = head.includes("Score") && head.includes("Level");
+      out += '<table class="st' + (head.length ? " hh" : "") + (sct ? " sct" : "") + '">' + rows.map((r, i) => "<tr>" + r.table_row.cells.map((c, j) => {
         const colHead = i === 0 && head.length, isHead = colHead || (v.has_row_header && j === 0);
-        const cell = rt(c).replace(/(<\/a>) · (<a class="bk)/g, "$1$2"); // the WhatsApp / Email bars stack, so no dot between them
-        if (isHead) return "<th" + (colHead ? ' scope="col"' : ' scope="row"') + ">" + cell + "</th>";
-        return cmp && !cell.trim() ? '<td class="ni" data-label="' + esc(head[j] || "") + '">' + SR + "</td>" : '<td data-label="' + esc(head[j] || "") + '">' + cell + "</td>";
+        const cell = keepWords(rt(c).replace(/(<\/a>) · (<a class="bk)/g, "$1$2")); // the WhatsApp / Email bars stack, so no dot between them
+        const cls = [COLCLASS[head[j]], cmp && !cell.trim() && !isHead ? "ni" : ""].filter(Boolean).join(" "), ca = cls ? ' class="' + cls + '"' : "";
+        if (isHead) return "<th" + ca + (colHead ? ' scope="col"' : ' scope="row"') + ">" + cell + "</th>";
+        return cmp && !cell.trim() ? "<td" + ca + ' data-label="' + esc(head[j] || "") + '">' + SR + "</td>" : "<td" + ca + ' data-label="' + esc(head[j] || "") + '">' + cell + "</td>";
       }).join("") + "</tr>").join("") + "</table>";
     }
     else if (k === "__footer__") {
@@ -84,7 +90,7 @@ export function renderActionPlan(rows, fmtRange) {
 }
 // Page CSS, shared by /r/, /f/ and (scoped under .scres) the quiz page's on-screen result.
 export const PAGE_CSS =
-    "img.stair{display:block;width:600px;max-width:100%;height:auto;margin:12px 0 4px}*{box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#051C2C;max-width:820px;margin:0 auto;padding:32px 20px 64px;line-height:1.6;overflow-wrap:anywhere}" +
+    "img.stair{display:block;width:600px;max-width:100%;height:auto;margin:12px 0 4px}*{box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#051C2C;max-width:820px;margin:0 auto;padding:32px 20px 64px;line-height:1.6;overflow-wrap:break-word}" +
     "h1{font-size:30px;margin:0 0 8px}h2{font-size:26px;margin:32px 0 10px}h3{font-size:19px;margin:20px 0 8px}summary h3{display:inline}summary{cursor:pointer;margin:12px 0 6px;min-height:44px;padding:10px 0;box-sizing:border-box}" +
     ".sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}a{padding:14px 0}a.tl{display:inline-flex;align-items:center;min-height:44px;padding:0 10px}" +
     "a.cta{display:inline-flex;align-items:center;min-height:44px;padding:12px 20px;background:#051C2C;color:#fff;border-radius:8px;font-weight:600;text-decoration:none;margin:4px 0}" +
@@ -99,8 +105,10 @@ export const PAGE_CSS =
     ".pri{font-size:12px;border-radius:4px;padding:1px 7px;margin-right:4px}.p-high{background:#FDECEC;color:#B91C1C}.p-medium{background:#FFF1E6;color:#C2410C}.p-low{background:#E7F7EC;color:#0F7A32}.dry{background:#FFF3C4;border:1px solid #E8C95A;padding:10px 14px;border-radius:8px;font-size:14px}" +
     // Footer links wrap as units; each separator sits before its item and is clipped at the start of every line.
     "footer .fw{overflow:hidden}footer ul.fl{display:flex;flex-wrap:wrap;list-style:none;margin:0 0 0 -1.2em;padding:0}footer ul.fl li{display:flex;align-items:center;white-space:nowrap}footer ul.fl li::before{content:'·';display:inline-block;width:1.2em;text-align:center}footer ul.fl a.tl{padding:0}" +
-    // Header cells never break mid-word.
-    "th{overflow-wrap:normal;word-break:normal;hyphens:none}" +
+    // Table cells never break mid-word: columns size to their longest word, and text wraps only between words.
+    "table.st th,table.st td{overflow-wrap:normal;word-break:normal;hyphens:none}.sc-nw,table.st .sc-num,table.st .sc-bar{white-space:nowrap}" +
+    // Score table at desktop widths: Overall | bar | 53/100 | Level 3, Defined on one row, score column fixed at 6.5em.
+    "@media (min-width:641px){table.st .sc-num{width:1%}table.st.sct th.sc-num,table.st.sct td.sc-num{width:6.5em;min-width:6.5em}table.st.sct .sc-lvl,table.st.sct .sc-bar{white-space:nowrap;width:1%}}" +
     ".sqw{display:block;overflow:hidden}.sq{display:flex;flex-wrap:wrap;align-items:center;margin-left:-1.2em}.sg{display:flex;align-items:center;min-width:0;max-width:100%}.sg::before{content:'·';flex:none;width:1.2em;text-align:center}.sgc{min-width:0}.sgc a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:0 12px}";
 // Prefix every selector with .scres so the result can sit inside another page (the quiz) without touching its styles.
 export function scopedCss(css = PAGE_CSS, scope = ".scres") {

@@ -44,6 +44,8 @@ no_offer_popup: true
 .qf .disc{font-size:12.5px;color:var(--text-gray);margin-top:16px;line-height:1.6}
 @media(max-width:640px){.qf .head h1{font-size:30px}.qf .big{font-size:36px}.qf .prof .b{letter-spacing:0;font-size:12px}}
 .privacy a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px}
+/* Result screen on phones: one card padding instead of three stacked ones, so the result has the same room as /r/ and its footer links fit one line at 390. */
+@media(max-width:640px){.qf #s-result.scr{padding-left:0 !important;padding-right:0 !important}.qf #r-card.rcard{padding:16px 12px}}
 </style>
 <div class="qf" id="sc">
 

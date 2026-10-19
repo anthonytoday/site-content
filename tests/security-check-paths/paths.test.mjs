@@ -73,6 +73,7 @@ async function path(b, label, { team, plan, ans, country, edit }) {
     ok(!!c, `${label}: on-screen result uses the /r/ content`);
     if (c) {
       ok(c.overall && c.overall[0] === "Overall" && /^\d+\/100$/.test(c.overall[2]) && /^Level \d, /.test(c.overall[3]) && c.overallBold.join() === "true,false,false,false", `${label}: Overall row ${JSON.stringify(c.overall)}`);
+      { await pg.setViewport({ width: 1280, height: 900 }); const g = await pg.evaluate(GEO); ok(g.split.length === 0, `${label}: on-screen result @1280 no word split in table cells ${g.split.join(", ")}`); ok(g.oneRow, `${label}: on-screen Overall row on one line @1280`); }
       ok(c.coLevelBold === false, `${label}: callout level text regular weight`);
       ok(/^Maturity level [1-5] of 5: (Initial|Managed|Defined|Quantitatively Managed|Optimizing)$/.test(c.alt || ""), `${label}: staircase alt "${c.alt}"`);
       ok((c.footer || "").replace(/\s+/g, " ").trim() === "© 2026 Anthony Today. All rights reserved. Privacy policy Contact www.anthonytoday.com", `${label}: standard footer`);
@@ -93,6 +94,14 @@ async function path(b, label, { team, plan, ans, country, edit }) {
   return { body, resultUrl };
 }
 
+const GEO = () => { // words split across lines in table cells, and the Overall row (QA 12:28): per-word Range rects
+  const tops = (r) => { const t = []; for (const x of r.getClientRects()) if (x.width && !t.some((y) => Math.abs(y - x.top) < 3)) t.push(x.top); return t; };
+  const split = []; for (const c of document.querySelectorAll("table td, table th")) { if (!c.getBoundingClientRect().width) continue; const tw = document.createTreeWalker(c, NodeFilter.SHOW_TEXT); let t;
+    while ((t = tw.nextNode())) { if (t.parentElement.closest(".sr")) continue; const re = /\S+/g; let m; while ((m = re.exec(t.textContent))) { const r = document.createRange(); r.setStart(t, m.index); r.setEnd(t, m.index + m[0].length); if (tops(r).length > 1) split.push(m[0]); } } }
+  const ov = [...document.querySelectorAll("table.st tr")].find((tr) => /^Overall/.test(tr.innerText.trim()));
+  const oneRow = ov ? (() => { const ls = [...ov.cells].map((c) => { const r = document.createRange(); r.selectNodeContents(c); return tops(r); }); return ls.every((x) => x.length === 1) && new Set(ls.map((x) => Math.round(x[0]))).size === 1; })() : false;
+  return { split, oneRow, desktop: window.innerWidth > 640 };
+};
 async function layout(b, url, label) {
   for (const w of [1280, 390, 360]) {
     const pg = await b.newPage(); await pg.setViewport({ width: w, height: 900 });
@@ -110,6 +119,9 @@ async function layout(b, url, label) {
     ok(!m.old, `${label} @${w}: no old level names ${m.old}`);
     ok(m.stair.length === 1 && m.stair[0], `${label} @${w}: staircase image loads and fits`);
     ok(m.footer, `${label} @${w}: standard footer`);
+    const g = await pg.evaluate(GEO);
+    ok(g.split.length === 0, `${label} @${w}: no word split across lines in table cells ${g.split.join(", ")}`);
+    if (w === 1280) ok(g.oneRow, `${label} @${w}: Overall row on one line`);
     await pg.close();
   }
 }
