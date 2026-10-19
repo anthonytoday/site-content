@@ -31,7 +31,8 @@ no_offer_popup: true
     "build": "10-Day Notion Build",
     "caas-monthly": {{ site.data.security_check.offers.caas.name | append: " (monthly)" | jsonify }},
     "fix_session": "Security Fix Session",
-    "hardening": "Notion Security Hardening"
+    "hardening": {{ site.data.security_check.offers.hardening.name | jsonify }},
+    "foundation-founding": {{ site.data.security_check.offers.hardening.name | append: " (founding rate)" | jsonify }}
   };
   var offer = new URLSearchParams(window.location.search).get("offer");
   var line = document.getElementById("purchase-line");
