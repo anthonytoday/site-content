@@ -101,7 +101,7 @@ export const PAGE_CSS =
     "footer .fw{overflow:hidden}footer ul.fl{display:flex;flex-wrap:wrap;list-style:none;margin:0 0 0 -1.2em;padding:0}footer ul.fl li{display:flex;align-items:center;white-space:nowrap}footer ul.fl li::before{content:'·';display:inline-block;width:1.2em;text-align:center}footer ul.fl a.tl{padding:0}" +
     // Header cells never break mid-word.
     "th{overflow-wrap:normal;word-break:normal;hyphens:none}" +
-    ".sqw{display:block;overflow:hidden}.sq{display:flex;flex-wrap:wrap;align-items:center;margin-left:-1.2em}.sg{display:flex;align-items:center;min-width:0;max-width:100%}.sg::before{content:'·';flex:none;width:1.2em;text-align:center}.sgc{min-width:0}";
+    ".sqw{display:block;overflow:hidden}.sq{display:flex;flex-wrap:wrap;align-items:center;margin-left:-1.2em}.sg{display:flex;align-items:center;min-width:0;max-width:100%}.sg::before{content:'·';flex:none;width:1.2em;text-align:center}.sgc{min-width:0}.sgc a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:0 12px}";
 // Prefix every selector with .scres so the result can sit inside another page (the quiz) without touching its styles.
 export function scopedCss(css = PAGE_CSS, scope = ".scres") {
   const pre = (sel) => sel.split(",").map((x) => { x = x.trim(); return x === "body" ? scope : x === "*" ? scope + " *" : scope + " " + x; }).join(",");

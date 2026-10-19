@@ -34,8 +34,16 @@ eq(goodShapeSentence(["q1", "q2", "q3", "q4", "q5", "q9"]), "Sign-in security, a
 { const opts = ["A", "B", "C", "D"]; let bad = 0, seen = 0; let seed = 7; const rnd = () => (seed = (seed * 48271) % 2147483647) / 2147483647;
   for (let n = 0; n < 2000; n++) { const a = {}; for (const q of data.questions) a[q.id] = rnd() < 0.55 ? "A" : opts[Math.floor(rnd() * 4)];
     for (const kind of ["free", "fixlist"]) { const { r, sub, T } = tok(a, "11-24", kind); const acts = actionRows(data, r, sub.paid_at, sub.plan);
-      for (const id of T.good_shape_questions) { seen++; const x = r.perQuestion.find((p) => p.id === id); if (x.points !== 10 || acts.some((y) => y.qid === id)) bad++; } } }
-  ok(bad === 0 && seen > 0, `named questions all scored 10 with no fix or action (2000 answer sets x 2 kinds, ${seen} names, ${bad} bad)`); }
+      for (const id of T.good_shape_questions) { seen++; const x = r.perQuestion.find((p) => p.id === id); if (x.points !== 10 || acts.some((y) => y.qid === id && !y.routine)) bad++; } } }
+  ok(bad === 0 && seen > 0, `named questions all scored 10 with no gap fix (2000 answer sets x 2 kinds, ${seen} names, ${bad} bad)`); }
+// PM 11:46: routine upkeep actions don't block. All A names every question (Q1 to Q12 order).
+{ const all = Object.fromEntries(data.questions.map((q) => [q.id, "A"]));
+  for (const kind of ["free", "fixlist"]) { const { T, r, sub } = tok(all, "11-24", kind);
+    eq(T.good_shape_sentence.trim(), "Sign-in security, account setup, public pages, and 9 more are in good shape.", `all A (${kind}), routine actions present: ${actionRows(data, r, sub.paid_at, sub.plan).filter((x) => x.routine).map((x) => x.id + "->" + x.qid).join(", ")}`); } }
+// Q3 root cause: routine action A-18 (access reviews, People) is also a secondary fix for Q3; it must attach to its own area (Q8).
+{ const all = Object.fromEntries(data.questions.map((q) => [q.id, "A"])); const { r, sub } = tok(all); const rows = actionRows(data, r, sub.paid_at, sub.plan);
+  const qDom = Object.fromEntries(data.questions.map((x) => [x.id, x.domain])), dName = Object.fromEntries(data.domains.map((d) => [d.id, d.name]));
+  ok(rows.every((x) => !x.qid || dName[qDom[x.qid]] === x.domain), "every action is attached to a question in its own area: " + rows.map((x) => x.id + "->" + x.qid).join(", ")); }
 // Guard C: no risks -> no gaps sentence and no biggest-difference sentence, nothing dangling.
 { const all = Object.fromEntries(data.questions.map((q) => [q.id, "A"]));
   for (const [name, kind] of [["free-result", "free"], ["fixlist", "fixlist"]]) {

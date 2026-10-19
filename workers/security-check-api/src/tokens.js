@@ -76,9 +76,10 @@ export function computeTokens(data, sub, r, links, kind = "free") {
   const short = (x) => (data.risk_short_names || {})[x.id] || lc(q[x.id].title);
   T.top_risks_summary = joinAnd(top.map(short)) || "a few gaps";
   T.top_risks_summary_cap = cap(T.top_risks_summary);
-  // Item 7 (PM pick b): per question. Full points (A, 10) and no fix or action in the result; N/A (points null) never counts.
+  // Item 7 (PM pick b): per question. Full points (A, 10) and no gap fix in the result; N/A (points null) never counts.
   { const acts = actionRows(data, r, kind === "fixlist" && sub.paid_at ? sub.paid_at : sub.submitted_at, sub.plan);
-    const good = r.perQuestion.filter((x) => x.points === 10 && !acts.some((a) => a.qid === x.id)).map((x) => x.id);
+    // PM 11:46: routine upkeep actions (habits) don't block; only a fix for a gap does.
+    const good = r.perQuestion.filter((x) => x.points === 10 && !acts.some((a) => a.qid === x.id && !a.routine)).map((x) => x.id);
     T.good_shape_questions = good; const g = goodShapeSentence(good); T.good_shape_sentence = g ? g + " " : ""; }
   // Item C: no risks -> no gaps sentence and no biggest-difference sentence.
   T.no_risks = !top.length;
@@ -168,13 +169,17 @@ export function actionRows(data, r, reportDate, plan = "not_sure") {
   const q = Object.fromEntries(data.questions.map((x) => [x.id, x]));
   const A = data.actions || {}, M = data.answer_actions || {};
   const day = (n) => new Date(new Date(reportDate).getTime() + n * 86400000).toISOString().slice(0, 10);
-  const srcQ = (aid) => { for (const [qid, opts] of Object.entries(M)) for (const m of Object.values(opts)) if (m.primary === aid || m.secondary === aid) return qid; return null; };
+  // Source question of an action that came in without one (routine habits). Prefer a question in the action's own area:
+  // A-18 (access reviews, People) is also a secondary fix for Q3 Public pages, and the first match used to pin it on Q3.
+  const domId = Object.fromEntries(data.domains.map((d) => [d.name, d.id]));
+  const srcQ = (aid) => { const hits = []; for (const [qid, opts] of Object.entries(M)) for (const m of Object.values(opts)) if ((m.primary === aid || m.secondary === aid) && !hits.includes(qid)) hits.push(qid);
+    return hits.find((qid) => q[qid] && q[qid].domain === domId[(A[aid] || {}).domain]) || hits[0] || null; };
   const rows = [];
   const add = (aid, phase, answer, qid) => {
     if (!aid || !A[aid]) return;
     const ex = rows.find((x) => x.id === aid);
     if (ex) { if (phase < ex.p) { ex.p = phase; ex.answer = answer; } return; }
-    rows.push({ id: aid, p: phase, answer, qid: qid || srcQ(aid) });
+    rows.push({ id: aid, p: phase, answer, qid: qid || srcQ(aid), routine: !qid });
   };
   for (const x of r.topRisks) { const m = (M[x.id] || {})[x.answer]; if (m) add(m.primary, m.phase, x.answer, x.id); }
   for (const x of r.topRisks) { const m = (M[x.id] || {})[x.answer]; if (m && m.secondary && rows.length < 7) add(m.secondary, m.phase, x.answer, x.id); }
@@ -186,7 +191,7 @@ export function actionRows(data, r, reportDate, plan = "not_sure") {
     const notes = (qq.plan_notes || []).filter((n) => plan === "not_sure" || n.plans.includes("all") || n.plans.includes(plan));
     const src = (qq.fixes || []).find((f) => f.source);
     return {
-      id: x.id, qid: x.qid || null, action: A[x.id].title, plain: A[x.id].plain, domain: A[x.id].domain, phase: "Phase " + x.p,
+      id: x.id, qid: x.qid || null, routine: !!x.routine, action: A[x.id].title, plain: A[x.id].plain, domain: A[x.id].domain, phase: "Phase " + x.p,
       priority: x.p === 1 ? "High" : x.p === 2 ? (x.answer === "C" || x.answer === "D" ? "High" : "Medium") : "Low",
       owner: "", impact: x.answer && x.qid ? ((data.risk_impacts || {})[x.qid] || {})[x.answer] || "" : "",
       start: x.p === 1 ? day(0) : x.p === 2 ? day(7) : null, end: x.p === 1 ? day(4) : x.p === 2 ? day(11) : null,
