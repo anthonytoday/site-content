@@ -63,11 +63,11 @@ no_offer_popup: true
       <div class="field">
         <label class="fl" for="f-team">{{ ui["pre.team_size"] }}</label>
         <p class="hint">{{ ui["pre.team_size.helper"] }}</p>
-        <select id="f-team" required><option value="">Choose one</option>{% for o in sc.profile.team_size %}<option value="{{ o.value }}">{{ o.label }}</option>{% endfor %}</select>
+        <select id="f-team"><option value="">Choose one</option>{% for o in sc.profile.team_size %}<option value="{{ o.value }}">{{ o.label }}</option>{% endfor %}</select>
       </div>
       <div class="field">
         <label class="fl" for="f-role">{{ ui["pre.role"] }}</label>
-        <select id="f-role" required><option value="">Choose one</option>{% for o in sc.profile.role %}<option value="{{ o.value }}">{{ o.label }}</option>{% endfor %}</select>
+        <select id="f-role"><option value="">Choose one</option>{% for o in sc.profile.role %}<option value="{{ o.value }}">{{ o.label }}</option>{% endfor %}</select>
       </div>
       <div class="field">
         <label class="fl" for="f-plan">{{ ui["pre.plan"] }}</label>
@@ -107,15 +107,15 @@ no_offer_popup: true
       <h2 style="font-size:26px;font-weight:600;margin:0 0 8px">{{ ui["gate.heading"] }}</h2>
       <p class="hint">{{ ui["gate.subheading"] }}</p>
       <form id="f-gate" novalidate>
-        <div class="field"><label class="fl" for="f-name">{{ ui["gate.name"] }}</label><input type="text" id="f-name" maxlength="60" autocomplete="name" required><p class="err" id="e-name"></p></div>
-        <div class="field"><label class="fl" for="f-email">{{ ui["gate.email"] }}</label><p class="hint">{{ ui["gate.email.helper"] }}</p><input type="email" id="f-email" maxlength="254" autocomplete="email" required><p class="err" id="e-email"></p></div>
-        <label class="consent"><input type="checkbox" id="f-consent" required> {{ ui["gate.consent"] }}</label>
-        <div class="field"><label class="fl" for="f-company">{{ ui["gate.company"] }}</label><p class="hint">{{ ui["gate.company.helper"] }}</p><input type="text" id="f-company" maxlength="80" autocomplete="organization" required><p class="err" id="e-company"></p></div>
+        <div class="field"><label class="fl" for="f-name">{{ ui["gate.name"] }}</label><input type="text" id="f-name" maxlength="60" autocomplete="name"><p class="err" id="e-name"></p></div>
+        <div class="field"><label class="fl" for="f-email">{{ ui["gate.email"] }}</label><p class="hint">{{ ui["gate.email.helper"] }}</p><input type="email" id="f-email" maxlength="254" autocomplete="email"><p class="err" id="e-email"></p></div>
+        <label class="consent"><input type="checkbox" id="f-consent"> {{ ui["gate.consent"] }}</label>
+        <div class="field"><label class="fl" for="f-company">{{ ui["gate.company"] }}</label><p class="hint">{{ ui["gate.company.helper"] }}</p><input type="text" id="f-company" maxlength="80" autocomplete="organization"><p class="err" id="e-company"></p></div>
         <div class="field">
           <label class="fl" for="f-country">{{ ui["gate.country"] }}</label>
-          <select id="f-country" required><option value="">Choose one</option>{% for c in sc.profile.country %}<option>{{ c }}</option>{% endfor %}</select>
+          <select id="f-country"><option value="">Choose one</option>{% for c in sc.profile.country %}<option>{{ c }}</option>{% endfor %}</select>
         </div>
-        <input type="text" name="website" id="f-website" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" tabindex="-1" autocomplete="off" aria-label="Leave this field empty">
+        <input type="text" name="sc_hp_x" id="f-website" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" tabindex="-1" autocomplete="off" aria-label="Leave this field empty">
         <p class="err" id="e-gate" role="alert"></p>
         <div class="navrow"><button type="button" class="back" id="b-gate-back">&larr; {{ ui["q.back_button"] }}</button><button type="submit" class="submit" id="b-submit">{{ ui["gate.submit_button"] }} &rarr;</button></div>
         <p class="privacy">{{ ui["ui.privacy_note"] }} <a href="/privacy/" style="color:inherit">Privacy policy</a>.</p>
@@ -149,14 +149,30 @@ no_offer_popup: true
   function solo() { return $("f-team").value === "solo"; }
   function applySolo() {
     [].forEach.call(document.querySelectorAll(".qf .solo-only"), function (el) { el.hidden = !solo(); });
-    [].forEach.call(document.querySelectorAll(".qf .not-solo"), function (el) { el.hidden = solo(); var i = el.querySelector("input"); if (solo() && i.checked) i.checked = false; });
-    [].forEach.call(document.querySelectorAll(".qf .solo-only input"), function (i) { if (!solo() && i.checked) i.checked = false; });
+    [].forEach.call(document.querySelectorAll(".qf .not-solo"), function (el) { el.hidden = solo(); var i = el.querySelector("input"); if (solo() && i.checked) { i.checked = false; delete state.answers[i.name]; mark(i.name); } });
+    [].forEach.call(document.querySelectorAll(".qf .solo-only input"), function (i) { if (!solo() && i.checked) { i.checked = false; delete state.answers[i.name]; mark(i.name); } });
   }
+  function mark(name) { [].forEach.call(document.querySelectorAll('.qf input[name="' + name + '"]'), function (o) { o.parentNode.classList.toggle("sel", o.checked); }); }
+  // Answers are saved the moment they are picked, so Back and forward never lose them.
   [].forEach.call(document.querySelectorAll(".qf .opt input"), function (inp) {
-    inp.addEventListener("change", function () {
-      [].forEach.call(document.querySelectorAll('.qf input[name="' + inp.name + '"]'), function (o) { o.parentNode.classList.toggle("sel", o.checked); });
-    });
+    inp.addEventListener("change", function () { if (inp.checked) state.answers[inp.name] = inp.value; mark(inp.name); var e = inp.closest(".qscr").querySelector(".err"); if (e) e.textContent = ""; });
   });
+  // Is the saved answer valid for the current team size? (Solo: Q7/Q8 take N/A, not "I don't know".)
+  function validAnswer(s) {
+    var q = s.getAttribute("data-q"), v = state.answers[q];
+    if (!v) return false;
+    var inp = s.querySelector('input[name="' + q + '"][value="' + v + '"]');
+    return !!inp && !inp.closest(".opt").hidden;
+  }
+  function firstGap() {
+    if (!$("f-team").value || !$("f-role").value) return "s-profile";
+    for (var i = 0; i < qscreens.length; i++) if (!validAnswer(qscreens[i])) return qscreens[i].id;
+    return null;
+  }
+  function jumpTo(id) {
+    if (id === "s-profile") { $("e-profile").textContent = UI["err.required_choice"]; show(id); return; }
+    var s = $(id); s.querySelector(".err").textContent = UI["err.required_choice"]; show(id);
+  }
 
   $("b-start").addEventListener("click", function () {
     if (!$("f-team").value || !$("f-role").value) { $("e-profile").textContent = UI["err.required_choice"]; return; }
@@ -168,7 +184,7 @@ no_offer_popup: true
     s.querySelector(".nxt").addEventListener("click", function () {
       var q = s.getAttribute("data-q");
       var c = s.querySelector('input[name="' + q + '"]:checked');
-      if (!c) { s.querySelector(".err").textContent = UI["err.required_choice"]; return; }
+      if (!c || c.closest(".opt").hidden) { s.querySelector(".err").textContent = UI["err.required_choice"]; return; }
       s.querySelector(".err").textContent = "";
       state.answers[q] = c.value;
       if (i + 1 < qscreens.length) show(qscreens[i + 1].id); else show("s-gate");
@@ -209,15 +225,27 @@ no_offer_popup: true
     var full = el("p"); var a = el("a", null, "Open your result"); a.href = d.resultUrl; a.rel = "noopener"; a.target = "_blank";
     full.appendChild(a); full.appendChild(document.createTextNode("."));
     card.appendChild(full);
-    if (state.email) card.appendChild(el("p", null, UI["result.ready_email_note"].replace(/\{\{work_email\}\}/, state.email)));
+    if (state.email && !d.held && d.emailStatus !== "preview") card.appendChild(el("p", null, UI["result.ready_email_note"].replace(/\{\{work_email\}\}/, state.email)));
     var cta = el("div", "cta");
     var cp = el("p"); cp.appendChild(el("b", null, "Get your Fix List for {{ sc.offers.fixlist.price }}.")); cp.appendChild(document.createTextNode(" Delivered by email right after payment. 7-day refund on request.")); cta.appendChild(cp);
     var b = el("a", "btn", "Get your Fix List"); b.href = withUtm(d.fixlistUrl); cta.appendChild(b);
     card.appendChild(cta);
+    if (d.held) card.appendChild(el("p", "disc", "Your result is shown above. The email copy is on hold while we finish testing, so it has not been sent yet."));
     if (d.dryRun) { var n = el("p", "disc", "Preview mode: nothing was sent or stored outside the test Worker. "); var pe = el("a", null, "See the email that would be sent"); pe.href = d.previews.email; pe.target = "_blank"; n.appendChild(pe); card.appendChild(n); }
     state.result = d;
   }
 
+  // Server said no: point to the exact field or question instead of a dead end.
+  function serverError(x) {
+    var err = $("e-gate"), f = (x.j.fields || [])[0] || "";
+    if (x.status !== 400 || !f) { err.textContent = UI["err.network"]; return; }
+    var m = /^answers\.(q\d+)$/.exec(f);
+    if (m && $("s-" + m[1])) { delete state.answers[m[1]]; jumpTo("s-" + m[1]); return; }
+    if (f === "team_size" || f === "role" || f === "plan") { jumpTo("s-profile"); return; }
+    if (f === "name" || f === "email" || f === "company") { $("e-" + f).textContent = f === "email" ? UI["err.email_invalid"] : UI["err.required_text"]; return; }
+    if (f === "consent") { err.textContent = UI["err.consent"]; return; }
+    err.textContent = UI["err.invalid_option"];
+  }
   $("f-gate").addEventListener("submit", function (e) {
     e.preventDefault();
     var err = $("e-gate");
@@ -231,15 +259,18 @@ no_offer_popup: true
     if (!country) { err.textContent = UI["err.required_choice"]; return; }
     if (!$("f-consent").checked) { err.textContent = UI["err.consent"]; return; }
     err.textContent = "";
+    var gap = firstGap(); if (gap) { jumpTo(gap); return; }
     state.email = email;
     var btn = $("b-submit"); btn.disabled = true; btn.textContent = UI["result.loading"];
     var body = { team_size: $("f-team").value, role: $("f-role").value, plan: $("f-plan").value || "not_sure", name: name, email: email, company: company,
-      country: country, consent: true, source: source, website: $("f-website").value, answers: state.answers };
+      country: country, consent: true, source: source, website: $("f-website").value, answers: {} };
+    qscreens.forEach(function (s) { var q = s.getAttribute("data-q"); body.answers[q] = state.answers[q]; });
     fetch(API + "/submit", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
       .then(function (res) { return res.json().then(function (j) { return { status: res.status, j: j }; }); })
       .then(function (x) {
         btn.disabled = false; btn.textContent = UI["gate.submit_button"] + " \u2192";
-        if (!x.j.ok) { err.textContent = x.status === 429 ? UI["err.network"] : UI["err.invalid_option"]; return; }
+        if (!x.j.ok) { serverError(x); return; }
+        if (!x.j.result) { err.textContent = UI["err.network"]; return; }
         renderResult(x.j); show("s-result");
       })
       .catch(function () { btn.disabled = false; btn.textContent = UI["gate.submit_button"] + " \u2192"; err.textContent = UI["err.network"]; });

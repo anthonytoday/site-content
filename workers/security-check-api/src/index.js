@@ -28,8 +28,10 @@ const allow = (env) => (env.TEST_SEND_ALLOWLIST || "").split(",").map((x) => x.t
 const locked = (env) => env.LIVE_FOR !== "all";
 const liveFor = (env, email) => !isDry(env) && (!locked(env) || allow(env).includes(String(email || "").toLowerCase()));
 const testPhase = (env) => isDry(env) || locked(env);
+// Held: the Worker is live but this address is not allowlisted yet. Leads row is written, the email is held in KV (heldmail:<rid>).
+const heldFor = (env, email) => !isDry(env) && !liveFor(env, email);
 const json = (obj, status = 200, headers = {}) => new Response(JSON.stringify(obj, null, 1), { status, headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store", ...headers } });
-const html = (s, status = 200) => new Response(s, { status, headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow", "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; form-action 'self'", "Referrer-Policy": "no-referrer" } });
+const html = (s, status = 200) => new Response(s, { status, headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow", "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data: https://www.anthonytoday.com; form-action 'self'", "Referrer-Policy": "no-referrer" } });
 
 function cors(env, req) {
   const o = req.headers.get("Origin") || "";
@@ -92,14 +94,21 @@ async function handleSubmit(req, env, ctx, h) {
   const ip = req.headers.get("CF-Connecting-IP") || "0";
   if (await rateLimited(env, "ip:" + ip, Number(env.RATE_PER_IP_HOUR || 20))) return json({ ok: false, error: "rate_limited" }, 429, h);
   const v = validateSubmission(data, body);
-  if (!v.ok) return json({ ok: false, error: "invalid", fields: v.errors }, 400, h);
+  if (!v.ok) {
+    // Diagnostic record of the rejected shape (no name, email or company), so a client-side bug can be traced.
+    const shape = { at: nowIso(), fields: v.errors, origin: req.headers.get("Origin") || "", ua: (req.headers.get("User-Agent") || "").slice(0, 160),
+      team_size: body.team_size, role: body.role, plan: body.plan, country: typeof body.country === "string" ? body.country.slice(0, 60) : typeof body.country,
+      source: body.source, consent: body.consent, email_ok: typeof body.email === "string" && body.email.includes("@"), answers: body.answers, keys: Object.keys(body).slice(0, 20) };
+    await env.SC.put("rej:" + Date.now() + ":" + Math.random().toString(36).slice(2, 6), JSON.stringify(shape), { expirationTtl: 14 * 86400 }).catch(() => {});
+    return json({ ok: false, error: "invalid", fields: v.errors }, 400, h);
+  }
   const sub = v.value;
   if (await rateLimited(env, "em:" + sub.email, 12)) return json({ ok: false, error: "rate_limited" }, 429, h);
   const r = score(data, sub.answers, sub.team_size);
   const prevRid = await env.SC.get("email:" + sub.email);
   const prev = prevRid ? await env.SC.get("sub:" + prevRid, "json") : null;
   Object.assign(sub, { result_id: newResultId(), submission_id: await nextSubmissionId(env), submitted_at: nowIso(), quiz_version: data.version,
-    retake_count: prev ? (prev.retake_count || 0) + 1 : 0, previous_total: prev ? prev.result.total : null, dry_run: !liveFor(env, sub.email), unsubscribed: !!(prev && prev.unsubscribed) });
+    retake_count: prev ? (prev.retake_count || 0) + 1 : 0, previous_total: prev ? prev.result.total : null, dry_run: !liveFor(env, sub.email), held: heldFor(env, sub.email), unsubscribed: !!(prev && prev.unsubscribed) });
   sub.result = r;
   await env.SC.put("sub:" + sub.result_id, JSON.stringify(sub), { expirationTtl: 60 * 60 * 24 * 730 });
   await env.SC.put("email:" + sub.email, sub.result_id, { expirationTtl: 60 * 60 * 24 * 730 });
@@ -108,7 +117,8 @@ async function handleSubmit(req, env, ctx, h) {
   const view = { total: r.total, level: r.level, levelName: r.levelName, domains: r.domains.map(({ id, name, score, level, levelName }) => ({ id, name, score, level, levelName })),
     flags: r.flags.map((f) => ({ label: f.label, q: "Q" + f.question.slice(1), headline: f.headline })), topRisks: r.topRisks.map((x) => ({ title: x.title, critical: x.critical })) };
   const out = { ok: true, resultId: sub.result_id, submissionId: sub.submission_id, result: view, resultUrl: L.result, fixlistUrl: L.fixlist, industryToken: await sign(env, "i:" + sub.result_id) };
-  if (sub.dry_run || (testPhase(env) && liveFor(env, sub.email))) { out.dryRun = sub.dry_run; out.testLive = !sub.dry_run; out.log = await pipeline; out.previews = { resultPage: L.result, email: env.PUBLIC_BASE + "/preview/email?rid=" + sub.result_id + "&t=" + (await sign(env, "p:" + sub.result_id)) }; }
+  out.held = sub.held; out.emailStatus = !sub.consent ? "no_consent" : sub.held ? "held" : isDry(env) ? "preview" : "sending";
+  if (sub.dry_run || (testPhase(env) && liveFor(env, sub.email))) { out.dryRun = isDry(env); out.testLive = !sub.dry_run; out.log = await pipeline; out.previews = { resultPage: L.result, email: env.PUBLIC_BASE + "/preview/email?rid=" + sub.result_id + "&t=" + (await sign(env, "p:" + sub.result_id)) }; }
   else ctx.waitUntil(pipeline);
   return json(out, 200, h);
 }
@@ -135,7 +145,7 @@ async function runSubmitPipeline(env, sub, r, L) {
   // 2. Lead upsert in Security Check Leads (only DB this Worker writes).
   await step("notion_leads_upsert", async () => {
     const props = leadProperties(data, sub, r, notionUrl || L.result);
-    if (dry || !notion || !env.NOTION_CRM_DB_ID) return { dry: true, db: env.NOTION_CRM_DB_ID ? "set" : "(unset)", properties: Object.fromEntries(Object.entries(props).map(([k, v]) => [k, v.select ? v.select && v.select.name : v.status ? v.status.name : v.multi_select ? v.multi_select.map((x) => x.name) : v.checkbox !== undefined ? v.checkbox : v.number !== undefined ? v.number : v.email || v.url || (v.title || v.rich_text || [])[0]?.text.content])) };
+    if ((dry && !sub.held) || !notion || !env.NOTION_CRM_DB_ID) return { dry: true, db: env.NOTION_CRM_DB_ID ? "set" : "(unset)", properties: Object.fromEntries(Object.entries(props).map(([k, v]) => [k, v.select ? v.select && v.select.name : v.status ? v.status.name : v.multi_select ? v.multi_select.map((x) => x.name) : v.checkbox !== undefined ? v.checkbox : v.number !== undefined ? v.number : v.email || v.url || (v.title || v.rich_text || [])[0]?.text.content])) };
     const res = await notion.upsertLead(env.NOTION_CRM_DB_ID, sub.email, props);
     sub.lead_page_id = res.id;
     return res;
@@ -158,6 +168,7 @@ async function runSubmitPipeline(env, sub, r, L) {
     await env.SC.put("mail:" + sub.result_id, JSON.stringify(payload), { expirationTtl: 7 * 86400 });
     if (!sub.consent) return { skipped: "no consent" };
     if (sub.unsubscribed) return { skipped: "unsubscribed" };
+    if (sub.held) { await env.SC.put("heldmail:" + sub.result_id, JSON.stringify({ at: nowIso(), idem: "sc-result-" + sub.result_id }), { expirationTtl: 60 * 86400 }); return { held: true, subject: msg.subject, to: sub.email, note: "real-client lock: email held, replay from KV heldmail:" + sub.result_id }; }
     if (dry || !env.RESEND_API_KEY) return { dry: true, subject: msg.subject, to: sub.email, tags: payload.tags, headers: payload.headers };
     if (await env.SC.get("unsub:" + sub.email)) return { skipped: "unsubscribed (worker record)" };
     const sup = await resendSuppressed(env.RESEND_API_KEY, sub.email);
@@ -171,6 +182,30 @@ async function runSubmitPipeline(env, sub, r, L) {
 }
 
 // ---------- pages served by the Worker (signed links) ----------
+// Web-only adjustments to the filled template (the Notion page keeps the full wording):
+// PM web line for the Action Plan intro, no reference to the Notion Timeline tab, no repeated sub-line, Title Case labels.
+const PLAN_WEB_LINE = "Start with the Phase 1 actions this week. Each action below shows its priority and the steps to do it, grouped by phase.";
+const plainOf = (b) => ((b[b.type] || {}).rich_text || []).map((x) => (x.text ? x.text.content : x.plain_text || "")).join("");
+function webVariant(list) {
+  const out = [];
+  for (const b of list) {
+    const t = plainOf(b);
+    if (b.type === "paragraph" && /^Items are ordered by impact/.test(t)) { out.push({ type: "paragraph", paragraph: { rich_text: [{ type: "text", text: { content: PLAN_WEB_LINE } }] } }); continue; }
+    if (b.type === "paragraph" && /^Phase 1 and Phase 2 are dated/.test(t)) continue;
+    if (b.type === "bulleted_list_item" && /^Compared With Other Teams/.test(t) && b.children) { const kid = b.children.map(plainOf).join(" "); if (/30 or more teams/.test(kid) && /30 or more teams/.test(t)) b.children = undefined; }
+    const rtx = (b[b.type] || {}).rich_text;
+    if (rtx) rtx.forEach((x) => { if (x.text && /What's working:/.test(x.text.content)) x.text.content = x.text.content.replace("What's working:", "What's Working:"); });
+    if (b.children) b.children = webVariant(b.children);
+    out.push(b);
+  }
+  // Drop a heading that has nothing under it (up to the next heading of the same or higher level).
+  const lvl = (b) => (/^heading_[1-4]$/.test(b.type) ? Number(b.type.slice(-1)) : 0);
+  return out.filter((b, i) => {
+    const L = lvl(b); if (!L || b.children && b.children.length) return true;
+    for (let j = i + 1; j < out.length; j++) { const M = lvl(out[j]); if (M && M <= L) return false; if (!M) return true; if (M > L) return true; }
+    return false;
+  });
+}
 async function handleResultPage(env, rid, t, kind) {
   if (!/^r[0-9a-f]{24}$/.test(rid) || !safeEq(t || "", await sign(env, (kind === "free" ? "r:" : "f:") + rid))) return html("<p>Link not valid.</p>", 404);
   const sub = await env.SC.get("sub:" + rid, "json");
@@ -179,8 +214,8 @@ async function handleResultPage(env, rid, t, kind) {
   const L = await links(env, sub);
   const T = computeTokens(data, sub, sub.result, L, kind === "free" ? "free" : "fixlist");
   const tpl = await templateBlocks(env, kind === "free" ? "free" : "fix");
-  const blocks = transform(tpl.blocks, T);
-  const banner = sub.dry_run ? "DRY-RUN PREVIEW. Template source: " + tpl.source + ". Nothing was created in Notion and no email was sent." : null;
+  const blocks = webVariant(transform(tpl.blocks, T));
+  const banner = sub.dry_run && isDry(env) ? "DRY-RUN PREVIEW. Template source: " + tpl.source + ". Nothing was created in Notion and no email was sent." : null;
   const extra = kind === "fix" ? { actionDbHtml: renderActionPlan(actionRows(data, sub.result, sub.paid_at || sub.submitted_at, sub.plan), fmtDate) } : {};
   return html(renderPage(kind === "free" ? "Free Security Check Result" : "Security Check Fix List", blocks, banner, extra));
 }
