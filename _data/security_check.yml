@@ -23,20 +23,24 @@ scoring:
     D: 0
   levels:
   - level: 1
-    name: Exposed
+    name: Initial
     min: 0
-    max: 29
+    max: 19
   - level: 2
-    name: Basic
-    min: 30
-    max: 59
-  - level: 3
     name: Managed
-    min: 60
-    max: 79
+    min: 20
+    max: 39
+  - level: 3
+    name: Defined
+    min: 40
+    max: 59
   - level: 4
-    name: Hardened
-    min: 80
+    name: Quantitatively Managed
+    min: 60
+    max: 89
+  - level: 5
+    name: Optimizing
+    min: 90
     max: 100
   critical_flags:
   - id: public_pages
@@ -98,7 +102,9 @@ scoring:
   - q10
   - q11
   - q12
-  recommended_level: Managed
+  # Recommended level for teams: kept at the same score band as before (60+), now Level 4 on the 5-level scale. Confirm with L0_CEO.
+  recommended_level: Quantitatively Managed
+  recommended_level_number: 4
   flag_first_suffix: This is the first thing to fix.
 domains:
 - id: identity
@@ -1223,16 +1229,61 @@ ui:
   gate.submit_button: Show My Result
   result.industry: What best describes your business?
   result.industry.helper: Optional.
-  err.required_text: Please fill this in.
   err.required_choice: Please choose an option.
-  err.email_invalid: Enter a valid email, like name@company.com.
+  err.email_invalid: Please enter a valid email, like name@company.com.
   err.too_long_name: Use 60 characters or fewer.
   err.too_long_company: Use 80 characters or fewer.
   err.consent: Tick the box so we can email your result.
-  err.invalid_option: Please choose one of the options.
-  err.network: We couldn't send your answers. Check your connection and try again.
+  # Final PM-approved error strings (19 Oct 2026). One place for every field-level message.
+  err.q_unanswered: Please pick an answer to this question.
+  err.q_changed: This answer has changed. Please pick it again.
+  err.email_disposable: Please use an email you check, not a temporary one.
+  err.name_missing: Please add your name.
+  err.company_missing: Please add your company.
+  err.country_missing: Please add your country.
+  err.server: Something went wrong on our side. Please try again in a minute.
   err.button_retry: Try Again
   result.loading: Scoring your answers and building your result...
   result.ready_email_note: A copy is on its way to {{work_email}}.
   thanks.fixlist: Your Fix List is on its way to your inbox.
   thanks.fixlist_sub: It includes your top 3 risks and a ready action plan in Notion.
+
+# Maturity staircase (result screen, /r/, /f/, emails, Notion pages). Single config spot:
+# edit here, then run tools/security-check/maturity/build.sh to re-render the 4 PNGs.
+maturity:
+  title: Your Security Maturity Level
+  footnote: Your overall level is your lowest area.
+  image_path: /assets/img/security-check/maturity-level-
+  # Definitions: PM copy file "Maturity Levels (CMMI Style, Rev 10:55 am UAE)", keys level.1..level.5. Bands: L0_CEO 10:59 am UAE.
+  # Edit here, then run tools/security-check/maturity/build.sh to re-render the 5 PNGs.
+  levels:
+    - number: 1
+      name: Initial
+      range: 0 to 19
+      meaning: Ad hoc setup, little control over access or sharing.
+      color: "#C8102E"
+      muted: "#F3C7CE"
+    - number: 2
+      name: Managed
+      range: 20 to 39
+      meaning: Some safeguards exist, but they depend on individual people.
+      color: "#E0620F"
+      muted: "#F8D3B9"
+    - number: 3
+      name: Defined
+      range: 40 to 59
+      meaning: Clear workspace rules exist, and most people follow them.
+      color: "#E5A00D"
+      muted: "#F8E3B4"
+    - number: 4
+      name: Quantitatively Managed
+      range: 60 to 89
+      meaning: Access and sharing are reviewed on a schedule and tracked.
+      color: "#6FA83A"
+      muted: "#D6E8C4"
+    - number: 5
+      name: Optimizing
+      range: 90 to 100
+      meaning: Controls are tested and improved as the team changes.
+      color: "#16793A"
+      muted: "#BFDCC8"

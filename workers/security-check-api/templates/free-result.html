@@ -1,6 +1,8 @@
 <p>{{#if first_name}}Hi {{first_name}},{{else}}Hi there,{{/if}}</p>
 <p>Your Notion Security Check result for {{#if company}}{{company}}{{else}}your workspace{{/if}} is ready.</p>
 <p>• Level: {{overall_level_number}}, {{overall_level}}<br>• Score: {{overall_score}}/100{{#if flags}}<br>• Critical flags: {{flag_count}} ({{flag_names}}){{/if}}</p>
+<p><img src="{{maturity_img_url}}" width="600" alt="{{maturity_alt}}" style="display:block;width:100%;max-width:600px;height:auto;border:0"></p>
+<p style="font-size:13px;color:#5A6B7B;">{{maturity_footnote}}</p>
 <p>Your full result, with your 6-area profile and every risk we found: <a href="{{result_url}}">Open your result</a>.</p>
 <p><strong>Quick win for today (5 minutes):</strong> {{quick_win_1}}</p>
 <p>When you want the step-by-step fix for every risk and a ready action plan, the Fix List is $39: <a href="https://buy.stripe.com/28E6oJfmMbYh27h4Kt1ZS0x?client_reference_id={{result_id}}">Get your Fix List</a>.</p>

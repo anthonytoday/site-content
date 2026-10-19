@@ -2,7 +2,7 @@
 import { esc } from "./validate.js";
 const COL = { gray: "#6b7280", green: "#0F7A32", orange: "#C2410C", red: "#B91C1C" };
 const rt = (arr) => (arr || []).map((x) => {
-  let s = esc(x.text ? x.text.content : x.plain_text || "").replace(/\n/g, "<br>").replace(/✅|✓/g, '<span class="tick">✓</span>');
+  let s = esc(x.text ? x.text.content : x.plain_text || "").replace(/\n/g, "<br>").replace(/✓/g, '<span class="tick">✓</span>');
   const a = x.annotations || {};
   if (a.bold) s = "<b>" + s + "</b>";
   if (COL[a.color]) s = '<span style="color:' + COL[a.color] + '">' + s + "</span>";
@@ -23,6 +23,8 @@ export function renderBlocks(list, extra = {}) {
     if (k === "paragraph") out += "<p>" + rt(v.rich_text) + "</p>" + kids;
     else if (/^heading_[1-4]$/.test(k)) { const h = Number(k.slice(-1)) <= 2 ? "h2" : "h3"; out += v.is_toggleable ? "<details open><summary><" + h + ">" + rt(v.rich_text) + "</" + h + "></summary>" + kids + "</details>" : "<" + h + ">" + rt(v.rich_text) + "</" + h + ">"; }
     else if (k === "divider") out += "<hr>";
+    else if (k === "toggle") out += "<details><summary>" + rt(v.rich_text) + "</summary>" + kids + "</details>";
+    else if (k === "image" && v.external) { const alt = (v.caption || []).map((x) => (x.text ? x.text.content : "")).join(""); out += '<img class="stair" src="' + esc(v.external.url) + '" width="600" alt="' + esc(alt) + '">'; }
     else if (k === "callout") out += '<div class="co" style="background:' + (BG[v.color] || "#f5f5f5") + '"><span>' + esc(v.icon ? v.icon.emoji : "") + "</span><div>" + rt(v.rich_text) + kids + "</div></div>";
     else if (k === "table") {
       const rows = b.children || v.children || [];
@@ -52,13 +54,13 @@ export function renderActionPlan(rows, fmt) {
 }
 export function renderPage(title, list, banner, extra) {
   return "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta name=\"robots\" content=\"noindex,nofollow\"><link rel=\"icon\" href=\"https://www.anthonytoday.com/assets/brand/favicon.png\"><link rel=\"apple-touch-icon\" href=\"https://www.anthonytoday.com/assets/brand/apple-touch-icon.png\"><title>" + esc(title) + "</title><style>" +
-    "*{box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#051C2C;max-width:820px;margin:0 auto;padding:32px 20px 64px;line-height:1.6;overflow-wrap:anywhere}" +
+    "img.stair{display:block;width:600px;max-width:100%;height:auto;margin:12px 0 4px}*{box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#051C2C;max-width:820px;margin:0 auto;padding:32px 20px 64px;line-height:1.6;overflow-wrap:anywhere}" +
     "h1{font-size:30px;margin:0 0 8px}h2{font-size:26px;margin:32px 0 10px}h3{font-size:19px;margin:20px 0 8px}summary h3{display:inline}summary{cursor:pointer;margin:12px 0 6px}" +
     "td .bk{display:block;text-align:center;text-decoration:none;font-weight:600;border-radius:8px;padding:8px 10px;margin:8px 0 0;font-size:14px}td .bk-wa{background:#25D366;color:#fff}td .bk-em{background:#051C2C;color:#fff}" +
     ".ph{border:1px solid #E5E7EB;border-radius:10px;margin:14px 0;padding:4px 16px 8px}.ph h3{margin:12px 0 6px}.when{font-weight:400;font-size:14px;color:#5B6672}.acts{list-style:none;padding:0;margin:0}.acts li{display:flex;gap:10px;border-top:1px solid #E5E7EB;padding:12px 0}.acts li:first-child{border-top:0}.acts p{margin:6px 0 0;font-size:14.5px}" +
     "@media (max-width:640px){body{padding:20px 14px 48px}h1.pt{font-size:26px}table.st,table.st tbody,table.st tr,table.st td,table.st th{display:block;width:100%}table.st.hh tr:first-child{display:none}table.st tr{border:1px solid #E5E7EB;border-radius:8px;margin:0 0 10px;padding:6px 10px}table.st th,table.st td{border:0;padding:4px 0}table.st td::before{content:attr(data-label);display:block;font-size:12.5px;color:#5B6672}table.st td:empty,table.st td[data-label=\"\"]::before{display:none}}" +
     "table{border-collapse:collapse;width:100%;font-size:14.5px;margin:8px 0}th,td{border:1px solid #E5E7EB;padding:7px 9px;text-align:left;vertical-align:top}th{background:#F5F5F5}" +
-    ".co{display:flex;gap:10px;padding:14px 16px;border-radius:8px;margin:10px 0}.co p{margin:0}a{color:#2251FF}.tick{color:#0F7A32;font-weight:700}" +
+    ".co{display:flex;gap:10px;padding:14px 16px;border-radius:8px;margin:10px 0}.co p{margin:0}a{color:#2251FF}.tick{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:4px;background:#16A34A;color:#fff;font-weight:700;font-size:13px;line-height:1;vertical-align:-3px}" +
     "h1.pt{font-size:34px;margin:4px 0 14px}.ph{border:1px solid #E5E7EB;border-radius:10px;margin:12px 0;overflow:hidden}.phh{display:flex;justify-content:space-between;gap:10px;background:#F5F5F5;padding:10px 14px;font-size:15px}.phh span{color:#5B6672}" +
     ".ai{border-top:1px solid #E5E7EB;padding:10px 14px}.ai summary{margin:0;font-weight:600}.ai p{margin:8px 0 0;font-size:14.5px}.aim{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.aim span{font-size:12.5px;background:#EEF2FF;border-radius:4px;padding:2px 8px}" +
     ".pri{font-size:12px;border-radius:4px;padding:1px 7px;margin-right:4px}.p-high{background:#FDECEC;color:#B91C1C}.p-medium{background:#FFF1E6;color:#C2410C}.p-low{background:#E7F7EC;color:#0F7A32}.dry{background:#FFF3C4;border:1px solid #E8C95A;padding:10px 14px;border-radius:8px;font-size:14px}</style></head><body>" +

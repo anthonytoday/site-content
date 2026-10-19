@@ -49,7 +49,7 @@ export function leadProperties(data, sub, r, resultUrl) {
     Level: sel(r.level + " " + r.levelName),
     "Critical Flags": { multi_select: r.flags.map((f) => ({ name: f.label })) },
     "Result Page": { url: resultUrl || null },
-    Stage: { status: { name: "Result sent" } },
+    Stage: { status: { name: sub.held ? "Held" : "Result sent" } },
     "Education Address": { checkbox: !!sub.edu },
     "Do Not Email": { checkbox: !!sub.edu || !!sub.unsubscribed },
     Consent: { checkbox: !!sub.consent },

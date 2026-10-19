@@ -49,10 +49,15 @@ export function computeTokens(data, sub, r, links, kind = "free") {
   T.plan = sub.plan === "not_sure" ? "Notion" : label(data.profile.plan, sub.plan);
   T.report_date = fmtDate(kind === "fixlist" && sub.paid_at ? sub.paid_at : sub.submitted_at);
   T.overall_score = String(r.total); T.overall_level = r.levelName; T.overall_level_number = String(r.level);
+  // Maturity staircase image (one PNG per level). Base is MATURITY_IMG_BASE (preview: pages.dev, production: www).
+  { const M = data.maturity || { image_path: "/assets/img/security-check/maturity-level-", footnote: "Your overall level is your lowest area." };
+    T.maturity_img_url = (links.maturity_base || "https://www.anthonytoday.com") + M.image_path + r.level + ".png";
+    T.maturity_alt = "Maturity level " + r.level + " of 5: " + r.levelName; T.maturity_footnote = M.footnote; }
   for (const d of r.domains) {
     T["area_" + d.id + "_score"] = d.score === null ? "N/A" : String(d.score);
     T["area_" + d.id + "_bar"] = bar(d.score);
     T["area_" + d.id + "_level"] = d.score === null ? "N/A" : d.levelName;
+    T.overall_bar = bar(r.total);
   }
   T.points_earned = String(r.earned); T.points_possible = String(r.possible);
   const flagged = new Set(r.flags.map((f) => f.question));
@@ -60,7 +65,8 @@ export function computeTokens(data, sub, r, links, kind = "free") {
     T[x.id + "_answer"] = x.answer === "NA" ? q[x.id].solo_na : q[x.id].answers[x.answer].text;
     T[x.id + "_score"] = x.points === null ? "N/A" : flagged.has(x.id) ? x.points + ", flag" : String(x.points);
   }
-  const managed = r.domains.filter((d) => d.level !== null && d.level >= 3);
+  // "In good shape" = at or above the recommended level (Level 4 Quantitatively Managed, score >= 60). Old 4-level "Managed" was the same band.
+  const managed = r.domains.filter((d) => d.level !== null && d.level >= (data.scoring.recommended_level_number || 4));
   const snip = data.strength_snippets || {};
   T.strength_summary = managed.length ? joinAnd(managed.map((d) => snip[d.id] || d.name.toLowerCase() + " is in good shape")) : "a few basics are in place";
   const top = r.topRisks;
@@ -107,14 +113,21 @@ export function computeTokens(data, sub, r, links, kind = "free") {
     const src = qq.fixes.find((f) => f.source) || notes.find((p) => p.source);
     T["risk_" + n + "_source_link"] = src ? { link: src.source, text: "Notion help" } : "";
   });
-  T.recommended_level = data.scoring.recommended_level;
-  const below = r.domains.filter((d) => d.level !== null && d.level < 3);
-  T.areas_at_recommended_count = String(r.domains.filter((d) => d.level === null || d.level >= 3).length);
+  // PM line: "Recommended Level for a Team Your Size: Level 4, Quantitatively Managed, in every area."
+  { const RL = data.scoring.levels.find((l) => l.level === (data.scoring.recommended_level_number || 4)); T.recommended_level = "Level " + RL.level + ", " + RL.name + ","; }
+  const REC = data.scoring.recommended_level_number || 3;
+  const below = r.domains.filter((d) => d.level !== null && d.level < REC);
+  T.areas_at_recommended_count = String(r.domains.filter((d) => d.level === null || d.level >= REC).length);
   T.areas_below_recommended = below.length ? joinAnd(below.map((d) => DOMAIN_SHORT[d.id])) : "No area";
-  const gap = below.length ? Math.max(...below.map((d) => 3 - d.level)) : 0;
-  T.below_recommended_verb = below.length === 0 ? "is" : (below.length === 1 ? "is " : "are ") + (gap === 2 ? "two levels" : "one level");
+  const gap = below.length ? Math.max(...below.map((d) => REC - d.level)) : 0;
+  const GAPW = ["", "one level", "two levels", "three levels", "four levels"];
+  T.below_recommended_verb = below.length === 0 ? "is" : (below.length === 1 ? "is " : "are ") + GAPW[gap];
   T.peer_comparison_enabled = ""; T.peer_comparison_text = "";
+  // Most relevant first: features tied to a flagged question, then to the weakest answers (lowest points).
+  const flaggedQ = new Set(r.flags.map((f) => f.question));
+  const rel = (f) => (f.q.some((id) => flaggedQ.has(id)) ? -100 : 0) + Math.min(...f.q.map((id) => (pq[id].points === null ? 99 : pq[id].points)));
   T.plan_features_unused = (PLAN_FEATURES[plan] || PLAN_FEATURES.plus).map((k) => F[k]).filter((f) => f.q.some((id) => pq[id].points !== null && pq[id].points < 10))
+    .map((f, i) => ({ f, i })).sort((a, b) => rel(a.f) - rel(b.f) || a.i - b.i).map((x) => x.f)
     .map((f) => ({ b: f.b, t: f.t + " ", url: f.url, urlText: f.url.includes("pricing") ? "Pricing" : "Notion help" }));
   if (plan === "not_sure" && T.plan_features_unused.length) T.plan_features_unused.push({ b: "", t: "Check your plan in Settings → Billing." });
   T.result_id = sub.result_id || "";

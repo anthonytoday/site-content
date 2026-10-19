@@ -45,7 +45,9 @@ async function path(b, label, { team, plan, ans, country, edit }) {
   ok(!gateErr, `${label}: no gate error (${gateErr || "none"})`);
   if (shown) {
     const txt = await pg.$eval("#r-card", (e) => e.innerText);
-    ok(/Level \d/.test(txt), `${label}: level visible`);
+    ok(/Level \d, (Initial|Managed|Defined|Quantitatively Managed|Optimizing)/.test(txt), `${label}: new level name visible`);
+    ok(!/\b(Exposed|Hardened|Basic)\b/.test(txt), `${label}: no old level names`);
+    ok(await pg.waitForFunction(() => { const i = document.querySelector("#r-card img.stair"); return i && i.complete && i.naturalWidth > 0; }, { timeout: 10000 }).then(() => true).catch(() => false), `${label}: staircase image on result screen`);
     ok(!/\{\{|\}\}/.test(txt), `${label}: no unfilled placeholders on result`);
   }
   ok(errs.length === 0, `${label}: no JS errors ${errs.join(" | ")}`);
@@ -60,11 +62,17 @@ async function layout(b, url, label) {
     await pg.goto(url, { waitUntil: "networkidle0" });
     const m = await pg.evaluate(() => ({ sw: document.documentElement.scrollWidth, iw: window.innerWidth,
       empty: [...document.querySelectorAll("h1,h2,h3,h4")].filter((h) => { const sm = h.closest("summary"); if (sm) return !sm.parentElement.textContent.replace(sm.textContent, "").trim(); let n = h.nextElementSibling; while (n && !/^H[1-4]$/.test(n.tagName) && !n.textContent.trim()) n = n.nextElementSibling; return !n || /^H[1-4]$/.test(n.tagName) && Number(n.tagName[1]) <= Number(h.tagName[1]); }).map((h) => h.textContent.trim()),
-      braces: /\{\{|\}\}/.test(document.body.innerText), fav: !!document.querySelector('link[rel~="icon"]') }));
+      braces: /\{\{|\}\}/.test(document.body.innerText), fav: !!document.querySelector('link[rel~="icon"]'),
+      old: (document.body.innerText.match(/\b(Exposed|Hardened|Basic)\b/g) || []).join(","),
+      stair: [...document.querySelectorAll("img.stair")].map((i) => i.complete && i.naturalWidth > 0 && i.getBoundingClientRect().width <= window.innerWidth),
+      footer: /© 2026 AnthonyToday\.com\. All rights reserved\./.test(document.body.innerText) }));
     ok(m.sw <= m.iw, `${label} @${w}: no horizontal scroll (${m.sw} <= ${m.iw})`);
     ok(m.empty.length === 0, `${label} @${w}: no empty headings ${m.empty.join(", ")}`);
     ok(!m.braces, `${label} @${w}: no {{ }}`);
     if (w === 1280) ok(m.fav, `${label}: favicon link`);
+    ok(!m.old, `${label} @${w}: no old level names ${m.old}`);
+    ok(m.stair.length === 1 && m.stair[0], `${label} @${w}: staircase image loads and fits`);
+    ok(m.footer, `${label} @${w}: standard footer`);
     await pg.close();
   }
 }

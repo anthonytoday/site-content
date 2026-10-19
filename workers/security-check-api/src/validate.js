@@ -1,5 +1,7 @@
 // Strict input controls (tech spec, Input Controls). Every non-typed field must be an exact option value.
 // Typed fields: name (60), company (80), work email (format). Stored as data only; no LLM anywhere in this Worker.
+import { DISPOSABLE } from "./disposable.js";
+export const isDisposable = (email) => { const d = String(email).split("@")[1] || ""; const parts = d.toLowerCase().split("."); for (let i = 0; i < parts.length - 1; i++) if (DISPOSABLE.has(parts.slice(i).join("."))) return true; return false; };
 const EMAIL_RE = /^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]{1,64}@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)+$/;
 // Academic and school domains: get the result, flagged edu, never marketed to.
 const EDU_RE = /(\.edu$|\.edu\.[a-z]{2,3}$|\.ac\.[a-z]{2,3}$|\.k12\.[a-z]{2}\.us$|\.sch\.[a-z]{2,3}$|\.school$|\.ac$|\.edu\.[a-z]{2}\.[a-z]{2}$)/i;
@@ -45,7 +47,7 @@ export function validateSubmission(data, body) {
   out.name = cleanText(body.name, 60); if (!out.name) errors.push("name");
   out.company = cleanText(body.company, 80); if (!out.company) errors.push("company");
   const email = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
-  if (email.length > 254 || !EMAIL_RE.test(email)) errors.push("email"); else out.email = email;
+  if (email.length > 254 || !EMAIL_RE.test(email)) errors.push("email"); else if (isDisposable(email)) errors.push("email_disposable"); else out.email = email;
   if (body.consent !== true) errors.push("consent");
   out.consent = body.consent === true;
   out.source = mapSource(data, body.source);

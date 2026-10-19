@@ -36,3 +36,21 @@ export async function resendSend(env, body, idem) {
   if (!res.ok) throw new Error("resend send " + res.status + " " + (j.message || ""));
   return j.id;
 }
+
+// Internal notification to admin@ (separate plain email, never a bcc of the client email: no client unsubscribe link, no List-Unsubscribe).
+export function internalPayload(env, { kind, sub, r, L, held, doNotEmail, leadUrl }) {
+  const test = /@anthonytoday\.com$/i.test(sub.email) ? "[TEST] " : "";
+  const subject = test + (kind === "fixlist"
+    ? "[Security Check] Fix List purchased: " + sub.company + " | " + r.total + "/100"
+    : "[Security Check] New result: " + sub.company + " | " + r.total + "/100 | Level " + r.level + " " + r.levelName);
+  const lines = [
+    "Name: " + sub.name, "Email: " + sub.email, "Company: " + sub.company, "Country: " + (sub.country || "n/a"),
+    "Team size: " + (sub.team_size_label || sub.team_size), "Plan: " + (sub.plan_label || sub.plan), "Score: " + r.total + "/100, Level " + r.level + " " + r.levelName,
+    "Critical flags: " + (r.flags.length ? r.flags.map((f) => f.label).join(", ") : "none"),
+    "Client email: " + (held ? "held (real-client lock)" : kind === "fixlist" ? "Fix List email sent" : "result email sent"),
+    "Do Not Email: " + (doNotEmail ? "yes" : "no"), "Leads row: " + (leadUrl || "n/a"), "Result (/r/): " + L.result,
+  ];
+  if (kind === "fixlist") lines.push("Fix List (/f/): " + L.fixlist_page, "Stripe session: " + (sub.stripe_session || "n/a"));
+  return { from: env.MAIL_FROM, to: [env.INTERNAL_NOTIFY_TO || "admin@anthonytoday.com"], subject, text: lines.join("\n") + "\n",
+    tags: [{ name: "flow", value: "security_check_internal" }, { name: "owner", value: "website_ops" }] };
+}

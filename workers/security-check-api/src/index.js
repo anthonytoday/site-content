@@ -7,9 +7,9 @@ import fixSnapshot from "../templates/notion-fixlist.blocks.json";
 import { score } from "./scoring.js";
 import { validateSubmission, esc } from "./validate.js";
 import { computeTokens } from "./tokens.js";
-import { buildResultEmail, buildFixlistEmail, resendSuppressed, resendSuppress, emailPayload, resendSend } from "./email.js";
+import { buildResultEmail, buildFixlistEmail, resendSuppressed, resendSuppress, emailPayload, resendSend, internalPayload } from "./email.js";
 import { Notion, leadProperties, paidProperties } from "./notion.js";
-import { readTree, transform, writeTree, actionRows } from "./notion-tpl.js";
+import { readTree, transform, writeTree, actionRows, withFooter } from "./notion-tpl.js";
 import { renderPage, renderBlocks, renderActionPlan } from "./render.js";
 import { fmtDate } from "./tokens.js";
 
@@ -31,7 +31,7 @@ const testPhase = (env) => isDry(env) || locked(env);
 // Held: the Worker is live but this address is not allowlisted yet. Leads row is written, the email is held in KV (heldmail:<rid>).
 const heldFor = (env, email) => !isDry(env) && !liveFor(env, email);
 const json = (obj, status = 200, headers = {}) => new Response(JSON.stringify(obj, null, 1), { status, headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store", ...headers } });
-const html = (s, status = 200) => new Response(s, { status, headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow", "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data: https://www.anthonytoday.com; form-action 'self'", "Referrer-Policy": "no-referrer" } });
+const html = (s, status = 200) => new Response(s, { status, headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow", "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data: https://www.anthonytoday.com https://security-check.security-check-preview.pages.dev; form-action 'self'", "Referrer-Policy": "no-referrer" } });
 
 function cors(env, req) {
   const o = req.headers.get("Origin") || "";
@@ -67,6 +67,7 @@ async function links(env, sub) {
     fixlist_page: base + "/f/" + sub.result_id + "?t=" + (await sign(env, "f:" + sub.result_id)),
     fixlist: env.FIXLIST_PAYMENT_LINK + "?client_reference_id=" + sub.result_id,
     unsub: base + "/unsubscribe?token=" + ut + "." + (await sign(env, "u:" + ut)),
+    maturity_base: env.MATURITY_IMG_BASE || "https://www.anthonytoday.com",
   };
 }
 
@@ -123,6 +124,16 @@ async function handleSubmit(req, env, ctx, h) {
   return json(out, 200, h);
 }
 
+// Internal notification to admin@ (free result incl. held, and every Fix List purchase). Never blocks the client flow.
+async function notifyInternal(env, kind, sub, r, L, idem) {
+  if (isDry(env) || !env.RESEND_API_KEY) return { dry: true };
+  const leadUrl = sub.lead_page_id ? "https://www.notion.so/" + sub.lead_page_id.replace(/-/g, "") : null;
+  const lab = (list, v) => (list.find((o) => o.value === v) || {}).label || v;
+  sub = { ...sub, team_size_label: lab(data.profile.team_size, sub.team_size), plan_label: lab(data.profile.plan, sub.plan) };
+  const payload = internalPayload(env, { kind, sub, r, L, held: !!sub.held, doNotEmail: !!sub.edu || !!sub.unsubscribed, leadUrl });
+  const id = await resendSend(env, payload, idem);
+  return { resendId: id, subject: payload.subject, tags: payload.tags };
+}
 async function runSubmitPipeline(env, sub, r, L) {
   const log = [];
   const dry = sub.dry_run;
@@ -134,7 +145,7 @@ async function runSubmitPipeline(env, sub, r, L) {
   // 1. Free Result page in Notion (internal copy in the one-pager; the client opens the Worker-rendered link, see report).
   await step("notion_free_result_page", async () => {
     const tpl = await templateBlocks(env, "free");
-    const blocks = transform(tpl.blocks, T);
+    const blocks = withFooter(transform(tpl.blocks, T));
     if (dry || !notion) return { dry: true, template: tpl.source, blocks: blocks.length, parent: env.NOTION_RESULTS_PARENT_ID || "(unset)" };
     const page = await notion.call("POST", "/pages", { parent: { page_id: env.NOTION_RESULTS_PARENT_ID }, icon: { type: "emoji", emoji: "🛡️" }, properties: { title: { title: [{ type: "text", text: { content: "Free Result: " + sub.company + " (" + sub.submission_id + ")" } }] } } });
     await writeTree(notion, page.id, blocks);
@@ -165,7 +176,7 @@ async function runSubmitPipeline(env, sub, r, L) {
   await step("resend_result_email", async () => {
     const msg = buildResultEmail(T);
     const payload = emailPayload(env, { to: sub.email, msg, flow: "security_check_result", unsubUrl: L.unsub });
-    await env.SC.put("mail:" + sub.result_id, JSON.stringify(payload), { expirationTtl: 7 * 86400 });
+    await env.SC.put("mail:" + sub.result_id, JSON.stringify(payload), { expirationTtl: (sub.held ? 60 : 7) * 86400 });
     if (!sub.consent) return { skipped: "no consent" };
     if (sub.unsubscribed) return { skipped: "unsubscribed" };
     if (sub.held) { await env.SC.put("heldmail:" + sub.result_id, JSON.stringify({ at: nowIso(), idem: "sc-result-" + sub.result_id }), { expirationTtl: 60 * 86400 }); return { held: true, subject: msg.subject, to: sub.email, note: "real-client lock: email held, replay from KV heldmail:" + sub.result_id }; }
@@ -177,8 +188,27 @@ async function runSubmitPipeline(env, sub, r, L) {
     sub.score_email_sent = true; sub.resend_result_id = id;
     return { resendId: id, suppressionCheck: sup === null ? "unavailable (key lacks suppression read)" : "not suppressed", tags: payload.tags, headers: Object.keys(payload.headers || {}) };
   });
+  await step("internal_notify", () => notifyInternal(env, "result", sub, r, L, "sc-int-result-" + sub.result_id));
   await env.SC.put("sub:" + sub.result_id, JSON.stringify({ ...sub, log }), { expirationTtl: 60 * 60 * 24 * 730 });
   return log;
+}
+
+// Replay held result emails once an address is live (lock lifted, or allowlisted): send the stored email, set Leads Stage to "Result sent".
+async function replayHeld(env) {
+  const done = [];
+  const list = await env.SC.list({ prefix: "heldmail:", limit: 50 });
+  for (const k of list.keys) {
+    const rid = k.name.slice(9); const sub = await env.SC.get("sub:" + rid, "json"); const payload = await env.SC.get("mail:" + rid, "json");
+    if (!sub || !payload) { done.push({ rid, skipped: "missing data" }); continue; }
+    if (!liveFor(env, sub.email)) { done.push({ rid, skipped: "still locked" }); continue; }
+    try {
+      if (!(await env.SC.get("unsub:" + sub.email)) && !sub.unsubscribed) sub.resend_result_id = await resendSend(env, payload, "sc-result-" + rid);
+      if (env.NOTION_TOKEN && env.NOTION_CRM_DB_ID) { const n = new Notion(env.NOTION_TOKEN); const lead = await n.findLead(env.NOTION_CRM_DB_ID, sub.email); if (lead) await n.call("PATCH", "/pages/" + lead.id, { properties: { Stage: { status: { name: "Result sent" } } } }); }
+      sub.held = false; await env.SC.put("sub:" + rid, JSON.stringify(sub), { expirationTtl: 60 * 60 * 24 * 730 }); await env.SC.delete(k.name);
+      done.push({ rid, sent: sub.resend_result_id || "skipped (unsubscribed)" });
+    } catch (e) { done.push({ rid, error: String(e.message).slice(0, 120) }); }
+  }
+  return json({ ok: true, processed: done.length, done });
 }
 
 // ---------- pages served by the Worker (signed links) ----------
@@ -211,10 +241,12 @@ async function handleResultPage(env, rid, t, kind) {
   const sub = await env.SC.get("sub:" + rid, "json");
   if (!sub) return html("<p>Result not found.</p>", 404);
   if (kind === "fix" && !sub.paid && !sub.dry_run) return html("<p>Your Fix List is being prepared. Check your inbox.</p>", 404);
+  // Re-score from the stored answers so older results show the current level bands and names.
+  sub.result = score(data, sub.answers, sub.team_size);
   const L = await links(env, sub);
   const T = computeTokens(data, sub, sub.result, L, kind === "free" ? "free" : "fixlist");
   const tpl = await templateBlocks(env, kind === "free" ? "free" : "fix");
-  const blocks = webVariant(transform(tpl.blocks, T));
+  const blocks = webVariant(withFooter(transform(tpl.blocks, T)));
   const banner = sub.dry_run && isDry(env) ? "DRY-RUN PREVIEW. Template source: " + tpl.source + ". Nothing was created in Notion and no email was sent." : null;
   const extra = kind === "fix" ? { actionDbHtml: renderActionPlan(actionRows(data, sub.result, sub.paid_at || sub.submitted_at, sub.plan), fmtDate) } : {};
   return html(renderPage(kind === "free" ? "Free Security Check Result" : "Security Check Fix List", blocks, banner, extra));
@@ -307,12 +339,13 @@ async function runFixlistPipeline(env, sub, s, dry) {
   sub.paid = true; sub.paid_at = nowIso(); sub.stripe_session = s.id; sub.amount_paid = (s.amount_total || 0) / 100;
   await env.SC.put("sub:" + sub.result_id, JSON.stringify(sub), { expirationTtl: 60 * 60 * 24 * 730 });
   const L = await links(env, sub);
+  sub.result = score(data, sub.answers, sub.team_size); // current bands
   const T = computeTokens(data, sub, sub.result, L, "fixlist");
   const notion = env.NOTION_TOKEN ? new Notion(env.NOTION_TOKEN) : null;
   let fixUrl = L.fixlist_page, viewsLog = null;
   await step("notion_fixlist_page", async () => {
     const tpl = await templateBlocks(env, "fix");
-    const blocks = transform(tpl.blocks, T);
+    const blocks = withFooter(transform(tpl.blocks, T));
     const rows = actionRows(data, sub.result, sub.paid_at, sub.plan);
     if (dry || !notion) return { dry: true, template: tpl.source, blocks: blocks.length, actionRows: rows.length };
     const pg = await notion.call("POST", "/pages", { parent: { page_id: env.NOTION_RESULTS_PARENT_ID }, icon: { type: "emoji", emoji: "🛡️" }, properties: { title: { title: [{ type: "text", text: { content: "Fix List: " + sub.company + " (" + sub.submission_id + ")" } }] } } });
@@ -356,6 +389,7 @@ async function runFixlistPipeline(env, sub, s, dry) {
     const res = await fetch(env.CC_INGEST_URL, { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer " + env.CC_INGEST_TOKEN }, body: JSON.stringify({ type: "security_check.paid", result_id: sub.result_id, email: sub.email, stripe_session: s.id, amount: sub.amount_paid, paid_at: sub.paid_at }) });
     return { status: res.status };
   });
+  await step("internal_notify", () => notifyInternal(env, "fixlist", { ...sub, held: dry }, sub.result, L, "sc-int-fix-" + s.id));
   await env.SC.put("sub:" + sub.result_id, JSON.stringify({ ...sub, fixlog: log }), { expirationTtl: 60 * 60 * 24 * 730 });
   return log;
 }
@@ -396,6 +430,10 @@ export default {
         return await handleStripe(req, env, ctx, true);
       }
       if (url.pathname === "/preview/email" && req.method === "GET") return await handlePreviewEmail(env, url);
+      if (url.pathname === "/admin/replay-held" && req.method === "POST") {
+        if (!env.TEST_TOKEN || !safeEq(req.headers.get("X-Test-Token") || "", env.TEST_TOKEN)) return json({ ok: false }, 403);
+        return await replayHeld(env);
+      }
       const m = url.pathname.match(/^\/(r|f)\/([a-z0-9]+)$/);
       if (m && req.method === "GET") return await handleResultPage(env, m[2], url.searchParams.get("t"), m[1] === "r" ? "free" : "fix");
       return json({ ok: false, error: "not_found" }, 404, h);

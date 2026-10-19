@@ -37,6 +37,7 @@ no_offer_popup: true
 .qf .prof{width:100%;border-collapse:collapse;font-size:14.5px;margin:10px 0 6px}
 .qf .prof td{padding:7px 4px;border-bottom:1px solid var(--border);vertical-align:middle}
 .qf .prof .b{font-family:ui-monospace,Menlo,monospace;letter-spacing:1px;color:var(--blue);white-space:nowrap}
+.qf img.stair{display:block;width:600px;max-width:100%;height:auto;margin:14px 0 4px}
 .qf .flag{background:#FDECEC;border:1px solid #F5B5B5;border-radius:8px;padding:12px 14px;margin:12px 0;font-size:15px}
 .qf .legend{font-size:12.5px;color:var(--text-gray)}
 .qf .cta{margin-top:22px;padding:22px;border-radius:12px;background:#EAF0FF;border:1px solid #C9D6FF}
@@ -109,11 +110,11 @@ no_offer_popup: true
       <form id="f-gate" novalidate>
         <div class="field"><label class="fl" for="f-name">{{ ui["gate.name"] }}</label><input type="text" id="f-name" maxlength="60" autocomplete="name"><p class="err" id="e-name"></p></div>
         <div class="field"><label class="fl" for="f-email">{{ ui["gate.email"] }}</label><p class="hint">{{ ui["gate.email.helper"] }}</p><input type="email" id="f-email" maxlength="254" autocomplete="email"><p class="err" id="e-email"></p></div>
-        <label class="consent"><input type="checkbox" id="f-consent"> {{ ui["gate.consent"] }}</label>
+        <label class="consent"><input type="checkbox" id="f-consent"> {{ ui["gate.consent"] }}</label><p class="err" id="e-consent"></p>
         <div class="field"><label class="fl" for="f-company">{{ ui["gate.company"] }}</label><p class="hint">{{ ui["gate.company.helper"] }}</p><input type="text" id="f-company" maxlength="80" autocomplete="organization"><p class="err" id="e-company"></p></div>
         <div class="field">
           <label class="fl" for="f-country">{{ ui["gate.country"] }}</label>
-          <select id="f-country"><option value="">Choose one</option>{% for c in sc.profile.country %}<option>{{ c }}</option>{% endfor %}</select>
+          <select id="f-country"><option value="">Choose one</option>{% for c in sc.profile.country %}<option>{{ c }}</option>{% endfor %}</select><p class="err" id="e-country"></p>
         </div>
         <input type="text" name="sc_hp_x" id="f-website" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" tabindex="-1" autocomplete="off" aria-label="Leave this field empty">
         <p class="err" id="e-gate" role="alert"></p>
@@ -134,6 +135,7 @@ no_offer_popup: true
   var API = {{ site.security_check_api | jsonify }};
   var UI = {{ ui | jsonify }};
   var FIRST = {{ sc.scoring.flag_first_suffix | jsonify }};
+  var MAT = {{ sc.maturity | jsonify }};
   var $ = function (id) { return document.getElementById(id); };
   var screens = [].slice.call(document.querySelectorAll(".qf .scr"));
   var qscreens = [].slice.call(document.querySelectorAll(".qf .qscr"));
@@ -169,9 +171,10 @@ no_offer_popup: true
     for (var i = 0; i < qscreens.length; i++) if (!validAnswer(qscreens[i])) return qscreens[i].id;
     return null;
   }
-  function jumpTo(id) {
+  // Jump to the exact question (or the profile step) and say why. changed = the server or team size made the old answer invalid.
+  function jumpTo(id, changed) {
     if (id === "s-profile") { $("e-profile").textContent = UI["err.required_choice"]; show(id); return; }
-    var s = $(id); s.querySelector(".err").textContent = UI["err.required_choice"]; show(id);
+    var s = $(id); s.querySelector(".err").textContent = changed ? UI["err.q_changed"] : UI["err.q_unanswered"]; show(id);
   }
 
   $("b-start").addEventListener("click", function () {
@@ -184,7 +187,7 @@ no_offer_popup: true
     s.querySelector(".nxt").addEventListener("click", function () {
       var q = s.getAttribute("data-q");
       var c = s.querySelector('input[name="' + q + '"]:checked');
-      if (!c || c.closest(".opt").hidden) { s.querySelector(".err").textContent = UI["err.required_choice"]; return; }
+      if (!c || c.closest(".opt").hidden) { s.querySelector(".err").textContent = UI["err.q_unanswered"]; return; }
       s.querySelector(".err").textContent = "";
       state.answers[q] = c.value;
       if (i + 1 < qscreens.length) show(qscreens[i + 1].id); else show("s-gate");
@@ -214,7 +217,9 @@ no_offer_popup: true
       t.appendChild(tr);
     });
     card.appendChild(t);
-    card.appendChild(el("p", "legend", "Levels: 1 Exposed (0 to 29), 2 Basic (30 to 59), 3 Managed (60 to 79), 4 Hardened (80 to 100). Your overall level is your lowest area."));
+    var lv = MAT.levels[r.level - 1] || MAT.levels[0];
+    var im = el("img", "stair"); im.src = MAT.image_path + r.level + ".png"; im.width = 600; im.alt = "Maturity level " + r.level + " of 4: " + lv.name; card.appendChild(im);
+    card.appendChild(el("p", "legend", MAT.footnote));
     r.flags.forEach(function (f, i) { var p = el("div", "flag"); p.appendChild(el("b", null, f.label + " (" + f.q + ").")); p.appendChild(document.createTextNode(" " + f.headline + (i === 0 ? " " + FIRST : ""))); card.appendChild(p); });
     if (r.topRisks.length) {
       card.appendChild(el("h2", null, "Priority Risks"));
@@ -230,21 +235,27 @@ no_offer_popup: true
     var cp = el("p"); cp.appendChild(el("b", null, "Get your Fix List for {{ sc.offers.fixlist.price }}.")); cp.appendChild(document.createTextNode(" Delivered by email right after payment. 7-day refund on request.")); cta.appendChild(cp);
     var b = el("a", "btn", "Get your Fix List"); b.href = withUtm(d.fixlistUrl); cta.appendChild(b);
     card.appendChild(cta);
-    if (d.held) card.appendChild(el("p", "disc", "Your result is shown above. The email copy is on hold while we finish testing, so it has not been sent yet."));
+    // Only while the real-client lock holds this address (Worker sets held=false once LIVE_FOR="all").
+    if (d.held === true) card.appendChild(el("p", "disc", "Your result is shown above. Keep this page open or save it, as your email copy is not sent yet."));
     if (d.dryRun) { var n = el("p", "disc", "Preview mode: nothing was sent or stored outside the test Worker. "); var pe = el("a", null, "See the email that would be sent"); pe.href = d.previews.email; pe.target = "_blank"; n.appendChild(pe); card.appendChild(n); }
     state.result = d;
   }
 
-  // Server said no: point to the exact field or question instead of a dead end.
+  // Server said no: show the reason next to the exact field or question and go there.
+  function fieldError(id, msg) { $(id).textContent = msg; var f = $(id).parentNode.querySelector("input,select"); if (f) { f.focus(); f.scrollIntoView({ block: "center" }); } }
   function serverError(x) {
     var err = $("e-gate"), f = (x.j.fields || [])[0] || "";
-    if (x.status !== 400 || !f) { err.textContent = UI["err.network"]; return; }
+    if (x.status !== 400 || !f) { err.textContent = UI["err.server"]; return; }
     var m = /^answers\.(q\d+)$/.exec(f);
-    if (m && $("s-" + m[1])) { delete state.answers[m[1]]; jumpTo("s-" + m[1]); return; }
+    if (m && $("s-" + m[1])) { var had = !!state.answers[m[1]]; delete state.answers[m[1]]; jumpTo("s-" + m[1], had); return; }
     if (f === "team_size" || f === "role" || f === "plan") { jumpTo("s-profile"); return; }
-    if (f === "name" || f === "email" || f === "company") { $("e-" + f).textContent = f === "email" ? UI["err.email_invalid"] : UI["err.required_text"]; return; }
-    if (f === "consent") { err.textContent = UI["err.consent"]; return; }
-    err.textContent = UI["err.invalid_option"];
+    if (f === "email_disposable") { fieldError("e-email", UI["err.email_disposable"]); return; }
+    if (f === "email") { fieldError("e-email", UI["err.email_invalid"]); return; }
+    if (f === "name") { fieldError("e-name", UI["err.name_missing"]); return; }
+    if (f === "company") { fieldError("e-company", UI["err.company_missing"]); return; }
+    if (f === "country") { fieldError("e-country", UI["err.country_missing"]); return; }
+    if (f === "consent") { fieldError("e-consent", UI["err.consent"]); return; }
+    err.textContent = UI["err.server"];
   }
   $("f-gate").addEventListener("submit", function (e) {
     e.preventDefault();
@@ -252,14 +263,14 @@ no_offer_popup: true
     var name = $("f-name").value.trim(), email = $("f-email").value.trim(), company = $("f-company").value.trim(), country = $("f-country").value;
     var bad = false;
     function fe(id, msg) { $(id).textContent = msg || ""; if (msg) bad = true; }
-    fe("e-name", !name ? UI["err.required_text"] : name.length > 60 ? UI["err.too_long_name"] : "");
-    fe("e-email", !email ? UI["err.required_text"] : !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) ? UI["err.email_invalid"] : "");
-    fe("e-company", !company ? UI["err.required_text"] : company.length > 80 ? UI["err.too_long_company"] : "");
-    if (bad) { err.textContent = ""; return; }
-    if (!country) { err.textContent = UI["err.required_choice"]; return; }
-    if (!$("f-consent").checked) { err.textContent = UI["err.consent"]; return; }
+    fe("e-name", !name ? UI["err.name_missing"] : name.length > 60 ? UI["err.too_long_name"] : "");
+    fe("e-email", !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) ? UI["err.email_invalid"] : "");
+    fe("e-consent", !$("f-consent").checked ? UI["err.consent"] : "");
+    fe("e-company", !company ? UI["err.company_missing"] : company.length > 80 ? UI["err.too_long_company"] : "");
+    fe("e-country", !country ? UI["err.country_missing"] : "");
     err.textContent = "";
-    var gap = firstGap(); if (gap) { jumpTo(gap); return; }
+    if (bad) { var first = document.querySelector("#f-gate .err:not(:empty)"); if (first) fieldError(first.id, first.textContent); return; }
+    var gap = firstGap(); if (gap) { var gq = gap.slice(2); jumpTo(gap, gap !== "s-profile" && !!state.answers[gq]); return; }
     state.email = email;
     var btn = $("b-submit"); btn.disabled = true; btn.textContent = UI["result.loading"];
     var body = { team_size: $("f-team").value, role: $("f-role").value, plan: $("f-plan").value || "not_sure", name: name, email: email, company: company,
@@ -270,10 +281,10 @@ no_offer_popup: true
       .then(function (x) {
         btn.disabled = false; btn.textContent = UI["gate.submit_button"] + " \u2192";
         if (!x.j.ok) { serverError(x); return; }
-        if (!x.j.result) { err.textContent = UI["err.network"]; return; }
+        if (!x.j.result) { err.textContent = UI["err.server"]; return; }
         renderResult(x.j); show("s-result");
       })
-      .catch(function () { btn.disabled = false; btn.textContent = UI["gate.submit_button"] + " \u2192"; err.textContent = UI["err.network"]; });
+      .catch(function () { btn.disabled = false; btn.textContent = UI["gate.submit_button"] + " \u2192"; err.textContent = UI["err.server"]; });
   });
 
 })();

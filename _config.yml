@@ -12,6 +12,8 @@ social:
     - https://www.notion.com/@anthonytoday
 exclude:
   - README.md
+  - tests/
+  - tools/
   - gumroad-mcp/
   - credentials.md
   - "*.py"

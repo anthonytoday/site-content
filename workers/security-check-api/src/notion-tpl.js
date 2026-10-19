@@ -96,6 +96,18 @@ export function transform(blocks, T, ctx = {}) {
     if (text === "{{else}}") { skip.push(!skip.pop()); continue; }
     if (skip.some(Boolean)) continue;
     if (/^EXAMPLE DATA/.test(text)) continue;
+    // Plain levels legend -> maturity staircase image (external) plus the footnote line.
+    if (k === "paragraph" && /^Legend:\s*$/.test(text) && T.maturity_img_url) {
+      while (blocks[i + 1] && blocks[i + 1].type === "bulleted_list_item" && /^Level \d/.test(plain(blocks[i + 1].bulleted_list_item.rich_text).trim())) i++;
+      out.push({ type: "image", image: { type: "external", external: { url: T.maturity_img_url }, caption: [{ type: "text", text: { content: T.maturity_alt } }] } });
+      out.push({ type: "paragraph", paragraph: { rich_text: [{ type: "text", text: { content: T.maturity_footnote }, annotations: { color: "gray" } }] } });
+      continue;
+    }
+    // Template staircase image: swap in the PNG for this result's level and its alt text.
+    if (k === "image" && v.type === "external" && /maturity-level-\d\.png/.test(v.external.url) && T.maturity_img_url) {
+      out.push({ type: "image", image: { type: "external", external: { url: T.maturity_img_url }, caption: [{ type: "text", text: { content: T.maturity_alt } }] } });
+      continue;
+    }
     if (k === "paragraph" && /^➡️\s*Book on WhatsApp/.test(text)) { ctx.droppedBar = true; continue; }
     if (k === "divider" && ctx.droppedBar && out.length && out[out.length - 1].type === "divider") { ctx.droppedBar = false; continue; }
     const mList = text.match(/^\{\{(\w+)\}\}$/);
@@ -103,6 +115,12 @@ export function transform(blocks, T, ctx = {}) {
       const name = mList[1], items = T[name];
       if (name === "flags") { out.push({ type: "paragraph", paragraph: { rich_text: items.flatMap((it, n) => [...(n ? [txt("\n")] : []), ...itemRt(it)]) } }); continue; }
       const type = LIST_NUMBERED.has(name) ? "numbered_list_item" : LIST_BULLET.has(name) || k === "bulleted_list_item" ? "bulleted_list_item" : "numbered_list_item";
+      if (name === "plan_features_unused" && items.length > 3) {
+        // Top 3 most relevant as bullets, the rest in a collapsed toggle.
+        for (const it of items.slice(0, 3)) out.push({ type, [type]: { rich_text: itemRt(it) } });
+        out.push({ type: "toggle", toggle: { rich_text: [txt("More features in your plan")] }, children: items.slice(3).map((it) => ({ type, [type]: { rich_text: itemRt(it) } })) });
+        continue;
+      }
       for (const it of items) out.push({ type, [type]: { rich_text: itemRt(it) } });
       continue;
     }
@@ -129,6 +147,13 @@ export function transform(blocks, T, ctx = {}) {
       if (rows.some((r) => /Option A/.test(plain(r.table_row.cells[2] || [])))) ctx.offerTable = rows.find((r) => first(r) === "Book") || rows.find((r) => first(r) === "Price");
     }
     if (b.children) nb.children = transform(b.children, T, { offerRow: ctx.offerTable || null });
+    // Overall Level callout: only the small label stays bold.
+    if (k === "callout" && /^Overall Level/.test(text) && nb.children) nb.children.forEach((c) => { const ct = c[c.type] && c[c.type].rich_text; if (ct && /^Level /.test(plain(ct))) ct.forEach((x) => { x.annotations = { ...(x.annotations || {}), bold: false }; }); });
+    // Domain Profile: add the Overall row in the same layout.
+    if (k === "table" && nb.children && plain(nb.children[0].table_row.cells[0] || []).trim() === "Area" && T.overall_bar) {
+      nb.children.push({ type: "table_row", table_row: { cells: [[{ type: "text", text: { content: "Overall" }, annotations: { bold: true } }], [txt(T.overall_bar)], [txt(T.overall_score + "/100")], [txt("Level " + T.overall_level_number + ", " + T.overall_level)]] } });
+      nb[k].table_width = nb[k].table_width || 4;
+    }
     if (k === "table") ctx.offerTable = null;
     out.push(nb);
   }
@@ -157,3 +182,12 @@ export async function writeTree(api, parentId, blocks, hooks = {}) {
 }
 
 export { actionRows } from "./tokens.js";
+
+// Standard footer for the Notion pages and the Worker-rendered /r/ and /f/ (emails keep their own footer).
+// No Terms link: https://www.anthonytoday.com/terms/ returns 404 (checked 19 Oct 2026).
+export function withFooter(blocks) {
+  const link = (t, u) => ({ type: "text", text: { content: t, link: { url: u } } });
+  return [...blocks, { type: "divider", divider: {} },
+    { type: "paragraph", paragraph: { rich_text: [{ type: "text", text: { content: "© 2026 AnthonyToday.com. All rights reserved." }, annotations: { color: "gray" } }] } },
+    { type: "paragraph", paragraph: { rich_text: [link("Privacy policy", "https://www.anthonytoday.com/privacy/"), txt(" · "), link("Contact", "https://www.anthonytoday.com/contact/"), txt(" · "), link("www.anthonytoday.com", "https://www.anthonytoday.com/")] } }];
+}
