@@ -217,8 +217,7 @@ Items are ordered by impact, so the first ones close your biggest risk: \{\{risk
 </tr>
 </table>
 - **Special Offer:** 
-	- \$347/mo founding rate for the first 5 clients, then \$490/mo. Cancel any time. [Start Fractional Notion Admin](https://buy.stripe.com/9B6fZj1vW4vP13d7WF1ZS0u) 
-	- Annual: \$2,970/year, billed once a year.
+	- \$490/mo founding rate for the first 5 clients, then \$990/mo. Cancel any time. [Start Fractional Notion Admin](https://buy.stripe.com/5kQ5kF0rS5zTfY74Kt1ZS0B) 
 <empty-block/>
 <span color="gray">Self-check based on your answers. General guidance, not a formal audit.</span>
 ---
