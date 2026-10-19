@@ -197,7 +197,7 @@ export { actionRows } from "./tokens.js";
 export function withFooter(blocks, web = false) {
   const link = (t, u) => ({ type: "text", text: { content: t, link: { url: u } } });
   const foot = [
-    { type: "paragraph", paragraph: { rich_text: [{ type: "text", text: { content: "© 2026 AnthonyToday.com. All rights reserved." }, annotations: { color: "gray" } }] } },
+    { type: "paragraph", paragraph: { rich_text: [{ type: "text", text: { content: "© 2026 Anthony Today. All rights reserved." }, annotations: { color: "gray" } }] } },
     { type: "paragraph", paragraph: { rich_text: [link("Privacy policy", "https://www.anthonytoday.com/privacy/"), txt(" · "), link("Contact", "https://www.anthonytoday.com/contact/"), txt(" · "), link("www.anthonytoday.com", "https://www.anthonytoday.com/")] } }];
   // Web (/r/, /f/): wrapped in a <footer> element by the renderer. Notion: plain blocks after a divider.
   return web ? [...blocks, { type: "__footer__", children: foot }] : [...blocks, { type: "divider", divider: {} }, ...foot];

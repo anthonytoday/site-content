@@ -75,7 +75,7 @@ async function path(b, label, { team, plan, ans, country, edit }) {
       ok(c.overall && c.overall[0] === "Overall" && /^\d+\/100$/.test(c.overall[2]) && /^Level \d, /.test(c.overall[3]) && c.overallBold.join() === "true,false,false,false", `${label}: Overall row ${JSON.stringify(c.overall)}`);
       ok(c.coLevelBold === false, `${label}: callout level text regular weight`);
       ok(/^Maturity level [1-5] of 5: (Initial|Managed|Defined|Quantitatively Managed|Optimizing)$/.test(c.alt || ""), `${label}: staircase alt "${c.alt}"`);
-      ok((c.footer || "").replace(/\s+/g, " ").trim() === "© 2026 AnthonyToday.com. All rights reserved. Privacy policy Contact www.anthonytoday.com", `${label}: standard footer`);
+      ok((c.footer || "").replace(/\s+/g, " ").trim() === "© 2026 Anthony Today. All rights reserved. Privacy policy Contact www.anthonytoday.com", `${label}: standard footer`);
       ok(/Average score \d+\/100\. Your level is set by your lowest area, so it can be lower than your average suggests\./.test(c.text), `${label}: PM level note`);
       ok(!/a few basics are in place|is in good shape, .* is in good shape/.test(c.text), `${label}: one good-shape sentence at most`);
       const isAdmin = /^admin@/.test(body.email || "");
@@ -102,7 +102,7 @@ async function layout(b, url, label) {
       braces: /\{\{|\}\}/.test(document.body.innerText), fav: !!document.querySelector('link[rel~="icon"]'),
       old: (document.body.innerText.match(/\b(Exposed|Hardened|Basic)\b/g) || []).join(","),
       stair: [...document.querySelectorAll("img.stair")].map((i) => i.complete && i.naturalWidth > 0 && i.getBoundingClientRect().width <= window.innerWidth),
-      footer: /© 2026 AnthonyToday\.com\. All rights reserved\./.test(document.body.innerText) }));
+      footer: /© 2026 Anthony Today\. All rights reserved\./.test(document.body.innerText) }));
     ok(m.sw <= m.iw, `${label} @${w}: no horizontal scroll (${m.sw} <= ${m.iw})`);
     ok(m.empty.length === 0, `${label} @${w}: no empty headings ${m.empty.join(", ")}`);
     ok(!m.braces, `${label} @${w}: no {{ }}`);
