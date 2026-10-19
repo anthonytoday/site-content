@@ -3960,7 +3960,7 @@
 {
 "type": "text",
 "text": {
-"content": "$347/mo founding rate for the first 5 clients, then $490/mo. Cancel any time. ",
+"content": "$490/mo founding rate for the first 5 clients, then $990/mo. Cancel any time. ",
 "link": null
 },
 "annotations": {
@@ -3971,7 +3971,7 @@
 "code": false,
 "color": "default"
 },
-"plain_text": "$347/mo founding rate for the first 5 clients, then $490/mo. Cancel any time. ",
+"plain_text": "$490/mo founding rate for the first 5 clients, then $990/mo. Cancel any time. ",
 "href": null
 },
 {
@@ -3979,7 +3979,7 @@
 "text": {
 "content": "Start Fractional Notion Admin",
 "link": {
-"url": "https://buy.stripe.com/9B6fZj1vW4vP13d7WF1ZS0u"
+"url": "https://buy.stripe.com/5kQ5kF0rS5zTfY74Kt1ZS0B"
 }
 },
 "annotations": {
@@ -3991,7 +3991,7 @@
 "color": "default"
 },
 "plain_text": "Start Fractional Notion Admin",
-"href": "https://buy.stripe.com/9B6fZj1vW4vP13d7WF1ZS0u"
+"href": "https://buy.stripe.com/5kQ5kF0rS5zTfY74Kt1ZS0B"
 },
 {
 "type": "text",
@@ -4008,31 +4008,6 @@
 "color": "default"
 },
 "plain_text": " ",
-"href": null
-}
-],
-"color": "default"
-}
-},
-{
-"type": "bulleted_list_item",
-"bulleted_list_item": {
-"rich_text": [
-{
-"type": "text",
-"text": {
-"content": "Annual: $2,970/year, billed once a year.",
-"link": null
-},
-"annotations": {
-"bold": false,
-"italic": false,
-"strikethrough": false,
-"underline": false,
-"code": false,
-"color": "default"
-},
-"plain_text": "Annual: $2,970/year, billed once a year.",
 "href": null
 }
 ],

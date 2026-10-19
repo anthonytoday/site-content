@@ -16,8 +16,7 @@ export const COPY = {
   },
   // Item C (PM): the gaps sentence per page; left out with the biggest-difference sentence when there are no risks.
   gaps: { free: "{risks} leave gaps.", fixlist: "{risks} {exposure}." },
-  // Item 11 (L0_CEO): annual billing line on the Fix List; "Cancel any time" only on the monthly line.
-  annual_line: "Annual: $2,970/year, billed once a year.",
+  // Item 11 (L0_CEO): "Cancel any time" only on the monthly line. Annual removed 19 Oct 2026 (no live annual link).
   monthly_cancel: "Cancel any time.",
 };
 export const REWRITES = [
@@ -27,8 +26,8 @@ export const REWRITES = [
   ["): {{strength_summary}}, but {{top_risks_summary}} {{exposure_summary}}. ", "). {{good_shape_sentence}}{{gaps_sentence}}"],
   ["). {{good_shape_sentence}}{{top_risks_summary_cap}} leave gaps. ", "). {{good_shape_sentence}}{{gaps_sentence}}"],
   ["). {{good_shape_sentence}}{{top_risks_summary_cap}} {{exposure_summary}}. ", "). {{good_shape_sentence}}{{gaps_sentence}}"],
-  ["Annual: $2,970. Cancel any time.", COPY.annual_line],
-  ["$347/mo founding rate for the first 5 clients, then $490/mo. ", "$347/mo founding rate for the first 5 clients, then $490/mo. " + COPY.monthly_cancel + " "],
+  ["$347/mo founding rate for the first 5 clients, then $490/mo. ", "$490/mo founding rate for the first 5 clients, then $990/mo. " + COPY.monthly_cancel + " "],
+  ["$490/mo founding rate for the first 5 clients, then $990/mo. ", "$490/mo founding rate for the first 5 clients, then $990/mo. " + COPY.monthly_cancel + " "],
 ];
 // Exported for tests. ids are question ids in Q1 to Q12 order.
 export function goodShapeSentence(ids) {

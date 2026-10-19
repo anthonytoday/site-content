@@ -838,8 +838,8 @@ offers:
     link: https://buy.stripe.com/cNiaEZ3E4bYhbHR90J1ZS0z
   caas:
     name: Fractional Notion Admin
-    price: "$347/mo"
-    link: https://buy.stripe.com/9B6fZj1vW4vP13d7WF1ZS0u
+    price: "$990/mo"
+    link: https://buy.stripe.com/dRm9AV0rS2nH3bl4Kt1ZS0A
 quick_wins:
 - id: public_pages
   question: q3

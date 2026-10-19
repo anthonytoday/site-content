@@ -66,8 +66,8 @@ for (const [name, kind] of [["free-result", "free"], ["fixlist", "fixlist"]]) {
   ok(lines.filter((l) => /in good shape/.test(l)).length === 1 && /\(53\/100\)\. Admin rights are in good shape\. Old public pages/.test(all), `${name}: Example Co good-shape sentence in the summary`);
   const summ = lines.find((l) => /It sits at Level/.test(l)); console.log("   " + name + " summary: " + summ);
 
-  if (kind === "fixlist") { ok(lines.includes("Annual: $2,970/year, billed once a year."), "fixlist: annual line"); ok(!/Annual: \$2,970\. Cancel/.test(all), "fixlist: old annual line gone");
-    ok(lines.some((l) => /^\$347\/mo founding rate.*then \$490\/mo\. Cancel any time\./.test(l)), "fixlist: Cancel any time on the monthly line only"); ok((all.match(/Cancel any time/g) || []).length === 1, "fixlist: Cancel any time appears once"); }
+  if (kind === "fixlist") { ok(!/2,970|Annual:/.test(all), "fixlist: no annual line (annual removed)");
+    ok(lines.some((l) => /^\$490\/mo founding rate.*then \$990\/mo\. Cancel any time\./.test(l)), "fixlist: Cancel any time on the monthly line only"); ok((all.match(/Cancel any time/g) || []).length === 1, "fixlist: Cancel any time appears once"); }
 
 }
 // /f/: a repeated step block shows once; later items point back by number.
