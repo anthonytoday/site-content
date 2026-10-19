@@ -10,7 +10,7 @@ import { computeTokens } from "./tokens.js";
 import { buildResultEmail, buildFixlistEmail, resendSuppressed, resendSuppress, emailPayload, resendSend, internalPayload } from "./email.js";
 import { Notion, leadProperties, paidProperties } from "./notion.js";
 import { readTree, transform, writeTree, actionRows, withFooter } from "./notion-tpl.js";
-import { renderPage, renderBlocks, renderActionPlan } from "./render.js";
+import { renderPage, renderBlocks, renderActionPlan, renderFragment, scopedCss } from "./render.js";
 import { fmtDate, fmtRange } from "./tokens.js";
 
 const enc = new TextEncoder();
@@ -118,6 +118,7 @@ async function handleSubmit(req, env, ctx, h) {
   const view = { total: r.total, level: r.level, levelName: r.levelName, domains: r.domains.map(({ id, name, score, level, levelName }) => ({ id, name, score, level, levelName })),
     flags: r.flags.map((f) => ({ label: f.label, q: "Q" + f.question.slice(1), headline: f.headline })), topRisks: r.topRisks.map((x) => ({ title: x.title, critical: x.critical })) };
   const out = { ok: true, resultId: sub.result_id, submissionId: sub.submission_id, result: view, resultUrl: L.result, fixlistUrl: L.fixlist, industryToken: await sign(env, "i:" + sub.result_id) };
+  try { const w = await webResult(env, { ...sub }, "free"); out.resultHtml = renderFragment(w.title, w.blocks, w.extra); out.resultCss = scopedCss(); } catch (e) { out.resultHtmlError = String(e.message || e).slice(0, 200); }
   out.held = sub.held; out.emailStatus = !sub.consent ? "no_consent" : sub.held ? "held" : isDry(env) ? "preview" : "sending";
   if (sub.dry_run || (testPhase(env) && liveFor(env, sub.email))) { out.dryRun = isDry(env); out.testLive = !sub.dry_run; out.log = await pipeline; out.previews = { resultPage: L.result, email: env.PUBLIC_BASE + "/preview/email?rid=" + sub.result_id + "&t=" + (await sign(env, "p:" + sub.result_id)) }; }
   else ctx.waitUntil(pipeline);
@@ -242,15 +243,20 @@ async function handleResultPage(env, rid, t, kind) {
   const sub = await env.SC.get("sub:" + rid, "json");
   if (!sub) return html("<p>Result not found.</p>", 404);
   if (kind === "fix" && !sub.paid && !sub.dry_run) return html("<p>Your Fix List is being prepared. Check your inbox.</p>", 404);
+  const w = await webResult(env, sub, kind);
+  const banner = sub.dry_run && isDry(env) ? "DRY-RUN PREVIEW. Template source: " + w.source + ". Nothing was created in Notion and no email was sent." : null;
+  return html(renderPage(w.title, w.blocks, banner, w.extra));
+}
+// /r/ and /f/ content. The quiz page's on-screen result uses the same blocks (renderFragment), so the two always match.
+async function webResult(env, sub, kind) {
   // Re-score from the stored answers so older results show the current level bands and names.
   sub.result = score(data, sub.answers, sub.team_size);
   const L = await links(env, sub);
   const T = computeTokens(data, sub, sub.result, L, kind === "free" ? "free" : "fixlist");
   const tpl = await templateBlocks(env, kind === "free" ? "free" : "fix");
   const blocks = webVariant(withFooter(transform(tpl.blocks, T), true));
-  const banner = sub.dry_run && isDry(env) ? "DRY-RUN PREVIEW. Template source: " + tpl.source + ". Nothing was created in Notion and no email was sent." : null;
   const extra = kind === "fix" ? { actionDbHtml: renderActionPlan(actionRows(data, sub.result, sub.paid_at || sub.submitted_at, sub.plan), fmtRange) } : {};
-  return html(renderPage(kind === "free" ? "Free Security Check Result" : "Security Check Fix List", blocks, banner, extra));
+  return { title: kind === "free" ? "Free Security Check Result" : "Security Check Fix List", blocks, extra, source: tpl.source };
 }
 
 async function handlePreviewEmail(env, url) {

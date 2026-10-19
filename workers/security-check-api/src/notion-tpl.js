@@ -140,6 +140,8 @@ export function transform(blocks, T, ctx = {}) {
     for (const f of Object.keys(nb[k])) if (nb[k][f] === null) delete nb[k][f]; // read API returns e.g. paragraph.icon: null, which the write API rejects
     for (const f of RO) delete nb[f];
     if (nb[k].rich_text) nb[k].rich_text = fillRt(inlineIf(rewrite(nb[k].rich_text), T), T);
+    // Nothing dangling: a sentence token that came out empty leaves no trailing space.
+    if (nb[k].rich_text && nb[k].rich_text.length) { const last = nb[k].rich_text[nb[k].rich_text.length - 1]; if (last.text && / +$/.test(last.text.content)) { last.text.content = last.text.content.replace(/ +$/, ""); if (!last.text.content) nb[k].rich_text.pop(); } }
     if (k === "table_row") {
       nb[k].cells = v.cells.map((c) => fillRt(c, T));
       // WhatsApp / Email under the two paid offers, as in Anthony's approved sample.

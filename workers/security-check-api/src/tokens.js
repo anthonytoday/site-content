@@ -76,15 +76,16 @@ export function computeTokens(data, sub, r, links, kind = "free") {
   const short = (x) => (data.risk_short_names || {})[x.id] || lc(q[x.id].title);
   T.top_risks_summary = joinAnd(top.map(short)) || "a few gaps";
   T.top_risks_summary_cap = cap(T.top_risks_summary);
-  // Item 7 (PM 11:18): an area is "in good shape" only if the result lists no risk (every answered question
-  // in it scored full points) and no fix/action for it. Being at Level 4 is not enough.
-  { const qDom = Object.fromEntries(data.questions.map((x) => [x.id, x.domain]));
-    const acts = actionRows(data, r, kind === "fixlist" && sub.paid_at ? sub.paid_at : sub.submitted_at, sub.plan);
-    const good = r.domains.filter((d) => { const qs = r.perQuestion.filter((x) => qDom[x.id] === d.id && x.points !== null); return qs.length && qs.every((x) => x.points === 10) && !acts.some((a) => a.domain === d.name); }).map((d) => d.id);
-    T.good_shape_areas = good; const g = goodShapeSentence(good); T.good_shape_sentence = g ? g + " " : ""; }
+  // Item 7 (PM pick b): per question. Full points (A, 10) and no fix or action in the result; N/A (points null) never counts.
+  { const acts = actionRows(data, r, kind === "fixlist" && sub.paid_at ? sub.paid_at : sub.submitted_at, sub.plan);
+    const good = r.perQuestion.filter((x) => x.points === 10 && !acts.some((a) => a.qid === x.id)).map((x) => x.id);
+    T.good_shape_questions = good; const g = goodShapeSentence(good); T.good_shape_sentence = g ? g + " " : ""; }
+  // Item C: no risks -> no gaps sentence and no biggest-difference sentence.
+  T.no_risks = !top.length;
   T.level_note = COPY.level_note.replace("{{overall_score}}", T.overall_score);
   T.exposure_summary = top.some((x) => x.domain === "sharing" || x.domain === "integrations") ? "leave client material exposed" : "leave gaps an outsider could use";
   T.biggest_impact_sentence = top[0] ? "Closing " + short(top[0]) + " first makes the biggest difference" + (kind === "fixlist" && top[1] ? ", followed by " + short(top[1]) + "." : ".") : "";
+  T.gaps_sentence = top.length ? (kind === "fixlist" ? COPY.gaps.fixlist : COPY.gaps.free).replace("{risks}", T.top_risks_summary_cap).replace("{exposure}", T.exposure_summary) + " " : "";
   T.main_risk = top[0] ? cap(q[top[0].id].risk) : "No major risk found in your answers.";
   // Action plan (copy v1, B3) drives Do First and the delivery email Phase 1 line.
   const plan_rows = actionRows(data, r, kind === "fixlist" && sub.paid_at ? sub.paid_at : sub.submitted_at, sub.plan);
@@ -185,7 +186,7 @@ export function actionRows(data, r, reportDate, plan = "not_sure") {
     const notes = (qq.plan_notes || []).filter((n) => plan === "not_sure" || n.plans.includes("all") || n.plans.includes(plan));
     const src = (qq.fixes || []).find((f) => f.source);
     return {
-      id: x.id, action: A[x.id].title, plain: A[x.id].plain, domain: A[x.id].domain, phase: "Phase " + x.p,
+      id: x.id, qid: x.qid || null, action: A[x.id].title, plain: A[x.id].plain, domain: A[x.id].domain, phase: "Phase " + x.p,
       priority: x.p === 1 ? "High" : x.p === 2 ? (x.answer === "C" || x.answer === "D" ? "High" : "Medium") : "Low",
       owner: "", impact: x.answer && x.qid ? ((data.risk_impacts || {})[x.qid] || {})[x.answer] || "" : "",
       start: x.p === 1 ? day(0) : x.p === 2 ? day(7) : null, end: x.p === 1 ? day(4) : x.p === 2 ? day(11) : null,

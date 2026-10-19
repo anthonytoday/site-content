@@ -201,9 +201,27 @@ no_offer_popup: true
   function bar(score) { if (score === null) return "N/A"; var n = Math.floor(score / 10), s = ""; for (var i = 0; i < 10; i++) s += i < n ? "\u25B0" : "\u25B1"; return s; }
   function withUtm(u) { return u + (u.indexOf("?") > -1 ? "&" : "?") + "utm_source=website&utm_medium=security_check&utm_campaign=fixlist"; }
 
+  // Email note, held line (only while the real-client lock holds this address) and the dry-run notice.
+  function resultExtras(d, card) {
+    if (state.email && !d.held && d.emailStatus !== "preview") card.appendChild(el("p", null, UI["result.ready_email_note"].replace(/\{\{work_email\}\}/, state.email)));
+    // Only while the real-client lock holds this address (Worker sets held=false once LIVE_FOR="all").
+    if (d.held === true) card.appendChild(el("p", "disc", "Your result is shown above. Keep this page open or save it, as your email copy is not sent yet."));
+    if (d.dryRun) { var n = el("p", "disc", "Preview mode: nothing was sent or stored outside the test Worker. "); var pe = el("a", null, "See the email that would be sent"); pe.href = d.previews.email; pe.target = "_blank"; n.appendChild(pe); card.appendChild(n); }
+  }
+
   function renderResult(d) {
     var r = d.result, card = $("r-card");
     card.textContent = "";
+    card.setAttribute("data-result-url", d.resultUrl || "");
+    // Same content as /r/ (the Worker renders both from the same blocks); the card below is only a fallback.
+    if (d.resultHtml) {
+      var st = document.createElement("style"); st.textContent = (d.resultCss || "") + ".scres{max-width:none;margin:0;padding:0}.scres h1,.scres h2,.scres h3,.scres h4{text-transform:none;letter-spacing:normal}"; card.appendChild(st);
+      var box = document.createElement("div"); box.innerHTML = d.resultHtml; var scr = box.firstChild; card.appendChild(scr);
+      // Notes go above the standard footer, as the last lines of the result.
+      var notes = el("div", "notes"), foot = scr.querySelector("footer"); scr.insertBefore(notes, foot); resultExtras(d, notes);
+      state.result = d;
+      return;
+    }
     card.appendChild(el("h2", null, "Your Result"));
     card.appendChild(el("div", "lvl", "Overall Level"));
     card.appendChild(el("div", "big", "Level " + r.level + ", " + r.levelName));
@@ -219,7 +237,7 @@ no_offer_popup: true
     });
     card.appendChild(t);
     var lv = MAT.levels[r.level - 1] || MAT.levels[0];
-    var im = el("img", "stair"); im.src = MAT.image_path + r.level + ".png"; im.width = 600; im.alt = "Maturity level " + r.level + " of 4: " + lv.name; card.appendChild(im);
+    var im = el("img", "stair"); im.src = MAT.image_path + r.level + ".png"; im.width = 600; im.alt = "Maturity level " + r.level + " of 5: " + lv.name; card.appendChild(im);
     card.appendChild(el("p", "legend", MAT.footnote));
     r.flags.forEach(function (f, i) { var p = el("div", "flag"); p.appendChild(el("b", null, f.label + " (" + f.q + ").")); p.appendChild(document.createTextNode(" " + f.headline + (i === 0 ? " " + FIRST : ""))); card.appendChild(p); });
     if (r.topRisks.length) {
@@ -231,14 +249,11 @@ no_offer_popup: true
     var full = el("p"); var a = el("a", null, "Open your result"); a.href = d.resultUrl; a.rel = "noopener"; a.target = "_blank";
     full.appendChild(a); full.appendChild(document.createTextNode("."));
     card.appendChild(full);
-    if (state.email && !d.held && d.emailStatus !== "preview") card.appendChild(el("p", null, UI["result.ready_email_note"].replace(/\{\{work_email\}\}/, state.email)));
     var cta = el("div", "cta");
     var cp = el("p"); cp.appendChild(el("b", null, "Get your Fix List for {{ sc.offers.fixlist.price }}.")); cp.appendChild(document.createTextNode(" Delivered by email right after payment. 7-day refund on request.")); cta.appendChild(cp);
     var b = el("a", "btn", "Get your Fix List"); b.href = withUtm(d.fixlistUrl); cta.appendChild(b);
     card.appendChild(cta);
-    // Only while the real-client lock holds this address (Worker sets held=false once LIVE_FOR="all").
-    if (d.held === true) card.appendChild(el("p", "disc", "Your result is shown above. Keep this page open or save it, as your email copy is not sent yet."));
-    if (d.dryRun) { var n = el("p", "disc", "Preview mode: nothing was sent or stored outside the test Worker. "); var pe = el("a", null, "See the email that would be sent"); pe.href = d.previews.email; pe.target = "_blank"; n.appendChild(pe); card.appendChild(n); }
+    resultExtras(d, card);
     state.result = d;
   }
 

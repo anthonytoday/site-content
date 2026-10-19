@@ -49,9 +49,30 @@ async function path(b, label, { team, plan, ans, country, edit }) {
     ok(!/\b(Exposed|Hardened|Basic)\b/.test(txt), `${label}: no old level names`);
     ok(await pg.waitForFunction(() => { const i = document.querySelector("#r-card img.stair"); return i && i.complete && i.naturalWidth > 0; }, { timeout: 10000 }).then(() => true).catch(() => false), `${label}: staircase image on result screen`);
     ok(!/\{\{|\}\}/.test(txt), `${label}: no unfilled placeholders on result`);
+    // The on-screen result is the /r/ content (QA 11:31): Overall row, regular callout level, alt "of 5", footer, PM sentences, held line.
+    const c = await pg.evaluate(() => { const root = document.querySelector("#r-card .scres"); if (!root) return null; const ov = [...root.querySelectorAll("tr")].find((tr) => /^Overall/.test(tr.innerText.trim()));
+      const co = [...root.querySelectorAll(".co")].find((x) => /Overall Level/.test(x.innerText)); const notes = root.querySelector(".notes");
+      return { text: [...root.childNodes].filter((n) => !(n.classList && n.classList.contains("notes"))).map((n) => n.innerText || n.textContent).join("\n"), overall: ov ? [...ov.cells].map((td) => td.innerText.trim()) : null, overallBold: ov ? [...ov.cells].map((td) => !!td.querySelector("b")) : null,
+        coLevelBold: co ? [...co.querySelectorAll("b")].some((x) => /^Level \d/.test(x.innerText.trim())) : null, alt: (root.querySelector("img.stair") || {}).alt, footer: (root.querySelector("footer") || {}).innerText, notes: notes ? notes.innerText : "" }; });
+    ok(!!c, `${label}: on-screen result uses the /r/ content`);
+    if (c) {
+      ok(c.overall && c.overall[0] === "Overall" && /^\d+\/100$/.test(c.overall[2]) && /^Level \d, /.test(c.overall[3]) && c.overallBold.join() === "true,false,false,false", `${label}: Overall row ${JSON.stringify(c.overall)}`);
+      ok(c.coLevelBold === false, `${label}: callout level text regular weight`);
+      ok(/^Maturity level [1-5] of 5: (Initial|Managed|Defined|Quantitatively Managed|Optimizing)$/.test(c.alt || ""), `${label}: staircase alt "${c.alt}"`);
+      ok((c.footer || "").replace(/\s+/g, " ").trim() === "© 2026 AnthonyToday.com. All rights reserved. Privacy policy Contact www.anthonytoday.com", `${label}: standard footer`);
+      ok(/Average score \d+\/100\. Your level is set by your lowest area, so it can be lower than your average suggests\./.test(c.text), `${label}: PM level note`);
+      ok(!/a few basics are in place|is in good shape, .* is in good shape/.test(c.text), `${label}: one good-shape sentence at most`);
+      const isAdmin = /^admin@/.test(body.email || "");
+      ok(/Keep this page open or save it, as your email copy is not sent yet\./.test(c.notes) === !isAdmin, `${label}: held line ${isAdmin ? "absent (admin@)" : "shown (locked address)"}`);
+      const rUrl = await pg.$eval("#r-card", (e) => e.getAttribute("data-result-url"));
+      const rp = await pg.browser().newPage(); await rp.goto(rUrl, { waitUntil: "networkidle0" }); const rText = await rp.$eval("body", (e) => e.innerText); await rp.close();
+      const norm = (t) => t.replace(/\s+/g, " ").trim();
+      const A1 = norm(c.text), B1 = norm(rText); let di = 0; while (di < A1.length && A1[di] === B1[di]) di++;
+      ok(A1 === B1, `${label}: on-screen result text identical to /r/` + (A1 === B1 ? "" : ` (first difference at ${di}: screen "${A1.slice(Math.max(0, di - 40), di + 60)}" vs /r/ "${B1.slice(Math.max(0, di - 40), di + 60)}")`));
+    }
   }
   ok(errs.length === 0, `${label}: no JS errors ${errs.join(" | ")}`);
-  const resultUrl = shown ? await pg.$eval("#r-card a[target=_blank]", (a) => a.href).catch(() => "") : "";
+  const resultUrl = shown ? await pg.$eval("#r-card", (e) => e.getAttribute("data-result-url") || "").catch(() => "") : "";
   await pg.close();
   return { body, resultUrl };
 }
