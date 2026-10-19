@@ -1,0 +1,1291 @@
+# Notion Workspace Security Check: all quiz copy and option lists in ONE file.
+# Website (Jekyll) and Worker (workers/security-check-api) both read it.
+# Copy sources: security-check-quiz-final.md + security-check-copy-v1.md (UI labels, impact lines, actions, flags).
+# After any edit run: workers/security-check-api/scripts/sync-data.sh
+---
+version: final
+copy_source: security-check-quiz-final.md (final, approved by Anthony 19 Oct 2026, 9:34 am UAE). Fix steps and plan notes from security-check-quiz-v2.md. Keep ids and values when editing copy, then run workers/security-check-api/scripts/sync-data.sh + /workspace/marketing/security-check-copy-v1.md (v1, 19 Oct 2026 10:11 am UAE)
+page:
+  title: Notion Workspace Security Check
+  kicker: 12 Questions · About 3 Minutes
+  subtitle: 12 questions, about 3 minutes. No logins, links or screenshots needed.
+  privacy: No workspace access, logins, page links or screenshots are collected.
+  disclaimer: Self-check based on your answers. General guidance, not a formal audit.
+  consent: Email me my result and up to 3 follow-ups. Unsubscribe any time.
+  gate_title: Your Result Is Ready
+  gate_sub: Tell us where to send it. Your score shows on the next screen and lands in your inbox.
+  result_note: Your full result is on its way to your inbox.
+scoring:
+  points:
+    A: 10
+    B: 6
+    C: 2
+    D: 0
+  levels:
+  - level: 1
+    name: Initial
+    min: 0
+    max: 19
+  - level: 2
+    name: Managed
+    min: 20
+    max: 39
+  - level: 3
+    name: Defined
+    min: 40
+    max: 59
+  - level: 4
+    name: Quantitatively Managed
+    min: 60
+    max: 89
+  - level: 5
+    name: Optimizing
+    min: 90
+    max: 100
+  critical_flags:
+  - id: public_pages
+    label: Public pages
+    question: q3
+    answers:
+    - C
+    - D
+    copy:
+      C:
+        risk_name: Old Unchecked Public Pages
+        headline: Some old pages are likely open to anyone with the link.
+        why: Anyone with the link can read them and their subpages, including contributor names and emails.
+        risk_title_long: Old Public Pages Nobody Has Checked
+      D:
+        risk_name: Unknown Public Pages
+        headline: Nobody knows which pages are open to the public.
+        why: Anyone with a link to a public page can read it and its subpages.
+  - id: secrets
+    label: Secrets in pages
+    question: q4
+    answers:
+    - C
+    copy:
+      C:
+        risk_name: Secrets on Shared Pages
+        headline: Passwords or personal data sit on widely shared pages.
+        why: Everyone with access, every connected tool and every public link can read them.
+  - id: leavers
+    label: Leavers keep access
+    question: q7
+    answers:
+    - C
+    copy:
+      C:
+        risk_name: Leavers Keep Access
+        headline: People who left can likely still open your pages.
+        why: Ex-staff and ex-contractors can open, copy or delete pages, and their tools keep running.
+  - id: owners
+    label: Too many owners
+    question: q9
+    answers:
+    - C
+    copy:
+      C:
+        risk_name: Too Many Workspace Owners
+        headline: Too many people, or unknown people, hold full admin rights.
+        why: Each owner can change security settings, remove people, export everything or delete the workspace.
+  tie_order:
+  - q1
+  - q2
+  - q3
+  - q4
+  - q5
+  - q6
+  - q7
+  - q8
+  - q9
+  - q10
+  - q11
+  - q12
+  # Recommended level for teams: kept at the same score band as before (60+), now Level 4 on the 5-level scale. Confirm with L0_CEO.
+  recommended_level: Quantitatively Managed
+  recommended_level_number: 4
+  flag_first_suffix: This is the first thing to fix.
+domains:
+- id: identity
+  name: Identity and Access
+  questions:
+  - q1
+  - q2
+  checks: How people sign in, and whether each person has their own account with the right type of access
+- id: sharing
+  name: Sharing and Data Exposure
+  questions:
+  - q3
+  - q4
+  checks: Public pages and links, and sensitive data stored in pages
+- id: integrations
+  name: Integrations and Third Parties
+  questions:
+  - q5
+  - q6
+  checks: Connected apps and AI tools that can read or change pages
+- id: people
+  name: People and Offboarding
+  questions:
+  - q7
+  - q8
+  checks: Leavers, and regular review of who still has access
+- id: governance
+  name: Governance and Admin
+  questions:
+  - q9
+  - q10
+  checks: Who holds admin rights, and what people can open by default
+- id: resilience
+  name: Resilience and Recovery
+  questions:
+  - q11
+  - q12
+  checks: Recovery windows, who can restore, and tested recovery with change history
+questions:
+- id: q1
+  number: 1
+  title: Sign-In Strength
+  control: strong authentication
+  question: Think of everyone who can log in to your Notion. How do they sign in?
+  answers:
+    A:
+      text: Everyone has 2-step verification turned on, in Notion or in the company Google or Microsoft login they use for Notion.
+      points: 10
+    B:
+      text: I have 2-step verification on, but I'm not sure about everyone else.
+      points: 6
+    C:
+      text: Most of us sign in with a password or an email code only.
+      points: 2
+    D:
+      text: I don't know.
+      points: 0
+  risk: one phished password opens every page that person can see. Notion can't force 2-step verification on members on any plan, so it comes down to each person.
+  fixes:
+  - text: 'Each person: Settings → your name → Account security → 2-step verification → Add verification method. Use an authenticator app and save the backup codes.'
+    source: https://www.notion.com/help/two-step-verification
+  - text: Make it a written team rule and check it person by person once a quarter.
+  - text: If the team signs in with Google or Microsoft, turn on 2-step verification in that account too (general guidance, outside Notion).
+  plan_notes:
+  - text: 'All plans: 2-step verification. It needs a password on the account.'
+    source: https://www.notion.com/pricing
+    plans:
+    - all
+  - text: 'Business and Enterprise: SAML SSO. Settings → Identity → verify domain → Enable SAML SSO → Login method "Only SAML SSO". Remove all Allowed email domains first.'
+    source: https://www.notion.com/help/saml-sso-configuration
+    plans:
+    - business
+    - enterprise
+    - not_sure
+  - text: 'Enterprise only: organization owners can require MFA for guests. Free, Plus and Business alternative: ask guests to turn on 2-step verification before you share client pages.'
+    source: https://www.notion.com/help/two-step-verification
+    plans:
+    - all
+  domain: identity
+- id: q2
+  number: 2
+  title: One Person, One Account, Right Access Type
+  control: unique identities and correct roles
+  question: Does everyone who opens your workspace use their own account, with the right type of access (staff as members, clients and freelancers as guests on specific pages)?
+  answers:
+    A:
+      text: Yes. Everyone has their own account, staff are members, and outsiders are guests on only the pages they need.
+      points: 10
+    B:
+      text: Own accounts, but some freelancers or clients are full members.
+      points: 6
+    C:
+      text: Some people share one login.
+      points: 2
+    D:
+      text: I don't know.
+      points: 0
+  risk: a shared login means no one is accountable and you can't remove one person without locking out others. An outsider added as a member can open every open teamspace.
+  fixes:
+  - text: Give every person their own account. Retire shared logins.
+  - text: Settings → People (or Members) → Members tab. Remove outsiders, then re-invite them as guests on specific pages (Share → invite → Skip for now).
+    source: https://www.notion.com/help/add-members-admins-guests-and-groups
+  - text: 'Settings → General → Allowed email domains: list only your company domain. Anyone with a listed domain can join as a member.'
+    source: https://www.notion.com/help/workspace-settings
+  plan_notes:
+  - text: 'Guest limit: Free 10; Plus, Business and Enterprise unlimited.'
+    source: https://www.notion.com/pricing
+    plans:
+    - all
+  - text: Restricted members (for people who need a whole teamspace but not the rest of the workspace) are described in the help center without a plan.
+    source: https://www.notion.com/help/whos-who-in-a-workspace
+    verify: plan availability
+    plans:
+    - all
+  domain: identity
+- id: q3
+  number: 3
+  title: Public Pages and Links
+  control: data exposure to the internet
+  question: Are any of your Notion pages open to the public, as a published site or with "Anyone on the web with link"?
+  answers:
+    A:
+      text: Only pages we meant to make public, and we checked the full list in the last 3 months.
+      points: 10
+    B:
+      text: Only pages we meant to make public, but we haven't checked in a while.
+      points: 6
+    C:
+      text: Probably some old ones nobody has checked.
+      points: 2
+    D:
+      text: I don't know.
+      points: 0
+  risk: anyone with the link (or a search engine, if indexing is on) can read the page and all its subpages, and the page data includes contributors' names and emails.
+  fixes:
+  - text: 'Share → Publish → All published sites: review the list and Unpublish anything that shouldn''t be live. Subpages are published too.'
+    source: https://www.notion.com/help/public-pages-and-web-publishing
+  - text: 'Share → General access: if a page says "Anyone on the web with link" and shouldn''t, select Remove. Unpublishing a site doesn''t turn this off.'
+    source: https://www.notion.com/help/public-pages-and-web-publishing
+  - text: 'For links that must stay open (for example a client proposal): set Link expires in the same dropdown.'
+    source: https://www.notion.com/help/sharing-and-permissions
+  plan_notes:
+  - text: 'Enterprise only: Settings → Security → Disable publishing sites, forms, and public links. Free, Plus and Business alternative: the quarterly review above, owned by one named person.'
+    source: https://www.notion.com/help/public-pages-and-web-publishing
+    plans:
+    - all
+  domain: sharing
+- id: q4
+  number: 4
+  title: Sensitive Data in Pages
+  control: data classification and secrets handling
+  question: Do any pages hold passwords, API keys, bank or card details, ID scans, or client personal data?
+  answers:
+    A:
+      text: No. Passwords and keys live in a password manager, and client personal data sits only on restricted pages.
+      points: 10
+    B:
+      text: A few logins or client details, on pages only the right people can open.
+      points: 6
+    C:
+      text: Yes, on pages the whole team, guests or connected tools can open.
+      points: 2
+    D:
+      text: I don't know.
+      points: 0
+  risk: 'everyone with access, every connected tool and every public link can read them. Deleting the text later is not enough: old versions stay in version history, and deleted pages stay in Trash for 30 days by default.'
+  fixes:
+  - text: Search the workspace for "password", "login", "IBAN", "API key" and "passport". List every page that comes up.
+  - text: Move secrets to a password manager, delete them from the page, then change every password or key that was ever stored in Notion.
+    source: https://www.notion.com/help/duplicate-delete-and-restore-content
+  - text: 'Restrict pages that must keep personal data: Share → remove everyone who doesn''t need it.'
+    source: https://www.notion.com/help/sharing-and-permissions
+  plan_notes:
+  - text: 'Enterprise only: Security and Compliance connections (DLP) can detect sensitive content. Free, Plus and Business alternative: the search above, repeated each quarter.'
+    source: https://www.notion.com/pricing
+    plans:
+    - all
+  domain: sharing
+- id: q5
+  number: 5
+  title: Connected Apps
+  control: third-party access management
+  question: Think of the apps connected to your Notion (Zapier, Make, Slack, form or calendar tools). Which is closest?
+  answers:
+    A:
+      text: We know every connection, each one has an owner, and we removed unused ones in the last 3 months.
+      points: 10
+    B:
+      text: A few connections, probably all still used, never reviewed.
+      points: 6
+    C:
+      text: Many, added by different people over time.
+      points: 2
+    D:
+      text: I don't know.
+      points: 0
+  risk: each connection is a vendor holding a key to the pages it was given. Forgotten connections and copied tokens keep working after the project, and after the person who set them up leaves.
+  fixes:
+  - text: 'Settings → Connections → Manage: review each one, and select ••• → Disconnect for anything unused or unknown.'
+    source: https://www.notion.com/help/add-and-manage-connections-with-the-api
+  - text: 'On sensitive pages: ••• → More → Connections. Disconnect what doesn''t need that page.'
+    source: https://www.notion.com/help/add-and-manage-connections-with-the-api
+  - text: 'If an internal connection token was ever shared: Settings → Connections → Develop or manage connections → find the connection → Refresh, then update every tool that used it.'
+    source: https://developers.notion.com/guides/get-started/handling-api-keys
+  plan_notes:
+  - text: 'Enterprise only: restrict which connections members can install and keep an approved list. Free, Plus and Business alternative: a one-page list of approved connections with an owner each, checked quarterly.'
+    source: https://www.notion.com/help/add-and-manage-connections-with-the-api
+    plans:
+    - all
+  domain: integrations
+- id: q6
+  number: 6
+  title: AI Tools
+  control: AI and automation access
+  question: Have AI tools been connected to your Notion (for example ChatGPT, Claude or AI agents)?
+  answers:
+    A:
+      text: None, or only tools we approved, limited to the pages they need.
+      points: 10
+    B:
+      text: Yes, I connected one, and it can reach most of the workspace.
+      points: 6
+    C:
+      text: Yes, people connect their own AI tools and nobody tracks it.
+      points: 2
+    D:
+      text: I don't know.
+      points: 0
+  risk: an AI tool reads everything it can reach. Broad access puts client and finance pages in scope, and text inside a page can try to steer an AI tool that reads it (prompt injection).
+  fixes:
+  - text: 'Settings → Connections: find each AI tool, check who installed it, and disconnect what isn''t approved.'
+    source: https://www.notion.com/help/add-and-manage-connections-with-the-api
+  - text: Give AI tools access to specific pages, never the whole workspace, and keep finance, HR and client pages out of scope.
+  - text: 'Write a short team rule: which AI tools are approved, and who approves new ones.'
+  plan_notes:
+  - text: 'Enterprise only: approved connections list, and the audit log records when external AI tools connect or read pages. Free, Plus and Business alternative: the team rule and quarterly review above.'
+    source: https://www.notion.com/help/audit-log
+    plans:
+    - all
+  domain: integrations
+- id: q7
+  number: 7
+  title: Leavers
+  control: timely deprovisioning
+  question: When someone leaves (staff or contractor), what happens to their Notion access?
+  answers:
+    A:
+      text: Removed on their last day with a checklist, and their pages are handed over first.
+      points: 10
+    B:
+      text: Removed, but not always right away.
+      points: 6
+    C:
+      text: Usually forgotten until someone notices.
+      points: 2
+    D:
+      text: I don't know.
+      points: 0
+  risk: ex-staff and ex-contractors can still open, copy or delete company pages, and the tools they connected keep running.
+  fixes:
+  - text: 'Before removal: move their work pages out of their Private section into a teamspace. A removed member''s private pages are hidden.'
+    source: https://www.notion.com/help/whos-who-in-a-workspace
+  - text: Settings → People (or Members) → Members or Guests tab → Remove from workspace. Access ends instantly.
+    source: https://www.notion.com/help/whos-who-in-a-workspace
+  - text: Disconnect connections they set up, and change shared passwords they knew.
+    source: https://www.notion.com/help/add-and-manage-connections-with-the-api
+  - text: Keep a one-page leaver checklist in your ops teamspace and run it on the last day.
+  plan_notes:
+  - text: 'Enterprise only: user provisioning (SCIM) removes people automatically when they leave your identity provider. Free, Plus and Business alternative: the leaver checklist.'
+    source: https://www.notion.com/pricing
+    plans:
+    - all
+  domain: people
+  solo_na: 'Not applicable: only I have ever had access'
+- id: q8
+  number: 8
+  title: Access Review
+  control: periodic access review
+  question: When did someone last go through the full list of members and guests and remove who no longer needs access?
+  answers:
+    A:
+      text: In the last 3 months, and it's on a schedule.
+      points: 10
+    B:
+      text: In the last year.
+      points: 6
+    C:
+      text: Never.
+      points: 2
+    D:
+      text: I don't know.
+      points: 0
+  risk: access only ever grows. Old clients, past freelancers and people who changed roles keep access no one remembers giving.
+  fixes:
+  - text: 'Settings → People (or Members): go through the Members and Guests tabs and remove anyone who no longer needs access.'
+    source: https://www.notion.com/help/whos-who-in-a-workspace
+  - text: Put a quarterly 20-minute access review on the owner's calendar.
+  - text: Use permission groups by role (for example "Sales", "Ops") so access follows the role, not the person.
+    source: https://www.notion.com/pricing
+  plan_notes:
+  - text: 'All plans: permission groups.'
+    source: https://www.notion.com/pricing
+    plans:
+    - all
+  - text: 'Business and Enterprise: Settings → General → Export members as CSV, to review the list offline.'
+    source: https://www.notion.com/help/workspace-settings
+    plans:
+    - business
+    - enterprise
+    - not_sure
+  domain: people
+  solo_na: 'Not applicable: only I have ever had access'
+- id: q9
+  number: 9
+  title: Admin Rights
+  control: privileged access
+  question: How many people are Workspace owners (full admin rights) in your Notion?
+  answers:
+    A:
+      text: Exactly 2, chosen on purpose.
+      points: 10
+    B:
+      text: Only 1 (usually me).
+      points: 6
+    C:
+      text: 3 or more, or I'm not sure who.
+      points: 2
+    D:
+      text: I don't know.
+      points: 0
+  risk: every workspace owner can change all security settings, remove people, export everything or delete the workspace. Too many owners means too many master keys; one owner means a lockout if that account is lost.
+  fixes:
+  - text: 'Settings → People (or Members) → Members tab: change anyone who doesn''t need full admin rights from Workspace owner to Member. Keep 2 named owners.'
+    source: https://www.notion.com/help/whos-who-in-a-workspace
+  - text: Both owners turn on 2-step verification (Q1).
+  plan_notes:
+  - text: 'Enterprise only: membership admins and granular admin roles, for people who manage members without full admin rights. Free, Plus and Business alternative: keep 2 owners and let them handle member changes.'
+    source: https://www.notion.com/pricing
+    plans:
+    - all
+  domain: governance
+- id: q10
+  number: 10
+  title: Default Access
+  control: least privilege by default
+  question: When someone new joins your workspace, what can they open on day one?
+  answers:
+    A:
+      text: Only the areas for their role. Finance, HR and client areas are closed off.
+      points: 10
+    B:
+      text: Everything, but sensitive pages are view-only or locked.
+      points: 6
+    C:
+      text: Everything, and they can edit or share it.
+      points: 2
+    D:
+      text: I don't know.
+      points: 0
+  risk: every new hire, freelancer turned member or compromised account can read, change or reshare finance, HR and client pages on day one.
+  fixes:
+  - text: 'Sidebar → hover a teamspace → ••• → Teamspace settings → Permissions: set sensitive teamspaces to Closed and give everyone else the lowest access that works.'
+    source: https://www.notion.com/help/intro-to-teamspaces
+  - text: 'Same window → Members tab: turn off Make default teamspace for sensitive teamspaces.'
+    source: https://www.notion.com/help/intro-to-teamspaces
+  - text: 'Key pages: ••• → toggle on Lock page, so they can''t be changed by accident.'
+    source: https://www.notion.com/help/collaborate-within-a-workspace
+  - text: Settings → Teamspaces → toggle on Limit teamspace creation to only workspace owners.
+    source: https://www.notion.com/help/manage-teamspaces
+    verify: 'plan: the help center doesn''t name one'
+  plan_notes:
+  - text: 'Business and Enterprise: Private teamspaces (hidden from people not added), advanced teamspace permissions and granular database permissions. Free and Plus alternative: Closed teamspaces plus page-level sharing.'
+    source: https://www.notion.com/pricing
+    plans:
+    - business
+    - enterprise
+    - not_sure
+  - text: 'Enterprise only: per-teamspace Disable guests and Disable export.'
+    source: https://www.notion.com/help/intro-to-teamspaces
+    plans:
+    - all
+  domain: governance
+- id: q11
+  number: 11
+  title: Recovery Readiness
+  control: recovery readiness and single points of failure
+  question: If a key page were deleted tomorrow, or the person who runs it left, how ready are you to get it back?
+  answers:
+    A:
+      text: Ready. We know how long Trash and version history keep things on our plan, at least 2 people can restore our key pages, and none of them sit in one person's private pages.
+      points: 10
+    B:
+      text: We know Trash and version history exist, but not how long they keep things or who can restore.
+      points: 6
+    C:
+      text: We'd have to rebuild from memory or ask Notion support.
+      points: 2
+    D:
+      text: I don't know.
+      points: 0
+  risk: recovery in Notion has time limits and depends on who has access. Miss the window, or lose the only person with edit rights, and the page is gone. Pages in a removed member's private section are hidden from everyone.
+  fixes:
+  - text: 'Know your windows: Trash keeps deleted pages 30 days by default. After they''re deleted from Trash, they''re kept another 30 days, then become inaccessible to everyone, even workspace owners.'
+    source: https://www.notion.com/help/duplicate-delete-and-restore-content
+  - text: 'Know your plan''s version history: Free 7 days, Plus 30 days, Business 90 days, Enterprise unlimited.'
+    source: https://www.notion.com/help/duplicate-delete-and-restore-content
+  - text: 'Know who can restore: viewing and restoring version history needs at least Can edit access. Give at least 2 people Full access on every key page or teamspace.'
+    source: https://www.notion.com/help/duplicate-delete-and-restore-content
+  - text: 'Remove single points of failure: move key pages out of anyone''s Private section into a teamspace. A removed member''s private pages are hidden.'
+    source: https://www.notion.com/help/whos-who-in-a-workspace
+  - text: 'Last resort: Notion support can restore a snapshot of content from the past 30 days. Contact them through ? in the sidebar or team@makenotion.com.'
+    source: https://www.notion.com/help/duplicate-delete-and-restore-content
+  plan_notes:
+  - text: 'Version history: Free 7 days, Plus 30 days, Business 90 days, Enterprise unlimited.'
+    source: https://www.notion.com/pricing
+    plans:
+    - all
+  - text: 'Enterprise only: custom Trash and retention settings. Free, Plus and Business alternative: act within the default 30-day Trash window, and name a recovery owner.'
+    source: https://www.notion.com/help/workspace-settings
+    plans:
+    - all
+  domain: resilience
+- id: q12
+  number: 12
+  title: Recovery and Traceability
+  control: recovery testing and change history
+  question: If an important page were deleted or overwritten today, could you get it back and see who did it?
+  answers:
+    A:
+      text: Yes. We know how far back our plan goes and we've tested a restore.
+      points: 10
+    B:
+      text: Probably, through Trash or version history, but we've never tried.
+      points: 6
+    C:
+      text: I wouldn't know where to start.
+      points: 2
+    D:
+      text: I don't know.
+      points: 0
+  risk: a backup or history you've never tested is a hope, not a control. Most teams find their plan's limits on the day they need them.
+  fixes:
+  - text: 'Deleted pages: Trash at the bottom of the sidebar keeps them 30 days by default.'
+    source: https://www.notion.com/help/duplicate-delete-and-restore-content
+  - text: 'Overwritten pages: ••• → Version history → pick a version → Restore. It shows who made each change.'
+    source: https://www.notion.com/help/duplicate-delete-and-restore-content
+  - text: Run a 10-minute restore drill once a quarter on a test page.
+  plan_notes:
+  - text: 'Version history: Free 7 days, Plus 30 days, Business 90 days, Enterprise unlimited.'
+    source: https://www.notion.com/pricing
+    plans:
+    - all
+  - text: 'Enterprise only: audit log (up to 365 days of events, exportable to CSV). Free, Plus and Business alternative: version history and Trash (see Q11).'
+    source: https://www.notion.com/help/audit-log
+    plans:
+    - all
+  domain: resilience
+profile:
+  team_size:
+  - value: solo
+    label: Only me
+  - value: 2-4
+    label: 2 to 4
+  - value: 5-10
+    label: 5 to 10
+  - value: 11-24
+    label: 11 to 24
+  - value: 25-50
+    label: 25 to 50
+  - value: 51+
+    label: 51+
+  role:
+  - value: owner
+    label: Owner or founder
+  - value: ops
+    label: Ops or admin lead
+  - value: member
+    label: Team member
+  - value: freelancer
+    label: Freelancer or consultant
+  plan:
+  - value: free
+    label: Free
+  - value: plus
+    label: Plus
+  - value: business
+    label: Business
+  - value: enterprise
+    label: Enterprise
+  - value: not_sure
+    label: Not sure
+  industry:
+  - value: agency
+    label: Agency or marketing
+  - value: real_estate
+    label: Real estate
+  - value: professional
+    label: Professional services
+  - value: construction
+    label: Construction or trades
+  - value: tech
+    label: Tech or software
+  - value: other
+    label: Other
+  country:
+  - Afghanistan
+  - Albania
+  - Algeria
+  - Andorra
+  - Angola
+  - Antigua and Barbuda
+  - Argentina
+  - Armenia
+  - Australia
+  - Austria
+  - Azerbaijan
+  - Bahamas
+  - Bahrain
+  - Bangladesh
+  - Barbados
+  - Belarus
+  - Belgium
+  - Belize
+  - Benin
+  - Bhutan
+  - Bolivia
+  - Bosnia and Herzegovina
+  - Botswana
+  - Brazil
+  - Brunei
+  - Bulgaria
+  - Burkina Faso
+  - Burundi
+  - Cabo Verde
+  - Cambodia
+  - Cameroon
+  - Canada
+  - Central African Republic
+  - Chad
+  - Chile
+  - China
+  - Colombia
+  - Comoros
+  - Congo
+  - Costa Rica
+  - Cote d'Ivoire
+  - Croatia
+  - Cuba
+  - Cyprus
+  - Czechia
+  - Democratic Republic of the Congo
+  - Denmark
+  - Djibouti
+  - Dominica
+  - Dominican Republic
+  - Ecuador
+  - Egypt
+  - El Salvador
+  - Equatorial Guinea
+  - Eritrea
+  - Estonia
+  - Eswatini
+  - Ethiopia
+  - Fiji
+  - Finland
+  - France
+  - Gabon
+  - Gambia
+  - Georgia
+  - Germany
+  - Ghana
+  - Greece
+  - Grenada
+  - Guatemala
+  - Guinea
+  - Guinea-Bissau
+  - Guyana
+  - Haiti
+  - Honduras
+  - Hong Kong
+  - Hungary
+  - Iceland
+  - India
+  - Indonesia
+  - Iran
+  - Iraq
+  - Ireland
+  - Israel
+  - Italy
+  - Jamaica
+  - Japan
+  - Jordan
+  - Kazakhstan
+  - Kenya
+  - Kiribati
+  - Kosovo
+  - Kuwait
+  - Kyrgyzstan
+  - Laos
+  - Latvia
+  - Lebanon
+  - Lesotho
+  - Liberia
+  - Libya
+  - Liechtenstein
+  - Lithuania
+  - Luxembourg
+  - Madagascar
+  - Malawi
+  - Malaysia
+  - Maldives
+  - Mali
+  - Malta
+  - Marshall Islands
+  - Mauritania
+  - Mauritius
+  - Mexico
+  - Micronesia
+  - Moldova
+  - Monaco
+  - Mongolia
+  - Montenegro
+  - Morocco
+  - Mozambique
+  - Myanmar
+  - Namibia
+  - Nauru
+  - Nepal
+  - Netherlands
+  - New Zealand
+  - Nicaragua
+  - Niger
+  - Nigeria
+  - North Korea
+  - North Macedonia
+  - Norway
+  - Oman
+  - Pakistan
+  - Palau
+  - Palestine
+  - Panama
+  - Papua New Guinea
+  - Paraguay
+  - Peru
+  - Philippines
+  - Poland
+  - Portugal
+  - Puerto Rico
+  - Qatar
+  - Romania
+  - Russia
+  - Rwanda
+  - Saint Kitts and Nevis
+  - Saint Lucia
+  - Saint Vincent and the Grenadines
+  - Samoa
+  - San Marino
+  - Sao Tome and Principe
+  - Saudi Arabia
+  - Senegal
+  - Serbia
+  - Seychelles
+  - Sierra Leone
+  - Singapore
+  - Slovakia
+  - Slovenia
+  - Solomon Islands
+  - Somalia
+  - South Africa
+  - South Korea
+  - South Sudan
+  - Spain
+  - Sri Lanka
+  - Sudan
+  - Suriname
+  - Sweden
+  - Switzerland
+  - Syria
+  - Taiwan
+  - Tajikistan
+  - Tanzania
+  - Thailand
+  - Timor-Leste
+  - Togo
+  - Tonga
+  - Trinidad and Tobago
+  - Tunisia
+  - Turkey
+  - Turkmenistan
+  - Tuvalu
+  - Uganda
+  - Ukraine
+  - United Arab Emirates
+  - United Kingdom
+  - United States
+  - Uruguay
+  - Uzbekistan
+  - Vanuatu
+  - Vatican City
+  - Venezuela
+  - Vietnam
+  - Yemen
+  - Zambia
+  - Zimbabwe
+  - Other
+sources:
+  email: Email list
+  instagram: Instagram
+  ig: Instagram
+  x: X
+  twitter: X
+  linkedin: LinkedIn
+  template: Template page
+  templates: Template page
+  website: Website
+  site: Website
+  setup_session: Setup Session
+  session: Setup Session
+offers:
+  fixlist:
+    name: Fix List
+    price: "$39"
+    link: https://buy.stripe.com/28E6oJfmMbYh27h4Kt1ZS0x
+  fix_session:
+    name: Security Fix Session
+    price: "$290"
+    link: https://buy.stripe.com/6oUcN7fmMgex6nxa4N1ZS0y
+  hardening:
+    name: Notion Security Hardening
+    price: "$1,490"
+    link: https://buy.stripe.com/cNiaEZ3E4bYhbHR90J1ZS0z
+  caas:
+    name: Notion Expert as a Service
+    price: "$347/mo"
+    link: https://buy.stripe.com/9B6fZj1vW4vP13d7WF1ZS0u
+quick_wins:
+- id: public_pages
+  question: q3
+  title: See What's Public
+  text: Open any published page, select Share → Publish → All published sites, and Unpublish anything you don't recognize. Unpublishing doesn't remove "Anyone on the web with link" on a page, so check that in Share → General access too.
+  email: open any published page, select Share → Publish → All published sites, and unpublish anything you don't recognize.
+  source: https://www.notion.com/help/public-pages-and-web-publishing
+- id: two_step
+  question: q1
+  title: Turn On 2-Step Verification
+  text: Settings → your name → Account security → 2-step verification → Add verification method. Use an authenticator app, save the backup codes, and ask your team to do the same.
+  email: 'turn on 2-step verification: Settings → your name → Account security → 2-step verification → Add verification method.'
+  source: https://www.notion.com/help/two-step-verification
+- id: lock_pages
+  question: q10
+  title: Lock Key Pages
+  text: Open each key page, select ••• and toggle on Lock page, so it can't be changed by accident.
+  email: open each key page, select ••• and toggle on Lock page, so it can't be changed by accident.
+  source: https://www.notion.com/help/collaborate-within-a-workspace
+strength_snippets:
+  _note: PLACEHOLDER wording by Website Ops for {{strength_summary}}; Product Marketer to confirm. Used for areas at Managed or above.
+  identity: sign-in and accounts are in good shape
+  sharing: sharing is in good shape
+  integrations: connected apps are in good shape
+  people: offboarding is in good shape
+  governance: admin rights are in good shape
+  resilience: recovery is in good shape
+risk_short_names:
+  _note: PLACEHOLDER short risk names for {{top_risks_summary}} and {{biggest_impact_sentence}}; q3, q8, q11 follow the SAMPLE page; Product Marketer to confirm the rest.
+  q1: weak sign-in
+  q2: shared or mixed-up accounts
+  q3: old public pages
+  q4: sensitive data in pages
+  q5: unreviewed connected apps
+  q6: untracked AI tools
+  q7: leavers who keep access
+  q8: unreviewed access
+  q9: admin rights
+  q10: open default access
+  q11: an unmapped recovery path
+  q12: an untested restore
+risk_impacts:
+  q1:
+    B: Your own account is protected, but one teammate's stolen password still opens every page they can see.
+    C: One phished password is enough to open everything that person can see in Notion.
+    D: You can't tell if one stolen password opens your workspace, and Notion can't require members to use 2-step verification.
+  q2:
+    B: Freelancers or clients added as full members can open every open teamspace, not only their own pages.
+    C: With a shared login nobody is accountable, and removing one person locks out everyone who uses it.
+    D: Without knowing who uses which account, you can't remove one person cleanly or tell who did what.
+  q3:
+    B: Pages you meant to publish stay open with every subpage added since, and nobody has checked lately.
+    C: Old public pages, their subpages and contributors' names and emails can be read by anyone with the link.
+    D: Not knowing what is public means client pages could be readable by anyone with the link today.
+  q4:
+    B: These details stay safe only while sharing stays tight; one wrong share or connection exposes them.
+    C: Everyone on the team, every guest and every connected tool can read these passwords and details.
+    D: Secrets may sit in pages nobody has checked, and old versions stay in history even after deletion.
+  q5:
+    B: Connections nobody has reviewed keep their access to your pages until someone removes them.
+    C: Each forgotten connection still holds a key to its pages, even after the person who added it leaves.
+    D: Without a list of connected apps, you can't tell which outside tools can read your pages.
+  q6:
+    B: The AI tool can read most of your workspace, including client and finance pages.
+    C: Untracked AI tools may read client and finance pages, and text in a page can try to steer them.
+    D: An AI tool you don't know about reads everything it can reach, including sensitive pages.
+  q7:
+    B: Between someone leaving and their removal, they can still open, copy or delete company pages.
+    C: People who left can likely still open, copy or delete your pages, and their connected tools keep running.
+    D: If you can't confirm leavers were removed, assume some still have access to your pages.
+  q8:
+    B: A yearly review leaves months where past freelancers and old clients keep access.
+    C: Access has only grown since day one, so old clients and past freelancers likely still have it.
+    D: Not knowing when access was last reviewed means people you've forgotten may still have it.
+  q9:
+    B: If your only owner account is lost or locked, nobody can manage the workspace's security.
+    C: 'Every extra owner is a master key: each can change security settings, export everything or delete the workspace.'
+    D: Not knowing who holds owner rights means you can't tell who could export or delete everything.
+  q10:
+    B: New people can still see finance, HR and client pages, even if they can't change them.
+    C: Every new hire or compromised account can read, edit and reshare finance, HR and client pages on day one.
+    D: You can't be sure a new hire won't open finance, HR or client pages on day one.
+  q11:
+    B: Recovery has time limits; without knowing yours or who can restore, a deleted page can be lost.
+    C: A deleted key page could be gone for good, leaving you to rebuild it from memory.
+    D: If nobody knows how recovery works on your plan, a deleted page may be gone once the window closes.
+  q12:
+    B: A restore you've never tried is a hope; you may find your plan's limits on the day you need them.
+    C: If a key page is deleted or overwritten, you'd lose time working out how to get it back.
+    D: Not knowing whether you can restore a page, or see who changed it, is the gap itself.
+actions:
+  A-01:
+    title: Turn on 2-step verification for every account.
+    domain: Identity and Access
+    plain: turning on 2-step verification for every account
+  A-02:
+    title: Ask each person to confirm 2-step verification.
+    domain: Identity and Access
+    plain: asking each person to confirm 2-step verification
+  A-03:
+    title: Give every person their own account.
+    domain: Identity and Access
+    plain: giving every person their own account
+  A-04:
+    title: Change freelancers and clients from members to guests.
+    domain: Identity and Access
+    plain: changing freelancers and clients from members to guests
+  A-05:
+    title: Review every published site and public link.
+    domain: Sharing and Data Exposure
+    plain: reviewing every published site and public link
+  A-06:
+    title: Take offline every page that should not be public.
+    domain: Sharing and Data Exposure
+    plain: taking offline every page that should not be public
+  A-07:
+    title: Move passwords and keys to a password manager.
+    domain: Sharing and Data Exposure
+    plain: moving passwords and keys to a password manager
+  A-08:
+    title: Search pages for passwords, keys and ID scans.
+    domain: Sharing and Data Exposure
+    plain: searching your pages for passwords, keys and ID scans
+  A-09:
+    title: Change every password or key stored in Notion.
+    domain: Sharing and Data Exposure
+    plain: changing every password or key stored in Notion
+  A-10:
+    title: List every app connected to Notion.
+    domain: Integrations and Third Parties
+    plain: listing every app connected to Notion
+  A-11:
+    title: Disconnect unused and unknown connected apps.
+    domain: Integrations and Third Parties
+    plain: disconnecting unused and unknown connected apps
+  A-12:
+    title: Find every AI tool connected to Notion.
+    domain: Integrations and Third Parties
+    plain: finding every AI tool connected to Notion
+  A-13:
+    title: Limit the AI tool to the pages it needs.
+    domain: Integrations and Third Parties
+    plain: limiting the AI tool to the pages it needs
+  A-14:
+    title: Agree which apps and AI tools are approved.
+    domain: Integrations and Third Parties
+    plain: agreeing which apps and AI tools are approved
+  A-15:
+    title: Remove access for everyone who has left.
+    domain: People and Offboarding
+    plain: removing access for everyone who has left
+  A-16:
+    title: Run a leaver checklist on every last day.
+    domain: People and Offboarding
+    plain: running a leaver checklist on every last day
+  A-17:
+    title: Remove members and guests who no longer need access.
+    domain: People and Offboarding
+    plain: removing members and guests who no longer need access
+  A-18:
+    title: Book a quarterly access and sharing review.
+    domain: People and Offboarding
+    plain: booking a quarterly access and sharing review
+  A-19:
+    title: Check who holds workspace owner rights.
+    domain: Governance and Admin
+    plain: checking who holds workspace owner rights
+  A-20:
+    title: Keep exactly 2 named workspace owners.
+    domain: Governance and Admin
+    plain: cutting workspace owners to 2 named people
+  A-21:
+    title: Add a second named workspace owner.
+    domain: Governance and Admin
+    plain: adding a second named workspace owner
+  A-22:
+    title: Check what a new member can open.
+    domain: Governance and Admin
+    plain: checking what a new member can open
+  A-23:
+    title: Close finance, HR and client teamspaces.
+    domain: Governance and Admin
+    plain: closing your finance, HR and client teamspaces
+  A-24:
+    title: Learn your plan's Trash and history limits.
+    domain: Resilience and Recovery
+    plain: learning your plan's Trash and version history limits
+  A-25:
+    title: Give 2 people full access to key pages.
+    domain: Resilience and Recovery
+    plain: giving 2 people full access to your key pages
+  A-26:
+    title: Move key pages out of private sections.
+    domain: Resilience and Recovery
+    plain: moving key pages out of private sections into a teamspace
+  A-27:
+    title: Test a page restore once a quarter.
+    domain: Resilience and Recovery
+    plain: testing a page restore once a quarter
+answer_actions:
+  q1:
+    B:
+      primary: A-01
+      secondary: A-02
+      phase: 2
+    C:
+      primary: A-01
+      secondary:
+      phase: 1
+    D:
+      primary: A-02
+      secondary: A-01
+      phase: 1
+  q2:
+    B:
+      primary: A-04
+      secondary:
+      phase: 2
+    C:
+      primary: A-03
+      secondary:
+      phase: 2
+    D:
+      primary: A-17
+      secondary: A-04
+      phase: 2
+  q3:
+    B:
+      primary: A-05
+      secondary: A-18
+      phase: 2
+    C:
+      primary: A-06
+      secondary: A-05
+      phase: 1
+    D:
+      primary: A-05
+      secondary: A-06
+      phase: 1
+  q4:
+    B:
+      primary: A-07
+      secondary:
+      phase: 2
+    C:
+      primary: A-07
+      secondary: A-09
+      phase: 1
+    D:
+      primary: A-08
+      secondary: A-07
+      phase: 2
+  q5:
+    B:
+      primary: A-11
+      secondary:
+      phase: 2
+    C:
+      primary: A-11
+      secondary: A-14
+      phase: 2
+    D:
+      primary: A-10
+      secondary: A-11
+      phase: 2
+  q6:
+    B:
+      primary: A-13
+      secondary: A-14
+      phase: 2
+    C:
+      primary: A-12
+      secondary: A-14
+      phase: 2
+    D:
+      primary: A-12
+      secondary: A-13
+      phase: 2
+  q7:
+    B:
+      primary: A-16
+      secondary:
+      phase: 2
+    C:
+      primary: A-15
+      secondary: A-16
+      phase: 1
+    D:
+      primary: A-15
+      secondary: A-16
+      phase: 2
+  q8:
+    B:
+      primary: A-18
+      secondary:
+      phase: 3
+    C:
+      primary: A-17
+      secondary: A-18
+      phase: 2
+    D:
+      primary: A-17
+      secondary: A-18
+      phase: 2
+  q9:
+    B:
+      primary: A-21
+      secondary:
+      phase: 2
+    C:
+      primary: A-20
+      secondary:
+      phase: 1
+    D:
+      primary: A-19
+      secondary: A-20
+      phase: 2
+  q10:
+    B:
+      primary: A-23
+      secondary:
+      phase: 3
+    C:
+      primary: A-23
+      secondary:
+      phase: 2
+    D:
+      primary: A-22
+      secondary: A-23
+      phase: 2
+  q11:
+    B:
+      primary: A-24
+      secondary: A-25
+      phase: 2
+    C:
+      primary: A-25
+      secondary: A-26
+      phase: 2
+    D:
+      primary: A-24
+      secondary: A-25
+      phase: 2
+  q12:
+    B:
+      primary: A-27
+      secondary:
+      phase: 3
+    C:
+      primary: A-27
+      secondary: A-24
+      phase: 2
+    D:
+      primary: A-24
+      secondary: A-27
+      phase: 2
+action_habits:
+- A-18
+- A-14
+- A-27
+ui:
+  ui.badge: Free Security Check
+  ui.title: Notion Workspace Security Check
+  ui.intro: 12 questions, about 3 minutes. No logins, links or screenshots needed.
+  ui.start_button: Start the Check
+  ui.privacy_note: Nothing in your Notion is accessed.
+  # Item 6 (PM, L0_CEO 19 Oct 2026). Same text as COPY.level_note in workers/security-check-api/src/copy.js; {score} is filled in.
+  ui.level_note: "Average score {score}/100. Your level is set by your lowest area, so it can be lower than your average suggests."
+  pre.heading: First, 3 Quick Details
+  pre.team_size: How many people use your Notion?
+  pre.team_size.helper: Count everyone with an account, you included. Don't count guests.
+  pre.role: Your role
+  pre.plan: Your Notion plan
+  pre.plan.helper: Optional. Not sure? Pick "Not sure".
+  pre.next_button: Next
+  q.progress: Question {{n}} of 12
+  q.back_button: Back
+  q.next_button: Next
+  q.na_option: 'Not applicable: only I have ever had access'
+  gate.heading: Where Should We Send Your Result?
+  gate.subheading: Your result is ready. Add your details to see it and get a copy by email.
+  gate.name: Your name
+  gate.email: Work email
+  gate.email.helper: Your result is sent here.
+  gate.company: Company
+  gate.company.helper: Shown on your result page.
+  gate.country: Country
+  gate.consent: Email me my result and up to 3 follow-ups. Unsubscribe any time.
+  gate.submit_button: Show My Result
+  result.industry: What best describes your business?
+  result.industry.helper: Optional.
+  err.required_choice: Please choose an option.
+  err.email_invalid: Please enter a valid email, like name@company.com.
+  err.too_long_name: Use 60 characters or fewer.
+  err.too_long_company: Use 80 characters or fewer.
+  err.consent: Tick the box so we can email your result.
+  # Final PM-approved error strings (19 Oct 2026). One place for every field-level message.
+  err.q_unanswered: Please pick an answer to this question.
+  err.q_changed: This answer has changed. Please pick it again.
+  err.email_disposable: Please use an email you check, not a temporary one.
+  err.name_missing: Please add your name.
+  err.company_missing: Please add your company.
+  err.country_missing: Please add your country.
+  err.server: Something went wrong on our side. Please try again in a minute.
+  err.button_retry: Try Again
+  result.loading: Scoring your answers and building your result...
+  result.ready_email_note: A copy is on its way to {{work_email}}.
+  thanks.fixlist: Your Fix List is on its way to your inbox.
+  thanks.fixlist_sub: It includes your top 3 risks and a ready action plan in Notion.
+
+# Maturity staircase (result screen, /r/, /f/, emails, Notion pages). Single config spot:
+# edit here, then run tools/security-check/maturity/build.sh to re-render the 4 PNGs.
+maturity:
+  title: Your Security Maturity Level
+  footnote: Your overall level is your lowest area.
+  image_path: /assets/img/security-check/maturity-level-
+  # Definitions: PM copy file "Maturity Levels (CMMI Style, Rev 10:55 am UAE)", keys level.1..level.5. Bands: L0_CEO 10:59 am UAE.
+  # Edit here, then run tools/security-check/maturity/build.sh to re-render the 5 PNGs.
+  levels:
+    - number: 1
+      name: Initial
+      range: 0 to 19
+      meaning: Ad hoc setup, little control over access or sharing.
+      color: "#C8102E"
+      muted: "#F3C7CE"
+    - number: 2
+      name: Managed
+      range: 20 to 39
+      meaning: Some safeguards exist, but they depend on individual people.
+      color: "#E0620F"
+      muted: "#F8D3B9"
+    - number: 3
+      name: Defined
+      range: 40 to 59
+      meaning: Clear workspace rules exist, and most people follow them.
+      color: "#E5A00D"
+      muted: "#F8E3B4"
+    - number: 4
+      name: Quantitatively Managed
+      range: 60 to 89
+      meaning: Access and sharing are reviewed on a schedule and tracked.
+      color: "#6FA83A"
+      muted: "#D6E8C4"
+    - number: 5
+      name: Optimizing
+      range: 90 to 100
+      meaning: Controls are tested and improved as the team changes.
+      color: "#16793A"
+      muted: "#BFDCC8"

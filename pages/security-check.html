@@ -1,0 +1,309 @@
+---
+layout: default
+title: "Free Notion Workspace Security Check | Anthony Today"
+description: "12 questions, about 3 minutes. A free self-check of how safe your Notion workspace is across 6 areas. No logins, links or screenshots needed."
+permalink: /security-check/
+lang: en
+schema_type: "WebPage"
+bc_name: "Security Check"
+css_bundle: /assets/css/b-55370db292.css
+no_offer_popup: true
+---
+{%- assign sc = site.data.security_check -%}{%- assign ui = sc.ui -%}
+<style>
+.qf .head h1{text-transform:none;font-size:40px;letter-spacing:-.02em}
+.qf .qf-sub{max-width:540px;font-size:17px}
+.qf .qf-trust{display:flex;align-items:center;justify-content:center;gap:12px;margin:18px auto 0;max-width:460px;text-align:left}
+.qf .qf-trust img{width:48px;height:48px;border-radius:50%;object-fit:cover;flex:0 0 auto}
+.qf .qf-trust span{font-size:14px;font-weight:600;color:var(--navy);line-height:1.35}
+.qf .scr{display:none;padding:30px 0 60px}
+.qf .scr.on{display:block}
+.qf fieldset.q{border:0;padding:0;margin:0 0 26px;min-inline-size:0}
+.qf legend.qlabel{padding:0;font-size:19px;font-weight:600;margin-bottom:14px;line-height:1.4}
+.qf .qnum{font-size:12px;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:8px}
+.qf .area{font-size:13px;color:var(--text-gray);margin-bottom:6px}
+.qf label.fl{display:block;font-size:15px;font-weight:600;margin:0 0 7px}
+.qf select{width:100%;padding:13px 15px;border:1px solid var(--border);border-radius:7px;font:inherit;font-size:15.5px;color:var(--navy);background:#fff}
+.qf .field{margin-bottom:18px}
+.qf .bar{height:6px;background:var(--light-gray);border-radius:4px;overflow:hidden;margin:0 0 22px}
+.qf .bar span{display:block;height:100%;background:var(--blue);width:0;transition:width .25s}
+.qf .navrow{display:flex;gap:10px;margin-top:8px}
+.qf .navrow .submit{flex:1}
+.qf .back{background:#fff;color:var(--navy);border:1px solid var(--border);padding:16px 20px;border-radius:7px;font:inherit;font-size:16px;cursor:pointer}
+.qf .err{color:#B91C1C;font-size:14px;margin:8px 0 0;min-height:1em}
+.qf .rcard{border:1px solid var(--border);background:#fff}
+.qf .lvl{font-size:13px;letter-spacing:.8px;text-transform:uppercase;font-weight:600;color:#C2410C}
+.qf .big{font-size:44px;font-weight:700;line-height:1.1;margin:6px 0 4px}
+.qf .prof{width:100%;border-collapse:collapse;font-size:14.5px;margin:10px 0 6px}
+.qf .prof td{padding:7px 4px;border-bottom:1px solid var(--border);vertical-align:middle}
+.qf .prof .b{font-family:ui-monospace,Menlo,monospace;letter-spacing:1px;color:var(--blue);white-space:nowrap}
+.qf img.stair{display:block;width:600px;max-width:100%;height:auto;margin:14px 0 4px}
+.qf .flag{background:#FDECEC;border:1px solid #F5B5B5;border-radius:8px;padding:12px 14px;margin:12px 0;font-size:15px}
+.qf .legend{font-size:12.5px;color:var(--text-gray)}
+.qf .cta{margin-top:22px;padding:22px;border-radius:12px;background:#EAF0FF;border:1px solid #C9D6FF}
+.qf .disc{font-size:12.5px;color:var(--text-gray);margin-top:16px;line-height:1.6}
+@media(max-width:640px){.qf .head h1{font-size:30px}.qf .big{font-size:36px}.qf .prof .b{letter-spacing:0;font-size:12px}}
+.privacy a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px}
+/* Result screen on phones: one card padding instead of three stacked ones, so the result has the same room as /r/ and its footer links fit one line at 390. */
+@media(max-width:640px){.qf #s-result.scr{padding-left:0 !important;padding-right:0 !important}.qf #r-card.rcard{padding:16px 12px}}
+</style>
+<div class="qf" id="sc">
+
+  <div class="head" id="sc-head">
+    <div class="prog">{{ ui["ui.badge"] }}</div>
+    <h1>{{ ui["ui.title"] }}</h1>
+    <p class="qf-sub">{{ ui["ui.intro"] }}</p>
+    <div class="qf-trust">
+      <img src="/assets/brand/anthony-profile.webp" alt="Anthony, Notion Certified Consultant" width="48" height="48">
+      <span>By Anthony, Notion Certified Consultant</span>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <noscript><p class="err">This check needs JavaScript to score your answers.</p></noscript>
+
+    <section class="scr on" id="s-profile" aria-label="{{ ui["pre.heading"] }}">
+      <h2 style="font-size:22px;font-weight:600;margin:0 0 16px">{{ ui["pre.heading"] }}</h2>
+      <div class="field">
+        <label class="fl" for="f-team">{{ ui["pre.team_size"] }}</label>
+        <p class="hint">{{ ui["pre.team_size.helper"] }}</p>
+        <select id="f-team"><option value="">Choose one</option>{% for o in sc.profile.team_size %}<option value="{{ o.value }}">{{ o.label }}</option>{% endfor %}</select>
+      </div>
+      <div class="field">
+        <label class="fl" for="f-role">{{ ui["pre.role"] }}</label>
+        <select id="f-role"><option value="">Choose one</option>{% for o in sc.profile.role %}<option value="{{ o.value }}">{{ o.label }}</option>{% endfor %}</select>
+      </div>
+      <div class="field">
+        <label class="fl" for="f-plan">{{ ui["pre.plan"] }}</label>
+        <p class="hint">{{ ui["pre.plan.helper"] }}</p>
+        <select id="f-plan"><option value="">Choose one</option>{% for o in sc.profile.plan %}<option value="{{ o.value }}">{{ o.label }}</option>{% endfor %}</select>
+      </div>
+      <p class="err" id="e-profile" role="alert"></p>
+      <button type="button" class="submit" id="b-start">{{ ui["ui.start_button"] }} &rarr;</button>
+      <p class="privacy">{{ ui["ui.privacy_note"] }} <a href="/privacy/" style="color:inherit">Privacy policy</a>.</p>
+    </section>
+
+    {%- for q in sc.questions %}
+    {%- assign dom = sc.domains | where: "id", q.domain | first %}
+    {%- assign qprog = ui["q.progress"] | replace: "{{n}}", q.number %}
+    <section class="scr qscr" id="s-{{ q.id }}" data-q="{{ q.id }}" aria-label="{{ qprog }}">
+      <div class="bar" aria-hidden="true"><span style="width:{{ q.number | times: 100 | divided_by: 13 }}%"></span></div>
+      <div class="qnum">{{ qprog }}</div>
+      <div class="area">{{ dom.name }}</div>
+      <fieldset class="q">
+        <legend class="qlabel">{{ q.question }}</legend>
+        <div class="opts">
+          {%- for a in q.answers %}
+          <label class="opt{% if a[0] == 'D' and q.solo_na %} not-solo{% endif %}"><input type="radio" name="{{ q.id }}" value="{{ a[0] }}"> {{ a[1].text }}</label>
+          {%- endfor %}
+          {%- if q.solo_na %}
+          <label class="opt solo-only" hidden><input type="radio" name="{{ q.id }}" value="NA"> {{ ui["q.na_option"] }}</label>
+          {%- endif %}
+        </div>
+      </fieldset>
+      <p class="err" role="alert"></p>
+      <div class="navrow"><button type="button" class="back">&larr; {{ ui["q.back_button"] }}</button><button type="button" class="submit nxt">{{ ui["q.next_button"] }} &rarr;</button></div>
+    </section>
+    {%- endfor %}
+
+    <section class="scr" id="s-gate" aria-label="{{ ui["gate.heading"] }}">
+      <div class="bar" aria-hidden="true"><span style="width:96%"></span></div>
+      <h2 style="font-size:26px;font-weight:600;margin:0 0 8px">{{ ui["gate.heading"] }}</h2>
+      <p class="hint">{{ ui["gate.subheading"] }}</p>
+      <form id="f-gate" novalidate>
+        <div class="field"><label class="fl" for="f-name">{{ ui["gate.name"] }}</label><input type="text" id="f-name" maxlength="60" autocomplete="name"><p class="err" id="e-name"></p></div>
+        <div class="field"><label class="fl" for="f-email">{{ ui["gate.email"] }}</label><p class="hint">{{ ui["gate.email.helper"] }}</p><input type="email" id="f-email" maxlength="254" autocomplete="email"><p class="err" id="e-email"></p></div>
+        <label class="consent"><input type="checkbox" id="f-consent"> {{ ui["gate.consent"] }}</label><p class="err" id="e-consent"></p>
+        <div class="field"><label class="fl" for="f-company">{{ ui["gate.company"] }}</label><p class="hint">{{ ui["gate.company.helper"] }}</p><input type="text" id="f-company" maxlength="80" autocomplete="organization"><p class="err" id="e-company"></p></div>
+        <div class="field">
+          <label class="fl" for="f-country">{{ ui["gate.country"] }}</label>
+          <select id="f-country"><option value="">Choose one</option>{% for c in sc.profile.country %}<option>{{ c }}</option>{% endfor %}</select><p class="err" id="e-country"></p>
+        </div>
+        <input type="text" name="sc_hp_x" id="f-website" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" tabindex="-1" autocomplete="off" aria-label="Leave this field empty">
+        <p class="err" id="e-gate" role="alert"></p>
+        <div class="navrow"><button type="button" class="back" id="b-gate-back">&larr; {{ ui["q.back_button"] }}</button><button type="submit" class="submit" id="b-submit">{{ ui["gate.submit_button"] }} &rarr;</button></div>
+        <p class="privacy">{{ ui["ui.privacy_note"] }} <a href="/privacy/" style="color:inherit">Privacy policy</a>.</p>
+      </form>
+    </section>
+
+    <section class="scr" id="s-result" aria-live="polite">
+      <div class="rcard" id="r-card"></div>
+      <p class="disc">{{ sc.page.disclaimer }}</p>
+    </section>
+  </div>
+</div>
+{% include site-footer.html %}
+<script>
+(function () {
+  var API = {{ site.security_check_api | jsonify }};
+  var UI = {{ ui | jsonify }};
+  var FIRST = {{ sc.scoring.flag_first_suffix | jsonify }};
+  var MAT = {{ sc.maturity | jsonify }};
+  var $ = function (id) { return document.getElementById(id); };
+  var screens = [].slice.call(document.querySelectorAll(".qf .scr"));
+  var qscreens = [].slice.call(document.querySelectorAll(".qf .qscr"));
+  var state = { idx: 0, answers: {} };
+  var params = new URLSearchParams(location.search);
+  var source = (params.get("src") || params.get("utm_source") || "website").slice(0, 30);
+
+  function show(id) {
+    screens.forEach(function (s) { s.classList.toggle("on", s.id === id); });
+    $("sc-head").style.display = id === "s-profile" ? "" : "none";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  function solo() { return $("f-team").value === "solo"; }
+  function applySolo() {
+    [].forEach.call(document.querySelectorAll(".qf .solo-only"), function (el) { el.hidden = !solo(); });
+    [].forEach.call(document.querySelectorAll(".qf .not-solo"), function (el) { el.hidden = solo(); var i = el.querySelector("input"); if (solo() && i.checked) { i.checked = false; delete state.answers[i.name]; mark(i.name); } });
+    [].forEach.call(document.querySelectorAll(".qf .solo-only input"), function (i) { if (!solo() && i.checked) { i.checked = false; delete state.answers[i.name]; mark(i.name); } });
+  }
+  function mark(name) { [].forEach.call(document.querySelectorAll('.qf input[name="' + name + '"]'), function (o) { o.parentNode.classList.toggle("sel", o.checked); }); }
+  // Answers are saved the moment they are picked, so Back and forward never lose them.
+  [].forEach.call(document.querySelectorAll(".qf .opt input"), function (inp) {
+    inp.addEventListener("change", function () { if (inp.checked) state.answers[inp.name] = inp.value; mark(inp.name); var e = inp.closest(".qscr").querySelector(".err"); if (e) e.textContent = ""; });
+  });
+  // Is the saved answer valid for the current team size? (Solo: Q7/Q8 take N/A, not "I don't know".)
+  function validAnswer(s) {
+    var q = s.getAttribute("data-q"), v = state.answers[q];
+    if (!v) return false;
+    var inp = s.querySelector('input[name="' + q + '"][value="' + v + '"]');
+    return !!inp && !inp.closest(".opt").hidden;
+  }
+  function firstGap() {
+    if (!$("f-team").value || !$("f-role").value) return "s-profile";
+    for (var i = 0; i < qscreens.length; i++) if (!validAnswer(qscreens[i])) return qscreens[i].id;
+    return null;
+  }
+  // Jump to the exact question (or the profile step) and say why. changed = the server or team size made the old answer invalid.
+  function jumpTo(id, changed) {
+    if (id === "s-profile") { $("e-profile").textContent = UI["err.required_choice"]; show(id); return; }
+    var s = $(id); s.querySelector(".err").textContent = changed ? UI["err.q_changed"] : UI["err.q_unanswered"]; show(id);
+  }
+
+  $("b-start").addEventListener("click", function () {
+    if (!$("f-team").value || !$("f-role").value) { $("e-profile").textContent = UI["err.required_choice"]; return; }
+    $("e-profile").textContent = "";
+    applySolo();
+    state.idx = 0; show(qscreens[0].id);
+  });
+  qscreens.forEach(function (s, i) {
+    s.querySelector(".nxt").addEventListener("click", function () {
+      var q = s.getAttribute("data-q");
+      var c = s.querySelector('input[name="' + q + '"]:checked');
+      if (!c || c.closest(".opt").hidden) { s.querySelector(".err").textContent = UI["err.q_unanswered"]; return; }
+      s.querySelector(".err").textContent = "";
+      state.answers[q] = c.value;
+      if (i + 1 < qscreens.length) show(qscreens[i + 1].id); else show("s-gate");
+    });
+    s.querySelector(".back").addEventListener("click", function () { show(i ? qscreens[i - 1].id : "s-profile"); });
+  });
+  $("b-gate-back").addEventListener("click", function () { show(qscreens[qscreens.length - 1].id); });
+
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function bar(score) { if (score === null) return "N/A"; var n = Math.floor(score / 10), s = ""; for (var i = 0; i < 10; i++) s += i < n ? "\u25B0" : "\u25B1"; return s; }
+  function withUtm(u) { return u + (u.indexOf("?") > -1 ? "&" : "?") + "utm_source=website&utm_medium=security_check&utm_campaign=fixlist"; }
+
+  // Email note, held line (only while the real-client lock holds this address) and the dry-run notice.
+  function resultExtras(d, card) {
+    if (state.email && !d.held && d.emailStatus !== "preview") card.appendChild(el("p", null, UI["result.ready_email_note"].replace(/\{\{work_email\}\}/, state.email)));
+    // Only while the real-client lock holds this address (Worker sets held=false once LIVE_FOR="all").
+    if (d.held === true) card.appendChild(el("p", "disc", "Your result is shown above. Keep this page open or save it, as your email copy is not sent yet."));
+    if (d.dryRun) { var n = el("p", "disc", "Preview mode: nothing was sent or stored outside the test Worker. "); var pe = el("a", null, "See the email that would be sent"); pe.href = d.previews.email; pe.target = "_blank"; n.appendChild(pe); card.appendChild(n); }
+  }
+
+  function renderResult(d) {
+    var r = d.result, card = $("r-card");
+    card.textContent = "";
+    card.setAttribute("data-result-url", d.resultUrl || "");
+    // Same content as /r/ (the Worker renders both from the same blocks); the card below is only a fallback.
+    if (d.resultHtml) {
+      var st = document.createElement("style"); st.textContent = (d.resultCss || "") + ".scres{max-width:none;margin:0;padding:0}.scres h1,.scres h2,.scres h3,.scres h4{text-transform:none;letter-spacing:normal}"; card.appendChild(st);
+      var box = document.createElement("div"); box.innerHTML = d.resultHtml; var scr = box.firstChild; card.appendChild(scr);
+      // Notes go above the standard footer, as the last lines of the result.
+      var notes = el("div", "notes"), foot = scr.querySelector("footer"); scr.insertBefore(notes, foot); resultExtras(d, notes);
+      state.result = d;
+      return;
+    }
+    card.appendChild(el("h2", null, "Your Result"));
+    card.appendChild(el("div", "lvl", "Overall Level"));
+    card.appendChild(el("div", "big", "Level " + r.level + ", " + r.levelName));
+    card.appendChild(el("p", null, {{ ui["ui.level_note"] | jsonify }}.replace("{score}", r.total)));
+    var t = el("table", "prof");
+    r.domains.forEach(function (x) {
+      var tr = el("tr");
+      tr.appendChild(el("td", null, x.name));
+      tr.appendChild(el("td", "b", bar(x.score)));
+      tr.appendChild(el("td", null, x.score === null ? "N/A" : String(x.score)));
+      tr.appendChild(el("td", null, x.level ? x.levelName : "N/A"));
+      t.appendChild(tr);
+    });
+    card.appendChild(t);
+    var lv = MAT.levels[r.level - 1] || MAT.levels[0];
+    var im = el("img", "stair"); im.src = MAT.image_path + r.level + ".png"; im.width = 600; im.alt = "Maturity level " + r.level + " of 5: " + lv.name; card.appendChild(im);
+    card.appendChild(el("p", "legend", MAT.footnote));
+    r.flags.forEach(function (f, i) { var p = el("div", "flag"); p.appendChild(el("b", null, f.label + " (" + f.q + ").")); p.appendChild(document.createTextNode(" " + f.headline + (i === 0 ? " " + FIRST : ""))); card.appendChild(p); });
+    if (r.topRisks.length) {
+      card.appendChild(el("h2", null, "Priority Risks"));
+      var ol = el("ol", "rlist");
+      r.topRisks.forEach(function (x) { ol.appendChild(el("li", null, x.title)); });
+      card.appendChild(ol);
+    }
+    var full = el("p"); var a = el("a", null, "Open your result"); a.href = d.resultUrl; a.rel = "noopener"; a.target = "_blank";
+    full.appendChild(a); full.appendChild(document.createTextNode("."));
+    card.appendChild(full);
+    var cta = el("div", "cta");
+    var cp = el("p"); cp.appendChild(el("b", null, "Get your Fix List for {{ sc.offers.fixlist.price }}.")); cp.appendChild(document.createTextNode(" Delivered by email right after payment. 7-day refund on request.")); cta.appendChild(cp);
+    var b = el("a", "btn", "Get your Fix List"); b.href = withUtm(d.fixlistUrl); cta.appendChild(b);
+    card.appendChild(cta);
+    resultExtras(d, card);
+    state.result = d;
+  }
+
+  // Server said no: show the reason next to the exact field or question and go there.
+  function fieldError(id, msg) { $(id).textContent = msg; var f = $(id).parentNode.querySelector("input,select"); if (f) { f.focus(); f.scrollIntoView({ block: "center" }); } }
+  function serverError(x) {
+    var err = $("e-gate"), f = (x.j.fields || [])[0] || "";
+    if (x.status !== 400 || !f) { err.textContent = UI["err.server"]; return; }
+    var m = /^answers\.(q\d+)$/.exec(f);
+    if (m && $("s-" + m[1])) { var had = !!state.answers[m[1]]; delete state.answers[m[1]]; jumpTo("s-" + m[1], had); return; }
+    if (f === "team_size" || f === "role" || f === "plan") { jumpTo("s-profile"); return; }
+    if (f === "email_disposable") { fieldError("e-email", UI["err.email_disposable"]); return; }
+    if (f === "email") { fieldError("e-email", UI["err.email_invalid"]); return; }
+    if (f === "name") { fieldError("e-name", UI["err.name_missing"]); return; }
+    if (f === "company") { fieldError("e-company", UI["err.company_missing"]); return; }
+    if (f === "country") { fieldError("e-country", UI["err.country_missing"]); return; }
+    if (f === "consent") { fieldError("e-consent", UI["err.consent"]); return; }
+    err.textContent = UI["err.server"];
+  }
+  $("f-gate").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var err = $("e-gate");
+    var name = $("f-name").value.trim(), email = $("f-email").value.trim(), company = $("f-company").value.trim(), country = $("f-country").value;
+    var bad = false;
+    function fe(id, msg) { $(id).textContent = msg || ""; if (msg) bad = true; }
+    fe("e-name", !name ? UI["err.name_missing"] : name.length > 60 ? UI["err.too_long_name"] : "");
+    fe("e-email", !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) ? UI["err.email_invalid"] : "");
+    fe("e-consent", !$("f-consent").checked ? UI["err.consent"] : "");
+    fe("e-company", !company ? UI["err.company_missing"] : company.length > 80 ? UI["err.too_long_company"] : "");
+    fe("e-country", !country ? UI["err.country_missing"] : "");
+    err.textContent = "";
+    if (bad) { var first = document.querySelector("#f-gate .err:not(:empty)"); if (first) fieldError(first.id, first.textContent); return; }
+    var gap = firstGap(); if (gap) { var gq = gap.slice(2); jumpTo(gap, gap !== "s-profile" && !!state.answers[gq]); return; }
+    state.email = email;
+    var btn = $("b-submit"); btn.disabled = true; btn.textContent = UI["result.loading"];
+    var body = { team_size: $("f-team").value, role: $("f-role").value, plan: $("f-plan").value || "not_sure", name: name, email: email, company: company,
+      country: country, consent: true, source: source, website: $("f-website").value, answers: {} };
+    qscreens.forEach(function (s) { var q = s.getAttribute("data-q"); body.answers[q] = state.answers[q]; });
+    fetch(API + "/submit", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
+      .then(function (res) { return res.json().then(function (j) { return { status: res.status, j: j }; }); })
+      .then(function (x) {
+        btn.disabled = false; btn.textContent = UI["gate.submit_button"] + " \u2192";
+        if (!x.j.ok) { serverError(x); return; }
+        if (!x.j.result) { err.textContent = UI["err.server"]; return; }
+        renderResult(x.j); show("s-result");
+      })
+      .catch(function () { btn.disabled = false; btn.textContent = UI["gate.submit_button"] + " \u2192"; err.textContent = UI["err.server"]; });
+  });
+
+})();
+</script>

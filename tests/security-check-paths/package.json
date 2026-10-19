@@ -1,0 +1,1 @@
+{ "name": "security-check-paths", "private": true, "type": "module", "scripts": { "test": "node paths.test.mjs" }, "dependencies": { "puppeteer-core": "^23.0.0" } }

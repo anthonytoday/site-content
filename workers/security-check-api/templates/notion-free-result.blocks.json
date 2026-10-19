@@ -1,0 +1,2716 @@
+[
+{
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "FREE RESULT",
+"link": null
+},
+"annotations": {
+"bold": true,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "gray"
+}
+},
+{
+"type": "text",
+"text": {
+"content": " · Notion Workspace Security Check · Prepared for {{#if company}}{{company}}{{else}}your workspace{{/if}} · {{report_date}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "gray"
+}
+}
+]
+}
+},
+{
+"type": "callout",
+"callout": {
+"icon": {
+"type": "emoji",
+"emoji": "💬"
+},
+"color": "gray_background",
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Talk to Anthony:",
+"link": null
+},
+"annotations": {
+"bold": true,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": " ",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "Website",
+"link": {
+"url": "https://www.anthonytoday.com"
+}
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": " · ",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "WhatsApp",
+"link": {
+"url": "https://wa.me/33695845150"
+}
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": " · ",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "Email",
+"link": {
+"url": "mailto:admin@anthonytoday.com"
+}
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": " · ",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "LinkedIn",
+"link": {
+"url": "https://www.linkedin.com/in/anthony-kieffer/"
+}
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+},
+{
+"type": "divider",
+"divider": {}
+},
+{
+"type": "heading_2",
+"heading_2": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Executive Summary",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+"is_toggleable": false
+}
+},
+{
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "We checked how {{#if company}}{{company}}'s Notion workspace{{else}}your Notion workspace{{/if}} ({{team_size}} people, {{plan}} plan) handles sign-in, sharing, connected apps, people, admin rights and recovery. It sits at Level {{overall_level_number}}, {{overall_level}} ({{overall_score}}/100): {{strength_summary}}, but {{top_risks_summary}} leave gaps. {{biggest_impact_sentence}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+},
+{
+"type": "callout",
+"callout": {
+"icon": {
+"type": "emoji",
+"emoji": "📊"
+},
+"color": "orange_background",
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Overall Level",
+"link": null
+},
+"annotations": {
+"bold": true,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "\n",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "Level {{overall_level_number}}, {{overall_level}}",
+"link": null
+},
+"annotations": {
+"bold": true,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "orange"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "\n",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "Score {{overall_score}} / 100. Your level comes from your weakest areas, not the average.",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+},
+{
+"type": "callout",
+"callout": {
+"icon": {
+"type": "emoji",
+"emoji": "🎯"
+},
+"color": "gray_background",
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Main Risk",
+"link": null
+},
+"annotations": {
+"bold": true,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "\n",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "{{main_risk}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+},
+{
+"type": "heading_2",
+"heading_2": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Domain Profile",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+"is_toggleable": false
+}
+},
+{
+"type": "table",
+"table": {
+"table_width": 4,
+"has_column_header": true,
+"has_row_header": false
+},
+"children": [
+{
+"type": "table_row",
+"table_row": {
+"cells": [
+[
+{
+"type": "text",
+"text": {
+"content": "Area",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "Profile",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "Score",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "Level",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+]
+}
+},
+{
+"type": "table_row",
+"table_row": {
+"cells": [
+[
+{
+"type": "text",
+"text": {
+"content": "1. Identity and Access",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "{{area_identity_bar}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "{{area_identity_score}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "{{area_identity_level}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+]
+}
+},
+{
+"type": "table_row",
+"table_row": {
+"cells": [
+[
+{
+"type": "text",
+"text": {
+"content": "2. Sharing and Data Exposure",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "{{area_sharing_bar}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "{{area_sharing_score}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "{{area_sharing_level}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+]
+}
+},
+{
+"type": "table_row",
+"table_row": {
+"cells": [
+[
+{
+"type": "text",
+"text": {
+"content": "3. Integrations and Third Parties",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "{{area_integrations_bar}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "{{area_integrations_score}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "{{area_integrations_level}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+]
+}
+},
+{
+"type": "table_row",
+"table_row": {
+"cells": [
+[
+{
+"type": "text",
+"text": {
+"content": "4. People and Offboarding",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "{{area_people_bar}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "{{area_people_score}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "{{area_people_level}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+]
+}
+},
+{
+"type": "table_row",
+"table_row": {
+"cells": [
+[
+{
+"type": "text",
+"text": {
+"content": "5. Governance and Admin",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "{{area_governance_bar}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "{{area_governance_score}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "{{area_governance_level}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+]
+}
+},
+{
+"type": "table_row",
+"table_row": {
+"cells": [
+[
+{
+"type": "text",
+"text": {
+"content": "6. Resilience and Recovery",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "{{area_resilience_bar}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "{{area_resilience_score}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "{{area_resilience_level}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+]
+}
+}
+]
+},
+{
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Legend: ",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "gray"
+}
+}
+]
+}
+},
+{
+"type": "bulleted_list_item",
+"bulleted_list_item": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Level 4 - Hardened (80 to 100)",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "gray"
+}
+}
+]
+}
+},
+{
+"type": "bulleted_list_item",
+"bulleted_list_item": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Level 3 - Managed (60 to 79)",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "gray"
+}
+}
+]
+}
+},
+{
+"type": "bulleted_list_item",
+"bulleted_list_item": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Level 2 - Basic (30 to 59)",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "gray"
+}
+}
+]
+}
+},
+{
+"type": "bulleted_list_item",
+"bulleted_list_item": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Level 1 - Exposed (0 to 29)",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "gray"
+}
+}
+]
+}
+},
+{
+"type": "heading_2",
+"heading_2": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "How You Compare",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+"is_toggleable": false
+}
+},
+{
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Recommendations only, no benchmark data.",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "gray"
+}
+}
+]
+}
+},
+{
+"type": "bulleted_list_item",
+"bulleted_list_item": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Recommended Level for a Team Your Size:",
+"link": null
+},
+"annotations": {
+"bold": true,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": " {{recommended_level}} in every area. This is our recommendation for a team of {{team_size}}, based on controls Notion itself documents for teams, not a statistic:",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+},
+"children": [
+{
+"type": "bulleted_list_item",
+"bulleted_list_item": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "2-step verification for every person. Notion says it \"highly recommends\" it. ",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "Notion help",
+"link": {
+"url": "https://www.notion.com/help/two-step-verification"
+}
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+},
+{
+"type": "bulleted_list_item",
+"bulleted_list_item": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Access given through teamspaces and groups, not person by person. ",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "Notion guide",
+"link": {
+"url": "https://www.notion.com/help/guides/grant-access-teamspaces"
+}
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+},
+{
+"type": "bulleted_list_item",
+"bulleted_list_item": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Sensitive teamspaces closed, guests kept out of them, and public pages kept in one place. ",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "Notion guide",
+"link": {
+"url": "https://www.notion.com/help/guides/grant-access-teamspaces"
+}
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+},
+{
+"type": "bulleted_list_item",
+"bulleted_list_item": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Guests limited to the pages they work on, and removed when the work ends. ",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "Notion help",
+"link": {
+"url": "https://www.notion.com/help/whos-who-in-a-workspace"
+}
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+},
+{
+"type": "bulleted_list_item",
+"bulleted_list_item": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "You're there in {{areas_at_recommended_count}} of 6 areas today. {{areas_below_recommended}} {{below_recommended_verb}} short.",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+}
+]
+},
+{
+"type": "bulleted_list_item",
+"bulleted_list_item": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Compared With Other Teams:",
+"link": null
+},
+"annotations": {
+"bold": true,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": " switches on once 30 or more teams have completed the Security Check.",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+},
+"children": [
+{
+"type": "bulleted_list_item",
+"bulleted_list_item": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "{{#if peer_comparison_enabled}}{{peer_comparison_text}}{{else}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "Available once 30 or more teams have completed the Security Check.",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "gray"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "{{/if}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+}
+]
+},
+{
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "{{#if flags}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+},
+{
+"type": "heading_2",
+"heading_2": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Critical Flags",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+"is_toggleable": false
+}
+},
+{
+"type": "callout",
+"callout": {
+"icon": {
+"type": "emoji",
+"emoji": "🚩"
+},
+"color": "red_background",
+"rich_text": []
+},
+"children": [
+{
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "{{flags}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+}
+]
+},
+{
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "{{/if}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+},
+{
+"type": "heading_2",
+"heading_2": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Every Risk We Found",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+"is_toggleable": false
+}
+},
+{
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "{{#if strengths}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+},
+{
+"type": "bulleted_list_item",
+"bulleted_list_item": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "What's working:",
+"link": null
+},
+"annotations": {
+"bold": true,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": " {{strengths}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+},
+{
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "{{/if}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+},
+{
+"type": "heading_3",
+"heading_3": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Priority Risks",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+"is_toggleable": false
+}
+},
+{
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "{{priority_risks}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+},
+{
+"type": "heading_3",
+"heading_3": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Other Risks to Watch ({{other_risk_count}})",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+"is_toggleable": true
+},
+"children": [
+{
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "{{risk_list}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+}
+]
+},
+{
+"type": "heading_2",
+"heading_2": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Two Quick Wins (5 Minutes Each)",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+"is_toggleable": false
+}
+},
+{
+"type": "numbered_list_item",
+"numbered_list_item": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "See what's public.",
+"link": null
+},
+"annotations": {
+"bold": true,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": " Open any published page, select Share → Publish → All published sites, and Unpublish anything you don't recognize. Unpublishing doesn't remove \"Anyone on the web with link\" on a page, so check that in Share → General access too. ",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "Notion help",
+"link": {
+"url": "https://www.notion.com/help/public-pages-and-web-publishing"
+}
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+},
+{
+"type": "numbered_list_item",
+"numbered_list_item": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Turn on 2-step verification.",
+"link": null
+},
+"annotations": {
+"bold": true,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": " Settings → your name → Account security → 2-step verification → Add verification method. Use an authenticator app, save the backup codes, and ask your team to do the same. ",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "Notion help",
+"link": {
+"url": "https://www.notion.com/help/two-step-verification"
+}
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+},
+{
+"type": "heading_2",
+"heading_2": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Already in Your {{plan}} Plan",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+"is_toggleable": false
+}
+},
+{
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "{{#if plan_features_unused}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+},
+{
+"type": "bulleted_list_item",
+"bulleted_list_item": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Based on your answers, these features are included in your plan but not yet working for you:",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+},
+"children": [
+{
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "{{plan_features_unused}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+}
+]
+},
+{
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "{{/if}}",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+},
+{
+"type": "heading_2",
+"heading_2": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "What the Fix List Adds",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+"is_toggleable": false
+}
+},
+{
+"type": "table",
+"table": {
+"table_width": 3,
+"has_column_header": true,
+"has_row_header": true
+},
+"children": [
+{
+"type": "table_row",
+"table_row": {
+"cells": [
+[
+{
+"type": "text",
+"text": {
+"content": "What You Get",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "Free Result",
+"link": null
+},
+"annotations": {
+"bold": true,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "\nIncluded",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "Fix List",
+"link": null
+},
+"annotations": {
+"bold": true,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "\n$39",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+]
+}
+},
+{
+"type": "table_row",
+"table_row": {
+"cells": [
+[
+{
+"type": "text",
+"text": {
+"content": "Score, level and 6-area profile",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "✅",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "green"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "✅",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "green"
+}
+}
+]
+]
+}
+},
+{
+"type": "table_row",
+"table_row": {
+"cells": [
+[
+{
+"type": "text",
+"text": {
+"content": "Every risk named, with why it matters",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "✅",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "green"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "✅",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "green"
+}
+}
+]
+]
+}
+},
+{
+"type": "table_row",
+"table_row": {
+"cells": [
+[
+{
+"type": "text",
+"text": {
+"content": "2 quick wins",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "✅",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "green"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "✅",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "green"
+}
+}
+]
+]
+}
+},
+{
+"type": "table_row",
+"table_row": {
+"cells": [
+[
+{
+"type": "text",
+"text": {
+"content": "Step-by-step fix for every risk, with the exact Notion menus",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[],
+[
+{
+"type": "text",
+"text": {
+"content": "✅",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "green"
+}
+}
+]
+]
+}
+},
+{
+"type": "table_row",
+"table_row": {
+"cells": [
+[
+{
+"type": "text",
+"text": {
+"content": "What each fix means on your {{plan}} plan, and the workaround when a control is Enterprise only",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[],
+[
+{
+"type": "text",
+"text": {
+"content": "✅",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "green"
+}
+}
+]
+]
+}
+},
+{
+"type": "table_row",
+"table_row": {
+"cells": [
+[
+{
+"type": "text",
+"text": {
+"content": "Top 3 risks explained: impact on your business",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[],
+[
+{
+"type": "text",
+"text": {
+"content": "✅",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "green"
+}
+}
+]
+]
+}
+},
+{
+"type": "table_row",
+"table_row": {
+"cells": [
+[
+{
+"type": "text",
+"text": {
+"content": "Action plan database: owner role, phases, timeline view",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[],
+[
+{
+"type": "text",
+"text": {
+"content": "✅",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "green"
+}
+}
+]
+]
+}
+},
+{
+"type": "table_row",
+"table_row": {
+"cells": [
+[
+{
+"type": "text",
+"text": {
+"content": "All 12 answers with scores",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[],
+[
+{
+"type": "text",
+"text": {
+"content": "✅",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "green"
+}
+}
+]
+]
+}
+},
+{
+"type": "table_row",
+"table_row": {
+"cells": [
+[
+{
+"type": "text",
+"text": {
+"content": "Price",
+"link": null
+},
+"annotations": {
+"bold": true,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "Free",
+"link": null
+},
+"annotations": {
+"bold": true,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "$39",
+"link": null
+},
+"annotations": {
+"bold": true,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+]
+}
+}
+]
+},
+{
+"type": "callout",
+"callout": {
+"icon": {
+"type": "emoji",
+"emoji": "🛡️"
+},
+"color": "blue_background",
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Get your Fix List for $39.",
+"link": null
+},
+"annotations": {
+"bold": true,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": " Delivered by email right after payment. 7-day refund on request. ",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "Get the Fix List",
+"link": {
+"url": "https://buy.stripe.com/28E6oJfmMbYh27h4Kt1ZS0x?client_reference_id={{result_id}}"
+}
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+},
+{
+"type": "divider",
+"divider": {}
+},
+{
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "➡️ ",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "Book on WhatsApp",
+"link": {
+"url": "https://wa.me/33695845150"
+}
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": " · ",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "Email",
+"link": {
+"url": "mailto:admin@anthonytoday.com"
+}
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+},
+{
+"type": "divider",
+"divider": {}
+},
+{
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Self-check based on your answers. General guidance, not a formal audit.",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "gray"
+}
+}
+]
+}
+},
+{
+"type": "divider",
+"divider": {}
+},
+{
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Prepared by Anthony, Notion Certified Consultant, ",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "www.anthonytoday.com",
+"link": {
+"url": "https://www.anthonytoday.com"
+}
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+}
+}
+]
