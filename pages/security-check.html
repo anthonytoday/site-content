@@ -1,0 +1,247 @@
+---
+layout: default
+title: "Free Notion Workspace Security Check | Anthony Today"
+description: "12 questions, about 3 minutes. A free self-check of how safe your Notion workspace is across 6 areas. No logins, links or screenshots needed."
+permalink: /security-check/
+lang: en
+schema_type: "WebPage"
+bc_name: "Security Check"
+css_bundle: /assets/css/b-55370db292.css
+no_offer_popup: true
+---
+{%- assign sc = site.data.security_check -%}
+<style>
+.qf .head h1{text-transform:none;font-size:40px;letter-spacing:-.02em}
+.qf .qf-sub{max-width:540px;font-size:17px}
+.qf .qf-trust{display:flex;align-items:center;justify-content:center;gap:12px;margin:18px auto 0;max-width:460px;text-align:left}
+.qf .qf-trust img{width:48px;height:48px;border-radius:50%;object-fit:cover;flex:0 0 auto}
+.qf .qf-trust span{font-size:14px;font-weight:600;color:var(--navy);line-height:1.35}
+.qf .scr{display:none;padding:30px 0 60px}
+.qf .scr.on{display:block}
+.qf fieldset.q{border:0;padding:0;margin:0 0 26px;min-inline-size:0}
+.qf legend.qlabel{padding:0;font-size:19px;font-weight:600;margin-bottom:14px;line-height:1.4}
+.qf .qnum{font-size:12px;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:8px}
+.qf .area{font-size:13px;color:var(--text-gray);margin-bottom:6px}
+.qf label.fl{display:block;font-size:15px;font-weight:600;margin:0 0 7px}
+.qf select{width:100%;padding:13px 15px;border:1px solid var(--border);border-radius:7px;font:inherit;font-size:15.5px;color:var(--navy);background:#fff}
+.qf .field{margin-bottom:18px}
+.qf .bar{height:6px;background:var(--light-gray);border-radius:4px;overflow:hidden;margin:0 0 22px}
+.qf .bar span{display:block;height:100%;background:var(--blue);width:0;transition:width .25s}
+.qf .navrow{display:flex;gap:10px;margin-top:8px}
+.qf .navrow .submit{flex:1}
+.qf .back{background:#fff;color:var(--navy);border:1px solid var(--border);padding:16px 20px;border-radius:7px;font:inherit;font-size:16px;cursor:pointer}
+.qf .err{color:#B91C1C;font-size:14px;margin:8px 0 0;min-height:1em}
+.qf .rcard{border:1px solid var(--border);background:#fff}
+.qf .lvl{font-size:13px;letter-spacing:.8px;text-transform:uppercase;font-weight:600;color:#C2410C}
+.qf .big{font-size:44px;font-weight:700;line-height:1.1;margin:6px 0 4px}
+.qf .prof{width:100%;border-collapse:collapse;font-size:14.5px;margin:10px 0 6px}
+.qf .prof td{padding:7px 4px;border-bottom:1px solid var(--border);vertical-align:middle}
+.qf .prof .b{font-family:ui-monospace,Menlo,monospace;letter-spacing:1px;color:var(--blue);white-space:nowrap}
+.qf .flag{background:#FDECEC;border:1px solid #F5B5B5;border-radius:8px;padding:12px 14px;margin:12px 0;font-size:15px}
+.qf .legend{font-size:12.5px;color:var(--text-gray)}
+.qf .cta{margin-top:22px;padding:22px;border-radius:12px;background:#EAF0FF;border:1px solid #C9D6FF}
+.qf .disc{font-size:12.5px;color:var(--text-gray);margin-top:16px;line-height:1.6}
+@media(max-width:640px){.qf .head h1{font-size:30px}.qf .big{font-size:36px}.qf .prof .b{letter-spacing:0;font-size:12px}}
+</style>
+<div class="qf" id="sc">
+
+  <div class="head" id="sc-head">
+    <div class="prog">{{ sc.page.kicker }}</div>
+    <h1>{{ sc.page.title }}</h1>
+    <p class="qf-sub">{{ sc.page.subtitle }}</p>
+    <div class="qf-trust">
+      <img src="/assets/brand/anthony-profile.webp" alt="Anthony, Notion Certified Consultant" width="48" height="48">
+      <span>By Anthony, Notion Certified Consultant</span>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <noscript><p class="err">This check needs JavaScript to score your answers.</p></noscript>
+
+    <section class="scr on" id="s-profile" aria-label="About your team">
+      <div class="field">
+        <label class="fl" for="f-team">Team Size</label>
+        <select id="f-team" required><option value="">Choose one</option>{% for o in sc.profile.team_size %}<option value="{{ o.value }}">{{ o.label }}</option>{% endfor %}</select>
+      </div>
+      <div class="field">
+        <label class="fl" for="f-role">Your Role</label>
+        <select id="f-role" required><option value="">Choose one</option>{% for o in sc.profile.role %}<option value="{{ o.value }}">{{ o.label }}</option>{% endfor %}</select>
+      </div>
+      <div class="field">
+        <label class="fl" for="f-plan">Notion Plan (Optional)</label>
+        <select id="f-plan"><option value="">Choose one</option>{% for o in sc.profile.plan %}<option value="{{ o.value }}">{{ o.label }}</option>{% endfor %}</select>
+      </div>
+      <p class="err" id="e-profile" role="alert"></p>
+      <button type="button" class="submit" id="b-start">Start the Check &rarr;</button>
+      <p class="privacy">{{ sc.page.privacy }} <a href="/privacy/" style="color:inherit">Privacy policy</a>.</p>
+    </section>
+
+    {%- for q in sc.questions %}
+    {%- assign dom = sc.domains | where: "id", q.domain | first %}
+    <section class="scr qscr" id="s-{{ q.id }}" data-q="{{ q.id }}" aria-label="Question {{ q.number }} of 12">
+      <div class="bar" aria-hidden="true"><span style="width:{{ q.number | times: 100 | divided_by: 13 }}%"></span></div>
+      <div class="qnum">Question {{ q.number }} of 12</div>
+      <div class="area">{{ dom.name }}</div>
+      <fieldset class="q">
+        <legend class="qlabel">{{ q.question }}</legend>
+        <div class="opts">
+          {%- for a in q.answers %}
+          <label class="opt{% if a[0] == 'D' and q.solo_na %} not-solo{% endif %}"><input type="radio" name="{{ q.id }}" value="{{ a[0] }}"> {{ a[1].text }}</label>
+          {%- endfor %}
+          {%- if q.solo_na %}
+          <label class="opt solo-only" hidden><input type="radio" name="{{ q.id }}" value="NA"> {{ q.solo_na }}</label>
+          {%- endif %}
+        </div>
+      </fieldset>
+      <p class="err" role="alert"></p>
+      <div class="navrow"><button type="button" class="back">&larr; Back</button><button type="button" class="submit nxt">{% if forloop.last %}See My Result &rarr;{% else %}Next &rarr;{% endif %}</button></div>
+    </section>
+    {%- endfor %}
+
+    <section class="scr" id="s-gate" aria-label="Where to send your result">
+      <div class="bar" aria-hidden="true"><span style="width:96%"></span></div>
+      <h2 style="font-size:26px;font-weight:600;margin:0 0 8px">{{ sc.page.gate_title }}</h2>
+      <p class="hint">{{ sc.page.gate_sub }}</p>
+      <form id="f-gate" novalidate>
+        <div class="field"><label class="fl" for="f-name">Name</label><input type="text" id="f-name" maxlength="60" autocomplete="name" required></div>
+        <div class="field"><label class="fl" for="f-email">Work Email</label><input type="email" id="f-email" maxlength="254" autocomplete="email" required></div>
+        <label class="consent"><input type="checkbox" id="f-consent" required> {{ sc.page.consent }}</label>
+        <div class="field"><label class="fl" for="f-company">Company</label><input type="text" id="f-company" maxlength="80" autocomplete="organization" required></div>
+        <div class="field">
+          <label class="fl" for="f-country">Country</label>
+          <select id="f-country" required><option value="">Choose one</option>{% for c in sc.profile.country %}<option>{{ c }}</option>{% endfor %}</select>
+        </div>
+        <input type="text" name="website" id="f-website" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" tabindex="-1" autocomplete="off" aria-label="Leave this field empty">
+        <p class="err" id="e-gate" role="alert"></p>
+        <div class="navrow"><button type="button" class="back" id="b-gate-back">&larr; Back</button><button type="submit" class="submit" id="b-submit">Show My Result &rarr;</button></div>
+        <p class="privacy">{{ sc.page.privacy }} <a href="/privacy/" style="color:inherit">Privacy policy</a>.</p>
+      </form>
+    </section>
+
+    <section class="scr" id="s-result" aria-live="polite">
+      <div class="rcard" id="r-card"></div>
+      <div class="field" style="margin-top:22px" id="r-industry">
+        <label class="fl" for="f-industry">Optional: What Kind of Business Is It?</label>
+        <select id="f-industry"><option value="">Choose one</option>{% for o in sc.profile.industry %}<option value="{{ o.value }}">{{ o.label }}</option>{% endfor %}</select>
+        <p class="hint" id="r-industry-ok" hidden>Thanks, saved.</p>
+      </div>
+      <p class="disc">{{ sc.page.disclaimer }}</p>
+    </section>
+  </div>
+</div>
+{% include site-footer.html %}
+<script>
+(function () {
+  var API = {{ site.security_check_api | jsonify }};
+  var RESULT_NOTE = {{ sc.page.result_note | jsonify }};
+  var $ = function (id) { return document.getElementById(id); };
+  var screens = [].slice.call(document.querySelectorAll(".qf .scr"));
+  var qscreens = [].slice.call(document.querySelectorAll(".qf .qscr"));
+  var state = { idx: 0, answers: {} };
+  var params = new URLSearchParams(location.search);
+  var source = (params.get("src") || params.get("utm_source") || "website").slice(0, 30);
+
+  function show(id) {
+    screens.forEach(function (s) { s.classList.toggle("on", s.id === id); });
+    $("sc-head").style.display = id === "s-profile" ? "" : "none";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  function solo() { return $("f-team").value === "solo"; }
+  function applySolo() {
+    [].forEach.call(document.querySelectorAll(".qf .solo-only"), function (el) { el.hidden = !solo(); });
+    [].forEach.call(document.querySelectorAll(".qf .not-solo"), function (el) { el.hidden = solo(); var i = el.querySelector("input"); if (solo() && i.checked) i.checked = false; });
+    [].forEach.call(document.querySelectorAll(".qf .solo-only input"), function (i) { if (!solo() && i.checked) i.checked = false; });
+  }
+  [].forEach.call(document.querySelectorAll(".qf .opt input"), function (inp) {
+    inp.addEventListener("change", function () {
+      [].forEach.call(document.querySelectorAll('.qf input[name="' + inp.name + '"]'), function (o) { o.parentNode.classList.toggle("sel", o.checked); });
+    });
+  });
+
+  $("b-start").addEventListener("click", function () {
+    if (!$("f-team").value || !$("f-role").value) { $("e-profile").textContent = "Please choose your team size and role."; return; }
+    $("e-profile").textContent = "";
+    applySolo();
+    state.idx = 0; show(qscreens[0].id);
+  });
+  qscreens.forEach(function (s, i) {
+    s.querySelector(".nxt").addEventListener("click", function () {
+      var q = s.getAttribute("data-q");
+      var c = s.querySelector('input[name="' + q + '"]:checked');
+      if (!c) { s.querySelector(".err").textContent = "Please pick one answer."; return; }
+      s.querySelector(".err").textContent = "";
+      state.answers[q] = c.value;
+      if (i + 1 < qscreens.length) show(qscreens[i + 1].id); else show("s-gate");
+    });
+    s.querySelector(".back").addEventListener("click", function () { show(i ? qscreens[i - 1].id : "s-profile"); });
+  });
+  $("b-gate-back").addEventListener("click", function () { show(qscreens[qscreens.length - 1].id); });
+
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function bar(score) { if (score === null) return "N/A"; var n = Math.floor(score / 10), s = ""; for (var i = 0; i < 10; i++) s += i < n ? "\u25B0" : "\u25B1"; return s; }
+  function withUtm(u) { return u + (u.indexOf("?") > -1 ? "&" : "?") + "utm_source=website&utm_medium=security_check&utm_campaign=fixlist"; }
+
+  function renderResult(d) {
+    var r = d.result, card = $("r-card");
+    card.textContent = "";
+    card.appendChild(el("h2", null, "Your Result"));
+    card.appendChild(el("div", "lvl", "Overall Level"));
+    card.appendChild(el("div", "big", "Level " + r.level + ", " + r.levelName));
+    card.appendChild(el("p", null, "Score " + r.total + " / 100. Your level comes from your weakest areas, not the average."));
+    var t = el("table", "prof");
+    r.domains.forEach(function (x) {
+      var tr = el("tr");
+      tr.appendChild(el("td", null, x.name));
+      tr.appendChild(el("td", "b", bar(x.score)));
+      tr.appendChild(el("td", null, x.score === null ? "N/A" : String(x.score)));
+      tr.appendChild(el("td", null, x.level ? x.levelName : "N/A"));
+      t.appendChild(tr);
+    });
+    card.appendChild(t);
+    card.appendChild(el("p", "legend", "Levels: 1 Exposed (0 to 29), 2 Basic (30 to 59), 3 Managed (60 to 79), 4 Hardened (80 to 100). Your overall level is your lowest area."));
+    r.flags.forEach(function (f) { var p = el("div", "flag"); p.appendChild(el("b", null, "Red Flag: ")); p.appendChild(document.createTextNode(f.headline)); card.appendChild(p); });
+    if (r.topRisks.length) {
+      card.appendChild(el("h2", null, "Priority Risks"));
+      var ol = el("ol", "rlist");
+      r.topRisks.forEach(function (x) { ol.appendChild(el("li", null, x.title)); });
+      card.appendChild(ol);
+    }
+    var full = el("p"); var a = el("a", null, "Open your result page"); a.href = d.resultUrl; a.rel = "noopener"; a.target = "_blank";
+    full.appendChild(a); full.appendChild(document.createTextNode(". " + RESULT_NOTE));
+    card.appendChild(full);
+    var cta = el("div", "cta");
+    var cp = el("p"); cp.appendChild(el("b", null, "Get your Fix List for {{ sc.offers.fixlist.price }}.")); cp.appendChild(document.createTextNode(" Delivered by email right after payment. 7-day refund on request.")); cta.appendChild(cp);
+    var b = el("a", "btn", "Get your Fix List"); b.href = withUtm(d.fixlistUrl); cta.appendChild(b);
+    card.appendChild(cta);
+    if (d.dryRun) { var n = el("p", "disc", "Preview mode: nothing was sent or stored outside the test Worker. "); var pe = el("a", null, "See the email that would be sent"); pe.href = d.previews.email; pe.target = "_blank"; n.appendChild(pe); card.appendChild(n); }
+    state.result = d;
+  }
+
+  $("f-gate").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var err = $("e-gate");
+    var name = $("f-name").value.trim(), email = $("f-email").value.trim(), company = $("f-company").value.trim(), country = $("f-country").value;
+    if (!name || !company || !country || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { err.textContent = "Please fill in every field with a valid work email."; return; }
+    if (!$("f-consent").checked) { err.textContent = "Please tick the box so we can email your result."; return; }
+    err.textContent = "";
+    var btn = $("b-submit"); btn.disabled = true; btn.textContent = "Scoring...";
+    var body = { team_size: $("f-team").value, role: $("f-role").value, plan: $("f-plan").value || "not_sure", name: name, email: email, company: company,
+      country: country, consent: true, source: source, website: $("f-website").value, answers: state.answers };
+    fetch(API + "/submit", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
+      .then(function (res) { return res.json().then(function (j) { return { status: res.status, j: j }; }); })
+      .then(function (x) {
+        btn.disabled = false; btn.textContent = "Show My Result \u2192";
+        if (!x.j.ok) { err.textContent = x.status === 429 ? "Too many tries. Please wait a little and try again." : "Something did not look right: " + (x.j.fields || []).join(", ") + ". Please check and try again."; return; }
+        renderResult(x.j); show("s-result");
+      })
+      .catch(function () { btn.disabled = false; btn.textContent = "Show My Result \u2192"; err.textContent = "Network problem. Please try again."; });
+  });
+
+  $("f-industry").addEventListener("change", function () {
+    var v = this.value, d = state.result;
+    if (!v || !d) return;
+    fetch(API + "/industry", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ resultId: d.resultId, token: d.industryToken, industry: v }) })
+      .then(function () { $("r-industry-ok").hidden = false; }).catch(function () {});
+  });
+})();
+</script>

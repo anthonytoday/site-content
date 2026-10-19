@@ -1,0 +1,21 @@
+{{#if first_name}}Hi {{first_name}},{{else}}Hi there,{{/if}}
+
+Your Notion Security Check result for {{#if company}}{{company}}{{else}}your workspace{{/if}} is ready.
+
+• Level: {{overall_level_number}}, {{overall_level}}
+• Score: {{overall_score}}/100
+{{#if flags}}• Critical flags: {{flag_count}} ({{flag_names}}){{/if}}
+
+Your full result, with your 6-area profile and every risk we found: Open your result ({{result_url}}).
+
+Quick win for today (5 minutes): {{quick_win_1}}
+
+When you want the step-by-step fix for every risk and a ready action plan, the Fix List is $39: Get your Fix List (https://buy.stripe.com/28E6oJfmMbYh27h4Kt1ZS0x?client_reference_id={{result_id}}).
+
+Kind regards,
+Anthony
+Notion Certified Consultant
+www.anthonytoday.com (https://www.anthonytoday.com) | LinkedIn (https://www.linkedin.com/in/anthony-kieffer/) | WhatsApp (https://wa.me/33695845150)
+
+---
+You're receiving this because you asked for your Security Check result. Unsubscribe ({{unsubscribe_url}}) or reply "unsubscribe" and I'll stop follow-ups.

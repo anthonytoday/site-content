@@ -1,0 +1,33 @@
+# New Worker for the Notion Workspace Security Check. workers.dev only: no zone route, no DNS.
+name = "security-check-api"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+[[rules]]
+type = "Text"
+globs = ["**/*.html", "**/*.txt"]
+fallthrough = true
+
+[[kv_namespaces]]
+binding = "SC"
+id = "8ed13b551cba434f92867aee1e122d36"
+
+[vars]
+DRY_RUN = "1"
+PUBLIC_BASE = "https://security-check-api.learningamazonfba.workers.dev"
+ALLOWED_ORIGINS = "https://www.anthonytoday.com,https://anthonytoday.com"
+MAIL_FROM = "Anthony from AnthonyToday.com <admin@anthonytoday.com>"
+FIXLIST_PAYMENT_LINK = "https://buy.stripe.com/28E6oJfmMbYh27h4Kt1ZS0x"
+NOTION_FREE_RESULT_TEMPLATE_ID = "3fef028b-623e-8111-9386-c5d5bb6e3b08"
+NOTION_FIXLIST_TEMPLATE_ID = "3fef028b-623e-811b-934c-febfe7589542"
+NOTION_FIXLIST_ACTION_DB_ID = "66ef028b623e826d889a8177a187e730"
+NOTION_FIXLIST_ACTION_DS_ID = "090f028b-623e-830a-a790-87771191a643"
+# Where client pages are created. Must be inside the one-pager (the integration only sees that tree).
+NOTION_RESULTS_PARENT_ID = ""
+TEST_SEND_ALLOWLIST = "admin@anthonytoday.com"
+REAL_SEND_TEST = "0"
+RATE_PER_IP_HOUR = "20"
+
+# Secrets (wrangler secret put): SIGNING_KEY, TEST_TOKEN (set), NOTION_TOKEN, NOTION_CRM_DB_ID, RESEND_API_KEY,
+# STRIPE_WEBHOOK_SECRET, optional CC_INGEST_URL + CC_INGEST_TOKEN (Command Center / Supabase insert endpoint).

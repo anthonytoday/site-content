@@ -15,6 +15,7 @@ exclude:
   - gumroad-mcp/
   - credentials.md
   - "*.py"
+  - workers/
   - i18n/
   - "**/README.md"
   # Oct 13, 2026: English only. French pages kept for the archive, not built; Cloudflare redirects /fr/* to English.
@@ -41,3 +42,7 @@ offer_popup_enabled: true
 
 # Lead capture popup endpoint (Cloudflare Worker, email-ops)
 offer_api: "https://offer-capture.learningamazonfba.workers.dev/api/claim-offer"
+
+# Notion Workspace Security Check API (Cloudflare Worker security-check-api, workers.dev).
+# DRY_RUN is set on the Worker itself; this URL does not change when it goes live.
+security_check_api: "https://security-check-api.learningamazonfba.workers.dev"

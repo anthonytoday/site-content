@@ -1,0 +1,19 @@
+{{#if first_name}}Hi {{first_name}},{{else}}Hi there,{{/if}}
+
+Payment confirmed, thank you. Your Fix List for {{#if company}}{{company}}{{else}}your workspace{{/if}} is ready: Open your Fix List ({{fixlist_url}}).
+
+What's inside:
+• Your top 3 risks, with why they matter and how to fix each one
+• An action plan in Notion: 5 to 7 items ordered by impact, each with the how-to inside its page{{#if phase_1_summary}}
+• Phase 1 first: {{phase_1_summary}}{{/if}}
+
+Start with Phase 1 this week. It closes your biggest risk.
+
+If the Fix List isn't useful, reply within 7 days for a full refund.
+
+Prefer to close the top risks together, or have them done for you? The Security Fix Session ($290) and Notion Security Hardening ($1,490) are one reply or WhatsApp message away.
+
+Kind regards,
+Anthony
+Notion Certified Consultant
+www.anthonytoday.com (https://www.anthonytoday.com) | LinkedIn (https://www.linkedin.com/in/anthony-kieffer/) | WhatsApp (https://wa.me/33695845150)
