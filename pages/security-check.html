@@ -43,6 +43,7 @@ no_offer_popup: true
 .qf .cta{margin-top:22px;padding:22px;border-radius:12px;background:#EAF0FF;border:1px solid #C9D6FF}
 .qf .disc{font-size:12.5px;color:var(--text-gray);margin-top:16px;line-height:1.6}
 @media(max-width:640px){.qf .head h1{font-size:30px}.qf .big{font-size:36px}.qf .prof .b{letter-spacing:0;font-size:12px}}
+.privacy a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px}
 </style>
 <div class="qf" id="sc">
 
@@ -206,7 +207,7 @@ no_offer_popup: true
     card.appendChild(el("h2", null, "Your Result"));
     card.appendChild(el("div", "lvl", "Overall Level"));
     card.appendChild(el("div", "big", "Level " + r.level + ", " + r.levelName));
-    card.appendChild(el("p", null, "Score " + r.total + " / 100. Your level comes from your weakest areas, not the average."));
+    card.appendChild(el("p", null, {{ ui["ui.level_note"] | jsonify }}.replace("{score}", r.total)));
     var t = el("table", "prof");
     r.domains.forEach(function (x) {
       var tr = el("tr");

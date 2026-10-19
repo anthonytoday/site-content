@@ -1206,6 +1206,8 @@ ui:
   ui.intro: 12 questions, about 3 minutes. No logins, links or screenshots needed.
   ui.start_button: Start the Check
   ui.privacy_note: Nothing in your Notion is accessed.
+  # Item 6 (PM, L0_CEO 19 Oct 2026). Same text as COPY.level_note in workers/security-check-api/src/copy.js; {score} is filled in.
+  ui.level_note: "Average score {score}/100. Your level is set by your lowest area, so it can be lower than your average suggests."
   pre.heading: First, 3 Quick Details
   pre.team_size: How many people use your Notion?
   pre.team_size.helper: Count everyone with an account, you included. Don't count guests.

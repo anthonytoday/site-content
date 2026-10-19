@@ -2,6 +2,9 @@
 // reads the template's blocks through the API, applies {{tokens}} and {{#if}} blocks, writes a new page.
 // The Notion API cannot duplicate a page or a database, so the page is rebuilt block by block and the
 // action database is re-created with the template's schema (views cannot be created through the API: gap).
+import { REWRITES } from "./copy.js";
+// Approved wording swaps (copy.js), run by run, before tokens are filled.
+const rewrite = (rt) => (rt || []).map((x) => { let c = x.plain_text ?? x.text?.content ?? ""; const o = c; for (const [a, b] of REWRITES) if (!c.includes(b)) c = c.split(a).join(b); return c === o ? x : { ...x, plain_text: c, text: { ...(x.text || {}), content: c } }; });
 const LIST_NUMBERED = new Set(["priority_risks", "risk_list"]);
 const LIST_BULLET = new Set(["plan_features_unused"]);
 const RO = ["id", "created_time", "last_edited_time", "created_by", "last_edited_by", "has_children", "archived", "in_trash", "parent", "request_id"];
@@ -46,6 +49,7 @@ function fillRt(rt, T) {
         const v = T[m[1]];
         if (v && typeof v === "object" && !Array.isArray(v)) { if (v.link) out.push(txt(v.text, { url: v.link })); continue; }
         if (Array.isArray(v)) { out.push(txt(v.map((i) => (i.b || "") + (i.t || "")).join("; "), { color: x.annotations?.color })); continue; }
+        if (String(v) === "") continue;
         out.push({ type: "text", text: { content: String(v), link: url ? { url } : null }, annotations: x.annotations });
       } else out.push({ type: "text", text: { content: part, link: url ? { url } : null }, annotations: x.annotations });
     }
@@ -135,7 +139,7 @@ export function transform(blocks, T, ctx = {}) {
     const nb = { type: k, [k]: JSON.parse(JSON.stringify(v)) };
     for (const f of Object.keys(nb[k])) if (nb[k][f] === null) delete nb[k][f]; // read API returns e.g. paragraph.icon: null, which the write API rejects
     for (const f of RO) delete nb[f];
-    if (nb[k].rich_text) nb[k].rich_text = fillRt(inlineIf(nb[k].rich_text, T), T);
+    if (nb[k].rich_text) nb[k].rich_text = fillRt(inlineIf(rewrite(nb[k].rich_text), T), T);
     if (k === "table_row") {
       nb[k].cells = v.cells.map((c) => fillRt(c, T));
       // WhatsApp / Email under the two paid offers, as in Anthony's approved sample.
@@ -151,11 +155,14 @@ export function transform(blocks, T, ctx = {}) {
     if (k === "callout" && /^Overall Level/.test(text) && nb.children) nb.children.forEach((c) => { const ct = c[c.type] && c[c.type].rich_text; if (ct && /^Level /.test(plain(ct))) ct.forEach((x) => { x.annotations = { ...(x.annotations || {}), bold: false }; }); });
     // Domain Profile: add the Overall row in the same layout.
     if (k === "table" && nb.children && plain(nb.children[0].table_row.cells[0] || []).trim() === "Area" && T.overall_bar) {
+      ctx.levelNoteAfter = true;
       nb.children.push({ type: "table_row", table_row: { cells: [[{ type: "text", text: { content: "Overall" }, annotations: { bold: true } }], [txt(T.overall_bar)], [txt(T.overall_score + "/100")], [txt("Level " + T.overall_level_number + ", " + T.overall_level)]] } });
       nb[k].table_width = nb[k].table_width || 4;
     }
     if (k === "table") ctx.offerTable = null;
     out.push(nb);
+    // Item 6: the level note as a small gray line directly under the Domain Profile table.
+    if (ctx.levelNoteAfter && T.level_note) { ctx.levelNoteAfter = false; out.push({ type: "paragraph", paragraph: { rich_text: [txt(T.level_note, { color: "gray" })] } }); }
   }
   return out;
 }
@@ -185,9 +192,11 @@ export { actionRows } from "./tokens.js";
 
 // Standard footer for the Notion pages and the Worker-rendered /r/ and /f/ (emails keep their own footer).
 // No Terms link: https://www.anthonytoday.com/terms/ returns 404 (checked 19 Oct 2026).
-export function withFooter(blocks) {
+export function withFooter(blocks, web = false) {
   const link = (t, u) => ({ type: "text", text: { content: t, link: { url: u } } });
-  return [...blocks, { type: "divider", divider: {} },
+  const foot = [
     { type: "paragraph", paragraph: { rich_text: [{ type: "text", text: { content: "© 2026 AnthonyToday.com. All rights reserved." }, annotations: { color: "gray" } }] } },
     { type: "paragraph", paragraph: { rich_text: [link("Privacy policy", "https://www.anthonytoday.com/privacy/"), txt(" · "), link("Contact", "https://www.anthonytoday.com/contact/"), txt(" · "), link("www.anthonytoday.com", "https://www.anthonytoday.com/")] } }];
+  // Web (/r/, /f/): wrapped in a <footer> element by the renderer. Notion: plain blocks after a divider.
+  return web ? [...blocks, { type: "__footer__", children: foot }] : [...blocks, { type: "divider", divider: {} }, ...foot];
 }

@@ -11,7 +11,7 @@ import { buildResultEmail, buildFixlistEmail, resendSuppressed, resendSuppress, 
 import { Notion, leadProperties, paidProperties } from "./notion.js";
 import { readTree, transform, writeTree, actionRows, withFooter } from "./notion-tpl.js";
 import { renderPage, renderBlocks, renderActionPlan } from "./render.js";
-import { fmtDate } from "./tokens.js";
+import { fmtDate, fmtRange } from "./tokens.js";
 
 const enc = new TextEncoder();
 const b64u = (buf) => btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
@@ -127,6 +127,7 @@ async function handleSubmit(req, env, ctx, h) {
 // Internal notification to admin@ (free result incl. held, and every Fix List purchase). Never blocks the client flow.
 async function notifyInternal(env, kind, sub, r, L, idem) {
   if (isDry(env) || !env.RESEND_API_KEY) return { dry: true };
+  if (env.INTERNAL_NOTIFY === "off") return { skipped: "INTERNAL_NOTIFY=off (test runs)" };
   const leadUrl = sub.lead_page_id ? "https://www.notion.so/" + sub.lead_page_id.replace(/-/g, "") : null;
   const lab = (list, v) => (list.find((o) => o.value === v) || {}).label || v;
   sub = { ...sub, team_size_label: lab(data.profile.team_size, sub.team_size), plan_label: lab(data.profile.plan, sub.plan) };
@@ -246,9 +247,9 @@ async function handleResultPage(env, rid, t, kind) {
   const L = await links(env, sub);
   const T = computeTokens(data, sub, sub.result, L, kind === "free" ? "free" : "fixlist");
   const tpl = await templateBlocks(env, kind === "free" ? "free" : "fix");
-  const blocks = webVariant(withFooter(transform(tpl.blocks, T)));
+  const blocks = webVariant(withFooter(transform(tpl.blocks, T), true));
   const banner = sub.dry_run && isDry(env) ? "DRY-RUN PREVIEW. Template source: " + tpl.source + ". Nothing was created in Notion and no email was sent." : null;
-  const extra = kind === "fix" ? { actionDbHtml: renderActionPlan(actionRows(data, sub.result, sub.paid_at || sub.submitted_at, sub.plan), fmtDate) } : {};
+  const extra = kind === "fix" ? { actionDbHtml: renderActionPlan(actionRows(data, sub.result, sub.paid_at || sub.submitted_at, sub.plan), fmtRange) } : {};
   return html(renderPage(kind === "free" ? "Free Security Check Result" : "Security Check Fix List", blocks, banner, extra));
 }
 

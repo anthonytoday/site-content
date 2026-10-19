@@ -1,3 +1,4 @@
+import { COPY, goodShapeSentence } from "./copy.js";
 // Computes every placeholder in /workspace/marketing/security-check-template-placeholders.md.
 // Scalar tokens are strings. List tokens are arrays of items {b: bold lead, t: text, url?}.
 // Typed values (first_name, company) are inserted as plain text; callers escape for HTML.
@@ -6,7 +7,9 @@ const cap = (s) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
 const lc = (s) => (s ? s.charAt(0).toLowerCase() + s.slice(1) : s);
 const joinAnd = (a) => (a.length <= 1 ? a.join("") : a.slice(0, -1).join(", ") + " and " + a[a.length - 1]);
 export const bar = (s) => (s === null ? "N/A" : "▰".repeat(Math.floor(s / 10)) + "▱".repeat(10 - Math.floor(s / 10)));
-export const fmtDate = (d) => new Date(d).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "Asia/Dubai" });
+export const fmtDate = (d) => new Date(d).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "Asia/Dubai" });
+// "Oct 19 to Oct 23, 2026" (same year) or "Dec 29, 2026 to Jan 2, 2027".
+export const fmtRange = (a, b) => { const md = (d) => new Date(d).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "Asia/Dubai" }); const y = (d) => new Date(d).toLocaleDateString("en-US", { year: "numeric", timeZone: "Asia/Dubai" }); return y(a) === y(b) ? md(a) + " to " + md(b) + ", " + y(b) : fmtDate(a) + " to " + fmtDate(b); };
 
 // Plan feature library (Free page "Already in Your Plan"). Plus texts are from the SAMPLE free page.
 // Free/Business/Enterprise/"Not sure" lines follow the placeholder map; PM to confirm wording.
@@ -72,6 +75,14 @@ export function computeTokens(data, sub, r, links, kind = "free") {
   const top = r.topRisks;
   const short = (x) => (data.risk_short_names || {})[x.id] || lc(q[x.id].title);
   T.top_risks_summary = joinAnd(top.map(short)) || "a few gaps";
+  T.top_risks_summary_cap = cap(T.top_risks_summary);
+  // Item 7 (PM 11:18): an area is "in good shape" only if the result lists no risk (every answered question
+  // in it scored full points) and no fix/action for it. Being at Level 4 is not enough.
+  { const qDom = Object.fromEntries(data.questions.map((x) => [x.id, x.domain]));
+    const acts = actionRows(data, r, kind === "fixlist" && sub.paid_at ? sub.paid_at : sub.submitted_at, sub.plan);
+    const good = r.domains.filter((d) => { const qs = r.perQuestion.filter((x) => qDom[x.id] === d.id && x.points !== null); return qs.length && qs.every((x) => x.points === 10) && !acts.some((a) => a.domain === d.name); }).map((d) => d.id);
+    T.good_shape_areas = good; const g = goodShapeSentence(good); T.good_shape_sentence = g ? g + " " : ""; }
+  T.level_note = COPY.level_note.replace("{{overall_score}}", T.overall_score);
   T.exposure_summary = top.some((x) => x.domain === "sharing" || x.domain === "integrations") ? "leave client material exposed" : "leave gaps an outsider could use";
   T.biggest_impact_sentence = top[0] ? "Closing " + short(top[0]) + " first makes the biggest difference" + (kind === "fixlist" && top[1] ? ", followed by " + short(top[1]) + "." : ".") : "";
   T.main_risk = top[0] ? cap(q[top[0].id].risk) : "No major risk found in your answers.";

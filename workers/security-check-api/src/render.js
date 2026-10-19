@@ -2,14 +2,18 @@
 import { esc } from "./validate.js";
 const COL = { gray: "#6b7280", green: "#0F7A32", orange: "#C2410C", red: "#B91C1C" };
 const rt = (arr) => (arr || []).map((x) => {
-  let s = esc(x.text ? x.text.content : x.plain_text || "").replace(/\n/g, "<br>").replace(/✓/g, '<span class="tick">✓</span>');
+  let s = esc(x.text ? x.text.content : x.plain_text || "").replace(/\n/g, "<br>").replace(/✓/g, '<span class="tick">✓</span>').replace(/✅/g, '<span role="img" aria-label="Included" style="color:#0F7A32">✅</span>');
   const a = x.annotations || {};
   if (a.bold) s = "<b>" + s + "</b>";
   if (COL[a.color]) s = '<span style="color:' + COL[a.color] + '">' + s + "</span>";
   const url = x.text && x.text.link && x.text.link.url;
-  if (url) s = /^https:\/\/wa\.me\//.test(url) ? '<a class="bk bk-wa" href="' + esc(url) + '" rel="noopener">' + s + "</a>" : /^mailto:/.test(url) && /email/i.test(s) ? '<a class="bk bk-em" href="' + esc(url) + '">' + s + "</a>" : '<a href="' + esc(url) + '" rel="noopener">' + s + "</a>";
+  if (url) s = /^https:\/\/wa\.me\//.test(url) ? '<a class="bk bk-wa" href="' + esc(url) + '" rel="noopener">' + s + "</a>" : /^mailto:/.test(url) && /email/i.test(s) ? '<a class="bk bk-em" href="' + esc(url) + '">' + s + "</a>" : '<a' + linkClass(x.text.content) + ' href="' + esc(url) + '" rel="noopener">' + s + "</a>";
   return s;
 }).join("");
+// Tap targets (44px at 390): CTAs as navy buttons, contact/footer links as 44px inline-flex targets, other links get vertical padding.
+const CTA = /^\s*(Get the Fix List|Book Fix Session)\s*$/, TAPLINK = /^\s*(Website|www\.anthonytoday\.com|WhatsApp|Email|LinkedIn|Privacy policy|Contact)\s*$/;
+const linkClass = (t) => (CTA.test(t) ? ' class="cta"' : TAPLINK.test(t) ? ' class="tl"' : "");
+const SR = '<span class="sr">Not included</span>';
 const BG = { gray_background: "#f5f5f5", red_background: "#fdecec", blue_background: "#eaf0ff", orange_background: "#fff1e6", green_background: "#e7f7ec", yellow_background: "#fff8db" };
 export function renderBlocks(list, extra = {}) {
   let out = "", listTag = null;
@@ -29,34 +33,45 @@ export function renderBlocks(list, extra = {}) {
     else if (k === "table") {
       const rows = b.children || v.children || [];
       const head = v.has_column_header !== false && rows[0] ? rows[0].table_row.cells.map((c) => (c || []).map((x) => (x.text ? x.text.content : x.plain_text || "")).join("").replace(/\s+/g, " ").trim()) : [];
+      // A table with ✅ cells is a comparison: empty cells get a screen-reader "Not included".
+      const cmp = rows.some((r) => r.table_row.cells.some((c) => (c || []).some((x) => /✅/.test(x.text ? x.text.content : x.plain_text || ""))));
       out += '<table class="st' + (head.length ? " hh" : "") + '">' + rows.map((r, i) => "<tr>" + r.table_row.cells.map((c, j) => {
-        const isHead = (i === 0 && head.length) || (v.has_row_header && j === 0);
-        const cell = rt(c);
-        return isHead ? "<th>" + cell + "</th>" : '<td data-label="' + esc(head[j] || "") + '">' + cell + "</td>";
+        const colHead = i === 0 && head.length, isHead = colHead || (v.has_row_header && j === 0);
+        const cell = rt(c).replace(/(<\/a>) · (<a class="bk)/g, "$1$2"); // the WhatsApp / Email bars stack, so no dot between them
+        if (isHead) return "<th" + (colHead ? ' scope="col"' : ' scope="row"') + ">" + cell + "</th>";
+        return cmp && !cell.trim() ? '<td class="ni" data-label="' + esc(head[j] || "") + '">' + SR + "</td>" : '<td data-label="' + esc(head[j] || "") + '">' + cell + "</td>";
       }).join("") + "</tr>").join("") + "</table>";
     }
+    else if (k === "__footer__") out += "<footer><hr>" + kids + "</footer>";
     else if (k === "__action_db__") out += extra.actionDbHtml || "<p><i>[Action plan database]</i></p>";
   }
   close();
   return out;
 }
 // Action plan grouped by phase (the Notion page has the same rows in the inline database, with By Phase and Timeline views).
-export function renderActionPlan(rows, fmt) {
+export function renderActionPlan(rows, fmtRange) {
   const phases = [...new Set(rows.map((r) => r.phase))];
+  // Item numbers follow the order shown; a repeated step block is shown once, under its first item.
+  const shown = phases.flatMap((ph) => rows.filter((r) => r.phase === ph));
+  const firstHow = new Map();
+  shown.forEach((r, i) => { if (!firstHow.has(r.how)) firstHow.set(r.how, i + 1); else r.sameAs = firstHow.get(r.how); });
   return phases.map((ph) => {
     const rs = rows.filter((r) => r.phase === ph);
-    const when = rs[0].start ? fmt(rs[0].start) + " to " + fmt(rs[rs.length - 1].end) : "When your team has capacity";
-    return '<section class="ph"><h3>' + esc(ph) + ' <span class="when">' + esc(when) + "</span></h3><ul class=\"acts\">" +
+    const when = rs[0].start ? fmtRange(rs[0].start, rs[rs.length - 1].end) : "When your team has capacity";
+    return '<section class="ph"><h3>' + esc(ph) + ': <span class="when">' + esc(when) + "</span></h3><ul class=\"acts\">" +
       rs.map((r) => '<li><span class="tick">✓</span><div><b>' + esc(r.action) + '</b><div class="aim"><span>Priority: ' + esc(r.priority) + "</span><span>" + esc(r.domain) + "</span>" + (r.owner ? "<span>Owner: " + esc(r.owner) + "</span>" : "") + "</div>" +
-        '<p class="how"><b>Steps:</b> ' + esc(r.how) + "</p>" + (r.impact ? "<p><b>Impact:</b> " + esc(r.impact) + "</p>" : "") +
+        (r.sameAs ? '<p class="how"><b>Steps:</b> Same steps as item ' + r.sameAs + ".</p>" : '<p class="how"><b>Steps:</b> ' + esc(r.how) + "</p>") + (r.impact ? "<p><b>Impact:</b> " + esc(r.impact) + "</p>" : "") +
         (r.planNote ? "<p><b>Plan note:</b> " + esc(r.planNote) + "</p>" : "") + (r.source ? '<p><a href="' + esc(r.source) + '" rel="noopener">Notion help</a></p>' : "") + "</div></li>").join("") + "</ul></section>";
   }).join("");
 }
 export function renderPage(title, list, banner, extra) {
   return "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta name=\"robots\" content=\"noindex,nofollow\"><link rel=\"icon\" href=\"https://www.anthonytoday.com/assets/brand/favicon.png\"><link rel=\"apple-touch-icon\" href=\"https://www.anthonytoday.com/assets/brand/apple-touch-icon.png\"><title>" + esc(title) + "</title><style>" +
     "img.stair{display:block;width:600px;max-width:100%;height:auto;margin:12px 0 4px}*{box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#051C2C;max-width:820px;margin:0 auto;padding:32px 20px 64px;line-height:1.6;overflow-wrap:anywhere}" +
-    "h1{font-size:30px;margin:0 0 8px}h2{font-size:26px;margin:32px 0 10px}h3{font-size:19px;margin:20px 0 8px}summary h3{display:inline}summary{cursor:pointer;margin:12px 0 6px}" +
-    "td .bk{display:block;text-align:center;text-decoration:none;font-weight:600;border-radius:8px;padding:8px 10px;margin:8px 0 0;font-size:14px}td .bk-wa{background:#25D366;color:#fff}td .bk-em{background:#051C2C;color:#fff}" +
+    "h1{font-size:30px;margin:0 0 8px}h2{font-size:26px;margin:32px 0 10px}h3{font-size:19px;margin:20px 0 8px}summary h3{display:inline}summary{cursor:pointer;margin:12px 0 6px;min-height:44px;padding:10px 0;box-sizing:border-box}" +
+    ".sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}a{padding:14px 0}a.tl{display:inline-flex;align-items:center;min-height:44px;padding:0 10px}" +
+    "a.cta{display:inline-flex;align-items:center;min-height:44px;padding:12px 20px;background:#051C2C;color:#fff;border-radius:8px;font-weight:600;text-decoration:none;margin:4px 0}" +
+    "footer{margin-top:32px;font-size:14px;color:#5B6672}footer p{margin:6px 0}footer a.tl:first-child{padding-left:0}td.ni::before{display:none}" +
+    "td .bk{display:flex;align-items:center;justify-content:center;min-height:44px;text-align:center;text-decoration:none;font-weight:600;border-radius:8px;padding:8px 10px;margin:8px 0 0;font-size:14px}td .bk-wa{background:#25D366;color:#fff}td .bk-em{background:#051C2C;color:#fff}" +
     ".ph{border:1px solid #E5E7EB;border-radius:10px;margin:14px 0;padding:4px 16px 8px}.ph h3{margin:12px 0 6px}.when{font-weight:400;font-size:14px;color:#5B6672}.acts{list-style:none;padding:0;margin:0}.acts li{display:flex;gap:10px;border-top:1px solid #E5E7EB;padding:12px 0}.acts li:first-child{border-top:0}.acts p{margin:6px 0 0;font-size:14.5px}" +
     "@media (max-width:640px){body{padding:20px 14px 48px}h1.pt{font-size:26px}table.st,table.st tbody,table.st tr,table.st td,table.st th{display:block;width:100%}table.st.hh tr:first-child{display:none}table.st tr{border:1px solid #E5E7EB;border-radius:8px;margin:0 0 10px;padding:6px 10px}table.st th,table.st td{border:0;padding:4px 0}table.st td::before{content:attr(data-label);display:block;font-size:12.5px;color:#5B6672}table.st td:empty,table.st td[data-label=\"\"]::before{display:none}}" +
     "table{border-collapse:collapse;width:100%;font-size:14.5px;margin:8px 0}th,td{border:1px solid #E5E7EB;padding:7px 9px;text-align:left;vertical-align:top}th{background:#F5F5F5}" +
