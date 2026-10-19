@@ -101,6 +101,20 @@ no_offer_popup: true
     .nfp .seals{justify-content:space-between}
     .nfp .close-list{grid-template-columns:1fr;gap:12px;margin:22px 0 26px}
   }
+
+  /* PACKAGES */
+  .nfp .pkgs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;text-align:left}
+  .nfp .pkg{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:18px 16px 16px;min-width:0}
+  .nfp .pkg h3{font-size:16px;font-weight:600;color:var(--navy);margin:0 0 8px;line-height:1.3}
+  .nfp .pkg-price{font-size:18px;font-weight:700;color:var(--navy);margin:0 0 8px;line-height:1.3}
+  .nfp .pkg-flag{display:block;margin:0 0 8px;font-size:12.5px;font-weight:700;color:var(--blue)}
+  .nfp .pkg-line{font-size:13.5px;color:var(--text-gray);line-height:1.55;margin:0 0 14px}
+  .nfp .pkg .cta-button{display:block;width:100%;text-align:center;margin-top:auto;padding:12px 10px;font-size:14px;box-sizing:border-box}
+  .nfp .pkg-alt{display:block;text-align:center;margin-top:10px;font-size:13px;font-weight:600;color:var(--blue)}
+  .nfp .pkg-more{text-align:center;margin:18px 0 0;font-size:15px}
+  .nfp .pkg-more a{font-weight:600;color:var(--blue)}
+  #packages .cta-button,#packages .pkg-alt{display:flex;align-items:center;justify-content:center;min-height:44px}#packages .pkg-more a{display:inline-flex;align-items:center;min-height:44px}
+  @media(max-width:768px){.nfp .pkgs{grid-template-columns:1fr}}
 </style>
 <div class="nfp">
 
@@ -189,6 +203,36 @@ no_offer_popup: true
         <a href="/start/" class="cta-button">Book a Free Strategy Call &rarr;</a>
       </div>
     </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="block" id="packages">
+    <h2 class="sec-title">Packages</h2>
+    <p class="sec-sub">Three ways to start. Prices in USD.</p>
+    <div class="pkgs">
+      <article class="pkg">
+        <h3>Notion Jumpstart</h3>
+        <p class="pkg-price">$490</p>
+        <p class="pkg-line">I build one Notion system for your team, live in your own workspace within 7 days, plus a 45-minute handover call.</p>
+        <p class="pkg-line">For example, a client and project hub, an SOP and onboarding hub, or a listings and deals tracker.</p>
+        <a class="cta-button" href="{{ site.data.checkout.jumpstart }}" data-checkout="jumpstart">Buy Now, $490</a>
+      </article>
+      <article class="pkg">
+        <h3>10-Day Notion Build</h3>
+        <p class="pkg-price">$2,500</p>
+        <p class="pkg-line">You know what the workspace should look like. I build it, migrate what already exists, and hand it over working.</p>
+        <a class="cta-button" href="https://buy.stripe.com/eVqaEZeiI5zT3blccV1ZS0s">Buy Now, $2,500</a>
+      </article>
+      <article class="pkg">
+        <h3>Notion Consultant as a Service</h3>
+        <p class="pkg-price">$347/mo</p>
+        <p class="pkg-flag">Founding rate for the first 5 clients</p>
+        <p class="pkg-line">Unlimited requests, one flat price, and a workspace that keeps up with your business instead of falling behind it.</p>
+        <a class="cta-button" href="https://buy.stripe.com/9B6fZj1vW4vP13d7WF1ZS0u">Start Monthly, $347/mo</a>
+        <a class="pkg-alt" href="https://buy.stripe.com/aFa14pcaA3rLaDN5Ox1ZS0t">Or $2,970 billed annually</a>
+      </article>
+    </div>
+    <p class="pkg-more"><a href="https://cal.com/anthonytoday/qualification" target="_blank" rel="noopener noreferrer">Bigger project, over $5,000? Book a Free Strategy Call</a></p>
   </section>
 
   <!-- PROOF -->

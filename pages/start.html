@@ -10,6 +10,7 @@ sitemap: false
 bc_name: "Start"
 css_bundle: /assets/css/b-55370db292.css
 no_offer_popup: true
+offer_popup: false
 ---
 <style>
 .qf .head h1{text-transform:none;font-size:40px;letter-spacing:-.02em}
@@ -34,6 +35,12 @@ no_offer_popup: true
 .qf .paynote{font-size:14.5px;color:var(--text-gray);margin-top:14px;text-align:center;line-height:1.6}
 .qf .rcard .rlist a{color:var(--blue);text-decoration:underline}
 .qf .disc{font-size:12.5px;color:var(--text-gray);margin-top:16px;line-height:1.6}
+.qf .offer-row{margin-top:22px;padding:22px;border:1px solid var(--border);border-radius:12px;background:#fff;text-align:center}
+.qf .offer-k{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);font-weight:600;margin:0 0 8px}
+.qf .offer-note{font-size:14.5px;color:var(--text-gray);margin:0 0 12px;line-height:1.5}
+.qf .offer-btn{display:block;width:100%;box-sizing:border-box;margin:0 0 10px;padding:14px 16px;border-radius:8px;background:#2251FF;color:#fff;font-weight:600;text-decoration:none;text-align:center}
+.qf .offer-btn.offer-secondary{background:#fff;color:#051C2C;border:1px solid #051C2C}
+.qf .offer-alt{display:inline-block;margin:2px 0 8px;font-size:13.5px;font-weight:600;color:var(--blue)}
 @media(max-width:640px){.qf .lead{padding:20px 18px 18px}}
 </style>
 <div class="qf">
@@ -70,7 +77,8 @@ no_offer_popup: true
       <fieldset class="q">
         <legend class="qlabel">2. How Many People Use It?</legend>
         <div class="opts" data-name="size">
-          <label class="opt"><input type="radio" name="size" value="1-4" required> 1 to 4</label>
+          <label class="opt"><input type="radio" name="size" value="1" required> Just me</label>
+          <label class="opt"><input type="radio" name="size" value="2-4"> 2-4</label>
           <label class="opt"><input type="radio" name="size" value="5-24"> 5 to 24</label>
           <label class="opt"><input type="radio" name="size" value="25+"> 25 or more</label>
         </div>
@@ -100,7 +108,7 @@ no_offer_popup: true
         <div class="opts" data-name="budget">
           <label class="opt"><input type="radio" name="budget" value="under-1k" required> Under $1,000</label>
           <label class="opt"><input type="radio" name="budget" value="1k-5k"> $1,000 to $5,000</label>
-          <label class="opt"><input type="radio" name="budget" value="5k-plus"> Over $5,000</label>
+          <label class="opt"><input type="radio" name="budget" value="over-5k"> Over $5,000</label>
           <label class="opt"><input type="radio" name="budget" value="unsure"> Not sure yet</label>
         </div>
       </fieldset>
@@ -134,26 +142,50 @@ no_offer_popup: true
   var TEMPLATES   = "https://www.notion.com/@anthonytoday";
   var CHALLENGES  = "/notion/challenges/";
   var MIN_PROBLEM = 40;
+  var JUMPSTART = {{ site.data.checkout.jumpstart | jsonify }};
+  var BUILD   = "https://buy.stripe.com/eVqaEZeiI5zT3blccV1ZS0s";
+  var CAAS_MO = "https://buy.stripe.com/9B6fZj1vW4vP13d7WF1ZS0u";
+  var CAAS_YR = "https://buy.stripe.com/aFa14pcaA3rLaDN5Ox1ZS0t";
+  var CALL    = "https://cal.com/anthonytoday/qualification";
 
   // ---- TEST MODE: append ?test=1 to the URL. Shows the outcome, skips every network call. ----
   var TEST_MODE = /[?&]test=1(&|$)/.test(location.search);
 
-  // ---- Fit rule (single source of truth) ----
+  // Qualification, after the blocked rules. Keys match this form.
+  // 2-4 at $1,000 to $5,000, within 3 months: lead form.
+  // 2-4 over $5,000: not this form. They keep the direct call link.
+  // Just me, over $5,000, within 3 months: lead form.
+  // Just me at $1,000 to $5,000, or under $1,000: Jumpstart.
+  // A team of 5 or more that is Not Sure still qualifies.
+  var FIT_RULE = {
+    timeline: { "now": true, "1-3months": true }
+  };
   function fit(d){
-    return (d.need === 'scratch' || d.need === 'messy' || d.need === 'automate')
-      && (d.size === '5-24' || d.size === '25+')
-      && (d.role === 'owner' || d.role === 'lead')
-      && (d.timeline === 'now' || d.timeline === '1-3months')
-      && d.budget !== 'under-1k';
+    if (isBlocked(d)) return false;
+    if (d.need !== "scratch" && d.need !== "messy" && d.need !== "automate") return false;
+    if (d.role !== "owner" && d.role !== "lead") return false;
+    if (!FIT_RULE.timeline[d.timeline]) return false;
+    if (d.size === "2-4") return d.budget === "1k-5k";
+    if (d.size === "1") return d.budget === "over-5k";
+    if (d.size === "5-24" || d.size === "25+") return d.budget !== "under-1k";
+    return false;
   }
   function reason(d){
     if (fit(d)) return 'fit';
     if (d.need === 'personal') return 'personal';
-    if (d.size === '1-4') return 'small';
-    if (d.budget === 'under-1k') return 'budget';
+    if (d.size === '1') return 'solo';
+    if (d.size === '2-4') return 'small';
     if (d.role === 'member') return 'member';
+    if (d.budget === 'under-1k') return 'budget';
     if (d.timeline === 'later') return 'later';
     return 'fit';
+  }
+  function sizeNote(size){
+    if (size === "1") return "Just me";
+    if (size === "2-4") return "2-4";
+    if (size === "5-24") return "5 to 24";
+    if (size === "25+") return "25 or more";
+    return size;
   }
 
   function esc(s){
@@ -235,7 +267,8 @@ no_offer_popup: true
 
   var REASONS = {
     personal: 'What I build is for teams running a business in Notion. For personal projects and side projects it is more than you need, and you would be paying for structure you will never use.',
-    small: 'With fewer than five people, the workspace is still small enough to shape yourselves. Start with the templates below and come back when the team grows.',
+    solo: 'On your own, a full project is more than this needs. Start with the templates below, and come back if a team forms.',
+    small: 'With 2-4 people, the workspace is still small enough to shape yourselves. Start with the templates below and come back when the team grows.',
     member: 'The call needs someone who can decide on the workspace: the owner, or the person who runs operations. Send this page to them. If they think it makes sense, they book, and you are welcome on the call.',
     budget: 'A tailored build usually starts above $1,000, so a call would not lead anywhere useful yet. The resources below get you further for the money. Book a Free Strategy Call when the budget is ready.',
     later: 'Without a date, a plan goes stale before anyone uses it. Come back when there is a date. The six questions take two minutes and the answer is instant.'
@@ -293,7 +326,7 @@ no_offer_popup: true
         company: company,
         need: d.need,
         budget: d.budget,
-        team_size: d.size,
+        team_size: sizeNote(d.size),
         role: d.role,
         timeline: d.timeline,
         problem: d.problem,
@@ -324,6 +357,64 @@ no_offer_popup: true
     });
   }
 
+  function offerBtn(href, label, secondary, checkout){
+    var cls = secondary ? "offer-btn offer-secondary" : "offer-btn";
+    var ext = href.indexOf("cal.com") !== -1 ? ' target="_blank" rel="noopener noreferrer"' : ' rel="noopener noreferrer"';
+    var mark = checkout ? ' data-checkout="' + checkout + '"' : "";
+    return '<a class="' + cls + '" href="' + href + '"' + mark + ext + '>' + label + '</a>';
+  }
+  function caasOption(){
+    return '<p class="offer-note">Notion Consultant as a Service, $347/mo. Founding rate for the first 5 clients.</p>'
+      + offerBtn(CAAS_MO, "Start Monthly, $347/mo", true)
+      + '<a class="offer-alt" href="' + CAAS_YR + '" rel="noopener noreferrer">Or $2,970 billed annually</a>';
+  }
+  function isBlocked(d){
+    return d.need === "personal" || d.role === "member" || d.timeline === "later";
+  }
+  function offersFor(d){
+    var blocked = isBlocked(d);
+    var html = "";
+    if (d.budget === "under-1k") {
+      html = (blocked ? "" : offerBtn(JUMPSTART, "Buy Notion Jumpstart, $490", false, "jumpstart")) + caasOption();
+    } else if (d.budget === "1k-5k") {
+      html = offerBtn(BUILD, "Buy the 10-Day Notion Build, $2,500", false)
+        + (blocked ? "" : offerBtn(JUMPSTART, "Or Notion Jumpstart, $490", true, "jumpstart"))
+        + caasOption();
+    } else if (d.budget === "over-5k") {
+      if (!isBlocked(d)) html = '<p class="offer-note">Projects over $5,000.</p>' + offerBtn(CALL, "Book a Free Strategy Call", false);
+    } else if (d.budget === "unsure") {
+      if (!blocked) html = offerBtn(JUMPSTART, "Buy Notion Jumpstart, $490", false, "jumpstart");
+    }
+    if (!html) return "";
+    return '<div class="offer-row"><p class="offer-k">Buy now, in USD</p>' + html + '</div>';
+  }
+
+  // Just me, a team of 2-4, and any budget under $1,000, get Jumpstart instead of a turn-away.
+  function jumpstartPath(){
+    return '<div class="rcard r-warm" id="qf-jumpstart"><h2>Start With Notion Jumpstart</h2>'
+      + '<p>I build one Notion system for your team, live in your own workspace within 7 days, plus a 45-minute handover call.</p>'
+      + '<p>Templates are there if you would rather set it up yourself.</p></div>'
+      + '<div class="offer-row"><p class="offer-k">Buy now, in USD</p>'
+      + offerBtn(JUMPSTART, "Buy Notion Jumpstart, $490", false, "jumpstart")
+      + '<a class="offer-btn offer-secondary" href="/shop/">Browse Templates</a>'
+      + '</div>';
+  }
+  // A small team that already named a larger budget still sees that ladder step.
+  function higherOffers(d){
+    if (d.budget === "1k-5k") {
+      return '<div class="offer-row"><p class="offer-k">Larger options</p>'
+        + offerBtn(BUILD, "Buy the 10-Day Notion Build, $2,500", true)
+        + caasOption()
+        + '</div>';
+    }
+    if (d.budget === "over-5k" && !isBlocked(d)) {
+      return '<div class="offer-row"><p class="offer-k">Larger projects</p>'
+        + offerBtn(CALL, "Book a Free Strategy Call", true)
+        + '</div>';
+    }
+    return "";
+  }
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
     var d = {
@@ -344,12 +435,20 @@ no_offer_popup: true
 
     var ok = fit(d);
     var why = reason(d);
+    // Personal, a team member, or a later timeline never sees Jumpstart or a direct call link.
+    var blocked = isBlocked(d);
+    // Just me, or 2-4, when not a fit, and any budget under $1,000, get Jumpstart instead of a turn-away.
+    var offerJumpstart = (!ok && !blocked && (d.size === "1" || d.size === "2-4" || d.budget === "under-1k"));
 
     document.getElementById('qf-head').style.display = 'none';
     form.style.display = 'none';
     var r = document.getElementById('qf-result');
-    r.innerHTML = (TEST_MODE ? testBanner(ok, why, d) : '') + (ok ? FIT_VIEW + FALLBACK : notFitView(why));
+    var main = ok ? FIT_VIEW + FALLBACK : (offerJumpstart ? jumpstartPath() : notFitView(why));
+    var offers = (ok && d.budget === "over-5k") ? "" : offersFor(d);
+    if (offerJumpstart) offers = (d.size === "2-4") ? higherOffers(d) : "";
+    r.innerHTML = (TEST_MODE ? testBanner(ok, why, d) : '') + main + offers;
     r.classList.add('on');
+    if (window.AT_UTM_SCAN) window.AT_UTM_SCAN();
 
     if (ok) { wireLead(d, why); }
     window.scrollTo({top:0, behavior:'smooth'});
@@ -358,3 +457,4 @@ no_offer_popup: true
 </script>
 
 {% include site-footer.html %}
+{% include utm-passthrough.html %}

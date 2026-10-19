@@ -74,13 +74,13 @@
 {
 "op": "replace",
 "path": "redirects/go-diagnostic.html",
-"old": "<!-- Single source of truth for the Diagnostic checkout (Stripe payment link).\n     To change where \"Start the Diagnostic\" lands, edit the URL on the three lines\n     below and nothing else on the site needs to change. -->\n<meta http-equiv=\"refresh\" content=\"0; url=https://buy.stripe.com/5kQ7sN7Uk7I1cLVccV1ZS0w\">\n<script>location.replace(\"https://buy.stripe.com/5kQ7sN7Uk7I1cLVccV1ZS0w\");</script>",
+"old": "<!-- Single source of truth for the Diagnostic checkout (Stripe payment link).\n     To change where \"Start the Diagnostic\" lands, edit the URL on the three lines\n     below and nothing else on the site needs to change. -->\n<meta http-equiv=\"refresh\" content=\"0; url=/start/\">\n<script>location.replace(\"/start/\");</script>",
 "new": "<!-- The 5-Day Diagnostic was retired on 16 Sep 2026. Old links land on the fit check. -->\n<meta http-equiv=\"refresh\" content=\"0; url=/start/\">\n<script>location.replace(\"/start/\");</script>"
 },
 {
 "op": "replace",
 "path": "redirects/go-diagnostic.html",
-"old": "<p>Taking you to the 5-Day Diagnostic. <a href=\"https://buy.stripe.com/5kQ7sN7Uk7I1cLVccV1ZS0w\" rel=\"nofollow noopener\">Continue</a>.</p>",
+"old": "<p>Taking you to the 5-Day Diagnostic. <a href=\"/start/\" rel=\"nofollow noopener\">Continue</a>.</p>",
 "new": "<p>Taking you to the fit check. <a href=\"/start/\" rel=\"nofollow\">Continue</a>.</p>"
 },
 {

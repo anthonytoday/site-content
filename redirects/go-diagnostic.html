@@ -7,13 +7,14 @@ sitemap: false
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Redirecting to Notion Jumpstart, $490</title>
+<title>Redirecting to Notion Jumpstart</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="referrer" content="no-referrer-when-downgrade">
-<meta http-equiv="refresh" content="0; url=https://buy.stripe.com/5kQ7sN7Uk7I1cLVccV1ZS0w">
-<script>location.replace("https://buy.stripe.com/5kQ7sN7Uk7I1cLVccV1ZS0w");</script>
+<!-- The Diagnostic checkout is deactivated. Old links land on Jumpstart. -->
+<meta http-equiv="refresh" content="0; url={{ site.data.checkout.jumpstart }}">
+<script>location.replace({{ site.data.checkout.jumpstart | jsonify }});</script>
 </head>
 <body>
-<p>Taking you to Notion Jumpstart, $490. <a href="https://buy.stripe.com/5kQ7sN7Uk7I1cLVccV1ZS0w" rel="nofollow noopener">Continue</a>.</p>
+<p>Taking you to Notion Jumpstart. <a href="{{ site.data.checkout.jumpstart }}" rel="nofollow noopener">Continue</a>.</p>
 </body>
 </html>
