@@ -73,7 +73,7 @@ async function links(env, sub) {
 
 async function templateBlocks(env, kind) {
   const id = kind === "free" ? env.NOTION_FREE_RESULT_TEMPLATE_ID : env.NOTION_FIXLIST_TEMPLATE_ID;
-  if (!env.NOTION_TOKEN || !id) return { blocks: kind === "free" ? freeSnapshot : fixSnapshot, source: "snapshot (19 Oct 2026, 9:45 am UAE)" };
+  if (!env.NOTION_TOKEN || !id) return { blocks: kind === "free" ? freeSnapshot : fixSnapshot, source: "snapshot (template as of 19 Oct 2026, 11:34 am UAE)" };
   const ck = "tpl:" + id;
   const cached = await env.SC.get(ck, "json");
   if (cached) return { blocks: cached, source: "notion template (cached)" };

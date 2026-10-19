@@ -16,7 +16,9 @@
 "underline": false,
 "code": false,
 "color": "gray"
-}
+},
+"plain_text": "FIX LIST REPORT",
+"href": null
 },
 {
 "type": "text",
@@ -31,19 +33,18 @@
 "underline": false,
 "code": false,
 "color": "gray"
+},
+"plain_text": " · Notion Workspace Security Check · Prepared for {{#if company}}{{company}}{{else}}your workspace{{/if}} · {{report_date}}",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
 "type": "callout",
 "callout": {
-"icon": {
-"type": "emoji",
-"emoji": "💬"
-},
-"color": "gray_background",
 "rich_text": [
 {
 "type": "text",
@@ -58,7 +59,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Talk to Anthony:",
+"href": null
 },
 {
 "type": "text",
@@ -73,14 +76,16 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": " ",
+"href": null
 },
 {
 "type": "text",
 "text": {
 "content": "Website",
 "link": {
-"url": "https://www.anthonytoday.com"
+"url": "https://www.anthonytoday.com/"
 }
 },
 "annotations": {
@@ -90,7 +95,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Website",
+"href": "https://www.anthonytoday.com/"
 },
 {
 "type": "text",
@@ -105,7 +112,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": " · ",
+"href": null
 },
 {
 "type": "text",
@@ -122,7 +131,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "WhatsApp",
+"href": "https://wa.me/33695845150"
 },
 {
 "type": "text",
@@ -137,7 +148,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": " · ",
+"href": null
 },
 {
 "type": "text",
@@ -154,7 +167,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Email",
+"href": "mailto:admin@anthonytoday.com"
 },
 {
 "type": "text",
@@ -169,7 +184,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": " · ",
+"href": null
 },
 {
 "type": "text",
@@ -186,9 +203,16 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "LinkedIn",
+"href": "https://www.linkedin.com/in/anthony-kieffer/"
 }
-}
-]
+],
+"icon": {
+"type": "emoji",
+"emoji": "💬"
+},
+"color": "gray_background"
 }
 },
 {
@@ -212,10 +236,13 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Executive Summary",
+"href": null
 }
 ],
-"is_toggleable": false
+"is_toggleable": false,
+"color": "default"
 }
 },
 {
@@ -225,7 +252,7 @@
 {
 "type": "text",
 "text": {
-"content": "We reviewed how {{#if company}}{{company}}'s Notion workspace{{else}}your Notion workspace{{/if}} ({{team_size}} people, {{plan}} plan) handles sign-in, sharing, connected apps, people, admin rights and recovery. It sits at Level {{overall_level_number}}, {{overall_level}} ({{overall_score}}/100): {{strength_summary}}, but {{top_risks_summary}} {{exposure_summary}}. {{biggest_impact_sentence}}",
+"content": "We reviewed how {{#if company}}{{company}}'s Notion workspace{{else}}your Notion workspace{{/if}} ({{team_size}} people, {{plan}} plan) handles sign-in, sharing, connected apps, people, admin rights and recovery. It sits at Level {{overall_level_number}}, {{overall_level}} ({{overall_score}}/100). {{good_shape_sentence}}{{gaps_sentence}}{{biggest_impact_sentence}}",
 "link": null
 },
 "annotations": {
@@ -235,19 +262,18 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "We reviewed how {{#if company}}{{company}}'s Notion workspace{{else}}your Notion workspace{{/if}} ({{team_size}} people, {{plan}} plan) handles sign-in, sharing, connected apps, people, admin rights and recovery. It sits at Level {{overall_level_number}}, {{overall_level}} ({{overall_score}}/100). {{good_shape_sentence}}{{gaps_sentence}}{{biggest_impact_sentence}}",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
 "type": "callout",
 "callout": {
-"icon": {
-"type": "emoji",
-"emoji": "📊"
-},
-"color": "orange_background",
 "rich_text": [
 {
 "type": "text",
@@ -262,23 +288,22 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
 },
+"plain_text": "Overall Level",
+"href": null
+}
+],
+"icon": {
+"type": "emoji",
+"emoji": "📊"
+},
+"color": "orange_background"
+},
+"children": [
 {
-"type": "text",
-"text": {
-"content": "\n",
-"link": null
-},
-"annotations": {
-"bold": false,
-"italic": false,
-"strikethrough": false,
-"underline": false,
-"code": false,
-"color": "default"
-}
-},
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
 {
 "type": "text",
 "text": {
@@ -292,12 +317,23 @@
 "underline": false,
 "code": false,
 "color": "orange"
+},
+"plain_text": "Level {{overall_level_number}}, {{overall_level}}",
+"href": null
+}
+],
+"icon": null,
+"color": "default"
 }
 },
 {
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
+{
 "type": "text",
 "text": {
-"content": "\n",
+"content": "Average score {{overall_score}}/100. Your level is set by your lowest area, so it can be lower than your average suggests.",
 "link": null
 },
 "annotations": {
@@ -307,34 +343,20 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "Average score {{overall_score}}/100. Your level is set by your lowest area, so it can be lower than your average suggests.",
+"href": null
 }
-},
-{
-"type": "text",
-"text": {
-"content": "Score {{overall_score}} / 100. Your level comes from your weakest areas, not the average.",
-"link": null
-},
-"annotations": {
-"bold": false,
-"italic": false,
-"strikethrough": false,
-"underline": false,
-"code": false,
+],
+"icon": null,
 "color": "default"
 }
 }
 ]
-}
 },
 {
 "type": "callout",
 "callout": {
-"icon": {
-"type": "emoji",
-"emoji": "🎯"
-},
-"color": "gray_background",
 "rich_text": [
 {
 "type": "text",
@@ -349,23 +371,22 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
 },
+"plain_text": "Main Risk",
+"href": null
+}
+],
+"icon": {
+"type": "emoji",
+"emoji": "🎯"
+},
+"color": "gray_background"
+},
+"children": [
 {
-"type": "text",
-"text": {
-"content": "\n",
-"link": null
-},
-"annotations": {
-"bold": false,
-"italic": false,
-"strikethrough": false,
-"underline": false,
-"code": false,
-"color": "default"
-}
-},
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
 {
 "type": "text",
 "text": {
@@ -379,23 +400,19 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "{{main_risk}}",
+"href": null
 }
-},
-{
-"type": "text",
-"text": {
-"content": "\n",
-"link": null
-},
-"annotations": {
-"bold": false,
-"italic": false,
-"strikethrough": false,
-"underline": false,
-"code": false,
+],
+"icon": null,
 "color": "default"
 }
 },
+{
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
 {
 "type": "text",
 "text": {
@@ -409,7 +426,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Do First:",
+"href": null
 },
 {
 "type": "text",
@@ -424,10 +443,16 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " {{do_first}}",
+"href": null
+}
+],
+"icon": null,
+"color": "default"
 }
 }
 ]
-}
 },
 {
 "type": "heading_2",
@@ -446,10 +471,13 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Domain Profile",
+"href": null
 }
 ],
-"is_toggleable": false
+"is_toggleable": false,
+"color": "default"
 }
 },
 {
@@ -478,7 +506,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Area",
+"href": null
 }
 ],
 [
@@ -495,7 +525,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Profile",
+"href": null
 }
 ],
 [
@@ -512,7 +544,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Score",
+"href": null
 }
 ],
 [
@@ -529,7 +563,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Level",
+"href": null
 }
 ]
 ]
@@ -553,7 +589,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "1. Identity and Access",
+"href": null
 }
 ],
 [
@@ -570,7 +608,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_identity_bar}}",
+"href": null
 }
 ],
 [
@@ -587,7 +627,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_identity_score}}",
+"href": null
 }
 ],
 [
@@ -604,7 +646,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_identity_level}}",
+"href": null
 }
 ]
 ]
@@ -628,7 +672,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "2. Sharing and Data Exposure",
+"href": null
 }
 ],
 [
@@ -645,7 +691,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_sharing_bar}}",
+"href": null
 }
 ],
 [
@@ -662,7 +710,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_sharing_score}}",
+"href": null
 }
 ],
 [
@@ -679,7 +729,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_sharing_level}}",
+"href": null
 }
 ]
 ]
@@ -703,7 +755,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "3. Integrations and Third Parties",
+"href": null
 }
 ],
 [
@@ -720,7 +774,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_integrations_bar}}",
+"href": null
 }
 ],
 [
@@ -737,7 +793,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_integrations_score}}",
+"href": null
 }
 ],
 [
@@ -754,7 +812,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_integrations_level}}",
+"href": null
 }
 ]
 ]
@@ -778,7 +838,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "4. People and Offboarding",
+"href": null
 }
 ],
 [
@@ -795,7 +857,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_people_bar}}",
+"href": null
 }
 ],
 [
@@ -812,7 +876,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_people_score}}",
+"href": null
 }
 ],
 [
@@ -829,7 +895,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_people_level}}",
+"href": null
 }
 ]
 ]
@@ -853,7 +921,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "5. Governance and Admin",
+"href": null
 }
 ],
 [
@@ -870,7 +940,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_governance_bar}}",
+"href": null
 }
 ],
 [
@@ -887,7 +959,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_governance_score}}",
+"href": null
 }
 ],
 [
@@ -904,7 +978,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_governance_level}}",
+"href": null
 }
 ]
 ]
@@ -928,7 +1004,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "6. Resilience and Recovery",
+"href": null
 }
 ],
 [
@@ -945,7 +1023,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_resilience_bar}}",
+"href": null
 }
 ],
 [
@@ -962,7 +1042,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_resilience_score}}",
+"href": null
 }
 ],
 [
@@ -979,13 +1061,43 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "{{area_resilience_level}}",
+"href": null
+}
+]
+]
 }
 }
 ]
-]
+},
+{
+"type": "image",
+"image": {
+"caption": [
+{
+"type": "text",
+"text": {
+"content": "Maturity level of 5 (filled per result)",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "Maturity level of 5 (filled per result)",
+"href": null
+}
+],
+"type": "external",
+"external": {
+"url": "https://security-check.security-check-preview.pages.dev/assets/img/security-check/maturity-level-3.png"
 }
 }
-]
 },
 {
 "type": "paragraph",
@@ -994,7 +1106,7 @@
 {
 "type": "text",
 "text": {
-"content": "Legend: ",
+"content": "Your overall level is your lowest area.",
 "link": null
 },
 "annotations": {
@@ -1004,97 +1116,13 @@
 "underline": false,
 "code": false,
 "color": "gray"
-}
-}
-]
-}
 },
-{
-"type": "bulleted_list_item",
-"bulleted_list_item": {
-"rich_text": [
-{
-"type": "text",
-"text": {
-"content": "Level 4 - Hardened (80 to 100)",
-"link": null
-},
-"annotations": {
-"bold": false,
-"italic": false,
-"strikethrough": false,
-"underline": false,
-"code": false,
-"color": "gray"
+"plain_text": "Your overall level is your lowest area.",
+"href": null
 }
-}
-]
-}
-},
-{
-"type": "bulleted_list_item",
-"bulleted_list_item": {
-"rich_text": [
-{
-"type": "text",
-"text": {
-"content": "Level 3 - Managed (60 to 79)",
-"link": null
-},
-"annotations": {
-"bold": false,
-"italic": false,
-"strikethrough": false,
-"underline": false,
-"code": false,
-"color": "gray"
-}
-}
-]
-}
-},
-{
-"type": "bulleted_list_item",
-"bulleted_list_item": {
-"rich_text": [
-{
-"type": "text",
-"text": {
-"content": "Level 2 - Basic (30 to 59)",
-"link": null
-},
-"annotations": {
-"bold": false,
-"italic": false,
-"strikethrough": false,
-"underline": false,
-"code": false,
-"color": "gray"
-}
-}
-]
-}
-},
-{
-"type": "bulleted_list_item",
-"bulleted_list_item": {
-"rich_text": [
-{
-"type": "text",
-"text": {
-"content": "Level 1 - Exposed (0 to 29)",
-"link": null
-},
-"annotations": {
-"bold": false,
-"italic": false,
-"strikethrough": false,
-"underline": false,
-"code": false,
-"color": "gray"
-}
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
@@ -1114,10 +1142,13 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "How You Compare",
+"href": null
 }
 ],
-"is_toggleable": false
+"is_toggleable": false,
+"color": "default"
 }
 },
 {
@@ -1137,9 +1168,13 @@
 "underline": false,
 "code": false,
 "color": "gray"
+},
+"plain_text": "Recommendations only, no benchmark data.",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
@@ -1159,7 +1194,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Recommended Level for a Team Your Size:",
+"href": null
 },
 {
 "type": "text",
@@ -1174,9 +1211,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " {{recommended_level}} in every area. This is our recommendation for a team of {{team_size}}, based on controls Notion itself documents for teams, not a statistic:",
+"href": null
 }
-}
-]
+],
+"color": "default"
 },
 "children": [
 {
@@ -1196,7 +1236,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "2-step verification for every person. Notion says it \"highly recommends\" it. ",
+"href": null
 },
 {
 "type": "text",
@@ -1213,9 +1255,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "Notion help",
+"href": "https://www.notion.com/help/two-step-verification"
 }
-}
-]
+],
+"color": "default"
 }
 },
 {
@@ -1235,7 +1280,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Access given through teamspaces and groups, not person by person. ",
+"href": null
 },
 {
 "type": "text",
@@ -1252,9 +1299,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "Notion guide",
+"href": "https://www.notion.com/help/guides/grant-access-teamspaces"
 }
-}
-]
+],
+"color": "default"
 }
 },
 {
@@ -1274,7 +1324,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Sensitive teamspaces closed, guests kept out of them, and public pages kept in one place. ",
+"href": null
 },
 {
 "type": "text",
@@ -1291,9 +1343,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "Notion guide",
+"href": "https://www.notion.com/help/guides/grant-access-teamspaces"
 }
-}
-]
+],
+"color": "default"
 }
 },
 {
@@ -1313,7 +1368,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Guests limited to the pages they work on, and removed when the work ends. ",
+"href": null
 },
 {
 "type": "text",
@@ -1330,9 +1387,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "Notion help",
+"href": "https://www.notion.com/help/whos-who-in-a-workspace"
 }
-}
-]
+],
+"color": "default"
 }
 },
 {
@@ -1352,9 +1412,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "You're there in {{areas_at_recommended_count}} of 6 areas today. {{areas_below_recommended}} {{below_recommended_verb}} short.",
+"href": null
 }
-}
-]
+],
+"color": "default"
 }
 }
 ]
@@ -1376,7 +1439,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Compared With Other Teams:",
+"href": null
 },
 {
 "type": "text",
@@ -1391,9 +1456,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " switches on once 30 or more teams have completed the Security Check.",
+"href": null
 }
-}
-]
+],
+"color": "default"
 },
 "children": [
 {
@@ -1413,7 +1481,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{#if peer_comparison_enabled}}{{peer_comparison_text}}{{else}}",
+"href": null
 },
 {
 "type": "text",
@@ -1428,7 +1498,9 @@
 "underline": false,
 "code": false,
 "color": "gray"
-}
+},
+"plain_text": "Available once 30 or more teams have completed the Security Check.",
+"href": null
 },
 {
 "type": "text",
@@ -1443,9 +1515,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "{{/if}}",
+"href": null
 }
-}
-]
+],
+"color": "default"
 }
 }
 ]
@@ -1467,9 +1542,13 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "{{#if flags}}",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
@@ -1489,26 +1568,18 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Critical Flags",
+"href": null
 }
 ],
-"is_toggleable": false
+"is_toggleable": false,
+"color": "default"
 }
 },
 {
 "type": "callout",
 "callout": {
-"icon": {
-"type": "emoji",
-"emoji": "🚩"
-},
-"color": "red_background",
-"rich_text": []
-},
-"children": [
-{
-"type": "paragraph",
-"paragraph": {
 "rich_text": [
 {
 "type": "text",
@@ -1523,12 +1594,17 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "{{flags}}",
+"href": null
 }
+],
+"icon": {
+"type": "emoji",
+"emoji": "🚩"
+},
+"color": "red_background"
 }
-]
-}
-}
-]
 },
 {
 "type": "paragraph",
@@ -1547,9 +1623,13 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "{{/if}}",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
@@ -1569,15 +1649,18 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Top 3 Risks",
+"href": null
 }
 ],
-"is_toggleable": false
+"is_toggleable": false,
+"color": "default"
 }
 },
 {
-"type": "heading_3",
-"heading_3": {
+"type": "heading_4",
+"heading_4": {
 "rich_text": [
 {
 "type": "text",
@@ -1592,10 +1675,13 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "1. {{risk_1_title}}",
+"href": null
 }
 ],
-"is_toggleable": true
+"is_toggleable": true,
+"color": "default"
 },
 "children": [
 {
@@ -1615,7 +1701,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Control:",
+"href": null
 },
 {
 "type": "text",
@@ -1630,9 +1718,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " {{risk_1_control}} ({{risk_1_question}}, score {{risk_1_score}}/10).",
+"href": null
 }
-}
-]
+],
+"color": "default"
 }
 },
 {
@@ -1652,7 +1743,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Why it matters:",
+"href": null
 },
 {
 "type": "text",
@@ -1667,9 +1760,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " {{risk_1_why}}",
+"href": null
 }
-}
-]
+],
+"color": "default"
 }
 },
 {
@@ -1689,7 +1785,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Impact:",
+"href": null
 },
 {
 "type": "text",
@@ -1704,9 +1802,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " {{risk_1_impact}}",
+"href": null
 }
-}
-]
+],
+"color": "default"
 }
 },
 {
@@ -1726,7 +1827,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Fix:",
+"href": null
 },
 {
 "type": "text",
@@ -1741,9 +1844,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " {{risk_1_fix}}",
+"href": null
 }
-}
-]
+],
+"color": "default"
 }
 },
 {
@@ -1763,7 +1869,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Plan note:",
+"href": null
 },
 {
 "type": "text",
@@ -1778,16 +1886,19 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " {{risk_1_plan_note}} {{risk_1_source_link}}",
+"href": null
 }
-}
-]
+],
+"color": "default"
 }
 }
 ]
 },
 {
-"type": "heading_3",
-"heading_3": {
+"type": "heading_4",
+"heading_4": {
 "rich_text": [
 {
 "type": "text",
@@ -1802,10 +1913,13 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "2. {{risk_2_title}}",
+"href": null
 }
 ],
-"is_toggleable": true
+"is_toggleable": true,
+"color": "default"
 },
 "children": [
 {
@@ -1825,7 +1939,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Control:",
+"href": null
 },
 {
 "type": "text",
@@ -1840,9 +1956,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " {{risk_2_control}} ({{risk_2_question}}, score {{risk_2_score}}/10).",
+"href": null
 }
-}
-]
+],
+"color": "default"
 }
 },
 {
@@ -1862,7 +1981,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Why it matters:",
+"href": null
 },
 {
 "type": "text",
@@ -1877,9 +1998,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " {{risk_2_why}}",
+"href": null
 }
-}
-]
+],
+"color": "default"
 }
 },
 {
@@ -1899,7 +2023,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Impact:",
+"href": null
 },
 {
 "type": "text",
@@ -1914,9 +2040,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " {{risk_2_impact}}",
+"href": null
 }
-}
-]
+],
+"color": "default"
 }
 },
 {
@@ -1936,7 +2065,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Fix:",
+"href": null
 },
 {
 "type": "text",
@@ -1951,9 +2082,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " {{risk_2_fix}}",
+"href": null
 }
-}
-]
+],
+"color": "default"
 }
 },
 {
@@ -1973,7 +2107,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Plan note:",
+"href": null
 },
 {
 "type": "text",
@@ -1988,16 +2124,19 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " {{risk_2_plan_note}} {{risk_2_source_link}}",
+"href": null
 }
-}
-]
+],
+"color": "default"
 }
 }
 ]
 },
 {
-"type": "heading_3",
-"heading_3": {
+"type": "heading_4",
+"heading_4": {
 "rich_text": [
 {
 "type": "text",
@@ -2012,10 +2151,13 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "3. {{risk_3_title}}",
+"href": null
 }
 ],
-"is_toggleable": true
+"is_toggleable": true,
+"color": "default"
 },
 "children": [
 {
@@ -2035,7 +2177,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Control:",
+"href": null
 },
 {
 "type": "text",
@@ -2050,9 +2194,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " {{risk_3_control}} ({{risk_3_question}}, score {{risk_3_score}}/10).",
+"href": null
 }
-}
-]
+],
+"color": "default"
 }
 },
 {
@@ -2072,7 +2219,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Why it matters:",
+"href": null
 },
 {
 "type": "text",
@@ -2087,9 +2236,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " {{risk_3_why}}",
+"href": null
 }
-}
-]
+],
+"color": "default"
 }
 },
 {
@@ -2109,7 +2261,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Impact:",
+"href": null
 },
 {
 "type": "text",
@@ -2124,9 +2278,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " {{risk_3_impact}}",
+"href": null
 }
-}
-]
+],
+"color": "default"
 }
 },
 {
@@ -2146,7 +2303,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Fix:",
+"href": null
 },
 {
 "type": "text",
@@ -2161,9 +2320,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " {{risk_3_fix}}",
+"href": null
 }
-}
-]
+],
+"color": "default"
 }
 },
 {
@@ -2183,7 +2345,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Plan note:",
+"href": null
 },
 {
 "type": "text",
@@ -2198,9 +2362,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " {{risk_3_plan_note}} {{risk_3_source_link}}",
+"href": null
 }
-}
-]
+],
+"color": "default"
 }
 }
 ]
@@ -2222,10 +2389,13 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Action Plan",
+"href": null
 }
 ],
-"is_toggleable": false
+"is_toggleable": false,
+"color": "default"
 }
 },
 {
@@ -2245,9 +2415,13 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "Items are ordered by impact, so the first ones close your biggest risk: {{risk_1_title_lower}}. Each item is one clear action with an owner role, and its full how-to sits inside the item's own page.",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
@@ -2273,9 +2447,13 @@
 "underline": false,
 "code": false,
 "color": "gray"
+},
+"plain_text": "Phase 1 and Phase 2 are dated. Phase 3 follows when your team has capacity. Open the Timeline tab for the Gantt view.",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
@@ -2295,9 +2473,13 @@
 "underline": false,
 "code": false,
 "color": "gray"
+},
+"plain_text": "This plan covers your top 3 risks. Detail on the lower-priority items is available as an extra option through the Security Fix Session or Notion Security Hardening.",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
@@ -2317,10 +2499,13 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Choose Your Next Step (Optional)",
+"href": null
 }
 ],
-"is_toggleable": false
+"is_toggleable": false,
+"color": "default"
 }
 },
 {
@@ -2340,9 +2525,13 @@
 "underline": false,
 "code": false,
 "color": "gray"
+},
+"plain_text": "Pick one: do it together, or have it done for you.",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
@@ -2371,7 +2560,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "What You Get",
+"href": null
 }
 ],
 [
@@ -2388,7 +2579,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Your Fix List",
+"href": null
 },
 {
 "type": "text",
@@ -2403,7 +2596,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "\nIncluded",
+"href": null
 }
 ],
 [
@@ -2420,7 +2615,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Option A: Security Fix Session",
+"href": null
 },
 {
 "type": "text",
@@ -2435,7 +2632,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "\nDo it together",
+"href": null
 }
 ],
 [
@@ -2452,7 +2651,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Option B: Notion Security Hardening",
+"href": null
 },
 {
 "type": "text",
@@ -2467,7 +2668,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "\nDone for you",
+"href": null
 }
 ]
 ]
@@ -2491,7 +2694,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Score, maturity profile and critical flags",
+"href": null
 }
 ],
 [
@@ -2508,7 +2713,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ],
 [
@@ -2525,7 +2732,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ],
 [
@@ -2542,7 +2751,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ]
 ]
@@ -2566,7 +2777,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Action plan with owners, dates and how",
+"href": null
 }
 ],
 [
@@ -2583,7 +2796,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ],
 [
@@ -2600,7 +2815,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ],
 [
@@ -2617,7 +2834,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ]
 ]
@@ -2641,10 +2860,30 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "90-minute live session with Anthony",
+"href": null
 }
 ],
-[],
+[
+{
+"type": "text",
+"text": {
+"content": "",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "",
+"href": null
+}
+],
 [
 {
 "type": "text",
@@ -2659,7 +2898,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ],
 [
@@ -2676,7 +2917,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ]
 ]
@@ -2700,10 +2943,30 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Top 3 risks closed together, live",
+"href": null
 }
 ],
-[],
+[
+{
+"type": "text",
+"text": {
+"content": "",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "",
+"href": null
+}
+],
 [
 {
 "type": "text",
@@ -2718,7 +2981,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ],
 [
@@ -2735,7 +3000,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ]
 ]
@@ -2759,11 +3026,49 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "All fixes applied for you",
+"href": null
 }
 ],
-[],
-[],
+[
+{
+"type": "text",
+"text": {
+"content": "",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "",
+"href": null
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "",
+"href": null
+}
+],
 [
 {
 "type": "text",
@@ -2778,7 +3083,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ]
 ]
@@ -2802,11 +3109,49 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Full access review and one-page access map",
+"href": null
 }
 ],
-[],
-[],
+[
+{
+"type": "text",
+"text": {
+"content": "",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "",
+"href": null
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "",
+"href": null
+}
+],
 [
 {
 "type": "text",
@@ -2821,7 +3166,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ]
 ]
@@ -2845,11 +3192,49 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "30-day re-check",
+"href": null
 }
 ],
-[],
-[],
+[
+{
+"type": "text",
+"text": {
+"content": "",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "",
+"href": null
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "",
+"href": null
+}
+],
 [
 {
 "type": "text",
@@ -2864,7 +3249,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ]
 ]
@@ -2888,7 +3275,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Price",
+"href": null
 }
 ],
 [
@@ -2905,7 +3294,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "$39, already paid",
+"href": null
 }
 ],
 [
@@ -2922,7 +3313,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "$290",
+"href": null
 }
 ],
 [
@@ -2939,7 +3332,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "$1,490",
+"href": null
 },
 {
 "type": "text",
@@ -2954,7 +3349,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": ", up to 25 people",
+"href": null
 }
 ]
 ]
@@ -2978,10 +3375,30 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Book",
+"href": null
 }
 ],
-[],
+[
+{
+"type": "text",
+"text": {
+"content": "",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "",
+"href": null
+}
+],
 [
 {
 "type": "text",
@@ -2998,7 +3415,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Book Fix Session",
+"href": "https://buy.stripe.com/6oUcN7fmMgex6nxa4N1ZS0y"
 }
 ],
 [
@@ -3017,7 +3436,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Start Hardening",
+"href": "https://buy.stripe.com/cNiaEZ3E4bYhbHR90J1ZS0z"
 }
 ]
 ]
@@ -3046,7 +3467,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "➡️ ",
+"href": null
 },
 {
 "type": "text",
@@ -3063,7 +3486,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Book on WhatsApp",
+"href": "https://wa.me/33695845150"
 },
 {
 "type": "text",
@@ -3078,7 +3503,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": " · ",
+"href": null
 },
 {
 "type": "text",
@@ -3095,9 +3522,13 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "Email",
+"href": "mailto:admin@anthonytoday.com"
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
@@ -3121,10 +3552,13 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Keep It Fixed: Notion Expert as a Service",
+"href": null
 }
 ],
-"is_toggleable": false
+"is_toggleable": false,
+"color": "default"
 }
 },
 {
@@ -3144,9 +3578,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "Security slides back as your team changes. This monthly service gives your workspace an owner, whichever path you choose above.",
+"href": null
 }
-}
-]
+],
+"color": "default"
 }
 },
 {
@@ -3175,7 +3612,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "What Usually Goes Wrong",
+"href": null
 }
 ],
 [
@@ -3192,7 +3631,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "What We Do About It",
+"href": null
 }
 ]
 ]
@@ -3216,7 +3657,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Nobody owns the workspace",
+"href": null
 }
 ],
 [
@@ -3233,7 +3676,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Anthony acts as your part-time Notion owner: one call a month, plus async answers and fixes in between.",
+"href": null
 }
 ]
 ]
@@ -3257,7 +3702,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "New hires and leavers",
+"href": null
 }
 ],
 [
@@ -3274,7 +3721,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Access set up on day one and removed on the last day, with your team, as part of the async fixes.",
+"href": null
 }
 ]
 ]
@@ -3298,7 +3747,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Permissions drifting",
+"href": null
 }
 ],
 [
@@ -3315,7 +3766,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "A quarterly re-check and access review, compared with this report, so the score doesn't slide back.",
+"href": null
 }
 ]
 ]
@@ -3339,7 +3792,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "New Notion features unused",
+"href": null
 }
 ],
 [
@@ -3356,7 +3811,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "On the monthly call, we flag new features in your plan that fit how you work and set up the useful ones as small builds.",
+"href": null
 }
 ]
 ]
@@ -3380,7 +3837,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Public pages, guests and apps creeping back",
+"href": null
 }
 ],
 [
@@ -3397,7 +3856,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Checked every quarter as part of the re-check.",
+"href": null
 }
 ]
 ]
@@ -3421,7 +3882,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Small fixes waiting for months",
+"href": null
 }
 ],
 [
@@ -3438,7 +3901,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Async fixes and small builds handled within the month.",
+"href": null
 }
 ]
 ]
@@ -3463,19 +3928,14 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
-}
-]
 },
-"children": [
-{
-"type": "bulleted_list_item",
-"bulleted_list_item": {
-"rich_text": [
+"plain_text": "Special Offer:",
+"href": null
+},
 {
 "type": "text",
 "text": {
-"content": "$347/mo founding rate for the first 5 clients, then $490/mo. ",
+"content": " ",
 "link": null
 },
 "annotations": {
@@ -3485,7 +3945,34 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " ",
+"href": null
 }
+],
+"color": "default"
+},
+"children": [
+{
+"type": "bulleted_list_item",
+"bulleted_list_item": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "$347/mo founding rate for the first 5 clients, then $490/mo. Cancel any time. ",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "$347/mo founding rate for the first 5 clients, then $490/mo. Cancel any time. ",
+"href": null
 },
 {
 "type": "text",
@@ -3502,19 +3989,14 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
-}
-]
-}
 },
-{
-"type": "bulleted_list_item",
-"bulleted_list_item": {
-"rich_text": [
+"plain_text": "Start Notion Expert as a Service",
+"href": "https://buy.stripe.com/9B6fZj1vW4vP13d7WF1ZS0u"
+},
 {
 "type": "text",
 "text": {
-"content": "Annual: $2,970. Cancel any time.",
+"content": " ",
 "link": null
 },
 "annotations": {
@@ -3524,12 +4006,48 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " ",
+"href": null
+}
+],
+"color": "default"
+}
+},
+{
+"type": "bulleted_list_item",
+"bulleted_list_item": {
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "Annual: $2,970/year, billed once a year.",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "Annual: $2,970/year, billed once a year.",
+"href": null
+}
+],
+"color": "default"
 }
 }
 ]
+},
+{
+"type": "paragraph",
+"paragraph": {
+"rich_text": [],
+"icon": null,
+"color": "default"
 }
-}
-]
 },
 {
 "type": "paragraph",
@@ -3548,9 +4066,13 @@
 "underline": false,
 "code": false,
 "color": "gray"
+},
+"plain_text": "Self-check based on your answers. General guidance, not a formal audit.",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
@@ -3574,14 +4096,16 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Prepared by Anthony, Notion Certified Consultant, ",
+"href": null
 },
 {
 "type": "text",
 "text": {
 "content": "www.anthonytoday.com",
 "link": {
-"url": "https://www.anthonytoday.com"
+"url": "https://www.anthonytoday.com/"
 }
 },
 "annotations": {
@@ -3591,9 +4115,13 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "www.anthonytoday.com",
+"href": "https://www.anthonytoday.com/"
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
@@ -3613,15 +4141,18 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Appendix",
+"href": null
 }
 ],
-"is_toggleable": false
+"is_toggleable": false,
+"color": "default"
 }
 },
 {
-"type": "heading_3",
-"heading_3": {
+"type": "heading_4",
+"heading_4": {
 "rich_text": [
 {
 "type": "text",
@@ -3636,10 +4167,13 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "All 12 Answers",
+"href": null
 }
 ],
-"is_toggleable": true
+"is_toggleable": true,
+"color": "default"
 },
 "children": [
 {
@@ -3668,7 +4202,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "#",
+"href": null
 }
 ],
 [
@@ -3685,7 +4221,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Domain",
+"href": null
 }
 ],
 [
@@ -3702,7 +4240,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Control",
+"href": null
 }
 ],
 [
@@ -3719,7 +4259,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Your Answer",
+"href": null
 }
 ],
 [
@@ -3736,7 +4278,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Score",
+"href": null
 }
 ]
 ]
@@ -3760,7 +4304,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Q1",
+"href": null
 }
 ],
 [
@@ -3777,7 +4323,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Identity",
+"href": null
 }
 ],
 [
@@ -3794,7 +4342,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Strong sign-in",
+"href": null
 }
 ],
 [
@@ -3811,7 +4361,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q1_answer}}",
+"href": null
 }
 ],
 [
@@ -3828,7 +4380,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q1_score}}",
+"href": null
 }
 ]
 ]
@@ -3852,7 +4406,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Q2",
+"href": null
 }
 ],
 [
@@ -3869,7 +4425,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Identity",
+"href": null
 }
 ],
 [
@@ -3886,7 +4444,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "One person, one account",
+"href": null
 }
 ],
 [
@@ -3903,7 +4463,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q2_answer}}",
+"href": null
 }
 ],
 [
@@ -3920,7 +4482,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q2_score}}",
+"href": null
 }
 ]
 ]
@@ -3944,7 +4508,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Q3",
+"href": null
 }
 ],
 [
@@ -3961,7 +4527,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Sharing",
+"href": null
 }
 ],
 [
@@ -3978,7 +4546,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Public exposure",
+"href": null
 }
 ],
 [
@@ -3995,7 +4565,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q3_answer}}",
+"href": null
 }
 ],
 [
@@ -4012,7 +4584,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q3_score}}",
+"href": null
 }
 ]
 ]
@@ -4036,7 +4610,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Q4",
+"href": null
 }
 ],
 [
@@ -4053,7 +4629,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Sharing",
+"href": null
 }
 ],
 [
@@ -4070,7 +4648,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Secrets in pages",
+"href": null
 }
 ],
 [
@@ -4087,7 +4667,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q4_answer}}",
+"href": null
 }
 ],
 [
@@ -4104,7 +4686,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q4_score}}",
+"href": null
 }
 ]
 ]
@@ -4128,7 +4712,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Q5",
+"href": null
 }
 ],
 [
@@ -4145,7 +4731,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Integrations",
+"href": null
 }
 ],
 [
@@ -4162,7 +4750,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Connected apps",
+"href": null
 }
 ],
 [
@@ -4179,7 +4769,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q5_answer}}",
+"href": null
 }
 ],
 [
@@ -4196,7 +4788,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q5_score}}",
+"href": null
 }
 ]
 ]
@@ -4220,7 +4814,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Q6",
+"href": null
 }
 ],
 [
@@ -4237,7 +4833,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Integrations",
+"href": null
 }
 ],
 [
@@ -4254,7 +4852,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "AI tool access",
+"href": null
 }
 ],
 [
@@ -4271,7 +4871,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q6_answer}}",
+"href": null
 }
 ],
 [
@@ -4288,7 +4890,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q6_score}}",
+"href": null
 }
 ]
 ]
@@ -4312,7 +4916,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Q7",
+"href": null
 }
 ],
 [
@@ -4329,7 +4935,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "People",
+"href": null
 }
 ],
 [
@@ -4346,7 +4954,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Leavers",
+"href": null
 }
 ],
 [
@@ -4363,7 +4973,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q7_answer}}",
+"href": null
 }
 ],
 [
@@ -4380,7 +4992,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q7_score}}",
+"href": null
 }
 ]
 ]
@@ -4404,7 +5018,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Q8",
+"href": null
 }
 ],
 [
@@ -4421,7 +5037,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "People",
+"href": null
 }
 ],
 [
@@ -4438,7 +5056,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Access review",
+"href": null
 }
 ],
 [
@@ -4455,7 +5075,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q8_answer}}",
+"href": null
 }
 ],
 [
@@ -4472,7 +5094,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q8_score}}",
+"href": null
 }
 ]
 ]
@@ -4496,7 +5120,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Q9",
+"href": null
 }
 ],
 [
@@ -4513,7 +5139,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Governance",
+"href": null
 }
 ],
 [
@@ -4530,7 +5158,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Admin rights",
+"href": null
 }
 ],
 [
@@ -4547,7 +5177,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q9_answer}}",
+"href": null
 }
 ],
 [
@@ -4564,7 +5196,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q9_score}}",
+"href": null
 }
 ]
 ]
@@ -4588,7 +5222,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Q10",
+"href": null
 }
 ],
 [
@@ -4605,7 +5241,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Governance",
+"href": null
 }
 ],
 [
@@ -4622,7 +5260,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Default access",
+"href": null
 }
 ],
 [
@@ -4639,7 +5279,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q10_answer}}",
+"href": null
 }
 ],
 [
@@ -4656,7 +5298,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q10_score}}",
+"href": null
 }
 ]
 ]
@@ -4680,7 +5324,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Q11",
+"href": null
 }
 ],
 [
@@ -4697,7 +5343,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Resilience",
+"href": null
 }
 ],
 [
@@ -4714,7 +5362,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Recovery readiness",
+"href": null
 }
 ],
 [
@@ -4731,7 +5381,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q11_answer}}",
+"href": null
 }
 ],
 [
@@ -4748,7 +5400,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q11_score}}",
+"href": null
 }
 ]
 ]
@@ -4772,7 +5426,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Q12",
+"href": null
 }
 ],
 [
@@ -4789,7 +5445,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Resilience",
+"href": null
 }
 ],
 [
@@ -4806,7 +5464,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Restore and change history",
+"href": null
 }
 ],
 [
@@ -4823,7 +5483,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q12_answer}}",
+"href": null
 }
 ],
 [
@@ -4840,7 +5502,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{q12_score}}",
+"href": null
 }
 ]
 ]
@@ -4865,9 +5529,13 @@
 "underline": false,
 "code": false,
 "color": "gray"
+},
+"plain_text": "Scoring: A 10, B 6, C 2, \"I don't know\" 0. Total {{points_earned}} / {{points_possible}} = {{overall_score}} / 100.",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 }
 ]

@@ -1,4 +1,4 @@
-Here is the result of "fetch" for the Page with URL https://app.notion.com/p/3fef028b623e81119386c5d5bb6e3b08 as of 2026-10-19T05:45:25.722Z:
+Here is the result of "fetch" for the Page with URL https://app.notion.com/p/3fef028b623e81119386c5d5bb6e3b08 as of 2026-10-19T07:34:12.395Z:
 <page url="https://app.notion.com/p/3fef028b623e81119386c5d5bb6e3b08" icon="🛡️">
 <ancestor-path>
 <parent-page url="https://app.notion.com/p/fb8ab85c15fb4d9699cebb06f8b146d6" title="Templates"/>
@@ -15,11 +15,11 @@ Here is the result of "fetch" for the Page with URL https://app.notion.com/p/3fe
 </callout>
 ---
 ## Executive Summary
-We checked how \{\{#if company\}\}\{\{company\}\}'s Notion workspace\{\{else\}\}your Notion workspace\{\{/if\}\} (\{\{team_size\}\} people, \{\{plan\}\} plan) handles sign-in, sharing, connected apps, people, admin rights and recovery. It sits at Level \{\{overall_level_number\}\}, \{\{overall_level\}\} (\{\{overall_score\}\}/100): \{\{strength_summary\}\}, but \{\{top_risks_summary\}\} leave gaps. \{\{biggest_impact_sentence\}\}
+We checked how \{\{#if company\}\}\{\{company\}\}'s Notion workspace\{\{else\}\}your Notion workspace\{\{/if\}\} (\{\{team_size\}\} people, \{\{plan\}\} plan) handles sign-in, sharing, connected apps, people, admin rights and recovery. It sits at Level \{\{overall_level_number\}\}, \{\{overall_level\}\} (\{\{overall_score\}\}/100). \{\{good_shape_sentence\}\}\{\{gaps_sentence\}\}\{\{biggest_impact_sentence\}\}
 <callout icon="📊" color="orange_bg">
 	**Overall Level**
 	<span color="orange">**Level \{\{overall_level_number\}\}, \{\{overall_level\}\}**</span>
-	Score \{\{overall_score\}\} / 100. Your level comes from your weakest areas, not the average.
+	Average score \{\{overall_score\}\}/100. Your level is set by your lowest area, so it can be lower than your average suggests.
 </callout>
 <callout icon="🎯" color="gray_bg">
 	**Main Risk**
@@ -70,11 +70,8 @@ We checked how \{\{#if company\}\}\{\{company\}\}'s Notion workspace\{\{else\}\}
 <td>\{\{area_resilience_level\}\}</td>
 </tr>
 </table>
-<span color="gray">Legend: </span>
-- <span color="gray">Level 4 - Hardened (80 to 100)</span>
-- <span color="gray">Level 3 - Managed (60 to 79)</span>
-- <span color="gray">Level 2 - Basic (30 to 59)</span>
-- <span color="gray">Level 1 - Exposed (0 to 29)</span>
+![Maturity level of 5 (filled per result)](https://security-check.security-check-preview.pages.dev/assets/img/security-check/maturity-level-3.png)
+<span color="gray">Your overall level is your lowest area.</span>
 ## How You Compare
 <span color="gray">Recommendations only, no benchmark data.</span>
 - **Recommended Level for a Team Your Size:** \{\{recommended_level\}\} in every area. This is our recommendation for a team of \{\{team_size\}\}, based on controls Notion itself documents for teams, not a statistic:
