@@ -17,7 +17,7 @@ id = "8ed13b551cba434f92867aee1e122d36"
 # DRY_RUN "0" + LIVE_FOR "allowlist": real Notion writes and Resend sends ONLY for TEST_SEND_ALLOWLIST; every other
 # address runs the dry-run pipeline (real-client lock). Set LIVE_FOR = "all" only after L0_CEO approves.
 DRY_RUN = "0"
-LIVE_FOR = "allowlist"
+LIVE_FOR = "all"
 PUBLIC_BASE = "https://security-check-api.learningamazonfba.workers.dev"
 # Maturity staircase PNG host. PREVIEW: the Pages preview (serves /assets from this branch). PRODUCTION: "https://www.anthonytoday.com" once PR #21 is merged.
 MATURITY_IMG_BASE = "https://www.anthonytoday.com"
