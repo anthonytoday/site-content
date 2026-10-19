@@ -180,7 +180,7 @@ Items are ordered by impact, so the first ones close your biggest risk: \{\{risk
 ---
 ➡️ [Book on WhatsApp](https://wa.me/33695845150) · [Email](mailto:admin@anthonytoday.com)
 ---
-## Keep It Fixed: Notion Consultant as a Service
+## Keep It Fixed: Fractional Notion Admin
 - Security slides back as your team changes. This monthly service gives your workspace an owner, whichever path you choose above.
 <table fit-page-width="true" header-row="true">
 <colgroup>
@@ -217,7 +217,7 @@ Items are ordered by impact, so the first ones close your biggest risk: \{\{risk
 </tr>
 </table>
 - **Special Offer:** 
-	- \$347/mo founding rate for the first 5 clients, then \$490/mo. Cancel any time. [Start Notion Consultant as a Service](https://buy.stripe.com/9B6fZj1vW4vP13d7WF1ZS0u) 
+	- \$347/mo founding rate for the first 5 clients, then \$490/mo. Cancel any time. [Start Fractional Notion Admin](https://buy.stripe.com/9B6fZj1vW4vP13d7WF1ZS0u) 
 	- Annual: \$2,970/year, billed once a year.
 <empty-block/>
 <span color="gray">Self-check based on your answers. General guidance, not a formal audit.</span>
