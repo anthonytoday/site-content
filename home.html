@@ -69,10 +69,11 @@ no_offer_popup: true
 
 <section class="sec" style="padding-top:0" id="security-check">
   <div class="wrap" style="text-align:center">
-    <p class="eyebrow">Free Self-Check</p>
-    <h2>{{ site.data.security_check.page.title }}</h2>
-    <p>{{ site.data.security_check.page.subtitle }}</p>
-    <div class="btn-row"><a class="btn" href="/security-check/?utm_source=website&amp;utm_medium=home&amp;utm_campaign=security_check">Start the Check</a></div>
+    {%- assign scui = site.data.security_check.ui %}
+    <p class="eyebrow">{{ scui["ui.badge"] }}</p>
+    <h2>{{ scui["ui.title"] }}</h2>
+    <p>{{ scui["ui.intro"] }}</p>
+    <div class="btn-row"><a class="btn" href="/security-check/?utm_source=website&amp;utm_medium=home&amp;utm_campaign=security_check">{{ scui["ui.start_button"] }}</a></div>
   </div>
 </section>
 

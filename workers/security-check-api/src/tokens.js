@@ -69,10 +69,18 @@ export function computeTokens(data, sub, r, links, kind = "free") {
   T.exposure_summary = top.some((x) => x.domain === "sharing" || x.domain === "integrations") ? "leave client material exposed" : "leave gaps an outsider could use";
   T.biggest_impact_sentence = top[0] ? "Closing " + short(top[0]) + " first makes the biggest difference" + (kind === "fixlist" && top[1] ? ", followed by " + short(top[1]) + "." : ".") : "";
   T.main_risk = top[0] ? cap(q[top[0].id].risk) : "No major risk found in your answers.";
-  T.do_first = top[0] ? q[top[0].id].fixes[0].text : "";
-  T.flags = r.flags.map((f) => ({ b: f.headline + " ", t: cap(q[f.question].risk) }));
+  // Action plan (copy v1, B3) drives Do First and the delivery email Phase 1 line.
+  const plan_rows = actionRows(data, r, kind === "fixlist" && sub.paid_at ? sub.paid_at : sub.submitted_at, sub.plan);
+  const p1 = plan_rows.filter((x) => x.phase === "Phase 1");
+  T.do_first = p1[0] ? p1[0].action : top[0] ? q[top[0].id].fixes[0].text : "";
+  T.phase_1_count = p1.length ? String(p1.length) : "";
+  T.phase_1_fix_word = p1.length === 1 ? "fix" : "fixes";
+  T.top_action_title_plain = p1[0] ? p1[0].plain : "";
+  // Critical flags (copy v1, C): callout shows "**{flag_name} (Qn).** {headline}"; the first ends with the "first thing to fix" line.
+  const suffix = data.scoring.flag_first_suffix || "";
+  T.flags = r.flags.map((f, i) => ({ b: f.label + " (Q" + q[f.question].number + "). ", t: f.headline + (i === 0 && suffix ? " " + suffix : "") }));
   T.flag_count = String(r.flags.length);
-  T.flag_names = r.flags.map((f) => lc(f.headline).replace(/\.$/, "")).join(", ");
+  T.flag_names = r.flags.map((f) => (f.riskTitle || f.label).toLowerCase()).join(", ");
   // Quick wins: public pages (hide if Q3 = A, use 2-step), 2-step (hide if Q1 = A, use Lock key pages).
   const qw = data.quick_wins;
   const wins = [];
@@ -89,16 +97,16 @@ export function computeTokens(data, sub, r, links, kind = "free") {
   top.forEach((x, i) => {
     const n = i + 1, qq = q[x.id];
     const notes = (qq.plan_notes || []).filter((p) => plan === "not_sure" || p.plans.includes("all") || p.plans.includes(plan));
-    T["risk_" + n + "_title"] = qq.title; T["risk_" + n + "_title_lower"] = lc(qq.title);
+    const fl = r.flags.find((f) => f.question === x.id);
+    T["risk_" + n + "_title"] = x.title; T["risk_" + n + "_title_lower"] = x.title.toLowerCase();
     T["risk_" + n + "_control"] = cap(qq.control); T["risk_" + n + "_question"] = "Q" + qq.number; T["risk_" + n + "_score"] = String(x.points);
-    T["risk_" + n + "_why"] = cap(qq.risk);
-    T["risk_" + n + "_impact"] = ((data.risk_impacts || {})[x.id] || {})[x.answer] || "You answered: " + qq.answers[x.answer].text;
+    T["risk_" + n + "_why"] = fl && fl.why ? fl.why : cap(qq.risk);
+    T["risk_" + n + "_impact"] = ((data.risk_impacts || {})[x.id] || {})[x.answer] || "You answered: " + qq.answers[x.answer].text; // copy v1 A; fallback only if a line is missing
     T["risk_" + n + "_fix"] = qq.fixes.map((f) => f.text).join(" ");
     T["risk_" + n + "_plan_note"] = notes.map((p) => p.text).join(" ") || "Works the same on every plan.";
     const src = qq.fixes.find((f) => f.source) || notes.find((p) => p.source);
     T["risk_" + n + "_source_link"] = src ? { link: src.source, text: "Notion help" } : "";
   });
-  T.phase_1_summary = top[0] ? lc(q[top[0].id].fixes[0].text).replace(/\.$/, "") : "";
   T.recommended_level = data.scoring.recommended_level;
   const below = r.domains.filter((d) => d.level !== null && d.level < 3);
   T.areas_at_recommended_count = String(r.domains.filter((d) => d.level === null || d.level >= 3).length);
@@ -109,6 +117,7 @@ export function computeTokens(data, sub, r, links, kind = "free") {
   T.plan_features_unused = (PLAN_FEATURES[plan] || PLAN_FEATURES.plus).map((k) => F[k]).filter((f) => f.q.some((id) => pq[id].points !== null && pq[id].points < 10))
     .map((f) => ({ b: f.b, t: f.t + " ", url: f.url, urlText: f.url.includes("pricing") ? "Pricing" : "Notion help" }));
   if (plan === "not_sure" && T.plan_features_unused.length) T.plan_features_unused.push({ b: "", t: "Check your plan in Settings → Billing." });
+  T.result_id = sub.result_id || "";
   T.stripe_link = links.fixlist || ""; T.result_url = links.result || ""; T.fixlist_url = links.fixlist_page || "";
   return T;
 }
@@ -125,5 +134,38 @@ export function renderString(tpl, T, escFn) {
     if (Array.isArray(v)) v = v.map((x) => (x.b || "") + (x.t || "")).join("; ");
     else if (v && typeof v === "object") v = v.link;
     return escFn ? escFn(String(v)) : String(v);
+  });
+}
+
+// Action plan rows per copy v1 section B3 (5 to 7 rows). Owner Role is left at the template default (empty);
+// Impact is the impact line of the answer that brought the action in (template placeholder {{action_n_impact}}).
+export function actionRows(data, r, reportDate, plan = "not_sure") {
+  const q = Object.fromEntries(data.questions.map((x) => [x.id, x]));
+  const A = data.actions || {}, M = data.answer_actions || {};
+  const day = (n) => new Date(new Date(reportDate).getTime() + n * 86400000).toISOString().slice(0, 10);
+  const srcQ = (aid) => { for (const [qid, opts] of Object.entries(M)) for (const m of Object.values(opts)) if (m.primary === aid || m.secondary === aid) return qid; return null; };
+  const rows = [];
+  const add = (aid, phase, answer, qid) => {
+    if (!aid || !A[aid]) return;
+    const ex = rows.find((x) => x.id === aid);
+    if (ex) { if (phase < ex.p) { ex.p = phase; ex.answer = answer; } return; }
+    rows.push({ id: aid, p: phase, answer, qid: qid || srcQ(aid) });
+  };
+  for (const x of r.topRisks) { const m = (M[x.id] || {})[x.answer]; if (m) add(m.primary, m.phase, x.answer, x.id); }
+  for (const x of r.topRisks) { const m = (M[x.id] || {})[x.answer]; if (m && m.secondary && rows.length < 7) add(m.secondary, m.phase, x.answer, x.id); }
+  for (const h of data.action_habits || []) if (rows.length < 5) add(h, 3, null, null);
+  if (rows.length && !rows.some((x) => x.p === 1)) rows[0].p = 1;
+  const ordered = rows.slice(0, 7).map((x, i) => ({ ...x, i })).sort((a, b) => a.p - b.p || a.i - b.i);
+  return ordered.map((x) => {
+    const qq = q[x.qid] || {};
+    const notes = (qq.plan_notes || []).filter((n) => plan === "not_sure" || n.plans.includes("all") || n.plans.includes(plan));
+    const src = (qq.fixes || []).find((f) => f.source);
+    return {
+      id: x.id, action: A[x.id].title, plain: A[x.id].plain, domain: A[x.id].domain, phase: "Phase " + x.p,
+      priority: x.p === 1 ? "High" : x.p === 2 ? (x.answer === "C" || x.answer === "D" ? "High" : "Medium") : "Low",
+      owner: "", impact: x.answer && x.qid ? ((data.risk_impacts || {})[x.qid] || {})[x.answer] || "" : "",
+      start: x.p === 1 ? day(0) : x.p === 2 ? day(7) : null, end: x.p === 1 ? day(4) : x.p === 2 ? day(11) : null,
+      how: (qq.fixes || []).map((f) => f.text).join(" "), planNote: notes[0] ? notes[0].text : "", source: src ? src.source : null,
+    };
   });
 }

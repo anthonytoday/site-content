@@ -1,4 +1,4 @@
-Here is the result of "fetch" for the Page with URL https://app.notion.com/p/3fef028b623e81119386c5d5bb6e3b08 as of 2026-10-19T05:39:07.973Z:
+Here is the result of "fetch" for the Page with URL https://app.notion.com/p/3fef028b623e81119386c5d5bb6e3b08 as of 2026-10-19T05:45:25.722Z:
 <page url="https://app.notion.com/p/3fef028b623e81119386c5d5bb6e3b08" icon="🛡️">
 <ancestor-path>
 <parent-page url="https://app.notion.com/p/fb8ab85c15fb4d9699cebb06f8b146d6" title="Templates"/>
@@ -9,13 +9,13 @@ Here is the result of "fetch" for the Page with URL https://app.notion.com/p/3fe
 </properties>
 <iconMetadata>{"type":"emoji","emoji":"🛡️"}</iconMetadata>
 <content>
-<span color="gray">**FREE RESULT**</span><span color="gray"> · Notion Workspace Security Check · Prepared for \{\{company\}\} · \{\{report_date\}\}</span>
+<span color="gray">**FREE RESULT**</span><span color="gray"> · Notion Workspace Security Check · Prepared for \{\{#if company\}\}\{\{company\}\}\{\{else\}\}your workspace\{\{/if\}\} · \{\{report_date\}\}</span>
 <callout icon="💬" color="gray_bg">
 	**Talk to Anthony:** [Website](https://www.anthonytoday.com) · [WhatsApp](https://wa.me/33695845150) · [Email](mailto:admin@anthonytoday.com) · [LinkedIn](https://www.linkedin.com/in/anthony-kieffer/)
 </callout>
 ---
 ## Executive Summary
-We checked how \{\{company\}\}'s Notion workspace (\{\{team_size\}\} people, \{\{plan\}\} plan) handles sign-in, sharing, connected apps, people, admin rights and recovery. It sits at Level \{\{overall_level_number\}\}, \{\{overall_level\}\} (\{\{overall_score\}\}/100): \{\{strength_summary\}\}, but \{\{top_risks_summary\}\} leave gaps. \{\{biggest_impact_sentence\}\}
+We checked how \{\{#if company\}\}\{\{company\}\}'s Notion workspace\{\{else\}\}your Notion workspace\{\{/if\}\} (\{\{team_size\}\} people, \{\{plan\}\} plan) handles sign-in, sharing, connected apps, people, admin rights and recovery. It sits at Level \{\{overall_level_number\}\}, \{\{overall_level\}\} (\{\{overall_score\}\}/100): \{\{strength_summary\}\}, but \{\{top_risks_summary\}\} leave gaps. \{\{biggest_impact_sentence\}\}
 <callout icon="📊" color="orange_bg">
 	**Overall Level**
 	<span color="orange">**Level \{\{overall_level_number\}\}, \{\{overall_level\}\}**</span>
@@ -161,7 +161,7 @@ We checked how \{\{company\}\}'s Notion workspace (\{\{team_size\}\} people, \{\
 </tr>
 </table>
 <callout icon="🛡️" color="blue_bg">
-	**Get your Fix List for \$39.** Delivered by email right after payment. 7-day refund on request. [Get the Fix List]({{stripe_link}})
+	**Get your Fix List for \$39.** Delivered by email right after payment. 7-day refund on request. [Get the Fix List](https://buy.stripe.com/28E6oJfmMbYh27h4Kt1ZS0x?client_reference_id={{result_id}})
 </callout>
 ---
 ➡️ [Book on WhatsApp](https://wa.me/33695845150) · [Email](mailto:admin@anthonytoday.com)

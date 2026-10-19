@@ -1,4 +1,4 @@
-Here is the result of "fetch" for the Page with URL https://app.notion.com/p/3fef028b623e811b934cfebfe7589542 as of 2026-10-19T05:39:09.067Z:
+Here is the result of "fetch" for the Page with URL https://app.notion.com/p/3fef028b623e811b934cfebfe7589542 as of 2026-10-19T05:45:22.395Z:
 <page url="https://app.notion.com/p/3fef028b623e811b934cfebfe7589542" icon="🛡️">
 <ancestor-path>
 <parent-page url="https://app.notion.com/p/fb8ab85c15fb4d9699cebb06f8b146d6" title="Templates"/>
@@ -9,13 +9,13 @@ Here is the result of "fetch" for the Page with URL https://app.notion.com/p/3fe
 </properties>
 <iconMetadata>{"type":"emoji","emoji":"🛡️"}</iconMetadata>
 <content>
-<span color="gray">**FIX LIST REPORT**</span><span color="gray"> · Notion Workspace Security Check · Prepared for \{\{company\}\} · \{\{report_date\}\}</span>
+<span color="gray">**FIX LIST REPORT**</span><span color="gray"> · Notion Workspace Security Check · Prepared for \{\{#if company\}\}\{\{company\}\}\{\{else\}\}your workspace\{\{/if\}\} · \{\{report_date\}\}</span>
 <callout icon="💬" color="gray_bg">
 	**Talk to Anthony:** [Website](https://www.anthonytoday.com) · [WhatsApp](https://wa.me/33695845150) · [Email](mailto:admin@anthonytoday.com) · [LinkedIn](https://www.linkedin.com/in/anthony-kieffer/)
 </callout>
 ---
 ## Executive Summary
-We reviewed how \{\{company\}\}'s Notion workspace (\{\{team_size\}\} people, \{\{plan\}\} plan) handles sign-in, sharing, connected apps, people, admin rights and recovery. It sits at Level \{\{overall_level_number\}\}, \{\{overall_level\}\} (\{\{overall_score\}\}/100): \{\{strength_summary\}\}, but \{\{top_risks_summary\}\} \{\{exposure_summary\}\}. \{\{biggest_impact_sentence\}\}
+We reviewed how \{\{#if company\}\}\{\{company\}\}'s Notion workspace\{\{else\}\}your Notion workspace\{\{/if\}\} (\{\{team_size\}\} people, \{\{plan\}\} plan) handles sign-in, sharing, connected apps, people, admin rights and recovery. It sits at Level \{\{overall_level_number\}\}, \{\{overall_level\}\} (\{\{overall_score\}\}/100): \{\{strength_summary\}\}, but \{\{top_risks_summary\}\} \{\{exposure_summary\}\}. \{\{biggest_impact_sentence\}\}
 <callout icon="📊" color="orange_bg">
 	**Overall Level**
 	<span color="orange">**Level \{\{overall_level_number\}\}, \{\{overall_level\}\}**</span>
@@ -170,8 +170,14 @@ Items are ordered by impact, so the first ones close your biggest risk: \{\{risk
 <tr>
 <td>**Price**</td>
 <td>**\$39, already paid**</td>
-<td>**\$290** (proposed)<br></td>
-<td>**\$1,490**, up to 25 people (proposed)</td>
+<td>**\$290**</td>
+<td>**\$1,490**, up to 25 people</td>
+</tr>
+<tr>
+<td>**Book**</td>
+<td></td>
+<td>[Book Fix Session](https://buy.stripe.com/6oUcN7fmMgex6nxa4N1ZS0y)</td>
+<td>[Start Hardening](https://buy.stripe.com/cNiaEZ3E4bYhbHR90J1ZS0z)</td>
 </tr>
 </table>
 ---
@@ -214,7 +220,7 @@ Items are ordered by impact, so the first ones close your biggest risk: \{\{risk
 </tr>
 </table>
 - **Special Offer:** 
-	- \$347/mo founding rate for the first 5 clients, then \$490/mo. 
+	- \$347/mo founding rate for the first 5 clients, then \$490/mo. [Start Notion Expert as a Service](https://buy.stripe.com/9B6fZj1vW4vP13d7WF1ZS0u) 
 	- Annual: \$2,970. Cancel any time.
 <empty-block/>
 <span color="gray">Self-check based on your answers. General guidance, not a formal audit.</span>

@@ -17,7 +17,7 @@ no_offer_popup: true
   <h2 style="font-size:22px;font-weight:600;margin:0 0 14px">What Happens Next</h2>
   <ul style="list-style:disc;text-align:left;max-width:460px;margin:0 auto 32px;padding-left:1.25em;color:var(--text-gray);font-size:16px;line-height:1.75">
     <li>You'll get a receipt from Stripe by email.</li>
-    <li id="followup-step">I'll be in touch within one business day.</li>
+    <li id="in-touch-step">I'll be in touch within one business day.</li>
     <li id="kickoff-step">Book your kickoff call now to pick a time.</li>
   </ul>
   <p id="kickoff-cta"><a class="btn" href="https://cal.com/anthonytoday/qualification">Book Your Kickoff Call</a></p>
@@ -37,8 +37,8 @@ no_offer_popup: true
   var offer = new URLSearchParams(window.location.search).get("offer");
   var line = document.getElementById("purchase-line");
   if (offer === "fixlist") {
-    if (line) line.textContent = "Your Fix List is on its way to your inbox.";
-    ["followup-step", "kickoff-step", "kickoff-cta"].forEach(function (id) {
+    if (line) line.textContent = {{ site.data.security_check.ui["thanks.fixlist"] | jsonify }} + " " + {{ site.data.security_check.ui["thanks.fixlist_sub"] | jsonify }};
+    ["in-touch-step", "kickoff-step", "kickoff-cta"].forEach(function (id) {
       var el = document.getElementById(id);
       if (el) el.parentNode.removeChild(el);
     });

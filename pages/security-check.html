@@ -9,7 +9,7 @@ bc_name: "Security Check"
 css_bundle: /assets/css/b-55370db292.css
 no_offer_popup: true
 ---
-{%- assign sc = site.data.security_check -%}
+{%- assign sc = site.data.security_check -%}{%- assign ui = sc.ui -%}
 <style>
 .qf .head h1{text-transform:none;font-size:40px;letter-spacing:-.02em}
 .qf .qf-sub{max-width:540px;font-size:17px}
@@ -46,9 +46,9 @@ no_offer_popup: true
 <div class="qf" id="sc">
 
   <div class="head" id="sc-head">
-    <div class="prog">{{ sc.page.kicker }}</div>
-    <h1>{{ sc.page.title }}</h1>
-    <p class="qf-sub">{{ sc.page.subtitle }}</p>
+    <div class="prog">{{ ui["ui.badge"] }}</div>
+    <h1>{{ ui["ui.title"] }}</h1>
+    <p class="qf-sub">{{ ui["ui.intro"] }}</p>
     <div class="qf-trust">
       <img src="/assets/brand/anthony-profile.webp" alt="Anthony, Notion Certified Consultant" width="48" height="48">
       <span>By Anthony, Notion Certified Consultant</span>
@@ -58,29 +58,33 @@ no_offer_popup: true
   <div class="wrap">
     <noscript><p class="err">This check needs JavaScript to score your answers.</p></noscript>
 
-    <section class="scr on" id="s-profile" aria-label="About your team">
+    <section class="scr on" id="s-profile" aria-label="{{ ui["pre.heading"] }}">
+      <h2 style="font-size:22px;font-weight:600;margin:0 0 16px">{{ ui["pre.heading"] }}</h2>
       <div class="field">
-        <label class="fl" for="f-team">Team Size</label>
+        <label class="fl" for="f-team">{{ ui["pre.team_size"] }}</label>
+        <p class="hint">{{ ui["pre.team_size.helper"] }}</p>
         <select id="f-team" required><option value="">Choose one</option>{% for o in sc.profile.team_size %}<option value="{{ o.value }}">{{ o.label }}</option>{% endfor %}</select>
       </div>
       <div class="field">
-        <label class="fl" for="f-role">Your Role</label>
+        <label class="fl" for="f-role">{{ ui["pre.role"] }}</label>
         <select id="f-role" required><option value="">Choose one</option>{% for o in sc.profile.role %}<option value="{{ o.value }}">{{ o.label }}</option>{% endfor %}</select>
       </div>
       <div class="field">
-        <label class="fl" for="f-plan">Notion Plan (Optional)</label>
+        <label class="fl" for="f-plan">{{ ui["pre.plan"] }}</label>
+        <p class="hint">{{ ui["pre.plan.helper"] }}</p>
         <select id="f-plan"><option value="">Choose one</option>{% for o in sc.profile.plan %}<option value="{{ o.value }}">{{ o.label }}</option>{% endfor %}</select>
       </div>
       <p class="err" id="e-profile" role="alert"></p>
-      <button type="button" class="submit" id="b-start">Start the Check &rarr;</button>
-      <p class="privacy">{{ sc.page.privacy }} <a href="/privacy/" style="color:inherit">Privacy policy</a>.</p>
+      <button type="button" class="submit" id="b-start">{{ ui["ui.start_button"] }} &rarr;</button>
+      <p class="privacy">{{ ui["ui.privacy_note"] }} <a href="/privacy/" style="color:inherit">Privacy policy</a>.</p>
     </section>
 
     {%- for q in sc.questions %}
     {%- assign dom = sc.domains | where: "id", q.domain | first %}
-    <section class="scr qscr" id="s-{{ q.id }}" data-q="{{ q.id }}" aria-label="Question {{ q.number }} of 12">
+    {%- assign qprog = ui["q.progress"] | replace: "{{n}}", q.number %}
+    <section class="scr qscr" id="s-{{ q.id }}" data-q="{{ q.id }}" aria-label="{{ qprog }}">
       <div class="bar" aria-hidden="true"><span style="width:{{ q.number | times: 100 | divided_by: 13 }}%"></span></div>
-      <div class="qnum">Question {{ q.number }} of 12</div>
+      <div class="qnum">{{ qprog }}</div>
       <div class="area">{{ dom.name }}</div>
       <fieldset class="q">
         <legend class="qlabel">{{ q.question }}</legend>
@@ -89,42 +93,37 @@ no_offer_popup: true
           <label class="opt{% if a[0] == 'D' and q.solo_na %} not-solo{% endif %}"><input type="radio" name="{{ q.id }}" value="{{ a[0] }}"> {{ a[1].text }}</label>
           {%- endfor %}
           {%- if q.solo_na %}
-          <label class="opt solo-only" hidden><input type="radio" name="{{ q.id }}" value="NA"> {{ q.solo_na }}</label>
+          <label class="opt solo-only" hidden><input type="radio" name="{{ q.id }}" value="NA"> {{ ui["q.na_option"] }}</label>
           {%- endif %}
         </div>
       </fieldset>
       <p class="err" role="alert"></p>
-      <div class="navrow"><button type="button" class="back">&larr; Back</button><button type="button" class="submit nxt">{% if forloop.last %}See My Result &rarr;{% else %}Next &rarr;{% endif %}</button></div>
+      <div class="navrow"><button type="button" class="back">&larr; {{ ui["q.back_button"] }}</button><button type="button" class="submit nxt">{{ ui["q.next_button"] }} &rarr;</button></div>
     </section>
     {%- endfor %}
 
-    <section class="scr" id="s-gate" aria-label="Where to send your result">
+    <section class="scr" id="s-gate" aria-label="{{ ui["gate.heading"] }}">
       <div class="bar" aria-hidden="true"><span style="width:96%"></span></div>
-      <h2 style="font-size:26px;font-weight:600;margin:0 0 8px">{{ sc.page.gate_title }}</h2>
-      <p class="hint">{{ sc.page.gate_sub }}</p>
+      <h2 style="font-size:26px;font-weight:600;margin:0 0 8px">{{ ui["gate.heading"] }}</h2>
+      <p class="hint">{{ ui["gate.subheading"] }}</p>
       <form id="f-gate" novalidate>
-        <div class="field"><label class="fl" for="f-name">Name</label><input type="text" id="f-name" maxlength="60" autocomplete="name" required></div>
-        <div class="field"><label class="fl" for="f-email">Work Email</label><input type="email" id="f-email" maxlength="254" autocomplete="email" required></div>
-        <label class="consent"><input type="checkbox" id="f-consent" required> {{ sc.page.consent }}</label>
-        <div class="field"><label class="fl" for="f-company">Company</label><input type="text" id="f-company" maxlength="80" autocomplete="organization" required></div>
+        <div class="field"><label class="fl" for="f-name">{{ ui["gate.name"] }}</label><input type="text" id="f-name" maxlength="60" autocomplete="name" required><p class="err" id="e-name"></p></div>
+        <div class="field"><label class="fl" for="f-email">{{ ui["gate.email"] }}</label><p class="hint">{{ ui["gate.email.helper"] }}</p><input type="email" id="f-email" maxlength="254" autocomplete="email" required><p class="err" id="e-email"></p></div>
+        <label class="consent"><input type="checkbox" id="f-consent" required> {{ ui["gate.consent"] }}</label>
+        <div class="field"><label class="fl" for="f-company">{{ ui["gate.company"] }}</label><p class="hint">{{ ui["gate.company.helper"] }}</p><input type="text" id="f-company" maxlength="80" autocomplete="organization" required><p class="err" id="e-company"></p></div>
         <div class="field">
-          <label class="fl" for="f-country">Country</label>
+          <label class="fl" for="f-country">{{ ui["gate.country"] }}</label>
           <select id="f-country" required><option value="">Choose one</option>{% for c in sc.profile.country %}<option>{{ c }}</option>{% endfor %}</select>
         </div>
         <input type="text" name="website" id="f-website" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" tabindex="-1" autocomplete="off" aria-label="Leave this field empty">
         <p class="err" id="e-gate" role="alert"></p>
-        <div class="navrow"><button type="button" class="back" id="b-gate-back">&larr; Back</button><button type="submit" class="submit" id="b-submit">Show My Result &rarr;</button></div>
-        <p class="privacy">{{ sc.page.privacy }} <a href="/privacy/" style="color:inherit">Privacy policy</a>.</p>
+        <div class="navrow"><button type="button" class="back" id="b-gate-back">&larr; {{ ui["q.back_button"] }}</button><button type="submit" class="submit" id="b-submit">{{ ui["gate.submit_button"] }} &rarr;</button></div>
+        <p class="privacy">{{ ui["ui.privacy_note"] }} <a href="/privacy/" style="color:inherit">Privacy policy</a>.</p>
       </form>
     </section>
 
     <section class="scr" id="s-result" aria-live="polite">
       <div class="rcard" id="r-card"></div>
-      <div class="field" style="margin-top:22px" id="r-industry">
-        <label class="fl" for="f-industry">Optional: What Kind of Business Is It?</label>
-        <select id="f-industry"><option value="">Choose one</option>{% for o in sc.profile.industry %}<option value="{{ o.value }}">{{ o.label }}</option>{% endfor %}</select>
-        <p class="hint" id="r-industry-ok" hidden>Thanks, saved.</p>
-      </div>
       <p class="disc">{{ sc.page.disclaimer }}</p>
     </section>
   </div>
@@ -133,7 +132,8 @@ no_offer_popup: true
 <script>
 (function () {
   var API = {{ site.security_check_api | jsonify }};
-  var RESULT_NOTE = {{ sc.page.result_note | jsonify }};
+  var UI = {{ ui | jsonify }};
+  var FIRST = {{ sc.scoring.flag_first_suffix | jsonify }};
   var $ = function (id) { return document.getElementById(id); };
   var screens = [].slice.call(document.querySelectorAll(".qf .scr"));
   var qscreens = [].slice.call(document.querySelectorAll(".qf .qscr"));
@@ -159,7 +159,7 @@ no_offer_popup: true
   });
 
   $("b-start").addEventListener("click", function () {
-    if (!$("f-team").value || !$("f-role").value) { $("e-profile").textContent = "Please choose your team size and role."; return; }
+    if (!$("f-team").value || !$("f-role").value) { $("e-profile").textContent = UI["err.required_choice"]; return; }
     $("e-profile").textContent = "";
     applySolo();
     state.idx = 0; show(qscreens[0].id);
@@ -168,7 +168,7 @@ no_offer_popup: true
     s.querySelector(".nxt").addEventListener("click", function () {
       var q = s.getAttribute("data-q");
       var c = s.querySelector('input[name="' + q + '"]:checked');
-      if (!c) { s.querySelector(".err").textContent = "Please pick one answer."; return; }
+      if (!c) { s.querySelector(".err").textContent = UI["err.required_choice"]; return; }
       s.querySelector(".err").textContent = "";
       state.answers[q] = c.value;
       if (i + 1 < qscreens.length) show(qscreens[i + 1].id); else show("s-gate");
@@ -199,16 +199,17 @@ no_offer_popup: true
     });
     card.appendChild(t);
     card.appendChild(el("p", "legend", "Levels: 1 Exposed (0 to 29), 2 Basic (30 to 59), 3 Managed (60 to 79), 4 Hardened (80 to 100). Your overall level is your lowest area."));
-    r.flags.forEach(function (f) { var p = el("div", "flag"); p.appendChild(el("b", null, "Red Flag: ")); p.appendChild(document.createTextNode(f.headline)); card.appendChild(p); });
+    r.flags.forEach(function (f, i) { var p = el("div", "flag"); p.appendChild(el("b", null, f.label + " (" + f.q + ").")); p.appendChild(document.createTextNode(" " + f.headline + (i === 0 ? " " + FIRST : ""))); card.appendChild(p); });
     if (r.topRisks.length) {
       card.appendChild(el("h2", null, "Priority Risks"));
       var ol = el("ol", "rlist");
       r.topRisks.forEach(function (x) { ol.appendChild(el("li", null, x.title)); });
       card.appendChild(ol);
     }
-    var full = el("p"); var a = el("a", null, "Open your result page"); a.href = d.resultUrl; a.rel = "noopener"; a.target = "_blank";
-    full.appendChild(a); full.appendChild(document.createTextNode(". " + RESULT_NOTE));
+    var full = el("p"); var a = el("a", null, "Open your result"); a.href = d.resultUrl; a.rel = "noopener"; a.target = "_blank";
+    full.appendChild(a); full.appendChild(document.createTextNode("."));
     card.appendChild(full);
+    if (state.email) card.appendChild(el("p", null, UI["result.ready_email_note"].replace(/\{\{work_email\}\}/, state.email)));
     var cta = el("div", "cta");
     var cp = el("p"); cp.appendChild(el("b", null, "Get your Fix List for {{ sc.offers.fixlist.price }}.")); cp.appendChild(document.createTextNode(" Delivered by email right after payment. 7-day refund on request.")); cta.appendChild(cp);
     var b = el("a", "btn", "Get your Fix List"); b.href = withUtm(d.fixlistUrl); cta.appendChild(b);
@@ -221,27 +222,28 @@ no_offer_popup: true
     e.preventDefault();
     var err = $("e-gate");
     var name = $("f-name").value.trim(), email = $("f-email").value.trim(), company = $("f-company").value.trim(), country = $("f-country").value;
-    if (!name || !company || !country || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { err.textContent = "Please fill in every field with a valid work email."; return; }
-    if (!$("f-consent").checked) { err.textContent = "Please tick the box so we can email your result."; return; }
+    var bad = false;
+    function fe(id, msg) { $(id).textContent = msg || ""; if (msg) bad = true; }
+    fe("e-name", !name ? UI["err.required_text"] : name.length > 60 ? UI["err.too_long_name"] : "");
+    fe("e-email", !email ? UI["err.required_text"] : !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) ? UI["err.email_invalid"] : "");
+    fe("e-company", !company ? UI["err.required_text"] : company.length > 80 ? UI["err.too_long_company"] : "");
+    if (bad) { err.textContent = ""; return; }
+    if (!country) { err.textContent = UI["err.required_choice"]; return; }
+    if (!$("f-consent").checked) { err.textContent = UI["err.consent"]; return; }
     err.textContent = "";
-    var btn = $("b-submit"); btn.disabled = true; btn.textContent = "Scoring...";
+    state.email = email;
+    var btn = $("b-submit"); btn.disabled = true; btn.textContent = UI["result.loading"];
     var body = { team_size: $("f-team").value, role: $("f-role").value, plan: $("f-plan").value || "not_sure", name: name, email: email, company: company,
       country: country, consent: true, source: source, website: $("f-website").value, answers: state.answers };
     fetch(API + "/submit", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
       .then(function (res) { return res.json().then(function (j) { return { status: res.status, j: j }; }); })
       .then(function (x) {
-        btn.disabled = false; btn.textContent = "Show My Result \u2192";
-        if (!x.j.ok) { err.textContent = x.status === 429 ? "Too many tries. Please wait a little and try again." : "Something did not look right: " + (x.j.fields || []).join(", ") + ". Please check and try again."; return; }
+        btn.disabled = false; btn.textContent = UI["gate.submit_button"] + " \u2192";
+        if (!x.j.ok) { err.textContent = x.status === 429 ? UI["err.network"] : UI["err.invalid_option"]; return; }
         renderResult(x.j); show("s-result");
       })
-      .catch(function () { btn.disabled = false; btn.textContent = "Show My Result \u2192"; err.textContent = "Network problem. Please try again."; });
+      .catch(function () { btn.disabled = false; btn.textContent = UI["gate.submit_button"] + " \u2192"; err.textContent = UI["err.network"]; });
   });
 
-  $("f-industry").addEventListener("change", function () {
-    var v = this.value, d = state.result;
-    if (!v || !d) return;
-    fetch(API + "/industry", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ resultId: d.resultId, token: d.industryToken, industry: v }) })
-      .then(function () { $("r-industry-ok").hidden = false; }).catch(function () {});
-  });
 })();
 </script>

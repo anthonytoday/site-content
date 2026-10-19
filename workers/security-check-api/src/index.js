@@ -10,7 +10,8 @@ import { computeTokens } from "./tokens.js";
 import { buildResultEmail, buildFixlistEmail, resendSuppressed, resendSuppress, emailPayload, resendSend } from "./email.js";
 import { Notion, leadProperties, paidProperties } from "./notion.js";
 import { readTree, transform, writeTree, actionRows } from "./notion-tpl.js";
-import { renderPage, renderBlocks } from "./render.js";
+import { renderPage, renderBlocks, renderActionPlan } from "./render.js";
+import { fmtDate } from "./tokens.js";
 
 const enc = new TextEncoder();
 const b64u = (buf) => btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
@@ -21,13 +22,19 @@ const hex = (buf) => [...new Uint8Array(buf)].map((b) => b.toString(16).padStart
 async function sign(env, s) { return b64u(await hmac(env.SIGNING_KEY, s)).slice(0, 32); }
 function safeEq(a, b) { if (typeof a !== "string" || a.length !== b.length) return false; let d = 0; for (let i = 0; i < a.length; i++) d |= a.charCodeAt(i) ^ b.charCodeAt(i); return d === 0; }
 const isDry = (env) => env.DRY_RUN !== "0";
+// Real-client lock: with DRY_RUN=0 and LIVE_FOR != "all", only TEST_SEND_ALLOWLIST addresses run for real
+// (Notion writes + Resend); everyone else gets the dry-run pipeline. L0_CEO flips LIVE_FOR to "all" to go live.
+const allow = (env) => (env.TEST_SEND_ALLOWLIST || "").split(",").map((x) => x.trim().toLowerCase()).filter(Boolean);
+const locked = (env) => env.LIVE_FOR !== "all";
+const liveFor = (env, email) => !isDry(env) && (!locked(env) || allow(env).includes(String(email || "").toLowerCase()));
+const testPhase = (env) => isDry(env) || locked(env);
 const json = (obj, status = 200, headers = {}) => new Response(JSON.stringify(obj, null, 1), { status, headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store", ...headers } });
 const html = (s, status = 200) => new Response(s, { status, headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow", "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; form-action 'self'", "Referrer-Policy": "no-referrer" } });
 
 function cors(env, req) {
   const o = req.headers.get("Origin") || "";
   const allowed = (env.ALLOWED_ORIGINS || "").split(",").map((s) => s.trim()).filter(Boolean);
-  const ok = allowed.includes(o) || (isDry(env) && /^https:\/\/[a-z0-9-]+\.(trycloudflare\.com|pages\.dev)$/.test(o)) || (isDry(env) && /^https:\/\/[a-z0-9-]+\.security-check-preview\.pages\.dev$/.test(o));
+  const ok = allowed.includes(o) || (isDry(env) && /^https:\/\/[a-z0-9-]+\.(trycloudflare\.com|pages\.dev)$/.test(o)) || (testPhase(env) && /^https:\/\/([a-z0-9-]+\.)?security-check-preview\.pages\.dev$/.test(o));
   return ok ? { "Access-Control-Allow-Origin": o, "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type", "Access-Control-Max-Age": "600", Vary: "Origin" } : {};
 }
 const nowIso = () => new Date().toISOString();
@@ -63,7 +70,7 @@ async function links(env, sub) {
 
 async function templateBlocks(env, kind) {
   const id = kind === "free" ? env.NOTION_FREE_RESULT_TEMPLATE_ID : env.NOTION_FIXLIST_TEMPLATE_ID;
-  if (!env.NOTION_TOKEN || !id) return { blocks: kind === "free" ? freeSnapshot : fixSnapshot, source: "snapshot (19 Oct 2026, 9:39 am UAE)" };
+  if (!env.NOTION_TOKEN || !id) return { blocks: kind === "free" ? freeSnapshot : fixSnapshot, source: "snapshot (19 Oct 2026, 9:45 am UAE)" };
   const ck = "tpl:" + id;
   const cached = await env.SC.get(ck, "json");
   if (cached) return { blocks: cached, source: "notion template (cached)" };
@@ -72,10 +79,6 @@ async function templateBlocks(env, kind) {
     await env.SC.put(ck, JSON.stringify(blocks), { expirationTtl: 3600 });
     return { blocks, source: "notion template (live)" };
   } catch (e) { return { blocks: kind === "free" ? freeSnapshot : fixSnapshot, source: "snapshot (template read failed: " + String(e.message).slice(0, 80) + ")" }; }
-}
-function rowsHtml(rows) {
-  return "<table><tr><th>Action</th><th>Domain</th><th>Phase</th><th>Priority</th><th>Owner Role</th><th>Start</th><th>End</th><th>How (inside the item's page)</th></tr>" +
-    rows.map((x) => "<tr><td>" + [x.action, x.domain, x.phase, x.priority, x.owner, x.start || "", x.end || "", x.how].map(esc).join("</td><td>") + "</td></tr>").join("") + "</table>";
 }
 
 // ---------- submit ----------
@@ -96,23 +99,23 @@ async function handleSubmit(req, env, ctx, h) {
   const prevRid = await env.SC.get("email:" + sub.email);
   const prev = prevRid ? await env.SC.get("sub:" + prevRid, "json") : null;
   Object.assign(sub, { result_id: newResultId(), submission_id: await nextSubmissionId(env), submitted_at: nowIso(), quiz_version: data.version,
-    retake_count: prev ? (prev.retake_count || 0) + 1 : 0, previous_total: prev ? prev.result.total : null, dry_run: isDry(env), unsubscribed: !!(prev && prev.unsubscribed) });
+    retake_count: prev ? (prev.retake_count || 0) + 1 : 0, previous_total: prev ? prev.result.total : null, dry_run: !liveFor(env, sub.email), unsubscribed: !!(prev && prev.unsubscribed) });
   sub.result = r;
   await env.SC.put("sub:" + sub.result_id, JSON.stringify(sub), { expirationTtl: 60 * 60 * 24 * 730 });
   await env.SC.put("email:" + sub.email, sub.result_id, { expirationTtl: 60 * 60 * 24 * 730 });
   const L = await links(env, sub);
   const pipeline = runSubmitPipeline(env, sub, r, L);
   const view = { total: r.total, level: r.level, levelName: r.levelName, domains: r.domains.map(({ id, name, score, level, levelName }) => ({ id, name, score, level, levelName })),
-    flags: r.flags.map((f) => ({ label: f.label, headline: f.headline })), topRisks: r.topRisks.map((x) => ({ title: x.title, critical: x.critical })) };
+    flags: r.flags.map((f) => ({ label: f.label, q: "Q" + f.question.slice(1), headline: f.headline })), topRisks: r.topRisks.map((x) => ({ title: x.title, critical: x.critical })) };
   const out = { ok: true, resultId: sub.result_id, submissionId: sub.submission_id, result: view, resultUrl: L.result, fixlistUrl: L.fixlist, industryToken: await sign(env, "i:" + sub.result_id) };
-  if (isDry(env)) { out.dryRun = true; out.log = await pipeline; out.previews = { resultPage: L.result, email: env.PUBLIC_BASE + "/preview/email?rid=" + sub.result_id + "&t=" + (await sign(env, "p:" + sub.result_id)) }; }
+  if (sub.dry_run || (testPhase(env) && liveFor(env, sub.email))) { out.dryRun = sub.dry_run; out.testLive = !sub.dry_run; out.log = await pipeline; out.previews = { resultPage: L.result, email: env.PUBLIC_BASE + "/preview/email?rid=" + sub.result_id + "&t=" + (await sign(env, "p:" + sub.result_id)) }; }
   else ctx.waitUntil(pipeline);
   return json(out, 200, h);
 }
 
 async function runSubmitPipeline(env, sub, r, L) {
   const log = [];
-  const dry = isDry(env);
+  const dry = sub.dry_run;
   const step = async (name, fn) => { try { const res = await fn(); log.push({ step: name, ok: true, ...(res || {}) }); return res; } catch (e) { log.push({ step: name, ok: false, error: String(e.message || e).slice(0, 300) }); return null; } };
   const T = computeTokens(data, sub, r, L, "free");
   T.result_id = sub.result_id; T.unsubscribe_url = L.unsub;
@@ -155,12 +158,13 @@ async function runSubmitPipeline(env, sub, r, L) {
     await env.SC.put("mail:" + sub.result_id, JSON.stringify(payload), { expirationTtl: 7 * 86400 });
     if (!sub.consent) return { skipped: "no consent" };
     if (sub.unsubscribed) return { skipped: "unsubscribed" };
-    const testSend = env.REAL_SEND_TEST === "1" && (env.TEST_SEND_ALLOWLIST || "").split(",").includes(sub.email);
-    if ((dry && !testSend) || !env.RESEND_API_KEY) return { dry: true, subject: msg.subject, to: sub.email, tags: payload.tags, headers: payload.headers };
-    if (await resendSuppressed(env.RESEND_API_KEY, sub.email)) return { skipped: "resend suppression" };
+    if (dry || !env.RESEND_API_KEY) return { dry: true, subject: msg.subject, to: sub.email, tags: payload.tags, headers: payload.headers };
+    if (await env.SC.get("unsub:" + sub.email)) return { skipped: "unsubscribed (worker record)" };
+    const sup = await resendSuppressed(env.RESEND_API_KEY, sub.email);
+    if (sup) return { skipped: "resend suppression" };
     const id = await resendSend(env, payload, "sc-result-" + sub.result_id);
-    sub.score_email_sent = true;
-    return { resendId: id };
+    sub.score_email_sent = true; sub.resend_result_id = id;
+    return { resendId: id, suppressionCheck: sup === null ? "unavailable (key lacks suppression read)" : "not suppressed", tags: payload.tags, headers: Object.keys(payload.headers || {}) };
   });
   await env.SC.put("sub:" + sub.result_id, JSON.stringify({ ...sub, log }), { expirationTtl: 60 * 60 * 24 * 730 });
   return log;
@@ -177,7 +181,7 @@ async function handleResultPage(env, rid, t, kind) {
   const tpl = await templateBlocks(env, kind === "free" ? "free" : "fix");
   const blocks = transform(tpl.blocks, T);
   const banner = sub.dry_run ? "DRY-RUN PREVIEW. Template source: " + tpl.source + ". Nothing was created in Notion and no email was sent." : null;
-  const extra = kind === "fix" ? { actionDbHtml: rowsHtml(actionRows(data, sub.result, sub.paid_at || sub.submitted_at)) } : {};
+  const extra = kind === "fix" ? { actionDbHtml: renderActionPlan(actionRows(data, sub.result, sub.paid_at || sub.submitted_at, sub.plan), fmtDate) } : {};
   return html(renderPage(kind === "free" ? "Free Security Check Result" : "Security Check Fix List", blocks, banner, extra));
 }
 
@@ -219,12 +223,13 @@ async function handleUnsubscribe(req, env, url) {
   const rid = await env.SC.get("email:" + info.e);
   for (const id of new Set([rid, info.r].filter(Boolean))) { const sub = await env.SC.get("sub:" + id, "json"); if (sub) { sub.unsubscribed = true; await env.SC.put("sub:" + id, JSON.stringify(sub), { expirationTtl: 60 * 60 * 24 * 730 }); } }
   await env.SC.put("unsub:" + info.e, nowIso());
-  if (!isDry(env)) {
+  if (liveFor(env, info.e)) {
     if (env.RESEND_API_KEY) log.push(["resend_suppression", await resendSuppress(env.RESEND_API_KEY, info.e).catch(() => false)]);
     if (env.NOTION_TOKEN && env.NOTION_CRM_DB_ID) { try { const n = new Notion(env.NOTION_TOKEN); const lead = await n.findLead(env.NOTION_CRM_DB_ID, info.e); if (lead) await n.call("PATCH", "/pages/" + lead.id, { properties: { "Do Not Email": { checkbox: true } } }); log.push(["leads_do_not_email", !!lead]); } catch (e) { log.push(["leads_do_not_email", false]); } }
+    await env.SC.put("unsublog:" + info.e, JSON.stringify({ at: nowIso(), log }), { expirationTtl: 60 * 60 * 24 * 30 });
     if (env.CC_INGEST_URL) await fetch(env.CC_INGEST_URL, { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer " + env.CC_INGEST_TOKEN }, body: JSON.stringify({ type: "security_check.unsubscribe", email: info.e, at: nowIso() }) }).catch(() => {});
   }
-  return html(page("<h2>You're unsubscribed</h2><p>No more Security Check follow-ups will be sent to <b>" + esc(info.e) + "</b>." + (isDry(env) ? " (Dry-run: recorded in the Worker only.)" : "") + "</p>"), 200);
+  return html(page("<h2>You're unsubscribed</h2><p>No more Security Check follow-ups will be sent to <b>" + esc(info.e) + "</b>." + (!liveFor(env, info.e) ? " (Dry-run: recorded in the Worker only.)" : "") + "</p>"), 200);
 }
 const page = (b) => "<!doctype html><meta charset=utf-8><meta name=viewport content=\"width=device-width,initial-scale=1\"><meta name=robots content=noindex><title>Unsubscribe</title><div style=\"max-width:520px;margin:60px auto;font:16px/1.6 -apple-system,sans-serif;color:#051C2C;padding:0 20px\">" + b + "</div>";
 
@@ -253,8 +258,11 @@ async function handleStripe(req, env, ctx, testMode) {
   const rid = String(s.client_reference_id || "");
   const sub = /^r[0-9a-f]{24}$/.test(rid) ? await env.SC.get("sub:" + rid, "json") : null;
   if (!sub) { await env.SC.put("orphan:" + sid, JSON.stringify({ rid, email: s.customer_details && s.customer_details.email, at: nowIso() })); return json({ ok: true, orphan: true }); }
-  const p = runFixlistPipeline(env, sub, s, testMode || isDry(env));
-  if (testMode || isDry(env)) return json({ ok: true, dryRun: true, resultId: rid, log: await p, previews: { fixListPage: (await links(env, sub)).fixlist_page, email: env.PUBLIC_BASE + "/preview/email?kind=fixlist&rid=" + rid + "&t=" + (await sign(env, "p:" + rid)) } });
+  const dry = !liveFor(env, sub.email);
+  if (dry && !testMode) await env.SC.put("held:" + sid, raw, { expirationTtl: 60 * 60 * 24 * 60 }); // real payment held by the client lock: replay once live
+  if (testMode && !/^cs_test_/.test(sid)) return json({ ok: false, error: "test path takes cs_test_ sessions only" }, 400);
+  const p = runFixlistPipeline(env, sub, s, dry);
+  if (testMode || dry) return json({ ok: true, dryRun: dry, resultId: rid, log: await p, previews: { fixListPage: (await links(env, sub)).fixlist_page, email: env.PUBLIC_BASE + "/preview/email?kind=fixlist&rid=" + rid + "&t=" + (await sign(env, "p:" + rid)) } });
   ctx.waitUntil(p);
   return json({ ok: true });
 }
@@ -266,28 +274,30 @@ async function runFixlistPipeline(env, sub, s, dry) {
   const L = await links(env, sub);
   const T = computeTokens(data, sub, sub.result, L, "fixlist");
   const notion = env.NOTION_TOKEN ? new Notion(env.NOTION_TOKEN) : null;
-  let fixUrl = L.fixlist_page;
+  let fixUrl = L.fixlist_page, viewsLog = null;
   await step("notion_fixlist_page", async () => {
     const tpl = await templateBlocks(env, "fix");
     const blocks = transform(tpl.blocks, T);
-    const rows = actionRows(data, sub.result, sub.paid_at);
+    const rows = actionRows(data, sub.result, sub.paid_at, sub.plan);
     if (dry || !notion) return { dry: true, template: tpl.source, blocks: blocks.length, actionRows: rows.length };
     const pg = await notion.call("POST", "/pages", { parent: { page_id: env.NOTION_RESULTS_PARENT_ID }, icon: { type: "emoji", emoji: "🛡️" }, properties: { title: { title: [{ type: "text", text: { content: "Fix List: " + sub.company + " (" + sub.submission_id + ")" } }] } } });
     await writeTree(notion, pg.id, blocks, { actionDb: async (parentId) => {
       const tds = await notion.call("GET", "/data_sources/" + env.NOTION_FIXLIST_ACTION_DS_ID);
       const props = {};
-      for (const [k, v] of Object.entries(tds.properties)) { const t = v.type; props[k] = { [t]: t === "select" ? { options: v.select.options.map((o) => ({ name: o.name, color: o.color })) } : t === "status" ? {} : {} }; }
+      for (const [k, v] of Object.entries(tds.properties)) { const t = v.type; if (t === "relation" || t === "rollup" || t === "formula") continue; props[k] = { [t]: t === "select" ? { options: v.select.options.map((o) => ({ name: o.name, color: o.color })) } : {} }; }
       const db = await notion.call("POST", "/databases", { parent: { type: "page_id", page_id: parentId }, is_inline: true, title: [{ type: "text", text: { content: "Top 3 Risk Fixes" } }], initial_data_source: { properties: props } });
       const ds = db.data_sources[0].id;
       for (const x of rows) await notion.call("POST", "/pages", { parent: { type: "data_source_id", data_source_id: ds }, properties: {
-        Action: { title: [{ type: "text", text: { content: x.action } }] }, Impact: { rich_text: [{ type: "text", text: { content: x.impact } }] }, Domain: { select: { name: x.domain } }, Phase: { select: { name: x.phase } },
-        Priority: { select: { name: x.priority } }, "Owner Role": { select: { name: x.owner } }, ...(x.start ? { Start: { date: { start: x.start } }, End: { date: { start: x.end } } } : {}) },
+        Action: { title: [{ type: "text", text: { content: x.action } }] }, Impact: { rich_text: x.impact ? [{ type: "text", text: { content: x.impact } }] : [] }, Domain: { select: { name: x.domain } }, Phase: { select: { name: x.phase } },
+        Priority: { select: { name: x.priority } }, ...(x.owner ? { "Owner Role": { select: { name: x.owner } } } : {}), ...(x.start ? { Start: { date: { start: x.start } }, End: { date: { start: x.end } } } : {}) },
         children: [{ type: "heading_2", heading_2: { rich_text: [{ type: "text", text: { content: "How" } }] } }, { type: "paragraph", paragraph: { rich_text: [{ type: "text", text: { content: x.how } }] } },
           ...(x.planNote ? [{ type: "paragraph", paragraph: { rich_text: [{ type: "text", text: { content: "Plan note: " + x.planNote } }] } }] : []),
           ...(x.source ? [{ type: "paragraph", paragraph: { rich_text: [{ type: "text", text: { content: "Source: Notion help", link: { url: x.source } } }] } }] : [])] });
+      // Views do not carry over (new database = one default table view). Recreate the template's 3 views via the Views API.
+      try { viewsLog = await recreateViews(env, db.id, ds); } catch (e) { viewsLog = { ok: false, error: String(e.message).slice(0, 200) }; }
     } });
     sub.notion_fixlist_page = pg.url;
-    return { pageUrl: pg.url, actionRows: rows.length };
+    return { pageUrl: pg.url, actionRows: rows.length, views: viewsLog };
   });
   await step("notion_leads_paid", async () => {
     if (dry || !notion || !env.NOTION_CRM_DB_ID) return { dry: true, set: { "Fix List Paid": true, "Stripe Session": s.id, Stage: "Fix List paid" } };
@@ -301,8 +311,10 @@ async function runFixlistPipeline(env, sub, s, dry) {
     const payload = emailPayload(env, { to: sub.email, msg, flow: "fixlist_delivery" });
     await env.SC.put("fix:" + sub.result_id, JSON.stringify(payload), { expirationTtl: 7 * 86400 });
     if (dry || !env.RESEND_API_KEY) return { dry: true, subject: msg.subject, to: sub.email, tags: payload.tags };
-    if (await resendSuppressed(env.RESEND_API_KEY, sub.email)) return { skipped: "resend suppression (transactional not sent; alert)" };
-    return { resendId: await resendSend(env, payload, "sc-fixlist-" + s.id) };
+    if ((await resendSuppressed(env.RESEND_API_KEY, sub.email)) === true) return { skipped: "resend suppression (transactional not sent; alert)" };
+    const id = await resendSend(env, payload, "sc-fixlist-" + s.id);
+    sub.resend_fixlist_id = id;
+    return { resendId: id, tags: payload.tags };
   });
   await step("command_center_paid", async () => {
     if (dry || !env.CC_INGEST_URL) return { dry: true };
@@ -313,19 +325,39 @@ async function runFixlistPipeline(env, sub, s, dry) {
   return log;
 }
 
+// Template views of the Fix List action DB (66ef028b...): By Prio, Timeline, By Phase. Views API needs Notion-Version 2026-03-11.
+async function recreateViews(env, dbId, dsId) {
+  const v = new Notion(env.NOTION_TOKEN, "2026-03-11");
+  const dsx = await v.call("GET", "/data_sources/" + dsId);
+  const id = (n) => dsx.properties[n].id;
+  const vis = (names) => names.map((n) => ({ property_id: id(n), visible: true }));
+  const group = (n) => ({ type: "select", property_id: id(n), sort: { type: "manual" }, hide_empty_groups: true });
+  const specs = [
+    { name: "By Prio", type: "table", sorts: [{ property: "Start", direction: "ascending" }], configuration: { type: "table", properties: vis(["Action", "Domain", "Phase", "Owner Role", "Impact", "Status"]), group_by: group("Priority") } },
+    { name: "Timeline", type: "timeline", sorts: [{ property: "Priority", direction: "ascending" }], configuration: { type: "timeline", date_property_id: id("Start"), end_date_property_id: id("End"), properties: vis(["Action", "Domain", "Owner Role", "Status"]), show_table: false } },
+    { name: "By Phase", type: "table", sorts: [{ property: "Priority", direction: "ascending" }], configuration: { type: "table", properties: vis(["Action", "Domain", "Priority", "Owner Role", "Start", "End", "Status"]), group_by: group("Phase") } },
+  ];
+  const existing = await v.call("GET", "/views?database_id=" + dbId);
+  const def = existing.results && existing.results[0];
+  const made = [];
+  if (def) { await v.call("PATCH", "/views/" + def.id, { name: specs[0].name, sorts: specs[0].sorts, configuration: specs[0].configuration }); made.push(specs[0].name + " (default view updated)"); }
+  for (const sp of def ? specs.slice(1) : specs) { await v.call("POST", "/views", { database_id: dbId, data_source_id: dsId, ...sp }); made.push(sp.name); }
+  return { ok: true, views: made };
+}
+
 export default {
   async fetch(req, env, ctx) {
     const url = new URL(req.url);
     const h = cors(env, req);
     if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: h });
     try {
-      if (url.pathname === "/" || url.pathname === "/health") return json({ service: "security-check-api", version: data.version, dryRun: isDry(env), notion: !!env.NOTION_TOKEN, resend: !!env.RESEND_API_KEY, stripe: !!env.STRIPE_WEBHOOK_SECRET, leadsDb: !!env.NOTION_CRM_DB_ID });
+      if (url.pathname === "/" || url.pathname === "/health") return json({ service: "security-check-api", version: data.version, dryRun: isDry(env), liveFor: isDry(env) ? "none" : locked(env) ? "allowlist" : "all", notion: !!env.NOTION_TOKEN, resend: !!env.RESEND_API_KEY, stripe: !!env.STRIPE_WEBHOOK_SECRET, leadsDb: !!env.NOTION_CRM_DB_ID });
       if (url.pathname === "/submit" && req.method === "POST") return await handleSubmit(req, env, ctx, h);
       if (url.pathname === "/industry" && req.method === "POST") return await handleIndustry(req, env, h);
       if (url.pathname === "/unsubscribe" && (req.method === "GET" || req.method === "POST")) return await handleUnsubscribe(req, env, url);
       if (url.pathname === "/stripe-webhook" && req.method === "POST") return await handleStripe(req, env, ctx, false);
       if (url.pathname === "/test/stripe-event" && req.method === "POST") {
-        if (!isDry(env) || !env.TEST_TOKEN || !safeEq(req.headers.get("X-Test-Token") || "", env.TEST_TOKEN)) return json({ ok: false }, 403);
+        if (!testPhase(env) || !env.TEST_TOKEN || !safeEq(req.headers.get("X-Test-Token") || "", env.TEST_TOKEN)) return json({ ok: false }, 403);
         return await handleStripe(req, env, ctx, true);
       }
       if (url.pathname === "/preview/email" && req.method === "GET") return await handlePreviewEmail(env, url);

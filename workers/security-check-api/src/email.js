@@ -18,6 +18,7 @@ export async function resendSuppressed(key, email) {
   const res = await fetch("https://api.resend.com/suppressions/" + encodeURIComponent(email), { headers: { Authorization: "Bearer " + key } });
   if (res.status === 404) return false;
   if (res.ok) return true;
+  if (res.status === 401 || res.status === 403) return null; // sending-only key cannot read suppressions; Resend still blocks suppressed recipients at send time
   throw new Error("resend suppression check " + res.status);
 }
 export async function resendSuppress(key, email) {

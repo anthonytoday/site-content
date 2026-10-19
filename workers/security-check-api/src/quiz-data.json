@@ -1,6 +1,6 @@
 {
   "version": "final",
-  "copy_source": "security-check-quiz-final.md (final, approved by Anthony 19 Oct 2026, 9:34 am UAE). Fix steps and plan notes from security-check-quiz-v2.md. Keep ids and values when editing copy, then run workers/security-check-api/scripts/sync-data.sh",
+  "copy_source": "security-check-quiz-final.md (final, approved by Anthony 19 Oct 2026, 9:34 am UAE). Fix steps and plan notes from security-check-quiz-v2.md. Keep ids and values when editing copy, then run workers/security-check-api/scripts/sync-data.sh + /workspace/marketing/security-check-copy-v1.md (v1, 19 Oct 2026 10:11 am UAE)",
   "page": {
     "title": "Notion Workspace Security Check",
     "kicker": "12 Questions · About 3 Minutes",
@@ -54,8 +54,19 @@
           "C",
           "D"
         ],
-        "headline": "Old public pages nobody has checked.",
-        "_note": "headline: q3 from the SAMPLE page; others PLACEHOLDER by Website Ops, PM to confirm"
+        "copy": {
+          "C": {
+            "risk_name": "Old Unchecked Public Pages",
+            "headline": "Some old pages are likely open to anyone with the link.",
+            "why": "Anyone with the link can read them and their subpages, including contributor names and emails.",
+            "risk_title_long": "Old Public Pages Nobody Has Checked"
+          },
+          "D": {
+            "risk_name": "Unknown Public Pages",
+            "headline": "Nobody knows which pages are open to the public.",
+            "why": "Anyone with a link to a public page can read it and its subpages."
+          }
+        }
       },
       {
         "id": "secrets",
@@ -64,8 +75,13 @@
         "answers": [
           "C"
         ],
-        "headline": "Sensitive data on pages many people or tools can open.",
-        "_note": "headline: q3 from the SAMPLE page; others PLACEHOLDER by Website Ops, PM to confirm"
+        "copy": {
+          "C": {
+            "risk_name": "Secrets on Shared Pages",
+            "headline": "Passwords or personal data sit on widely shared pages.",
+            "why": "Everyone with access, every connected tool and every public link can read them."
+          }
+        }
       },
       {
         "id": "leavers",
@@ -74,8 +90,13 @@
         "answers": [
           "C"
         ],
-        "headline": "People who left can still open your pages.",
-        "_note": "headline: q3 from the SAMPLE page; others PLACEHOLDER by Website Ops, PM to confirm"
+        "copy": {
+          "C": {
+            "risk_name": "Leavers Keep Access",
+            "headline": "People who left can likely still open your pages.",
+            "why": "Ex-staff and ex-contractors can open, copy or delete pages, and their tools keep running."
+          }
+        }
       },
       {
         "id": "owners",
@@ -84,8 +105,13 @@
         "answers": [
           "C"
         ],
-        "headline": "Too many people hold full admin rights.",
-        "_note": "headline: q3 from the SAMPLE page; others PLACEHOLDER by Website Ops, PM to confirm"
+        "copy": {
+          "C": {
+            "risk_name": "Too Many Workspace Owners",
+            "headline": "Too many people, or unknown people, hold full admin rights.",
+            "why": "Each owner can change security settings, remove people, export everything or delete the workspace."
+          }
+        }
       }
     ],
     "tie_order": [
@@ -102,7 +128,8 @@
       "q11",
       "q12"
     ],
-    "recommended_level": "Managed"
+    "recommended_level": "Managed",
+    "flag_first_suffix": "This is the first thing to fix."
   },
   "domains": [
     {
@@ -1204,5 +1231,458 @@
     "q10": "open default access",
     "q11": "an unmapped recovery path",
     "q12": "an untested restore"
+  },
+  "risk_impacts": {
+    "q1": {
+      "B": "Your own account is protected, but one teammate's stolen password still opens every page they can see.",
+      "C": "One phished password is enough to open everything that person can see in Notion.",
+      "D": "You can't tell if one stolen password opens your workspace, and Notion can't require members to use 2-step verification."
+    },
+    "q2": {
+      "B": "Freelancers or clients added as full members can open every open teamspace, not only their own pages.",
+      "C": "With a shared login nobody is accountable, and removing one person locks out everyone who uses it.",
+      "D": "Without knowing who uses which account, you can't remove one person cleanly or tell who did what."
+    },
+    "q3": {
+      "B": "Pages you meant to publish stay open with every subpage added since, and nobody has checked lately.",
+      "C": "Old public pages, their subpages and contributors' names and emails can be read by anyone with the link.",
+      "D": "Not knowing what is public means client pages could be readable by anyone with the link today."
+    },
+    "q4": {
+      "B": "These details stay safe only while sharing stays tight; one wrong share or connection exposes them.",
+      "C": "Everyone on the team, every guest and every connected tool can read these passwords and details.",
+      "D": "Secrets may sit in pages nobody has checked, and old versions stay in history even after deletion."
+    },
+    "q5": {
+      "B": "Connections nobody has reviewed keep their access to your pages until someone removes them.",
+      "C": "Each forgotten connection still holds a key to its pages, even after the person who added it leaves.",
+      "D": "Without a list of connected apps, you can't tell which outside tools can read your pages."
+    },
+    "q6": {
+      "B": "The AI tool can read most of your workspace, including client and finance pages.",
+      "C": "Untracked AI tools may read client and finance pages, and text in a page can try to steer them.",
+      "D": "An AI tool you don't know about reads everything it can reach, including sensitive pages."
+    },
+    "q7": {
+      "B": "Between someone leaving and their removal, they can still open, copy or delete company pages.",
+      "C": "People who left can likely still open, copy or delete your pages, and their connected tools keep running.",
+      "D": "If you can't confirm leavers were removed, assume some still have access to your pages."
+    },
+    "q8": {
+      "B": "A yearly review leaves months where past freelancers and old clients keep access.",
+      "C": "Access has only grown since day one, so old clients and past freelancers likely still have it.",
+      "D": "Not knowing when access was last reviewed means people you've forgotten may still have it."
+    },
+    "q9": {
+      "B": "If your only owner account is lost or locked, nobody can manage the workspace's security.",
+      "C": "Every extra owner is a master key: each can change security settings, export everything or delete the workspace.",
+      "D": "Not knowing who holds owner rights means you can't tell who could export or delete everything."
+    },
+    "q10": {
+      "B": "New people can still see finance, HR and client pages, even if they can't change them.",
+      "C": "Every new hire or compromised account can read, edit and reshare finance, HR and client pages on day one.",
+      "D": "You can't be sure a new hire won't open finance, HR or client pages on day one."
+    },
+    "q11": {
+      "B": "Recovery has time limits; without knowing yours or who can restore, a deleted page can be lost.",
+      "C": "A deleted key page could be gone for good, leaving you to rebuild it from memory.",
+      "D": "If nobody knows how recovery works on your plan, a deleted page may be gone once the window closes."
+    },
+    "q12": {
+      "B": "A restore you've never tried is a hope; you may find your plan's limits on the day you need them.",
+      "C": "If a key page is deleted or overwritten, you'd lose time working out how to get it back.",
+      "D": "Not knowing whether you can restore a page, or see who changed it, is the gap itself."
+    }
+  },
+  "actions": {
+    "A-01": {
+      "title": "Turn on 2-step verification for every account.",
+      "domain": "Identity and Access",
+      "plain": "turning on 2-step verification for every account"
+    },
+    "A-02": {
+      "title": "Ask each person to confirm 2-step verification.",
+      "domain": "Identity and Access",
+      "plain": "asking each person to confirm 2-step verification"
+    },
+    "A-03": {
+      "title": "Give every person their own account.",
+      "domain": "Identity and Access",
+      "plain": "giving every person their own account"
+    },
+    "A-04": {
+      "title": "Change freelancers and clients from members to guests.",
+      "domain": "Identity and Access",
+      "plain": "changing freelancers and clients from members to guests"
+    },
+    "A-05": {
+      "title": "Review every published site and public link.",
+      "domain": "Sharing and Data Exposure",
+      "plain": "reviewing every published site and public link"
+    },
+    "A-06": {
+      "title": "Take offline every page that should not be public.",
+      "domain": "Sharing and Data Exposure",
+      "plain": "taking offline every page that should not be public"
+    },
+    "A-07": {
+      "title": "Move passwords and keys to a password manager.",
+      "domain": "Sharing and Data Exposure",
+      "plain": "moving passwords and keys to a password manager"
+    },
+    "A-08": {
+      "title": "Search pages for passwords, keys and ID scans.",
+      "domain": "Sharing and Data Exposure",
+      "plain": "searching your pages for passwords, keys and ID scans"
+    },
+    "A-09": {
+      "title": "Change every password or key stored in Notion.",
+      "domain": "Sharing and Data Exposure",
+      "plain": "changing every password or key stored in Notion"
+    },
+    "A-10": {
+      "title": "List every app connected to Notion.",
+      "domain": "Integrations and Third Parties",
+      "plain": "listing every app connected to Notion"
+    },
+    "A-11": {
+      "title": "Disconnect unused and unknown connected apps.",
+      "domain": "Integrations and Third Parties",
+      "plain": "disconnecting unused and unknown connected apps"
+    },
+    "A-12": {
+      "title": "Find every AI tool connected to Notion.",
+      "domain": "Integrations and Third Parties",
+      "plain": "finding every AI tool connected to Notion"
+    },
+    "A-13": {
+      "title": "Limit the AI tool to the pages it needs.",
+      "domain": "Integrations and Third Parties",
+      "plain": "limiting the AI tool to the pages it needs"
+    },
+    "A-14": {
+      "title": "Agree which apps and AI tools are approved.",
+      "domain": "Integrations and Third Parties",
+      "plain": "agreeing which apps and AI tools are approved"
+    },
+    "A-15": {
+      "title": "Remove access for everyone who has left.",
+      "domain": "People and Offboarding",
+      "plain": "removing access for everyone who has left"
+    },
+    "A-16": {
+      "title": "Run a leaver checklist on every last day.",
+      "domain": "People and Offboarding",
+      "plain": "running a leaver checklist on every last day"
+    },
+    "A-17": {
+      "title": "Remove members and guests who no longer need access.",
+      "domain": "People and Offboarding",
+      "plain": "removing members and guests who no longer need access"
+    },
+    "A-18": {
+      "title": "Book a quarterly access and sharing review.",
+      "domain": "People and Offboarding",
+      "plain": "booking a quarterly access and sharing review"
+    },
+    "A-19": {
+      "title": "Check who holds workspace owner rights.",
+      "domain": "Governance and Admin",
+      "plain": "checking who holds workspace owner rights"
+    },
+    "A-20": {
+      "title": "Keep exactly 2 named workspace owners.",
+      "domain": "Governance and Admin",
+      "plain": "cutting workspace owners to 2 named people"
+    },
+    "A-21": {
+      "title": "Add a second named workspace owner.",
+      "domain": "Governance and Admin",
+      "plain": "adding a second named workspace owner"
+    },
+    "A-22": {
+      "title": "Check what a new member can open.",
+      "domain": "Governance and Admin",
+      "plain": "checking what a new member can open"
+    },
+    "A-23": {
+      "title": "Close finance, HR and client teamspaces.",
+      "domain": "Governance and Admin",
+      "plain": "closing your finance, HR and client teamspaces"
+    },
+    "A-24": {
+      "title": "Learn your plan's Trash and history limits.",
+      "domain": "Resilience and Recovery",
+      "plain": "learning your plan's Trash and version history limits"
+    },
+    "A-25": {
+      "title": "Give 2 people full access to key pages.",
+      "domain": "Resilience and Recovery",
+      "plain": "giving 2 people full access to your key pages"
+    },
+    "A-26": {
+      "title": "Move key pages out of private sections.",
+      "domain": "Resilience and Recovery",
+      "plain": "moving key pages out of private sections into a teamspace"
+    },
+    "A-27": {
+      "title": "Test a page restore once a quarter.",
+      "domain": "Resilience and Recovery",
+      "plain": "testing a page restore once a quarter"
+    }
+  },
+  "answer_actions": {
+    "q1": {
+      "B": {
+        "primary": "A-01",
+        "secondary": "A-02",
+        "phase": 2
+      },
+      "C": {
+        "primary": "A-01",
+        "secondary": null,
+        "phase": 1
+      },
+      "D": {
+        "primary": "A-02",
+        "secondary": "A-01",
+        "phase": 1
+      }
+    },
+    "q2": {
+      "B": {
+        "primary": "A-04",
+        "secondary": null,
+        "phase": 2
+      },
+      "C": {
+        "primary": "A-03",
+        "secondary": null,
+        "phase": 2
+      },
+      "D": {
+        "primary": "A-17",
+        "secondary": "A-04",
+        "phase": 2
+      }
+    },
+    "q3": {
+      "B": {
+        "primary": "A-05",
+        "secondary": "A-18",
+        "phase": 2
+      },
+      "C": {
+        "primary": "A-06",
+        "secondary": "A-05",
+        "phase": 1
+      },
+      "D": {
+        "primary": "A-05",
+        "secondary": "A-06",
+        "phase": 1
+      }
+    },
+    "q4": {
+      "B": {
+        "primary": "A-07",
+        "secondary": null,
+        "phase": 2
+      },
+      "C": {
+        "primary": "A-07",
+        "secondary": "A-09",
+        "phase": 1
+      },
+      "D": {
+        "primary": "A-08",
+        "secondary": "A-07",
+        "phase": 2
+      }
+    },
+    "q5": {
+      "B": {
+        "primary": "A-11",
+        "secondary": null,
+        "phase": 2
+      },
+      "C": {
+        "primary": "A-11",
+        "secondary": "A-14",
+        "phase": 2
+      },
+      "D": {
+        "primary": "A-10",
+        "secondary": "A-11",
+        "phase": 2
+      }
+    },
+    "q6": {
+      "B": {
+        "primary": "A-13",
+        "secondary": "A-14",
+        "phase": 2
+      },
+      "C": {
+        "primary": "A-12",
+        "secondary": "A-14",
+        "phase": 2
+      },
+      "D": {
+        "primary": "A-12",
+        "secondary": "A-13",
+        "phase": 2
+      }
+    },
+    "q7": {
+      "B": {
+        "primary": "A-16",
+        "secondary": null,
+        "phase": 2
+      },
+      "C": {
+        "primary": "A-15",
+        "secondary": "A-16",
+        "phase": 1
+      },
+      "D": {
+        "primary": "A-15",
+        "secondary": "A-16",
+        "phase": 2
+      }
+    },
+    "q8": {
+      "B": {
+        "primary": "A-18",
+        "secondary": null,
+        "phase": 3
+      },
+      "C": {
+        "primary": "A-17",
+        "secondary": "A-18",
+        "phase": 2
+      },
+      "D": {
+        "primary": "A-17",
+        "secondary": "A-18",
+        "phase": 2
+      }
+    },
+    "q9": {
+      "B": {
+        "primary": "A-21",
+        "secondary": null,
+        "phase": 2
+      },
+      "C": {
+        "primary": "A-20",
+        "secondary": null,
+        "phase": 1
+      },
+      "D": {
+        "primary": "A-19",
+        "secondary": "A-20",
+        "phase": 2
+      }
+    },
+    "q10": {
+      "B": {
+        "primary": "A-23",
+        "secondary": null,
+        "phase": 3
+      },
+      "C": {
+        "primary": "A-23",
+        "secondary": null,
+        "phase": 2
+      },
+      "D": {
+        "primary": "A-22",
+        "secondary": "A-23",
+        "phase": 2
+      }
+    },
+    "q11": {
+      "B": {
+        "primary": "A-24",
+        "secondary": "A-25",
+        "phase": 2
+      },
+      "C": {
+        "primary": "A-25",
+        "secondary": "A-26",
+        "phase": 2
+      },
+      "D": {
+        "primary": "A-24",
+        "secondary": "A-25",
+        "phase": 2
+      }
+    },
+    "q12": {
+      "B": {
+        "primary": "A-27",
+        "secondary": null,
+        "phase": 3
+      },
+      "C": {
+        "primary": "A-27",
+        "secondary": "A-24",
+        "phase": 2
+      },
+      "D": {
+        "primary": "A-24",
+        "secondary": "A-27",
+        "phase": 2
+      }
+    }
+  },
+  "action_habits": [
+    "A-18",
+    "A-14",
+    "A-27"
+  ],
+  "ui": {
+    "ui.badge": "Free Security Check",
+    "ui.title": "Notion Workspace Security Check",
+    "ui.intro": "12 questions, about 3 minutes. No logins, links or screenshots needed.",
+    "ui.start_button": "Start the Check",
+    "ui.privacy_note": "Nothing in your Notion is accessed.",
+    "pre.heading": "First, 3 Quick Details",
+    "pre.team_size": "How many people use your Notion?",
+    "pre.team_size.helper": "Count everyone with an account, you included. Don't count guests.",
+    "pre.role": "Your role",
+    "pre.plan": "Your Notion plan",
+    "pre.plan.helper": "Optional. Not sure? Pick \"Not sure\".",
+    "pre.next_button": "Next",
+    "q.progress": "Question {{n}} of 12",
+    "q.back_button": "Back",
+    "q.next_button": "Next",
+    "q.na_option": "Not applicable: only I have ever had access",
+    "gate.heading": "Where Should We Send Your Result?",
+    "gate.subheading": "Your result is ready. Add your details to see it and get a copy by email.",
+    "gate.name": "Your name",
+    "gate.email": "Work email",
+    "gate.email.helper": "Your result is sent here.",
+    "gate.company": "Company",
+    "gate.company.helper": "Shown on your result page.",
+    "gate.country": "Country",
+    "gate.consent": "Email me my result and up to 3 follow-ups. Unsubscribe any time.",
+    "gate.submit_button": "Show My Result",
+    "result.industry": "What best describes your business?",
+    "result.industry.helper": "Optional.",
+    "err.required_text": "Please fill this in.",
+    "err.required_choice": "Please choose an option.",
+    "err.email_invalid": "Enter a valid email, like name@company.com.",
+    "err.too_long_name": "Use 60 characters or fewer.",
+    "err.too_long_company": "Use 80 characters or fewer.",
+    "err.consent": "Tick the box so we can email your result.",
+    "err.invalid_option": "Please choose one of the options.",
+    "err.network": "We couldn't send your answers. Check your connection and try again.",
+    "err.button_retry": "Try Again",
+    "result.loading": "Scoring your answers and building your result...",
+    "result.ready_email_note": "A copy is on its way to {{work_email}}.",
+    "thanks.fixlist": "Your Fix List is on its way to your inbox.",
+    "thanks.fixlist_sub": "It includes your top 3 risks and a ready action plan in Notion."
   }
 }

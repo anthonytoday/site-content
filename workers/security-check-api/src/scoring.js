@@ -34,7 +34,8 @@ export function score(data, answers, teamSize) {
 
   const flags = data.scoring.critical_flags
     .filter((f) => f.answers.includes(answers[f.question]))
-    .map((f) => ({ id: f.id, label: f.label, question: f.question, headline: f.headline }));
+    .map((f) => { const c = (f.copy || {})[answers[f.question]] || {}; return { id: f.id, label: f.label, question: f.question, answer: answers[f.question], headline: c.headline || "", why: c.why || "", riskName: c.risk_name || "", riskTitle: c.risk_title_long || c.risk_name || "" }; });
+  const flagBy = Object.fromEntries(flags.map((f) => [f.question, f]));
   const flagQs = new Set(flags.map((f) => f.question));
   const order = data.scoring.tie_order;
   const risks = perQuestion
@@ -45,7 +46,7 @@ export function score(data, answers, teamSize) {
       if (x.points !== y.points) return x.points - y.points;
       return order.indexOf(x.id) - order.indexOf(y.id);
     })
-    .map((p) => ({ id: p.id, title: qById[p.id].title, answer: p.answer, points: p.points, critical: flagQs.has(p.id), domain: qById[p.id].domain }));
+    .map((p) => ({ id: p.id, title: (flagBy[p.id] && flagBy[p.id].riskTitle) || qById[p.id].title, answer: p.answer, points: p.points, critical: flagQs.has(p.id), domain: qById[p.id].domain }));
   const strengths = perQuestion.filter((p) => p.points === 10).map((p) => ({ id: p.id, title: qById[p.id].title }));
 
   return {

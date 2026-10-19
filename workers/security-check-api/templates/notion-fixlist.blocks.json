@@ -21,7 +21,7 @@
 {
 "type": "text",
 "text": {
-"content": " · Notion Workspace Security Check · Prepared for {{company}} · {{report_date}}",
+"content": " · Notion Workspace Security Check · Prepared for {{#if company}}{{company}}{{else}}your workspace{{/if}} · {{report_date}}",
 "link": null
 },
 "annotations": {
@@ -225,7 +225,7 @@
 {
 "type": "text",
 "text": {
-"content": "We reviewed how {{company}}'s Notion workspace ({{team_size}} people, {{plan}} plan) handles sign-in, sharing, connected apps, people, admin rights and recovery. It sits at Level {{overall_level_number}}, {{overall_level}} ({{overall_score}}/100): {{strength_summary}}, but {{top_risks_summary}} {{exposure_summary}}. {{biggest_impact_sentence}}",
+"content": "We reviewed how {{#if company}}{{company}}'s Notion workspace{{else}}your Notion workspace{{/if}} ({{team_size}} people, {{plan}} plan) handles sign-in, sharing, connected apps, people, admin rights and recovery. It sits at Level {{overall_level_number}}, {{overall_level}} ({{overall_score}}/100): {{strength_summary}}, but {{top_risks_summary}} {{exposure_summary}}. {{biggest_impact_sentence}}",
 "link": null
 },
 "annotations": {
@@ -2923,21 +2923,6 @@
 "code": false,
 "color": "default"
 }
-},
-{
-"type": "text",
-"text": {
-"content": " (proposed)\n",
-"link": null
-},
-"annotations": {
-"bold": false,
-"italic": false,
-"strikethrough": false,
-"underline": false,
-"code": false,
-"color": "default"
-}
 }
 ],
 [
@@ -2959,8 +2944,71 @@
 {
 "type": "text",
 "text": {
-"content": ", up to 25 people (proposed)",
+"content": ", up to 25 people",
 "link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+]
+]
+}
+},
+{
+"type": "table_row",
+"table_row": {
+"cells": [
+[
+{
+"type": "text",
+"text": {
+"content": "Book",
+"link": null
+},
+"annotations": {
+"bold": true,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[],
+[
+{
+"type": "text",
+"text": {
+"content": "Book Fix Session",
+"link": {
+"url": "https://buy.stripe.com/6oUcN7fmMgex6nxa4N1ZS0y"
+}
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+}
+],
+[
+{
+"type": "text",
+"text": {
+"content": "Start Hardening",
+"link": {
+"url": "https://buy.stripe.com/cNiaEZ3E4bYhbHR90J1ZS0z"
+}
 },
 "annotations": {
 "bold": false,
@@ -3427,8 +3475,25 @@
 {
 "type": "text",
 "text": {
-"content": "$347/mo founding rate for the first 5 clients, then $490/mo.",
+"content": "$347/mo founding rate for the first 5 clients, then $490/mo. ",
 "link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+}
+},
+{
+"type": "text",
+"text": {
+"content": "Start Notion Expert as a Service",
+"link": {
+"url": "https://buy.stripe.com/9B6fZj1vW4vP13d7WF1ZS0u"
+}
 },
 "annotations": {
 "bold": false,

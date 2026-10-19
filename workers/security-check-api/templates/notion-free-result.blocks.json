@@ -21,7 +21,7 @@
 {
 "type": "text",
 "text": {
-"content": " · Notion Workspace Security Check · Prepared for {{company}} · {{report_date}}",
+"content": " · Notion Workspace Security Check · Prepared for {{#if company}}{{company}}{{else}}your workspace{{/if}} · {{report_date}}",
 "link": null
 },
 "annotations": {
@@ -225,7 +225,7 @@
 {
 "type": "text",
 "text": {
-"content": "We checked how {{company}}'s Notion workspace ({{team_size}} people, {{plan}} plan) handles sign-in, sharing, connected apps, people, admin rights and recovery. It sits at Level {{overall_level_number}}, {{overall_level}} ({{overall_score}}/100): {{strength_summary}}, but {{top_risks_summary}} leave gaps. {{biggest_impact_sentence}}",
+"content": "We checked how {{#if company}}{{company}}'s Notion workspace{{else}}your Notion workspace{{/if}} ({{team_size}} people, {{plan}} plan) handles sign-in, sharing, connected apps, people, admin rights and recovery. It sits at Level {{overall_level_number}}, {{overall_level}} ({{overall_score}}/100): {{strength_summary}}, but {{top_risks_summary}} leave gaps. {{biggest_impact_sentence}}",
 "link": null
 },
 "annotations": {
@@ -2554,7 +2554,7 @@
 "text": {
 "content": "Get the Fix List",
 "link": {
-"url": "{{stripe_link}}"
+"url": "https://buy.stripe.com/28E6oJfmMbYh27h4Kt1ZS0x?client_reference_id={{result_id}}"
 }
 },
 "annotations": {

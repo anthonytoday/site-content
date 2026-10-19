@@ -24,12 +24,20 @@ export async function readTree(api, id, depth = 0) {
   return out;
 }
 
+const WA = "https://wa.me/33695845150", MAILTO = "mailto:admin@anthonytoday.com";
+// Link URLs can carry tokens too ({{result_id}}, {{stripe_link}}); every Stripe Payment Link gets client_reference_id = result id.
+export function fillUrl(url, T) {
+  if (!url) return url;
+  if (/\{\{stripe_link\}\}|%7B%7Bstripe_link%7D%7D/.test(url)) return T.stripe_link;
+  url = url.replace(/(?:\{\{|%7B%7B)(\w+)(?:\}\}|%7D%7D)/g, (m, k) => (k in T && typeof T[k] !== "object" ? encodeURIComponent(String(T[k])) : ""));
+  if (/^https:\/\/buy\.stripe\.com\//.test(url) && T.result_id && !/[?&]client_reference_id=/.test(url)) url += (url.includes("?") ? "&" : "?") + "client_reference_id=" + encodeURIComponent(T.result_id);
+  return url;
+}
 function fillRt(rt, T) {
   const out = [];
   for (const x of rt || []) {
     const content = x.plain_text ?? x.text?.content ?? "";
-    let url = x.href || x.text?.link?.url || null;
-    if (url && /\{\{stripe_link\}\}|%7B%7Bstripe_link%7D%7D/.test(url)) url = T.stripe_link;
+    const url = fillUrl(x.href || x.text?.link?.url || null, T);
     const parts = content.split(/(\{\{\w+\}\})/);
     for (const part of parts) {
       if (!part) continue;
@@ -45,13 +53,35 @@ function fillRt(rt, T) {
   return out;
 }
 
-// Inline {{#if x}}a{{else}}b{{/if}} inside one block: evaluated on the joined text (formatting of that block is simplified).
+// Inline {{#if x}}a{{else}}b{{/if}} inside one block, keeping each run's formatting and links.
 function inlineIf(rt, T) {
-  const s = plain(rt);
-  if (!/\{\{#if /.test(s)) return rt;
-  const r = s.replace(/\{\{#if (\w+)\}\}([\s\S]*?)(?:\{\{else\}\}([\s\S]*?))?\{\{\/if\}\}/g, (m, k, a, b) => (truthy(T[k]) ? a : b || ""));
-  return [txt(r, { color: "gray" })];
+  const segs = (rt || []).map((x) => ({ x, s: x.plain_text ?? x.text?.content ?? "" }));
+  const all = segs.map((g) => g.s).join("");
+  if (!/\{\{#if /.test(all)) return rt;
+  const keep = new Array(all.length).fill(true);
+  const re = /\{\{#if (\w+)\}\}([\s\S]*?)(?:\{\{else\}\}([\s\S]*?))?\{\{\/if\}\}/g;
+  let m;
+  while ((m = re.exec(all))) {
+    const yes = truthy(T[m[1]]);
+    const openLen = m[0].indexOf("}}") + 2, aStart = m.index + openLen, aEnd = aStart + m[2].length;
+    const elseLen = m[3] !== undefined ? 8 : 0, bStart = aEnd + elseLen, bEnd = bStart + (m[3] || "").length;
+    for (let i = m.index; i < m.index + m[0].length; i++) {
+      const inA = i >= aStart && i < aEnd, inB = m[3] !== undefined && i >= bStart && i < bEnd;
+      keep[i] = (inA && yes) || (inB && !yes);
+    }
+  }
+  const out = [];
+  let pos = 0;
+  for (const g of segs) {
+    let t = "";
+    for (let i = 0; i < g.s.length; i++) if (keep[pos + i]) t += g.s[i];
+    pos += g.s.length;
+    if (t) out.push({ ...g.x, plain_text: t, text: { ...(g.x.text || {}), content: t } });
+  }
+  return out;
 }
+const linkRun = (t, url) => txt(t, { url });
+const bookBar = () => [txt("\n"), linkRun("Book on WhatsApp", WA), txt(" · "), linkRun("Email", MAILTO)];
 
 export function transform(blocks, T, ctx = {}) {
   const out = [];
@@ -66,6 +96,8 @@ export function transform(blocks, T, ctx = {}) {
     if (text === "{{else}}") { skip.push(!skip.pop()); continue; }
     if (skip.some(Boolean)) continue;
     if (/^EXAMPLE DATA/.test(text)) continue;
+    if (k === "paragraph" && /^➡️\s*Book on WhatsApp/.test(text)) { ctx.droppedBar = true; continue; }
+    if (k === "divider" && ctx.droppedBar && out.length && out[out.length - 1].type === "divider") { ctx.droppedBar = false; continue; }
     const mList = text.match(/^\{\{(\w+)\}\}$/);
     if (mList && Array.isArray(T[mList[1]])) {
       const name = mList[1], items = T[name];
@@ -83,23 +115,37 @@ export function transform(blocks, T, ctx = {}) {
     if (k === "child_database") { out.push({ type: "__action_db__", source: b }); continue; }
     if (k === "child_page" || k === "unsupported" || k === "link_preview") continue;
     const nb = { type: k, [k]: JSON.parse(JSON.stringify(v)) };
+    for (const f of Object.keys(nb[k])) if (nb[k][f] === null) delete nb[k][f]; // read API returns e.g. paragraph.icon: null, which the write API rejects
     for (const f of RO) delete nb[f];
     if (nb[k].rich_text) nb[k].rich_text = fillRt(inlineIf(nb[k].rich_text, T), T);
-    if (k === "table_row") nb[k].cells = v.cells.map((c) => fillRt(c, T));
-    if (b.children) nb.children = transform(b.children, T, {});
+    if (k === "table_row") {
+      nb[k].cells = v.cells.map((c) => fillRt(c, T));
+      // WhatsApp / Email under the two paid offers, as in Anthony's approved sample.
+      if (ctx.offerRow === b) nb[k].cells = nb[k].cells.map((c, j) => (j >= 2 && plain(c).trim() ? [...c, ...bookBar()] : c));
+    }
+    if (k === "table" && b.children) {
+      const rows = b.children.filter((r) => r.type === "table_row");
+      const first = (r) => plain(r.table_row.cells[0] || []).trim();
+      if (rows.some((r) => /Option A/.test(plain(r.table_row.cells[2] || [])))) ctx.offerTable = rows.find((r) => first(r) === "Book") || rows.find((r) => first(r) === "Price");
+    }
+    if (b.children) nb.children = transform(b.children, T, { offerRow: ctx.offerTable || null });
+    if (k === "table") ctx.offerTable = null;
     out.push(nb);
   }
   return out;
 }
 
-// Writes blocks under parentId, handling Notion's 100-per-request and 2-level nesting limits.
+// Writes blocks under parentId. Notion accepts two nesting levels per request, so shallow subtrees are sent inline
+// (fewer subrequests on the free plan); deeper ones are appended level by level.
+const depth = (b) => 1 + Math.max(0, ...(b.children || []).map(depth));
+const inline = ({ children, ...b }) => (children && children.length ? { ...b, [b.type]: { ...b[b.type], children: children.map(inline) } } : b);
 export async function writeTree(api, parentId, blocks, hooks = {}) {
   let batch = [];
   const flush = async () => {
     if (!batch.length) return;
-    const send = batch.map(({ children, ...b }) => (b.type === "table" ? { ...b, table: { ...b.table, children } } : b));
+    const send = batch.map((b) => (depth(b) <= 2 ? inline(b) : (({ children, ...x }) => x)(b)));
     const res = await api.call("PATCH", "/blocks/" + parentId + "/children", { children: send });
-    for (let i = 0; i < batch.length; i++) if (batch[i].children && batch[i].type !== "table" && batch[i].children.length) await writeTree(api, res.results[i].id, batch[i].children, hooks);
+    for (let i = 0; i < batch.length; i++) if (batch[i].children && batch[i].children.length && depth(batch[i]) > 2) await writeTree(api, res.results[i].id, batch[i].children, hooks);
     batch = [];
   };
   for (const b of blocks) {
@@ -110,22 +156,4 @@ export async function writeTree(api, parentId, blocks, hooks = {}) {
   await flush();
 }
 
-// Action plan rows (gap: no per-question action library yet). Built from the Fix steps of the top 3 risks,
-// 5 to 7 rows, Phase 1 = risk 1, Phase 2 = risk 2, Phase 3 = risk 3; dates for Phase 1 and 2 only.
-export function actionRows(data, r, reportDate) {
-  const q = Object.fromEntries(data.questions.map((x) => [x.id, x]));
-  const dom = Object.fromEntries(data.domains.map((d) => [d.id, d.name]));
-  const rows = [];
-  const per = [3, 2, 2];
-  const day = (n) => new Date(new Date(reportDate).getTime() + n * 86400000).toISOString().slice(0, 10);
-  r.topRisks.forEach((x, i) => {
-    const qq = q[x.id];
-    for (const f of qq.fixes.slice(0, per[i])) {
-      const first = f.text.split(/(?<=\.)\s/)[0];
-      rows.push({ action: first.length > 140 ? first.slice(0, 137) + "..." : first, impact: "Closes risk: " + qq.title, domain: dom[qq.domain], phase: "Phase " + (i + 1),
-        priority: ["High", "Medium", "Low"][i], owner: "Workspace Owner", start: i < 2 ? day(i * 7) : null, end: i < 2 ? day(i * 7 + 4) : null, how: f.text, source: f.source,
-        planNote: (qq.plan_notes || [])[0]?.text || "" });
-    }
-  });
-  return rows.slice(0, 7);
-}
+export { actionRows } from "./tokens.js";
