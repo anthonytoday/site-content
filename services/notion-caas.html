@@ -1,18 +1,18 @@
 ---
 layout: default
-title: "Notion Consultant as a Service | Notion Expert On Call"
+title: "Fractional Notion Admin | Notion Expert On Call"
 description: "Hire a Notion Certified Consultant on call. Unlimited requests, ongoing Notion support, monthly workspace and permission reviews. $247 a month."
-permalink: /notion-consultant-as-a-service/
+permalink: /fractional-notion-admin/
 lang: en
-alt_url: /fr/notion-consultant-as-a-service/
+alt_url: /fr/fractional-notion-admin/
 schema_type: "WebPage"
-bc_name: "Notion Consultant as a Service"
+bc_name: "Fractional Notion Admin"
 css_bundle: /assets/css/b-af6ac5fc74.css
 noindex: true
 sitemap: false
 ---
 
-{% if page.lang == "fr" %}{% assign p = "/fr" %}{% else %}{% assign p = "" %}{% endif %}
+{% if page.lang == "fr" %}{% assign p = "/fr" %}{% else %}{% assign p = "" %}{% endif %}{% comment %}Retainer name: single source _data/security_check.yml offers.caas.name (front matter title, bc_name and permalink stay literal: Jekyll does not render Liquid there; scripts/swap-retainer-name.sh updates them).{% endcomment %}{% assign rn = site.data.security_check.offers.caas.name %}{% assign rn_first = rn | split: " " | first %}{% assign rn_rest = rn | remove_first: rn_first | strip %}{% assign page_abs = page.url | absolute_url %}
 
 <div class="x">
 
@@ -20,7 +20,7 @@ sitemap: false
 <div class="xh">
   <div class="w">
     <div class="eb">A certified Notion expert on call</div>
-    <h1>Notion Consultant<br>As a Service</h1>
+    <h1>{{ rn_first }}<br>{{ rn_rest }}</h1>
     <p class="sub">Ask for anything. <b>Unlimited requests, one flat price,</b> and a workspace
        that keeps up with your business instead of falling behind it.</p>
     <div class="xpr"><span class="n">$247</span><span class="u">/ month, billed annually</span></div>
@@ -125,7 +125,7 @@ sitemap: false
 <style>.faq .w details{border:1px solid #E5E7EB;border-radius:10px;padding:12px 16px;margin:10px 0;background:#fff}.faq .w summary{cursor:pointer;font-weight:600;color:#051C2C;font-size:16px;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.faq .w summary::-webkit-details-marker{display:none}.faq .w summary::after{content:"+";flex-shrink:0;color:#2251FF;font-weight:600}.faq .w details[open] summary::after{content:"\2212"}.faq .w details p{margin:10px 0 0;color:#6B7280;font-size:15px;line-height:1.65}.faq .w h2{font-size:26px;margin:0 0 14px}.xgt h3{font-size:16.5px;font-weight:640;margin:4px 0 5px;color:#fff}</style>
 <section class="faq" style="padding-top:0"><div class="w">
   <h2>Questions</h2>
-  <details><summary>What is Notion Consultant as a Service?</summary><p>Ongoing Notion support on a monthly plan instead of a one-off project. A certified Notion consultant holds access to your workspace, answers your team's questions, fixes what breaks, builds changes, and reviews permissions and workspace health every month. It costs 2970 USD a year or 347 USD a month.</p></details>
+  <details><summary>What is {{ rn }}?</summary><p>Ongoing Notion support on a monthly plan instead of a one-off project. A Notion Certified Consultant holds access to your workspace, answers your team's questions, fixes what breaks, builds changes, and reviews permissions and workspace health every month. It costs 2970 USD a year or 347 USD a month.</p></details>
   <details><summary>How much does a Notion consultant cost?</summary><p>Notion experts typically bill 150 to 250 USD an hour, and ongoing Notion retainers commonly run 500 to 2000 USD a month. This plan is 247 USD a month billed annually, or 347 USD monthly, and includes unlimited requests rather than a block of hours.</p></details>
   <details><summary>Can I hire a Notion expert monthly instead of per project?</summary><p>Yes. Per-project consulting means paying a scoping cost every time something changes. Monthly Notion support means the consultant already knows your workspace, so small changes cost nothing and larger projects cost around 40 percent less than the standard rate.</p></details>
   <details><summary>What does a certified Notion consultant do?</summary><p>Workspace architecture, database and relation design, Notion automations, migrations from other tools, permission and access models, team training, and ongoing maintenance of the workspace as the business changes.</p></details>
@@ -150,12 +150,12 @@ sitemap: false
  "@graph":[
   {
    "@type":"Service",
-   "@id":"https://www.anthonytoday.com/notion-consultant-as-a-service/#service",
-   "name":"Notion Consultant as a Service",
+   "@id":"{{ page_abs }}#service",
+   "name":{{ rn | jsonify }},
    "alternateName":["Notion expert on call","Ongoing Notion support","Notion consultant retainer","Notion workspace management"],
    "serviceType":"Notion consulting, ongoing Notion support and workspace management",
-   "description":"A certified Notion consultant on call. Unlimited requests, a request board for your team, monthly workspace health and permission reviews, and fixed-price quotes for larger Notion projects. 2970 USD a year or 347 USD a month.",
-   "url":"https://www.anthonytoday.com/notion-consultant-as-a-service/",
+   "description":"A Notion Certified Consultant on call. Unlimited requests, a request board for your team, monthly workspace health and permission reviews, and fixed-price quotes for larger Notion projects. 2970 USD a year or 347 USD a month.",
+   "url":"{{ page_abs }}",
    "provider":{"@id":"https://www.anthonytoday.com/#business"},
    "areaServed":{"@type":"Place","name":"Worldwide"},
    "availableLanguage":["en","fr"],
@@ -167,7 +167,7 @@ sitemap: false
    "hasOfferCatalog":{
     "@type":"OfferCatalog","name":"Included in ongoing Notion support",
     "itemListElement":[
-     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Unlimited Notion requests answered by a certified Notion consultant"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Unlimited Notion requests answered by a Notion Certified Consultant"}},
      {"@type":"Offer","itemOffered":{"@type":"Service","name":"A shared request board for the whole team"}},
      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Notion database, formula, view and permission fixes"}},
      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Monthly Notion workspace health and access review"}},
@@ -178,10 +178,10 @@ sitemap: false
   },
   {
    "@type":"FAQPage",
-   "@id":"https://www.anthonytoday.com/notion-consultant-as-a-service/#faq",
+   "@id":"{{ page_abs }}#faq",
    "mainEntity":[
-    {"@type":"Question","name":"What is Notion Consultant as a Service?",
-     "acceptedAnswer":{"@type":"Answer","text":"Ongoing Notion support on a monthly plan instead of a one-off project. A certified Notion consultant holds access to your workspace, answers your team's questions, fixes what breaks, builds changes, and reviews permissions and workspace health every month. It costs 2970 USD a year or 347 USD a month."}},
+    {"@type":"Question","name":{{ "What is " | append: rn | append: "?" | jsonify }},
+     "acceptedAnswer":{"@type":"Answer","text":"Ongoing Notion support on a monthly plan instead of a one-off project. A Notion Certified Consultant holds access to your workspace, answers your team's questions, fixes what breaks, builds changes, and reviews permissions and workspace health every month. It costs 2970 USD a year or 347 USD a month."}},
     {"@type":"Question","name":"How much does a Notion consultant cost?",
      "acceptedAnswer":{"@type":"Answer","text":"Notion experts typically bill 150 to 250 USD an hour, and ongoing Notion retainers commonly run 500 to 2000 USD a month. This plan is 247 USD a month billed annually, or 347 USD monthly, and includes unlimited requests rather than a block of hours."}},
     {"@type":"Question","name":"Can I hire a Notion expert monthly instead of per project?",
