@@ -14,26 +14,50 @@ no_offer_popup: true
 <style>
 .hm-btnicon{display:block;height:18px;width:18px;flex:0 0 auto}
 .hm-certs{margin-top:auto;padding-top:18px;border-top:1px solid var(--border)}
-.hm-certs-label{margin:0 0 12px;font-size:11px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--text-gray)}
-.hm-certs-row{display:flex;flex-wrap:wrap;gap:12px 16px}
-.hm-cert{display:flex;flex-direction:column;align-items:center;gap:6px;max-width:96px;cursor:default}
+.hm-certs-label{margin:0 0 12px;font-size:11px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--text-gray);text-align:center}
+.hm-certs-row{display:grid;grid-template-columns:repeat(3,88px);justify-content:center;gap:8px 12px;width:max-content;max-width:100%;margin:0 auto}
+.hm-cert{display:flex;flex-direction:column;align-items:center;gap:6px;width:88px;max-width:88px;cursor:default}
 .hm-cert img{display:block;width:56px;height:56px;object-fit:contain}
-.hm-cert span{font-size:13px;color:var(--text-gray);text-align:center;line-height:1.3}
+.hm-cert span{font-size:13px;color:var(--text-gray);text-align:center;line-height:1.25;width:88px}
 .hm-striplabel{margin:38px 0 12px;text-align:center;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text-gray)}
-.hm-strip{margin:0;padding:18px 0;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.hm .logo-banner{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.hm-strip{margin:0;padding:8px 0;background:transparent;border:0;border-radius:0;box-shadow:none;overflow:hidden}
+.hm .logo-banner{overflow:hidden;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 12%,#000 88%,transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 12%,#000 88%,transparent 100%)}
 .hm .logo-track{display:flex;width:max-content;align-items:center;animation:logoScroll 22s linear infinite}
 .hm .logo-track:hover{animation-play-state:paused}
 .hm .logo-mark{display:flex;align-items:center;flex:0 0 auto;padding-right:56px}
-.hm .logo-mark img{display:block;height:32px;width:auto;max-width:160px;object-fit:contain;filter:grayscale(1);opacity:.75;transition:filter .15s,opacity .15s}
+.hm .logo-mark img{display:block;height:32px;width:auto;max-width:96px;object-fit:contain;filter:grayscale(1);opacity:.75;mix-blend-mode:multiply;transition:filter .15s,opacity .15s}
+.hm .logo-mark.logo-word img{height:22px}
+.hm .logo-mark.logo-script img{height:32px}
 .hm .logo-mark img:hover{filter:none;opacity:1}
 @keyframes logoScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+#about .cards.two{align-items:start}
+#products .lead{max-width:none}
+#products .cards{grid-template-columns:1fr 1fr}
+#products .hm-disclosure{font-size:13px;color:var(--text-gray);line-height:1.6;margin:18px 0 0}
 @media(prefers-reduced-motion:reduce){
   .hm .logo-track{animation:none;flex-wrap:wrap;width:auto;justify-content:center;row-gap:18px;padding:0 22px}
   .hm .logo-track [aria-hidden="true"]{display:none}
   .hm .logo-mark{padding-right:28px}
 }
-@media(max-width:600px){.hm-striplabel{margin-top:30px}.hm .logo-mark img{height:28px;max-width:120px}.hm .logo-mark{padding-right:36px}}
+@media(max-width:600px){
+  .hm-striplabel{margin-top:30px}
+  .hm .logo-mark.logo-script img{height:28px}
+  .hm .logo-mark.logo-word img{height:20px}
+  .hm .logo-mark{padding-right:36px}
+  .hm .logo-mark img{max-width:96px}
+}
+@media(max-width:640px){
+  .hm .hero-me .wrap{grid-template-columns:96px minmax(0,1fr);align-items:center;column-gap:14px;row-gap:16px}
+  .hm .hero-me .wrap > div:first-child{display:contents}
+  .hm .hero-me .photo{grid-column:1;grid-row:1;width:96px;max-width:96px;justify-self:start;order:0}
+  .hm .hero-me .photo img{width:96px;height:96px;object-fit:cover}
+  .hm .hero-me h1{grid-column:2;grid-row:1;align-self:center;margin:0}
+  .hm .hero-me .tag{grid-column:1 / -1;grid-row:2;margin-bottom:0}
+  .hm .hero-me .intro{grid-column:1 / -1;grid-row:3;max-width:none}
+  .hm .hero-me .btn-row{grid-column:1 / -1;grid-row:4;margin-top:0}
+  .hm .hero-me .chips{grid-column:1 / -1;grid-row:5;margin-top:0}
+  #products .cards{grid-template-columns:1fr}
+}
 </style>
 <div class="hm">
 <section class="hero-me">
@@ -114,9 +138,9 @@ no_offer_popup: true
         <div class="hm-certs">
           <p class="hm-certs-label">Notion Certifications</p>
           <div class="hm-certs-row">
-            <div class="hm-cert"><img src="/assets/logos/certified-notion-consultant.webp" alt="Notion Certified Consultant badge" width="201" height="201" loading="lazy" decoding="async"><span>Certified Consultant</span></div>
-            <div class="hm-cert"><img src="/assets/brand/notion-certified-admin.webp" alt="Notion Certified Admin badge" width="256" height="256" loading="lazy" decoding="async"><span>Certified Admin</span></div>
-            <div class="hm-cert"><img src="/assets/brand/notion-service-specialist.webp" alt="Notion Service Specialist badge" width="256" height="256" loading="lazy" decoding="async"><span>Service Specialist</span></div>
+            <div class="hm-cert"><img src="/assets/logos/certified-notion-consultant.webp" alt="Notion Certified Consultant badge" width="201" height="201" loading="lazy" decoding="async"><span>Certified<br>Consultant</span></div>
+            <div class="hm-cert"><img src="/assets/brand/notion-certified-admin.webp" alt="Notion Certified Admin badge" width="256" height="256" loading="lazy" decoding="async"><span>Certified<br>Admin</span></div>
+            <div class="hm-cert"><img src="/assets/brand/notion-service-specialist.webp" alt="Notion Service Specialist badge" width="256" height="256" loading="lazy" decoding="async"><span>Service<br>Specialist</span></div>
           </div>
         </div>
       </div>
@@ -125,16 +149,16 @@ no_offer_popup: true
     <div class="hm-strip">
       <div class="logo-banner" aria-label="Organizations I have worked with">
         <div class="logo-track">
-          <span class="logo-mark"><img src="/assets/logos/dorchester.webp" alt="Dorchester Collection" width="366" height="210" loading="lazy" decoding="async"></span>
-          <span class="logo-mark"><img src="/assets/logos/hitachi-wordmark.webp" alt="Hitachi" width="242" height="60" loading="lazy" decoding="async"></span>
-          <span class="logo-mark"><img src="/assets/logos/nescafe.webp" alt="Nescafe" width="739" height="415" loading="lazy" decoding="async"></span>
-          <span class="logo-mark"><img src="/assets/logos/hilti-wordmark.webp" alt="Hilti" width="574" height="161" loading="lazy" decoding="async"></span>
-          <span class="logo-mark"><img src="/assets/logos/eli-lilly.webp" alt="Eli Lilly and Company" width="500" height="273" loading="lazy" decoding="async"></span>
-          <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/dorchester.webp" alt="" width="366" height="210" loading="lazy" decoding="async"></span>
-          <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/hitachi-wordmark.webp" alt="" width="242" height="60" loading="lazy" decoding="async"></span>
-          <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/nescafe.webp" alt="" width="739" height="415" loading="lazy" decoding="async"></span>
-          <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/hilti-wordmark.webp" alt="" width="574" height="161" loading="lazy" decoding="async"></span>
-          <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/eli-lilly.webp" alt="" width="500" height="273" loading="lazy" decoding="async"></span>
+          <span class="logo-mark logo-script"><img src="/assets/logos/dorchester.webp" alt="Dorchester Collection" width="366" height="210" loading="lazy" decoding="async"></span>
+          <span class="logo-mark logo-word"><img src="/assets/logos/hitachi-wordmark.webp" alt="Hitachi" width="242" height="60" loading="lazy" decoding="async"></span>
+          <span class="logo-mark logo-script"><img src="/assets/logos/nescafe.webp" alt="Nescafe" width="739" height="415" loading="lazy" decoding="async"></span>
+          <span class="logo-mark logo-word"><img src="/assets/logos/hilti-wordmark-light.webp" alt="Hilti" width="574" height="161" loading="lazy" decoding="async"></span>
+          <span class="logo-mark logo-script"><img src="/assets/logos/eli-lilly.webp" alt="Eli Lilly and Company" width="500" height="273" loading="lazy" decoding="async"></span>
+          <span class="logo-mark logo-script" aria-hidden="true"><img src="/assets/logos/dorchester.webp" alt="" width="366" height="210" loading="lazy" decoding="async"></span>
+          <span class="logo-mark logo-word" aria-hidden="true"><img src="/assets/logos/hitachi-wordmark.webp" alt="" width="242" height="60" loading="lazy" decoding="async"></span>
+          <span class="logo-mark logo-script" aria-hidden="true"><img src="/assets/logos/nescafe.webp" alt="" width="739" height="415" loading="lazy" decoding="async"></span>
+          <span class="logo-mark logo-word" aria-hidden="true"><img src="/assets/logos/hilti-wordmark-light.webp" alt="" width="574" height="161" loading="lazy" decoding="async"></span>
+          <span class="logo-mark logo-script" aria-hidden="true"><img src="/assets/logos/eli-lilly.webp" alt="" width="500" height="273" loading="lazy" decoding="async"></span>
         </div>
       </div>
     </div>
@@ -145,7 +169,7 @@ no_offer_popup: true
   <div class="wrap">
     <p class="eyebrow">Digital products</p>
     <h2>Templates and Study Systems You Can Use Today.</h2>
-    <p class="lead">No engagement required. Ready-made Notion templates and flashcard decks, rated 4.92/5 by customers.</p>
+    <p class="lead">No engagement required. Ready-made Notion templates and flashcard decks, rated 4.92/5 by&nbsp;customers.</p>
     <div class="cards">
       <div class="card">
         <h3>Notion Templates</h3>
@@ -162,7 +186,13 @@ no_offer_popup: true
         <p>My free and paid templates on the official Notion Marketplace, including the profile and reviews.</p>
         <a class="more" href="https://www.notion.com/@anthonytoday" target="_blank" rel="noopener noreferrer">View My Profile &rarr;</a>
       </div>
+      <div class="card">
+        <h3>Notion Business, free for 3 months</h3>
+        <p>3 months of Notion Business free, Notion AI included. For teams under 100 with a company email.</p>
+        <a class="more" href="https://affiliate.notion.so/anthonytoday" target="_blank" rel="noopener noreferrer sponsored">Claim the Offer &rarr;</a>
+      </div>
     </div>
+    <p class="hm-disclosure">The Notion link is a referral link. If you upgrade through it I may earn a commission, at no cost to you.</p>
   </div>
 </section>
 
@@ -180,3 +210,4 @@ no_offer_popup: true
 </div>
 
 {% include site-footer.html %}
+<style>body:has(.hm) footer.site-foot{margin-top:0}</style>

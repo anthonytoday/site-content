@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Notion Consulting for Teams | Anthony Today"
-description: "Notion Certified Consultant for teams. Six questions, an answer on the spot, then Book a Free Strategy Call, then a fixed price in writing."
+description: "Notion Certified Consultant for teams. Six questions, an answer on the spot, then a free 20-minute strategy call and a fixed price in writing."
 permalink: /notion/
 lang: en
 alt_url: /fr/notion/
@@ -39,7 +39,7 @@ no_offer_popup: true
   .nfp .sit-card p{font-size:14.5px;color:var(--text-gray);line-height:1.7;margin:0 0 18px}
   .nfp .sit-go{margin-top:auto;font-size:14px;font-weight:600;color:var(--blue)}
   .nfp .sit-after{font-size:14px;color:var(--text-gray);line-height:1.7;margin:22px 0 0;text-align:center}
-  .nfp .sit-after a{color:var(--blue);text-decoration:underline}
+  .nfp .sit-after a{color:var(--blue);text-decoration:underline;display:inline-flex;align-items:center;min-height:44px}
 
   /* HOW IT WORKS: four steps */
   .nfp .flow-band{background:var(--navy);border-radius:16px;padding:48px 44px}
@@ -66,10 +66,10 @@ no_offer_popup: true
   .nfp .proof-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center;margin-top:36px;padding:32px 36px;border:1px solid var(--border);border-radius:14px;background:#F7F9FF}
   .nfp .proof-row blockquote{font-size:19px;font-weight:500;color:var(--navy);line-height:1.5;margin:0 0 10px}
   .nfp .proof-row cite{font-size:13.5px;color:var(--text-gray);font-style:normal}
-  .nfp .seals{display:flex;gap:18px;align-items:center}
-  .nfp .seals .seal{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;cursor:default}
+  .nfp .seals{display:grid;grid-template-columns:repeat(3,88px);justify-content:center;justify-items:center;align-items:start;gap:8px 12px;width:max-content;max-width:100%;margin-inline:auto}
+  .nfp .seals .seal{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;cursor:default;width:88px}
   .nfp .seals img{width:64px;height:64px;object-fit:contain}
-  .nfp .seals .seal > span{font-size:11.5px;color:var(--text-gray);text-align:center;line-height:1.3;max-width:86px}
+  .nfp .seals .seal > span{font-size:11.5px;color:var(--text-gray);text-align:center;line-height:1.25;width:88px;max-width:none}
 
   /* CLOSING BAND */
   .nfp .close-list{list-style:none;margin:26px auto 30px;padding:0;max-width:760px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:left}
@@ -98,7 +98,7 @@ no_offer_popup: true
     .nfp .flow .flow-step:last-child::before{bottom:6px}
     .nfp .flow-cta .cta-button{display:block;width:100%;text-align:center}
     .nfp .proof-row{grid-template-columns:1fr;padding:26px 22px;gap:24px}
-    .nfp .seals{justify-content:space-between}
+    .nfp .seals{justify-content:center}
     .nfp .close-list{grid-template-columns:1fr;gap:12px;margin:22px 0 26px}
   }
 </style>
@@ -222,9 +222,9 @@ no_offer_popup: true
         <cite>Client review, Notion Marketplace, 4.92 out of 5</cite>
       </div>
       <div class="seals">
-        <span class="seal"><img src="/assets/logos/certified-notion-consultant.webp" alt="Notion Certified Consultant badge" width="201" height="201" loading="lazy" decoding="async"><span>Certified Consultant</span></span>
-        <span class="seal"><img src="/assets/brand/notion-certified-admin.webp" alt="Notion Certified Admin badge" width="256" height="256" loading="lazy" decoding="async"><span>Certified Admin</span></span>
-        <span class="seal"><img src="/assets/brand/notion-service-specialist.webp" alt="Notion Service Specialist badge" width="256" height="256" loading="lazy" decoding="async"><span>Service Specialist</span></span>
+        <span class="seal"><img src="/assets/logos/certified-notion-consultant.webp" alt="Notion Certified Consultant badge" width="201" height="201" loading="lazy" decoding="async"><span>Certified<br>Consultant</span></span>
+        <span class="seal"><img src="/assets/brand/notion-certified-admin.webp" alt="Notion Certified Admin badge" width="256" height="256" loading="lazy" decoding="async"><span>Certified<br>Admin</span></span>
+        <span class="seal"><img src="/assets/brand/notion-service-specialist.webp" alt="Notion Service Specialist badge" width="256" height="256" loading="lazy" decoding="async"><span>Service<br>Specialist</span></span>
       </div>
     </div>
   </section>
@@ -234,8 +234,7 @@ no_offer_popup: true
     <p class="eyebrow">Questions I hear</p>
     <div class="faq">
       <details><summary>Why Six Questions Before a Call?</summary><p>It saves us both time. Six questions tell me who you are and what is not working, so the call goes straight to your real problem. If I am not the right person, you find out in two minutes, not after a meeting.</p></details>
-      <details><summary>What Does a Project Cost?</summary><p>A tailored build usually starts above $1,000. You get one fixed price in writing within one business day of the call.</p></details>
-      <details><summary>How Is the Price of a Project Set?</summary><p>Every project has one fixed price, agreed in writing before anything starts. It depends on how much the workspace has to carry, how much existing material moves over, and how many people need training. You get it within one business day of the call.</p></details>
+      <details><summary>What Does a Project Cost?</summary><p>A tailored build usually starts above $1,000. Every project has one fixed price, agreed in writing within one business day of the call, based on how much the workspace has to carry, how much moves over, and how many people need training.</p></details>
     </div>
   </section>
 
@@ -255,8 +254,7 @@ no_offer_popup: true
  "@id": "https://www.anthonytoday.com/notion/#faq",
  "mainEntity": [
   {"@type": "Question", "name": "Why Six Questions Before a Call?", "acceptedAnswer": {"@type": "Answer", "text": "It saves us both time. Six questions tell me who you are and what is not working, so the call goes straight to your real problem. If I am not the right person, you find out in two minutes, not after a meeting."}},
-  {"@type": "Question", "name": "What Does a Project Cost?", "acceptedAnswer": {"@type": "Answer", "text": "A tailored build usually starts above $1,000. You get one fixed price in writing within one business day of the call."}},
-  {"@type": "Question", "name": "How Is the Price of a Project Set?", "acceptedAnswer": {"@type": "Answer", "text": "Every project has one fixed price, agreed in writing before anything starts. It depends on how much the workspace has to carry, how much existing material moves over, and how many people need training. You get it within one business day of the call."}}
+  {"@type": "Question", "name": "What Does a Project Cost?", "acceptedAnswer": {"@type": "Answer", "text": "A tailored build usually starts above $1,000. Every project has one fixed price, agreed in writing within one business day of the call, based on how much the workspace has to carry, how much moves over, and how many people need training."}}
  ]
 }
 </script>
