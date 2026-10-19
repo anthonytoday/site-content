@@ -16,7 +16,9 @@
 "underline": false,
 "code": false,
 "color": "gray"
-}
+},
+"plain_text": "FREE RESULT",
+"href": null
 },
 {
 "type": "text",
@@ -31,19 +33,18 @@
 "underline": false,
 "code": false,
 "color": "gray"
+},
+"plain_text": " · Notion Workspace Security Check · Prepared for {{#if company}}{{company}}{{else}}your workspace{{/if}} · {{report_date}}",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
 "type": "callout",
 "callout": {
-"icon": {
-"type": "emoji",
-"emoji": "💬"
-},
-"color": "gray_background",
 "rich_text": [
 {
 "type": "text",
@@ -58,7 +59,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Talk to Anthony:",
+"href": null
 },
 {
 "type": "text",
@@ -73,14 +76,16 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": " ",
+"href": null
 },
 {
 "type": "text",
 "text": {
 "content": "Website",
 "link": {
-"url": "https://www.anthonytoday.com"
+"url": "https://www.anthonytoday.com/"
 }
 },
 "annotations": {
@@ -90,7 +95,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Website",
+"href": "https://www.anthonytoday.com/"
 },
 {
 "type": "text",
@@ -105,7 +112,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": " · ",
+"href": null
 },
 {
 "type": "text",
@@ -122,7 +131,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "WhatsApp",
+"href": "https://wa.me/33695845150"
 },
 {
 "type": "text",
@@ -137,7 +148,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": " · ",
+"href": null
 },
 {
 "type": "text",
@@ -154,7 +167,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Email",
+"href": "mailto:admin@anthonytoday.com"
 },
 {
 "type": "text",
@@ -169,7 +184,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": " · ",
+"href": null
 },
 {
 "type": "text",
@@ -186,9 +203,16 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "LinkedIn",
+"href": "https://www.linkedin.com/in/anthony-kieffer/"
 }
-}
-]
+],
+"icon": {
+"type": "emoji",
+"emoji": "💬"
+},
+"color": "gray_background"
 }
 },
 {
@@ -212,10 +236,13 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Executive Summary",
+"href": null
 }
 ],
-"is_toggleable": false
+"is_toggleable": false,
+"color": "default"
 }
 },
 {
@@ -225,7 +252,7 @@
 {
 "type": "text",
 "text": {
-"content": "We checked how {{#if company}}{{company}}'s Notion workspace{{else}}your Notion workspace{{/if}} ({{team_size}} people, {{plan}} plan) handles sign-in, sharing, connected apps, people, admin rights and recovery. It sits at Level {{overall_level_number}}, {{overall_level}} ({{overall_score}}/100): {{strength_summary}}, but {{top_risks_summary}} leave gaps. {{biggest_impact_sentence}}",
+"content": "We checked how {{#if company}}{{company}}'s Notion workspace{{else}}your Notion workspace{{/if}} ({{team_size}} people, {{plan}} plan) handles sign-in, sharing, connected apps, people, admin rights and recovery. It sits at Level {{overall_level_number}}, {{overall_level}} ({{overall_score}}/100). {{good_shape_sentence}}{{gaps_sentence}}{{biggest_impact_sentence}}",
 "link": null
 },
 "annotations": {
@@ -235,19 +262,18 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "We checked how {{#if company}}{{company}}'s Notion workspace{{else}}your Notion workspace{{/if}} ({{team_size}} people, {{plan}} plan) handles sign-in, sharing, connected apps, people, admin rights and recovery. It sits at Level {{overall_level_number}}, {{overall_level}} ({{overall_score}}/100). {{good_shape_sentence}}{{gaps_sentence}}{{biggest_impact_sentence}}",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
 "type": "callout",
 "callout": {
-"icon": {
-"type": "emoji",
-"emoji": "📊"
-},
-"color": "orange_background",
 "rich_text": [
 {
 "type": "text",
@@ -262,23 +288,22 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
 },
+"plain_text": "Overall Level",
+"href": null
+}
+],
+"icon": {
+"type": "emoji",
+"emoji": "📊"
+},
+"color": "orange_background"
+},
+"children": [
 {
-"type": "text",
-"text": {
-"content": "\n",
-"link": null
-},
-"annotations": {
-"bold": false,
-"italic": false,
-"strikethrough": false,
-"underline": false,
-"code": false,
-"color": "default"
-}
-},
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
 {
 "type": "text",
 "text": {
@@ -292,12 +317,23 @@
 "underline": false,
 "code": false,
 "color": "orange"
+},
+"plain_text": "Level {{overall_level_number}}, {{overall_level}}",
+"href": null
+}
+],
+"icon": null,
+"color": "default"
 }
 },
 {
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
+{
 "type": "text",
 "text": {
-"content": "\n",
+"content": "Average score {{overall_score}}/100. Your level is set by your lowest area, so it can be lower than your average suggests.",
 "link": null
 },
 "annotations": {
@@ -307,34 +343,20 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "Average score {{overall_score}}/100. Your level is set by your lowest area, so it can be lower than your average suggests.",
+"href": null
 }
-},
-{
-"type": "text",
-"text": {
-"content": "Score {{overall_score}} / 100. Your level comes from your weakest areas, not the average.",
-"link": null
-},
-"annotations": {
-"bold": false,
-"italic": false,
-"strikethrough": false,
-"underline": false,
-"code": false,
+],
+"icon": null,
 "color": "default"
 }
 }
 ]
-}
 },
 {
 "type": "callout",
 "callout": {
-"icon": {
-"type": "emoji",
-"emoji": "🎯"
-},
-"color": "gray_background",
 "rich_text": [
 {
 "type": "text",
@@ -349,23 +371,22 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
 },
+"plain_text": "Main Risk",
+"href": null
+}
+],
+"icon": {
+"type": "emoji",
+"emoji": "🎯"
+},
+"color": "gray_background"
+},
+"children": [
 {
-"type": "text",
-"text": {
-"content": "\n",
-"link": null
-},
-"annotations": {
-"bold": false,
-"italic": false,
-"strikethrough": false,
-"underline": false,
-"code": false,
-"color": "default"
-}
-},
+"type": "paragraph",
+"paragraph": {
+"rich_text": [
 {
 "type": "text",
 "text": {
@@ -379,10 +400,16 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "{{main_risk}}",
+"href": null
+}
+],
+"icon": null,
+"color": "default"
 }
 }
 ]
-}
 },
 {
 "type": "heading_2",
@@ -401,10 +428,13 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Domain Profile",
+"href": null
 }
 ],
-"is_toggleable": false
+"is_toggleable": false,
+"color": "default"
 }
 },
 {
@@ -433,7 +463,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Area",
+"href": null
 }
 ],
 [
@@ -450,7 +482,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Profile",
+"href": null
 }
 ],
 [
@@ -467,7 +501,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Score",
+"href": null
 }
 ],
 [
@@ -484,7 +520,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Level",
+"href": null
 }
 ]
 ]
@@ -508,7 +546,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "1. Identity and Access",
+"href": null
 }
 ],
 [
@@ -525,7 +565,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_identity_bar}}",
+"href": null
 }
 ],
 [
@@ -542,7 +584,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_identity_score}}",
+"href": null
 }
 ],
 [
@@ -559,7 +603,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_identity_level}}",
+"href": null
 }
 ]
 ]
@@ -583,7 +629,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "2. Sharing and Data Exposure",
+"href": null
 }
 ],
 [
@@ -600,7 +648,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_sharing_bar}}",
+"href": null
 }
 ],
 [
@@ -617,7 +667,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_sharing_score}}",
+"href": null
 }
 ],
 [
@@ -634,7 +686,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_sharing_level}}",
+"href": null
 }
 ]
 ]
@@ -658,7 +712,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "3. Integrations and Third Parties",
+"href": null
 }
 ],
 [
@@ -675,7 +731,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_integrations_bar}}",
+"href": null
 }
 ],
 [
@@ -692,7 +750,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_integrations_score}}",
+"href": null
 }
 ],
 [
@@ -709,7 +769,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_integrations_level}}",
+"href": null
 }
 ]
 ]
@@ -733,7 +795,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "4. People and Offboarding",
+"href": null
 }
 ],
 [
@@ -750,7 +814,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_people_bar}}",
+"href": null
 }
 ],
 [
@@ -767,7 +833,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_people_score}}",
+"href": null
 }
 ],
 [
@@ -784,7 +852,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_people_level}}",
+"href": null
 }
 ]
 ]
@@ -808,7 +878,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "5. Governance and Admin",
+"href": null
 }
 ],
 [
@@ -825,7 +897,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_governance_bar}}",
+"href": null
 }
 ],
 [
@@ -842,7 +916,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_governance_score}}",
+"href": null
 }
 ],
 [
@@ -859,7 +935,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_governance_level}}",
+"href": null
 }
 ]
 ]
@@ -883,7 +961,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "6. Resilience and Recovery",
+"href": null
 }
 ],
 [
@@ -900,7 +980,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_resilience_bar}}",
+"href": null
 }
 ],
 [
@@ -917,7 +999,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{area_resilience_score}}",
+"href": null
 }
 ],
 [
@@ -934,13 +1018,43 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "{{area_resilience_level}}",
+"href": null
+}
+]
+]
 }
 }
 ]
-]
+},
+{
+"type": "image",
+"image": {
+"caption": [
+{
+"type": "text",
+"text": {
+"content": "Maturity level of 5 (filled per result)",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "Maturity level of 5 (filled per result)",
+"href": null
+}
+],
+"type": "external",
+"external": {
+"url": "https://security-check.security-check-preview.pages.dev/assets/img/security-check/maturity-level-3.png"
 }
 }
-]
 },
 {
 "type": "paragraph",
@@ -949,7 +1063,7 @@
 {
 "type": "text",
 "text": {
-"content": "Legend: ",
+"content": "Your overall level is your lowest area.",
 "link": null
 },
 "annotations": {
@@ -959,97 +1073,13 @@
 "underline": false,
 "code": false,
 "color": "gray"
-}
-}
-]
-}
 },
-{
-"type": "bulleted_list_item",
-"bulleted_list_item": {
-"rich_text": [
-{
-"type": "text",
-"text": {
-"content": "Level 4 - Hardened (80 to 100)",
-"link": null
-},
-"annotations": {
-"bold": false,
-"italic": false,
-"strikethrough": false,
-"underline": false,
-"code": false,
-"color": "gray"
+"plain_text": "Your overall level is your lowest area.",
+"href": null
 }
-}
-]
-}
-},
-{
-"type": "bulleted_list_item",
-"bulleted_list_item": {
-"rich_text": [
-{
-"type": "text",
-"text": {
-"content": "Level 3 - Managed (60 to 79)",
-"link": null
-},
-"annotations": {
-"bold": false,
-"italic": false,
-"strikethrough": false,
-"underline": false,
-"code": false,
-"color": "gray"
-}
-}
-]
-}
-},
-{
-"type": "bulleted_list_item",
-"bulleted_list_item": {
-"rich_text": [
-{
-"type": "text",
-"text": {
-"content": "Level 2 - Basic (30 to 59)",
-"link": null
-},
-"annotations": {
-"bold": false,
-"italic": false,
-"strikethrough": false,
-"underline": false,
-"code": false,
-"color": "gray"
-}
-}
-]
-}
-},
-{
-"type": "bulleted_list_item",
-"bulleted_list_item": {
-"rich_text": [
-{
-"type": "text",
-"text": {
-"content": "Level 1 - Exposed (0 to 29)",
-"link": null
-},
-"annotations": {
-"bold": false,
-"italic": false,
-"strikethrough": false,
-"underline": false,
-"code": false,
-"color": "gray"
-}
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
@@ -1069,10 +1099,13 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "How You Compare",
+"href": null
 }
 ],
-"is_toggleable": false
+"is_toggleable": false,
+"color": "default"
 }
 },
 {
@@ -1092,9 +1125,13 @@
 "underline": false,
 "code": false,
 "color": "gray"
+},
+"plain_text": "Recommendations only, no benchmark data.",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
@@ -1114,7 +1151,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Recommended Level for a Team Your Size:",
+"href": null
 },
 {
 "type": "text",
@@ -1129,9 +1168,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " {{recommended_level}} in every area. This is our recommendation for a team of {{team_size}}, based on controls Notion itself documents for teams, not a statistic:",
+"href": null
 }
-}
-]
+],
+"color": "default"
 },
 "children": [
 {
@@ -1151,7 +1193,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "2-step verification for every person. Notion says it \"highly recommends\" it. ",
+"href": null
 },
 {
 "type": "text",
@@ -1168,9 +1212,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "Notion help",
+"href": "https://www.notion.com/help/two-step-verification"
 }
-}
-]
+],
+"color": "default"
 }
 },
 {
@@ -1190,7 +1237,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Access given through teamspaces and groups, not person by person. ",
+"href": null
 },
 {
 "type": "text",
@@ -1207,9 +1256,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "Notion guide",
+"href": "https://www.notion.com/help/guides/grant-access-teamspaces"
 }
-}
-]
+],
+"color": "default"
 }
 },
 {
@@ -1229,7 +1281,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Sensitive teamspaces closed, guests kept out of them, and public pages kept in one place. ",
+"href": null
 },
 {
 "type": "text",
@@ -1246,9 +1300,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "Notion guide",
+"href": "https://www.notion.com/help/guides/grant-access-teamspaces"
 }
-}
-]
+],
+"color": "default"
 }
 },
 {
@@ -1268,7 +1325,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Guests limited to the pages they work on, and removed when the work ends. ",
+"href": null
 },
 {
 "type": "text",
@@ -1285,9 +1344,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "Notion help",
+"href": "https://www.notion.com/help/whos-who-in-a-workspace"
 }
-}
-]
+],
+"color": "default"
 }
 },
 {
@@ -1307,9 +1369,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "You're there in {{areas_at_recommended_count}} of 6 areas today. {{areas_below_recommended}} {{below_recommended_verb}} short.",
+"href": null
 }
-}
-]
+],
+"color": "default"
 }
 }
 ]
@@ -1331,7 +1396,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Compared With Other Teams:",
+"href": null
 },
 {
 "type": "text",
@@ -1346,9 +1413,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " switches on once 30 or more teams have completed the Security Check.",
+"href": null
 }
-}
-]
+],
+"color": "default"
 },
 "children": [
 {
@@ -1368,7 +1438,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "{{#if peer_comparison_enabled}}{{peer_comparison_text}}{{else}}",
+"href": null
 },
 {
 "type": "text",
@@ -1383,7 +1455,9 @@
 "underline": false,
 "code": false,
 "color": "gray"
-}
+},
+"plain_text": "Available once 30 or more teams have completed the Security Check.",
+"href": null
 },
 {
 "type": "text",
@@ -1398,9 +1472,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "{{/if}}",
+"href": null
 }
-}
-]
+],
+"color": "default"
 }
 }
 ]
@@ -1422,9 +1499,13 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "{{#if flags}}",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
@@ -1444,26 +1525,18 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Critical Flags",
+"href": null
 }
 ],
-"is_toggleable": false
+"is_toggleable": false,
+"color": "default"
 }
 },
 {
 "type": "callout",
 "callout": {
-"icon": {
-"type": "emoji",
-"emoji": "🚩"
-},
-"color": "red_background",
-"rich_text": []
-},
-"children": [
-{
-"type": "paragraph",
-"paragraph": {
 "rich_text": [
 {
 "type": "text",
@@ -1478,12 +1551,17 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "{{flags}}",
+"href": null
 }
+],
+"icon": {
+"type": "emoji",
+"emoji": "🚩"
+},
+"color": "red_background"
 }
-]
-}
-}
-]
 },
 {
 "type": "paragraph",
@@ -1502,9 +1580,13 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "{{/if}}",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
@@ -1524,10 +1606,13 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Every Risk We Found",
+"href": null
 }
 ],
-"is_toggleable": false
+"is_toggleable": false,
+"color": "default"
 }
 },
 {
@@ -1547,9 +1632,13 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "{{#if strengths}}",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
@@ -1569,7 +1658,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "What's working:",
+"href": null
 },
 {
 "type": "text",
@@ -1584,9 +1675,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": " {{strengths}}",
+"href": null
 }
-}
-]
+],
+"color": "default"
 }
 },
 {
@@ -1606,9 +1700,13 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "{{/if}}",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
@@ -1628,10 +1726,13 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Priority Risks",
+"href": null
 }
 ],
-"is_toggleable": false
+"is_toggleable": false,
+"color": "default"
 }
 },
 {
@@ -1651,9 +1752,13 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "{{priority_risks}}",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
@@ -1673,10 +1778,13 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Other Risks to Watch ({{other_risk_count}})",
+"href": null
 }
 ],
-"is_toggleable": true
+"is_toggleable": true,
+"color": "default"
 },
 "children": [
 {
@@ -1696,9 +1804,13 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "{{risk_list}}",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 }
 ]
@@ -1720,10 +1832,13 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Two Quick Wins (5 Minutes Each)",
+"href": null
 }
 ],
-"is_toggleable": false
+"is_toggleable": false,
+"color": "default"
 }
 },
 {
@@ -1743,7 +1858,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "See what's public.",
+"href": null
 },
 {
 "type": "text",
@@ -1758,7 +1875,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": " Open any published page, select Share → Publish → All published sites, and Unpublish anything you don't recognize. Unpublishing doesn't remove \"Anyone on the web with link\" on a page, so check that in Share → General access too. ",
+"href": null
 },
 {
 "type": "text",
@@ -1775,9 +1894,13 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "Notion help",
+"href": "https://www.notion.com/help/public-pages-and-web-publishing"
 }
-}
-]
+],
+"color": "default",
+"list_format": "numbers"
 }
 },
 {
@@ -1797,7 +1920,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Turn on 2-step verification.",
+"href": null
 },
 {
 "type": "text",
@@ -1812,7 +1937,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": " Settings → your name → Account security → 2-step verification → Add verification method. Use an authenticator app, save the backup codes, and ask your team to do the same. ",
+"href": null
 },
 {
 "type": "text",
@@ -1829,9 +1956,13 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "Notion help",
+"href": "https://www.notion.com/help/two-step-verification"
 }
-}
-]
+],
+"color": "default",
+"list_format": "numbers"
 }
 },
 {
@@ -1851,10 +1982,13 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Already in Your {{plan}} Plan",
+"href": null
 }
 ],
-"is_toggleable": false
+"is_toggleable": false,
+"color": "default"
 }
 },
 {
@@ -1874,9 +2008,13 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "{{#if plan_features_unused}}",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
@@ -1896,9 +2034,12 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "Based on your answers, these features are included in your plan but not yet working for you:",
+"href": null
 }
-}
-]
+],
+"color": "default"
 },
 "children": [
 {
@@ -1918,9 +2059,13 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "{{plan_features_unused}}",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 }
 ]
@@ -1942,9 +2087,13 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "{{/if}}",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
@@ -1964,10 +2113,13 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "What the Fix List Adds",
+"href": null
 }
 ],
-"is_toggleable": false
+"is_toggleable": false,
+"color": "default"
 }
 },
 {
@@ -1996,7 +2148,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "What You Get",
+"href": null
 }
 ],
 [
@@ -2013,7 +2167,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Free Result",
+"href": null
 },
 {
 "type": "text",
@@ -2028,7 +2184,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "\nIncluded",
+"href": null
 }
 ],
 [
@@ -2045,7 +2203,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Fix List",
+"href": null
 },
 {
 "type": "text",
@@ -2060,7 +2220,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "\n$39",
+"href": null
 }
 ]
 ]
@@ -2084,7 +2246,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Score, level and 6-area profile",
+"href": null
 }
 ],
 [
@@ -2101,7 +2265,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ],
 [
@@ -2118,7 +2284,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ]
 ]
@@ -2142,7 +2310,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Every risk named, with why it matters",
+"href": null
 }
 ],
 [
@@ -2159,7 +2329,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ],
 [
@@ -2176,7 +2348,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ]
 ]
@@ -2200,7 +2374,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "2 quick wins",
+"href": null
 }
 ],
 [
@@ -2217,7 +2393,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ],
 [
@@ -2234,7 +2412,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ]
 ]
@@ -2258,10 +2438,30 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Step-by-step fix for every risk, with the exact Notion menus",
+"href": null
 }
 ],
-[],
+[
+{
+"type": "text",
+"text": {
+"content": "",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "",
+"href": null
+}
+],
 [
 {
 "type": "text",
@@ -2276,7 +2476,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ]
 ]
@@ -2300,10 +2502,30 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "What each fix means on your {{plan}} plan, and the workaround when a control is Enterprise only",
+"href": null
 }
 ],
-[],
+[
+{
+"type": "text",
+"text": {
+"content": "",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "",
+"href": null
+}
+],
 [
 {
 "type": "text",
@@ -2318,7 +2540,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ]
 ]
@@ -2342,10 +2566,30 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Top 3 risks explained: impact on your business",
+"href": null
 }
 ],
-[],
+[
+{
+"type": "text",
+"text": {
+"content": "",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "",
+"href": null
+}
+],
 [
 {
 "type": "text",
@@ -2360,7 +2604,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ]
 ]
@@ -2384,10 +2630,30 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Action plan database: owner role, phases, timeline view",
+"href": null
 }
 ],
-[],
+[
+{
+"type": "text",
+"text": {
+"content": "",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "",
+"href": null
+}
+],
 [
 {
 "type": "text",
@@ -2402,7 +2668,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ]
 ]
@@ -2426,10 +2694,30 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "All 12 answers with scores",
+"href": null
 }
 ],
-[],
+[
+{
+"type": "text",
+"text": {
+"content": "",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "",
+"href": null
+}
+],
 [
 {
 "type": "text",
@@ -2444,7 +2732,9 @@
 "underline": false,
 "code": false,
 "color": "green"
-}
+},
+"plain_text": "✅",
+"href": null
 }
 ]
 ]
@@ -2468,7 +2758,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Price",
+"href": null
 }
 ],
 [
@@ -2485,7 +2777,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Free",
+"href": null
 }
 ],
 [
@@ -2502,7 +2796,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "$39",
+"href": null
 }
 ]
 ]
@@ -2513,11 +2809,6 @@
 {
 "type": "callout",
 "callout": {
-"icon": {
-"type": "emoji",
-"emoji": "🛡️"
-},
-"color": "blue_background",
 "rich_text": [
 {
 "type": "text",
@@ -2532,7 +2823,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Get your Fix List for $39.",
+"href": null
 },
 {
 "type": "text",
@@ -2547,14 +2840,16 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": " Delivered by email right after payment. 7-day refund on request. ",
+"href": null
 },
 {
 "type": "text",
 "text": {
 "content": "Get the Fix List",
 "link": {
-"url": "https://buy.stripe.com/28E6oJfmMbYh27h4Kt1ZS0x?client_reference_id={{result_id}}"
+"url": "https://buy.stripe.com/28E6oJfmMbYh27h4Kt1ZS0x?client_reference_id=%7B%7Bresult_id%7D%7D"
 }
 },
 "annotations": {
@@ -2564,9 +2859,16 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "Get the Fix List",
+"href": "https://buy.stripe.com/28E6oJfmMbYh27h4Kt1ZS0x?client_reference_id=%7B%7Bresult_id%7D%7D"
 }
-}
-]
+],
+"icon": {
+"type": "emoji",
+"emoji": "🛡️"
+},
+"color": "blue_background"
 }
 },
 {
@@ -2590,7 +2892,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "➡️ ",
+"href": null
 },
 {
 "type": "text",
@@ -2607,7 +2911,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Book on WhatsApp",
+"href": "https://wa.me/33695845150"
 },
 {
 "type": "text",
@@ -2622,7 +2928,9 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": " · ",
+"href": null
 },
 {
 "type": "text",
@@ -2639,9 +2947,13 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "Email",
+"href": "mailto:admin@anthonytoday.com"
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
@@ -2665,9 +2977,13 @@
 "underline": false,
 "code": false,
 "color": "gray"
+},
+"plain_text": "Self-check based on your answers. General guidance, not a formal audit.",
+"href": null
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 },
 {
@@ -2691,14 +3007,16 @@
 "underline": false,
 "code": false,
 "color": "default"
-}
+},
+"plain_text": "Prepared by Anthony, Notion Certified Consultant, ",
+"href": null
 },
 {
 "type": "text",
 "text": {
 "content": "www.anthonytoday.com",
 "link": {
-"url": "https://www.anthonytoday.com"
+"url": "https://www.anthonytoday.com/"
 }
 },
 "annotations": {
@@ -2708,9 +3026,13 @@
 "underline": false,
 "code": false,
 "color": "default"
+},
+"plain_text": "www.anthonytoday.com",
+"href": "https://www.anthonytoday.com/"
 }
-}
-]
+],
+"icon": null,
+"color": "default"
 }
 }
 ]
