@@ -112,7 +112,7 @@ We reviewed how \{\{#if company\}\}\{\{company\}\}'s Notion workspace\{\{else\}\
 Items are ordered by impact, so the first ones close your biggest risk: \{\{risk_1_title_lower\}\}. Each item is one clear action with an owner role, and its full how-to sits inside the item's own page.
 <database url="https://app.notion.com/p/66ef028b623e826d889a8177a187e730" inline="true" data-source-url="collection://090f028b-623e-830a-a790-87771191a643">Top 3 Risk Fixes</database>
 <span color="gray">Phase 1 and Phase 2 are dated. Phase 3 follows when your team has capacity. Open the Timeline tab for the Gantt view.</span>
-<span color="gray">This plan covers your top 3 risks. Detail on the lower-priority items is available as an extra option through the Security Fix Session or Notion Security Hardening.</span>
+<span color="gray">This plan covers your top 3 risks. Detail on the lower-priority items is available as an extra option through the Security Fix Session or the 14-Day Foundation.</span>
 ## Choose Your Next Step (Optional)
 <span color="gray">Pick one: do it together, or have it done for you.</span>
 <table fit-page-width="true" header-row="true" header-column="true">
@@ -120,7 +120,7 @@ Items are ordered by impact, so the first ones close your biggest risk: \{\{risk
 <td>What You Get</td>
 <td>**Your Fix List**<br>Included</td>
 <td>**Option A: Security Fix Session**<br>Do it together</td>
-<td>**Option B: Notion Security Hardening**<br>Done for you</td>
+<td>**Option B: 14-Day Foundation**<br>Done for you</td>
 </tr>
 <tr>
 <td>Score, maturity profile and critical flags</td>
@@ -174,7 +174,7 @@ Items are ordered by impact, so the first ones close your biggest risk: \{\{risk
 <td>**Book**</td>
 <td></td>
 <td>[Book Fix Session](https://buy.stripe.com/6oUcN7fmMgex6nxa4N1ZS0y)</td>
-<td>[Start Hardening](https://buy.stripe.com/cNiaEZ3E4bYhbHR90J1ZS0z)</td>
+<td>[Start 14-Day Foundation](https://buy.stripe.com/cNiaEZ3E4bYhbHR90J1ZS0z)<br>[Founding Rate \$990](https://buy.stripe.com/cNi5kF1vW5zT8vFa4N1ZS0C?utm_source=security_check&utm_medium=fixlist&utm_campaign=foundation_founding)</td>
 </tr>
 </table>
 ---

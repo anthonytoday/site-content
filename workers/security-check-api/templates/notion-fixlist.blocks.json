@@ -2463,7 +2463,7 @@
 {
 "type": "text",
 "text": {
-"content": "This plan covers your top 3 risks. Detail on the lower-priority items is available as an extra option through the Security Fix Session or Notion Security Hardening.",
+"content": "This plan covers your top 3 risks. Detail on the lower-priority items is available as an extra option through the Security Fix Session or the 14-Day Foundation.",
 "link": null
 },
 "annotations": {
@@ -2474,7 +2474,7 @@
 "code": false,
 "color": "gray"
 },
-"plain_text": "This plan covers your top 3 risks. Detail on the lower-priority items is available as an extra option through the Security Fix Session or Notion Security Hardening.",
+"plain_text": "This plan covers your top 3 risks. Detail on the lower-priority items is available as an extra option through the Security Fix Session or the 14-Day Foundation.",
 "href": null
 }
 ],
@@ -2641,7 +2641,7 @@
 {
 "type": "text",
 "text": {
-"content": "Option B: Notion Security Hardening",
+"content": "Option B: 14-Day Foundation",
 "link": null
 },
 "annotations": {
@@ -2652,7 +2652,7 @@
 "code": false,
 "color": "default"
 },
-"plain_text": "Option B: Notion Security Hardening",
+"plain_text": "Option B: 14-Day Foundation",
 "href": null
 },
 {
@@ -3424,7 +3424,7 @@
 {
 "type": "text",
 "text": {
-"content": "Start Hardening",
+"content": "Start 14-Day Foundation",
 "link": {
 "url": "https://buy.stripe.com/cNiaEZ3E4bYhbHR90J1ZS0z"
 }
@@ -3437,8 +3437,44 @@
 "code": false,
 "color": "default"
 },
-"plain_text": "Start Hardening",
+"plain_text": "Start 14-Day Foundation",
 "href": "https://buy.stripe.com/cNiaEZ3E4bYhbHR90J1ZS0z"
+},
+{
+"type": "text",
+"text": {
+"content": "\n",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "\n",
+"href": null
+},
+{
+"type": "text",
+"text": {
+"content": "Founding Rate $990",
+"link": {
+"url": "https://buy.stripe.com/cNi5kF1vW5zT8vFa4N1ZS0C?utm_source=security_check&utm_medium=fixlist&utm_campaign=foundation_founding"
+}
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "Founding Rate $990",
+"href": "https://buy.stripe.com/cNi5kF1vW5zT8vFa4N1ZS0C?utm_source=security_check&utm_medium=fixlist&utm_campaign=foundation_founding"
 }
 ]
 ]
