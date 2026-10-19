@@ -12,6 +12,7 @@ import { Notion, leadProperties, paidProperties } from "./notion.js";
 import { readTree, transform, writeTree, actionRows, withFooter } from "./notion-tpl.js";
 import { renderPage, renderBlocks, renderActionPlan, renderFragment, scopedCss } from "./render.js";
 import { fmtDate, fmtRange } from "./tokens.js";
+import { goFixReport } from "./go.js";
 
 const enc = new TextEncoder();
 const b64u = (buf) => btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
@@ -428,6 +429,7 @@ export default {
     if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: h });
     try {
       if (url.pathname === "/" || url.pathname === "/health") return json({ service: "security-check-api", version: data.version, dryRun: isDry(env), liveFor: isDry(env) ? "none" : locked(env) ? "allowlist" : "all", notion: !!env.NOTION_TOKEN, resend: !!env.RESEND_API_KEY, stripe: !!env.STRIPE_WEBHOOK_SECRET, leadsDb: !!env.NOTION_CRM_DB_ID });
+      if (url.pathname === "/go/fix-report" || url.pathname === "/go/fix-report/") return goFixReport(req, env, url);
       if (url.pathname === "/submit" && req.method === "POST") return await handleSubmit(req, env, ctx, h);
       if (url.pathname === "/industry" && req.method === "POST") return await handleIndustry(req, env, h);
       if (url.pathname === "/unsubscribe" && (req.method === "GET" || req.method === "POST")) return await handleUnsubscribe(req, env, url);
