@@ -9,7 +9,7 @@ Never delete or rename these pages: links in sent emails point here (fix forward
 {%- endcomment -%}
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-f4rS/L4JNKVJKkSnPy3MZVTdGok4NBZa057pSVARiCQ='; style-src 'sha256-wMyPDgRSjYkkqGHrf5b6Q09ModN3/d1nTv5gNstMYb0='; connect-src {{ site.security_check_api }} {{ site.security_check_sb_origin }}; img-src 'self' https://www.anthonytoday.com; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-JjbxNY5QvHEYXNKzOt3Wnx2THyLHdG02BMO+c6J19pI='; style-src 'sha256-wMyPDgRSjYkkqGHrf5b6Q09ModN3/d1nTv5gNstMYb0='; connect-src {{ site.security_check_api }} {{ site.security_check_sb_origin }}; img-src 'self' https://www.anthonytoday.com; form-action 'none'; base-uri 'none'">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">
 <title>{% if include.kind == "f" %}Your Fix List{% else %}Your Security Check Result{% endif %} | AnthonyToday</title>
@@ -61,7 +61,7 @@ Never delete or rename these pages: links in sent emails point here (fix forward
     if(u.protocol!=='https:'||u.username||u.password||u.port||!HOSTS.hasOwnProperty(u.hostname))return false;
     var t=HOSTS[u.hostname];
     if(t===3)return u.pathname==='/33695845150';
-    if(t===4)return u.pathname==='/in/anthony-kieffer/';
+    if(t===4)return v==='https://www.linkedin.com/in/anthony-kieffer/';
     return t===1||/^\/help(\/|$)/.test(u.pathname)||u.pathname==='/pricing';
   }
   // Only style rules scoped to the result root (and @media blocks of them) are kept, for both sources (SCV-04 a): stored CSS can
