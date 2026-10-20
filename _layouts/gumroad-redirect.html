@@ -1,0 +1,17 @@
+{%- assign gr = site.data.gumroad_redirects -%}
+{%- assign dest = gr.pages[page.url] | default: gr.store -%}
+<!DOCTYPE html>
+<html lang="en" data-dest="{{ dest | escape }}">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-0VI4ki2YW8+6PLmm+tFvWItZlYN4WqTqQTGylb0+34Q='; base-uri 'none'; form-action 'none'">
+<title>Redirecting to {{ dest | escape }}</title>
+<link rel="canonical" href="{{ dest | escape }}">
+<meta name="robots" content="noindex, follow">
+<script>{% include gumroad-redirect.js %}</script>
+<noscript><meta http-equiv="refresh" content="0; url={{ dest | escape }}"></noscript>
+</head>
+<body>
+<p>{{ page.moved_text | default: "This page has moved to" | escape }} <a href="{{ dest | escape }}">{{ dest | escape }}</a></p>
+</body>
+</html>
