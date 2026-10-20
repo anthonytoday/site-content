@@ -30,9 +30,9 @@ footer.site-foot .footer-bottom a{color:#5B6672}
       </div>
       <div class="footer-section">
         <h2>{% if page.lang == "fr" %}Produits{% else %}Products{% endif %}</h2>
-        <a href="/shop/">{% if page.lang == "fr" %}Tous les templates{% else %}All templates{% endif %}</a>
+        {% if page.lang == "fr" %}<a href="/shop/">Tous les templates</a>{% else %}<a href="https://store.anthonytoday.com/?utm_source=anthonytoday.com&amp;utm_medium=referral&amp;utm_campaign=footer">All templates</a>{% endif %}
         <a href="https://www.notion.com/@anthonytoday">{% if page.lang == "fr" %}Profil Notion{% else %}Notion Marketplace{% endif %}</a>
-        <a href="https://store.anthonytoday.com">{% if page.lang == "fr" %}Boutique Gumroad{% else %}Gumroad Store{% endif %}</a>
+        {% if page.lang == "fr" %}<a href="https://store.anthonytoday.com">Boutique Gumroad</a>{% else %}<a href="https://store.anthonytoday.com/?utm_source=anthonytoday.com&amp;utm_medium=referral&amp;utm_campaign=footer">Gumroad Store</a>{% endif %}
         <a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">{% if page.lang == "fr" %}Boutique Etsy{% else %}Etsy Shop{% endif %}</a>
         <hr class="footer-rule" aria-hidden="true">
         <a href="/how-to-duplicate/">{% if page.lang == "fr" %}Comment dupliquer un template{% else %}How to duplicate a template{% endif %}</a>

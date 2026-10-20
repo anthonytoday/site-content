@@ -12,7 +12,7 @@ Every push rebuilds the live site in one to three minutes.
 | `_includes/` | Shared Liquid partials. See "Shared includes" below |
 | `_data/` | The catalogues. `templates.yml`, `decks.yml`, `image_dims.yml`, `cover_srcset.yml` |
 | `_css/` | CSS sources. The built bundles live in `assets/css/` and are content-hashed |
-| `templates/` | Redirect stubs from the old per-template pages to the Gumroad shop at `/shop/`. Catalogue data stays in `_data/templates.yml` |
+| `templates/` | Redirect stubs from the old per-template pages to the Gumroad store (destinations in `_data/gumroad_redirects.yml`, patch 0043). Catalogue data stays in `_data/templates.yml` |
 | `flashcards/` | The Anki deck shop: hub, how-it-works, instructions, and one page per deck |
 | `shop/` | Shared shop pages, currently the help page |
 | `services/`, `pages/` | Marketing and service pages |

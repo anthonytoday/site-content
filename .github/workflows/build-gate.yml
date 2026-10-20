@@ -87,3 +87,8 @@ jobs:
         env:
           PRIVATE_NAME: ${{ secrets.PRIVATE_NAME }}
         run: python3 .github/scripts/gate.py _site .
+
+      # Shop moved to Gumroad (0043): every redirect page goes only to a fixed
+      # destination from _data/gumroad_redirects.yml; no gumroad.js anywhere.
+      - name: Check the Gumroad redirect allowlist
+        run: python3 .github/scripts/check-gumroad-redirects.py _site .
