@@ -75,7 +75,9 @@ jobs:
       # Cloudflare Web Analytics beacon only on the explicit include list in
       # _data/cf_analytics.yml; never on /r/, /f/, /unsubscribe/ or other pages.
       - name: Check the analytics beacon include list
-        run: python3 .github/scripts/check-cf-analytics.py _site .
+        run: |
+          python3 .github/scripts/check-cf-analytics.py _site .
+          python3 .github/scripts/test_check_cf_analytics.py _site .
 
       # PRIVATE_NAME is an optional repository secret. When set, the gate
       # asserts the private name appears nowhere outside the agreed

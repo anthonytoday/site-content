@@ -17,7 +17,9 @@ root = sys.argv[2] if len(sys.argv) > 2 else '.'
 cfg = open(os.path.join(root, '_data/cf_analytics.yml'), encoding='utf-8').read()
 token = re.search(r'^token:\s*"([0-9a-f]{32})"\s*$', cfg, re.M).group(1)
 pages = re.findall(r'^\s+-\s*"([^"]+)"\s*$', cfg, re.M)
-NEVER = re.compile(r'^/(r|f|unsubscribe|thank-you|fr)(/|$)|^/fr/|/(r|f|unsubscribe)/$')
+NEVER = re.compile(r'^/(r|f|unsubscribe|thank-you|fr|go-fix-report|go|privacy|shop-preview)(/|$)|^/fr/|/(r|f|unsubscribe)/$', re.I)
+# CFA-02: any of these on an unlisted page fails (matched on html.lower()).
+BEACON_PATTERNS = ('static.cloudflareinsights.com', 'cloudflareinsights.com/cdn-cgi/rum', 'cloudflareinsights', 'beacon.min.js', 'data-cf-beacon')
 BEACON = re.compile(r'<script\b[^>]*cloudflareinsights[^>]*>', re.I)
 OK_TAG = ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
           'data-cf-beacon=\'{"token": "%s"}\'>' % token)
@@ -38,7 +40,9 @@ for dp, dn, fn in os.walk(site):
         url = rel[:-len('index.html')] if rel.endswith('/index.html') or rel == '/index.html' else rel
         html = open(path, encoding='utf-8', errors='replace').read()
         tags = BEACON.findall(html)
-        mentions = html.count('cloudflareinsights')
+        low = html.lower()
+        mentions = low.count('cloudflareinsights')
+        hits = [b for b in BEACON_PATTERNS if b in low]
         listed = url in pages
         if listed:
             seen += 1
@@ -48,8 +52,8 @@ for dp, dn, fn in os.walk(site):
                 errs.append('%s: listed page has a meta CSP' % url)
             if re.search(r'http-equiv=["\']refresh', html, re.I):
                 errs.append('%s: listed page is a redirect stub' % url)
-        elif mentions:
-            errs.append('%s: beacon present on a page that is not in the include list' % url)
+        elif hits or tags:
+            errs.append('%s: beacon present on a page that is not in the include list (%s)' % (url, ', '.join(hits) or 'script tag'))
 missing = [p for p in pages if not os.path.exists(os.path.join(site, p.lstrip('/'), 'index.html'))]
 for p in missing:
     errs.append('%s: listed but not built' % p)

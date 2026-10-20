@@ -9,7 +9,7 @@
 # beacon. Only English marketing pages that carry no token, id or session in the
 # URL. Never add: /r/, /f/, /unsubscribe/, result pages, /thank-you/ (Stripe
 # return URL), redirect stubs, /fr/ pages, or any page with a meta CSP.
-# tests/cf-analytics-check.py enforces the never-add rules on the built _site.
+# .github/scripts/check-cf-analytics.py enforces the never-add rules on the built _site.
 token: "e7395212b953480c8979812224fb823e"
 pages:
   - "/"
