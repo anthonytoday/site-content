@@ -38,6 +38,11 @@ NOTION_FIXLIST_ACTION_DS_ID = "090f028b-623e-830a-a790-87771191a643"
 NOTION_RESULTS_PARENT_ID = "3fef028b623e8111a139e906174cab62"
 TEST_SEND_ALLOWLIST = "admin@anthonytoday.com"
 RATE_PER_IP_HOUR = "20"
+# P1-06 one-off email index migration (temporary: 0034b removes this var and the cron below)
+MIGRATE_EH = "run-2026-10-20"
+
+[triggers]
+crons = ["*/5 * * * *"]
 
 # Secrets (wrangler secret put): SIGNING_KEY, TEST_TOKEN (set), NOTION_TOKEN, NOTION_CRM_DB_ID, RESEND_API_KEY,
 # STRIPE_WEBHOOK_SECRET, SUPABASE_URL + SUPABASE_SERVICE_KEY (set, not used yet), optional CC_INGEST_URL + CC_INGEST_TOKEN (Command Center / Supabase insert endpoint).

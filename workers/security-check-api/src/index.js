@@ -23,6 +23,21 @@ async function sign(env, s) { return b64u(await hmac(env.SIGNING_KEY, s)).slice(
 // Hashed email index: KV key "eh:" + HMAC-SHA256(SIGNING_KEY, lowercased email). The email itself is never a key here and never in a URL.
 async function emailKey(env, email) { return "eh:" + b64u(await hmac(env.SIGNING_KEY, "eh:" + String(email || "").trim().toLowerCase())); }
 const EMAIL_INDEX_TTL = 60 * 60 * 24 * 730; // same 730 days as the sub:<rid> record it points to
+// P1-06 dual-read: the hashed eh: key first, then the legacy plaintext "email:" key (pre-P1-06 records, removed only after the
+// backfill is verified and Security re-tests). New writes go to eh: only; nothing here writes or deletes "email:".
+async function emailIndexGet(env, email) {
+  const e = String(email || "").trim().toLowerCase();
+  if (!e) return null;
+  const isRid = (v) => typeof v === "string" && /^r[0-9a-f]{24}$/.test(v);
+  // P106-01 owner check (same as resultForEmail): a value counts only if its sub: record exists and is owned by this email; else try the next key.
+  for (const k of [await emailKey(env, e), "email:" + e]) {
+    const v = await env.SC.get(k);
+    if (!isRid(v)) continue;
+    const s = await env.SC.get("sub:" + v, "json");
+    if (s && String(s.email || "").trim().toLowerCase() === e) return v;
+  }
+  return null;
+}
 function safeEq(a, b) { if (typeof a !== "string" || a.length !== b.length) return false; let d = 0; for (let i = 0; i < a.length; i++) d |= a.charCodeAt(i) ^ b.charCodeAt(i); return d === 0; }
 const isDry = (env) => env.DRY_RUN !== "0";
 // Real-client lock: with DRY_RUN=0 and LIVE_FOR != "all", only TEST_SEND_ALLOWLIST addresses run for real
@@ -201,13 +216,12 @@ async function handleSubmit(req, env, ctx, h) {
   const sub = v.value;
   if (await rateLimited(env, "em:" + sub.email, 12)) return json({ ok: false, error: "rate_limited" }, 429, h);
   const r = score(data, sub.answers, sub.team_size);
-  const prevRid = await env.SC.get("email:" + sub.email);
+  const prevRid = await emailIndexGet(env, sub.email);
   const prev = prevRid ? await env.SC.get("sub:" + prevRid, "json") : null;
   Object.assign(sub, { result_id: newResultId(), submission_id: await nextSubmissionId(env), submitted_at: nowIso(), quiz_version: data.version,
     retake_count: prev ? (prev.retake_count || 0) + 1 : 0, previous_total: prev ? prev.result.total : null, dry_run: !liveFor(env, sub.email), held: heldFor(env, sub.email), unsubscribed: !!(prev && prev.unsubscribed) });
   sub.result = r;
   await env.SC.put("sub:" + sub.result_id, JSON.stringify(sub), { expirationTtl: 60 * 60 * 24 * 730 });
-  await env.SC.put("email:" + sub.email, sub.result_id, { expirationTtl: 60 * 60 * 24 * 730 });
   await env.SC.put(await emailKey(env, sub.email), sub.result_id, { expirationTtl: EMAIL_INDEX_TTL });
   const L = await links(env, sub);
   const pipeline = runSubmitPipeline(env, sub, r, L);
@@ -403,7 +417,7 @@ async function handleUnsubscribe(req, env, url) {
   if (!info) return html(page("<p>This link is not valid. Reply \"unsubscribe\" to the email and I will stop follow-ups.</p>"), 400);
   if (req.method === "GET") return html(page("<h2>Unsubscribe</h2><p>Stop Security Check follow-up emails to <b>" + esc(maskEmail(info.e)) + "</b>?</p><form method=\"post\" action=\"/unsubscribe?token=" + encodeURIComponent(token) + "\"><button style=\"padding:10px 18px;font-size:15px\">Confirm unsubscribe</button></form>"));
   const log = [];
-  const rid = await env.SC.get("email:" + info.e);
+  const rid = await emailIndexGet(env, info.e);
   for (const id of new Set([rid, info.r].filter(Boolean))) { const sub = await env.SC.get("sub:" + id, "json"); if (sub) { sub.unsubscribed = true; await env.SC.put("sub:" + id, JSON.stringify(sub), { expirationTtl: 60 * 60 * 24 * 730 }); } }
   await env.SC.put("unsub:" + info.e, nowIso());
   if (liveFor(env, info.e)) {
@@ -614,7 +628,57 @@ async function recreateViews(env, dbId, dsId) {
   return { ok: true, views: made };
 }
 
+// ---------- P1-06 one-off migration (temporary, removed by 0034b) ----------
+// Copies legacy "email:<addr>" -> eh:<HMAC> inside the Worker (SIGNING_KEY never leaves it). Runs from the cron only, never from fetch.
+// Gate: env.MIGRATE_EH === MIGRATE_EH_RUN and no migrate:eh:done marker; anything else is a no-op. Never deletes or changes email: keys.
+// Logs and the marker hold counts only, never a key, value or address.
+const MIGRATE_EH_RUN = "run-2026-10-20";
+const MIGRATE_EH_DONE = "migrate:eh:done";
+const MIGRATE_KV_BUDGET = 800; // KV operations per tick (free plan allows 1000); unfinished work waits for the next tick
+async function migrateEmailIndex(env, nowMs = Date.now()) {
+  if (env.MIGRATE_EH !== MIGRATE_EH_RUN) return { ran: false, reason: "flag" };
+  let ops = 1;
+  if ((await env.SC.get(MIGRATE_EH_DONE)) !== null) return { ran: false, reason: "done" };
+  const c = { listed: 0, copied: 0, same: 0, mismatched: 0, owner_mismatch: 0, odd: 0, expiring: 0, failed: 0, ttl_default: 0, deferred: false };
+  const nowS = Math.floor(nowMs / 1000);
+  let cursor;
+  outer: do {
+    if (ops + 1 > MIGRATE_KV_BUDGET) { c.deferred = true; break; }
+    const page = await env.SC.list({ prefix: "email:", cursor, limit: 100 }); ops++;
+    for (const k of page.keys) {
+      if (ops + 5 > MIGRATE_KV_BUDGET) { c.deferred = true; break outer; }
+      c.listed++;
+      try {
+        const e = k.name.slice(6).trim().toLowerCase();
+        const v = await env.SC.get(k.name); ops++;
+        if (!e || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e) || typeof v !== "string" || !/^r[0-9a-f]{24}$/.test(v)) { c.odd++; continue; }
+        // C2 owner check: the result must exist and belong to this email (same rule as emailIndexGet / resultForEmail).
+        const owner = await env.SC.get("sub:" + v, "json"); ops++;
+        if (!owner || String(owner.email || "").trim().toLowerCase() !== e) { c.owner_mismatch++; continue; }
+        const ek = await emailKey(env, e);
+        const cur = await env.SC.get(ek); ops++;
+        if (cur === v) { c.same++; continue; }
+        if (cur !== null) { c.mismatched++; continue; }
+        let opt;
+        if (k.expiration) { if (k.expiration < nowS + 120) { c.expiring++; continue; } opt = { expiration: k.expiration }; }
+        else { opt = { expirationTtl: EMAIL_INDEX_TTL }; c.ttl_default++; }
+        await env.SC.put(ek, v, opt); ops++;
+        const back = await env.SC.get(ek); ops++;
+        if (back === v) c.copied++; else c.failed++;
+      } catch { c.failed++; }
+    }
+    cursor = page.list_complete ? undefined : page.cursor;
+  } while (cursor);
+  // owner_mismatch and odd do not block the marker: they are fixed data states (a retry reads the same records), the dual-read
+  // ignores such entries anyway (P106-01), and blocking would keep the cron looping until 0034b. They are counted in the marker.
+  c.done = !c.deferred && c.mismatched === 0 && c.failed === 0;
+  if (c.done) await env.SC.put(MIGRATE_EH_DONE, JSON.stringify({ at: new Date(nowMs).toISOString(), ...c }));
+  console.log(JSON.stringify({ migrate_eh: c }));
+  return { ran: true, ...c };
+}
+
 export default {
+  async scheduled(event, env, ctx) { ctx.waitUntil(migrateEmailIndex(env).catch(() => console.log(JSON.stringify({ migrate_eh: { error: true } })))); },
   async fetch(req, env, ctx) {
     const url = new URL(req.url);
     const h = cors(env, req);

@@ -15,7 +15,12 @@ execFileSync(ESBUILD, [join(here, "../src/index.js"), "--bundle", "--format=esm"
 export const worker = (await import(out)).default;
 
 export const SECRET = "whsec_test_only", SIGNING_KEY = "test-signing-key";
-export const kv = () => { const m = new Map(); return { m, get: async (k, t) => { const v = m.get(k); return v == null ? null : t === "json" ? JSON.parse(v) : v; }, put: async (k, v) => { m.set(k, v); }, delete: async (k) => { m.delete(k); } }; };
+// Fake KV. exp: key -> absolute expiration (s) from put options; list() pages by cursor like Workers KV (keys sorted, expiration included).
+export const kv = () => { const m = new Map(), exp = new Map(); return { m, exp, get: async (k, t) => { const v = m.get(k); return v == null ? null : t === "json" ? JSON.parse(v) : v; },
+  put: async (k, v, o = {}) => { m.set(k, v); if (o.expiration) exp.set(k, o.expiration); else if (o.expirationTtl) exp.set(k, Math.floor(Date.now() / 1000) + o.expirationTtl); else exp.delete(k); },
+  delete: async (k) => { m.delete(k); exp.delete(k); },
+  list: async ({ prefix = "", cursor, limit = 1000 } = {}) => { const all = [...m.keys()].filter((k) => k.startsWith(prefix)).sort(); const i = cursor ? Number(cursor) : 0; const page = all.slice(i, i + limit);
+    const done = i + limit >= all.length; return { keys: page.map((name) => (exp.has(name) ? { name, expiration: exp.get(name) } : { name })), list_complete: done, ...(done ? {} : { cursor: String(i + limit) }) }; } }; };
 export const baseEnv = (extra = {}) => ({ SC: kv(), ALLOWED_ORIGINS: "https://www.anthonytoday.com", STRIPE_WEBHOOK_SECRET: SECRET, SIGNING_KEY, DRY_RUN: "1", PUBLIC_BASE: "https://w.example", MAIL_FROM: "A <admin@anthonytoday.com>",
   FIXLIST_PAYMENT_LINK: "https://buy.stripe.com/28E6oJfmMbYh27h4Kt1ZS0x", FIXLIST_PAYMENT_LINK_ID: "plink_1US9EnQ1Ll6EnCUKqtFqIhCG", ...extra });
 export const calls = [];
@@ -43,7 +48,9 @@ export async function seed(env, email, opts = {}) {
   RID = j.resultId;
   assert.equal(env.SC.m.get(eh(email)), RID, "hashed email index written on submit");
   assert.ok(![...env.SC.m.keys()].some((k) => k.startsWith("eh:") && k.includes("@")), "hashed key has no email");
-  if (opts.legacy) env.SC.m.delete(eh(email));
+  assert.equal(env.SC.m.get("email:" + email), undefined, "P1-06: submit writes no plaintext email: key");
+  // Legacy = a record from before the hashed index (P1-06): only the plaintext email: key exists.
+  if (opts.legacy) { env.SC.m.delete(eh(email)); env.SC.m.set("email:" + email, RID); }
   return RID;
 }
 export const results = { n: 0 };
