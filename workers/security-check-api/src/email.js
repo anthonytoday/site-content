@@ -25,9 +25,9 @@ export async function resendSuppress(key, email) {
   const res = await fetch("https://api.resend.com/suppressions", { method: "POST", headers: { Authorization: "Bearer " + key, "Content-Type": "application/json" }, body: JSON.stringify({ email }) });
   return res.ok;
 }
-export function emailPayload(env, { to, msg, flow, unsubUrl }) {
+export function emailPayload(env, { to, msg, flow, unsubUrl, oneClickUrl }) {
   const body = { from: env.MAIL_FROM, to: [to], subject: msg.subject, html: msg.html, text: msg.text, tags: [{ name: "flow", value: flow }, { name: "owner", value: "website_ops" }] };
-  if (unsubUrl) body.headers = { "List-Unsubscribe": "<mailto:admin@anthonytoday.com?subject=unsubscribe>, <" + unsubUrl + ">", "List-Unsubscribe-Post": "List-Unsubscribe=One-Click" };
+  if (unsubUrl) body.headers = { "List-Unsubscribe": "<mailto:admin@anthonytoday.com?subject=unsubscribe>, <" + (oneClickUrl || unsubUrl) + ">", "List-Unsubscribe-Post": "List-Unsubscribe=One-Click" };
   return body;
 }
 export async function resendSend(env, body, idem) {
