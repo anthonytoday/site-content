@@ -1,0 +1,62 @@
+---
+layout: null
+permalink: /unsubscribe/
+sitemap: false
+---
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-cLjQJ2NbLDSdJiJADxivmMIxCAlukydlqFlSCnakvIA='; style-src 'sha256-kLrt09yxnqwaAhQHLn4idt4m3BP/pfpZeVZQHrfWsV4='; connect-src 'self' https://jzmglkzmqgojjnqxoytf.supabase.co; form-action 'self' https://jzmglkzmqgojjnqxoytf.supabase.co; img-src 'self'; base-uri 'none'">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">
+<title>Unsubscribe | AnthonyToday</title>
+<style>body{font-family:Arial,Helvetica,sans-serif;color:#222;line-height:1.5;margin:0}main{max-width:520px;margin:60px auto;padding:0 20px}button{padding:10px 18px;font-size:15px;background:#111;color:#fff;border:0;border-radius:6px;cursor:pointer}button:disabled{opacity:.6;cursor:default}[hidden]{display:none}footer{max-width:520px;margin:0 auto 40px;padding:0 20px;color:#777;font-size:13px}</style>
+</head><body><main>
+<h2 id="h">Unsubscribe</h2>
+<p id="msg" role="status" aria-live="polite">To stop these emails, reply "unsubscribe" to the email, or use your email app's Unsubscribe button.</p>
+<form id="f" method="post" hidden><input type="hidden" name="id" id="fid"><button id="b" type="submit">Confirm unsubscribe</button></form>
+</main>
+<footer><p>Anthony, AnthonyToday.com</p></footer>
+<script>
+(function(){
+  var FN='https://jzmglkzmqgojjnqxoytf.supabase.co/functions/v1/unsub';
+  var q=new URLSearchParams(location.search), id=q.get('id')||'', fr=q.get('l')==='fr', lang=fr?'fr':'en';
+  var h=document.getElementById('h'), msg=document.getElementById('msg'), f=document.getElementById('f'), b=document.getElementById('b');
+  var T=fr?{
+    h:'Se désinscrire', b:'Confirmer la désinscription', busy:'Un instant...',
+    ask:function(m){return 'Ne plus recevoir ces emails à '+m+' ?';},
+    bad:"Lien invalide. Répondez « désinscription » à l'email et je vous retirerai.",
+    already:'Vous êtes déjà désinscrit(e).',
+    doneH:'Vous êtes désinscrit(e)', done:'Vous ne recevrez plus ces emails. Désolé pour le dérangement.',
+    temp:"Impossible d'enregistrer pour le moment. Réessayez plus tard ou répondez « désinscription » à l'email.",
+    def:"Pour ne plus recevoir ces emails, répondez « désinscription » à l'email, ou utilisez le bouton « Se désinscrire » de votre messagerie."
+  }:{
+    h:'Unsubscribe', b:'Confirm unsubscribe', busy:'One moment...',
+    ask:function(m){return 'Stop these emails to '+m+'?';},
+    bad:'This link is not valid. Reply "unsubscribe" to the email and I will remove you.',
+    already:'You are already unsubscribed.',
+    doneH:"You're unsubscribed", done:'You will not get these emails anymore. Sorry for the bother.',
+    temp:'We could not record this right now. Please try again later, or reply "unsubscribe" to the email.',
+    def:"To stop these emails, reply \"unsubscribe\" to the email, or use your email app's Unsubscribe button."
+  };
+  function say(s){msg.textContent=s;}
+  if(fr){document.documentElement.lang='fr';document.title='Se désinscrire | AnthonyToday';h.textContent=T.h;b.textContent=T.b;say(T.def);}
+  if(!id)return;
+  if(!/^[A-Za-z0-9_-]{24}$/.test(id)){say(T.bad);return;}
+  fetch(FN+'?id='+encodeURIComponent(id)+'&l='+lang+'&fmt=json',{cache:'no-store',credentials:'omit'}).then(function(r){return r.json();}).then(function(j){
+    if(!j||!j.ok){say(j&&j.error==='temporary'?T.temp:T.bad);return;}
+    if(j.done){say(T.already);return;}
+    say(T.ask(typeof j.masked==='string'?j.masked:''));
+    f.action=FN+'?l='+lang;document.getElementById('fid').value=id;f.hidden=false;
+  }).catch(function(){say(T.temp);});
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(b.disabled)return;
+    b.disabled=true;b.textContent=T.busy;
+    fetch(FN+'?l='+lang+'&fmt=json',{method:'POST',cache:'no-store',credentials:'omit',body:new URLSearchParams({id:id})}).then(function(r){return r.json();}).then(function(j){
+      if(j&&j.ok&&j.done){f.hidden=true;h.textContent=T.doneH;say(T.done);return;}
+      b.disabled=false;b.textContent=T.b;
+      if(j&&j.error==='invalid'){f.hidden=true;say(T.bad);}else{say(T.temp);}
+    }).catch(function(){b.disabled=false;b.textContent=T.b;say(T.temp);});
+  });
+})();
+</script></body></html>
