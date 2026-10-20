@@ -5,7 +5,7 @@ sitemap: false
 ---
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-cLjQJ2NbLDSdJiJADxivmMIxCAlukydlqFlSCnakvIA='; style-src 'sha256-kLrt09yxnqwaAhQHLn4idt4m3BP/pfpZeVZQHrfWsV4='; connect-src 'self' https://jzmglkzmqgojjnqxoytf.supabase.co; form-action 'self' https://jzmglkzmqgojjnqxoytf.supabase.co; img-src 'self'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-eGlQ6OsZn0HE4Ee+u2FRUlBSJL1B0jVrLSbkKMZx0rM='; style-src 'sha256-kLrt09yxnqwaAhQHLn4idt4m3BP/pfpZeVZQHrfWsV4='; connect-src 'self' https://jzmglkzmqgojjnqxoytf.supabase.co; form-action 'self' https://jzmglkzmqgojjnqxoytf.supabase.co; img-src 'self'; base-uri 'none'">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">
 <title>Unsubscribe | AnthonyToday</title>
@@ -27,7 +27,7 @@ sitemap: false
     bad:"Lien invalide. Répondez « désinscription » à l'email et je vous retirerai.",
     already:'Vous êtes déjà désinscrit(e).',
     doneH:'Vous êtes désinscrit(e)', done:'Vous ne recevrez plus ces emails. Désolé pour le dérangement.',
-    temp:"Impossible d'enregistrer pour le moment. Réessayez plus tard ou répondez « désinscription » à l'email.",
+    temp:"Je n'ai pas pu enregistrer votre demande pour le moment. Réessayez plus tard ou répondez « désinscription » à l'email.",
     def:"Pour ne plus recevoir ces emails, répondez « désinscription » à l'email, ou utilisez le bouton « Se désinscrire » de votre messagerie."
   }:{
     h:'Unsubscribe', b:'Confirm unsubscribe', busy:'One moment...',
@@ -35,14 +35,17 @@ sitemap: false
     bad:'This link is not valid. Reply "unsubscribe" to the email and I will remove you.',
     already:'You are already unsubscribed.',
     doneH:"You're unsubscribed", done:'You will not get these emails anymore. Sorry for the bother.',
-    temp:'We could not record this right now. Please try again later, or reply "unsubscribe" to the email.',
+    temp:'I could not record this right now. Please try again later, or reply "unsubscribe" to the email.',
     def:"To stop these emails, reply \"unsubscribe\" to the email, or use your email app's Unsubscribe button."
   };
   function say(s){msg.textContent=s;}
+  function get(url,opt){var c=new AbortController(),t=setTimeout(function(){c.abort();},8000);opt.signal=c.signal;
+    return fetch(url,opt).then(function(r){return r.json();}).then(function(j){clearTimeout(t);return j;},function(e){clearTimeout(t);throw e;});}
   if(fr){document.documentElement.lang='fr';document.title='Se désinscrire | AnthonyToday';h.textContent=T.h;b.textContent=T.b;say(T.def);}
+  if(location.search)history.replaceState(null,'',location.pathname+(fr?'?l=fr':''));
   if(!id)return;
   if(!/^[A-Za-z0-9_-]{24}$/.test(id)){say(T.bad);return;}
-  fetch(FN+'?id='+encodeURIComponent(id)+'&l='+lang+'&fmt=json',{cache:'no-store',credentials:'omit'}).then(function(r){return r.json();}).then(function(j){
+  get(FN+'?id='+encodeURIComponent(id)+'&l='+lang+'&fmt=json',{cache:'no-store',credentials:'omit'}).then(function(j){
     if(!j||!j.ok){say(j&&j.error==='temporary'?T.temp:T.bad);return;}
     if(j.done){say(T.already);return;}
     say(T.ask(typeof j.masked==='string'?j.masked:''));
@@ -52,7 +55,7 @@ sitemap: false
     e.preventDefault();
     if(b.disabled)return;
     b.disabled=true;b.textContent=T.busy;
-    fetch(FN+'?l='+lang+'&fmt=json',{method:'POST',cache:'no-store',credentials:'omit',body:new URLSearchParams({id:id})}).then(function(r){return r.json();}).then(function(j){
+    get(FN+'?l='+lang+'&fmt=json',{method:'POST',cache:'no-store',credentials:'omit',body:new URLSearchParams({id:id})}).then(function(j){
       if(j&&j.ok&&j.done){f.hidden=true;h.textContent=T.doneH;say(T.done);return;}
       b.disabled=false;b.textContent=T.b;
       if(j&&j.error==='invalid'){f.hidden=true;say(T.bad);}else{say(T.temp);}
