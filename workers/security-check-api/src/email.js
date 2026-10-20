@@ -51,6 +51,7 @@ export function internalPayload(env, { kind, sub, r, L, held, doNotEmail, leadUr
     "Do Not Email: " + (doNotEmail ? "yes" : "no"), "Leads row: " + (leadUrl || "n/a"), "Result (/r/): " + L.result,
   ];
   if (kind === "fixlist") lines.push("Fix List (/f/): " + L.fixlist_page, "Stripe session: " + (sub.stripe_session || "n/a"));
+  if (kind === "fixlist" && sub.matched_by === "checkout_email") lines.push("Matched by: checkout email (client_reference_id missing or unknown). Check it is the right result.");
   return { from: env.MAIL_FROM, to: [env.INTERNAL_NOTIFY_TO || "admin@anthonytoday.com"], subject, text: lines.join("\n") + "\n",
     tags: [{ name: "flow", value: "security_check_internal" }, { name: "owner", value: "website_ops" }] };
 }
