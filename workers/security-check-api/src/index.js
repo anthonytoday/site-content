@@ -23,6 +23,17 @@ async function sign(env, s) { return b64u(await hmac(env.SIGNING_KEY, s)).slice(
 // Hashed email index: KV key "eh:" + HMAC-SHA256(SIGNING_KEY, lowercased email). The email itself is never a key here and never in a URL.
 async function emailKey(env, email) { return "eh:" + b64u(await hmac(env.SIGNING_KEY, "eh:" + String(email || "").trim().toLowerCase())); }
 const EMAIL_INDEX_TTL = 60 * 60 * 24 * 730; // same 730 days as the sub:<rid> record it points to
+// P1-06 dual-read: the hashed eh: key first, then the legacy plaintext "email:" key (pre-P1-06 records, removed only after the
+// backfill is verified and Security re-tests). New writes go to eh: only; nothing here writes or deletes "email:".
+async function emailIndexGet(env, email) {
+  const e = String(email || "").trim().toLowerCase();
+  if (!e) return null;
+  const isRid = (v) => typeof v === "string" && /^r[0-9a-f]{24}$/.test(v);
+  const h = await env.SC.get(await emailKey(env, e));
+  if (isRid(h)) return h;
+  const legacy = await env.SC.get("email:" + e);
+  return isRid(legacy) ? legacy : null;
+}
 function safeEq(a, b) { if (typeof a !== "string" || a.length !== b.length) return false; let d = 0; for (let i = 0; i < a.length; i++) d |= a.charCodeAt(i) ^ b.charCodeAt(i); return d === 0; }
 const isDry = (env) => env.DRY_RUN !== "0";
 // Real-client lock: with DRY_RUN=0 and LIVE_FOR != "all", only TEST_SEND_ALLOWLIST addresses run for real
@@ -201,13 +212,12 @@ async function handleSubmit(req, env, ctx, h) {
   const sub = v.value;
   if (await rateLimited(env, "em:" + sub.email, 12)) return json({ ok: false, error: "rate_limited" }, 429, h);
   const r = score(data, sub.answers, sub.team_size);
-  const prevRid = await env.SC.get("email:" + sub.email);
+  const prevRid = await emailIndexGet(env, sub.email);
   const prev = prevRid ? await env.SC.get("sub:" + prevRid, "json") : null;
   Object.assign(sub, { result_id: newResultId(), submission_id: await nextSubmissionId(env), submitted_at: nowIso(), quiz_version: data.version,
     retake_count: prev ? (prev.retake_count || 0) + 1 : 0, previous_total: prev ? prev.result.total : null, dry_run: !liveFor(env, sub.email), held: heldFor(env, sub.email), unsubscribed: !!(prev && prev.unsubscribed) });
   sub.result = r;
   await env.SC.put("sub:" + sub.result_id, JSON.stringify(sub), { expirationTtl: 60 * 60 * 24 * 730 });
-  await env.SC.put("email:" + sub.email, sub.result_id, { expirationTtl: 60 * 60 * 24 * 730 });
   await env.SC.put(await emailKey(env, sub.email), sub.result_id, { expirationTtl: EMAIL_INDEX_TTL });
   const L = await links(env, sub);
   const pipeline = runSubmitPipeline(env, sub, r, L);
@@ -403,7 +413,7 @@ async function handleUnsubscribe(req, env, url) {
   if (!info) return html(page("<p>This link is not valid. Reply \"unsubscribe\" to the email and I will stop follow-ups.</p>"), 400);
   if (req.method === "GET") return html(page("<h2>Unsubscribe</h2><p>Stop Security Check follow-up emails to <b>" + esc(maskEmail(info.e)) + "</b>?</p><form method=\"post\" action=\"/unsubscribe?token=" + encodeURIComponent(token) + "\"><button style=\"padding:10px 18px;font-size:15px\">Confirm unsubscribe</button></form>"));
   const log = [];
-  const rid = await env.SC.get("email:" + info.e);
+  const rid = await emailIndexGet(env, info.e);
   for (const id of new Set([rid, info.r].filter(Boolean))) { const sub = await env.SC.get("sub:" + id, "json"); if (sub) { sub.unsubscribed = true; await env.SC.put("sub:" + id, JSON.stringify(sub), { expirationTtl: 60 * 60 * 24 * 730 }); } }
   await env.SC.put("unsub:" + info.e, nowIso());
   if (liveFor(env, info.e)) {

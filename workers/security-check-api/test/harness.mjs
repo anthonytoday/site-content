@@ -43,7 +43,9 @@ export async function seed(env, email, opts = {}) {
   RID = j.resultId;
   assert.equal(env.SC.m.get(eh(email)), RID, "hashed email index written on submit");
   assert.ok(![...env.SC.m.keys()].some((k) => k.startsWith("eh:") && k.includes("@")), "hashed key has no email");
-  if (opts.legacy) env.SC.m.delete(eh(email));
+  assert.equal(env.SC.m.get("email:" + email), undefined, "P1-06: submit writes no plaintext email: key");
+  // Legacy = a record from before the hashed index (P1-06): only the plaintext email: key exists.
+  if (opts.legacy) { env.SC.m.delete(eh(email)); env.SC.m.set("email:" + email, RID); }
   return RID;
 }
 export const results = { n: 0 };
