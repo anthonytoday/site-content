@@ -1,15 +1,15 @@
 {%- comment -%}
 Brand-domain result pages /r/ and /f/ (0033). One include, so both pages carry the same script and style, with the same hashes.
 The page reads ?id=&t= once, clears them from the address bar, POSTs {v,k,id,t} to the Worker's /view, and renders the answer.
-If the Worker fails (timeout, network, CORS, 5xx, non-JSON) or says not_found, it asks the Supabase copy (sc-view, same contract, 0038)
-once, then renders it through the same render() and sanitizer. A Worker 'invalid' or 'preparing' is final. Never both at once.
+If the Worker fails (timeout, network, CORS, 5xx, non-JSON or bad shape), it asks the Supabase copy (sc-view, same contract, 0038)
+once, then renders it through the same render() and sanitizer. A Worker 'invalid', 'not_found' (BR-08) or 'preparing' is final. Never both at once.
 No layout, no analytics, no popup, no third parties. CSP hashes: recompute with .github/scripts/check-csp-hash.py after any edit
 to the <style> or <script> below. The API base and kind live in data- attributes so a config change never changes a hash.
 Never delete or rename these pages: links in sent emails point here (fix forward only).
 {%- endcomment -%}
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-ydi+wdfgM/RYgn301j3vzn6hzN1qE4bkCH2Y8wH1odM='; style-src 'sha256-wMyPDgRSjYkkqGHrf5b6Q09ModN3/d1nTv5gNstMYb0='; connect-src {{ site.security_check_api }} {{ site.security_check_sb_origin }}; img-src 'self' https://www.anthonytoday.com; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-f4rS/L4JNKVJKkSnPy3MZVTdGok4NBZa057pSVARiCQ='; style-src 'sha256-wMyPDgRSjYkkqGHrf5b6Q09ModN3/d1nTv5gNstMYb0='; connect-src {{ site.security_check_api }} {{ site.security_check_sb_origin }}; img-src 'self' https://www.anthonytoday.com; form-action 'none'; base-uri 'none'">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">
 <title>{% if include.kind == "f" %}Your Fix List{% else %}Your Security Check Result{% endif %} | AnthonyToday</title>
@@ -122,10 +122,10 @@ Never delete or rename these pages: links in sent emails point here (fix forward
       var j=x.j||{};
       if(show2(x,false)){busy=false;return;}
       if(x.s===404&&j.error==='preparing'&&K==='f'){busy=false;msg('preparing',true);return;}
-      var nf=x.s===404&&j.error==='not_found';
-      if(x.s===400||(x.s===404&&!nf)){busy=false;msg('invalid',false);return;}
-      if(!SBOK){busy=false;msg(nf?'not_found':'down',!nf);return;}
-      return ask(SB).then(function(y){busy=false;if(show2(y,true))return;msg(nf?'not_found':'down',!nf);});
+      // BR-08: a Worker not_found is final like invalid (a deleted result must not come back from sc-view).
+      if(x.s===400||x.s===404){busy=false;msg(x.s===404&&j.error==='not_found'?'not_found':'invalid',false);return;}
+      if(!SBOK){busy=false;msg('down',true);return;}
+      return ask(SB).then(function(y){busy=false;if(show2(y,true))return;msg('down',true);});
     });
   }
   $('retry').addEventListener('click',load);
