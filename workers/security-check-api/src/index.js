@@ -338,8 +338,19 @@ async function handleStripe(req, env, ctx, testMode) {
   let matchedBy = sub ? "client_reference_id" : null;
   const buyer = checkoutEmail(s);
   let reason = sub ? null : "no_match";
-  if (!sub && buyer) { const m = await resultForEmail(env, buyer); if (m.sub) { sub = m.sub; matchedBy = "checkout_email"; reason = null; } else reason = m.reason; }
+  let multiAlert = null;
+  if (!sub && buyer) {
+    const m = await resultForEmail(env, buyer);
+    if (m.sub && (!m.multiple || multiMatchPolicy(env) === "latest_and_alert")) { sub = m.sub; matchedBy = m.multiple ? "checkout_email_latest_of_" + m.count : "checkout_email"; reason = null; if (m.multiple) multiAlert = m; }
+    else reason = m.multiple ? "multiple_matches" : m.reason;
+  }
   if (!sub) return await handleOrphan(env, ctx, s, sid, ref, buyer, testMode, reason);
+  if (multiAlert) {
+    // Several results, all owned by the checkout email: deliver the latest (below) and tell admin@ to check it.
+    const rec = { session: sid, reason: "multiple_matches_delivered_latest", delivered: sub.result_id, candidates: multiAlert.ids, ref, email: buyer, amount: (s.amount_total || 0) / 100, currency: s.currency || null, at: nowIso() };
+    const w = sendOrphanAlert(env, rec, testMode);
+    if (testMode) await w; else ctx.waitUntil(w);
+  }
   sub.matched_by = matchedBy;
   const rid = sub.result_id;
   const dry = !liveFor(env, sub.email);
@@ -365,46 +376,55 @@ function checkoutEmail(s) {
 }
 // Result for the checkout email, by exact match (trimmed, lowercased) on the email stored with the result. KV only: no Notion, no CRM Contacts.
 // Lookup: hashed index first, then the legacy plaintext "email:" key (written by /submit before this change, expires within 730 days).
-// Guard (L-2_Security): exactly one result must match. More than one (index keys disagree, or the email has retaken the check) or none -> alert, no guess.
-// Delivery always goes to sub.email, the email that owns the result, never to anything else from the session.
+// Only results whose stored email equals the checkout email count. "Multiple" = the email has retaken the check, or the two index keys
+// point at different results. Delivery always goes to sub.email, the email that owns the result.
 async function resultForEmail(env, email) {
   const ids = new Set();
   for (const k of [await emailKey(env, email), "email:" + email]) { const v = await env.SC.get(k); if (v && /^r[0-9a-f]{24}$/.test(v)) ids.add(v); }
   const subs = [];
   for (const id of ids) { const x = await env.SC.get("sub:" + id, "json"); if (x && String(x.email || "").trim().toLowerCase() === email) subs.push(x); }
   if (!subs.length) return { reason: "no_match" };
-  if (subs.length > 1 || subs.some((x) => (x.retake_count || 0) > 0)) return { reason: "multiple_matches" };
-  return { sub: subs[0] };
+  subs.sort((a, b) => String(b.submitted_at || "").localeCompare(String(a.submitted_at || "")));
+  const count = Math.max(subs.length, 1 + Math.max(...subs.map((x) => x.retake_count || 0)));
+  return { sub: subs[0], multiple: count > 1, count, ids: subs.map((x) => x.result_id) };
 }
-// No result matched: keep the record, alert admin@ (plus ORPHAN_ALERT_TO) by Resend and ping the Command Center. Always 200 so Stripe stops retrying.
+// Several matches (all owned by the checkout email): "latest_and_alert" (default, L0_CEO 20 Oct) delivers the latest result and alerts admin@;
+// "alert_only" delivers nothing and alerts. Zero matches is always alert-only. One-line revert: set MULTI_MATCH_POLICY = "alert_only".
+const MULTI_MATCH_POLICY_DEFAULT = "latest_and_alert";
+const multiMatchPolicy = (env) => (env.MULTI_MATCH_POLICY === "alert_only" || env.MULTI_MATCH_POLICY === "latest_and_alert" ? env.MULTI_MATCH_POLICY : MULTI_MATCH_POLICY_DEFAULT);
+// No result delivered: keep the record and alert admin@ by Resend. Always 200 so Stripe stops retrying.
 async function handleOrphan(env, ctx, s, sid, ref, buyer, testMode, reason) {
   const rec = { session: sid, reason: reason || "no_match", ref, email: buyer || null, amount: (s.amount_total || 0) / 100, currency: s.currency || null, at: nowIso() };
   await env.SC.put("orphan:" + sid, JSON.stringify(rec), { expirationTtl: 60 * 60 * 24 * 400 });
-  const payload = orphanPayload(env, rec);
-  const work = (async () => {
-    const out = {};
-    if (testMode || isDry(env) || !env.RESEND_API_KEY) out.alert = { dry: true, to: payload.to };
-    else if (env.INTERNAL_NOTIFY === "off") out.alert = { skipped: "INTERNAL_NOTIFY=off" };
-    else { try { out.alert = { resendId: await resendSend(env, payload, "orphan-alert:" + sid) }; } catch (e) { out.alert = { error: String(e.message || e).slice(0, 200) }; } }
-    if (!testMode && !isDry(env) && env.CC_INGEST_URL) {
-      try { const res = await fetch(env.CC_INGEST_URL, { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer " + env.CC_INGEST_TOKEN }, body: JSON.stringify({ type: "security_check.orphan_payment", stripe_session: sid, reason: rec.reason, ref, email: buyer || null, amount: rec.amount, at: rec.at }) }); out.cc = { status: res.status }; } catch (e) { out.cc = { error: String(e.message || e).slice(0, 200) }; }
-    }
-    await env.SC.put("orphan:" + sid, JSON.stringify({ ...rec, alert: out }), { expirationTtl: 60 * 60 * 24 * 400 });
-    return out;
-  })();
+  const work = sendOrphanAlert(env, rec, testMode);
   if (testMode) return json({ ok: true, orphan: true, alert: await work });
   ctx.waitUntil(work);
   return json({ ok: true, orphan: true });
 }
+// Admin alert (admin@ only, existing sending-only Resend key, never throws). Result stored on "orphan:<sid>".
+async function sendOrphanAlert(env, rec, testMode) {
+  const payload = orphanPayload(env, rec);
+  const out = {};
+  try {
+    if (testMode || isDry(env) || !env.RESEND_API_KEY) out.alert = { dry: true, to: payload.to, subject: payload.subject };
+    else if (env.INTERNAL_NOTIFY === "off") out.alert = { skipped: "INTERNAL_NOTIFY=off" };
+    else out.alert = { resendId: await resendSend(env, payload, "orphan-alert:" + rec.session) };
+  } catch (e) { out.alert = { error: String(e.message || e).slice(0, 200) }; }
+  try { await env.SC.put("orphan:" + rec.session, JSON.stringify({ ...rec, alert: out }), { expirationTtl: 60 * 60 * 24 * 400 }); } catch (e) { out.kv = "error"; }
+  return out;
+}
 function orphanPayload(env, rec) {
-  const to = [env.INTERNAL_NOTIFY_TO || "admin@anthonytoday.com", ...String(env.ORPHAN_ALERT_TO || "").split(",").map((x) => x.trim()).filter(Boolean)];
+  const delivered = rec.reason === "multiple_matches_delivered_latest";
   const lines = [
-    rec.reason === "multiple_matches" ? "A Fix List payment matched more than one Security Check result for the checkout email. Nothing was sent. Pick the right result and deliver by hand: website-ops/resilience/stripe-fixlist-runbook.md"
+    delivered ? "A Fix List payment matched " + rec.candidates.length + "+ Security Check results for the checkout email (all owned by that email). The latest (" + rec.delivered + ") was delivered automatically. Please check it is the right one: website-ops/resilience/stripe-fixlist-runbook.md"
+      : rec.reason === "multiple_matches" ? "A Fix List payment matched more than one Security Check result for the checkout email. Nothing was sent (MULTI_MATCH_POLICY=alert_only). Pick the right result and deliver by hand: website-ops/resilience/stripe-fixlist-runbook.md"
       : "A Fix List payment did not match any Security Check result. Nothing was sent. Deliver it by hand: website-ops/resilience/stripe-fixlist-runbook.md",
     "Reason: " + rec.reason, "Stripe session: " + rec.session, "Amount: " + rec.amount + " " + String(rec.currency || "").toUpperCase(),
-    "Checkout email: " + (rec.email || "n/a"), "client_reference_id: " + (rec.ref || "none") + (/^scfb1_/.test(rec.ref) ? " (site fallback answer code, decode with the runbook)" : ""), "At: " + rec.at,
+    "Checkout email: " + (rec.email || "n/a"), "client_reference_id: " + (rec.ref || "none") + (/^scfb1_/.test(rec.ref) ? " (site fallback answer code, decode with the runbook)" : ""),
+    ...(rec.candidates ? ["Matching results: " + rec.candidates.join(", ")] : []), "At: " + rec.at,
   ];
-  return { from: env.MAIL_FROM, to: [...new Set(to)], subject: "[Security Check] " + (rec.reason === "multiple_matches" ? "Ambiguous" : "Unmatched") + " Fix List payment " + rec.session.slice(0, 20), text: lines.join("\n") + "\n",
+  const suffix = delivered ? "delivered latest, please check" : rec.reason === "multiple_matches" ? "multiple matches, not delivered" : "no match, not delivered";
+  return { from: env.MAIL_FROM, to: [env.INTERNAL_NOTIFY_TO || "admin@anthonytoday.com"], subject: "[ORPHAN $39] " + suffix + " " + rec.session.slice(0, 20), text: lines.join("\n") + "\n",
     tags: [{ name: "flow", value: "security_check_internal" }, { name: "owner", value: "website_ops" }] };
 }
 async function runFixlistPipeline(env, sub, s, dry) {

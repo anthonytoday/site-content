@@ -25,17 +25,17 @@ await t("legacy plaintext email: key still matches (pre-deploy results)", async 
   const r = await post(env, session());
   assert.equal(r.j.resultId, RID);
 });
-await t("no match -> orphan record + Resend alert to admin@ and ORPHAN_ALERT_TO + Command Center ping, 200", async () => {
+await t("no match -> orphan record + '[ORPHAN $39]' Resend alert to admin@ only, no Command Center event, 200", async () => {
   calls.length = 0;
-  const env = baseEnv({ DRY_RUN: "0", LIVE_FOR: "all", RESEND_API_KEY: "re_test_only", ORPHAN_ALERT_TO: "l0@example.com", CC_INGEST_URL: "https://cc.example/ingest", CC_INGEST_TOKEN: "x" });
+  const env = baseEnv({ DRY_RUN: "0", LIVE_FOR: "all", RESEND_API_KEY: "re_test_only", CC_INGEST_URL: "https://cc.example/ingest", CC_INGEST_TOKEN: "x" });
   const s = session({ client_reference_id: "scfb1_102_abcdabcdabca_a91e751b", customer_details: { email: "nobody@example.com" } });
   const r = await post(env, s);
   assert.equal(r.status, 200); assert.equal(r.j.orphan, true);
-  const mail = calls.find((c) => c.url === "https://api.resend.com/emails"); assert.ok(mail, "alert sent via Resend");
-  const p = JSON.parse(mail.body);
-  assert.deepEqual(p.to, ["admin@anthonytoday.com", "l0@example.com"]);
-  assert.match(p.subject, /Unmatched Fix List payment/); assert.match(p.text, /scfb1_102_abcdabcdabca_a91e751b/); assert.match(p.text, new RegExp(s.id));
-  const cc = calls.find((c) => c.url === "https://cc.example/ingest"); assert.ok(cc); assert.equal(JSON.parse(cc.body).type, "security_check.orphan_payment");
+  const mails = calls.filter((c) => c.url === "https://api.resend.com/emails"); assert.equal(mails.length, 1, "exactly one alert");
+  const p = JSON.parse(mails[0].body);
+  assert.deepEqual(p.to, ["admin@anthonytoday.com"]);
+  assert.ok(p.subject.startsWith("[ORPHAN $39] no match, not delivered")); assert.match(p.text, /scfb1_102_abcdabcdabca_a91e751b/); assert.ok(p.text.includes(s.id));
+  assert.ok(!calls.some((c) => c.url.startsWith("https://cc.example")), "no Command Center orphan event");
   const rec = JSON.parse(env.SC.m.get("orphan:" + s.id)); assert.ok(rec.alert.alert.resendId); assert.equal(rec.reason, "no_match");
   assert.ok(!calls.some((c) => /@|%40/.test(c.url)), "no email in any URL");
   assert.ok(!calls.some((c) => /notion/i.test(c.url)), "no Notion / CRM lookup");
@@ -53,27 +53,47 @@ await t("Resend failure on the alert does not crash the webhook", async () => {
   const orig = globalThis.fetch; globalThis.fetch = async () => new Response("{}", { status: 500 });
   try { const r = await post(env, session({ customer_details: { email: "nobody@example.com" } })); assert.equal(r.status, 200); assert.equal(r.j.orphan, true); } finally { globalThis.fetch = orig; }
 });
-await t("multiple matches (retaken check) -> no delivery, ambiguous alert to admin@ and L0", async () => {
+const MULTI_ENV = { DRY_RUN: "0", LIVE_FOR: "none", TEST_SEND_ALLOWLIST: "", RESEND_API_KEY: "re_test_only", CC_INGEST_URL: "https://cc.example/ingest", CC_INGEST_TOKEN: "x" };
+await t("multiple matches (retaken check), default policy -> latest result delivered + '[ORPHAN $39] delivered latest, please check' to admin@", async () => {
+  const env = baseEnv(MULTI_ENV);
+  const first = await seed(env, "twice@example.com"); await new Promise((r) => setTimeout(r, 5)); const latest = await seed(env, "twice@example.com");
   calls.length = 0;
-  const env = baseEnv({ DRY_RUN: "0", LIVE_FOR: "none", TEST_SEND_ALLOWLIST: "", RESEND_API_KEY: "re_test_only", ORPHAN_ALERT_TO: "l0@example.com" });
+  const s = session({ customer_details: { email: "twice@example.com" } });
+  const r = await post(env, s);
+  assert.equal(r.status, 200); assert.notEqual(r.j.orphan, true); assert.equal(r.j.resultId, latest); assert.notEqual(latest, first);
+  const alerts = calls.filter((c) => c.url === "https://api.resend.com/emails").map((c) => JSON.parse(c.body)).filter((p) => p.subject.startsWith("[ORPHAN $39]"));
+  assert.equal(alerts.length, 1); assert.deepEqual(alerts[0].to, ["admin@anthonytoday.com"]);
+  assert.ok(alerts[0].subject.startsWith("[ORPHAN $39] delivered latest, please check"), alerts[0].subject); assert.ok(alerts[0].text.includes(latest));
+  assert.equal(JSON.parse(env.SC.m.get("orphan:" + s.id)).reason, "multiple_matches_delivered_latest");
+  assert.equal(JSON.parse(env.SC.m.get("sub:" + latest)).matched_by, "checkout_email_latest_of_2");
+  assert.ok(!calls.some((c) => c.url.startsWith("https://cc.example") && /orphan_payment/.test(c.body)), "no orphan CC event");
+  assert.ok(!calls.some((c) => /notion/i.test(c.url)));
+});
+await t("multiple matches, MULTI_MATCH_POLICY=alert_only -> nothing delivered, '[ORPHAN $39] multiple matches' alert", async () => {
+  const env = baseEnv({ ...MULTI_ENV, MULTI_MATCH_POLICY: "alert_only" });
   await seed(env, "twice@example.com"); await seed(env, "twice@example.com");
   calls.length = 0;
   const s = session({ customer_details: { email: "twice@example.com" } });
   const r = await post(env, s);
-  assert.equal(r.status, 200); assert.equal(r.j.orphan, true); assert.equal(r.j.resultId, undefined);
-  const rec = JSON.parse(env.SC.m.get("orphan:" + s.id)); assert.equal(rec.reason, "multiple_matches");
-  const p = JSON.parse(calls.find((c) => c.url === "https://api.resend.com/emails").body);
-  assert.match(p.subject, /Ambiguous Fix List payment/); assert.deepEqual(p.to, ["admin@anthonytoday.com", "l0@example.com"]);
-  assert.equal(calls.filter((c) => c.url === "https://api.resend.com/emails").length, 1, "only the internal alert, no client email");
-  assert.ok(!calls.some((c) => /notion/i.test(c.url)));
-});
-await t("multiple matches (hashed and legacy index point at different results) -> alert, no guess", async () => {
-  const env = baseEnv(); const a = await seed(env, "split@example.com");
-  const other = JSON.parse(env.SC.m.get("sub:" + a)); other.result_id = "r" + "f".repeat(24); env.SC.m.set("sub:" + other.result_id, JSON.stringify(other));
-  env.SC.m.set("email:split@example.com", other.result_id);
-  const s = session({ customer_details: { email: "split@example.com" } });
-  const r = await post(env, s); assert.equal(r.j.orphan, true);
+  assert.equal(r.j.orphan, true); assert.equal(r.j.resultId, undefined);
   assert.equal(JSON.parse(env.SC.m.get("orphan:" + s.id)).reason, "multiple_matches");
+  const mails = calls.filter((c) => c.url === "https://api.resend.com/emails").map((c) => JSON.parse(c.body));
+  assert.equal(mails.length, 1, "only the admin alert"); assert.ok(mails[0].subject.startsWith("[ORPHAN $39] multiple matches, not delivered")); assert.deepEqual(mails[0].to, ["admin@anthonytoday.com"]);
+});
+await t("multiple matches (hashed and legacy keys point at different results) -> the newer one is delivered, alert sent", async () => {
+  const env = baseEnv(); const a = await seed(env, "split@example.com");
+  const older = JSON.parse(env.SC.m.get("sub:" + a)); older.result_id = "r" + "f".repeat(24); older.submitted_at = "2020-01-01T00:00:00Z"; env.SC.m.set("sub:" + older.result_id, JSON.stringify(older));
+  env.SC.m.set("email:split@example.com", older.result_id);
+  const s = session({ customer_details: { email: "split@example.com" } });
+  const r = await post(env, s); assert.equal(r.j.resultId, a);
+  const rec = JSON.parse(env.SC.m.get("orphan:" + s.id)); assert.equal(rec.reason, "multiple_matches_delivered_latest"); assert.deepEqual(rec.candidates, [a, older.result_id]);
+});
+await t("a result owned by another email is never a candidate, even when an index points at it", async () => {
+  const env = baseEnv(); const mine = await seed(env, "buyer2@example.com");
+  const other = JSON.parse(env.SC.m.get("sub:" + mine)); other.result_id = "r" + "e".repeat(24); other.email = "someoneelse@example.com"; other.submitted_at = "2099-01-01T00:00:00Z";
+  env.SC.m.set("sub:" + other.result_id, JSON.stringify(other)); env.SC.m.set("email:buyer2@example.com", other.result_id);
+  const r = await post(env, session({ customer_details: { email: "buyer2@example.com" } }));
+  assert.equal(r.j.resultId, mine);
 });
 await t("email match is exact: stored result email must equal the checkout email", async () => {
   const env = baseEnv(); const rid = await seed(env, "owner@example.com");
