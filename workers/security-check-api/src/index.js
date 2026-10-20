@@ -624,7 +624,52 @@ async function recreateViews(env, dbId, dsId) {
   return { ok: true, views: made };
 }
 
+// ---------- P1-06 one-off migration (temporary, removed by 0034b) ----------
+// Copies legacy "email:<addr>" -> eh:<HMAC> inside the Worker (SIGNING_KEY never leaves it). Runs from the cron only, never from fetch.
+// Gate: env.MIGRATE_EH === MIGRATE_EH_RUN and no migrate:eh:done marker; anything else is a no-op. Never deletes or changes email: keys.
+// Logs and the marker hold counts only, never a key, value or address.
+const MIGRATE_EH_RUN = "run-2026-10-20";
+const MIGRATE_EH_DONE = "migrate:eh:done";
+const MIGRATE_KV_BUDGET = 800; // KV operations per tick (free plan allows 1000); unfinished work waits for the next tick
+async function migrateEmailIndex(env, nowMs = Date.now()) {
+  if (env.MIGRATE_EH !== MIGRATE_EH_RUN) return { ran: false, reason: "flag" };
+  let ops = 1;
+  if ((await env.SC.get(MIGRATE_EH_DONE)) !== null) return { ran: false, reason: "done" };
+  const c = { listed: 0, copied: 0, same: 0, mismatched: 0, odd: 0, expiring: 0, failed: 0, ttl_default: 0, deferred: false };
+  const nowS = Math.floor(nowMs / 1000);
+  let cursor;
+  outer: do {
+    if (ops + 1 > MIGRATE_KV_BUDGET) { c.deferred = true; break; }
+    const page = await env.SC.list({ prefix: "email:", cursor, limit: 100 }); ops++;
+    for (const k of page.keys) {
+      if (ops + 4 > MIGRATE_KV_BUDGET) { c.deferred = true; break outer; }
+      c.listed++;
+      try {
+        const e = k.name.slice(6).trim().toLowerCase();
+        const v = await env.SC.get(k.name); ops++;
+        if (!e || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e) || typeof v !== "string" || !/^r[0-9a-f]{24}$/.test(v)) { c.odd++; continue; }
+        const ek = await emailKey(env, e);
+        const cur = await env.SC.get(ek); ops++;
+        if (cur === v) { c.same++; continue; }
+        if (cur !== null) { c.mismatched++; continue; }
+        let opt;
+        if (k.expiration) { if (k.expiration < nowS + 120) { c.expiring++; continue; } opt = { expiration: k.expiration }; }
+        else { opt = { expirationTtl: EMAIL_INDEX_TTL }; c.ttl_default++; }
+        await env.SC.put(ek, v, opt); ops++;
+        const back = await env.SC.get(ek); ops++;
+        if (back === v) c.copied++; else c.failed++;
+      } catch { c.failed++; }
+    }
+    cursor = page.list_complete ? undefined : page.cursor;
+  } while (cursor);
+  c.done = !c.deferred && c.mismatched === 0 && c.failed === 0;
+  if (c.done) await env.SC.put(MIGRATE_EH_DONE, JSON.stringify({ at: new Date(nowMs).toISOString(), ...c }));
+  console.log(JSON.stringify({ migrate_eh: c }));
+  return { ran: true, ...c };
+}
+
 export default {
+  async scheduled(event, env, ctx) { ctx.waitUntil(migrateEmailIndex(env).catch(() => console.log(JSON.stringify({ migrate_eh: { error: true } })))); },
   async fetch(req, env, ctx) {
     const url = new URL(req.url);
     const h = cors(env, req);
