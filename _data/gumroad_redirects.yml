@@ -4,6 +4,8 @@
 # hash or referrer can choose a destination. Every value must be the store home or an
 # exact https://store.anthonytoday.com/l/<permalink> product URL (checked by
 # .github/scripts/check-gumroad-redirects.py). Product URLs verified 200 on 20 Oct 2026.
+# 0048: /flashcards/ (store home: the store has no flashcards section or tag) and the 15
+# decks on the store, product URLs verified 200 and matching product names, 20 Oct 2026.
 # 0043b: 8 old template URLs mapped per L0 (2 EXACT, 6 LIKELY), 20 Oct 2026.
 store: "https://store.anthonytoday.com/"
 pages:
@@ -87,3 +89,19 @@ pages:
   "/templates/ultimate-content-manager/": "https://store.anthonytoday.com/l/ultimate-content-manager"
   "/templates/website-privacy-policy/": "https://store.anthonytoday.com/l/website-privacy-policy"
   "/templates/workout-tracker/": "https://store.anthonytoday.com/"
+  "/flashcards/": "https://store.anthonytoday.com/"
+  "/flashcards/a-level-biology-ocr-flashcards/": "https://store.anthonytoday.com/l/OCR-Biology-Flashcards"
+  "/flashcards/a-level-computer-science-ocr-flashcards/": "https://store.anthonytoday.com/l/OCR-Computer-Science-Flashcards"
+  "/flashcards/a-level-physics-ocr-flashcards/": "https://store.anthonytoday.com/l/OCR-physics-Flashcards"
+  "/flashcards/a-level-psychology-ocr-flashcards/": "https://store.anthonytoday.com/l/OCR-Psychology-Flashcards"
+  "/flashcards/cfa-level-1-flashcards/": "https://store.anthonytoday.com/l/afwzv"
+  "/flashcards/cfa-level-2-flashcards/": "https://store.anthonytoday.com/l/rdthf"
+  "/flashcards/cfa-level-3-flashcards/": "https://store.anthonytoday.com/l/amptx"
+  "/flashcards/chinese-flashcards/": "https://store.anthonytoday.com/l/sbnjn"
+  "/flashcards/cisa-flashcards/": "https://store.anthonytoday.com/l/vbfyqp"
+  "/flashcards/cism-flashcards/": "https://store.anthonytoday.com/l/olyyvs"
+  "/flashcards/cissp-flashcards/": "https://store.anthonytoday.com/l/zgmejv"
+  "/flashcards/comptia-security-plus-flashcards/": "https://store.anthonytoday.com/l/olfnb"
+  "/flashcards/pmp-flashcards/": "https://store.anthonytoday.com/l/PMP-PMI-Flashcards"
+  "/flashcards/quranic-arabic-flashcards/": "https://store.anthonytoday.com/l/akzpj"
+  "/flashcards/russian-flashcards/": "https://store.anthonytoday.com/l/gnbbcr"
