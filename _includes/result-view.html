@@ -7,7 +7,7 @@ Never delete or rename these pages: links in sent emails point here (fix forward
 {%- endcomment -%}
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-nUkyUAqJhfkB01ryT9FisZmAmquKB0rjXSo5ouQihsA='; style-src 'sha256-wMyPDgRSjYkkqGHrf5b6Q09ModN3/d1nTv5gNstMYb0='; connect-src {{ site.security_check_api }}; img-src 'self' https://www.anthonytoday.com; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-bd7k1+CzvkHKHgb45z1ikDzJMAVeImXujgP6aRRgxws='; style-src 'sha256-wMyPDgRSjYkkqGHrf5b6Q09ModN3/d1nTv5gNstMYb0='; connect-src {{ site.security_check_api }}; img-src 'self' https://www.anthonytoday.com; form-action 'none'; base-uri 'none'">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">
 <title>{% if include.kind == "f" %}Your Fix List{% else %}Your Security Check Result{% endif %} | AnthonyToday</title>
@@ -46,6 +46,19 @@ Never delete or rename these pages: links in sent emails point here (fix forward
   if(!id&&!tk){msg('none',false);return;}
   if(!/^r[0-9a-f]{24}$/.test(id)||!/^[A-Za-z0-9_-]{32}$/.test(tk)||!/^https:\/\//.test(API)){msg('invalid',false);return;}
   var ATTR_OK=/^(class|href|src|alt|width|height|scope|colspan|rowspan|data-label|data-sc-style|role|aria-label|aria-hidden|open|rel|title)$/;
+  // href allowlist (Security BR-02). A link that fails is kept as plain text (href removed).
+  var HOSTS={'www.anthonytoday.com':1,'anthonytoday.com':1,'wa.me':1,'www.linkedin.com':1,'linkedin.com':1,'www.notion.com':2,'notion.com':2};
+  // Stripe: the whole href must equal one of these plus this page's own id, nothing more (the Worker adds client_reference_id).
+  var SB='https://buy.stripe.com/', STRIPE=[SB+'28E6oJfmMbYh27h4Kt1ZS0x?client_reference_id=',SB+'6oUcN7fmMgex6nxa4N1ZS0y?client_reference_id=',SB+'5kQ5kF0rS5zTfY74Kt1ZS0B?client_reference_id=',SB+'dRm9AV0rS2nH3bl4Kt1ZS0A?client_reference_id=',
+    SB+'cNiaEZ3E4bYhbHR90J1ZS0z?utm_source=security_check&utm_medium=fixlist&utm_campaign=foundation_standard&client_reference_id=',SB+'cNi5kF1vW5zT8vFa4N1ZS0C?utm_source=security_check&utm_medium=fixlist&utm_campaign=foundation_founding&client_reference_id='];
+  function hrefOk(v){
+    if(/^mailto:/i.test(v))return /^mailto:[A-Za-z0-9._+-]+@anthonytoday\.com$/.test(v);
+    if(v.indexOf(SB)===0||/^https:\/\/buy\.stripe\.com/i.test(v)){for(var i=0;i<STRIPE.length;i++)if(v===STRIPE[i]+id)return true;return false;}
+    if(!/^https:\/\/[a-z]/.test(v))return false;
+    var u;try{u=new URL(v);}catch(e){return false;}
+    if(u.protocol!=='https:'||u.username||u.password||u.port||!HOSTS.hasOwnProperty(u.hostname))return false;
+    return HOSTS[u.hostname]===1||/^\/help(\/|$)/.test(u.pathname)||u.pathname==='/pricing';
+  }
   function render(j){
     // Inline style attributes would need an inline-style CSP exception. The Worker escapes quotes in all text, so every
     // match below is an attribute: rename it before parsing, then apply the value through CSSOM (CSP does not block CSSOM).
@@ -58,7 +71,7 @@ Never delete or rename these pages: links in sent emails point here (fix forward
       if(/^(script|style|iframe|object|embed|link|meta|base|form|input|button|textarea|select|svg|math|template)$/.test(tag)){el.remove();return;}
       Array.prototype.slice.call(el.attributes).forEach(function(a){
         var n=a.name.toLowerCase();
-        if(!ATTR_OK.test(n)||(n==='href'&&!/^(https:|mailto:)/i.test(a.value))||(n==='src'&&!/^https:\/\/www\.anthonytoday\.com\//.test(a.value)))el.removeAttribute(a.name);
+        if(!ATTR_OK.test(n)||(n==='href'&&!hrefOk(a.value))||(n==='src'&&!/^https:\/\/www\.anthonytoday\.com\//.test(a.value)))el.removeAttribute(a.name);
       });
     });
     if(typeof j.css==='string'&&window.CSSStyleSheet&&'adoptedStyleSheets' in document){
