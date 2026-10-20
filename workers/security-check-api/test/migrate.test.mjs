@@ -14,7 +14,9 @@ async function tick(env) {
   const line = mine.map((s) => { try { return JSON.parse(s).migrate_eh; } catch { return null; } }).find(Boolean);
   return line || null;
 }
-const legacy = (env, email, r, expiration) => { env.SC.m.set("email:" + email, r); if (expiration) env.SC.exp.set("email:" + email, expiration); };
+// Legacy record + the sub: record it points to (owned by the normalised email unless owner is given; owner null = no sub: record).
+const legacy = (env, email, r, expiration, owner) => { env.SC.m.set("email:" + email, r); if (expiration) env.SC.exp.set("email:" + email, expiration);
+  if (owner !== null && /^r[0-9a-f]{24}$/.test(r) && !env.SC.m.has("sub:" + r)) env.SC.m.set("sub:" + r, JSON.stringify({ result_id: r, email: owner ?? email.trim().toLowerCase() })); };
 const snap = (env) => JSON.stringify([...env.SC.m.entries()].sort());
 const marker = (env) => env.SC.m.get("migrate:eh:done");
 
@@ -86,13 +88,15 @@ await t("partial failure (put throws / read-back differs) -> counted as failed, 
   env.SC.put = put; lie = false;
   const r2 = await tick(env); assert.equal(r2.failed, 0); assert.equal(r2.copied, 1); assert.equal(r2.same, 2); assert.equal(r2.done, true); assert.ok(marker(env));
 });
-await t("paging + KV budget: 250 keys over 3 list pages; first tick defers at the budget, second tick finishes", async () => {
+await t("paging + KV budget: 250 keys over 3 list pages; ticks defer at the budget (each under 1000 KV ops) until done, then the marker", async () => {
   const env = baseEnv(FLAG); for (let i = 0; i < 250; i++) legacy(env, "p" + i + "@example.com", rid(1000 + i), now() + 100 * DAY);
   let lists = 0; const list = env.SC.list; env.SC.list = async (o) => { lists++; assert.ok(o.limit <= 1000); return list(o); };
   let ops = 0; const g = env.SC.get, p = env.SC.put; env.SC.get = async (...a) => { ops++; return g(...a); }; env.SC.put = async (...a) => { ops++; return p(...a); };
-  const r1 = await tick(env); assert.equal(r1.deferred, true); assert.equal(r1.done, false); assert.equal(marker(env), undefined); assert.ok(ops + lists <= 1000, "under the 1000 KV op limit: " + (ops + lists));
-  ops = 0; lists = 0;
-  const r2 = await tick(env); assert.equal(r2.done, true); assert.equal(r2.copied + r1.copied, 250); assert.ok(lists >= 3); assert.ok(ops + lists <= 1000);
+  let copied = 0, ticks = 0, r, maxLists = 0;
+  do { ops = 0; lists = 0; r = await tick(env); ticks++; copied += r.copied; maxLists = Math.max(maxLists, lists);
+    assert.ok(ops + lists <= 1000, "tick " + ticks + " KV ops " + (ops + lists));
+    if (!r.done) { assert.equal(r.deferred, true); assert.equal(marker(env), undefined); } } while (!r.done && ticks < 6);
+  assert.equal(r.done, true); assert.ok(ticks >= 2, "first tick deferred"); assert.equal(copied, 250); assert.ok(maxLists >= 3, "paged with a cursor");
   for (let i = 0; i < 250; i++) assert.equal(env.SC.m.get(eh("p" + i + "@example.com")), rid(1000 + i));
 });
 await t("the migration makes no fetch calls and has no fetch path (no admin route)", async () => {
@@ -104,8 +108,18 @@ await t("the migration makes no fetch calls and has no fetch path (no admin rout
   }
   assert.equal(snap(env), s, "no fetch request runs the migration");
 });
+await t("C2 owner check: sub: missing or owned by another address -> owner_mismatch, not copied; marker still set (non-blocking)", async () => {
+  const env = baseEnv(FLAG);
+  legacy(env, "nosub@example.com", rid(30), now() + 50 * DAY, null);
+  legacy(env, "notmine@example.com", rid(31), now() + 50 * DAY, "someoneelse@example.org");
+  legacy(env, "mine@example.com", rid(32), now() + 50 * DAY, "  MINE@example.com ");
+  const r = await tick(env); assert.equal(r.owner_mismatch, 2); assert.equal(r.copied, 1); assert.equal(r.done, true);
+  assert.equal(env.SC.m.get(eh("nosub@example.com")), undefined); assert.equal(env.SC.m.get(eh("notmine@example.com")), undefined);
+  assert.equal(env.SC.m.get(eh("mine@example.com")), rid(32), "owner compared after trim + lowercase");
+  assert.equal(JSON.parse(marker(env)).owner_mismatch, 2);
+});
 await t("logs from every run above contain no key, address or result id", async () => {
   assert.ok(logs.length > 5);
-  for (const l of logs) { assert.ok(!/@|email:|eh:|r[0-9a-f]{24}/.test(l), "log leaks: " + l.slice(0, 40)); assert.ok(/"migrate_eh"/.test(l)); }
+  for (const l of logs) { assert.ok(!/@|email:|eh:|sub:|r[0-9a-f]{24}/.test(l), "log leaks: " + l.slice(0, 40)); assert.ok(/"migrate_eh"/.test(l)); }
 });
 console.log(results.n + " passed");

@@ -29,10 +29,14 @@ async function emailIndexGet(env, email) {
   const e = String(email || "").trim().toLowerCase();
   if (!e) return null;
   const isRid = (v) => typeof v === "string" && /^r[0-9a-f]{24}$/.test(v);
-  const h = await env.SC.get(await emailKey(env, e));
-  if (isRid(h)) return h;
-  const legacy = await env.SC.get("email:" + e);
-  return isRid(legacy) ? legacy : null;
+  // P106-01 owner check (same as resultForEmail): a value counts only if its sub: record exists and is owned by this email; else try the next key.
+  for (const k of [await emailKey(env, e), "email:" + e]) {
+    const v = await env.SC.get(k);
+    if (!isRid(v)) continue;
+    const s = await env.SC.get("sub:" + v, "json");
+    if (s && String(s.email || "").trim().toLowerCase() === e) return v;
+  }
+  return null;
 }
 function safeEq(a, b) { if (typeof a !== "string" || a.length !== b.length) return false; let d = 0; for (let i = 0; i < a.length; i++) d |= a.charCodeAt(i) ^ b.charCodeAt(i); return d === 0; }
 const isDry = (env) => env.DRY_RUN !== "0";
@@ -635,19 +639,22 @@ async function migrateEmailIndex(env, nowMs = Date.now()) {
   if (env.MIGRATE_EH !== MIGRATE_EH_RUN) return { ran: false, reason: "flag" };
   let ops = 1;
   if ((await env.SC.get(MIGRATE_EH_DONE)) !== null) return { ran: false, reason: "done" };
-  const c = { listed: 0, copied: 0, same: 0, mismatched: 0, odd: 0, expiring: 0, failed: 0, ttl_default: 0, deferred: false };
+  const c = { listed: 0, copied: 0, same: 0, mismatched: 0, owner_mismatch: 0, odd: 0, expiring: 0, failed: 0, ttl_default: 0, deferred: false };
   const nowS = Math.floor(nowMs / 1000);
   let cursor;
   outer: do {
     if (ops + 1 > MIGRATE_KV_BUDGET) { c.deferred = true; break; }
     const page = await env.SC.list({ prefix: "email:", cursor, limit: 100 }); ops++;
     for (const k of page.keys) {
-      if (ops + 4 > MIGRATE_KV_BUDGET) { c.deferred = true; break outer; }
+      if (ops + 5 > MIGRATE_KV_BUDGET) { c.deferred = true; break outer; }
       c.listed++;
       try {
         const e = k.name.slice(6).trim().toLowerCase();
         const v = await env.SC.get(k.name); ops++;
         if (!e || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e) || typeof v !== "string" || !/^r[0-9a-f]{24}$/.test(v)) { c.odd++; continue; }
+        // C2 owner check: the result must exist and belong to this email (same rule as emailIndexGet / resultForEmail).
+        const owner = await env.SC.get("sub:" + v, "json"); ops++;
+        if (!owner || String(owner.email || "").trim().toLowerCase() !== e) { c.owner_mismatch++; continue; }
         const ek = await emailKey(env, e);
         const cur = await env.SC.get(ek); ops++;
         if (cur === v) { c.same++; continue; }
@@ -662,6 +669,8 @@ async function migrateEmailIndex(env, nowMs = Date.now()) {
     }
     cursor = page.list_complete ? undefined : page.cursor;
   } while (cursor);
+  // owner_mismatch and odd do not block the marker: they are fixed data states (a retry reads the same records), the dual-read
+  // ignores such entries anyway (P106-01), and blocking would keep the cron looping until 0034b. They are counted in the marker.
   c.done = !c.deferred && c.mismatched === 0 && c.failed === 0;
   if (c.done) await env.SC.put(MIGRATE_EH_DONE, JSON.stringify({ at: new Date(nowMs).toISOString(), ...c }));
   console.log(JSON.stringify({ migrate_eh: c }));

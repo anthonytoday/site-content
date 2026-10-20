@@ -73,4 +73,32 @@ await t("no code path deletes an email: key (submit, unsubscribe, webhook)", asy
   await post(env, session({ customer_details: { email: "keep@example.com" } }));
   assert.ok(!deleted.some((k) => k.startsWith("email:"))); assert.ok(env.SC.m.has("email:keep@example.com"));
 });
+
+// P106-01 owner check: Security edge cases E3-E6 (p106-sec-edge.test.mjs on 2cc7459), assertions flipped to the fixed behaviour.
+const rid = (n) => "r" + String(n).padStart(24, "0");
+const putSub = (env, id, email, extra = {}) => env.SC.m.set("sub:" + id, JSON.stringify({ result_id: id, email, retake_count: 4, result: { total: 77 }, unsubscribed: false, ...extra }));
+await t("E3 eh: present but its sub: missing -> the legacy email: record (owned) is used: retake 5, unsubscribed carried", async () => {
+  const env = baseEnv(); env.SC.m.set(eh("ghost@example.com"), rid(7)); env.SC.m.set("email:ghost@example.com", rid(8)); putSub(env, rid(8), "ghost@example.com", { unsubscribed: true });
+  const s = sub(env, await submit(env, "ghost@example.com"));
+  assert.equal(s.retake_count, 5); assert.equal(s.previous_total, 77); assert.equal(s.unsubscribed, true);
+});
+await t("E4 email: fallback pointing at ANOTHER address's result is rejected in /submit (no previous_total, retake 0, no unsubscribed carry)", async () => {
+  const env = baseEnv(); env.SC.m.set("email:victim@example.com", rid(9)); putSub(env, rid(9), "other@example.org", { unsubscribed: true });
+  const s = sub(env, await submit(env, "victim@example.com"));
+  assert.equal(s.previous_total, null); assert.equal(s.retake_count, 0); assert.equal(s.unsubscribed, false);
+});
+await t("E5 eh: pointing at ANOTHER address's result is rejected in /submit", async () => {
+  const env = baseEnv(); env.SC.m.set(eh("victim2@example.com"), rid(10)); putSub(env, rid(10), "other@example.org");
+  const s = sub(env, await submit(env, "victim2@example.com")); assert.equal(s.previous_total, null); assert.equal(s.retake_count, 0);
+});
+await t("E6 unsubscribe: email: fallback pointing at another address's result does NOT mark it unsubscribed", async () => {
+  const env = baseEnv(LIVE); env.SC.m.set("email:u@example.com", rid(11)); putSub(env, rid(11), "other@example.org");
+  const r = await unsub(env, legacyToken("u@example.com", rid(0)), "POST"); assert.equal(r.status, 200);
+  assert.equal(sub(env, rid(11)).unsubscribed, false); assert.ok(env.SC.m.get("unsub:u@example.com"), "the address itself is still unsubscribed");
+});
+await t("owner check: eh: owned by another address, legacy email: owned -> legacy used (next key tried)", async () => {
+  const env = baseEnv(); env.SC.m.set(eh("next@example.com"), rid(12)); putSub(env, rid(12), "other@example.org");
+  env.SC.m.set("email:next@example.com", rid(13)); putSub(env, rid(13), " NEXT@example.com ");
+  const s = sub(env, await submit(env, "next@example.com")); assert.equal(s.retake_count, 5);
+});
 console.log(results.n + " passed");
