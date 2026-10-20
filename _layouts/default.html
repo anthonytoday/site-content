@@ -42,7 +42,7 @@
 {%- elsif page.lcp_image -%}
 <link rel="preload" as="image" href="{{ page.lcp_image }}" fetchpriority="high">
 {%- endif %}
-<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="referrer" content="{{ page.referrer_policy | default: 'strict-origin-when-cross-origin' }}">
 <link rel="dns-prefetch" href="https://buy.stripe.com">
 <link rel="stylesheet" href="{{ page.css_bundle }}">
 <style>header.site-header{padding:0 !important;border-bottom:0}</style>
@@ -179,9 +179,7 @@
 {{ content }}
 </main>
 
-{%- if site.cf_analytics_token and site.cf_analytics_token != "" %}
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ site.cf_analytics_token }}"}'></script>
-{%- endif %}
+{%- include cf-analytics.html %}
 {% if site.offer_popup_enabled and page.no_offer_popup != true %}{% include offer-popup.html %}{% endif %}
 </body>
 </html>

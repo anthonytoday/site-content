@@ -25,15 +25,8 @@ exclude:
   - redirects/cyber-grc-fr.html
   - redirects/fractional-ciso-fr.html
 
-# Cloudflare Web Analytics beacon token. Empty means the site emits no beacon at
-# all and nothing is measurable, the shops included.
-#
-# www.anthonytoday.com is already proxied through Cloudflare, so the simpler route
-# is Cloudflare dashboard, Analytics and Logs, Web Analytics, add the site with
-# automatic setup. Cloudflare injects the beacon itself and this stays empty.
-# Only fill this in for manual setup: paste the token out of the snippet Cloudflare
-# shows. The layout emits nothing while it is "".
-cf_analytics_token: ""
+# Cloudflare Web Analytics beacon: token and the explicit page include list live
+# in _data/cf_analytics.yml (patch 0042). Zone auto-injection is OFF.
 
 # Reveals the Shop menu in the header: Notion Templates, Anki Flashcards, Help.
 # false keeps the navigation exactly as it is today. Flip to true to launch.

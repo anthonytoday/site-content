@@ -1,0 +1,5 @@
+{%- comment -%} Cloudflare Web Analytics beacon (0042): emitted only when page.url is in the explicit include list in _data/cf_analytics.yml. External script, no inline JS. {%- endcomment -%}
+{%- assign cfa = site.data.cf_analytics -%}
+{%- if cfa and cfa.token and cfa.token != "" and cfa.pages contains page.url %}
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ cfa.token }}"}'></script>
+{%- endif %}

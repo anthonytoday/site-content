@@ -87,7 +87,7 @@ so nothing shifts while a page loads.
 | Flag | Effect |
 | --- | --- |
 | `shop_nav` | `false` hides the Shop menu. `true` reveals Notion Templates, Anki Flashcards and Help in the header |
-| `cf_analytics_token` | Empty means no analytics beacon is emitted at all |
+| `_data/cf_analytics.yml` | Cloudflare Web Analytics token plus the explicit list of pages that get the beacon (0042); unlisted pages get none |
 | `offer_popup_enabled` | `true` shows the lead-capture popup on every page except those with `no_offer_popup: true` |
 | `offer_api` | The Cloudflare Worker endpoint the popup posts to. Change it here, never in the include |
 

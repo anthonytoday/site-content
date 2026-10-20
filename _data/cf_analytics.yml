@@ -1,0 +1,68 @@
+# Cloudflare Web Analytics beacon (patch 0042), added by hand because the zone's
+# automatic injection is OFF (L0, 20 Oct 2026).
+#
+# token: the public site token of the anthonytoday.com Web Analytics site
+# (site_tag 712a79b961dd4838b016597741cd47ea). Read from Cloudflare
+# rum/site_info and matching the beacon Cloudflare injected before 20 Oct.
+#
+# pages: EXPLICIT INCLUDE LIST, exact page.url match. A page not listed gets no
+# beacon. Only English marketing pages that carry no token, id or session in the
+# URL. Never add: /r/, /f/, /unsubscribe/, result pages, /thank-you/ (Stripe
+# return URL), redirect stubs, /fr/ pages, or any page with a meta CSP.
+# .github/scripts/check-cf-analytics.py enforces the never-add rules on the built _site.
+token: "e7395212b953480c8979812224fb823e"
+pages:
+  - "/"
+  - "/contact/"
+  - "/cyber/"
+  - "/flashcards/"
+  - "/flashcards/a-level-biology-ocr-flashcards/"
+  - "/flashcards/a-level-chemistry-ocr-flashcards/"
+  - "/flashcards/a-level-computer-science-ocr-flashcards/"
+  - "/flashcards/a-level-physics-ocr-flashcards/"
+  - "/flashcards/a-level-psychology-ocr-flashcards/"
+  - "/flashcards/aws-cloud-practitioner-flashcards/"
+  - "/flashcards/aws-security-specialty-flashcards/"
+  - "/flashcards/aws-solutions-architect-flashcards/"
+  - "/flashcards/capm-flashcards/"
+  - "/flashcards/ccsp-flashcards/"
+  - "/flashcards/cfa-level-1-flashcards/"
+  - "/flashcards/cfa-level-2-flashcards/"
+  - "/flashcards/cfa-level-3-flashcards/"
+  - "/flashcards/chinese-flashcards/"
+  - "/flashcards/cisa-flashcards/"
+  - "/flashcards/cism-flashcards/"
+  - "/flashcards/cissp-flashcards/"
+  - "/flashcards/comptia-cysa-flashcards/"
+  - "/flashcards/comptia-network-plus-flashcards/"
+  - "/flashcards/comptia-pentest-flashcards/"
+  - "/flashcards/comptia-security-plus-flashcards/"
+  - "/flashcards/comptia-securityx-flashcards/"
+  - "/flashcards/cyber-exam-prep-planner/"
+  - "/flashcards/french-flashcards/"
+  - "/flashcards/german-flashcards/"
+  - "/flashcards/german-goethe-flashcards/"
+  - "/flashcards/gre-toefl-vocabulary-flashcards/"
+  - "/flashcards/hebrew-flashcards/"
+  - "/flashcards/how-it-works/"
+  - "/flashcards/pmi-acp-flashcards/"
+  - "/flashcards/pmp-flashcards/"
+  - "/flashcards/quranic-arabic-flashcards/"
+  - "/flashcards/russian-flashcards/"
+  - "/flashcards/spanish-flashcards/"
+  - "/flashcards/veterinary-nurse-flashcards/"
+  - "/fractional-notion-admin/"
+  - "/guide/"
+  - "/how-to-duplicate/"
+  - "/how-to-import-flashcards/"
+  - "/notion/"
+  - "/notion/challenges/"
+  - "/notion/real-estate-ops/"
+  - "/notion/real-estate-ops-architecture/"
+  - "/notion-build/"
+  - "/notion-for-real-estate/"
+  - "/notion-governance/"
+  - "/security-check/"
+  - "/start/"
+  - "/tools/"
+  - "/use-case/"
