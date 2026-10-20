@@ -43,6 +43,9 @@
   {%- endfor -%}
 </div>
 
+{%- comment -%} 0048: a deck with no phone screenshots shows no empty mockup frame. {%- endcomment -%}
+{%- assign _hide_ps = false -%}{%- if noun == "deck" -%}{%- unless t.mobile -%}{%- assign _hide_ps = true -%}{%- endunless -%}{%- endif -%}
+{%- unless _hide_ps %}
 <div class="phone-strip">
   {%- if t.mobile -%}
     {%- assign ndesk2 = 0 -%}{%- if t.cover -%}{%- assign ng2 = t.gallery | size -%}{%- assign ndesk2 = ng2 | plus: 1 -%}{%- endif -%}
@@ -77,16 +80,15 @@
         {%- endif -%}
       {%- else -%}
         {%- if L == "fr" -%}
-        D'autres captures et une video de presentation sont en cours de production. Achetez avec le
-        remboursement 14 jours en attendant, ou <a href="/fr/contact/">posez-moi vos questions avant</a>.
+        D'autres captures et une video de presentation sont en cours de production.
         {%- else -%}
-        {%- if t.video -%}Watch the walkthrough below. More screenshots are on the way, so buy with the 14-day refund in the{%- else -%}More screenshots and a walkthrough video are being produced. Buy with the 14-day refund in the
-        meantime, or <a href="/contact/">ask me anything first</a>.{%- endif -%}
+        {%- if t.video -%}Watch the walkthrough below. More screenshots are on the way.{%- elsif noun == "deck" -%}More screenshots and a walkthrough video are being produced.{%- else -%}More screenshots and a walkthrough video are being produced.{%- endif -%}
         {%- endif -%}
       {%- endif -%}
     {%- endif -%}
   </p></div>
 </div>
+{%- endunless %}
 
 {%- if t.video -%}
 <div class="vid-card">

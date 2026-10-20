@@ -33,7 +33,7 @@ footer.site-foot .footer-bottom a{color:#5B6672}
         {% if page.lang == "fr" %}<a href="/shop/">Tous les templates</a>{% else %}<a href="https://store.anthonytoday.com/?utm_source=anthonytoday.com&amp;utm_medium=referral&amp;utm_campaign=footer">All templates</a>{% endif %}
         <a href="https://www.notion.com/@anthonytoday">{% if page.lang == "fr" %}Profil Notion{% else %}Notion Marketplace{% endif %}</a>
         {% if page.lang == "fr" %}<a href="https://store.anthonytoday.com">Boutique Gumroad</a>{% else %}<a href="https://store.anthonytoday.com/?utm_source=anthonytoday.com&amp;utm_medium=referral&amp;utm_campaign=footer">Gumroad Store</a>{% endif %}
-        <a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">{% if page.lang == "fr" %}Boutique Etsy{% else %}Etsy Shop{% endif %}</a>
+        {% if page.lang == "fr" %}<a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">Boutique Etsy</a>{% endif %}
         <hr class="footer-rule" aria-hidden="true">
         <a href="/how-to-duplicate/">{% if page.lang == "fr" %}Comment dupliquer un template{% else %}How to duplicate a template{% endif %}</a>
         {% unless page.lang == "fr" %}<a href="/how-to-import-flashcards/">How to import flashcards</a>{% endunless %}
@@ -50,6 +50,9 @@ footer.site-foot .footer-bottom a{color:#5B6672}
     <div class="footer-bottom">
       <p>&copy; 2026 Anthony Today.
         {% if page.lang == "fr" %}Tous droits réservés. &middot; <a href="/fr/privacy/">Confidentialité</a>{% else %}All rights reserved. &middot; <a href="/privacy/">Privacy</a>{% endif %}</p>
+      {%- if page.cert_bodies and page.cert_bodies.size > 0 %}
+      <p>Not affiliated with or endorsed by {{ page.cert_bodies | array_to_sentence_string: "or" }}.</p>
+      {%- endif %}
     </div>
   </div>
 </footer>
