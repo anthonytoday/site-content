@@ -21,7 +21,8 @@ ok(fixReportTarget({}, "?a=1") === LINK + "?" + FIX_REPORT_DEFAULT_UTM, "unset v
 const idx = readFileSync(new URL("../../workers/security-check-api/src/index.js", import.meta.url), "utf8");
 ok(!/go\.js|goFixReport|\/go\/fix-report/.test(idx), "go.js is not wired into the Worker (no route)");
 const page = readFileSync(new URL("../../redirects/go-fix-report.html", import.meta.url), "utf8");
-ok(!/http-equiv="refresh"/.test(page), "page: no meta refresh (it dropped client_reference_id)");
+const refresh = page.match(/<meta http-equiv="refresh"[^>]*>/g) || [];
+ok(refresh.length === 1 && /<noscript><meta http-equiv="refresh" content="5; url=https:\/\/buy\.stripe\.com\/28E6oJfmMbYh27h4Kt1ZS0x\?utm_source=website&amp;utm_medium=security_check&amp;utm_campaign=fixlist"><\/noscript>/.test(page), "page: only meta refresh is inside <noscript> (no-JS only), allowlisted plain link, never races the JS redirect");
 ok(/<meta name="referrer" content="no-referrer">/.test(page), "page: no-referrer");
 ok(!/workers\.dev/.test(page), "page: no workers.dev reference");
 ok(/<noscript>[\s\S]*buy\.stripe\.com\/28E6oJfmMbYh27h4Kt1ZS0x\?utm_source=website&amp;utm_medium=security_check&amp;utm_campaign=fixlist[\s\S]*arrives by email[\s\S]*<\/noscript>/.test(page), "page: noscript plain link with fixlist UTMs, says the report arrives by email");
