@@ -61,15 +61,42 @@ async function nextSubmissionId(env) {
 }
 function newResultId() { const b = new Uint8Array(12); crypto.getRandomValues(b); return "r" + hex(b); }
 
+// ---------- unsubscribe tokens (BASE-H2) ----------
+// Opaque random token, 128 bits, URL-safe: "u1" + 22 base64url chars. KV "ut:<token>" -> { e, r, at }, written once when the
+// result email is built for sending (never per click, never for dry-run previews). TTL 400 days.
+// Swappable: UNSUB_BASE can point the link at another endpoint (for example L0's Supabase function) that resolves the same token.
+const UNSUB_TOKEN_TTL = 60 * 60 * 24 * 400;
+const UNSUB_RE = /^u1[A-Za-z0-9_-]{22}$/;
+const unsubUrl = (env, token) => (env.UNSUB_BASE || env.PUBLIC_BASE + "/unsubscribe") + "?token=" + token;
+async function issueUnsubToken(env, sub) {
+  const b = new Uint8Array(16); crypto.getRandomValues(b);
+  const token = "u1" + b64u(b);
+  await env.SC.put("ut:" + token, JSON.stringify({ e: sub.email, r: sub.result_id, at: nowIso() }), { expirationTtl: UNSUB_TOKEN_TTL });
+  return unsubUrl(env, token);
+}
+// Legacy tokens (base64 JSON of the email + HMAC) already sit in inboxes. Accepted read-only until LEGACY_UNSUB_UNTIL (default 30 Apr 2027); never issued again.
+const legacyUnsubOpen = (env) => Date.now() < Date.parse(env.LEGACY_UNSUB_UNTIL || "2027-04-30T00:00:00Z");
+async function resolveUnsubToken(env, token) {
+  if (UNSUB_RE.test(token)) { const v = await env.SC.get("ut:" + token, "json"); return v && v.e ? { e: v.e, r: v.r, kind: "token" } : null; }
+  if (!legacyUnsubOpen(env)) return null;
+  const [p, s] = token.split(".");
+  if (!p || !s || !safeEq(s, await sign(env, "u:" + p))) return null;
+  try { const v = JSON.parse(unb64u(p)); return v && typeof v.e === "string" ? { e: v.e, r: v.r, kind: "legacy" } : null; } catch { return null; }
+}
+// j***@d***.com
+function maskEmail(e) {
+  const [u, d] = String(e).split("@"); if (!d) return "***";
+  const parts = d.split("."); const tld = parts.length > 1 ? "." + parts[parts.length - 1] : "";
+  return (u[0] || "") + "***@" + (parts[0][0] || "") + "***" + tld;
+}
 async function links(env, sub) {
   const base = env.PUBLIC_BASE;
   const t = await sign(env, "r:" + sub.result_id);
-  const ut = b64uStr(JSON.stringify({ e: sub.email, r: sub.result_id }));
   return {
     result: base + "/r/" + sub.result_id + "?t=" + t,
     fixlist_page: base + "/f/" + sub.result_id + "?t=" + (await sign(env, "f:" + sub.result_id)),
     fixlist: env.FIXLIST_PAYMENT_LINK + "?client_reference_id=" + sub.result_id,
-    unsub: base + "/unsubscribe?token=" + ut + "." + (await sign(env, "u:" + ut)),
+    unsub: unsubUrl(env, "preview"), // placeholder for previews; the real token is minted only when an email is built for sending (issueUnsubToken)
     maturity_base: env.MATURITY_IMG_BASE || "https://www.anthonytoday.com",
   };
 }
@@ -180,8 +207,11 @@ async function runSubmitPipeline(env, sub, r, L) {
   });
   // 4. Result email via Resend (suppressions respected; consent required).
   await step("resend_result_email", async () => {
+    // Mint the unsubscribe token only for an email that may really go out (live send or held for replay), never for dry previews.
+    let unsub = L.unsub;
+    if (!isDry(env) && sub.consent && !sub.unsubscribed && (!dry || sub.held)) { unsub = await issueUnsubToken(env, sub); T.unsubscribe_url = unsub; }
     const msg = buildResultEmail(T);
-    const payload = emailPayload(env, { to: sub.email, msg, flow: "security_check_result", unsubUrl: L.unsub });
+    const payload = emailPayload(env, { to: sub.email, msg, flow: "security_check_result", unsubUrl: unsub });
     await env.SC.put("mail:" + sub.result_id, JSON.stringify(payload), { expirationTtl: (sub.held ? 60 : 7) * 86400 });
     if (!sub.consent) return { skipped: "no consent" };
     if (sub.unsubscribed) return { skipped: "unsubscribed" };
@@ -292,11 +322,10 @@ async function handleIndustry(req, env, h) {
 
 // ---------- unsubscribe (signed per-lead link + RFC 8058 one-click) ----------
 async function handleUnsubscribe(req, env, url) {
-  const token = url.searchParams.get("token") || "";
-  const [p, s] = token.split(".");
-  if (!p || !s || !safeEq(s, await sign(env, "u:" + p))) return html(page("<p>This link is not valid. Reply \"unsubscribe\" to the email and I will stop follow-ups.</p>"), 400);
-  let info; try { info = JSON.parse(unb64u(p)); } catch { return html(page("<p>This link is not valid.</p>"), 400); }
-  if (req.method === "GET") return html(page("<h2>Unsubscribe</h2><p>Stop Security Check follow-up emails to <b>" + esc(info.e) + "</b>?</p><form method=\"post\" action=\"/unsubscribe?token=" + esc(token) + "\"><button style=\"padding:10px 18px;font-size:15px\">Confirm unsubscribe</button></form>"));
+  const token = (url.searchParams.get("token") || "").slice(0, 600);
+  const info = await resolveUnsubToken(env, token);
+  if (!info) return html(page("<p>This link is not valid. Reply \"unsubscribe\" to the email and I will stop follow-ups.</p>"), 400);
+  if (req.method === "GET") return html(page("<h2>Unsubscribe</h2><p>Stop Security Check follow-up emails to <b>" + esc(maskEmail(info.e)) + "</b>?</p><form method=\"post\" action=\"/unsubscribe?token=" + encodeURIComponent(token) + "\"><button style=\"padding:10px 18px;font-size:15px\">Confirm unsubscribe</button></form>"));
   const log = [];
   const rid = await env.SC.get("email:" + info.e);
   for (const id of new Set([rid, info.r].filter(Boolean))) { const sub = await env.SC.get("sub:" + id, "json"); if (sub) { sub.unsubscribed = true; await env.SC.put("sub:" + id, JSON.stringify(sub), { expirationTtl: 60 * 60 * 24 * 730 }); } }
@@ -307,7 +336,7 @@ async function handleUnsubscribe(req, env, url) {
     await env.SC.put("unsublog:" + info.e, JSON.stringify({ at: nowIso(), log }), { expirationTtl: 60 * 60 * 24 * 30 });
     if (env.CC_INGEST_URL) await fetch(env.CC_INGEST_URL, { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer " + env.CC_INGEST_TOKEN }, body: JSON.stringify({ type: "security_check.unsubscribe", email: info.e, at: nowIso() }) }).catch(() => {});
   }
-  return html(page("<h2>You're unsubscribed</h2><p>No more Security Check follow-ups will be sent to <b>" + esc(info.e) + "</b>." + (!liveFor(env, info.e) ? " (Dry-run: recorded in the Worker only.)" : "") + "</p>"), 200);
+  return html(page("<h2>You're unsubscribed</h2><p>No more Security Check follow-ups will be sent to <b>" + esc(maskEmail(info.e)) + "</b>." + (!liveFor(env, info.e) ? " (Dry-run: recorded in the Worker only.)" : "") + "</p>"), 200);
 }
 const page = (b) => "<!doctype html><meta charset=utf-8><meta name=viewport content=\"width=device-width,initial-scale=1\"><meta name=robots content=noindex><title>Unsubscribe</title><div style=\"max-width:520px;margin:60px auto;font:16px/1.6 -apple-system,sans-serif;color:#051C2C;padding:0 20px\">" + b + "</div>";
 
