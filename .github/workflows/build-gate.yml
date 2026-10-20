@@ -62,14 +62,15 @@ jobs:
       # pin their inline <script> and <style> by sha256. Any edit without a
       # recomputed pin would block the script on the live page, so a missing
       # or stale pin fails here (Security Q10). The checker ships with the
-      # result pages (0033); until it is on main the step says so and passes.
+      # result pages (0033, on main). A missing checker fails the step, so a PR
+      # cannot pass by deleting or renaming it (Security BR-09).
       - name: Check CSP hash pins
         run: |
-          if [ -f .github/scripts/check-csp-hash.py ]; then
-            python3 .github/scripts/check-csp-hash.py _site
-          else
-            echo "check-csp-hash.py not on this commit yet (added with the result pages, 0033); skipped"
+          if [ ! -f .github/scripts/check-csp-hash.py ]; then
+            echo "::error::.github/scripts/check-csp-hash.py is missing"
+            exit 1
           fi
+          python3 .github/scripts/check-csp-hash.py _site
 
       # PRIVATE_NAME is an optional repository secret. When set, the gate
       # asserts the private name appears nowhere outside the agreed
