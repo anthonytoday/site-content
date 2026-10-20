@@ -48,3 +48,5 @@ offer_api: "https://offer-capture.learningamazonfba.workers.dev/api/claim-offer"
 # Notion Workspace Security Check API (Cloudflare Worker security-check-api, workers.dev).
 # DRY_RUN is set on the Worker itself; this URL does not change when it goes live.
 security_check_api: "https://security-check-api.learningamazonfba.workers.dev"
+# Supabase second store for the www /r/ and /f/ result pages (0038): origin only; the page calls <origin>/functions/v1/sc-view.
+security_check_sb_origin: "https://jzmglkzmqgojjnqxoytf.supabase.co"
