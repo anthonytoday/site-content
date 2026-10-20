@@ -61,15 +61,107 @@ async function nextSubmissionId(env) {
 }
 function newResultId() { const b = new Uint8Array(12); crypto.getRandomValues(b); return "r" + hex(b); }
 
+// ---------- unsubscribe tokens (BASE-H2) ----------
+// Opaque random token, 128 bits, URL-safe: "u1" + 22 base64url chars. KV "ut:<token>" -> { e, r, at }, written once when the
+// result email is built for sending (never per click, never for dry-run previews). TTL 400 days.
+// Swappable: UNSUB_BASE can point the link at another endpoint (for example L0's Supabase function) that resolves the same token.
+const UNSUB_TOKEN_TTL = 60 * 60 * 24 * 400;
+const UNSUB_RE = /^u1[A-Za-z0-9_-]{22}$/;
+const unsubUrl = (env, token) => (env.UNSUB_BASE || env.PUBLIC_BASE + "/unsubscribe") + "?token=" + token;
+async function issueUnsubToken(env, sub) {
+  const b = new Uint8Array(16); crypto.getRandomValues(b);
+  const token = "u1" + b64u(b);
+  await env.SC.put("ut:" + token, JSON.stringify({ e: sub.email, r: sub.result_id, at: nowIso() }), { expirationTtl: UNSUB_TOKEN_TTL });
+  return unsubUrl(env, token);
+}
+// Shared unsubscribe (L0_CEO, 20 Oct): the result email uses the same unsubscribe system as every other AnthonyToday email.
+// Its token is a row in Supabase public.unsub_tokens (18 random bytes = 144 bits, 24 base64url chars, one per address, reused),
+// not an HMAC, so it is minted: POST UNSUB_MINT_URL (cc-hooks /mint, Bearer UNSUB_MINT_TOKEN, a Worker secret). The address goes in
+// the POST body only. Links are built here from fixed bases, never taken from the response:
+//   body link        https://www.anthonytoday.com/unsubscribe/?id=<tok>&l=en   (static page; its button POSTs to the unsub function)
+//   List-Unsubscribe <SB_UNSUB_BASE?id=<tok>&l=en&oc=1>                        (RFC 8058 one-click POST needs a server endpoint)
+// Mint + status check share ONE 3 s deadline (SB_TIMEOUT_MS), so a send is never held up longer than that. Any failure on the mint
+// -> KV u1 record (128 bits) + mailto-only email (MINT-01, see unsubForSend); never a legacy token, never ?e=. Which path is used never depends on request input.
+// Status (fmt=json, read-only GET) done:true means the address already unsubscribed through the shared system -> the send is skipped.
+const SB_UNSUB_BASE = "https://jzmglkzmqgojjnqxoytf.supabase.co/functions/v1/unsub";
+const SB_PAGE_BASE = "https://www.anthonytoday.com/unsubscribe/";
+const SB_TOKEN_RE = /^[A-Za-z0-9_-]{24}$/;
+const SB_MINT_URL_RE = /^https:\/\/jzmglkzmqgojjnqxoytf\.supabase\.co\/functions\/v1\/cc-hooks\/mint$/;
+const SB_TIMEOUT_MS = 3000;
+const sbLinks = (t) => ({ url: SB_PAGE_BASE + "?id=" + t + "&l=en", oneClick: SB_UNSUB_BASE + "?id=" + t + "&l=en&oc=1" });
+const errName = (e) => (e && (e.name === "TimeoutError" || e.name === "AbortError") ? "timeout" : "failed");
+async function mintSharedUnsub(env, email, signal) {
+  if (!env.UNSUB_MINT_URL || !env.UNSUB_MINT_TOKEN) return { error: "not configured" };
+  if (!SB_MINT_URL_RE.test(env.UNSUB_MINT_URL)) return { error: "bad mint url" };
+  try {
+    const res = await fetch(env.UNSUB_MINT_URL, { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer " + env.UNSUB_MINT_TOKEN },
+      body: JSON.stringify({ email, lang: "en", source: "security-check-worker" }), signal });
+    if (!res.ok) return { error: "mint " + res.status }; // status code only: the response body is never read or logged on error
+    const j = await res.json().catch(() => ({}));
+    const t = String((j && j.token) || "");
+    return SB_TOKEN_RE.test(t) ? { token: t } : { error: "mint bad token" };
+  } catch (e) { return { error: "mint " + errName(e) }; }
+}
+// true = already unsubscribed in the shared system, false = not, null = unknown (error/timeout: the Worker's own checks still apply)
+async function sharedUnsubDone(token, signal) {
+  if (!SB_TOKEN_RE.test(token)) return null;
+  try {
+    const res = await fetch(SB_UNSUB_BASE + "?id=" + token + "&l=en&fmt=json", { method: "GET", signal });
+    if (!res.ok) return null;
+    const j = await res.json().catch(() => null);
+    return j && j.ok === true ? j.done === true : null;
+  } catch { return null; }
+}
+async function unsubForSend(env, sub) {
+  const signal = AbortSignal.timeout(SB_TIMEOUT_MS);
+  const m = await mintSharedUnsub(env, sub.email, signal);
+  if (m.token) return { ...sbLinks(m.token), via: "supabase", sharedDone: await sharedUnsubDone(m.token, signal) };
+  // MINT-01 (L-2_Security, 20 Oct): the fallback never puts a generic host (workers.dev) in the email. The u1 KV record is still
+  // written (a later re-mint stays possible), but unless UNSUB_BASE is an https non-workers.dev host (custom domain, BASE-H1 option 3)
+  // the email gets the www page with no id (it says: reply "unsubscribe") and a mailto-only List-Unsubscribe, no one-click Post header.
+  const u1 = await issueUnsubToken(env, sub);
+  if (unsubFallbackBase(env)) return { url: u1, via: "kv_u1", fallback: m.error };
+  return { url: SB_PAGE_BASE, mailtoOnly: true, via: "mailto_only", fallback: m.error };
+}
+const unsubFallbackBase = (env) => (env.UNSUB_BASE && /^https:\/\/[^/]+/i.test(env.UNSUB_BASE) && !/^https:\/\/[^/]*\.workers\.dev(\/|$)/i.test(env.UNSUB_BASE) ? env.UNSUB_BASE : null);
+// Token of a stored (held) payload, from its own one-click header; null for u1/legacy payloads.
+const sbTokenOf = (payload) => { const h = (payload && payload.headers && payload.headers["List-Unsubscribe"]) || ""; const m = h.match(/\/functions\/v1\/unsub\?id=([A-Za-z0-9_-]{24})&/); return m ? m[1] : null; };
+// Worker-side unsubscribe (u1 / legacy link) -> tell the shared system too, so the other AnthonyToday emails stop as well.
+// Best effort, one 3 s deadline, never blocks the confirmation. Off with UNSUB_SHARED_SYNC = "0".
+// Note: the Supabase unsub function itself also sets crm_contacts.dne=1 (L0's system); the Worker never touches CRM Contacts directly.
+async function syncSharedUnsub(env, email) {
+  if (env.UNSUB_SHARED_SYNC === "0") return "off";
+  const signal = AbortSignal.timeout(SB_TIMEOUT_MS);
+  const m = await mintSharedUnsub(env, email, signal);
+  if (!m.token) return m.error;
+  try {
+    const res = await fetch(SB_UNSUB_BASE + "?l=en&fmt=json", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: "id=" + m.token, signal });
+    return res.ok ? "ok" : "unsub " + res.status;
+  } catch (e) { return "unsub " + errName(e); }
+}
+// Legacy tokens (base64 JSON of the email + HMAC) already sit in inboxes. Accepted read-only until LEGACY_UNSUB_UNTIL (default 30 Apr 2027); never issued again.
+const legacyUnsubOpen = (env) => Date.now() < Date.parse(env.LEGACY_UNSUB_UNTIL || "2027-04-30T00:00:00Z");
+async function resolveUnsubToken(env, token) {
+  if (UNSUB_RE.test(token)) { const v = await env.SC.get("ut:" + token, "json"); return v && v.e ? { e: v.e, r: v.r, kind: "token" } : null; }
+  if (!legacyUnsubOpen(env)) return null;
+  const [p, s] = token.split(".");
+  if (!p || !s || !safeEq(s, await sign(env, "u:" + p))) return null;
+  try { const v = JSON.parse(unb64u(p)); return v && typeof v.e === "string" ? { e: v.e, r: v.r, kind: "legacy" } : null; } catch { return null; }
+}
+// j***@d***.com
+function maskEmail(e) {
+  const [u, d] = String(e).split("@"); if (!d) return "***";
+  const parts = d.split("."); const tld = parts.length > 1 ? "." + parts[parts.length - 1] : "";
+  return (u[0] || "") + "***@" + (parts[0][0] || "") + "***" + tld;
+}
 async function links(env, sub) {
   const base = env.PUBLIC_BASE;
   const t = await sign(env, "r:" + sub.result_id);
-  const ut = b64uStr(JSON.stringify({ e: sub.email, r: sub.result_id }));
   return {
     result: base + "/r/" + sub.result_id + "?t=" + t,
     fixlist_page: base + "/f/" + sub.result_id + "?t=" + (await sign(env, "f:" + sub.result_id)),
     fixlist: env.FIXLIST_PAYMENT_LINK + "?client_reference_id=" + sub.result_id,
-    unsub: base + "/unsubscribe?token=" + ut + "." + (await sign(env, "u:" + ut)),
+    unsub: unsubUrl(env, "preview"), // placeholder for previews; the real token is minted only when an email is built for sending (issueUnsubToken)
     maturity_base: env.MATURITY_IMG_BASE || "https://www.anthonytoday.com",
   };
 }
@@ -180,11 +272,16 @@ async function runSubmitPipeline(env, sub, r, L) {
   });
   // 4. Result email via Resend (suppressions respected; consent required).
   await step("resend_result_email", async () => {
+    // Mint the unsubscribe token only for an email that may really go out (live send or held for replay), never for dry previews.
+    let unsub = L.unsub, oneClick = null, unsubVia = "preview", sharedDone = null, mailtoOnly = false;
+    if (!isDry(env) && sub.consent && !sub.unsubscribed && (!dry || sub.held)) { const u = await unsubForSend(env, sub); unsub = u.url; oneClick = u.oneClick || null; mailtoOnly = !!u.mailtoOnly; sharedDone = u.sharedDone ?? null; unsubVia = u.via + (u.fallback ? " (" + u.fallback + ")" : ""); T.unsubscribe_url = unsub; }
+    sub.unsub_via = unsubVia;
+    if (sharedDone === true) { sub.unsubscribed = true; sub.unsub_shared = true; }
     const msg = buildResultEmail(T);
-    const payload = emailPayload(env, { to: sub.email, msg, flow: "security_check_result", unsubUrl: L.unsub });
+    const payload = emailPayload(env, { to: sub.email, msg, flow: "security_check_result", unsubUrl: unsub, oneClickUrl: oneClick, mailtoOnly });
     await env.SC.put("mail:" + sub.result_id, JSON.stringify(payload), { expirationTtl: (sub.held ? 60 : 7) * 86400 });
     if (!sub.consent) return { skipped: "no consent" };
-    if (sub.unsubscribed) return { skipped: "unsubscribed" };
+    if (sub.unsubscribed) return { skipped: sub.unsub_shared ? "unsubscribed (shared system)" : "unsubscribed" };
     if (sub.held) { await env.SC.put("heldmail:" + sub.result_id, JSON.stringify({ at: nowIso(), idem: "sc-result-" + sub.result_id }), { expirationTtl: 60 * 86400 }); return { held: true, subject: msg.subject, to: sub.email, note: "real-client lock: email held, replay from KV heldmail:" + sub.result_id }; }
     if (dry || !env.RESEND_API_KEY) return { dry: true, subject: msg.subject, to: sub.email, tags: payload.tags, headers: payload.headers };
     if (await env.SC.get("unsub:" + sub.email)) return { skipped: "unsubscribed (worker record)" };
@@ -208,6 +305,8 @@ async function replayHeld(env) {
     if (!sub || !payload) { done.push({ rid, skipped: "missing data" }); continue; }
     if (!liveFor(env, sub.email)) { done.push({ rid, skipped: "still locked" }); continue; }
     try {
+      const sbt = sbTokenOf(payload);
+      if (sbt && (await sharedUnsubDone(sbt, AbortSignal.timeout(SB_TIMEOUT_MS))) === true) { sub.unsubscribed = true; sub.unsub_shared = true; }
       if (!(await env.SC.get("unsub:" + sub.email)) && !sub.unsubscribed) sub.resend_result_id = await resendSend(env, payload, "sc-result-" + rid);
       if (env.NOTION_TOKEN && env.NOTION_CRM_DB_ID) { const n = new Notion(env.NOTION_TOKEN); const lead = await n.findLead(env.NOTION_CRM_DB_ID, sub.email); if (lead) await n.call("PATCH", "/pages/" + lead.id, { properties: { Stage: { status: { name: "Result sent" } } } }); }
       sub.held = false; await env.SC.put("sub:" + rid, JSON.stringify(sub), { expirationTtl: 60 * 60 * 24 * 730 }); await env.SC.delete(k.name);
@@ -292,11 +391,17 @@ async function handleIndustry(req, env, h) {
 
 // ---------- unsubscribe (signed per-lead link + RFC 8058 one-click) ----------
 async function handleUnsubscribe(req, env, url) {
-  const token = url.searchParams.get("token") || "";
-  const [p, s] = token.split(".");
-  if (!p || !s || !safeEq(s, await sign(env, "u:" + p))) return html(page("<p>This link is not valid. Reply \"unsubscribe\" to the email and I will stop follow-ups.</p>"), 400);
-  let info; try { info = JSON.parse(unb64u(p)); } catch { return html(page("<p>This link is not valid.</p>"), 400); }
-  if (req.method === "GET") return html(page("<h2>Unsubscribe</h2><p>Stop Security Check follow-up emails to <b>" + esc(info.e) + "</b>?</p><form method=\"post\" action=\"/unsubscribe?token=" + esc(token) + "\"><button style=\"padding:10px 18px;font-size:15px\">Confirm unsubscribe</button></form>"));
+  const token = (url.searchParams.get("token") || "").slice(0, 600);
+  if (!UNSUB_RE.test(token) && SB_TOKEN_RE.test(token)) {
+    // A shared-system token on the Worker host (never issued here, but harmless): GET -> the www page (no side effects), POST -> forward.
+    if (req.method === "GET") return new Response(null, { status: 302, headers: { Location: sbLinks(token).url, "Cache-Control": "no-store" } });
+    let ok = false;
+    try { const res = await fetch(SB_UNSUB_BASE + "?l=en&fmt=json", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: "id=" + token, signal: AbortSignal.timeout(SB_TIMEOUT_MS) }); ok = res.ok; } catch {}
+    return ok ? html(page("<h2>You're unsubscribed</h2><p>You will not get these emails anymore.</p>"), 200) : html(page("<p>This link is not valid. Reply \"unsubscribe\" to the email and I will stop follow-ups.</p>"), 400);
+  }
+  const info = await resolveUnsubToken(env, token);
+  if (!info) return html(page("<p>This link is not valid. Reply \"unsubscribe\" to the email and I will stop follow-ups.</p>"), 400);
+  if (req.method === "GET") return html(page("<h2>Unsubscribe</h2><p>Stop Security Check follow-up emails to <b>" + esc(maskEmail(info.e)) + "</b>?</p><form method=\"post\" action=\"/unsubscribe?token=" + encodeURIComponent(token) + "\"><button style=\"padding:10px 18px;font-size:15px\">Confirm unsubscribe</button></form>"));
   const log = [];
   const rid = await env.SC.get("email:" + info.e);
   for (const id of new Set([rid, info.r].filter(Boolean))) { const sub = await env.SC.get("sub:" + id, "json"); if (sub) { sub.unsubscribed = true; await env.SC.put("sub:" + id, JSON.stringify(sub), { expirationTtl: 60 * 60 * 24 * 730 }); } }
@@ -304,10 +409,11 @@ async function handleUnsubscribe(req, env, url) {
   if (liveFor(env, info.e)) {
     if (env.RESEND_API_KEY) log.push(["resend_suppression", await resendSuppress(env.RESEND_API_KEY, info.e).catch(() => false)]);
     if (env.NOTION_TOKEN && env.NOTION_CRM_DB_ID) { try { const n = new Notion(env.NOTION_TOKEN); const lead = await n.findLead(env.NOTION_CRM_DB_ID, info.e); if (lead) await n.call("PATCH", "/pages/" + lead.id, { properties: { "Do Not Email": { checkbox: true } } }); log.push(["leads_do_not_email", !!lead]); } catch (e) { log.push(["leads_do_not_email", false]); } }
+    log.push(["shared_unsubscribe", await syncSharedUnsub(env, info.e)]);
     await env.SC.put("unsublog:" + info.e, JSON.stringify({ at: nowIso(), log }), { expirationTtl: 60 * 60 * 24 * 30 });
     if (env.CC_INGEST_URL) await fetch(env.CC_INGEST_URL, { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer " + env.CC_INGEST_TOKEN }, body: JSON.stringify({ type: "security_check.unsubscribe", email: info.e, at: nowIso() }) }).catch(() => {});
   }
-  return html(page("<h2>You're unsubscribed</h2><p>No more Security Check follow-ups will be sent to <b>" + esc(info.e) + "</b>." + (!liveFor(env, info.e) ? " (Dry-run: recorded in the Worker only.)" : "") + "</p>"), 200);
+  return html(page("<h2>You're unsubscribed</h2><p>No more Security Check follow-ups will be sent to <b>" + esc(maskEmail(info.e)) + "</b>." + (!liveFor(env, info.e) ? " (Dry-run: recorded in the Worker only.)" : "") + "</p>"), 200);
 }
 const page = (b) => "<!doctype html><meta charset=utf-8><meta name=viewport content=\"width=device-width,initial-scale=1\"><meta name=robots content=noindex><title>Unsubscribe</title><div style=\"max-width:520px;margin:60px auto;font:16px/1.6 -apple-system,sans-serif;color:#051C2C;padding:0 20px\">" + b + "</div>";
 
