@@ -1,19 +1,21 @@
 {%- comment -%}
 Brand-domain result pages /r/ and /f/ (0033). One include, so both pages carry the same script and style, with the same hashes.
 The page reads ?id=&t= once, clears them from the address bar, POSTs {v,k,id,t} to the Worker's /view, and renders the answer.
+If the Worker fails (timeout, network, CORS, 5xx, non-JSON) or says not_found, it asks the Supabase copy (sc-view, same contract, 0038)
+once, then renders it through the same render() and sanitizer. A Worker 'invalid' or 'preparing' is final. Never both at once.
 No layout, no analytics, no popup, no third parties. CSP hashes: recompute with .github/scripts/check-csp-hash.py after any edit
 to the <style> or <script> below. The API base and kind live in data- attributes so a config change never changes a hash.
 Never delete or rename these pages: links in sent emails point here (fix forward only).
 {%- endcomment -%}
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-bd7k1+CzvkHKHgb45z1ikDzJMAVeImXujgP6aRRgxws='; style-src 'sha256-wMyPDgRSjYkkqGHrf5b6Q09ModN3/d1nTv5gNstMYb0='; connect-src {{ site.security_check_api }}; img-src 'self' https://www.anthonytoday.com; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-7htn09pd49XGlDaGUR0IAfgFtf0WAt9b9uSTnFaigVw='; style-src 'sha256-wMyPDgRSjYkkqGHrf5b6Q09ModN3/d1nTv5gNstMYb0='; connect-src {{ site.security_check_api }} {{ site.security_check_sb_origin }}; img-src 'self' https://www.anthonytoday.com; form-action 'none'; base-uri 'none'">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">
 <title>{% if include.kind == "f" %}Your Fix List{% else %}Your Security Check Result{% endif %} | AnthonyToday</title>
 <link rel="icon" href="/assets/brand/favicon.png">
 <style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#051C2C;line-height:1.6;background:#fff}[hidden]{display:none!important}.v-st{max-width:620px;margin:0 auto;padding:72px 20px 40px}.v-st h1{font-size:30px;line-height:1.25;margin:0 0 12px}.v-st h1:focus{outline:none}.v-st p{font-size:17px;margin:0 0 16px}.v-acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}.v-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 22px;border:0;border-radius:8px;background:#051C2C;color:#fff;font-family:inherit;font-size:16px;font-weight:600;line-height:1.2;cursor:pointer}.v-btn:disabled{opacity:.6;cursor:default}.v-btn:focus-visible,a:focus-visible{outline:3px solid #2251FF;outline-offset:2px}.v-spin{width:36px;height:36px;border:4px solid #E5E7EB;border-top-color:#051C2C;border-radius:50%;margin:0 0 24px;animation:sp 0.9s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}@media (prefers-reduced-motion:reduce){.v-spin{animation:none}}.v-pf{max-width:620px;margin:0 auto;padding:24px 20px 48px;font-size:14px;color:#5B6672;border-top:1px solid #E5E7EB}.v-pf a{color:#2251FF;display:inline-flex;align-items:center;min-height:44px}@media (max-width:640px){.v-st{padding:48px 16px 32px}.v-st h1{font-size:26px}.v-pf{padding:16px 16px 40px}}</style>
-</head><body data-kind="{% if include.kind == "f" %}f{% else %}r{% endif %}" data-api="{{ site.security_check_api }}">
+</head><body data-kind="{% if include.kind == "f" %}f{% else %}r{% endif %}" data-api="{{ site.security_check_api }}" data-sb="{{ site.security_check_sb_origin }}/functions/v1/sc-view">
 <main>
 <section id="s-load" class="v-st" role="status" aria-live="polite" hidden><div class="v-spin" aria-hidden="true"></div><h1 id="lh">Loading</h1><p id="lp">This takes a few seconds.</p></section>
 <section id="s-msg" class="v-st" hidden><h1 id="mh" tabindex="-1"></h1><p id="mp"></p><p id="mp2" hidden></p><div class="v-acts" id="ma" hidden><button id="retry" class="v-btn" type="button">Try Again</button></div></section>
@@ -59,7 +61,20 @@ Never delete or rename these pages: links in sent emails point here (fix forward
     if(u.protocol!=='https:'||u.username||u.password||u.port||!HOSTS.hasOwnProperty(u.hostname))return false;
     return HOSTS[u.hostname]===1||/^\/help(\/|$)/.test(u.pathname)||u.pathname==='/pricing';
   }
-  function render(j){
+  // Only style rules scoped to the result root (and @media blocks of them) are kept, for both sources (SCV-04 a): stored CSS can
+  // never restyle the page shell. Returns how many rules were dropped.
+  var SCOPE=/^\.scres(?![\w-])/;
+  function scope(list){
+    var n=0;
+    for(var i=list.cssRules.length-1;i>=0;i--){
+      var r=list.cssRules[i];
+      if(r.type===1&&r.selectorText.split(',').every(function(x){return SCOPE.test(x.trim());}))continue;
+      if(r.type===4){n+=scope(r);continue;}
+      list.deleteRule(i);n++;
+    }
+    return n;
+  }
+  function render(j,fromSb){
     // Inline style attributes would need an inline-style CSP exception. The Worker escapes quotes in all text, so every
     // match below is an attribute: rename it before parsing, then apply the value through CSSOM (CSP does not block CSSOM).
     var html=String(j.html||'').replace(/\sstyle="/g,' data-sc-style="');
@@ -75,31 +90,40 @@ Never delete or rename these pages: links in sent emails point here (fix forward
       });
     });
     if(typeof j.css==='string'&&window.CSSStyleSheet&&'adoptedStyleSheets' in document){
-      try{var sh=new CSSStyleSheet();sh.replaceSync(j.css);document.adoptedStyleSheets=[sh];}catch(e){}
+      try{var sh=new CSSStyleSheet();sh.replaceSync(j.css);b.setAttribute('data-css-dropped',String(scope(sh)));document.adoptedStyleSheets=[sh];}catch(e){}
     }
     var node=document.importNode(box,true), res=$('res');
     Array.prototype.forEach.call(node.querySelectorAll('[data-sc-style]'),function(el){el.style.cssText=el.getAttribute('data-sc-style');el.removeAttribute('data-sc-style');});
     res.textContent='';res.appendChild(node);
-    if(typeof j.banner==='string'&&j.banner){var d=document.createElement('p');d.className='dry';d.textContent=j.banner;node.insertBefore(d,node.firstChild);}
+    if(!fromSb&&typeof j.banner==='string'&&j.banner){var d=document.createElement('p');d.className='dry';d.textContent=j.banner;node.insertBefore(d,node.firstChild);}
     if(typeof j.title==='string')document.title=j.title+' | AnthonyToday';
-    b.setAttribute('data-state','result');show('res');
+    b.setAttribute('data-src',fromSb?'sb':'worker');b.setAttribute('data-state','result');show('res');
   }
-  var busy=false;
+  var busy=false, T_MS=6000, SB=b.getAttribute('data-sb')||'', SBOK=/^https:\/\/[a-z0-9]{20}\.supabase\.co\/functions\/v1\/sc-view$/.test(SB);
+  // One POST with its own 6 s deadline. Resolves {s,j}: s=0 on timeout, network or CORS failure; j=null unless the reply is JSON.
+  function ask(url){
+    return new Promise(function(res){
+      var ac=new AbortController(), fin=false, tm=setTimeout(function(){if(!fin){fin=true;ac.abort();res({s:0,j:null});}},T_MS);
+      fetch(url,{method:'POST',body:JSON.stringify({v:1,k:K,id:id,t:tk}),credentials:'omit',cache:'no-store',referrerPolicy:'no-referrer',mode:'cors',signal:ac.signal})
+        .then(function(r){var ct=r.headers.get('content-type')||'';return r.text().then(function(tx){var j=null;if(/^application\/json/i.test(ct)){try{j=JSON.parse(tx);}catch(e){}}return {s:r.status,j:j};});})
+        .then(function(x){if(fin)return;fin=true;clearTimeout(tm);res(x);},function(){if(fin)return;fin=true;clearTimeout(tm);res({s:0,j:null});});
+    });
+  }
+  function good(x){var j=x.j;return x.s===200&&!!j&&typeof j==='object'&&j.ok===true&&j.v===1&&j.k===K;}
+  // Both sources go through the same render() (inert parse, tag and attribute allowlist, BR-02 href allowlist, scoped CSS).
+  function show2(x,fromSb){if(!good(x))return false;try{render(x.j,fromSb);return true;}catch(e){return false;}}
   function load(){
     if(busy)return;busy=true;$('retry').disabled=true;
     b.setAttribute('data-state','loading');show('load');
-    var ac=new AbortController(), done=false, timer=setTimeout(function(){if(!done){done=true;ac.abort();busy=false;msg('down',true);}},8000);
-    fetch(API+'/view',{method:'POST',body:JSON.stringify({v:1,k:K,id:id,t:tk}),credentials:'omit',cache:'no-store',referrerPolicy:'no-referrer',mode:'cors',signal:ac.signal})
-      .then(function(r){return r.json().then(function(j){return {s:r.status,j:j};});})
-      .then(function(x){
-        if(done)return;done=true;clearTimeout(timer);busy=false;
-        var j=x.j||{};
-        if(x.s===200&&j.ok===true&&j.v===1&&j.k===K){try{render(j);}catch(e){msg('down',true);}return;}
-        if(x.s===404&&j.error==='preparing'&&K==='f'){msg('preparing',true);return;}
-        if(x.s===404&&j.error==='not_found'){msg('not_found',false);return;}
-        if(x.s===404||x.s===400){msg('invalid',false);return;}
-        msg('down',true);
-      },function(){if(done)return;done=true;clearTimeout(timer);busy=false;msg('down',true);});
+    ask(API+'/view').then(function(x){
+      var j=x.j||{};
+      if(show2(x,false)){busy=false;return;}
+      if(x.s===404&&j.error==='preparing'&&K==='f'){busy=false;msg('preparing',true);return;}
+      var nf=x.s===404&&j.error==='not_found';
+      if(x.s===400||(x.s===404&&!nf)){busy=false;msg('invalid',false);return;}
+      if(!SBOK){busy=false;msg(nf?'not_found':'down',!nf);return;}
+      return ask(SB).then(function(y){busy=false;if(show2(y,true))return;msg(nf?'not_found':'down',!nf);});
+    });
   }
   $('retry').addEventListener('click',load);
   load();
