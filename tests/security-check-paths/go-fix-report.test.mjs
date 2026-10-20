@@ -26,4 +26,5 @@ ok(refresh.length === 1 && /<noscript><meta http-equiv="refresh" content="5; url
 ok(/<meta name="referrer" content="no-referrer">/.test(page), "page: no-referrer");
 ok(!/workers\.dev/.test(page), "page: no workers.dev reference");
 ok(/<noscript>[\s\S]*buy\.stripe\.com\/28E6oJfmMbYh27h4Kt1ZS0x\?utm_source=website&amp;utm_medium=security_check&amp;utm_campaign=fixlist[\s\S]*arrives by email[\s\S]*<\/noscript>/.test(page), "page: noscript plain link with fixlist UTMs, says the report arrives by email");
+ok(/Your Fix Report arrives by email\./.test(page) && !/Fix List/.test(page) && /utm_campaign=fixlist/.test(page), "page: Fix Report wording, utm_campaign=fixlist kept");
 if (fails) { console.log(fails + " failing"); process.exit(1); } else console.log("all passed");
