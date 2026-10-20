@@ -81,7 +81,7 @@ async function issueUnsubToken(env, sub) {
 //   body link        https://www.anthonytoday.com/unsubscribe/?id=<tok>&l=en   (static page; its button POSTs to the unsub function)
 //   List-Unsubscribe <SB_UNSUB_BASE?id=<tok>&l=en&oc=1>                        (RFC 8058 one-click POST needs a server endpoint)
 // Mint + status check share ONE 3 s deadline (SB_TIMEOUT_MS), so a send is never held up longer than that. Any failure on the mint
-// -> KV u1 token (128 bits) on the Worker /unsubscribe; never a legacy token, never ?e=. Which path is used never depends on request input.
+// -> KV u1 record (128 bits) + mailto-only email (MINT-01, see unsubForSend); never a legacy token, never ?e=. Which path is used never depends on request input.
 // Status (fmt=json, read-only GET) done:true means the address already unsubscribed through the shared system -> the send is skipped.
 const SB_UNSUB_BASE = "https://jzmglkzmqgojjnqxoytf.supabase.co/functions/v1/unsub";
 const SB_PAGE_BASE = "https://www.anthonytoday.com/unsubscribe/";
@@ -116,8 +116,14 @@ async function unsubForSend(env, sub) {
   const signal = AbortSignal.timeout(SB_TIMEOUT_MS);
   const m = await mintSharedUnsub(env, sub.email, signal);
   if (m.token) return { ...sbLinks(m.token), via: "supabase", sharedDone: await sharedUnsubDone(m.token, signal) };
-  return { url: await issueUnsubToken(env, sub), via: "kv_u1", fallback: m.error };
+  // MINT-01 (L-2_Security, 20 Oct): the fallback never puts a generic host (workers.dev) in the email. The u1 KV record is still
+  // written (a later re-mint stays possible), but unless UNSUB_BASE is an https non-workers.dev host (custom domain, BASE-H1 option 3)
+  // the email gets the www page with no id (it says: reply "unsubscribe") and a mailto-only List-Unsubscribe, no one-click Post header.
+  const u1 = await issueUnsubToken(env, sub);
+  if (unsubFallbackBase(env)) return { url: u1, via: "kv_u1", fallback: m.error };
+  return { url: SB_PAGE_BASE, mailtoOnly: true, via: "mailto_only", fallback: m.error };
 }
+const unsubFallbackBase = (env) => (env.UNSUB_BASE && /^https:\/\/[^/]+/i.test(env.UNSUB_BASE) && !/^https:\/\/[^/]*\.workers\.dev(\/|$)/i.test(env.UNSUB_BASE) ? env.UNSUB_BASE : null);
 // Token of a stored (held) payload, from its own one-click header; null for u1/legacy payloads.
 const sbTokenOf = (payload) => { const h = (payload && payload.headers && payload.headers["List-Unsubscribe"]) || ""; const m = h.match(/\/functions\/v1\/unsub\?id=([A-Za-z0-9_-]{24})&/); return m ? m[1] : null; };
 // Worker-side unsubscribe (u1 / legacy link) -> tell the shared system too, so the other AnthonyToday emails stop as well.
@@ -267,12 +273,12 @@ async function runSubmitPipeline(env, sub, r, L) {
   // 4. Result email via Resend (suppressions respected; consent required).
   await step("resend_result_email", async () => {
     // Mint the unsubscribe token only for an email that may really go out (live send or held for replay), never for dry previews.
-    let unsub = L.unsub, oneClick = null, unsubVia = "preview", sharedDone = null;
-    if (!isDry(env) && sub.consent && !sub.unsubscribed && (!dry || sub.held)) { const u = await unsubForSend(env, sub); unsub = u.url; oneClick = u.oneClick || null; sharedDone = u.sharedDone ?? null; unsubVia = u.via + (u.fallback ? " (" + u.fallback + ")" : ""); T.unsubscribe_url = unsub; }
+    let unsub = L.unsub, oneClick = null, unsubVia = "preview", sharedDone = null, mailtoOnly = false;
+    if (!isDry(env) && sub.consent && !sub.unsubscribed && (!dry || sub.held)) { const u = await unsubForSend(env, sub); unsub = u.url; oneClick = u.oneClick || null; mailtoOnly = !!u.mailtoOnly; sharedDone = u.sharedDone ?? null; unsubVia = u.via + (u.fallback ? " (" + u.fallback + ")" : ""); T.unsubscribe_url = unsub; }
     sub.unsub_via = unsubVia;
     if (sharedDone === true) { sub.unsubscribed = true; sub.unsub_shared = true; }
     const msg = buildResultEmail(T);
-    const payload = emailPayload(env, { to: sub.email, msg, flow: "security_check_result", unsubUrl: unsub, oneClickUrl: oneClick });
+    const payload = emailPayload(env, { to: sub.email, msg, flow: "security_check_result", unsubUrl: unsub, oneClickUrl: oneClick, mailtoOnly });
     await env.SC.put("mail:" + sub.result_id, JSON.stringify(payload), { expirationTtl: (sub.held ? 60 : 7) * 86400 });
     if (!sub.consent) return { skipped: "no consent" };
     if (sub.unsubscribed) return { skipped: sub.unsub_shared ? "unsubscribed (shared system)" : "unsubscribed" };

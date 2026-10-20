@@ -6,6 +6,9 @@ import data from "../src/quiz-data.json" with { type: "json" };
 import { worker, baseEnv, calls, ctx, t, results, SIGNING_KEY } from "./harness.mjs";
 
 const LIVE = { DRY_RUN: "0", LIVE_FOR: "all", RESEND_API_KEY: "re_test_only" };
+// MINT-01: a u1 link only goes into an email when UNSUB_BASE is an https non-workers.dev host (custom domain). Tests of the Worker's
+// u1 endpoint set one; without it the fallback email is mailto-only (see the MINT-01 tests at the end).
+const U1 = { UNSUB_BASE: "https://unsub.example/unsubscribe" };
 async function submit(env, email, consent = true) {
   const body = { name: "Jo", company: "Co", email, team_size: "5-10", role: "owner", plan: data.profile.plan[0].value, country: data.profile.country[0].value ?? data.profile.country[0], consent,
     answers: Object.fromEntries(data.questions.map((q) => [q.id, "B"])) };
@@ -21,8 +24,8 @@ const get = (env, u, method = "GET") => worker.fetch(new Request(u, { method }),
 const b64u = (s) => Buffer.from(s).toString("base64url");
 const legacyToken = (email, rid) => { const p = b64u(JSON.stringify({ e: email, r: rid })); return p + "." + createHmac("sha256", SIGNING_KEY).update("u:" + p).digest("base64url").slice(0, 32); };
 
-await t("live send: List-Unsubscribe and body carry a random u1 token, no email, one ut: record", async () => {
-  calls.length = 0; const env = baseEnv(LIVE);
+await t("live send (UNSUB_BASE custom host): List-Unsubscribe and body carry a random u1 token, no email, one ut: record", async () => {
+  calls.length = 0; const env = baseEnv({ ...LIVE, ...U1 });
   const rid = await submit(env, "jane.doe@example.com");
   const p = sentResultEmail(); assert.ok(p, "result email sent");
   const u = unsubFrom(p); const tok = new URL(u).searchParams.get("token");
@@ -33,7 +36,7 @@ await t("live send: List-Unsubscribe and body carry a random u1 token, no email,
   assert.deepEqual(Object.keys(JSON.parse(env.SC.m.get(recs[0]))).sort(), ["at", "e", "r"]); assert.equal(JSON.parse(env.SC.m.get(recs[0])).r, rid);
 });
 await t("GET shows a masked email and writes nothing; POST unsubscribes", async () => {
-  calls.length = 0; const env = baseEnv(LIVE);
+  calls.length = 0; const env = baseEnv({ ...LIVE, ...U1 });
   const rid = await submit(env, "jane.doe@example.com"); const u = unsubFrom(sentResultEmail());
   const before = new Map(env.SC.m);
   const g = await get(env, u); const html = await g.text();
@@ -138,35 +141,47 @@ await t("[S1] mint response url/list_unsubscribe are ignored (links built from f
   const sb = fakeSupabase(async () => new Response(JSON.stringify({ token: SBTOK, url: "https://evil.example/u", list_unsubscribe: "<https://evil.example/x>" }), { status: 200 }));
   await withSB(sb, async () => { await submit(env, "jane.doe@example.com"); const p = sentResultEmail(); assert.ok(!JSON.stringify(p).includes("evil.example")); });
 });
+const MAILTO_LU = "<mailto:admin@anthonytoday.com?subject=unsubscribe>";
+// MINT-01 fallback shape: mailto-only header, no one-click Post header, body links to the www page with no id + the reply line.
+const assertMailtoFallback = (p, label) => {
+  assert.equal(p.headers["List-Unsubscribe"], MAILTO_LU, label + ": mailto-only List-Unsubscribe");
+  assert.ok(!("List-Unsubscribe-Post" in p.headers), label + ": no List-Unsubscribe-Post");
+  assert.ok(p.html.includes('<a href="' + PAGE + '">Unsubscribe</a>'), label + ": html body link is the www page, no id");
+  assert.ok(p.text.includes("Unsubscribe (" + PAGE + ")"), label + ": text body link is the www page, no id");
+  assert.ok(p.html.includes("reply &quot;unsubscribe&quot;") || p.html.includes('reply "unsubscribe"'), label + ": html reply line");
+  assert.ok(p.text.includes('reply "unsubscribe"'), label + ": text reply line");
+  assert.ok(!/u1[A-Za-z0-9_-]{22}/.test(JSON.stringify(p)), label + ": no u1 token in the email");
+};
 for (const [name, handler, via] of [
-  ["mint 503", async () => new Response('{"error":"temporary","email":"jane.doe@example.com"}', { status: 503 }), "kv_u1 (mint 503)"],
-  ["mint 401", async () => new Response('{"error":"unauthorized"}', { status: 401 }), "kv_u1 (mint 401)"],
-  ["mint bad token", async () => new Response(JSON.stringify({ token: "../../x?y=1" }), { status: 200 }), "kv_u1 (mint bad token)"],
-  ["mint 20-char token (not the 24-char format)", async () => new Response(JSON.stringify({ token: "A".repeat(20) }), { status: 200 }), "kv_u1 (mint bad token)"],
-  ["mint network error", async () => { throw new TypeError("fetch failed for jane.doe@example.com"); }, "kv_u1 (mint failed)"],
-]) await t("[S2/S3/S4/S8] " + name + " -> u1 fallback only (no legacy, no ?e=), working Worker link, no email in logs", async () => {
+  ["mint 503", async () => new Response('{"error":"temporary","email":"jane.doe@example.com"}', { status: 503 }), "mailto_only (mint 503)"],
+  ["mint 401", async () => new Response('{"error":"unauthorized"}', { status: 401 }), "mailto_only (mint 401)"],
+  ["mint bad token", async () => new Response(JSON.stringify({ token: "../../x?y=1" }), { status: 200 }), "mailto_only (mint bad token)"],
+  ["mint 20-char token (not the 24-char format)", async () => new Response(JSON.stringify({ token: "A".repeat(20) }), { status: 200 }), "mailto_only (mint bad token)"],
+  ["mint network error", async () => { throw new TypeError("fetch failed for jane.doe@example.com"); }, "mailto_only (mint failed)"],
+]) await t("[S2/S3/S4/S8] " + name + " -> mailto-only fallback + www page (no legacy, no ?e=), u1 record kept, no email in logs", async () => {
   calls.length = 0; const env = baseEnv({ ...LIVE, ...MINT });
   await withSB(fakeSupabase(handler), async () => {
     const rid = await submit(env, "jane.doe@example.com");
     const p = sentResultEmail(); assert.ok(p, "email sent");
-    const u = unsubFrom(p); assert.match(u, /^https:\/\/w\.example\/unsubscribe\?token=u1[A-Za-z0-9_-]{22}$/);
+    assertMailtoFallback(p, name);
     assert.ok(!/\?e=|&e=/.test(JSON.stringify(p)), "never ?e=");
-    noEmail(p, "u1 fallback");
-    assert.equal((await get(env, u)).status, 200, "fallback link works");
+    noEmail(p, "fallback");
+    const recs = [...env.SC.m.keys()].filter((k) => k.startsWith("ut:")); assert.equal(recs.length, 1, "u1 KV record kept for a later re-mint");
+    assert.equal((await get(env, "https://w.example/unsubscribe?" + "token=" + recs[0].slice(3))).status, 200, "kept u1 record still resolves on the Worker");
     const s = JSON.parse(env.SC.m.get("sub:" + rid)); assert.equal(s.unsub_via, via);
     assert.ok(!JSON.stringify(s.log || []).includes("temporary"), "mint error body never stored");
     const step = (s.log || []).find((l) => l.step === "resend_result_email"); assert.ok(step);
     assert.ok(!/jane\.doe|temporary|fetch failed/.test(JSON.stringify(step) + s.unsub_via), "mint error recorded as a fixed string only (no body, no email)");
   });
 });
-await t("[S2] mint hangs -> 3 s deadline, u1 fallback, email still sent", async () => {
+await t("[S2] mint hangs -> 3 s deadline, mailto-only fallback, email still sent", async () => {
   calls.length = 0; const env = baseEnv({ ...LIVE, ...MINT });
   await withSB(fakeSupabase((init) => new Promise((_, rej) => init.signal.addEventListener("abort", () => rej(init.signal.reason)))), async () => {
     const keep = setInterval(() => {}, 1000); // AbortSignal.timeout timers are unref'd in Node; keep the loop alive
     const t0 = Date.now(); const rid = await submit(env, "slow@example.com"); const ms = Date.now() - t0; clearInterval(keep);
     assert.ok(ms >= 2900 && ms < 4500, "took " + ms + " ms");
-    assert.ok(sentResultEmail(), "email sent");
-    assert.equal(JSON.parse(env.SC.m.get("sub:" + rid)).unsub_via, "kv_u1 (mint timeout)");
+    assert.ok(sentResultEmail(), "email sent"); assertMailtoFallback(sentResultEmail(), "timeout");
+    assert.equal(JSON.parse(env.SC.m.get("sub:" + rid)).unsub_via, "mailto_only (mint timeout)");
   });
 });
 await t("[S2] status check hangs after a fast mint -> same 3 s deadline total, email sent with the shared link", async () => {
@@ -177,12 +192,12 @@ await t("[S2] status check hangs after a fast mint -> same 3 s deadline total, e
     assert.ok(ms >= 2900 && ms < 4500, "took " + ms + " ms"); assert.match(unsubFrom(sentResultEmail()), /unsub\?id=/);
   });
 });
-await t("[S1] non-Supabase or other-project UNSUB_MINT_URL is refused (never called) -> u1", async () => {
+await t("[S1] non-Supabase or other-project UNSUB_MINT_URL is refused (never called) -> mailto-only fallback", async () => {
   for (const bad of ["https://evil.example/mint", "https://otherproj.supabase.co/functions/v1/cc-hooks/mint"]) {
     calls.length = 0; const env = baseEnv({ ...LIVE, UNSUB_MINT_URL: bad, UNSUB_MINT_TOKEN: "dummy" });
     await submit(env, "x@example.com");
     assert.ok(!calls.some((c) => c.url === bad), "token never sent to " + bad);
-    assert.match(unsubFrom(sentResultEmail()), /token=u1/);
+    assertMailtoFallback(sentResultEmail(), bad);
   }
 });
 await t("[S3] Worker resolver: strict regex per format; shared token GET -> 302 www page, no writes; junk 400", async () => {
@@ -209,7 +224,7 @@ await t("[S6] GET has no side effects on either path; one-click POST works on bo
     sb.used.clear(); assert.equal((await get(env, "https://w.example/unsubscribe?token=" + SBTOK, "POST")).status, 200); assert.ok(sb.used.has("jane.doe@example.com"));
   });
   // u1 path: GET page writes nothing, one-click POST (RFC 8058 body) unsubscribes
-  calls.length = 0; const env2 = baseEnv(LIVE); await submit(env2, "jane.doe@example.com"); const u = unsubFrom(sentResultEmail());
+  calls.length = 0; const env2 = baseEnv({ ...LIVE, ...U1 }); await submit(env2, "jane.doe@example.com"); const u = unsubFrom(sentResultEmail());
   const before = new Map(env2.SC.m); assert.equal((await get(env2, u)).status, 200); assert.deepEqual([...env2.SC.m.entries()], [...before.entries()]);
   const po = await worker.fetch(new Request(u, { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: "List-Unsubscribe=One-Click" }), env2, ctx());
   assert.equal(po.status, 200); assert.ok(env2.SC.m.get("unsub:jane.doe@example.com"));
@@ -237,7 +252,7 @@ await t("[S7] one unsubscribe stops both: shared unsubscribe -> held email is no
   });
 });
 await t("[S7] one unsubscribe stops both: Worker (u1) unsubscribe -> shared system suppressed too", async () => {
-  calls.length = 0; const env = baseEnv(LIVE); await submit(env, "jane.doe@example.com"); const u = unsubFrom(sentResultEmail()); // u1 email (mint not configured)
+  calls.length = 0; const env = baseEnv({ ...LIVE, ...U1 }); await submit(env, "jane.doe@example.com"); const u = unsubFrom(sentResultEmail()); // u1 email (mint not configured, custom UNSUB_BASE)
   Object.assign(env, MINT); const sb = fakeSupabase();
   await withSB(sb, async () => {
     assert.equal((await get(env, u, "POST")).status, 200);
@@ -246,7 +261,7 @@ await t("[S7] one unsubscribe stops both: Worker (u1) unsubscribe -> shared syst
     assert.match(env.SC.m.get("unsublog:jane.doe@example.com"), /"shared_unsubscribe","ok"/);
   });
   // switch off
-  const env3 = baseEnv({ ...LIVE }); await submit(env3, "jane.doe@example.com"); const u3 = unsubFrom(sentResultEmail()); Object.assign(env3, MINT, { UNSUB_SHARED_SYNC: "0" }); const sb3 = fakeSupabase();
+  const env3 = baseEnv({ ...LIVE, ...U1 }); await submit(env3, "jane.doe@example.com"); const u3 = unsubFrom(sentResultEmail()); Object.assign(env3, MINT, { UNSUB_SHARED_SYNC: "0" }); const sb3 = fakeSupabase();
   await withSB(sb3, async () => { await get(env3, u3, "POST"); assert.equal(sb3.writes, 0); });
 });
 await t("[S8] dry run and preview never mint or call Supabase", async () => {
@@ -258,5 +273,65 @@ await t("[S8] dry run and preview never mint or call Supabase", async () => {
   });
   const sbCalls = calls.filter((c) => c.url.includes("supabase.co"));
   assert.equal(sbCalls.filter((c) => c.url === MINT.UNSUB_MINT_URL).length, 1, "only the live consented submit minted: " + sbCalls.length);
+});
+// MINT-01 (L-2_Security review-0025-mint): production-like env (PUBLIC_BASE = the real workers.dev host, UNSUB_BASE unset).
+const PROD = { PUBLIC_BASE: "https://security-check-api.learningamazonfba.workers.dev" };
+const hang = (init) => new Promise((_, rej) => init.signal.addEventListener("abort", () => rej(init.signal.reason)));
+const unsubBodyLinks = (p) => [...p.html.matchAll(/<a href="([^"]+)">Unsubscribe<\/a>/g)].map((m) => m[1]).concat([...p.text.matchAll(/Unsubscribe \((https:[^)\s]+)\)/g)].map((m) => m[1]));
+const WD = /workers\.dev/i;
+await t("[MINT-01] mint failure and timeout (prod PUBLIC_BASE, no UNSUB_BASE) -> 0 workers.dev links in the headers and the unsubscribe body link", async () => {
+  const cases = [
+    ["mint 503", { ...MINT }, async () => new Response("{}", { status: 503 })],
+    ["mint 401", { ...MINT }, async () => new Response("{}", { status: 401 })],
+    ["mint bad token", { ...MINT }, async () => new Response(JSON.stringify({ token: "x" }), { status: 200 })],
+    ["mint network error", { ...MINT }, async () => { throw new TypeError("fetch failed"); }],
+    ["mint timeout", { ...MINT }, hang],
+    ["mint not configured", {}, null],
+    ["mint url refused", { UNSUB_MINT_URL: "https://evil.example/mint", UNSUB_MINT_TOKEN: "dummy" }, null],
+  ];
+  const keep = setInterval(() => {}, 1000);
+  try {
+    for (const [name, extra, handler] of cases) {
+      calls.length = 0; const env = baseEnv({ ...LIVE, ...PROD, ...extra });
+      await withSB(fakeSupabase(handler || undefined), async () => {
+        const rid = await submit(env, "jane.doe@example.com");
+        const p = sentResultEmail(); assert.ok(p, name + ": email sent");
+        assert.equal(Object.values(p.headers).filter((v) => WD.test(v)).length, 0, name + ": 0 workers.dev in headers");
+        const links = unsubBodyLinks(p); assert.equal(links.length, 2, name + ": html + text unsubscribe link");
+        assert.equal(links.filter((u) => WD.test(u)).length, 0, name + ": 0 workers.dev in the unsubscribe body link");
+        assert.deepEqual(links, [PAGE, PAGE], name + ": exactly the www page, no id");
+        assertMailtoFallback(p, name);
+        assert.match(JSON.parse(env.SC.m.get("sub:" + rid)).unsub_via, /^mailto_only \(/);
+      });
+    }
+  } finally { clearInterval(keep); }
+});
+await t("[MINT-01] UNSUB_BASE on a workers.dev host (or not https) is ignored -> still mailto-only", async () => {
+  for (const ub of ["https://security-check-api.learningamazonfba.workers.dev/unsubscribe", "https://x.WORKERS.DEV", "http://unsub.example/unsubscribe", "javascript:alert(1)"]) {
+    calls.length = 0; const env = baseEnv({ ...LIVE, ...PROD, ...MINT, UNSUB_BASE: ub });
+    await withSB(fakeSupabase(async () => new Response("{}", { status: 503 })), async () => {
+      await submit(env, "jane.doe@example.com"); const p = sentResultEmail();
+      assertMailtoFallback(p, ub); assert.ok(!WD.test(JSON.stringify(p.headers)) && !unsubBodyLinks(p).some((u) => WD.test(u)), ub);
+    });
+  }
+});
+await t("[MINT-01] success path unchanged (prod PUBLIC_BASE): www ?id=<24>&l=en body link, supabase.co one-click + Post header", async () => {
+  calls.length = 0; const env = baseEnv({ ...LIVE, ...PROD, ...MINT });
+  await withSB(fakeSupabase(), async () => {
+    await submit(env, "jane.doe@example.com"); const p = sentResultEmail();
+    assert.deepEqual(p.headers, { "List-Unsubscribe": MAILTO_LU + ", <" + SB_UNSUB + "?id=" + SBTOK + "&l=en&oc=1>", "List-Unsubscribe-Post": "List-Unsubscribe=One-Click" });
+    assert.deepEqual(unsubBodyLinks(p), [(PAGE + "?id=" + SBTOK + "&l=en").replace(/&/g, "&amp;"), PAGE + "?id=" + SBTOK + "&l=en"]);
+  });
+});
+await t("[MINT-01] held fallback email is stored and replayed mailto-only (no workers.dev)", async () => {
+  calls.length = 0; const env = baseEnv({ ...LIVE, ...PROD, ...MINT, LIVE_FOR: "admin@anthonytoday.com", TEST_TOKEN: "tt" });
+  await withSB(fakeSupabase(async () => new Response("{}", { status: 503 })), async () => {
+    const rid = await submit(env, "jane.doe@example.com");
+    assert.ok(env.SC.m.get("heldmail:" + rid), "held"); const stored = JSON.parse(env.SC.m.get("mail:" + rid)); assertMailtoFallback(stored, "stored");
+    env.LIVE_FOR = "all"; calls.length = 0;
+    env.SC.list = async ({ prefix }) => ({ keys: [...env.SC.m.keys()].filter((k) => k.startsWith(prefix)).map((name) => ({ name })) });
+    const r = await worker.fetch(new Request("https://w.example/admin/replay-held", { method: "POST", headers: { "X-Test-Token": "tt" } }), env, ctx());
+    assert.equal(r.status, 200); const p = sentResultEmail(); assert.ok(p, "replayed"); assertMailtoFallback(p, "replayed");
+  });
 });
 console.log(results.n + " passed");
