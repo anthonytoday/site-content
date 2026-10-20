@@ -7,6 +7,10 @@ name: Build gate
 on:
   push:
     branches: [main]
+  # Also gate pull requests into main, so a stale CSP hash (or any other gate
+  # failure) shows on the PR before the merge publishes it.
+  pull_request:
+    branches: [main]
   # Bot commits are made with GITHUB_TOKEN, which never fires push-triggered
   # workflows, so the gate also runs after each bot workflow completes. On a
   # workflow_run event the checkout below resolves to the head of main.
@@ -24,7 +28,8 @@ permissions:
   contents: read
 
 concurrency:
-  group: build-gate
+  # One group per PR, one for main, so a PR run never cancels a main run.
+  group: build-gate-${{ github.event.pull_request.number || 'main' }}
   cancel-in-progress: true
 
 jobs:
@@ -52,6 +57,20 @@ jobs:
       # inline script from the built HTML so that fails here instead.
       - name: Syntax-check inline scripts
         run: python3 .github/scripts/check-inline-js.py _site
+
+      # Pages with a meta Content-Security-Policy (/r/, /f/, /unsubscribe/)
+      # pin their inline <script> and <style> by sha256. Any edit without a
+      # recomputed pin would block the script on the live page, so a missing
+      # or stale pin fails here (Security Q10). The checker ships with the
+      # result pages (0033, on main). A missing checker fails the step, so a PR
+      # cannot pass by deleting or renaming it (Security BR-09).
+      - name: Check CSP hash pins
+        run: |
+          if [ ! -f .github/scripts/check-csp-hash.py ]; then
+            echo "::error::.github/scripts/check-csp-hash.py is missing"
+            exit 1
+          fi
+          python3 .github/scripts/check-csp-hash.py _site
 
       # PRIVATE_NAME is an optional repository secret. When set, the gate
       # asserts the private name appears nowhere outside the agreed
