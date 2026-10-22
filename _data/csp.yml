@@ -1,0 +1,8 @@
+# Enforcing meta Content-Security-Policy (patch 0057, L0 + Security PASS 22 Oct 2026).
+# Byte-identical to Security's csp/policy-final.txt (default) and csp/policy-final-beacon.txt (beacon),
+# minus "frame-ancestors 'none'; " because browsers ignore frame-ancestors in a meta CSP
+# (framing stays blocked by the X-Frame-Options: DENY header). The Cloudflare Report-Only header is unchanged.
+# beacon: used only on pages in _data/cf_analytics.yml pages (same rule as _includes/cf-analytics.html).
+# Emitted by _includes/csp-meta.html as the first element after <meta charset>. Never put " or & in these strings.
+default: "default-src 'self'; script-src 'self' 'unsafe-inline' https://app.cal.com; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'self' https://api.web3forms.com https://security-check-api.learningamazonfba.workers.dev https://offer-capture.learningamazonfba.workers.dev https://jzmglkzmqgojjnqxoytf.supabase.co; frame-src https://app.cal.com; worker-src 'none'; manifest-src 'self'; media-src 'none'; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+beacon: "default-src 'self'; script-src 'self' 'unsafe-inline' https://app.cal.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'self' https://cloudflareinsights.com https://api.web3forms.com https://security-check-api.learningamazonfba.workers.dev https://offer-capture.learningamazonfba.workers.dev https://jzmglkzmqgojjnqxoytf.supabase.co; frame-src https://app.cal.com; worker-src 'none'; manifest-src 'self'; media-src 'none'; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
