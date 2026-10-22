@@ -1,0 +1,39 @@
+---
+layout: null
+permalink: /go-fix-report/
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redirecting to secure checkout, $39</title>
+<link rel="canonical" href="https://www.anthonytoday.com/go-fix-report/">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<noscript><meta http-equiv="refresh" content="5; url=https://buy.stripe.com/28E6oJfmMbYh27h4Kt1ZS0x?utm_source=website&amp;utm_medium=security_check&amp;utm_campaign=fixlist"></noscript>
+<script>
+(function () {
+  // Allowlist every value that goes into the checkout URL (L-2_Security GFR-2). Nothing else from the query string is passed on.
+  var TARGET = "https://buy.stripe.com/28E6oJfmMbYh27h4Kt1ZS0x";
+  if (!/^https:\/\/buy\.stripe\.com\/[A-Za-z0-9]+$/.test(TARGET)) return;
+  var DEF = [["utm_source", "website"], ["utm_medium", "security_check"], ["utm_campaign", "fixlist"]];
+  var UTM = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+  var inq = new URLSearchParams(location.search), out = new URLSearchParams(), has = false;
+  var rid = inq.get("client_reference_id");
+  if (rid && /^r[0-9a-f]{24}$/.test(rid)) out.set("client_reference_id", rid);
+  UTM.forEach(function (k) { var v = inq.get(k); if (v && /^[A-Za-z0-9_.-]{1,64}$/.test(v)) { out.set(k, v); has = true; } });
+  if (!has) DEF.forEach(function (p) { out.set(p[0], p[1]); });
+  location.replace(TARGET + "?" + out.toString());
+})();
+</script>
+</head>
+<body>
+<p>Taking you to secure checkout, $39.</p>
+<noscript>
+<p><a href="https://buy.stripe.com/28E6oJfmMbYh27h4Kt1ZS0x?utm_source=website&amp;utm_medium=security_check&amp;utm_campaign=fixlist" rel="nofollow noopener noreferrer">Continue to secure checkout, $39</a></p>
+<p>Pay with the email you used for your Security Check. Your Fix Report arrives by email.</p>
+</noscript>
+</body>
+</html>
