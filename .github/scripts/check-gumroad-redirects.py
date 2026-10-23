@@ -85,7 +85,9 @@ if shop_html is not None:
     tags = re.findall(r'<script\b[^>]*gumroad\.com/js/gumroad\.js[^>]*>', shop_html)
     if tags != [GR_TAG[:-len('</script>')]] or GR_TAG not in shop_html:
         errs.append('/shop/: gumroad.js must be exactly one %s' % GR_TAG)
-    if re.search(r'<script\b[^>]*\bsrc="(?!https://gumroad\.com/js/gumroad\.js")', shop_html):
+    # The only other external script allowed is the Cloudflare Web Analytics beacon, which
+    # check-cf-analytics.py already pins (token and include list).
+    if re.search(r'<script\b[^>]*\bsrc="(?!https://gumroad\.com/js/gumroad\.js"|https://static\.cloudflareinsights\.com/beacon\.min\.js")', shop_html):
         errs.append('/shop/: loads a third-party or extra external script')
     for tag in re.findall(r'<a\b[^>]*>', shop_html):
         cls = re.search(r'\bclass="([^"]*)"', tag)
