@@ -11,6 +11,7 @@ Fails when:
   - (0057) a listed page lacks exactly one site-wide beacon CSP meta from _data/csp.yml
     (beacon key), or an unlisted page carries it. That one exact meta is the only meta
     CSP a listed page may have, and it is removed before the beacon checks above.
+    /shop/ is the one exception (SHOP60-01): it carries the shop key's policy instead.
 Usage: check-cf-analytics.py _site [repo_root]
 """
 import os, re, sys
@@ -28,11 +29,15 @@ OK_TAG = ('<script defer src="https://static.cloudflareinsights.com/beacon.min.j
           'data-cf-beacon=\'{"token": "%s"}\'>' % token)
 # 0057: the site-wide meta CSP. Only its exact beacon string is allowed on listed pages.
 CSP_TAG = None
+SHOP_CSP_TAG = None
 csp_path = os.path.join(root, '_data/csp.yml')
 if os.path.exists(csp_path):
     m = re.search(r'^beacon:\s*"([^"]+)"\s*$', open(csp_path, encoding='utf-8').read(), re.M)
     if m:
         CSP_TAG = '<meta http-equiv="Content-Security-Policy" content="%s">' % m.group(1)
+    m = re.search(r'^shop:\s*"([^"]+)"\s*$', open(csp_path, encoding='utf-8').read(), re.M)
+    if m:
+        SHOP_CSP_TAG = '<meta http-equiv="Content-Security-Policy" content="%s">' % m.group(1)
 errs = []
 if os.path.exists(csp_path) and not CSP_TAG:
     errs.append('_data/csp.yml has no beacon policy')
@@ -53,9 +58,10 @@ for dp, dn, fn in os.walk(site):
         html = open(path, encoding='utf-8', errors='replace').read()
         listed = url in pages
         if CSP_TAG and listed:
-            if html.count(CSP_TAG) != 1:
+            want = SHOP_CSP_TAG if (url == '/shop/' and SHOP_CSP_TAG) else CSP_TAG
+            if html.count(want) != 1:
                 errs.append('%s: listed page lacks exactly one site-wide beacon CSP meta' % url)
-            html = html.replace(CSP_TAG, '', 1)
+            html = html.replace(want, '', 1)
         tags = BEACON.findall(html)
         low = html.lower()
         mentions = low.count('cloudflareinsights')

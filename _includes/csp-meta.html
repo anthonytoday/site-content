@@ -1,4 +1,4 @@
-{%- comment -%} Enforcing CSP (0057). Must stay the first element after <meta charset>, before any script, style, link or preload. Beacon policy only on pages that get the Cloudflare beacon: the same condition as _includes/cf-analytics.html. Strings live in _data/csp.yml. {%- endcomment -%}
+{%- comment -%} Enforcing CSP (0057). Must stay the first element after <meta charset>, before any script, style, link or preload. Beacon policy only on pages that get the Cloudflare beacon: the same condition as _includes/cf-analytics.html. /shop/ (on-site shop, not the redirect stub) gets its own shop policy for the Gumroad overlay (SHOP60-01). Strings live in _data/csp.yml. {%- endcomment -%}
 {%- assign cfa = site.data.cf_analytics -%}
-{%- if cfa and cfa.token and cfa.token != "" and cfa.pages contains page.url -%}{%- assign csp_policy = site.data.csp.beacon -%}{%- else -%}{%- assign csp_policy = site.data.csp.default -%}{%- endif -%}
+{%- if page.url == "/shop/" and page.layout != "gumroad-redirect" and site.data.csp.shop -%}{%- assign csp_policy = site.data.csp.shop -%}{%- elsif cfa and cfa.token and cfa.token != "" and cfa.pages contains page.url -%}{%- assign csp_policy = site.data.csp.beacon -%}{%- else -%}{%- assign csp_policy = site.data.csp.default -%}{%- endif -%}
 <meta http-equiv="Content-Security-Policy" content="{{ csp_policy }}">
