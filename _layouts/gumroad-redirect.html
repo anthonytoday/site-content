@@ -4,6 +4,7 @@
 <html lang="en" data-dest="{{ dest | escape }}">
 <head>
 <meta charset="utf-8">
+{% include csp-meta.html %}
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-0VI4ki2YW8+6PLmm+tFvWItZlYN4WqTqQTGylb0+34Q='; base-uri 'none'; form-action 'none'">
 <title>Redirecting to {{ dest | escape }}</title>
 <link rel="canonical" href="{{ dest | escape }}">
