@@ -1,0 +1,418 @@
+# On-site shop (/shop/), 23 Oct 2026. One entry per live Gumroad product on store.anthonytoday.com.
+# Names, prices and links were read from the public store and product pages on 23 Oct 2026 (UAE)
+# and every product URL returned 200. Prices are what Gumroad shows a USD buyer; products priced
+# in CHF are converted by Gumroad at checkout, so the cents can drift with the exchange rate.
+# overlay: true  -> standard Gumroad page, opens in the gumroad.js overlay on /shop/.
+# overlay: false -> custom-HTML Gumroad page; Gumroad sends it with X-Frame-Options SAMEORIGIN, so it
+#                   cannot open in the overlay and opens on store.anthonytoday.com in a new tab instead.
+# Covers are the Gumroad square thumbnails, saved in assets/shop/ (never hotlinked).
+# Em dashes in Gumroad names are rewritten because house style forbids them.
+sections:
+  - id: notion-for-business
+    name: "Notion for Business"
+    intro: "Run clients, projects, properties and money from one workspace."
+    products:
+      - slug: "business-bundle-20x"
+        name: "All-In-One Business Bundle (20x)"
+        kind: notion
+        price: "$179"
+        free: false
+        overlay: false
+        cover: "/assets/shop/business-bundle-20x.webp"
+        blurb: "Twenty Notion business systems, one payment."
+      - slug: "Notion-business-dashboard"
+        name: "Ultimate Business Dashboard (Notion)"
+        kind: notion
+        price: "$120.27+"
+        free: false
+        overlay: true
+        cover: "/assets/shop/notion-business-dashboard.webp"
+        blurb: "Manage clients, projects, finances and more in one place. Set up in 5 minutes."
+      - slug: "property-operations-bundle"
+        name: "Property Operations Bundle: Airbnb, Portfolio and Expenses Templates"
+        kind: notion
+        price: "$79"
+        was: "$123"
+        free: false
+        overlay: true
+        cover: "/assets/shop/property-operations-bundle.webp"
+        blurb: "Run bookings, turnovers, properties, entities and tax-ready expenses from one workspace."
+      - slug: "Real-estate-portfolio-manager-dashboard"
+        name: "Real Estate Portfolio Manager Dashboard"
+        kind: notion
+        price: "$35.23+"
+        free: false
+        overlay: true
+        cover: "/assets/shop/real-estate-portfolio-manager-dashboard.webp"
+        blurb: "Track properties, LLCs, transactions and compliance deadlines in one portfolio dashboard."
+      - slug: "business-expenses-tracker"
+        name: "Business Expenses Tracker, Tax Ready"
+        kind: notion
+        price: "$18.22+"
+        free: false
+        overlay: true
+        cover: "/assets/shop/business-expenses-tracker.webp"
+        blurb: "Track every expense and subscription in one tax-ready dashboard."
+      - slug: "trading-journal"
+        name: "Trading Journal Like a Pro, Get Profitable"
+        kind: notion
+        price: "$39"
+        free: false
+        overlay: false
+        cover: "/assets/shop/trading-journal.webp"
+        blurb: "The Notion trading journal for swing traders."
+      - slug: "website-privacy-policy"
+        name: "Website Privacy Policy Be Compliant"
+        kind: notion
+        price: "$9"
+        free: false
+        overlay: false
+        cover: "/assets/shop/website-privacy-policy.webp"
+        blurb: "The plain-language Notion policy kit for site owners."
+      - slug: "real-estate-starter-pack"
+        name: "Real Estate Starter Pack"
+        kind: notion
+        price: "Free"
+        free: true
+        overlay: true
+        cover: "/assets/shop/real-estate-starter-pack.webp"
+        blurb: "For new investors and landlords: deals, properties, tenants, leases, cash flow and documents."
+      - slug: "notion-ops-audit"
+        name: "Notion Ops Audit (90 min)"
+        kind: service
+        price: "$197"
+        was: "$497"
+        free: false
+        overlay: true
+        cover: "/assets/shop/notion-ops-audit.webp"
+        blurb: "A 90-minute expert review of your Notion workspace: top risks, quickest wins and a clear action plan."
+  - id: exam-study-systems
+    name: "Exam Study Systems"
+    intro: "Complete Notion study systems for security, risk, project and finance certifications."
+    products:
+      - slug: "security-cert-bundle-7x"
+        name: "Certifications Exam Prep Bundle (7x Premium)"
+        kind: notion
+        price: "$147"
+        free: false
+        overlay: false
+        cover: "/assets/shop/security-cert-bundle-7x.webp"
+        blurb: "Seven Notion study systems, one purchase."
+      - slug: "cisa-cism-crisc-bundle"
+        name: "CISA, CISM and CRISC Study System Bundle"
+        kind: notion
+        price: "$79"
+        was: "$177"
+        free: false
+        overlay: true
+        cover: "/assets/shop/cisa-cism-crisc-bundle.webp"
+        blurb: "Three complete Notion study systems for CISA, CISM and CRISC."
+      - slug: "finance-cert-bundle-3x-premium"
+        name: "Finance Cert Bundle (3x)"
+        kind: notion
+        price: "$97"
+        free: false
+        overlay: false
+        cover: "/assets/shop/finance-cert-bundle-3x-premium.webp"
+        blurb: "CFA prep, CPA prep and the finance planner in one purchase."
+      - slug: "cissp-exam-prep"
+        name: "CISSP Exam Prep Master All Domains"
+        kind: notion
+        price: "$47"
+        free: false
+        overlay: false
+        cover: "/assets/shop/cissp-exam-prep.webp"
+        blurb: "The Notion study system for security professionals."
+      - slug: "crisc-exam-prep"
+        name: "CRISC Exam Complete Study System"
+        kind: notion
+        price: "$59"
+        free: false
+        overlay: false
+        cover: "/assets/shop/crisc-exam-prep.webp"
+        blurb: "The Notion study system for risk and controls professionals."
+      - slug: "pmp-exam-prep"
+        name: "PMP Exam Prep Pass the PMP Certification"
+        kind: notion
+        price: "$59"
+        free: false
+        overlay: false
+        cover: "/assets/shop/pmp-exam-prep.webp"
+        blurb: "The Notion study system for project managers with a booked exam date."
+      - slug: "cpa-exam-prep"
+        name: "CPA Exam Prep Complete Study System"
+        kind: notion
+        price: "$79"
+        free: false
+        overlay: false
+        cover: "/assets/shop/cpa-exam-prep.webp"
+        blurb: "The Notion study system for CPA candidates working through a review course."
+      - slug: "CFA-Exam-study-plan"
+        name: "CFA Exam Prep Study Plan (Notion)"
+        kind: notion
+        price: "Free or $71.68+"
+        free: false
+        overlay: true
+        cover: "/assets/shop/cfa-exam-study-plan.webp"
+        blurb: "Structure for all three CFA levels, readings and formulas."
+      - slug: "CPA-Exam-Study-Plan"
+        name: "CPA Exam Study Plan (Notion)"
+        kind: notion
+        price: "Free or $71.68+"
+        free: false
+        overlay: true
+        cover: "/assets/shop/cpa-exam-study-plan.webp"
+        blurb: "Plan your CPA sections and keep an overview of your study progress."
+      - slug: "pmp-pmi-study-plan"
+        name: "Study Plan for the PMP® Exam"
+        kind: notion
+        price: "Free or $54.67+"
+        free: false
+        overlay: true
+        cover: "/assets/shop/pmp-pmi-study-plan.webp"
+        blurb: "A structured study plan for the PMP exam, built in Notion."
+  - id: exam-flashcards
+    name: "Exam Flashcards"
+    intro: "Anki decks with practice questions for professional exams. Free sample or full deck."
+    products:
+      - slug: "olfnb"
+        name: "Exam Prep Flashcards for the CompTIA® Security+® Exam (Anki)"
+        kind: anki
+        price: "Free or $22.47"
+        free: false
+        overlay: true
+        cover: "/assets/shop/olfnb.webp"
+        blurb: "Build recall on every Security+ topic, one short review at a time."
+      - slug: "zgmejv"
+        name: "Exam Prep Flashcards for the ISC2 CISSP® Exam"
+        kind: anki
+        price: "Free or $26.73"
+        free: false
+        overlay: true
+        cover: "/assets/shop/zgmejv.webp"
+        blurb: "Flashcards and practice questions for the ISC2 CISSP exam."
+      - slug: "olyyvs"
+        name: "Exam Prep Flashcards for the ISACA CISM® Exam"
+        kind: anki
+        price: "Free or $26.73"
+        free: false
+        overlay: true
+        cover: "/assets/shop/olyyvs.webp"
+        blurb: "Flashcards and practice questions for the ISACA CISM exam."
+      - slug: "vbfyqp"
+        name: "Exam Prep Flashcards for the ISACA CISA® Exam"
+        kind: anki
+        price: "Free or $26.73"
+        free: false
+        overlay: true
+        cover: "/assets/shop/vbfyqp.webp"
+        blurb: "Flashcards and practice questions for the ISACA CISA exam."
+      - slug: "plmnyt"
+        name: "Exam Prep Flashcards for the ISACA CRISC® Exam"
+        kind: anki
+        price: "Free or $26.73"
+        free: false
+        overlay: true
+        cover: "/assets/shop/plmnyt.webp"
+        blurb: "Flashcards and practice questions for the ISACA CRISC exam."
+      - slug: "PMP-PMI-Flashcards"
+        name: "PMI PMP Exam Prep Flashcards (Anki)"
+        kind: anki
+        price: "Free or $36.45"
+        free: false
+        overlay: true
+        cover: "/assets/shop/pmp-pmi-flashcards.webp"
+        blurb: "Master every PMP topic and recall the critical details on exam day."
+      - slug: "cazwm"
+        name: "Bundle: CFA Level 1, 2, 3 Exam Prep Flashcards"
+        kind: anki
+        price: "$81.40+"
+        was: "$98.40"
+        free: false
+        overlay: true
+        cover: "/assets/shop/cazwm.webp"
+        blurb: "CFA Exam flashcards for Level I, Level II and Level III in one bundle."
+      - slug: "afwzv"
+        name: "CFA Level 1 Exam Prep Flashcards"
+        kind: anki
+        price: "Free or $32.80"
+        free: false
+        overlay: true
+        cover: "/assets/shop/afwzv.webp"
+        blurb: "Flashcards to prepare for the CFA Level 1 exam."
+      - slug: "rdthf"
+        name: "CFA Level 2 Exam Prep Flashcards"
+        kind: anki
+        price: "Free or $32.80"
+        free: false
+        overlay: true
+        cover: "/assets/shop/rdthf.webp"
+        blurb: "Flashcards to prepare for the CFA Level 2 exam."
+      - slug: "amptx"
+        name: "CFA Level 3 Exam Prep Flashcards"
+        kind: anki
+        price: "Free or $32.80"
+        free: false
+        overlay: true
+        cover: "/assets/shop/amptx.webp"
+        blurb: "Portfolio management, ethics and wealth planning for CFA Level 3."
+  - id: a-level-revision
+    name: "A Level Revision"
+    intro: "OCR and AQA A Level flashcards, plus a revision planner bundle."
+    products:
+      - slug: "arryk"
+        name: "Student Revision Pack Templates Bundle"
+        kind: pdf
+        price: "$8.50+"
+        free: false
+        overlay: true
+        cover: "/assets/shop/arryk.webp"
+        blurb: "Exam planner, weekly study planner and revision timetable templates in one bundle."
+      - slug: "hkqml"
+        name: "AQA Biology Exam Prep Flashcards"
+        kind: anki
+        price: "Free or $24.30"
+        free: false
+        overlay: true
+        cover: "/assets/shop/hkqml.webp"
+        blurb: "Flashcards for A Level Biology (AQA)."
+      - slug: "AQA-Chemistry-Flashcards"
+        name: "AQA Chemistry Exam Prep Flashcards"
+        kind: anki
+        price: "Free or $24.30"
+        free: false
+        overlay: true
+        cover: "/assets/shop/aqa-chemistry-flashcards.webp"
+        blurb: "Flashcards for A Level Chemistry (AQA)."
+      - slug: "AQA-Psychology-Flashcards"
+        name: "AQA Psychology Exam Prep Flashcards"
+        kind: anki
+        price: "Free or $24.30"
+        free: false
+        overlay: true
+        cover: "/assets/shop/aqa-psychology-flashcards.webp"
+        blurb: "Flashcards for A Level Psychology (AQA)."
+      - slug: "sgkgn"
+        name: "OCR Math Exam Prep Flashcards (Anki)"
+        kind: anki
+        price: "Free or $26.73"
+        free: false
+        overlay: true
+        cover: "/assets/shop/sgkgn.webp"
+        blurb: "Flashcards for the OCR Math exam."
+      - slug: "OCR-Computer-Science-Flashcards"
+        name: "OCR Computer Science Exam Prep Flashcards (Anki)"
+        kind: anki
+        price: "Free or $30.37"
+        free: false
+        overlay: true
+        cover: "/assets/shop/ocr-computer-science-flashcards.webp"
+        blurb: "Flashcards for the OCR Computer Science exam."
+      - slug: "OCR-Biology-Flashcards"
+        name: "OCR Biology Exam Prep Flashcards (Anki)"
+        kind: anki
+        price: "Free or $30.37"
+        free: false
+        overlay: true
+        cover: "/assets/shop/ocr-biology-flashcards.webp"
+        blurb: "Flashcards for the OCR Biology exam."
+      - slug: "OCR-Psychology-Flashcards"
+        name: "OCR Psychology Exam Prep Flashcards (Anki)"
+        kind: anki
+        price: "Free or $30.37"
+        free: false
+        overlay: true
+        cover: "/assets/shop/ocr-psychology-flashcards.webp"
+        blurb: "Flashcards for the OCR Psychology exam."
+      - slug: "OCR-physics-Flashcards"
+        name: "OCR Physics Exam Prep Flashcards (Anki)"
+        kind: anki
+        price: "Free or $30.37"
+        free: false
+        overlay: true
+        cover: "/assets/shop/ocr-physics-flashcards.webp"
+        blurb: "Flashcards for the OCR Physics exam."
+  - id: personal-and-languages
+    name: "Personal and Languages"
+    intro: "Notion templates for students, money and travel, and audio flashcards for languages."
+    products:
+      - slug: "ultimate-student-dashboard"
+        name: "Student Dashboard Ultimate (Notion)"
+        kind: notion
+        price: "$26.73+"
+        free: false
+        overlay: true
+        cover: "/assets/shop/ultimate-student-dashboard.webp"
+        blurb: "Stay organized, crush deadlines and balance study with life."
+      - slug: "personal-financial-tracker"
+        name: "Personal Financial Tracker (Notion)"
+        kind: notion
+        price: "Free or $25.51+"
+        free: false
+        overlay: true
+        cover: "/assets/shop/personal-financial-tracker.webp"
+        blurb: "See where your money goes, without scattered spreadsheets."
+      - slug: "Finance-tracker"
+        name: "Finance Tracker: Income and Expenses (Notion)"
+        kind: notion
+        price: "$8.50+"
+        free: false
+        overlay: true
+        cover: "/assets/shop/finance-tracker.webp"
+        blurb: "Register all your income and expenses in one place. Set up in 1 minute."
+      - slug: "ykdvx"
+        name: "Dream Travel Planner"
+        kind: notion
+        price: "Free or $20.65+"
+        free: false
+        overlay: true
+        cover: "/assets/shop/ykdvx.webp"
+        blurb: "Keep every travel detail in one place, from weekend getaways to long trips."
+      - slug: "event-page-notion-template"
+        name: "Event Planner [To Share with Your Guest] (Notion)"
+        kind: notion
+        price: "Free"
+        free: true
+        overlay: true
+        cover: "/assets/shop/event-page-notion-template.webp"
+        blurb: "Guest list, timeline and venue details in one page to share with your guests."
+      - slug: "sbnjn"
+        name: "Learn Chinese Vocabulary with Audio Flashcards"
+        kind: anki
+        price: "Free or $25.51"
+        free: false
+        overlay: true
+        cover: "/assets/shop/sbnjn.webp"
+        blurb: "23,500 illustrated flashcards with audio to master Simplified Chinese."
+      - slug: "gnbbcr"
+        name: "Learn Russian Vocabulary with Audio Flashcards"
+        kind: anki
+        price: "Free or $25.51"
+        free: false
+        overlay: true
+        cover: "/assets/shop/gnbbcr.webp"
+        blurb: "34,000 illustrated flashcards with audio to improve your Russian."
+      - slug: "akzpj"
+        name: "Learn Quran Vocabulary with Audio Flashcards"
+        kind: anki
+        price: "Free or $25.51"
+        free: false
+        overlay: true
+        cover: "/assets/shop/akzpj.webp"
+        blurb: "28,000 illustrated flashcards with audio to learn the Quran."
+      - slug: "seo-prompts-chat-gpt"
+        name: "100 SEO Prompts for ChatGPT (Notion)"
+        kind: notion
+        price: "Free"
+        free: true
+        overlay: true
+        cover: "/assets/shop/seo-prompts-chat-gpt.webp"
+        blurb: "A collection of tested ChatGPT prompts for your SEO."
+      - slug: "chatgpt-seo-prompts-Twitter-Creators"
+        name: "100 SEO Prompts for Twitter Creators (Notion)"
+        kind: notion
+        price: "Free"
+        free: true
+        overlay: true
+        cover: "/assets/shop/chatgpt-seo-prompts-twitter-creators.webp"
+        blurb: "Tested ChatGPT prompts for Twitter creators."

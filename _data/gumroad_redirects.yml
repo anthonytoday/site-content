@@ -7,9 +7,9 @@
 # 0048: /flashcards/ (store home: the store has no flashcards section or tag) and the 15
 # decks on the store, product URLs verified 200 and matching product names, 20 Oct 2026.
 # 0043b: 8 old template URLs mapped per L0 (2 EXACT, 6 LIKELY), 20 Oct 2026.
+# 23 Oct 2026: /shop/ removed from this list; it is a real on-site shop page again (_data/shop.yml).
 store: "https://store.anthonytoday.com/"
 pages:
-  "/shop/": "https://store.anthonytoday.com/"
   "/shop-preview/": "https://store.anthonytoday.com/"
   "/templates/": "https://store.anthonytoday.com/"
   "/templates/2026-planning/": "https://store.anthonytoday.com/"
