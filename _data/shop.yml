@@ -216,7 +216,7 @@ sections:
         cover: "/assets/shop/plmnyt.webp"
         blurb: "Flashcards and practice questions for the ISACA CRISC exam."
       - slug: "PMP-PMI-Flashcards"
-        name: "PMI PMP Exam Prep Flashcards - Anki"
+        name: "PMI PMP Exam Prep Flashcards (Anki)"
         kind: anki
         price: "Free or $36.45"
         free: false
@@ -293,7 +293,7 @@ sections:
         cover: "/assets/shop/aqa-psychology-flashcards.webp"
         blurb: "Flashcards for A Level Psychology (AQA)."
       - slug: "sgkgn"
-        name: "OCR Math Exam Prep Flashcards - Anki"
+        name: "OCR Math Exam Prep Flashcards (Anki)"
         kind: anki
         price: "Free or $26.73"
         free: false
@@ -353,7 +353,7 @@ sections:
         cover: "/assets/shop/personal-financial-tracker.webp"
         blurb: "See where your money goes, without scattered spreadsheets."
       - slug: "Finance-tracker"
-        name: "Finance Tracker - Income Expenses (Notion)"
+        name: "Finance Tracker: Income and Expenses (Notion)"
         kind: notion
         price: "$8.50+"
         free: false

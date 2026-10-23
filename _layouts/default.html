@@ -25,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{{ og_image | absolute_url }}">
 {%- for origin in page.preconnect %}
-<link rel="preconnect" href="{{ origin }}" crossorigin>
+<link rel="preconnect" href="{{ origin }}">
 <link rel="dns-prefetch" href="{{ origin }}">
 {%- endfor %}
 {%- comment -%} Preload the LCP image so it is discovered in the first HTML chunk {%- endcomment -%}
