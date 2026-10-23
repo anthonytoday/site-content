@@ -1,7 +1,118 @@
 ---
-layout: gumroad-redirect
-permalink: /shop/
-sitemap: false
-moved_text: "The shop is now on Gumroad:"
+layout: default
 title: "Shop | Anthony Today"
+description: "Notion templates, exam study systems and Anki flashcards. Checkout opens right on the page through Gumroad, so you can keep browsing."
+permalink: /shop/
+lang: en
+schema_type: "CollectionPage"
+bc_name: "Shop"
+css_bundle: /assets/css/b-7876f91e7a.css
+preconnect:
+  - https://gumroad.com
 ---
+{%- comment -%} 23 Oct 2026: /shop/ is a real shop page again (Anthony, 1:35 pm UAE), replacing the
+0043 forward to Gumroad. Product data lives in _data/shop.yml. Buy buttons on standard Gumroad pages
+open the official gumroad.js overlay, so buyers check out without leaving the site. Custom-HTML
+Gumroad pages refuse to be framed (X-Frame-Options SAMEORIGIN), so those open on the store in a new
+tab. gumroad.js is loaded without crossorigin: gumroad.com sends no CORS header (0041).
+.github/scripts/check-gumroad-redirects.py pins this tag and every buy URL. {%- endcomment -%}
+<script src="https://gumroad.com/js/gumroad.js" defer></script>
+<style>
+  .sh-hero { max-width: 1180px; margin: 0 auto; padding: 46px 20px 10px; text-align: center; }
+  .sh-hero h1 { font-size: 36px; font-weight: 600; line-height: 1.2; margin: 12px 0 14px; color: var(--navy); }
+  .sh-hero p { font-size: 16px; color: #5B6672; max-width: 640px; margin: 0 auto; }
+  .sh-nav { max-width: 1180px; margin: 0 auto; padding: 22px 20px 0; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .sh-nav a { border: 1px solid #D8DEE7; border-radius: 999px; padding: 8px 16px; font-size: 14px; font-weight: 500; color: var(--navy); text-decoration: none; background: #fff; }
+  .sh-nav a:hover, .sh-nav a:focus-visible { border-color: var(--blue); color: var(--blue); }
+  .sh-section { max-width: 1180px; margin: 0 auto; padding: 40px 20px 0; scroll-margin-top: 80px; }
+  .sh-section h2 { font-size: 24px; font-weight: 600; margin: 0 0 6px; color: var(--navy); }
+  .sh-section > p { color: #5B6672; margin: 0 0 20px; font-size: 15px; }
+  .sh-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 22px; }
+  .sh-card { background: #fff; border: 1px solid #E5E7EB; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
+  .sh-thumb { aspect-ratio: 1 / 1; background: #F5F5F5; border-bottom: 1px solid #E5E7EB; }
+  .sh-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .sh-body { padding: 14px 16px 16px; display: flex; flex-direction: column; flex: 1; }
+  .sh-kind { align-self: flex-start; font-size: 12px; font-weight: 600; color: var(--navy); border: 1px solid #D8DEE7; border-radius: 999px; padding: 2px 10px; margin-bottom: 10px; }
+  .sh-card h3 { font-size: 16px; font-weight: 600; line-height: 1.35; margin: 0 0 6px; color: var(--navy); }
+  .sh-card p { font-size: 14px; line-height: 1.5; color: #5B6672; margin: 0 0 14px; flex: 1; }
+  .sh-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  .sh-price { font-size: 15px; font-weight: 600; color: var(--navy); }
+  .sh-price s { font-weight: 400; color: #5B6672; margin-right: 6px; }
+  .sh-card a.sh-buy, .sh-card a.sh-buy.gumroad-button { display: inline-block; background: var(--blue) !important; color: #fff !important; text-decoration: none; font-size: 14px; font-weight: 600; font-family: inherit; line-height: 1.2; padding: 10px 16px; border: 0 !important; border-radius: 6px !important; box-shadow: none !important; height: auto; min-height: 0; margin: 0; }
+  .sh-card a.sh-buy:hover, .sh-card a.sh-buy:focus-visible { background: #1A3FA8 !important; }
+  .sh-card a.sh-buy .gumroad-button-logo, .sh-card a.sh-buy .logo-full { display: none !important; }
+  .sh-note { max-width: 1180px; margin: 0 auto; padding: 28px 20px 0; text-align: center; font-size: 13px; color: #5B6672; }
+  .sh-all { text-align: center; padding: 18px 20px 0; }
+  .sh-all a { color: var(--blue); font-weight: 600; text-decoration: underline; }
+  .sh-cta-wrap { max-width: 1180px; margin: 0 auto; padding: 40px 20px; }
+  .sh-cta { background: var(--navy); color: #fff; border-radius: 12px; padding: 44px 32px; text-align: center; }
+  .sh-cta h2 { color: #fff; font-size: 26px; font-weight: 600; margin: 0 0 8px; }
+  .sh-cta p { color: #C7CDD4; margin: 0 0 22px; }
+  .sh-cta p a { color: #fff; }
+  @media (max-width: 640px) {
+    .sh-hero { padding-top: 32px; }
+    .sh-hero h1 { font-size: 27px; }
+    .sh-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 12px !important; } /* beats the site-wide [class*="grid"] one-column rule */
+    .sh-body { padding: 10px 12px 12px; }
+    .sh-card h3 { font-size: 14px; }
+    .sh-card p { font-size: 13px; }
+    .sh-row { flex-direction: column; align-items: stretch; }
+    .sh-card a.sh-buy, .sh-card a.sh-buy.gumroad-button { text-align: center; }
+  }
+</style>
+
+<div class="sh-hero">
+  <div class="eyebrow">Shop</div>
+  <h1>Notion Templates, Study Systems and Flashcards</h1>
+  <p>Ready-made systems for your business, your exams and your life. Checkout opens right here through Gumroad, so you can keep browsing.</p>
+</div>
+
+<nav class="sh-nav" aria-label="Shop sections">
+{%- for s in site.data.shop.sections %}
+  <a href="#{{ s.id }}">{{ s.name }}</a>
+{%- endfor %}
+</nav>
+
+{%- assign utm = "utm_source=site&amp;utm_medium=shop" %}
+{%- for s in site.data.shop.sections %}
+
+<section class="sh-section" id="{{ s.id }}">
+  <h2>{{ s.name }}</h2>
+  <p>{{ s.intro }}</p>
+  <div class="sh-grid">
+  {%- for t in s.products %}
+    {%- if t.free -%}{%- assign label = "Get It Free" -%}{%- elsif t.price contains "Free or" -%}{%- assign label = "Get It" -%}{%- else -%}{%- assign label = "Buy Now" -%}{%- endif -%}
+    {%- if t.kind == "anki" -%}{%- assign kind = "Anki deck" -%}{%- elsif t.kind == "service" -%}{%- assign kind = "Service" -%}{%- elsif t.kind == "pdf" -%}{%- assign kind = "Printable planner" -%}{%- else -%}{%- assign kind = "Notion template" -%}{%- endif %}
+    <article class="sh-card">
+      <div class="sh-thumb"><img src="{{ t.cover }}" alt="{{ t.name | escape }}" width="480" height="480" loading="lazy" decoding="async"></div>
+      <div class="sh-body">
+        <span class="sh-kind">{{ kind }}</span>
+        <h3>{{ t.name | escape }}</h3>
+        <p>{{ t.blurb | escape }}</p>
+        <div class="sh-row">
+          <span class="sh-price">{% if t.was %}<s>{{ t.was }}</s>{% endif %}{{ t.price }}</span>
+          {%- if t.overlay %}
+          <a class="sh-buy gumroad-button" href="https://anthonytoday.gumroad.com/l/{{ t.slug }}?{{ utm }}">{{ label }}</a>
+          {%- else %}
+          <a class="sh-buy" href="https://store.anthonytoday.com/l/{{ t.slug }}?{{ utm }}" target="_blank" rel="noopener" aria-label="{{ label }}: {{ t.name | escape }} (opens Gumroad in a new tab)">{{ label }}</a>
+          {%- endif %}
+        </div>
+      </div>
+    </article>
+  {%- endfor %}
+  </div>
+</section>
+{%- endfor %}
+
+<p class="sh-note">Prices in USD as listed on Gumroad. Checkout shows the final amount in your currency, plus any tax.</p>
+<p class="sh-all"><a href="https://store.anthonytoday.com/?{{ utm }}">Browse the Full Store</a></p>
+
+<div class="sh-cta-wrap">
+  <div class="sh-cta">
+    <h2>Need It Built for You Instead?</h2>
+    <p><a href="/start/">Book a Free Strategy Call</a> and bring one real problem. You leave with a clear read on what to do next.</p>
+    <a class="btn" href="/notion/" style="width:auto">Notion Consulting</a>
+  </div>
+</div>
+
+{% include site-footer.html %}
