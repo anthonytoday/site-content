@@ -11,7 +11,7 @@ page:
   subtitle: 12 questions, about 3 minutes. No logins, links or screenshots needed.
   privacy: No workspace access, logins, page links or screenshots are collected.
   disclaimer: Self-check based on your answers. General guidance, not a formal audit.
-  consent: Email me my result and up to 3 follow-ups. Unsubscribe any time.
+  consent: Email me my result. Unsubscribe any time.
   gate_title: Your Result Is Ready
   gate_sub: Tell us where to send it. Your score shows on the next screen and lands in your inbox.
   result_note: Your full result is on its way to your inbox.
@@ -1227,7 +1227,7 @@ ui:
   gate.company: Company
   gate.company.helper: Shown on your result page.
   gate.country: Country
-  gate.consent: Email me my result and up to 3 follow-ups. Unsubscribe any time.
+  gate.consent: Email me my result. Unsubscribe any time.
   gate.submit_button: Show My Result
   result.industry: What best describes your business?
   result.industry.helper: Optional.
