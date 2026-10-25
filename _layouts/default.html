@@ -121,7 +121,12 @@
    "inLanguage":"{{ locale }}",
    "isPartOf":{"@id":"https://www.anthonytoday.com/#website"},
    "about":{"@id":"https://www.anthonytoday.com/#business"},
+   {%- comment -%}ProfilePage (home): Google reads mainEntity and does not recognize author (GSC, first seen 19 Sep 2026).{%- endcomment -%}
+   {%- if page.schema_type == "ProfilePage" %}
+   "mainEntity":{"@id":"https://www.anthonytoday.com/#anthony"},
+   {%- else %}
    "author":{"@id":"https://www.anthonytoday.com/#anthony"},
+   {%- endif %}
    "publisher":{"@id":"https://www.anthonytoday.com/#business"},
    "primaryImageOfPage":"https://www.anthonytoday.com/assets/brand/anthony-profile.webp"
    {%- if page.template_id -%}
