@@ -2,6 +2,10 @@ name: Extract Etsy listing images
 
 on:
   push:
+    # main only. Path filters are not evaluated for tag pushes, so without
+    # this every backup tag push ran the job on a detached HEAD and failed
+    # at git pull --rebase ("You are not currently on a branch").
+    branches: [main]
     paths:
       - assets/etsy/listings.json
   workflow_dispatch:

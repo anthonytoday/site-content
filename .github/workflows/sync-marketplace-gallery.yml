@@ -5,6 +5,10 @@ name: Sync Notion Marketplace gallery
 # through the built-in GITHUB_TOKEN so no credential is stored anywhere.
 on:
   push:
+    # main only. Path filters are not evaluated for tag pushes, so without
+    # this every backup tag push ran the job on a detached HEAD and failed
+    # at git pull --rebase ("You are not currently on a branch").
+    branches: [main]
     paths:
       - '.github/scripts/sync_marketplace_gallery.py'
       - '.github/workflows/sync-marketplace-gallery.yml'
