@@ -8,8 +8,7 @@ alt_url: /fr/fractional-notion-admin/
 schema_type: "WebPage"
 bc_name: "Fractional Notion Admin"
 css_bundle: /assets/css/b-af6ac5fc74.css
-noindex: true
-sitemap: false
+# 25 Oct 2026: indexable. The noindex came from the retired CaaS page (12 Sep) and was never meant for the live FNA offer.
 ---
 
 {% if page.lang == "fr" %}{% assign p = "/fr" %}{% else %}{% assign p = "" %}{% endif %}{% comment %}Retainer name: single source _data/security_check.yml offers.caas.name (front matter title, bc_name and permalink stay literal: Jekyll does not render Liquid there; scripts/swap-retainer-name.sh updates them).{% endcomment %}{% assign rn = site.data.security_check.offers.caas.name %}{% assign rn_first = rn | split: " " | first %}{% assign rn_rest = rn | remove_first: rn_first | strip %}{% assign page_abs = page.url | absolute_url %}
