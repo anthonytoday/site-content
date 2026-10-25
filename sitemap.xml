@@ -3,24 +3,22 @@ layout: null
 permalink: /sitemap.xml
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- comment -%}
+  Every indexable page with an explicit permalink. A page is left out when it sets
+  sitemap: false or noindex: true. English only since 13 Oct 2026: /fr/ is not built
+  and Cloudflare 301s it to English, so no hreflang alternates are listed (they pointed
+  at redirects). No lastmod: the build date on every URL told Google nothing.
+{%- endcomment -%}
 {%- assign pages = site.pages | where_exp: "p", "p.permalink" | sort: "permalink" -%}
 {%- for p in pages -%}
 {%- if p.permalink contains ".xml" or p.permalink contains ".txt" -%}{%- continue -%}{%- endif -%}
-{%- if p.sitemap == false -%}{%- continue -%}{%- endif -%}
-{%- if p.lang == "fr" -%}{%- assign en = p.alt_url -%}{%- assign fr = p.permalink -%}
-{%- else -%}{%- assign en = p.permalink -%}{%- assign fr = p.alt_url -%}{%- endif -%}
+{%- if p.sitemap == false or p.noindex -%}{%- continue -%}{%- endif -%}
+{%- if p.lang == "fr" or p.permalink contains "/fr/" -%}{%- continue -%}{%- endif %}
   <url>
     <loc>{{ p.permalink | absolute_url }}</loc>
-    <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
-{%- if en and fr %}
-    <xhtml:link rel="alternate" hreflang="en" href="{{ en | absolute_url }}"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="{{ fr | absolute_url }}"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="{{ en | absolute_url }}"/>
-{%- endif %}
-    <changefreq>{% if p.permalink == "/" or p.permalink == "/fr/" %}weekly{% else %}monthly{% endif %}</changefreq>
-    <priority>{% if p.permalink == "/" %}1.0{% elsif p.permalink == "/notion/" or p.permalink == "/start/" %}0.9{% elsif p.permalink == "/fr/" %}0.9{% elsif p.lang == "fr" %}0.7{% else %}0.8{% endif %}</priority>
+    <changefreq>{% if p.permalink == "/" %}weekly{% else %}monthly{% endif %}</changefreq>
+    <priority>{% if p.permalink == "/" %}1.0{% elsif p.permalink == "/notion/" %}0.9{% else %}0.8{% endif %}</priority>
   </url>
 {%- endfor %}
 </urlset>
