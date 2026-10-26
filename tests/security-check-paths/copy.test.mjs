@@ -67,7 +67,7 @@ for (const [name, kind] of [["free-result", "free"], ["fixlist", "fixlist"]]) {
   const summ = lines.find((l) => /It sits at Level/.test(l)); console.log("   " + name + " summary: " + summ);
 
   if (kind === "fixlist") { ok(!/2,970|Annual:/.test(all), "fixlist: no annual line (annual removed)");
-    ok(lines.some((l) => /^\$490\/mo founding rate.*then \$990\/mo\. Cancel any time\./.test(l)), "fixlist: Cancel any time on the monthly line only"); ok((all.match(/Cancel any time/g) || []).length === 1, "fixlist: Cancel any time appears once"); }
+    ok(lines.some((l) => l.startsWith("$990/month. Launch offer: $490/month for your first 3 months if you start by 30 Nov 2026, then $990/month. Cancel any month, 30-day refund.")), "fixlist: FNA price line ($990/month, launch offer $490/month x 3 months by 30 Nov 2026)"); ok((all.match(/Cancel any month, 30-day refund/g) || []).length === 1, "fixlist: cancel line appears once"); ok(!/first 5 clients|founding rate for/i.test(all), "fixlist: no 'first 5 clients' or 'founding rate'"); }
 
 }
 // /f/: a repeated step block shows once; later items point back by number.
