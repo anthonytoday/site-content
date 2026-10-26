@@ -1,0 +1,4 @@
+{%- comment -%}FNA launch offer window. Ends 1 Dec 2026 00:00 UAE = 2026-11-30T20:00:00Z (epoch 1796068800). Any build after that omits the launch offer. site.fna_launch_test_now (unset in production) lets a test build fake the clock.{%- endcomment -%}
+{%- assign fna_cutoff = 1796068800 -%}
+{%- assign fna_now = site.fna_launch_test_now | default: site.time | date: "%s" | plus: 0 -%}
+{%- if fna_now < fna_cutoff -%}{%- assign fna_launch_live = true -%}{%- else -%}{%- assign fna_launch_live = false -%}{%- endif -%}
