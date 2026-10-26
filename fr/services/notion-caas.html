@@ -22,7 +22,7 @@ sitemap: false
 <h1>Fractional Notion Admin</h1>
 <p class="sub">Demandez ce que vous voulez. <b>Demandes illimitées, un tarif unique,</b> et un espace de travail qui suit le rythme de votre activité au lieu de prendre du retard.</p>
 <div class="xpr"><span class="n">990 $</span><span class="u">/ mois, résiliable chaque mois</span></div>
-{% if fna_launch_live %}<div class="xlaunch" data-expires="2026-11-30T20:00:00Z"><p>Offre de lancement : 490 $/mois pour vos 3 premiers mois si vous commencez avant le 30 nov. 2026, puis 990 $/mois. Remboursement intégral sous 30 jours.</p><a class="xlb" href="https://buy.stripe.com/5kQ5kF0rS5zTfY74Kt1ZS0B?utm_source=website&amp;utm_medium=fna_page&amp;utm_campaign=fna_founding">Commencer à 490 $ &rarr;</a></div>{% endif %}
+{% if fna_launch_live %}<div class="xlaunch" data-expires="2026-11-30T20:00:00Z"><p>Offre de lancement : 490 $/mois pour vos 3 premiers mois si vous commencez au plus tard le 30 nov. 2026, puis 990 $/mois. Remboursement intégral sous 30 jours.</p>{% if site.fna_launch_url and site.fna_launch_url != "" %}<a class="xlb" href="{{ site.fna_launch_url | escape }}{% if site.fna_launch_url contains "?" %}&amp;{% else %}?{% endif %}lang=fr">Commencer à 490 $ &rarr;</a>{% endif %}</div>{% endif %}
 <div><a class="xbtn" href="#price">Commencer &rarr;</a></div>
 <div class="fine">Remboursé 30 jours &middot; résiliable à tout moment &middot; sans engagement</div>
 <div class="xtrust">
@@ -90,8 +90,8 @@ sitemap: false
 <div class="xpcard">
 <div class="xamt">990 $<i> / mois</i></div>
 <div class="xalt">Mensuel sans engagement, résiliable chaque mois.</div>
-<a class="xbtn" href="https://buy.stripe.com/dRm9AV0rS2nH3bl4Kt1ZS0A?utm_source=website&amp;utm_medium=fna_page&amp;utm_campaign=fna_standard">Commencer &middot; 990 $ par mois &rarr;</a>
-{% if fna_launch_live %}<div class="xlaunch" data-expires="2026-11-30T20:00:00Z"><p>Offre de lancement : 490 $/mois pour vos 3 premiers mois si vous commencez avant le 30 nov. 2026, puis 990 $/mois. Remboursement intégral sous 30 jours.</p><a class="xlb" href="https://buy.stripe.com/5kQ5kF0rS5zTfY74Kt1ZS0B?utm_source=website&amp;utm_medium=fna_page&amp;utm_campaign=fna_founding">Commencer à 490 $ &rarr;</a></div>{% endif %}
+<a class="xbtn" href="{{ site.fna_standard_url }}?utm_source=website&amp;utm_medium=fna_page&amp;utm_campaign=fna_standard">Commencer &middot; 990 $ par mois &rarr;</a>
+{% if fna_launch_live %}<div class="xlaunch" data-expires="2026-11-30T20:00:00Z"><p>Offre de lancement : 490 $/mois pour vos 3 premiers mois si vous commencez au plus tard le 30 nov. 2026, puis 990 $/mois. Remboursement intégral sous 30 jours.</p>{% if site.fna_launch_url and site.fna_launch_url != "" %}<a class="xlb" href="{{ site.fna_launch_url | escape }}{% if site.fna_launch_url contains "?" %}&amp;{% else %}?{% endif %}lang=fr">Commencer à 490 $ &rarr;</a>{% endif %}</div>{% endif %}
 </div>
 <ul class="xgt">
 <li><div class="n">1</div><div>
@@ -113,8 +113,8 @@ sitemap: false
 <style>.faq .w details{border:1px solid #E5E7EB;border-radius:10px;padding:12px 16px;margin:10px 0;background:#fff}.faq .w summary{cursor:pointer;font-weight:600;color:#051C2C;font-size:16px;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.faq .w summary::-webkit-details-marker{display:none}.faq .w summary::after{content:"+";flex-shrink:0;color:#2251FF;font-weight:600}.faq .w details[open] summary::after{content:"\2212"}.faq .w details p{margin:10px 0 0;color:#6B7280;font-size:15px;line-height:1.65}.faq .w h2{font-size:26px;margin:0 0 14px}.xgt h3{font-size:16.5px;font-weight:640;margin:4px 0 5px;color:#fff}.xh h1{font-size:clamp(27px,5vw,62px);max-width:none}.xlaunch{max-width:560px;margin:0 auto 22px;background:#EEF2FF;border:1px solid #DBE3FF;border-radius:12px;padding:14px 18px;text-align:center}.xlaunch p{margin:0;font-size:14.5px;line-height:1.5;color:var(--nv)}.xlaunch .xlb{display:inline-block;margin-top:10px;background:#fff;border:1px solid var(--bl);color:var(--bl);font-size:14px;font-weight:640;padding:8px 18px;border-radius:8px;text-decoration:none}.xlaunch .xlb:hover{background:var(--bl);color:#fff}.xpcard .xlaunch{margin:16px 0 0}.xcl .xlaunch{margin:22px auto 0}</style>
 <section class="faq" style="padding-top:0"><div class="w">
   <h2>Questions</h2>
-  <details><summary>Qu'est-ce que Fractional Notion Admin ?</summary><p>Un support Notion permanent sous forme d'abonnement mensuel plutôt qu'un projet ponctuel. Un Notion Certified Consultant dispose d'un accès à votre espace, répond aux questions de votre équipe, corrige ce qui casse, construit les évolutions et revoit chaque mois les permissions et la santé de l'espace. 990 $ par mois.{% if fna_launch_live %}<span data-expires="2026-11-30T20:00:00Z"> Offre de lancement : 490 $/mois pour vos 3 premiers mois si vous commencez avant le 30 nov. 2026, puis 990 $/mois.</span>{% endif %}</p></details>
-  <details><summary>Combien coûte un consultant Notion ?</summary><p>Un expert Notion facture généralement 150 à 250 $ de l'heure, et les abonnements Notion se situent souvent entre 500 et 2 000 $ par mois. Cette offre est à 990 $ par mois.{% if fna_launch_live %}<span data-expires="2026-11-30T20:00:00Z"> Offre de lancement : 490 $/mois pour vos 3 premiers mois si vous commencez avant le 30 nov. 2026, puis 990 $/mois.</span>{% endif %} Elle inclut des demandes illimitées plutôt qu'un forfait d'heures.</p></details>
+  <details><summary>Qu'est-ce que Fractional Notion Admin ?</summary><p>Un support Notion permanent sous forme d'abonnement mensuel plutôt qu'un projet ponctuel. Un Notion Certified Consultant dispose d'un accès à votre espace, répond aux questions de votre équipe, corrige ce qui casse, construit les évolutions et revoit chaque mois les permissions et la santé de l'espace. 990 $ par mois.{% if fna_launch_live %}<span data-expires="2026-11-30T20:00:00Z"> Offre de lancement : 490 $/mois pour vos 3 premiers mois si vous commencez au plus tard le 30 nov. 2026, puis 990 $/mois.</span>{% endif %}</p></details>
+  <details><summary>Combien coûte un consultant Notion ?</summary><p>Un expert Notion facture généralement 150 à 250 $ de l'heure, et les abonnements Notion se situent souvent entre 500 et 2 000 $ par mois. Cette offre est à 990 $ par mois.{% if fna_launch_live %}<span data-expires="2026-11-30T20:00:00Z"> Offre de lancement : 490 $/mois pour vos 3 premiers mois si vous commencez au plus tard le 30 nov. 2026, puis 990 $/mois.</span>{% endif %} Elle inclut des demandes illimitées plutôt qu'un forfait d'heures.</p></details>
   <details><summary>Puis-je engager un expert Notion au mois plutôt qu'au projet ?</summary><p>Oui. Le mode projet implique de payer un cadrage à chaque changement. Un support mensuel signifie que le consultant connaît déjà votre espace : les petites évolutions ne coûtent rien et les projets plus lourds coûtent environ 40 % de moins que le tarif standard.</p></details>
   <details><summary>Que fait un consultant Notion certifié ?</summary><p>Architecture d'espace de travail, conception des bases de données et des relations, automatisations Notion, migrations depuis d'autres outils, modèles d'accès et de permissions, formation des équipes, et maintenance continue de l'espace à mesure que l'activité évolue.</p></details>
 </div></section>
@@ -122,8 +122,8 @@ sitemap: false
 <div class="w">
 <h2>Ne soyez plus la seule personne capable de réparer</h2>
 <p>Deux clics pour m’ajouter à votre espace. Votre équipe est couverte dès aujourd’hui.</p>
-<a class="xbtn" href="https://buy.stripe.com/dRm9AV0rS2nH3bl4Kt1ZS0A?utm_source=website&amp;utm_medium=fna_page&amp;utm_campaign=fna_standard">Commencer &middot; 990 $ par mois &rarr;</a>
-{% if fna_launch_live %}<div class="xlaunch" data-expires="2026-11-30T20:00:00Z"><p>Offre de lancement : 490 $/mois pour vos 3 premiers mois si vous commencez avant le 30 nov. 2026, puis 990 $/mois. Remboursement intégral sous 30 jours.</p><a class="xlb" href="https://buy.stripe.com/5kQ5kF0rS5zTfY74Kt1ZS0B?utm_source=website&amp;utm_medium=fna_page&amp;utm_campaign=fna_founding">Commencer à 490 $ &rarr;</a></div>{% endif %}
+<a class="xbtn" href="{{ site.fna_standard_url }}?utm_source=website&amp;utm_medium=fna_page&amp;utm_campaign=fna_standard">Commencer &middot; 990 $ par mois &rarr;</a>
+{% if fna_launch_live %}<div class="xlaunch" data-expires="2026-11-30T20:00:00Z"><p>Offre de lancement : 490 $/mois pour vos 3 premiers mois si vous commencez au plus tard le 30 nov. 2026, puis 990 $/mois. Remboursement intégral sous 30 jours.</p>{% if site.fna_launch_url and site.fna_launch_url != "" %}<a class="xlb" href="{{ site.fna_launch_url | escape }}{% if site.fna_launch_url contains "?" %}&amp;{% else %}?{% endif %}lang=fr">Commencer à 490 $ &rarr;</a>{% endif %}</div>{% endif %}
 <div class="scar"><b>Dix clients à la fois,</b> car au-delà, la réponse sous un jour ouvré cesse d’être vraie.</div>
 </div>
 </div>
@@ -144,7 +144,7 @@ sitemap: false
     "Gestion d'espace de travail Notion"
    ],
    "serviceType": "Conseil Notion, support Notion permanent et gestion d'espace de travail",
-   "description": "Un Notion Certified Consultant disponible en continu. Demandes illimitées, un espace de demandes partagé pour votre équipe, une revue mensuelle de l'espace et des permissions, et des projets Notion chiffrés à prix ferme. 990 $ par mois.{% if fna_launch_live %} Offre de lancement : 490 $/mois pour vos 3 premiers mois si vous commencez avant le 30 nov. 2026, puis 990 $/mois.{% endif %}",
+   "description": "Un Notion Certified Consultant disponible en continu. Demandes illimitées, un espace de demandes partagé pour votre équipe, une revue mensuelle de l'espace et des permissions, et des projets Notion chiffrés à prix ferme. 990 $ par mois.{% if fna_launch_live %} Offre de lancement : 490 $/mois pour vos 3 premiers mois si vous commencez au plus tard le 30 nov. 2026, puis 990 $/mois.{% endif %}",
    "url": "https://www.anthonytoday.com/fr/fractional-notion-admin/",
    "provider": {
     "@id": "https://www.anthonytoday.com/#business"
@@ -179,7 +179,7 @@ sitemap: false
      "priceValidUntil": "2026-11-30",
      "priceSpecification": {"@type": "UnitPriceSpecification", "price": "490", "priceCurrency": "USD", "unitCode": "MON", "unitText": "mois"},
      "availability": "https://schema.org/LimitedAvailability",
-     "description": "490 $/mois pour vos 3 premiers mois si vous commencez avant le 30 nov. 2026, puis 990 $/mois. Remboursement intégral sous 30 jours."
+     "description": "490 $/mois pour vos 3 premiers mois si vous commencez au plus tard le 30 nov. 2026, puis 990 $/mois. Remboursement intégral sous 30 jours."
     }{% endif %}
    ],
    "hasOfferCatalog": {
@@ -240,7 +240,7 @@ sitemap: false
      "name": "Qu'est-ce que Fractional Notion Admin ?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Un support Notion permanent sous forme d'abonnement mensuel plutôt qu'un projet ponctuel. Un Notion Certified Consultant dispose d'un accès à votre espace, répond aux questions de votre équipe, corrige ce qui casse, construit les évolutions et revoit chaque mois les permissions et la santé de l'espace. 990 $ par mois.{% if fna_launch_live %} Offre de lancement : 490 $/mois pour vos 3 premiers mois si vous commencez avant le 30 nov. 2026, puis 990 $/mois.{% endif %}"
+      "text": "Un support Notion permanent sous forme d'abonnement mensuel plutôt qu'un projet ponctuel. Un Notion Certified Consultant dispose d'un accès à votre espace, répond aux questions de votre équipe, corrige ce qui casse, construit les évolutions et revoit chaque mois les permissions et la santé de l'espace. 990 $ par mois.{% if fna_launch_live %} Offre de lancement : 490 $/mois pour vos 3 premiers mois si vous commencez au plus tard le 30 nov. 2026, puis 990 $/mois.{% endif %}"
      }
     },
     {
@@ -248,7 +248,7 @@ sitemap: false
      "name": "Combien coûte un consultant Notion ?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Un expert Notion facture généralement 150 à 250 $ de l'heure, et les abonnements Notion se situent souvent entre 500 et 2 000 $ par mois. Cette offre est à 990 $ par mois.{% if fna_launch_live %} Offre de lancement : 490 $/mois pour vos 3 premiers mois si vous commencez avant le 30 nov. 2026, puis 990 $/mois.{% endif %} Elle inclut des demandes illimitées plutôt qu'un forfait d'heures."
+      "text": "Un expert Notion facture généralement 150 à 250 $ de l'heure, et les abonnements Notion se situent souvent entre 500 et 2 000 $ par mois. Cette offre est à 990 $ par mois.{% if fna_launch_live %} Offre de lancement : 490 $/mois pour vos 3 premiers mois si vous commencez au plus tard le 30 nov. 2026, puis 990 $/mois.{% endif %} Elle inclut des demandes illimitées plutôt qu'un forfait d'heures."
      }
     },
     {

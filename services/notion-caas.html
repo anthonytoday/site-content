@@ -23,7 +23,7 @@ css_bundle: /assets/css/b-af6ac5fc74.css
     <p class="sub">Ask for help any week. <b>A set monthly scope, one flat price,</b> and a workspace
        that keeps up with your business instead of falling behind it.</p>
     <div class="xpr"><span class="n">$990</span><span class="u">/ month, cancel any month</span></div>
-    {% if fna_launch_live %}<div class="xlaunch" data-expires="2026-11-30T20:00:00Z"><p>Launch offer: $490/month for your first 3 months if you start by 30 Nov 2026, then $990/month. Full refund inside 30 days.</p><a class="xlb" href="https://buy.stripe.com/5kQ5kF0rS5zTfY74Kt1ZS0B?utm_source=website&amp;utm_medium=fna_page&amp;utm_campaign=fna_founding">Start at $490 &rarr;</a></div>{% endif %}
+    {% if fna_launch_live %}<div class="xlaunch" data-expires="2026-11-30T20:00:00Z"><p>Launch offer: $490/month for your first 3 months if you start by 30 Nov 2026, then $990/month. Full refund inside 30 days.</p>{% if site.fna_launch_url and site.fna_launch_url != "" %}<a class="xlb" href="{{ site.fna_launch_url | escape }}">Start at $490 &rarr;</a>{% endif %}</div>{% endif %}
     <div><a class="xbtn" href="#price">Start Now &rarr;</a></div>
     <div class="fine">30-day full refund &middot; cancel any time &middot; no contract</div>
     <div class="xtrust">
@@ -94,8 +94,8 @@ css_bundle: /assets/css/b-af6ac5fc74.css
         <div class="xpcard">
           <div class="xamt">$990<i> / month</i></div>
           <div class="xalt">Rolling monthly. Cancel any month.</div>
-          <a class="xbtn" href="https://buy.stripe.com/dRm9AV0rS2nH3bl4Kt1ZS0A?utm_source=website&amp;utm_medium=fna_page&amp;utm_campaign=fna_standard">Start Now &middot; $990 a Month &rarr;</a>
-          {% if fna_launch_live %}<div class="xlaunch" data-expires="2026-11-30T20:00:00Z"><p>Launch offer: $490/month for your first 3 months if you start by 30 Nov 2026, then $990/month. Full refund inside 30 days.</p><a class="xlb" href="https://buy.stripe.com/5kQ5kF0rS5zTfY74Kt1ZS0B?utm_source=website&amp;utm_medium=fna_page&amp;utm_campaign=fna_founding">Start at $490 &rarr;</a></div>{% endif %}
+          <a class="xbtn" href="{{ site.fna_standard_url }}?utm_source=website&amp;utm_medium=fna_page&amp;utm_campaign=fna_standard">Start Now &middot; $990 a Month &rarr;</a>
+          {% if fna_launch_live %}<div class="xlaunch" data-expires="2026-11-30T20:00:00Z"><p>Launch offer: $490/month for your first 3 months if you start by 30 Nov 2026, then $990/month. Full refund inside 30 days.</p>{% if site.fna_launch_url and site.fna_launch_url != "" %}<a class="xlb" href="{{ site.fna_launch_url | escape }}">Start at $490 &rarr;</a>{% endif %}</div>{% endif %}
         </div>
         <ul class="xgt">
           <li><div class="n">1</div><div>
@@ -125,8 +125,8 @@ css_bundle: /assets/css/b-af6ac5fc74.css
   <div class="w">
     <h2>Stop Being the Only Person Who Can Fix It</h2>
     <p>Two clicks to add me to your workspace. Your team is covered from today.</p>
-    <a class="xbtn" href="https://buy.stripe.com/dRm9AV0rS2nH3bl4Kt1ZS0A?utm_source=website&amp;utm_medium=fna_page&amp;utm_campaign=fna_standard">Start Now &middot; $990 a Month &rarr;</a>
-    {% if fna_launch_live %}<div class="xlaunch" data-expires="2026-11-30T20:00:00Z"><p>Launch offer: $490/month for your first 3 months if you start by 30 Nov 2026, then $990/month. Full refund inside 30 days.</p><a class="xlb" href="https://buy.stripe.com/5kQ5kF0rS5zTfY74Kt1ZS0B?utm_source=website&amp;utm_medium=fna_page&amp;utm_campaign=fna_founding">Start at $490 &rarr;</a></div>{% endif %}
+    <a class="xbtn" href="{{ site.fna_standard_url }}?utm_source=website&amp;utm_medium=fna_page&amp;utm_campaign=fna_standard">Start Now &middot; $990 a Month &rarr;</a>
+    {% if fna_launch_live %}<div class="xlaunch" data-expires="2026-11-30T20:00:00Z"><p>Launch offer: $490/month for your first 3 months if you start by 30 Nov 2026, then $990/month. Full refund inside 30 days.</p>{% if site.fna_launch_url and site.fna_launch_url != "" %}<a class="xlb" href="{{ site.fna_launch_url | escape }}">Start at $490 &rarr;</a>{% endif %}</div>{% endif %}
     <div class="scar"><b>Ten clients at a time,</b> because a one-business-day reply stops being true past that.</div>
   </div>
 </div>
