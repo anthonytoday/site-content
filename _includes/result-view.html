@@ -9,7 +9,7 @@ Never delete or rename these pages: links in sent emails point here (fix forward
 {%- endcomment -%}
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-JjbxNY5QvHEYXNKzOt3Wnx2THyLHdG02BMO+c6J19pI='; style-src 'sha256-wMyPDgRSjYkkqGHrf5b6Q09ModN3/d1nTv5gNstMYb0='; connect-src {{ site.security_check_api }} {{ site.security_check_sb_origin }}; img-src 'self' https://www.anthonytoday.com; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-+zjma5N1uuVp+KxvbSVifPpRUJzD+Js7S+liLi+aLX8='; style-src 'sha256-wMyPDgRSjYkkqGHrf5b6Q09ModN3/d1nTv5gNstMYb0='; connect-src {{ site.security_check_api }} {{ site.security_check_sb_origin }}; img-src 'self' https://www.anthonytoday.com; form-action 'none'; base-uri 'none'">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">
 <title>{% if include.kind == "f" %}Your Fix List{% else %}Your Security Check Result{% endif %} | AnthonyToday</title>
@@ -51,7 +51,7 @@ Never delete or rename these pages: links in sent emails point here (fix forward
   // href allowlist (Security BR-02; BR-07: wa.me and LinkedIn pinned to the one number and profile the Worker emits). A link that fails is kept as plain text (href removed).
   var HOSTS={'www.anthonytoday.com':1,'anthonytoday.com':1,'wa.me':3,'www.linkedin.com':4,'www.notion.com':2,'notion.com':2};
   // Stripe: the whole href must equal one of these plus this page's own id, nothing more (the Worker adds client_reference_id).
-  var SB='https://buy.stripe.com/', STRIPE=[SB+'28E6oJfmMbYh27h4Kt1ZS0x?client_reference_id=',SB+'6oUcN7fmMgex6nxa4N1ZS0y?client_reference_id=',SB+'5kQ5kF0rS5zTfY74Kt1ZS0B?client_reference_id=',SB+'dRm9AV0rS2nH3bl4Kt1ZS0A?client_reference_id=',
+  var SB='https://buy.stripe.com/', STRIPE=[SB+'28E6oJfmMbYh27h4Kt1ZS0x?client_reference_id=',SB+'6oUcN7fmMgex6nxa4N1ZS0y?client_reference_id=',SB+'dRm9AV0rS2nH3bl4Kt1ZS0A?client_reference_id=',
     SB+'cNiaEZ3E4bYhbHR90J1ZS0z?utm_source=security_check&utm_medium=fixlist&utm_campaign=foundation_standard&client_reference_id=',SB+'cNi5kF1vW5zT8vFa4N1ZS0C?utm_source=security_check&utm_medium=fixlist&utm_campaign=foundation_founding&client_reference_id='];
   function hrefOk(v){
     if(/^mailto:/i.test(v))return /^mailto:[A-Za-z0-9._+-]+@anthonytoday\.com$/.test(v);

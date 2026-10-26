@@ -217,7 +217,7 @@ Items are ordered by impact, so the first ones close your biggest risk: \{\{risk
 </tr>
 </table>
 - **Special Offer:** 
-	- \$490/mo founding rate for the first 5 clients, then \$990/mo. Cancel any time. [Start Fractional Notion Admin](https://buy.stripe.com/5kQ5kF0rS5zTfY74Kt1ZS0B) 
+	- \$990/month. Launch offer: \$490/month for your first 3 months if you start by 30 Nov 2026, then \$990/month. Cancel any month, 30-day refund. [Start Fractional Notion Admin](https://www.anthonytoday.com/checkout/fna-launch) 
 <empty-block/>
 <span color="gray">Self-check based on your answers. General guidance, not a formal audit.</span>
 ---
