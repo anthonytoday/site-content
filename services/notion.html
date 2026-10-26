@@ -66,6 +66,7 @@ no_offer_popup: true
   .nfp .proof-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center;margin-top:36px;padding:32px 36px;border:1px solid var(--border);border-radius:14px;background:#F7F9FF}
   .nfp .proof-row blockquote{font-size:19px;font-weight:500;color:var(--navy);line-height:1.5;margin:0 0 10px}
   .nfp .proof-row cite{font-size:13.5px;color:var(--text-gray);font-style:normal}
+  .nfp .proof-row--seals{grid-template-columns:1fr;justify-items:center}
   .nfp .seals{display:flex;gap:18px;align-items:center}
   .nfp .seals .seal{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;cursor:default}
   .nfp .seals img{width:64px;height:64px;object-fit:contain}
@@ -217,11 +218,7 @@ no_offer_popup: true
     </div>
   </div>
 
-    <div class="proof-row">
-      <div>
-        <blockquote>"Anthony understood exactly what I needed within minutes and built a clean, connected system I can actually run myself."</blockquote>
-        <cite>Client review, Notion Marketplace, 4.92 out of 5</cite>
-      </div>
+    <div class="proof-row proof-row--seals">
       <div class="seals">
         <span class="seal"><img src="/assets/logos/certified-notion-consultant.webp" alt="Notion Certified Consultant badge" width="201" height="201" loading="lazy" decoding="async"><span>Certified Consultant</span></span>
         <span class="seal"><img src="/assets/brand/notion-certified-admin.webp" alt="Notion Certified Admin badge" width="256" height="256" loading="lazy" decoding="async"><span>Certified Admin</span></span>
