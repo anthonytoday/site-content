@@ -42,7 +42,7 @@ RATE_PER_IP_HOUR = "20"
 MIGRATE_EH = "run-2026-10-20"
 
 [triggers]
-crons = ["*/5 * * * *"]
+crons = []
 
 # Secrets (wrangler secret put): SIGNING_KEY, TEST_TOKEN (set), NOTION_TOKEN, NOTION_CRM_DB_ID, RESEND_API_KEY,
 # STRIPE_WEBHOOK_SECRET, SUPABASE_URL + SUPABASE_SERVICE_KEY (set, not used yet), optional CC_INGEST_URL + CC_INGEST_TOKEN (Command Center / Supabase insert endpoint).
