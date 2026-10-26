@@ -33,6 +33,16 @@ export const REWRITES = [
   ["$347/mo founding rate for the first 5 clients, then $490/mo. ", COPY.fna_price + " " + COPY.monthly_cancel + " "],
   ["$490/mo founding rate for the first 5 clients, then $990/mo. ", COPY.fna_price + " " + COPY.monthly_cancel + " "],
 ];
+// Link swaps (exact URL, or the same URL with a query string), applied to template links before tokens are filled.
+// FNA (26 Oct 2026): the old $490/month Payment Link billed $490 forever; the launch offer checkout lives on anthonytoday.com.
+export const LINK_REWRITES = [
+  ["https://buy.stripe.com/5kQ5kF0rS5zTfY74Kt1ZS0B", "https://www.anthonytoday.com/checkout/fna-launch"],
+];
+export function rewriteUrl(u) {
+  if (!u) return u;
+  for (const [a, b] of LINK_REWRITES) if (u === a || u.startsWith(a + "?")) return b + u.slice(a.length);
+  return u;
+}
 // Exported for tests. ids are question ids in Q1 to Q12 order.
 export function goodShapeSentence(ids) {
   const L = ids.map((id) => COPY.question_labels[id]);

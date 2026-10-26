@@ -70,6 +70,11 @@ for (const [name, kind] of [["free-result", "free"], ["fixlist", "fixlist"]]) {
     ok(lines.some((l) => l.startsWith("$990/month. Launch offer: $490/month for your first 3 months if you start by 30 Nov 2026, then $990/month. Cancel any month, 30-day refund.")), "fixlist: FNA price line ($990/month, launch offer $490/month x 3 months by 30 Nov 2026)"); ok((all.match(/Cancel any month, 30-day refund/g) || []).length === 1, "fixlist: cancel line appears once"); ok(!/first 5 clients|founding rate for/i.test(all), "fixlist: no 'first 5 clients' or 'founding rate'"); }
 
 }
+// Live Notion template still links the old $490 Payment Link: the link swap (copy.js LINK_REWRITES) sends it to /checkout/fna-launch.
+{ const blocks = JSON.parse(fs.readFileSync(W + "templates/notion-fixlist.blocks.json", "utf8").split("https://www.anthonytoday.com/checkout/fna-launch").join("https://buy.stripe.com/5kQ5kF0rS5zTfY74Kt1ZS0B"));
+  const { T } = tok(base, "11-24", "fixlist"); const s = JSON.stringify(transform(blocks, T));
+  ok(!s.includes("5kQ5kF0rS5zTfY74Kt1ZS0B"), "fixlist: old $490 Payment Link swapped out");
+  ok(s.includes('"url":"https://www.anthonytoday.com/checkout/fna-launch"'), "fixlist: Start Fractional Notion Admin -> /checkout/fna-launch (no client_reference_id)"); }
 // /f/: a repeated step block shows once; later items point back by number.
 { const { r, sub } = tok(base, "11-24", "fixlist"); const rows = actionRows(data, r, sub.paid_at, sub.plan); const h = renderActionPlan(rows, fmtRange);
   const hows = rows.map((x) => x.how); const dup = hows.length - new Set(hows).size;
