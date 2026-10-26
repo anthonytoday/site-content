@@ -39,6 +39,8 @@
 {%- if _ld.cover -%}{%- assign _lss = site.data.cover_srcset[_ld.cover] -%}
 <link rel="preload" as="image" href="{{ _ld.cover }}"{% if _lss %} imagesrcset="{{ _lss }}" imagesizes="(max-width:900px) 100vw, 590px"{% endif %} fetchpriority="high">
 {%- endif -%}
+{%- elsif page.lcp_image_avif -%}
+<link rel="preload" as="image" href="{{ page.lcp_image_avif }}" type="image/avif" fetchpriority="high">
 {%- elsif page.lcp_image -%}
 <link rel="preload" as="image" href="{{ page.lcp_image }}" fetchpriority="high">
 {%- endif %}
