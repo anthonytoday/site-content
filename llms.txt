@@ -19,7 +19,7 @@ Two practices, each on one page. Every engagement starts when you Book a Free St
 
 - [Ultimate Notion Guide](https://www.anthonytoday.com/guide/): beginner-to-pro guide covering pages, blocks, databases, automations, formulas, sharing and pricing.
 - [Top 10 Notion Questions](https://www.anthonytoday.com/notion/challenges/): the ten questions clients ask most, each with the answer and a template to start from. French version: https://www.anthonytoday.com/fr/notion/challenges/
-- [Client use case](https://www.anthonytoday.com/use-case/): an engagement walkthrough, from audit to results.
+- [Composite example](https://www.anthonytoday.com/use-case/): an illustrative Notion governance walkthrough, from audit to results, based on common client situations, not a real client. Its figures are illustrative.
 
 ## Notion templates catalog
 

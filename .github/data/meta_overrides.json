@@ -36,7 +36,7 @@
   "/fr/privacy/": "Quelles données anthonytoday.com collecte, pourquoi, combien de temps elles sont conservées, et comment les faire supprimer. En clair, sans remplissage.",
   "/fr/start/": "Six questions, environ deux minutes. Si le Build Notion en 10 jours vous correspond, vous recevrez un lien de réservation. Sinon je vous le dirai.",
   "/fr/tools/": "La stack logicielle derrière l'activité de conseil, avec des notes honnêtes sur ce qui mérite sa place, ce qui a été écarté, et ce que cela coûte.",
-  "/fr/use-case/": "Des missions réelles en sécurité, en conformité et en déploiement d'espaces Notion. Le problème de départ, ce qui a été construit, ce qui a changé.",
+  "/fr/use-case/": "Un exemple composite de revue de gouvernance Notion, construit à partir de situations clients courantes, pas un vrai client. Constats, actions et chiffres illustratifs.",
   "/fractional-ciso/": "Senior security leadership on a fractional basis. Board reporting, roadmap ownership and audit defence, without the cost of a full time hire.",
   "/guide/": "Long form guides on security operations, compliance and building systems that hold up under audit. Written from live engagements, not from theory.",
   "/notion-for-real-estate/": "Notion for real estate investment, development and property firms. Deals, documents and reporting in one place. USD 15,000, working in 10 days.",
@@ -46,7 +46,7 @@
   "/privacy/": "What anthonytoday.com collects, why it is collected, how long it is kept, and how to have your data removed. Plain language, no legal padding.",
   "/shop/help/": "Delivery, refunds and setup for the Notion templates and the Anki flashcard decks, in one place. How to duplicate a template and how to import a deck.",
   "/tools/": "The software stack behind the consulting practice, with honest notes on what earns its place, what got cut, and what each one actually costs.",
-  "/use-case/": "Real engagements across security, compliance and Notion workspace delivery. What the problem was, what got built, and what changed afterwards."
+  "/use-case/": "A composite example of a Notion governance review, based on common client situations, not a real client. Illustrative findings, fixes and figures."
  },
  "title": {
   "/fr/investor-ready-sprint/": "Investor-Ready Sprint | Notion pour l'immobilier",
