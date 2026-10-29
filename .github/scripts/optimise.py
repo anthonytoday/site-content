@@ -275,6 +275,12 @@ def job_css():
     for p in walk(".", (".html",)):
         t = read(p)
         used.update(re.findall(r"/assets/css/([A-Za-z0-9._-]+\.css)", t))
+    # Keep the bundle build inputs too: no page links them, but
+    # _css/build_core_bundle.py reads BASE_SRC (assets/css/b-3788e0251b.css)
+    # to regenerate the core bundle, so deleting it breaks that rebuild.
+    builder = "_css/build_core_bundle.py"
+    if os.path.exists(builder):
+        used.update(re.findall(r"assets/css/([A-Za-z0-9._-]+\.css)", read(builder)))
     removed = freed = 0
     for f in sorted(os.listdir("assets/css")):
         if f in used:
