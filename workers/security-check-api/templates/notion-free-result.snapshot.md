@@ -165,6 +165,6 @@ We checked how \{\{#if company\}\}\{\{company\}\}'s Notion workspace\{\{else\}\}
 ---
 <span color="gray">Self-check based on your answers. General guidance, not a formal audit.</span>
 ---
-Prepared by Anthony, Tech Consulting, [www.anthonytoday.com](https://www.anthonytoday.com)
+Prepared by Anthony, Notion Certified Consultant, [www.anthonytoday.com](https://www.anthonytoday.com)
 </content>
 </page>
