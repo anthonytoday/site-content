@@ -12,10 +12,10 @@ preconnect:
   - https://gumroad.com
 ---
 {%- comment -%} 23 Oct 2026: /shop/ is a real shop page again (Anthony, 1:35 pm UAE), replacing the
-0043 forward to Gumroad. Product data lives in _data/shop.yml. Buy buttons on standard Gumroad pages
-open the official gumroad.js overlay, so buyers check out without leaving the site. Custom-HTML
-Gumroad pages refuse to be framed (X-Frame-Options SAMEORIGIN), so those open on the store in a new
-tab. gumroad.js is loaded without crossorigin: gumroad.com sends no CORS header (0041).
+0043 forward to Gumroad. Product data lives in _data/shop.yml. Buy buttons open the official
+gumroad.js overlay, so buyers check out without leaving the site. 5 Nov 2026: every listed product
+uses the overlay again (Gumroad dropped X-Frame-Options on the former new-tab pages). gumroad.js is
+loaded without crossorigin: gumroad.com sends no CORS header (0041).
 .github/scripts/check-gumroad-redirects.py pins this tag and every buy URL. {%- endcomment -%}
 <script src="https://gumroad.com/js/gumroad.js" defer></script>
 <style>
