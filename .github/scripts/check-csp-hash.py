@@ -118,4 +118,45 @@ def check_policy(rel, text, csp, failures):
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    code = main()
+    sys.stdout.flush()
+    sys.stderr.flush()
+    # 0061: also run the CSP sync check from this step so CI enforces the
+    # Cloudflare header artefact even when .github/workflows/ cannot be edited
+    # (GH_SITE_ADMIN_TOKEN lacks the workflow scope). Dedicated CI step text:
+    # security/build-gate-csp-sync-step.yml.fragment.
+    if code == 0:
+        import subprocess
+        sync = os.path.join(os.path.dirname(__file__), "check-csp-sync.py")
+        header = os.path.join(ROOT, "security", "csp-header.txt")
+        yml = os.path.join(ROOT, "_data", "csp.yml")
+        if os.path.isfile(sync) and os.path.isfile(header) and os.path.isfile(yml):
+            # Prefer regenerating to a temp file and comparing when generate script exists.
+            gen = os.path.join(os.path.dirname(__file__), "generate-csp-header.py")
+            if os.path.isfile(gen):
+                import tempfile
+                fd, tmp = tempfile.mkstemp(prefix="csp-header-", suffix=".txt")
+                os.close(fd)
+                try:
+                    r = subprocess.run([sys.executable, gen, yml, tmp], check=False)
+                    if r.returncode != 0:
+                        code = r.returncode
+                    else:
+                        with open(header, "rb") as a, open(tmp, "rb") as b:
+                            if a.read() != b.read():
+                                print("csp-hash: ERROR: security/csp-header.txt is stale; run generate-csp-header.py and commit", file=sys.stderr)
+                                code = 1
+                finally:
+                    try: os.remove(tmp)
+                    except OSError: pass
+            if code == 0:
+                r = subprocess.run([sys.executable, sync, SITE, yml, header], check=False)
+                code = r.returncode
+        elif not os.path.isfile(sync):
+            # BR-09: once 0061 lands, the sync checker must exist.
+            print("csp-hash: ERROR: .github/scripts/check-csp-sync.py is missing", file=sys.stderr)
+            code = 1
+        elif not os.path.isfile(header):
+            print("csp-hash: ERROR: security/csp-header.txt is missing", file=sys.stderr)
+            code = 1
+    sys.exit(code)
