@@ -7,7 +7,8 @@ Fails when:
   - a listed page is not built, or a built redirect page (html data-dest) is not listed;
   - data-dest, canonical, the noscript meta refresh and the visible link differ from the
     listed destination, or the refresh/link carries a query string;
-  - the page's meta CSP is not exactly the one inline-script hash, or the inline script
+  - the page's meta CSPs are not exactly two: first the site-wide default from
+    _data/csp.yml (0057), then exactly the one inline-script hash; or the inline script
     differs from _includes/gumroad-redirect.js;
   - any built page other than /shop/ loads gumroad.js, or /shop/ loads it other than as the one
     pinned tag (exact src, no crossorigin or integrity; gumroad.com sends no CORS header);
@@ -27,6 +28,8 @@ STORE = re.search(r'^store:\s*"([^"]+)"', cfg, re.M).group(1)
 pages = dict(re.findall(r'^\s+"(/[^"]*)":\s*"([^"]+)"\s*$', cfg, re.M))
 js = open(os.path.join(root, '_includes/gumroad-redirect.js'), encoding='utf-8').read()
 pin = 'sha256-' + base64.b64encode(hashlib.sha256(js.encode()).digest()).decode()
+csp_cfg = open(os.path.join(root, '_data/csp.yml'), encoding='utf-8').read()
+SITE_CSP = re.search(r'^default:\s*"([^"]+)"\s*$', csp_cfg, re.M).group(1)
 OK = re.compile(r'^https://store\.anthonytoday\.com/(l/[A-Za-z0-9_-]+)?$')
 errs = []
 if STORE != 'https://store.anthonytoday.com/':
@@ -74,9 +77,9 @@ for url, (dest, s) in sorted(built.items()):
         errs.append('%s: noscript meta refresh must be exactly the fixed URL' % url)
     if [html.unescape(x) for x in links] != [want]:
         errs.append('%s: visible link must be exactly the fixed URL' % url)
-    csp = re.search(r'<meta http-equiv="Content-Security-Policy" content="([^"]*)"', s)
-    if not csp or html.unescape(csp.group(1)) != "default-src 'none'; script-src '%s'; base-uri 'none'; form-action 'none'" % pin:
-        errs.append('%s: CSP is not exactly the one pinned script hash' % url)
+    csps = [html.unescape(x) for x in re.findall(r'<meta http-equiv="Content-Security-Policy" content="([^"]*)"', s)]
+    if csps != [SITE_CSP, "default-src 'none'; script-src '%s'; base-uri 'none'; form-action 'none'" % pin]:
+        errs.append('%s: CSPs are not exactly the site-wide default then the one pinned script hash' % url)
     scripts = re.findall(r'<script\b[^>]*>(.*?)</script>', s, re.S)
     if scripts != [js]:
         errs.append('%s: inline script differs from _includes/gumroad-redirect.js' % url)
