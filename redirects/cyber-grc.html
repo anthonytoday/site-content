@@ -7,6 +7,8 @@ sitemap: false
 <html lang="en">
 <head>
 <meta charset="utf-8">
+{% include csp-meta.html %}
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-A+lMSHPUs+OsgRwy7nwzrc6zVMdfZR6AGzgt2iqbIXk='; base-uri 'none'; form-action 'none'">
 <title>Redirecting to /cyber/</title>
 <link rel="canonical" href="https://www.anthonytoday.com/cyber/">
 <meta name="robots" content="noindex, follow">

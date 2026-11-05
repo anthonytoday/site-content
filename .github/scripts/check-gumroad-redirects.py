@@ -88,10 +88,13 @@ if shop_html is not None:
     tags = re.findall(r'<script\b[^>]*gumroad\.com/js/gumroad\.js[^>]*>', shop_html)
     if tags != [GR_TAG[:-len('</script>')]] or GR_TAG not in shop_html:
         errs.append('/shop/: gumroad.js must be exactly one %s' % GR_TAG)
-    # Collect every <script src>, double-, single- or un-quoted. The only external scripts
-    # allowed are gumroad.js and the Cloudflare Web Analytics beacon (check-cf-analytics.py
-    # pins its token and include list).
-    SCRIPT_OK = {'https://gumroad.com/js/gumroad.js', 'https://static.cloudflareinsights.com/beacon.min.js'}
+    # Collect every <script src>, double-, single- or un-quoted. Allowed external scripts: gumroad.js, the Cloudflare Web Analytics beacon
+    # (check-cf-analytics.py), and same-origin /assets/js/site-ui.js (0058).
+    SCRIPT_OK = {
+        'https://gumroad.com/js/gumroad.js',
+        'https://static.cloudflareinsights.com/beacon.min.js',
+        '/assets/js/site-ui.js',  # 0058: nav + img error handlers (same-origin)
+    }
     for stag in re.findall(r'<script\b[^>]*>', shop_html, re.I):
         for m in re.finditer(r'\bsrc\s*=\s*(?:"([^"]*)"|\'([^\']*)\'|([^\s>]+))', stag, re.I):
             src = html.unescape(m.group(1) if m.group(1) is not None else m.group(2) if m.group(2) is not None else m.group(3)).strip()
