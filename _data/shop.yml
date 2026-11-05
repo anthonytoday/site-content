@@ -2,9 +2,10 @@
 # Names, prices and links were read from the public store and product pages on 23 Oct 2026 (UAE)
 # and every product URL returned 200. Prices are what Gumroad shows a USD buyer; products priced
 # in CHF are converted by Gumroad at checkout, so the cents can drift with the exchange rate.
-# overlay: true  -> standard Gumroad page, opens in the gumroad.js overlay on /shop/.
-# overlay: false -> custom-HTML Gumroad page; Gumroad sends it with X-Frame-Options SAMEORIGIN, so it
-#                   cannot open in the overlay and opens on store.anthonytoday.com in a new tab instead.
+# overlay: true  -> opens in the gumroad.js overlay on /shop/ (buyers stay on anthonytoday.com).
+# overlay: true -> reserved if a product again refuses framing; opens store.anthonytoday.com in a new tab.
+# 5 Nov 2026: Gumroad no longer sends X-Frame-Options on these custom pages; all 9 former new-tab
+# products iframe and overlay cleanly via anthonytoday.gumroad.com, so they are overlay: true again.
 # Covers are the Gumroad square thumbnails, saved in assets/shop/ (never hotlinked).
 # Em dashes in Gumroad names are rewritten because house style forbids them.
 sections:
@@ -17,7 +18,7 @@ sections:
         kind: notion
         price: "$179"
         free: false
-        overlay: false
+        overlay: true
         cover: "/assets/shop/business-bundle-20x.webp"
         blurb: "Twenty Notion business systems, one payment."
       - slug: "Notion-business-dashboard"
@@ -58,7 +59,7 @@ sections:
         kind: notion
         price: "$39"
         free: false
-        overlay: false
+        overlay: true
         cover: "/assets/shop/trading-journal.webp"
         blurb: "The Notion trading journal for swing traders."
       - slug: "website-privacy-policy"
@@ -66,7 +67,7 @@ sections:
         kind: notion
         price: "$9"
         free: false
-        overlay: false
+        overlay: true
         cover: "/assets/shop/website-privacy-policy.webp"
         blurb: "The plain-language Notion policy kit for site owners."
       - slug: "real-estate-starter-pack"
@@ -95,7 +96,7 @@ sections:
         kind: notion
         price: "$147"
         free: false
-        overlay: false
+        overlay: true
         cover: "/assets/shop/security-cert-bundle-7x.webp"
         blurb: "Seven Notion study systems, one purchase."
       - slug: "cisa-cism-crisc-bundle"
@@ -112,7 +113,7 @@ sections:
         kind: notion
         price: "$97"
         free: false
-        overlay: false
+        overlay: true
         cover: "/assets/shop/finance-cert-bundle-3x-premium.webp"
         blurb: "CFA prep, CPA prep and the finance planner in one purchase."
       - slug: "cissp-exam-prep"
@@ -120,7 +121,7 @@ sections:
         kind: notion
         price: "$47"
         free: false
-        overlay: false
+        overlay: true
         cover: "/assets/shop/cissp-exam-prep.webp"
         blurb: "The Notion study system for security professionals."
       - slug: "crisc-exam-prep"
@@ -128,7 +129,7 @@ sections:
         kind: notion
         price: "$59"
         free: false
-        overlay: false
+        overlay: true
         cover: "/assets/shop/crisc-exam-prep.webp"
         blurb: "The Notion study system for risk and controls professionals."
       - slug: "pmp-exam-prep"
@@ -136,7 +137,7 @@ sections:
         kind: notion
         price: "$59"
         free: false
-        overlay: false
+        overlay: true
         cover: "/assets/shop/pmp-exam-prep.webp"
         blurb: "The Notion study system for project managers with a booked exam date."
       - slug: "cpa-exam-prep"
@@ -144,7 +145,7 @@ sections:
         kind: notion
         price: "$79"
         free: false
-        overlay: false
+        overlay: true
         cover: "/assets/shop/cpa-exam-prep.webp"
         blurb: "The Notion study system for CPA candidates working through a review course."
       - slug: "CFA-Exam-study-plan"
