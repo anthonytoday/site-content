@@ -2,9 +2,10 @@
 // reads the template's blocks through the API, applies {{tokens}} and {{#if}} blocks, writes a new page.
 // The Notion API cannot duplicate a page or a database, so the page is rebuilt block by block and the
 // action database is re-created with the template's schema (views cannot be created through the API: gap).
-import { REWRITES } from "./copy.js";
-// Approved wording swaps (copy.js), run by run, before tokens are filled.
-const rewrite = (rt) => (rt || []).map((x) => { let c = x.plain_text ?? x.text?.content ?? ""; const o = c; for (const [a, b] of REWRITES) if (!c.includes(b)) c = c.split(a).join(b); return c === o ? x : { ...x, plain_text: c, text: { ...(x.text || {}), content: c } }; });
+import { REWRITES, rewriteUrl } from "./copy.js";
+// Approved wording and link swaps (copy.js), run by run, before tokens are filled.
+const rewriteLink = (x) => { const u = x.href || x.text?.link?.url || null; const v = rewriteUrl(u); return v === u ? x : { ...x, ...(x.href ? { href: v } : {}), ...(x.text ? { text: { ...x.text, link: { ...(x.text.link || {}), url: v } } } : {}) }; };
+const rewrite = (rt) => (rt || []).map((x0) => { const x = rewriteLink(x0); let c = x.plain_text ?? x.text?.content ?? ""; const o = c; for (const [a, b] of REWRITES) if (!c.includes(b)) c = c.split(a).join(b); return c === o ? x : { ...x, plain_text: c, text: { ...(x.text || {}), content: c } }; });
 const LIST_NUMBERED = new Set(["priority_risks", "risk_list"]);
 const LIST_BULLET = new Set(["plan_features_unused"]);
 const RO = ["id", "created_time", "last_edited_time", "created_by", "last_edited_by", "has_children", "archived", "in_trash", "parent", "request_id"];

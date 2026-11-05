@@ -16,6 +16,8 @@ footer.site-foot .social-links a:hover{background:#2251FF;color:#FFFFFF}
 footer.site-foot .footer-bottom{border-top:1px solid #E5E7EB;padding-top:30px;text-align:center;color:#5B6672;font-size:13px}
 footer.site-foot .footer-bottom p{margin:0}
 footer.site-foot .footer-bottom a{color:#5B6672}
+footer.site-foot a:focus-visible{outline:2px solid #2251FF;outline-offset:3px;border-radius:2px}
+footer.site-foot .social-links a:focus-visible{border-radius:50%}
 </style>
 <footer class="site-foot">
   <div class="footer-content">
@@ -25,6 +27,7 @@ footer.site-foot .footer-bottom a{color:#5B6672}
         <a href="{{ p }}/cyber/">{% if page.lang == "fr" %}Cybersécurité et GRC{% else %}Cybersecurity and GRC{% endif %}</a>
         <a href="{{ p }}/notion/">{% if page.lang == "fr" %}Conseil Notion{% else %}Notion Consulting{% endif %}</a>
         {% unless page.lang == "fr" %}<a href="/security-check/?utm_source=website&amp;utm_medium=footer&amp;utm_campaign=security_check">Notion Security Check</a>{% endunless %}
+        {% unless page.lang == "fr" %}<a href="/fractional-notion-admin/?utm_source=website&amp;utm_medium=footer&amp;utm_campaign=fractional_notion_admin">Fractional Notion Admin</a>{% endunless %}
         <a href="{{ p }}/tools/">{% if page.lang == "fr" %}Outils{% else %}Tools{% endif %}</a>
         <a href="{{ p }}/contact/">Contact</a>
       </div>
@@ -33,6 +36,7 @@ footer.site-foot .footer-bottom a{color:#5B6672}
         {% if page.lang == "fr" %}<a href="/shop/">Tous les templates</a>{% else %}<a href="/shop/">All templates</a>{% endif %}
         <a href="https://www.notion.com/@anthonytoday">{% if page.lang == "fr" %}Profil Notion{% else %}Notion Marketplace{% endif %}</a>
         {% if page.lang == "fr" %}<a href="https://store.anthonytoday.com">Boutique Gumroad</a>{% else %}<a href="https://store.anthonytoday.com/?utm_source=anthonytoday.com&amp;utm_medium=referral&amp;utm_campaign=footer">Gumroad Store</a>{% endif %}
+        {% unless page.lang == "fr" %}<a href="https://moneywithai.net/?utm_source=anthonytoday&amp;utm_medium=site&amp;utm_campaign=footer">Money With AI</a>{% endunless %}
         {% if page.lang == "fr" %}<a href="https://www.etsy.com/shop/StudyAnkiCards?ref=seller-platform-mcnav">Boutique Etsy</a>{% endif %}
         <hr class="footer-rule" aria-hidden="true">
         <a href="/how-to-duplicate/">{% if page.lang == "fr" %}Comment dupliquer un template{% else %}How to duplicate a template{% endif %}</a>
@@ -45,7 +49,7 @@ footer.site-foot .footer-bottom a{color:#5B6672}
           <a href="https://www.linkedin.com/in/anthony-kieffer/" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
           <a href="https://www.instagram.com/anthonytoday_official/" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
           <a href="https://x.com/AnthonyTodayx" title="X" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18.9 2H22l-7.6 8.7L23.3 22h-7l-5.5-7.2L4.5 22H1.4l8.1-9.3L1 2h7.2l5 6.6L18.9 2zm-1.2 18h1.7L7.4 3.9H5.6L17.7 20z"/></svg></a>
-          <a href="mailto:info@anthonytoday.com" title="Email" aria-label="Email">@</a>
+          <a href="/contact/" title="Contact" aria-label="Contact">@</a>
         </div>
       </div>
     </div>

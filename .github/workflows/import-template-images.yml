@@ -1,6 +1,12 @@
 name: Import template images
 on:
   push:
+    # main only. Path filters are not evaluated for tag pushes, so without
+    # this every backup tag push starts the job on a detached HEAD. The
+    # commit step only reaches git pull --rebase when there is a diff, so
+    # recent tag pushes have passed; the same "You are not currently on a
+    # branch" failure is waiting the first time an image is new.
+    branches: [main]
     paths:
       - 'assets/template-images-manifest.json'
       - '.github/scripts/import_images.py'

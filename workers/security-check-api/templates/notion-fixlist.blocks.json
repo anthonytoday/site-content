@@ -3996,7 +3996,7 @@
 {
 "type": "text",
 "text": {
-"content": "$490/mo founding rate for the first 5 clients, then $990/mo. Cancel any time. ",
+"content": "$990/month. Launch offer: $490/month for your first 3 months if you start by 30 Nov 2026, then $990/month. Cancel any month, 30-day refund. ",
 "link": null
 },
 "annotations": {
@@ -4007,7 +4007,7 @@
 "code": false,
 "color": "default"
 },
-"plain_text": "$490/mo founding rate for the first 5 clients, then $990/mo. Cancel any time. ",
+"plain_text": "$990/month. Launch offer: $490/month for your first 3 months if you start by 30 Nov 2026, then $990/month. Cancel any month, 30-day refund. ",
 "href": null
 },
 {
@@ -4015,7 +4015,7 @@
 "text": {
 "content": "Start Fractional Notion Admin",
 "link": {
-"url": "https://buy.stripe.com/5kQ5kF0rS5zTfY74Kt1ZS0B"
+"url": "https://www.anthonytoday.com/checkout/fna-launch"
 }
 },
 "annotations": {
@@ -4027,7 +4027,7 @@
 "color": "default"
 },
 "plain_text": "Start Fractional Notion Admin",
-"href": "https://buy.stripe.com/5kQ5kF0rS5zTfY74Kt1ZS0B"
+"href": "https://www.anthonytoday.com/checkout/fna-launch"
 },
 {
 "type": "text",
