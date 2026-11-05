@@ -20,6 +20,16 @@ import sys
 
 SITE = sys.argv[1] if len(sys.argv) > 1 else "_site"
 ONLY = sys.argv[2:]
+ROOT = os.path.abspath(os.path.join(SITE, os.pardir)) if os.path.basename(os.path.abspath(SITE)) == "_site" else "."
+# 0058: site-wide policies list every inline-script hash used anywhere. Stale-pin
+# checks still apply to page-pinned CSPs; for the three keys in _data/csp.yml we only
+# require that every inline block on the page is covered.
+SITE_WIDE_POLICIES = set()
+_csp_yml = os.path.join(ROOT, "_data", "csp.yml")
+if os.path.isfile(_csp_yml):
+    import re as _re
+    for _k, _v in _re.findall(r'^(default|beacon|shop):\s*"([^"]+)"\s*$', open(_csp_yml, encoding="utf-8").read(), _re.M):
+        SITE_WIDE_POLICIES.add(_v.replace("&#39;", "'"))
 
 
 def usage_error(msg):
@@ -98,8 +108,10 @@ def check_policy(rel, text, csp, failures):
             seen.add(hv)
             if hv not in pins and "'unsafe-inline'" not in allowed:
                 failures.append("%s: inline %s %s not in %s-src" % (rel, kind, hv, kind))
-        for p in pins - seen:
-            failures.append("%s: stale %s-src pin %s (no matching inline block)" % (rel, kind, p))
+        # Site-wide CSP (0058) carries every page's hashes; skip stale check there.
+        if csp not in SITE_WIDE_POLICIES:
+            for p in pins - seen:
+                failures.append("%s: stale %s-src pin %s (no matching inline block)" % (rel, kind, p))
     style_src = directive(csp, "style-src") or []
     if "'unsafe-inline'" not in style_src and re.search(r'\sstyle="', text):
         failures.append("%s: style= attribute present but style-src has no 'unsafe-inline'" % rel)

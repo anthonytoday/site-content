@@ -164,7 +164,7 @@
 <header class="site-header">
   <div class="bar">
     <a class="brand" href="{{ u_home }}">Anthony Today</a>
-    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">&#9776;</button>
+    <button type="button" class="nav-toggle" aria-label="Menu" aria-controls="nav" aria-expanded="false">&#9776;</button>
     <nav id="nav">
       <a href="{{ u_home }}"{% if page.url == u_home %} aria-current="page"{% endif %}>{% if lang == "fr" %}Accueil{% else %}Home{% endif %}</a>
 
@@ -187,6 +187,7 @@
 {{ content }}
 </main>
 
+<script src="{{ '/assets/js/site-ui.js' | relative_url }}" defer></script>
 {%- include cf-analytics.html %}
 {% if site.offer_popup_enabled and page.no_offer_popup != true %}{% include offer-popup.html %}{% endif %}
 </body>
