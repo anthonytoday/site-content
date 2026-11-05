@@ -7,6 +7,8 @@ sitemap: false
 <html lang="en">
 <head>
 <meta charset="utf-8">
+{% include csp-meta.html %}
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-03b7GM97/T0+gwi4P1GyZ6zEqsrVymEw+CnYJxwqP14='; base-uri 'none'; form-action 'none'">
 <title>Redirecting to Cal.com</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="referrer" content="no-referrer-when-downgrade">
