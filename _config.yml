@@ -24,6 +24,8 @@ exclude:
   - fr/
   - redirects/cyber-grc-fr.html
   - redirects/fractional-ciso-fr.html
+  # CSP header artefact for Cloudflare paste (0061); never serve publicly.
+  - security/
 
 # Cloudflare Web Analytics beacon: token and the explicit page include list live
 # in _data/cf_analytics.yml (patch 0042). Zone auto-injection is OFF.

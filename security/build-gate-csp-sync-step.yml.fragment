@@ -1,0 +1,25 @@
+# Intended dedicated CI step for .github/workflows/build-gate.yml (0061).
+# Not applied in this PR: GH_SITE_ADMIN_TOKEN lacks the GitHub "workflow" scope
+# required to push changes under .github/workflows/. Until that scope is granted
+# (or someone with workflow scope pastes this in), check-csp-hash.py invokes
+# check-csp-sync.py itself when security/csp-header.txt is present, so CI still
+# fails on sync drift.
+#
+# Insert after the "Check CSP hash pins" step:
+      - name: Check CSP sync
+        run: |
+          if [ ! -f .github/scripts/check-csp-sync.py ]; then
+            echo "::error::.github/scripts/check-csp-sync.py is missing"
+            exit 1
+          fi
+          if [ ! -f security/csp-header.txt ]; then
+            echo "::error::security/csp-header.txt is missing"
+            exit 1
+          fi
+          python3 .github/scripts/generate-csp-header.py _data/csp.yml /tmp/csp-header-regen.txt
+          if ! cmp -s security/csp-header.txt /tmp/csp-header-regen.txt; then
+            echo "::error::security/csp-header.txt is stale; run generate-csp-header.py and commit"
+            diff -u security/csp-header.txt /tmp/csp-header-regen.txt || true
+            exit 1
+          fi
+          python3 .github/scripts/check-csp-sync.py _site _data/csp.yml security/csp-header.txt
