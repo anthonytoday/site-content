@@ -180,7 +180,7 @@ Items are ordered by impact, so the first ones close your biggest risk: \{\{risk
 ---
 ➡️ [Book on WhatsApp](https://wa.me/33695845150) · [Email](mailto:admin@anthonytoday.com)
 ---
-## Keep It Fixed: Fractional Notion Admin
+## Keep It Fixed: Notion Consulting as a Service
 - Security slides back as your team changes. This monthly service gives your workspace an owner, whichever path you choose above.
 <table fit-page-width="true" header-row="true">
 <colgroup>
@@ -217,7 +217,7 @@ Items are ordered by impact, so the first ones close your biggest risk: \{\{risk
 </tr>
 </table>
 - **Special Offer:** 
-	- \$990/month. Launch offer: \$490/month for your first 3 months if you start by 30 Nov 2026, then \$990/month. Cancel any month, 30-day refund. [Start Fractional Notion Admin](https://www.anthonytoday.com/checkout/fna-launch) 
+	- \$990/month. Launch offer: \$490/month for your first 3 months if you start by 30 Nov 2026, then \$990/month. Cancel any month, 30-day refund. [Start Notion Consulting as a Service](https://www.anthonytoday.com/checkout/fna-launch) 
 <empty-block/>
 <span color="gray">Self-check based on your answers. General guidance, not a formal audit.</span>
 ---
