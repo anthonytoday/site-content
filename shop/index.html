@@ -98,9 +98,9 @@ loaded without crossorigin: gumroad.com sends no CORS header (0041).
         <div class="sh-row">
           <span class="sh-price">{% if t.was %}<s>{{ t.was }}</s>{% endif %}{{ t.price }}</span>
           {%- if t.overlay %}
-          <a class="sh-buy gumroad-button" href="https://anthonytoday.gumroad.com/l/{{ t.slug }}?{{ utm }}" aria-label="{{ label }}: {{ t.name | escape }}">{{ label }}</a>
+          <a class="sh-buy" href="https://store.anthonytoday.com/l/{{ t.slug }}?{{ utm }}" target="_blank" rel="noopener" aria-label="{{ label }}: {{ t.name | escape }} (opens Gumroad in a new tab)">{{ label }}</a>
           {%- else %}
-          <a class="sh-buy gumroad-button" href="https://anthonytoday.gumroad.com/l/{{ t.slug }}?{{ utm }}" aria-label="{{ label }}: {{ t.name | escape }}">{{ label }}</a>
+          <a class="sh-buy" href="https://store.anthonytoday.com/l/{{ t.slug }}?{{ utm }}" target="_blank" rel="noopener" aria-label="{{ label }}: {{ t.name | escape }} (opens Gumroad in a new tab)">{{ label }}</a>
           {%- endif %}
         </div>
       </div>
