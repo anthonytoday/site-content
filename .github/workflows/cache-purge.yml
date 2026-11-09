@@ -29,7 +29,7 @@ concurrency:
 jobs:
   purge:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
     steps:
       - name: Purge the anthonytoday.com zone
         env:
@@ -47,3 +47,10 @@ jobs:
             --data '{"purge_everything":true}')
           echo "$out" | head -c 400; echo
           echo "$out" | grep -q '"success":true' || { echo "::error::Cloudflare purge failed"; exit 1; }
+          # Second purge 3 minutes later: covers an edge fetch that raced the first purge.
+          sleep 180
+          out2=$(curl -sS -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE/purge_cache" \
+            -H "Authorization: Bearer $CF_TOKEN" -H "Content-Type: application/json" \
+            --data '{"purge_everything":true}')
+          echo "$out2" | head -c 400; echo
+          echo "$out2" | grep -q '"success":true' || { echo "::error::Second Cloudflare purge failed"; exit 1; }
