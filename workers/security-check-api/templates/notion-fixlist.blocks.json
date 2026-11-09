@@ -3996,7 +3996,7 @@
 {
 "type": "text",
 "text": {
-"content": "$990/month. Launch offer: $490/month for your first 3 months if you start by 30 Nov 2026, then $990/month. Cancel any month, 30-day refund. ",
+"content": "Book a Free Strategy Call to discuss Notion consulting for your workspace. No fixed prices on the page - quoted after the free Security Check.",
 "link": null
 },
 "annotations": {
@@ -4013,9 +4013,9 @@
 {
 "type": "text",
 "text": {
-"content": "Start Notion Consulting as a Service",
+"content": "Book a Free Strategy Call",
 "link": {
-"url": "https://www.anthonytoday.com/checkout/fna-launch"
+"url": "https://www.anthonytoday.com/start/"
 }
 },
 "annotations": {
@@ -4026,8 +4026,8 @@
 "code": false,
 "color": "default"
 },
-"plain_text": "Start Notion Consulting as a Service",
-"href": "https://www.anthonytoday.com/checkout/fna-launch"
+"plain_text": "Book a Free Strategy Call",
+"href": "https://www.anthonytoday.com/start/"
 },
 {
 "type": "text",
