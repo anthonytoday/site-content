@@ -1,180 +1,22 @@
 ---
-layout: default
-title: "Real Estate Voice-to-Action Architecture | Anthony Today"
-description: "A visual, layer-by-layer look at the real estate automation, from an iPhone Shortcut to a multi-agent execution loop, and the value it delivers."
+layout: null
 permalink: /notion/real-estate-ops-architecture/
-lang: en
-alt_url: /fr/notion/real-estate-ops-architecture/
-schema_type: "Article"
-bc_name: "Real Estate Automation, Architecture and Value"
-bc_parent_name: "Notion Consulting"
-bc_parent_url: /notion/
-css_bundle: /assets/css/b-e07b1c708e.css
+sitemap: false
+noindex: true
 ---
-<style>.ps-grid .ps-card h2{font-size:18px;font-weight:600;color:var(--navy);line-height:1.4;margin-bottom:10px}@media(max-width:768px){.ps-grid .ps-card h2{font-size:18px !important;line-height:1.4 !important}}</style>
-<section class="uc-hero">
-  <span class="uc-tag">Use case, real estate operations</span>
-  <h1>From a Spoken Note to a Task in the Tracker</h1>
-  <p>A property manager walks a unit, says out loud what is wrong, and keeps walking. By the time
-     they are back in the car the issue has been read, classified, assigned and written into the
-     task tracker under the right property. Nobody opened a laptop.</p>
-  <div class="hero-actions">
-    <a href="/start/" class="uc-cta-button">Have This Built for Your Operation</a>
-    <a href="/notion/real-estate-ops/" class="uc-ghost-button">Read the Case Study</a>
-  </div>
-</section>
-
-<div class="glance">
-  <div class="glance-item"><span class="glance-k">5 stages</span><span class="glance-v">speak to tracker</span></div>
-  <div class="glance-item"><span class="glance-k">0 typing</span><span class="glance-v">on site, at any point</span></div>
-  <div class="glance-item"><span class="glance-k">3 agents</span><span class="glance-v">running in parallel</span></div>
-  <div class="glance-item"><span class="glance-k">2 gates</span><span class="glance-v">QA agent, then a person</span></div>
-  <div class="glance-item"><span class="glance-k">1 inbox</span><span class="glance-v">every property, every crew</span></div>
-</div>
-
-<div class="ps-grid">
-  <div class="ps-card problem">
-    <span class="ps-label">The problem</span>
-    <h2>The Report Never Gets Written</h2>
-    <p>The people closest to the problem have full hands and no keyboard: maintenance crews,
-       contractors, turnover staff. A failing valve becomes a text message, then a memory, then a
-       second call-out six weeks later. Across a portfolio there is no shared, current record of
-       what is actually happening at each property, and the manager finds out last.</p>
-  </div>
-  <div class="ps-card solution">
-    <span class="ps-label">The solution</span>
-    <h2>Speech Becomes the Only Input</h2>
-    <p>One tap opens Wispr Flow and the spoken note lands in a single Notion inbox. AI reads the
-       transcript, a router hands it to the agent built for that kind of work, a QA agent checks the
-       output against the original words, and a person approves before anything closes. The task
-       tracker updates itself, per property and per project.</p>
-  </div>
-</div>
-
-<div class="section-lead">
-  <h2>The Mechanism, End to End</h2>
-  <p>Five stages, from a phone in a gloved hand to a row in the tracker.</p>
-</div>
-
-<div class="arch-wrap">
-  <div class="arch-scroll">
-  <svg viewBox="0 0 920 964" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture diagram: an iPhone Shortcut opens Wispr Flow, the dictated note lands in a Notion inbox, processing triages and routes it to parallel agents with a QA and human check, and the task tracker is updated.">
-    <defs>
-      <marker id="arr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#8A94A6"/></marker>
-    </defs>
-    <style>
-      .n-title{font:600 14.5px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#051C2C}
-      .n-sub{font:400 11px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#6B7280}
-      .n-eyebrow{font:700 10px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#2251FF;letter-spacing:.07em}
-      .band-label{font:700 10.5px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#9AA3B2;letter-spacing:.12em}
-      .conn{stroke:#8A94A6;stroke-width:1.6;fill:none;marker-end:url(#arr)}
-      .band{fill:#F7F8FA;stroke:#EDEFF3;stroke-width:1}
-      .box{fill:#FFFFFF;stroke:#E1E5EC;stroke-width:1}
-      .box-gate{fill:#051C2C}
-      .t-inv{fill:#FFFFFF}
-      .s-inv{fill:#B9C6DA}
-    </style>
-    <rect class="band" x="30" y="16" width="860" height="160" rx="14"/>
-    <text class="band-label" x="48" y="40">ON THE PHONE</text>
-    <rect class="box" x="90" y="58" width="300" height="92" rx="10"/>
-    <text class="n-eyebrow" x="240" y="80" text-anchor="middle">01 SPEAK</text>
-    <text class="n-title" x="240" y="101" text-anchor="middle">iPhone Shortcut</text>
-    <text class="n-sub" x="240" y="119" text-anchor="middle">Back Tap or Action Button</text>
-    <text class="n-sub" x="240" y="134" text-anchor="middle">no unlock, no typing</text>
-    <rect class="box" x="530" y="58" width="300" height="92" rx="10"/>
-    <text class="n-eyebrow" x="680" y="80" text-anchor="middle">02 DICTATE</text>
-    <text class="n-title" x="680" y="101" text-anchor="middle">Wispr Flow</text>
-    <text class="n-sub" x="680" y="119" text-anchor="middle">speech transcribed as you talk</text>
-    <text class="n-sub" x="680" y="134" text-anchor="middle">punctuation and cleanup included</text>
-    <path class="conn" d="M390,104 L524,104"/>
-    <path class="conn" d="M680,150 C680,182 460,182 460,222"/>
-    <rect class="band" x="30" y="192" width="860" height="114" rx="14"/>
-    <text class="band-label" x="48" y="216">IN NOTION · CAPTURE</text>
-    <rect class="box" x="250" y="226" width="420" height="66" rx="10"/>
-    <text class="n-eyebrow" x="460" y="248" text-anchor="middle">03 LAND</text>
-    <text class="n-title" x="460" y="269" text-anchor="middle">Notion inbox</text>
-    <text class="n-sub" x="460" y="287" text-anchor="middle">one row per note: transcript, time, property</text>
-    <path class="conn" d="M460,292 L460,354"/>
-    <rect class="band" x="30" y="322" width="860" height="510" rx="14"/>
-    <text class="band-label" x="48" y="346">IN NOTION · PROCESSING</text>
-    <rect class="box" x="280" y="358" width="360" height="66" rx="10"/>
-    <text class="n-eyebrow" x="460" y="380" text-anchor="middle">04 · TRIAGE</text>
-    <text class="n-title" x="460" y="401" text-anchor="middle">AI reads the inbox</text>
-    <text class="n-sub" x="460" y="419" text-anchor="middle">what happened, which property, how urgent</text>
-    <path class="conn" d="M460,424 L460,446"/>
-    <rect class="box" x="370" y="446" width="180" height="52" rx="10"/>
-    <text class="n-eyebrow" x="460" y="468" text-anchor="middle">04 · ROUTE</text>
-    <text class="n-title" x="460" y="489" text-anchor="middle">Router agent</text>
-    <path class="conn" d="M420,498 C380,518 250,518 178,534"/>
-    <path class="conn" d="M460,498 L460,534"/>
-    <path class="conn" d="M500,498 C540,518 670,518 742,534"/>
-    <rect class="box" x="52" y="538" width="252" height="74" rx="10"/>
-    <text class="n-eyebrow" x="178" y="560" text-anchor="middle">04 · ACT</text>
-    <text class="n-title" x="178" y="581" text-anchor="middle">Maintenance dispatch</text>
-    <text class="n-sub" x="178" y="599" text-anchor="middle">runs in parallel</text>
-    <rect class="box" x="334" y="538" width="252" height="74" rx="10"/>
-    <text class="n-eyebrow" x="460" y="560" text-anchor="middle">04 · ACT</text>
-    <text class="n-title" x="460" y="581" text-anchor="middle">Vendor follow-up</text>
-    <text class="n-sub" x="460" y="599" text-anchor="middle">runs in parallel</text>
-    <rect class="box" x="616" y="538" width="252" height="74" rx="10"/>
-    <text class="n-eyebrow" x="742" y="560" text-anchor="middle">04 · ACT</text>
-    <text class="n-title" x="742" y="581" text-anchor="middle">Tenant communication</text>
-    <text class="n-sub" x="742" y="599" text-anchor="middle">runs in parallel</text>
-    <path class="conn" d="M178,612 C190,634 380,634 450,646"/>
-    <path class="conn" d="M460,612 L460,646"/>
-    <path class="conn" d="M742,612 C730,634 540,634 470,646"/>
-    <rect class="box" x="270" y="650" width="380" height="66" rx="10"/>
-    <text class="n-eyebrow" x="460" y="672" text-anchor="middle">04 · CHECK</text>
-    <text class="n-title" x="460" y="693" text-anchor="middle">QA reviewer agent</text>
-    <text class="n-sub" x="460" y="711" text-anchor="middle">output checked against the original note</text>
-    <path class="conn" d="M460,716 L460,748"/>
-    <rect class="box-gate" x="280" y="752" width="360" height="66" rx="10"/>
-    <text class="n-eyebrow" x="460" y="774" text-anchor="middle" style="fill:#7FA6FF">04 · APPROVE</text>
-    <text class="n-title t-inv" x="460" y="795" text-anchor="middle">Human checkpoint</text>
-    <text class="n-sub s-inv" x="460" y="813" text-anchor="middle">approve or reject, never skipped</text>
-    <rect class="band" x="30" y="842" width="860" height="112" rx="14"/>
-    <text class="band-label" x="48" y="866">IN NOTION · TRACKER</text>
-    <path class="conn" d="M460,818 L460,870"/>
-    <rect class="box" x="200" y="874" width="520" height="66" rx="10"/>
-    <text class="n-eyebrow" x="460" y="896" text-anchor="middle">05 TRACK</text>
-    <text class="n-title" x="460" y="917" text-anchor="middle">Task tracker updated</text>
-    <text class="n-sub" x="460" y="935" text-anchor="middle">status, owner, due date, property, linked project</text>
-  </svg>
-  </div>
-
-</div>
-
-<div class="chip-row">
-  <span class="chip">No typing on site</span>
-  <span class="chip">Wispr Flow handles the dictation</span>
-  <span class="chip">3 agents run at once</span>
-  <span class="chip">Nothing closes without QA and a human</span>
-  <span class="chip">One tracker row per property and project</span>
-</div>
-
-<div class="benefits-section">
-  <h2>What It Is Worth, by Who Is Using It</h2>
-  <div class="who-grid">
-    <div class="benefit-card">
-      <h3>The Person Overseeing Operations</h3>
-      <p>Status across every property and project from one view, without chasing anyone for it.
-         Work distributed to the right agent instead of piling into one inbox.</p>
-    </div>
-    <div class="benefit-card">
-      <h3>The Person on Site</h3>
-      <p>An issue, a delay, or a status update gets reported the moment it happens. Hands stay
-         free, and there is nothing to learn beyond talking into a phone.</p>
-    </div>
-  </div>
-</div>
-
-<div class="uc-cta">
-  <h2>Have This Pattern Built for Your Operation</h2>
-  <p>Capture, triage, parallel execution and a human checkpoint: this is how a Notion build gets
-     designed once your team's actual workflow is mapped.</p>
-  <a href="/start/" class="uc-cta-button">Book a Free Strategy Call &rarr;</a>
-</div>
-
-<p style="text-align:center;font-size:14px;color:var(--text-gray);margin:0 0 40px"><a href="/notion/real-estate-ops/">Read the case study this architecture supports &rarr;</a></p>
-
-{% include site-footer.html %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+{% include csp-meta.html %}
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-ArGNi5QSCLlmKXKZ1oTxk3evTUascSSMMUCZdRLR8rA='; base-uri 'none'; form-action 'none'">
+<title>Redirecting to /notion/</title>
+<link rel="canonical" href="https://www.anthonytoday.com/notion/">
+<meta name="robots" content="noindex, follow">
+<meta http-equiv="refresh" content="0; url=/notion/">
+<script>location.replace("/notion/" + location.search + location.hash);</script>
+</head>
+<body>
+<p>This page has moved to <a href="/notion/">anthonytoday.com/notion/</a>.</p>
+</body>
+</html>

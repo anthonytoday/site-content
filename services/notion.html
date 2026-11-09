@@ -1,174 +1,76 @@
 ---
 layout: default
-title: "Notion Consulting for Teams | Anthony Today"
-description: "Notion Certified Consultant for teams. Six questions, an answer on the spot, then Book a Free Strategy Call, then a fixed price in writing."
+title: "Notion Consulting: Three Offers | Anthony Today"
+description: "Notion Certified Consultant (CISSP, CISA, CISM). Three offers: free Security Check, quoted Notion Audit, or a scoped Custom Build plus monthly retainer. No fixed prices on the entry and done-for-you tiers."
 permalink: /notion/
 lang: en
 alt_url: /fr/notion/
 schema_type: "WebPage"
 bc_name: "Notion Consulting"
 css_bundle: /assets/css/b-23013423fd.css
-lcp_image: /assets/brand/anthony-profile.webp
-lcp_image_avif: /assets/brand/anthony-profile.avif
 no_offer_popup: true
 ---
-<style>
-  header.site-header{padding:0 !important;border-bottom:0}
-  .nfp h1,.nfp h2,.nfp h3,.nfp h4{text-transform:none}
-  .nfp .eyebrow{text-transform:uppercase}
-  .nfp .sec-title{font-size:28px;font-weight:600;color:var(--navy);letter-spacing:-.01em;text-align:center;margin:0 auto 10px;max-width:720px}
-  .nfp .sec-sub{font-size:15.5px;color:var(--text-gray);line-height:1.7;text-align:center;margin:0 auto 32px;max-width:640px}
 
-  /* HERO */
-  .nfp .hero{max-width:1080px;padding:64px 20px 0;text-align:left;display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:56px;align-items:center}
-  .nfp .hero h1{font-size:46px;line-height:1.12;letter-spacing:-.02em;margin:0 0 20px;max-width:none}
-  .nfp .hero .subtitle{font-size:17.5px;line-height:1.7;margin:0 0 28px;max-width:540px}
-  .nfp .hero .cta-button{display:inline-block;width:auto;margin-top:0}
-  .nfp .hero-note{font-size:13.5px;color:var(--text-gray);line-height:1.6;margin:14px 0 0;max-width:460px}
-  .nfp .creds{font-size:12.5px;color:var(--text-gray);letter-spacing:.2px;line-height:1.9;margin:28px 0 0;padding-top:20px;border-top:1px solid var(--border)}
-  .nfp .portrait{margin:0;width:100%;max-width:400px;justify-self:end}
-  .nfp .portrait picture{display:block}
-  .nfp .portrait img{display:block;width:100%;height:auto;border-radius:20px;box-shadow:0 18px 44px rgba(5,28,44,.16)}
-
-  /* HOW I CAN HELP: three situations */
-  .nfp .sit{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .nfp .sit-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:30px 28px;color:inherit;text-decoration:none;transition:border-color .2s,box-shadow .2s,transform .2s}
-  .nfp .sit-card:hover{border-color:var(--blue);box-shadow:0 12px 30px rgba(5,28,44,.08);transform:translateY(-2px);text-decoration:none}
-  .nfp .sit-chip{width:48px;height:48px;border-radius:12px;background:#EFF2FF;display:flex;align-items:center;justify-content:center;color:var(--blue);margin-bottom:18px}
-  .nfp .sit-chip svg{width:24px;height:24px}
-  .nfp .sit-q{font-size:12.5px;font-weight:600;color:var(--blue);letter-spacing:.3px;margin:0 0 6px}
-  .nfp .sit-card h3{font-size:19px;font-weight:600;color:var(--navy);margin:0 0 10px;line-height:1.35}
-  .nfp .sit-card p{font-size:14.5px;color:var(--text-gray);line-height:1.7;margin:0 0 18px}
-  .nfp .sit-go{margin-top:auto;font-size:14px;font-weight:600;color:var(--blue)}
-  .nfp .sit-after{font-size:14px;color:var(--text-gray);line-height:1.7;margin:22px 0 0;text-align:center}
-  .nfp .sit-after a{color:var(--blue);text-decoration:underline}
-
-  /* HOW IT WORKS: four steps */
-  .nfp .flow-band{background:var(--navy);border-radius:16px;padding:48px 44px}
-  .nfp .flow-band h2{font-size:26px;font-weight:600;color:var(--white);margin:0 0 8px}
-  .nfp .flow-band .band-sub{font-size:15px;color:#A9B6C2;margin:0 0 34px;line-height:1.6}
-  .nfp .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
-  .nfp .flow-step{padding:0 24px;position:relative}
-  .nfp .flow-step:first-child{padding-left:0}
-  .nfp .flow-step:last-child{padding-right:0}
-  .nfp .flow-step+.flow-step::before{content:"";position:absolute;left:0;top:17px;bottom:6px;width:1px;background:rgba(255,255,255,.16)}
-  .nfp .flow-num{width:34px;height:34px;border-radius:50%;background:var(--blue);color:var(--white);font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
-  .nfp .flow-step h3{font-size:17px;font-weight:600;color:var(--white);margin:0 0 4px}
-  .nfp .flow-meta{font-size:12.5px;font-weight:600;color:#7FA6FF;letter-spacing:.3px;margin:0 0 10px}
-  .nfp .flow-step p{font-size:14px;color:#A9B6C2;line-height:1.7;margin:0}
-  .nfp .flow-cta{margin-top:34px;padding-top:28px;border-top:1px solid rgba(255,255,255,.12);display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-  .nfp .flow-cta .cta-button{width:auto;margin-top:0}
-  .nfp .flow-cta span{font-size:14px;color:#A9B6C2}
-
-  /* PROOF STRIP */
-  .nfp .proof{max-width:1000px;margin:0 auto;padding:64px 20px 0}
-  .nfp .proof .credibility.logo-only{border-top:0;margin-top:0;padding-top:0}
-  .nfp .logo-mark img{height:26px;width:auto;max-width:150px;object-fit:contain;filter:grayscale(1);opacity:.55;transition:opacity .2s,filter .2s}
-  .nfp .logo-mark img:hover{filter:grayscale(0);opacity:1}
-  .nfp .proof-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center;margin-top:36px;padding:32px 36px;border:1px solid var(--border);border-radius:14px;background:#F7F9FF}
-  .nfp .proof-row blockquote{font-size:19px;font-weight:500;color:var(--navy);line-height:1.5;margin:0 0 10px}
-  .nfp .proof-row cite{font-size:13.5px;color:var(--text-gray);font-style:normal}
-  .nfp .proof-row--seals{grid-template-columns:1fr;justify-items:center}
-  .nfp .seals{display:flex;gap:18px;align-items:center}
-  .nfp .seals .seal{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;cursor:default}
-  .nfp .seals img{width:64px;height:64px;object-fit:contain}
-  .nfp .seals .seal > span{font-size:11.5px;color:var(--text-gray);text-align:center;line-height:1.3;max-width:86px}
-
-  /* CLOSING BAND */
-  .nfp .close-list{list-style:none;margin:26px auto 30px;padding:0;max-width:760px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:left}
-  .nfp .close-list li{position:relative;padding-left:28px;font-size:14px;line-height:1.6;color:#C6D2DE;text-align:left}
-  .nfp .close-list svg{position:absolute;left:0;top:1px;width:19px;height:19px;color:#7FA6FF}
-  .nfp .cta-section .cta-button{width:auto}
-
-  @media(max-width:900px){
-    .nfp .flow{grid-template-columns:1fr 1fr;gap:30px 0}
-    .nfp .flow-step:nth-child(3){padding-left:0}
-    .nfp .flow-step:nth-child(3)::before{display:none}
-  }
-  @media(max-width:768px){
-    .nfp .eyebrow{font-size:12px !important;line-height:1.4 !important}
-    .nfp .hero{grid-template-columns:1fr;padding:38px 18px 0 !important;gap:28px !important}
-    .nfp .portrait{max-width:100%;justify-self:stretch;order:-1}
-    .nfp .hero h1{font-size:31px !important}
-    .nfp .hero .cta-button{display:block;width:100%;text-align:center}
-    .nfp .hero-note{max-width:none}
-    .nfp .sec-title{font-size:23px}
-    .nfp .sit{grid-template-columns:1fr}
-    .nfp .flow-band{padding:32px 22px}
-    .nfp .flow{grid-template-columns:1fr;gap:26px}
-    .nfp .flow-step,.nfp .flow-step:first-child,.nfp .flow-step:last-child,.nfp .flow-step:nth-child(3){padding:0 0 0 22px}
-    .nfp .flow .flow-step::before,.nfp .flow .flow-step:nth-child(3)::before{display:block;content:"";position:absolute;left:0;top:4px;bottom:-26px;width:1px;background:rgba(255,255,255,.16)}
-    .nfp .flow .flow-step:last-child::before{bottom:6px}
-    .nfp .flow-cta .cta-button{display:block;width:100%;text-align:center}
-    .nfp .proof-row{grid-template-columns:1fr;padding:26px 22px;gap:24px}
-    .nfp .seals{justify-content:space-between}
-    .nfp .close-list{grid-template-columns:1fr;gap:12px;margin:22px 0 26px}
-  }
-</style>
 <div class="nfp">
 
   <!-- HERO -->
   <section class="hero">
     <div class="hero-text">
-      <h1>A Notion Workspace Your Team Actually Runs On.</h1>
-      <p class="subtitle">I am a Notion Certified Consultant with 15 years in cybersecurity. I design, clean up and automate the workspace your team runs on, for one fixed price agreed in writing.</p>
+      <h1>Notion Consulting: Three Offers, Nothing Else</h1>
+      <p class="subtitle">I am a security and GRC consultant (CISSP, CISA, CISM) who builds Notion workspaces. Choose the offer that fits where you are.</p>
       <a href="/start/" class="cta-button">Book a Free Strategy Call &rarr;</a>
-      <p class="hero-note">Six questions, an answer on the spot. No email needed.</p>
-      <p class="creds">Notion Certified Consultant &middot; CISSP &middot; ISO 27001 Lead Implementer &middot; 60+ engagements</p>
+      <p class="hero-note">Two minutes. If it is a fit you get a booking link. If it is not, I say so.</p>
+      <p class="creds">Notion Certified Consultant &middot; CISSP &middot; CISA &middot; CISM &middot; 60+ engagements</p>
     </div>
     <figure class="portrait">
       <picture><source srcset="/assets/brand/anthony-profile.avif" type="image/avif"><img src="/assets/brand/anthony-profile.webp" alt="Anthony Today, Notion Certified Consultant" width="400" height="400" fetchpriority="high"></picture>
     </figure>
   </section>
 
-  <!-- HOW I CAN HELP -->
-  <section class="block" id="help">
-    <p class="eyebrow">How I can help</p>
-    <h2 class="sec-title">Which of These Sounds Like Your Team?</h2>
-    <p class="sec-sub">Pick the closest one. The intake opens with it already selected.</p>
+  <!-- THREE OFFERS -->
+  <section class="block" id="offers">
+    <p class="eyebrow">Choose Your Offer</p>
+    <h2 class="sec-title">Three Offers. Fixed Terms. No Hidden Prices.</h2>
+    <p class="sec-sub">Every offer starts with the free Security Check. The entry and done-for-you tiers are quoted after it, never with a number on this page.</p>
     <div class="sit">
-
-      <a class="sit-card" href="/start/?need=scratch">
+      <a class="sit-card" href="/security-check/">
         <div class="sit-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 L21 8 L12 13 L3 8 Z"/><path d="M3 12 L12 17 L21 12"/><path d="M3 16 L12 21 L21 16"/></svg></div>
-        <p class="sit-q">Starting from scratch</p>
-        <h3>We Are Moving to Notion, or Starting Over.</h3>
-        <p>I design the structure around how your team works, then move what you already have into it.</p>
-        <span class="sit-go">Start From Scratch &rarr;</span>
+        <p class="sit-q">Free tier</p>
+        <h3>Notion Security Check</h3>
+        <p>Free. I review your workspace for the top risks, quickest wins and a clear action plan. You get a scored report you can act on or hand to someone else to execute.</p>
+        <span class="sit-go">Start the Free Security Check &rarr;</span>
       </a>
 
-      <a class="sit-card" href="/start/?need=messy">
-        <div class="sit-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 L20 5.5 V11.5 C20 16 16.6 19.7 12 21 C7.4 19.7 4 16 4 11.5 V5.5 Z"/><path d="M8.8 12.2 L11.2 14.6 L15.6 10.2"/></svg></div>
-        <p class="sit-q">The workspace grew messy</p>
-        <h3>Nobody Finds Anything, and Access Is Unclear.</h3>
-        <p>I review what you have, fix the structure, set who sees what, and document it so it stays clean.</p>
-        <span class="sit-go">Fix My Workspace &rarr;</span>
+      <a class="sit-card" href="/start/?need=audit">
+        <div class="sit-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 L21 8 L12 13 L3 8 Z"/><path d="M3 12 L12 17 L21 12"/><path d="M3 16 L12 21 L21 16"/></svg></div>
+        <p class="sit-q">Entry tier</p>
+        <h3>Notion Audit</h3>
+        <p>Quoted after your free Security Check. I go deeper into your workspace: access model, databases, automations, and what needs to change. One fixed price in writing before anything starts.</p>
+        <span class="sit-go">Book a Call &rarr;</span>
       </a>
 
-      <a class="sit-card" href="/start/?need=automate">
+      <a class="sit-card" href="/start/?need=build">
         <div class="sit-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3 L4 13.5 H11 V21 L20 10.5 H13 Z"/></svg></div>
-        <p class="sit-q">Automate and connect</p>
-        <h3>Too Much Copy and Paste Between Tools.</h3>
-        <p>I turn manual routines into workflows that run on their own and connect Notion to the tools you already use.</p>
-        <span class="sit-go">Automate It &rarr;</span>
+        <p class="sit-q">Done for you</p>
+        <h3>Custom Notion Build + Retainer</h3>
+        <p>Scoped proposal, then a monthly retainer. I build your workspace, train your team, and keep it running. Fixed price in writing; monthly retainer agreed before anything starts.</p>
+        <span class="sit-go">Book a Call &rarr;</span>
       </a>
-
     </div>
-    <p class="sit-after">Need ongoing help rather than a one-off project? <a href="/notion-consulting-as-a-service/?utm_source=website&amp;utm_medium=notion&amp;utm_campaign=notion_consulting_as_a_service">Notion Consulting as a Service</a> puts a certified Notion expert on call, with a set monthly scope for $990 a month.{% include fna-launch-live.html %}{% if fna_launch_live %}<span data-expires="2026-11-30T20:00:00Z"> Launch offer: $490/month for the first 3 months if you start by 30 Nov 2026.</span>{% endif %}</p>
-    <p class="sit-after">Working alone or on personal projects? My <a href="https://store.anthonytoday.com/?utm_source=anthonytoday.com&amp;utm_medium=referral&amp;utm_campaign=notion">templates</a> are the faster route. Moving your team to Notion Business? <a href="https://affiliate.notion.so/anthony-today" target="_blank" rel="noopener noreferrer sponsored">Try Notion Business</a>.</p>
-    <p class="sit-after" style="margin-top:8px;font-size:13px">The Notion link is a referral link. If you upgrade through it I may earn a commission, at no cost to you.</p>
+    <p class="sit-after">The Free Strategy Call is no longer a separate offer. /start/ stays as the booking step behind the Notion Audit and the Custom Notion Build.</p>
   </section>
 
   <!-- HOW IT WORKS -->
   <section class="block" id="how">
     <div class="flow-band">
       <h2>How It Works</h2>
-      <p class="band-sub">Four steps. You decide at every one whether to go further.</p>
+      <p class="band-sub">Three steps. You decide at every one whether to go further.</p>
       <div class="flow">
         <div class="flow-step">
           <div class="flow-num">1</div>
-          <h3>Intake</h3>
-          <p class="flow-meta">2 minutes &middot; free</p>
-          <p>Six questions about your team and what is not working. You see the answer before you share an email address.</p>
+          <h3>Free Security Check</h3>
+          <p class="flow-meta">Free &middot; 2 minutes</p>
+          <p>Six questions about your workspace. You see the scored report before you share an email address.</p>
         </div>
         <div class="flow-step">
           <div class="flow-num">2</div>
@@ -178,15 +80,9 @@ no_offer_popup: true
         </div>
         <div class="flow-step">
           <div class="flow-num">3</div>
-          <h3>Written Fixed Price</h3>
+          <h3>Written Proposal</h3>
           <p class="flow-meta">Within one business day</p>
-          <p>Deliverables, timeline and one price in writing. Nothing starts until you approve it. No hourly billing.</p>
-        </div>
-        <div class="flow-step">
-          <div class="flow-num">4</div>
-          <h3>Build, Train, Hand Over</h3>
-          <p class="flow-meta">You own the result</p>
-          <p>I build it, document it and train your team, so you can run it without me.</p>
+          <p>One fixed price in writing. Nothing starts until you approve it. No hourly billing.</p>
         </div>
       </div>
       <div class="flow-cta">
@@ -197,29 +93,7 @@ no_offer_popup: true
 
   <!-- PROOF -->
   <section class="proof">
-    <p class="eyebrow">Trusted by teams including</p>
-  <!-- CLIENT LOGO BANNER -->
-  <div class="credibility logo-only">
-    <div class="logo-banner">
-            <div class="logo-track">
-        <span class="logo-mark"><img src="/assets/logos/dorchester-64h.webp" srcset="/assets/logos/dorchester-64h.webp 2.4x, /assets/logos/dorchester.webp 8x" alt="Dorchester Collection" width="366" height="210" loading="lazy" decoding="async"></span>
-        <span class="logo-mark"><img src="/assets/logos/hitachi-64h.webp" srcset="/assets/logos/hitachi-64h.webp 2.4x, /assets/logos/hitachi.webp 9.8x" alt="Hitachi" width="256" height="256" loading="lazy" decoding="async"></span>
-        <span class="logo-mark"><img src="/assets/logos/nescafe-64h.webp" srcset="/assets/logos/nescafe-64h.webp 2.4x, /assets/logos/nescafe.webp 16x" alt="Nescafe" width="739" height="415" loading="lazy" decoding="async"></span>
-        <span class="logo-mark"><img src="/assets/logos/hilti-64h.webp" srcset="/assets/logos/hilti-64h.webp 2.4x, /assets/logos/hilti.webp 23x" alt="Hilti" width="600" height="600" loading="lazy" decoding="async"></span>
-        <span class="logo-mark"><img src="/assets/logos/eli-lilly-64h.webp" srcset="/assets/logos/eli-lilly-64h.webp 2.4x, /assets/logos/eli-lilly.webp 10.5x" alt="Eli Lilly and Company" width="500" height="273" loading="lazy" decoding="async"></span>
-        <span class="logo-mark"><img src="/assets/logos/notion-64h.webp" srcset="/assets/logos/notion-64h.webp 2.4x, /assets/logos/notion.webp 19.6x" alt="Notion" width="512" height="512" loading="lazy" decoding="async"></span>
-        <span class="logo-mark"><img src="/assets/logos/miles-64h.webp" srcset="/assets/logos/miles-64h.webp 2.4x, /assets/logos/miles.webp 16x" alt="Miles" width="739" height="415" loading="lazy" decoding="async"></span>
-        <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/dorchester-64h.webp" srcset="/assets/logos/dorchester-64h.webp 2.4x, /assets/logos/dorchester.webp 8x" alt="" width="366" height="210" loading="lazy" decoding="async"></span>
-        <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/hitachi-64h.webp" srcset="/assets/logos/hitachi-64h.webp 2.4x, /assets/logos/hitachi.webp 9.8x" alt="" width="256" height="256" loading="lazy" decoding="async"></span>
-        <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/nescafe-64h.webp" srcset="/assets/logos/nescafe-64h.webp 2.4x, /assets/logos/nescafe.webp 16x" alt="" width="739" height="415" loading="lazy" decoding="async"></span>
-        <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/hilti-64h.webp" srcset="/assets/logos/hilti-64h.webp 2.4x, /assets/logos/hilti.webp 23x" alt="" width="600" height="600" loading="lazy" decoding="async"></span>
-        <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/eli-lilly-64h.webp" srcset="/assets/logos/eli-lilly-64h.webp 2.4x, /assets/logos/eli-lilly.webp 10.5x" alt="" width="500" height="273" loading="lazy" decoding="async"></span>
-        <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/notion-64h.webp" srcset="/assets/logos/notion-64h.webp 2.4x, /assets/logos/notion.webp 19.6x" alt="" width="512" height="512" loading="lazy" decoding="async"></span>
-        <span class="logo-mark" aria-hidden="true"><img src="/assets/logos/miles-64h.webp" srcset="/assets/logos/miles-64h.webp 2.4x, /assets/logos/miles.webp 16x" alt="" width="739" height="415" loading="lazy" decoding="async"></span>
-      </div>
-    </div>
-  </div>
-
+    <p class="eyebrow">Credentials</p>
     <div class="proof-row proof-row--seals">
       <div class="seals">
         <span class="seal"><img src="/assets/logos/certified-notion-consultant.webp" alt="Notion Certified Consultant badge" width="201" height="201" loading="lazy" decoding="async"><span>Certified Consultant</span></span>
@@ -233,9 +107,9 @@ no_offer_popup: true
   <section class="block">
     <p class="eyebrow">Questions I hear</p>
     <div class="faq">
-      <details><summary>Why Six Questions Before a Call?</summary><p>It saves us both time. Six questions tell me who you are and what is not working, so the call goes straight to your real problem. If I am not the right person, you find out in two minutes, not after a meeting.</p></details>
-      <details><summary>What Does a Project Cost?</summary><p>A tailored build usually starts above $1,000. You get one fixed price in writing within one business day of the call.</p></details>
-      <details><summary>How Is the Price of a Project Set?</summary><p>Every project has one fixed price, agreed in writing before anything starts. It depends on how much the workspace has to carry, how much existing material moves over, and how many people need training. You get it within one business day of the call.</p></details>
+      <details><summary>Why no fixed prices on the paid tiers?</summary><p>Because every workspace is different. I will not quote a number until I have seen yours. After the Security Check and the call, you get one fixed price in writing.</p></details>
+      <details><summary>What happens after I book a call?</summary><p>You answer six questions first. We then have a 20-minute call. I tell you whether the Notion Audit or the Custom Build fits, and I send a written proposal within one business day.</p></details>
+      <details><summary>Do I need the Security Check first?</summary><p>Yes. It is free, and it is the intake for everything else. No call happens without it.</p></details>
     </div>
   </section>
 
@@ -245,20 +119,40 @@ no_offer_popup: true
     <a href="/start/" class="cta-button">Book a Free Strategy Call &rarr;</a>
   </section>
 
-
 </div>
 
 {% include fna-launch-expiry.html %}
 {% include site-footer.html %}
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@type": "FAQPage",
- "@id": "https://www.anthonytoday.com/notion/#faq",
- "mainEntity": [
-  {"@type": "Question", "name": "Why Six Questions Before a Call?", "acceptedAnswer": {"@type": "Answer", "text": "It saves us both time. Six questions tell me who you are and what is not working, so the call goes straight to your real problem. If I am not the right person, you find out in two minutes, not after a meeting."}},
-  {"@type": "Question", "name": "What Does a Project Cost?", "acceptedAnswer": {"@type": "Answer", "text": "A tailored build usually starts above $1,000. You get one fixed price in writing within one business day of the call."}},
-  {"@type": "Question", "name": "How Is the Price of a Project Set?", "acceptedAnswer": {"@type": "Answer", "text": "Every project has one fixed price, agreed in writing before anything starts. It depends on how much the workspace has to carry, how much existing material moves over, and how many people need training. You get it within one business day of the call."}}
- ]
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://www.anthonytoday.com/notion/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why no fixed prices on the paid tiers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because every workspace is different. I will not quote a number until I have seen yours. After the Security Check and the call, you get one fixed price in writing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens after I book a call?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You answer six questions first. We then have a 20-minute call. I tell you whether the Notion Audit or the Custom Build fits, and I send a written proposal within one business day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need the Security Check first?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. It is free, and it is the intake for everything else. No call happens without it."
+      }
+    }
+  ]
 }
 </script>

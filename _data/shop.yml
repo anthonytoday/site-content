@@ -78,15 +78,6 @@ sections:
         overlay: true
         cover: "/assets/shop/real-estate-starter-pack.webp"
         blurb: "For new investors and landlords: deals, properties, tenants, leases, cash flow and documents."
-      - slug: "notion-ops-audit"
-        name: "Notion Ops Audit (90 min)"
-        kind: service
-        price: "$197"
-        was: "$497"
-        free: false
-        overlay: true
-        cover: "/assets/shop/notion-ops-audit.webp"
-        blurb: "A 90-minute expert review of your Notion workspace: top risks, quickest wins and a clear action plan."
   - id: exam-study-systems
     name: "Exam Study Systems"
     intro: "Complete Notion study systems for security, risk, project and finance certifications."
