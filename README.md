@@ -47,7 +47,7 @@ templates page behaves exactly as it always did.
 | `site-footer.html` | Footer for every non-shop page, styles included. Edit once, every page updates |
 | `start-here.html` | The three-step Start here block used on service pages. EN routes step 2 to `/start/`, FR keeps its own branch |
 | `offer-popup.html` | Lead-capture popup. Emitted by the layout only when `offer_popup_enabled` is true and the page does not set `no_offer_popup: true` |
-| `offer-summary.html` | The Investor-Ready Sprint offer at a glance ($15,000, 30 days), rendered twice on `/notion-for-real-estate/` |
+|| `offer-summary.html` | The Investor-Ready Sprint offer at a glance ($15,000, 30 days). Page archived per item 0027; include no longer rendered |
 
 **Adding a product is a data-only change.** Add an entry to `_data/templates.yml` or
 `_data/decks.yml` and create the page from an existing one. The hub, counts, filters,
