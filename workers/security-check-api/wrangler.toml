@@ -25,7 +25,7 @@ ALLOWED_ORIGINS = "https://www.anthonytoday.com,https://anthonytoday.com"
 MAIL_FROM = "Anthony from AnthonyToday.com <admin@anthonytoday.com>"
 FIXLIST_PAYMENT_LINK = "https://buy.stripe.com/28E6oJfmMbYh27h4Kt1ZS0x"
 FIXLIST_PAYMENT_LINK_ID = "plink_1US9EnQ1Ll6EnCUKqtFqIhCG"
-UNSUB_MINT_URL = "https://jzmglkzmqgojjnqxoytf.supabase.co/functions/v1/cc-hooks/mint"
+UNSUB_MINT_URL = "https://xhstusuitatvuwznpvca.supabase.co/functions/v1/cc-hooks/mint"
 # secret UNSUB_MINT_TOKEN (shared unsubscribe mint, Bearer). Set at deploy, never echo it:
 #   tr -d '\n' < /workspace/resilient-email/.mint_token | wrangler secret put UNSUB_MINT_TOKEN
 # UNSUB_SHARED_SYNC = "0"  # default on: a Worker (u1/legacy) unsubscribe is also sent to the shared unsub function (which sets crm_contacts.dne)

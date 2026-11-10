@@ -73,8 +73,8 @@ await t("UNSUB_BASE swaps the endpoint without changing the token", async () => 
 });
 
 // Shared Supabase unsubscribe (mint at send time, one 3 s deadline, KV u1 fallback). Dummy key only; fake Supabase below.
-const MINT = { UNSUB_MINT_URL: "https://jzmglkzmqgojjnqxoytf.supabase.co/functions/v1/cc-hooks/mint", UNSUB_MINT_TOKEN: "dummy-mint-key-for-tests" };
-const SB_UNSUB = "https://jzmglkzmqgojjnqxoytf.supabase.co/functions/v1/unsub";
+const MINT = { UNSUB_MINT_URL: "https://xhstusuitatvuwznpvca.supabase.co/functions/v1/cc-hooks/mint", UNSUB_MINT_TOKEN: "dummy-mint-key-for-tests" };
+const SB_UNSUB = "https://xhstusuitatvuwznpvca.supabase.co/functions/v1/unsub";
 const PAGE = "https://www.anthonytoday.com/unsubscribe/";
 const SBTOK = "AbCdEfGhIjKlMnOpQrStUvWx";
 // Fake shared system: mint returns one token per address (reused), unsub GET fmt=json is read-only, POST marks used (= suppressed).

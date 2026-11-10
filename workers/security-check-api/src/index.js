@@ -98,10 +98,10 @@ async function issueUnsubToken(env, sub) {
 // Mint + status check share ONE 3 s deadline (SB_TIMEOUT_MS), so a send is never held up longer than that. Any failure on the mint
 // -> KV u1 record (128 bits) + mailto-only email (MINT-01, see unsubForSend); never a legacy token, never ?e=. Which path is used never depends on request input.
 // Status (fmt=json, read-only GET) done:true means the address already unsubscribed through the shared system -> the send is skipped.
-const SB_UNSUB_BASE = "https://jzmglkzmqgojjnqxoytf.supabase.co/functions/v1/unsub";
+const SB_UNSUB_BASE = "https://xhstusuitatvuwznpvca.supabase.co/functions/v1/unsub";
 const SB_PAGE_BASE = "https://www.anthonytoday.com/unsubscribe/";
 const SB_TOKEN_RE = /^[A-Za-z0-9_-]{24}$/;
-const SB_MINT_URL_RE = /^https:\/\/jzmglkzmqgojjnqxoytf\.supabase\.co\/functions\/v1\/cc-hooks\/mint$/;
+const SB_MINT_URL_RE = /^https:\/\/xhstusuitatvuwznpvca\.supabase\.co\/functions\/v1\/cc-hooks\/mint$/;
 const SB_TIMEOUT_MS = 3000;
 const sbLinks = (t) => ({ url: SB_PAGE_BASE + "?id=" + t + "&l=en", oneClick: SB_UNSUB_BASE + "?id=" + t + "&l=en&oc=1" });
 const errName = (e) => (e && (e.name === "TimeoutError" || e.name === "AbortError") ? "timeout" : "failed");
