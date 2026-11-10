@@ -53,9 +53,12 @@ for dp, dn, fn in os.walk(site):
         html = open(path, encoding='utf-8', errors='replace').read()
         listed = url in pages
         # Check for ANY manual beacon in built HTML (must be zero — edge injects)
-        low = html.lower()
+        # CSP meta tags legitimately name cloudflareinsights hosts (script-src/connect-src);
+        # they are not beacons, so scan the page with those tags removed.
+        scan = re.sub(r'<meta\b[^>]*http-equiv=[\"\']Content-Security-Policy[^>]*>', '', html, flags=re.I)
+        low = scan.lower()
         hits = [b for b in BEACON_PATTERNS if b in low]
-        tags = BEACON.findall(html)
+        tags = BEACON.findall(scan)
         if hits or tags:
             errs.append('%s: manual beacon present in built page (%s)' % (url, ', '.join(hits) or 'script tag'))
         # CSP meta check on listed pages
