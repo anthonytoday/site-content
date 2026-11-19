@@ -1,0 +1,1204 @@
+{
+ "started": "2026-11-19T08:19:09Z",
+ "runner_ip_country": "US",
+ "sites": {
+  "anthonytoday": {
+   "headers_home": {
+    "status": "HTTP/2 200 ",
+    "headers": {
+     "content-type": "text/html; charset=utf-8",
+     "server": "cloudflare",
+     "access-control-allow-origin": "*",
+     "permissions-policy": "camera=(), microphone=(), geolocation=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), browsing-topics=()",
+     "cache-control": "max-age=600",
+     "x-frame-options": "DENY",
+     "x-github-request-id": "F7A2:3A4566:B135AD:D2B66D:6AFEAB18",
+     "referrer-policy": "strict-origin-when-cross-origin",
+     "age": "0",
+     "via": "1.1 varnish",
+     "vary": "Accept-Encoding",
+     "cf-cache-status": "REVALIDATED",
+     "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+     "x-content-type-options": "nosniff",
+     "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=0jXq4sEmnnWlBeg78XOqRDWZbGv12IG5FInvShvg6bg7zEF6DBIgg4BDR1Pl49pYcdtx1NkZDzvuhlGQSKxTXdLnIBV4n%2Fh7BiFC0LAEpM1BBb86ZUJ2tnXYV53m%2FezobuZGoYHiuA%3D%3D\"}]}",
+     "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+     "content-security-policy": "default-src 'self'; script-src 'self' 'sha256-FE3Eq/3GsGRp0JvIF4viI9b9ri/sFoAqNnPaJ51vCQg=' 'sha256-+zjma5N1uuVp+KxvbSVifPpRUJzD+Js7S+liLi+aLX8=' 'sha256-03b7GM97/T0+gwi4P1GyZ6zEqsrVymEw+CnYJxwqP14=' 'sha256-0VI4ki2YW8+6PLmm+tFvWItZlYN4WqTqQTGylb0+34Q=' 'sha256-0aTaxfGRlX0e2ATrfg3cqGvNp4q4FDUmiz/lMd7q+LQ=' 'sha256-ArGNi5QSCLlmKXKZ1oTxk3evTUascSSMMUCZdRLR8rA=' 'sha256-A+lMSHPUs+OsgRwy7nwzrc6zVMdfZR6AGzgt2iqbIXk=' 'sha256-TsYK8sOptdIiRTxjzBbZrZjJElrNMfWFiPpQdsiOfXo=' 'sha256-UrEC6rQ+YmQveGU4YHX0OKva5+SXlrcfE/wGaj55BVw=' 'sha256-V1xyVEBVuDC+FuqsFw4fscUKC7kZ87NkUSTrIqi7888=' 'sha256-YpuFvHhMeKMO3puwpdhadMExFGesX/nTYEUrAZqueoY=' 'sha256-diTYiOIk3k/jjgpyLO5mk54JSprAhltm+cYfA940uW0=' 'sha256-tTPZmwmpNCgtP5B6pCpRqDV2IzwQE0t3LEBb8glRUfo=' 'sha256-ewxdoUaIzhBmycmOpzUg/zoAAJU3LwF7vzqXTxX0zEA=' 'sha256-gkjwez6CTGiFdJ8/7A979/NQoxvNmfe6uSyaIW+8Kus=' 'sha256-mMjovdxXGhuSfyiBarReX3ZkKD46pwFmQc4Je5GJtOs=' 'sha256-rCczRdcY/jPIVI2q/HcbHR92nNuvWNTyTH0ZcxJ8xjc=' 'sha256-vSAvfcY+xMLAVhWokWAYdSktJhqVgRL5IIgv++BiPl8=' 'sha256-yeWZasWp/Bl+C7fRaWBWKfGLewiEvWViMp09elSu00Q=' 'sha256-oi6o5GLhE3/4kTlUWT+G6is0tGVWjhrqJeP6Zzq7GAY=' 'sha256-5hHQhJodNtZrWMcUzv9MJ+2WPGhtyknBznRpX1+92Fs=' 'sha256-SFp8jP1QrcZ329Ir5nk64nYH9UpJ4k+R90qVY6K8GfQ=' 'sha256-RW27o1iq9+9Vj5JkAyhM1czO7RYEXnTtIUbCDLuTeZI=' 'sha256-jzu4JDQBKW1YxAHV/RGXubCfx/yoLEYZCwZVGIWBzvc=' 'sha256-1HcPn3PDQUf6nGD8B5nrK6lIWQUHWGwHXTwjh0cfGtc=' 'sha256-jiBLe+2bAZmMoQe2Ptiwwp/v9Zh+OYlVF+Cb8V2KegA=' 'sha256-XxsV/F5zXpZsChuyqIukGc8JLwSFSJpIJxFbOlkxSak=' https://app.cal.com https://static.cloudflareinsights.com https://gumroad.com https://assets.gumroad.com; style-src 'self' 'unsafe-inline' https://assets.gumroad.com; img-src 'self' data: https://public-files.gumroad.com https://*.gumroad.com https://cal.com https://app.cal.com https://assets.gumroad.com; font-src 'self' data: https://assets.gumroad.com; connect-src 'self' https://cloudflareinsights.com https://api.web3forms.com https://security-check-api.learningamazonfba.workers.dev https://offer-capture.learningamazonfba.workers.dev https://xhstusuitatvuwznpvca.supabase.co https://check.anthonytoday.com https://app.cal.com https://cal.com; frame-src https://app.cal.com https://cal.com https://anthonytoday.gumroad.com; worker-src 'none'; manifest-src 'self'; media-src 'none'; form-action 'self' https://api.web3forms.com; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests",
+     "cross-origin-opener-policy": "same-origin-allow-popups",
+     "content-encoding": "br",
+     "alt-svc": "h3=\":443\"; ma=86400"
+    }
+   },
+   "headers_asset_sample": {
+    "/assets/css/b-7876f91e7a.css": {
+     "status": "HTTP/2 200 ",
+     "cache-control": "max-age=31536000",
+     "cf-cache-status": [
+      "HIT",
+      "HIT"
+     ],
+     "content-encoding": "gzip"
+    },
+    "/assets/brand/favicon.png": {
+     "status": "HTTP/2 200 ",
+     "cache-control": "max-age=604800",
+     "cf-cache-status": [
+      "REVALIDATED",
+      "HIT"
+     ],
+     "content-encoding": null
+    },
+    "/assets/brand/apple-touch-icon.png": {
+     "status": "HTTP/2 200 ",
+     "cache-control": "max-age=604800",
+     "cf-cache-status": [
+      "REVALIDATED",
+      "HIT"
+     ],
+     "content-encoding": null
+    },
+    "/assets/brand/anthony-profile.webp": {
+     "status": "HTTP/2 200 ",
+     "cache-control": "max-age=604800",
+     "cf-cache-status": [
+      "REVALIDATED",
+      "HIT"
+     ],
+     "content-encoding": null
+    }
+   },
+   "redirects": {
+    "http://anthonytoday.com/": "301 https://www.anthonytoday.com/",
+    "https://anthonytoday.com/": "301 https://www.anthonytoday.com/",
+    "http://www.anthonytoday.com/": "301 https://www.anthonytoday.com/",
+    "https://www.anthonytoday.com/": "200",
+    "https://www.anthonytoday.com/notion": "301 https://www.anthonytoday.com/notion/",
+    "https://www.anthonytoday.com/football": "404"
+   },
+   "probes": {
+    "/.git/HEAD": "403 text/html; charset=UTF-8 4553",
+    "/.env": "403 text/html; charset=UTF-8 4553",
+    "/package.json": "404 text/html; charset=utf-8 24589",
+    "/wrangler.jsonc": "404 text/html; charset=utf-8 24589",
+    "/_config.yml": "404 text/html; charset=utf-8 24589",
+    "/README.md": "404 text/html; charset=utf-8 24589",
+    "/.well-known/security.txt": "200 text/plain; charset=utf-8 216",
+    "/robots.txt": "200 text/plain; charset=utf-8 662",
+    "/sitemap.xml": "200 application/xml 1904",
+    "/llms.txt": "200 text/plain; charset=utf-8 17464",
+    "/this-page-does-not-exist-xyz/": "404 text/html; charset=utf-8 24589"
+   },
+   "timing": {
+    "/": {
+     "code": "200",
+     "dns_ms": 1,
+     "connect_ms": 7,
+     "tls_ms": 19,
+     "ttfb_ms": 47,
+     "total_ms": 48,
+     "bytes_br": 7681,
+     "http": "2",
+     "runs": 5
+    },
+    "/notion/": {
+     "code": "200",
+     "dns_ms": 1,
+     "connect_ms": 7,
+     "tls_ms": 20,
+     "ttfb_ms": 52,
+     "total_ms": 52,
+     "bytes_br": 8487,
+     "http": "2",
+     "runs": 5
+    },
+    "/flashcards/": {
+     "code": "200",
+     "dns_ms": 1,
+     "connect_ms": 7,
+     "tls_ms": 18,
+     "ttfb_ms": 47,
+     "total_ms": 47,
+     "bytes_br": 1962,
+     "http": "2",
+     "runs": 5
+    },
+    "/start/": {
+     "code": "200",
+     "dns_ms": 1,
+     "connect_ms": 7,
+     "tls_ms": 17,
+     "ttfb_ms": 47,
+     "total_ms": 47,
+     "bytes_br": 11020,
+     "http": "2",
+     "runs": 5
+    },
+    "/free-kit/": {
+     "code": "200",
+     "dns_ms": 1,
+     "connect_ms": 7,
+     "tls_ms": 17,
+     "ttfb_ms": 49,
+     "total_ms": 49,
+     "bytes_br": 9873,
+     "http": "2",
+     "runs": 5
+    }
+   },
+   "third_party_home": {
+    "hosts": {
+     "link": [
+      "buy.stripe.com"
+     ]
+    },
+    "inline_scripts": 1,
+    "html_bytes_uncompressed": 26401,
+    "ext_scripts": 0,
+    "preload_links": 1,
+    "img_without_lazy": 1
+   },
+   "tls": {
+    "tls1": "refused",
+    "tls1_1": "refused",
+    "tls1_2": "refused",
+    "tls1_3": "accepted",
+    "cert": "issuer=C=US, O=Google Trust Services, CN=WE1 notAfter=Dec 25 17:48:12 2026 GMT X509v3 Subject Alternative Name: DNS:anthonytoday.com, DNS:*.anthonytoday.com"
+   },
+   "dns": {
+    "caa": "0 iodef \"mailto:admin@anthonytoday.com\" | 0 issue \"amazon.com\" | 0 issue \"amazonaws.com\" | 0 issue \"amazontrust.com\" | 0 issue \"awstrust.com\" | 0 issue \"comodoca.com\" | 0 issue \"digicert.com; cansignhttpexchanges=yes\" | 0 issue \"letsencrypt.org\" | 0 issue \"pki.goog; cansignhttpexchanges=yes\" | 0 issue \"ssl.com\" | 0 issuewild \"amazon.com\" | 0 issuewild \"amazonaws.com\" | 0 issuewild \"amazontrust.com\" | 0 issuewild \"awstrust.com\" | 0 issuewild \"comodoca.com\" | 0 issuewild \"digicert.com; cansignhttpexchanges=yes\" | 0 issuewild \"letsencrypt.org\" | 0 issuewild \"pki.goog; cansignhttpexchanges=yes\" | 0 issuewild \"ssl.com\"",
+    "ds": "2371 13 2 54414F2254474C8464EC6A8E1B4287A5739A9D8135EDADBF7CED5667 9B46B977",
+    "dnssec_validated": true,
+    "mx": "1 aspmx.l.google.com. | 5 alt1.aspmx.l.google.com. | 5 alt2.aspmx.l.google.com. | 10 alt3.aspmx.l.google.com. | 10 alt4.aspmx.l.google.com.",
+    "spf": [
+     "\"v=spf1 include:_spf.google.com ~all\""
+    ],
+    "dmarc": "\"v=DMARC1; p=quarantine; rua=mailto:ded84d8fbe6c4cbaa8f99b08281c4888@dmarc-reports.cloudflare.net\"",
+    "mta_sts": "",
+    "tls_rpt": "",
+    "aaaa": "2606:4700:3031::6815:4f9f | 2606:4700:3037::ac43:9279",
+    "https_rr": "1 . alpn=\"h3,h2\" ipv4hint=104.21.79.159,172.67.146.121 ech=AEX+DQBBXgAgACAirNgHfugk3PfZmGeZBPS8GWTHxcDPnL0YbA216XimewAEAAEAAQASY2xvdWRmbGFyZS1lY2guY29tAAA= ipv6hint=2606:4700:3031::6815:4f9f,2606:4700:3037::ac43:9279"
+   },
+   "observatory": {
+    "grade": "A+",
+    "score": 120,
+    "tests_passed": 12,
+    "tests_failed": 0,
+    "scanned_at": "2026-11-19T08:19:23.385Z",
+    "error": null
+   },
+   "observatory_failed_tests": [],
+   "hsts_preload": {
+    "status": "removed",
+    "preloadable": {
+     "errors": [
+      "redirects.http.www_first"
+     ],
+     "warnings": []
+    }
+   },
+   "extra_hosts": {
+    "check.anthonytoday.com": {
+     "status": "HTTP/2 200 ",
+     "hsts": "max-age=31536000; includeSubDomains; preload",
+     "robots": null,
+     "server": "cloudflare",
+     "csp": ""
+    },
+    "store.anthonytoday.com": {
+     "status": "HTTP/1.1 200 OK",
+     "hsts": null,
+     "robots": null,
+     "server": "openresty/1.31.1.1",
+     "csp": "default-src https: 'self'; base-uri 'self'; child-src 'self' blob:; connect-src "
+    },
+    "links.anthonytoday.com": {
+     "status": "HTTP/1.1 400 Bad Request",
+     "hsts": null,
+     "robots": null,
+     "server": null,
+     "csp": ""
+    },
+    "anthonytoday.com": {
+     "status": "HTTP/2 301 ",
+     "hsts": "max-age=31536000; includeSubDomains; preload",
+     "robots": null,
+     "server": "cloudflare",
+     "csp": ""
+    }
+   },
+   "sitemap_count": 13,
+   "crawl": {
+    "total": 13,
+    "codes": {
+     "200": 13
+    },
+    "non_200": []
+   },
+   "html_cache": [
+    [
+     "HIT",
+     "21",
+     "max-age=600"
+    ],
+    [
+     "HIT",
+     "22",
+     "max-age=600"
+    ],
+    [
+     "HIT",
+     "23",
+     "max-age=600"
+    ]
+   ],
+   "lighthouse": {
+    "/": {
+     "perf": 100,
+     "a11y": 100,
+     "bp": 100,
+     "seo": 100,
+     "fcp": 921.0260000000001,
+     "lcp": 1451.2824999999998,
+     "tbt": 0,
+     "cls": 0,
+     "si": 921.0260000000001,
+     "bytes": 77679,
+     "requests": 13,
+     "console": [],
+     "failed": [],
+     "opps": [],
+     "failing_bp": [],
+     "failing_a11y": [
+      "label-content-name-mismatch"
+     ],
+     "perf_all": [
+      0,
+      100,
+      100
+     ],
+     "run_errors": 0
+    },
+    "/notion/": {
+     "perf": 100,
+     "a11y": 100,
+     "bp": 96,
+     "seo": 100,
+     "fcp": 936.1320000000001,
+     "lcp": 1461.132,
+     "tbt": 0,
+     "cls": 0,
+     "si": 936.1320000000001,
+     "bytes": 75514,
+     "requests": 9,
+     "console": [],
+     "failed": [],
+     "opps": [],
+     "failing_bp": [
+      "image-size-responsive"
+     ],
+     "failing_a11y": [
+      "label-content-name-mismatch"
+     ],
+     "perf_all": [
+      100,
+      100,
+      100
+     ],
+     "run_errors": 0
+    },
+    "/flashcards/": {
+     "perf": 58,
+     "a11y": 95,
+     "bp": 100,
+     "seo": 100,
+     "fcp": 5022.9285,
+     "lcp": 7293.5974999999935,
+     "tbt": 275,
+     "cls": 0,
+     "si": 5022.9285,
+     "bytes": 1303186,
+     "requests": 153,
+     "console": [],
+     "failed": [],
+     "opps": [
+      [
+       "redirects",
+       769
+      ],
+      [
+       "server-response-time",
+       562
+      ],
+      [
+       "unused-javascript",
+       470
+      ],
+      [
+       "uses-rel-preconnect",
+       304
+      ],
+      [
+       "uses-responsive-images",
+       300
+      ]
+     ],
+     "failing_bp": [],
+     "failing_a11y": [
+      "color-contrast",
+      "heading-order"
+     ],
+     "perf_all": [
+      50,
+      58,
+      60
+     ],
+     "run_errors": 0
+    },
+    "/start/": {
+     "perf": 100,
+     "a11y": 100,
+     "bp": 100,
+     "seo": 69,
+     "fcp": 1088.399,
+     "lcp": 1388.399,
+     "tbt": 0,
+     "cls": 0,
+     "si": 1088.399,
+     "bytes": 36051,
+     "requests": 6,
+     "console": [],
+     "failed": [],
+     "opps": [
+      [
+       "render-blocking-resources",
+       81
+      ]
+     ],
+     "failing_bp": [],
+     "failing_a11y": [
+      "label-content-name-mismatch"
+     ],
+     "perf_all": [
+      100,
+      100,
+      100
+     ],
+     "run_errors": 0
+    },
+    "/unsubscribe/?id=AAAAAAAAAAAAAAAAAAAAAAAA": {
+     "perf": 100,
+     "a11y": 94,
+     "bp": 96,
+     "seo": 54,
+     "fcp": 786.693,
+     "lcp": 921.386,
+     "tbt": 0,
+     "cls": 0,
+     "si": 786.693,
+     "bytes": 21532,
+     "requests": 4,
+     "console": [
+      [
+       "network",
+       "Failed to load resource: the server responded with a status of 404 ()"
+      ]
+     ],
+     "failed": [
+      "https://www.anthonytoday.com/favicon.ico"
+     ],
+     "opps": [],
+     "failing_bp": [
+      "errors-in-console"
+     ],
+     "failing_a11y": [
+      "color-contrast"
+     ],
+     "perf_all": [
+      0,
+      100,
+      100
+     ],
+     "run_errors": 0
+    },
+    "/free-kit/": {
+     "perf": 100,
+     "a11y": 100,
+     "bp": 100,
+     "seo": 100,
+     "fcp": 845.13,
+     "lcp": 910.26,
+     "tbt": 0,
+     "cls": 0,
+     "si": 845.13,
+     "bytes": 21163,
+     "requests": 3,
+     "console": [],
+     "failed": [],
+     "opps": [],
+     "failing_bp": [],
+     "failing_a11y": [],
+     "perf_all": [
+      100,
+      100,
+      100
+     ],
+     "run_errors": 0
+    }
+   }
+  },
+  "moneywithai": {
+   "headers_home": {
+    "status": "HTTP/2 200 ",
+    "headers": {
+     "content-type": "text/html; charset=utf-8",
+     "cache-control": "public, max-age=0, must-revalidate",
+     "strict-transport-security": "max-age=31536000; includeSubDomains",
+     "content-security-policy": "default-src 'self'; script-src 'self' 'sha256-/8z8ANL1wIwniWnL/i4viPXfxrAcCS6w0Xkw5cvZsDs=' 'sha256-YRk48QZ8KTFwMdSMoi3sTqawRRtlhVxE6DmLnbyhQBo=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests",
+     "cross-origin-opener-policy": "same-origin",
+     "cross-origin-resource-policy": "same-origin",
+     "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()",
+     "referrer-policy": "strict-origin-when-cross-origin",
+     "x-content-type-options": "nosniff",
+     "x-frame-options": "DENY",
+     "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=Du5IzE%2FCC2JT9yQ5v%2FJbPZjZbH0yh0HMnp%2FvOA3%2BOGACrDm3LCrJbyvd3Wq28vUN%2FoFFDVONeWsho5vig2H7OtnitP7FenTDivNePDIVO9eXvnNvuBCIsG0X3yW%2FGSQPoQ8%3D\"}]}",
+     "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+     "content-encoding": "br",
+     "server": "cloudflare",
+     "alt-svc": "h3=\":443\"; ma=86400"
+    }
+   },
+   "headers_asset_sample": {
+    "/favicon.svg": {
+     "status": "HTTP/2 200 ",
+     "cache-control": "public, max-age=3600",
+     "cf-cache-status": [
+      null,
+      null
+     ],
+     "content-encoding": "br"
+    },
+    "/apple-touch-icon.png": {
+     "status": "HTTP/2 200 ",
+     "cache-control": "public, max-age=3600",
+     "cf-cache-status": [
+      null,
+      null
+     ],
+     "content-encoding": null
+    },
+    "/_astro/Header.astro_astro_type_script_index_0_lang.BitU2oDd.js": {
+     "status": "HTTP/2 200 ",
+     "cache-control": "public, max-age=31536000, immutable",
+     "cf-cache-status": [
+      null,
+      null
+     ],
+     "content-encoding": "br"
+    },
+    "/logos/grok.svg": {
+     "status": "HTTP/2 200 ",
+     "cache-control": "public, max-age=3600",
+     "cf-cache-status": [
+      null,
+      null
+     ],
+     "content-encoding": "br"
+    }
+   },
+   "redirects": {
+    "http://moneywithai.net/": "301 https://moneywithai.net/",
+    "https://moneywithai.net/": "200",
+    "http://www.moneywithai.net/": "301 https://moneywithai.net/",
+    "https://www.moneywithai.net/": "301 https://moneywithai.net/",
+    "https://moneywithai.net/notion": "404",
+    "https://moneywithai.net/football": "404"
+   },
+   "probes": {
+    "/.git/HEAD": "404 text/html; charset=utf-8 79317",
+    "/.env": "404 text/html; charset=utf-8 79317",
+    "/package.json": "404 text/html; charset=utf-8 79317",
+    "/wrangler.jsonc": "404 text/html; charset=utf-8 79317",
+    "/_config.yml": "404 text/html; charset=utf-8 79317",
+    "/README.md": "404 text/html; charset=utf-8 79317",
+    "/.well-known/security.txt": "200 text/plain; charset=utf-8 220",
+    "/robots.txt": "200 text/plain; charset=utf-8 1861",
+    "/sitemap.xml": "200 application/xml; charset=utf-8 108855",
+    "/llms.txt": "200 text/plain; charset=utf-8 320147",
+    "/this-page-does-not-exist-xyz/": "404 text/html; charset=utf-8 79317"
+   },
+   "timing": {
+    "/": {
+     "code": "200",
+     "dns_ms": 1,
+     "connect_ms": 7,
+     "tls_ms": 20,
+     "ttfb_ms": 100,
+     "total_ms": 100,
+     "bytes_br": 38696,
+     "http": "2",
+     "runs": 5
+    },
+    "/bots/": {
+     "code": "200",
+     "dns_ms": 1,
+     "connect_ms": 6,
+     "tls_ms": 20,
+     "ttfb_ms": 78,
+     "total_ms": 83,
+     "bytes_br": 84814,
+     "http": "2",
+     "runs": 5
+    },
+    "/bots/account-health/": {
+     "code": "200",
+     "dns_ms": 1,
+     "connect_ms": 7,
+     "tls_ms": 19,
+     "ttfb_ms": 71,
+     "total_ms": 71,
+     "bytes_br": 23334,
+     "http": "2",
+     "runs": 5
+    },
+    "/use-cases/": {
+     "code": "200",
+     "dns_ms": 1,
+     "connect_ms": 7,
+     "tls_ms": 18,
+     "ttfb_ms": 63,
+     "total_ms": 64,
+     "bytes_br": 42101,
+     "http": "2",
+     "runs": 5
+    }
+   },
+   "third_party_home": {
+    "hosts": {},
+    "inline_scripts": 3,
+    "html_bytes_uncompressed": 278382,
+    "ext_scripts": 0,
+    "preload_links": 0,
+    "img_without_lazy": 0
+   },
+   "tls": {
+    "tls1": "refused",
+    "tls1_1": "refused",
+    "tls1_2": "accepted",
+    "tls1_3": "accepted",
+    "cert": "issuer=C=US, O=Google Trust Services, CN=WE1 notAfter=Jan 23 05:27:14 2027 GMT X509v3 Subject Alternative Name: DNS:moneywithai.net, DNS:www.moneywithai.net, DNS:*.www.moneywithai.net"
+   },
+   "dns": {
+    "caa": "0 iodef \"mailto:admin@anthonytoday.com\" | 0 issue \"amazon.com\" | 0 issue \"amazonaws.com\" | 0 issue \"amazontrust.com\" | 0 issue \"awstrust.com\" | 0 issue \"comodoca.com\" | 0 issue \"digicert.com; cansignhttpexchanges=yes\" | 0 issue \"letsencrypt.org\" | 0 issue \"pki.goog; cansignhttpexchanges=yes\" | 0 issue \"ssl.com\" | 0 issuewild \"comodoca.com\" | 0 issuewild \"digicert.com; cansignhttpexchanges=yes\" | 0 issuewild \"letsencrypt.org\" | 0 issuewild \"pki.goog; cansignhttpexchanges=yes\" | 0 issuewild \"ssl.com\"",
+    "ds": "2371 13 2 2A4A351CE628DBDCC016BDA1FE6DB321CBDB897A2C67E105539863FD 5F79BCB8",
+    "dnssec_validated": true,
+    "mx": "10 receive-apne1.forge.rmta.net.",
+    "spf": [
+     "\"v=spf1 -all\""
+    ],
+    "dmarc": "\"v=DMARC1; p=reject; adkim=r; aspf=r; rua=mailto:66a793c66f544f42ad251723a6974da5@dmarc-reports.cloudflare.net;\"",
+    "mta_sts": "",
+    "tls_rpt": "",
+    "aaaa": "2606:4700:3035::ac43:91d7 | 2606:4700:3037::6815:1c68",
+    "https_rr": "1 . alpn=\"h3,h2\" ipv4hint=104.21.28.104,172.67.145.215 ech=AEX+DQBBXgAgACAirNgHfugk3PfZmGeZBPS8GWTHxcDPnL0YbA216XimewAEAAEAAQASY2xvdWRmbGFyZS1lY2guY29tAAA= ipv6hint=2606:4700:3035::ac43:91d7,2606:4700:3037::6815:1c68"
+   },
+   "observatory": {
+    "grade": "A+",
+    "score": 135,
+    "tests_passed": 12,
+    "tests_failed": 0,
+    "scanned_at": "2026-11-19T08:19:46.264Z",
+    "error": null
+   },
+   "observatory_failed_tests": [],
+   "hsts_preload": {
+    "status": "unknown",
+    "preloadable": {
+     "errors": [
+      "header.preloadable.preload.missing"
+     ],
+     "warnings": []
+    }
+   },
+   "extra_hosts": {
+    "mirror.moneywithai.net": {
+     "status": "HTTP/2 200 ",
+     "hsts": null,
+     "robots": null,
+     "server": "GitHub.com",
+     "csp": ""
+    },
+    "rsend.moneywithai.net": {
+     "status": "NO RESPONSE",
+     "hsts": null,
+     "robots": null,
+     "server": null,
+     "csp": ""
+    },
+    "www.moneywithai.net": {
+     "status": "HTTP/2 301 ",
+     "hsts": null,
+     "robots": null,
+     "server": "cloudflare",
+     "csp": ""
+    }
+   },
+   "sitemap_count": 1041,
+   "crawl": {
+    "total": 1041,
+    "codes": {
+     "200": 1041
+    },
+    "non_200": []
+   },
+   "html_cache": [
+    [
+     null,
+     null,
+     "public, max-age=0, must-revalidate"
+    ],
+    [
+     null,
+     null,
+     "public, max-age=0, must-revalidate"
+    ],
+    [
+     null,
+     null,
+     "public, max-age=0, must-revalidate"
+    ]
+   ],
+   "lighthouse": {
+    "/": {
+     "perf": 98,
+     "a11y": 97,
+     "bp": 100,
+     "seo": 100,
+     "fcp": 1936.7899999999997,
+     "lcp": 1936.7899999999997,
+     "tbt": 77.5,
+     "cls": 0.0009193864332497235,
+     "si": 1936.7899999999997,
+     "bytes": 203462,
+     "requests": 38,
+     "console": [],
+     "failed": [],
+     "opps": [
+      [
+       "server-response-time",
+       81
+      ]
+     ],
+     "failing_bp": [],
+     "failing_a11y": [
+      "label-content-name-mismatch",
+      "target-size"
+     ],
+     "perf_all": [
+      97,
+      98,
+      98
+     ],
+     "run_errors": 0
+    },
+    "/bots/": {
+     "perf": 96,
+     "a11y": 96,
+     "bp": 100,
+     "seo": 100,
+     "fcp": 2212.591,
+     "lcp": 2212.591,
+     "tbt": 0,
+     "cls": 0.0002658505166073013,
+     "si": 2212.591,
+     "bytes": 157546,
+     "requests": 9,
+     "console": [],
+     "failed": [],
+     "opps": [],
+     "failing_bp": [],
+     "failing_a11y": [
+      "label-content-name-mismatch",
+      "link-in-text-block"
+     ],
+     "perf_all": [
+      96,
+      96,
+      96
+     ],
+     "run_errors": 0
+    },
+    "/bots/account-health/": {
+     "perf": 98,
+     "a11y": 91,
+     "bp": 100,
+     "seo": 100,
+     "fcp": 1908.9169999999997,
+     "lcp": 1908.9169999999997,
+     "tbt": 0,
+     "cls": 0.0006295134900741687,
+     "si": 1908.9169999999997,
+     "bytes": 117384,
+     "requests": 17,
+     "console": [],
+     "failed": [],
+     "opps": [
+      [
+       "server-response-time",
+       54
+      ]
+     ],
+     "failing_bp": [],
+     "failing_a11y": [
+      "color-contrast",
+      "label-content-name-mismatch",
+      "link-in-text-block"
+     ],
+     "perf_all": [
+      98,
+      98,
+      99
+     ],
+     "run_errors": 0
+    },
+    "/use-cases/": {
+     "perf": 97,
+     "a11y": 92,
+     "bp": 100,
+     "seo": 100,
+     "fcp": 2066.2079999999996,
+     "lcp": 2066.2079999999996,
+     "tbt": 0,
+     "cls": 0.000738191907341583,
+     "si": 2066.2079999999996,
+     "bytes": 169010,
+     "requests": 36,
+     "console": [],
+     "failed": [],
+     "opps": [],
+     "failing_bp": [],
+     "failing_a11y": [
+      "label-content-name-mismatch",
+      "link-in-text-block",
+      "target-size"
+     ],
+     "perf_all": [
+      97,
+      97,
+      99
+     ],
+     "run_errors": 0
+    }
+   }
+  },
+  "inmycal": {
+   "headers_home": {
+    "status": "HTTP/2 200 ",
+    "headers": {
+     "content-type": "text/html; charset=utf-8",
+     "cache-control": "public, max-age=300",
+     "strict-transport-security": "max-age=31536000; includeSubDomains",
+     "content-security-policy": "default-src 'none'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; frame-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests",
+     "cross-origin-opener-policy": "same-origin",
+     "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()",
+     "referrer-policy": "strict-origin-when-cross-origin",
+     "x-content-type-options": "nosniff",
+     "x-frame-options": "DENY",
+     "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=pWAAek9LxtHLkFHYq1UEkXRkIcRAK%2Ffl%2FdQt6LPba2jFOqXQ%2FptOhSj1jqUGaLc%2BLTtn5O9HcO4DPOopLuYlKdQryVbYbIJIcZyfcEdvt111oia6ZGj17BvCXlTQaw%3D%3D\"}]}",
+     "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+     "content-encoding": "br",
+     "server": "cloudflare",
+     "alt-svc": "h3=\":443\"; ma=86400"
+    }
+   },
+   "headers_asset_sample": {
+    "/favicon.svg": {
+     "status": "HTTP/2 200 ",
+     "cache-control": "public, max-age=3600",
+     "cf-cache-status": [
+      null,
+      null
+     ],
+     "content-encoding": "br"
+    },
+    "/logo.png": {
+     "status": "HTTP/2 200 ",
+     "cache-control": "public, max-age=3600",
+     "cf-cache-status": [
+      null,
+      null
+     ],
+     "content-encoding": null
+    },
+    "/assets/fighter-jiri-prochazka-cutout.png": {
+     "status": "HTTP/2 200 ",
+     "cache-control": "public, max-age=3600",
+     "cf-cache-status": [
+      null,
+      null
+     ],
+     "content-encoding": null
+    }
+   },
+   "redirects": {
+    "http://inmycal.com/": "301 https://inmycal.com/",
+    "https://inmycal.com/": "200",
+    "http://www.inmycal.com/": "301 https://www.inmycal.com/",
+    "https://www.inmycal.com/": "301 https://inmycal.com/",
+    "https://inmycal.com/notion": "301 https://inmycal.com/notion/",
+    "https://inmycal.com/football": "301 https://inmycal.com/football/"
+   },
+   "probes": {
+    "/.git/HEAD": "404 text/html; charset=utf-8 27797",
+    "/.env": "404 text/html; charset=utf-8 27797",
+    "/package.json": "404 text/html; charset=utf-8 27797",
+    "/wrangler.jsonc": "404 text/html; charset=utf-8 27797",
+    "/_config.yml": "404 text/html; charset=utf-8 27797",
+    "/README.md": "404 text/html; charset=utf-8 27797",
+    "/.well-known/security.txt": "200 text/plain; charset=utf-8 194",
+    "/robots.txt": "200 text/plain; charset=utf-8 83",
+    "/sitemap.xml": "200 application/xml; charset=utf-8 37064",
+    "/llms.txt": "200 text/plain; charset=utf-8 5358",
+    "/this-page-does-not-exist-xyz/": "404 text/html; charset=utf-8 27797"
+   },
+   "timing": {
+    "/": {
+     "code": "200",
+     "dns_ms": 1,
+     "connect_ms": 7,
+     "tls_ms": 19,
+     "ttfb_ms": 55,
+     "total_ms": 74,
+     "bytes_br": 25311,
+     "http": "2",
+     "runs": 5
+    },
+    "/football/": {
+     "code": "200",
+     "dns_ms": 1,
+     "connect_ms": 7,
+     "tls_ms": 20,
+     "ttfb_ms": 50,
+     "total_ms": 57,
+     "bytes_br": 19987,
+     "http": "2",
+     "runs": 5
+    },
+    "/f1/": {
+     "code": "200",
+     "dns_ms": 1,
+     "connect_ms": 7,
+     "tls_ms": 20,
+     "ttfb_ms": 60,
+     "total_ms": 63,
+     "bytes_br": 9311,
+     "http": "2",
+     "runs": 5
+    },
+    "/ufc/": {
+     "code": "200",
+     "dns_ms": 1,
+     "connect_ms": 7,
+     "tls_ms": 20,
+     "ttfb_ms": 55,
+     "total_ms": 56,
+     "bytes_br": 9227,
+     "http": "2",
+     "runs": 5
+    }
+   },
+   "third_party_home": {
+    "hosts": {
+     "script": [
+      "static.cloudflareinsights.com"
+     ]
+    },
+    "inline_scripts": 1,
+    "html_bytes_uncompressed": 268321,
+    "ext_scripts": 1,
+    "preload_links": 0,
+    "img_without_lazy": 0
+   },
+   "tls": {
+    "tls1": "refused",
+    "tls1_1": "refused",
+    "tls1_2": "accepted",
+    "tls1_3": "accepted",
+    "cert": "issuer=C=US, O=Google Trust Services, CN=WE1 notAfter=Feb 2 02:53:49 2027 GMT X509v3 Subject Alternative Name: DNS:inmycal.com, DNS:www.inmycal.com, DNS:*.www.inmycal.com"
+   },
+   "dns": {
+    "caa": "0 issue \"amazonaws.com\" | 0 issue \"comodoca.com\" | 0 issue \"digicert.com; cansignhttpexchanges=yes\" | 0 issue \"letsencrypt.org\" | 0 issue \"pki.goog; cansignhttpexchanges=yes\" | 0 issue \"ssl.com\" | 0 issuewild \"comodoca.com\" | 0 issuewild \"digicert.com; cansignhttpexchanges=yes\" | 0 issuewild \"letsencrypt.org\" | 0 issuewild \"pki.goog; cansignhttpexchanges=yes\" | 0 issuewild \"ssl.com\" | 128 issuewild \"amazonaws.com\"",
+    "ds": "2371 13 2 D7B95A559CA9E51485FAF95869F97D1C8C6E145AC2EF86BB8EC5940A 76610A65",
+    "dnssec_validated": true,
+    "mx": "10 receive-apne1.forge.rmta.net.",
+    "spf": [
+     "\"v=spf1 -all\""
+    ],
+    "dmarc": "\"v=DMARC1; p=reject; adkim=r; aspf=r; rua=mailto:1cd7204873f346799f3454075abe7538@dmarc-reports.cloudflare.net;\"",
+    "mta_sts": "",
+    "tls_rpt": "",
+    "aaaa": "2606:4700:3030::6815:3a5 | 2606:4700:3033::ac43:82f2",
+    "https_rr": "1 . alpn=\"h3,h2\" ipv4hint=104.21.3.165,172.67.130.242 ech=AEX+DQBBXgAgACAirNgHfugk3PfZmGeZBPS8GWTHxcDPnL0YbA216XimewAEAAEAAQASY2xvdWRmbGFyZS1lY2guY29tAAA= ipv6hint=2606:4700:3030::6815:3a5,2606:4700:3033::ac43:82f2"
+   },
+   "observatory": {
+    "grade": "A+",
+    "score": 125,
+    "tests_passed": 11,
+    "tests_failed": 1,
+    "scanned_at": "2026-11-19T08:23:26.206Z",
+    "error": null
+   },
+   "observatory_failed_tests": [
+    "subresource-integrity"
+   ],
+   "hsts_preload": {
+    "status": "unknown",
+    "preloadable": {
+     "errors": [
+      "header.preloadable.preload.missing"
+     ],
+     "warnings": []
+    }
+   },
+   "extra_hosts": {
+    "mirror.inmycal.com": {
+     "status": "HTTP/2 200 ",
+     "hsts": null,
+     "robots": null,
+     "server": "GitHub.com",
+     "csp": ""
+    },
+    "rsend.inmycal.com": {
+     "status": "NO RESPONSE",
+     "hsts": null,
+     "robots": null,
+     "server": null,
+     "csp": ""
+    },
+    "www.inmycal.com": {
+     "status": "HTTP/2 301 ",
+     "hsts": "max-age=31536000; includeSubDomains",
+     "robots": null,
+     "server": "cloudflare",
+     "csp": "default-src 'none'; script-src 'self' https://static.cloudflareinsights.com; sty"
+    }
+   },
+   "sitemap_count": 400,
+   "crawl": {
+    "total": 400,
+    "codes": {
+     "200": 400
+    },
+    "non_200": []
+   },
+   "html_cache": [
+    [
+     "HIT",
+     "153",
+     "public, max-age=14400"
+    ],
+    [
+     "HIT",
+     "154",
+     "public, max-age=14400"
+    ],
+    [
+     "HIT",
+     "155",
+     "public, max-age=14400"
+    ]
+   ],
+   "lighthouse": {
+    "/": {
+     "perf": 98,
+     "a11y": 96,
+     "bp": 96,
+     "seo": 100,
+     "fcp": 1709.7355000000002,
+     "lcp": 1889.1680000000001,
+     "tbt": 68,
+     "cls": 0.00037915858548702333,
+     "si": 1709.7355000000002,
+     "bytes": 2861041,
+     "requests": 101,
+     "console": [
+      [
+       "javascript",
+       "Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'https://inmycal.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource."
+      ],
+      [
+       "network",
+       "Failed to load resource: net::ERR_FAILED"
+      ]
+     ],
+     "failed": [],
+     "opps": [
+      [
+       "server-response-time",
+       144
+      ]
+     ],
+     "failing_bp": [
+      "errors-in-console"
+     ],
+     "failing_a11y": [
+      "color-contrast"
+     ],
+     "perf_all": [
+      92,
+      98,
+      98
+     ],
+     "run_errors": 0
+    },
+    "/football/": {
+     "perf": 97,
+     "a11y": 100,
+     "bp": 96,
+     "seo": 100,
+     "fcp": 1959.8824999999997,
+     "lcp": 1959.8824999999997,
+     "tbt": 75.99999999999977,
+     "cls": 0,
+     "si": 1959.8824999999997,
+     "bytes": 3803825,
+     "requests": 131,
+     "console": [
+      [
+       "javascript",
+       "Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'https://inmycal.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource."
+      ],
+      [
+       "network",
+       "Failed to load resource: net::ERR_FAILED"
+      ],
+      [
+       "network",
+       "Failed to load resource: the server responded with a status of 429 ()"
+      ],
+      [
+       "network",
+       "Failed to load resource: the server responded with a status of 429 ()"
+      ],
+      [
+       "network",
+       "Failed to load resource: the server responded with a status of 429 ()"
+      ]
+     ],
+     "failed": [
+      "https://inmycal.com/favicon.svg",
+      "https://inmycal.com/search.json",
+      "https://inmycal.com/logo.png"
+     ],
+     "opps": [
+      [
+       "server-response-time",
+       366
+      ],
+      [
+       "render-blocking-resources",
+       150
+      ]
+     ],
+     "failing_bp": [
+      "errors-in-console"
+     ],
+     "failing_a11y": [],
+     "perf_all": [
+      0,
+      97,
+      98
+     ],
+     "run_errors": 0
+    },
+    "/f1/": {
+     "perf": 99,
+     "a11y": 100,
+     "bp": 96,
+     "seo": 100,
+     "fcp": 1690.9189999999999,
+     "lcp": 1690.919,
+     "tbt": 27,
+     "cls": 0,
+     "si": 1690.9189999999999,
+     "bytes": 118874,
+     "requests": 14,
+     "console": [
+      [
+       "javascript",
+       "Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'https://inmycal.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource."
+      ],
+      [
+       "network",
+       "Failed to load resource: net::ERR_FAILED"
+      ]
+     ],
+     "failed": [],
+     "opps": [
+      [
+       "server-response-time",
+       560
+      ],
+      [
+       "render-blocking-resources",
+       150
+      ]
+     ],
+     "failing_bp": [
+      "errors-in-console"
+     ],
+     "failing_a11y": [],
+     "perf_all": [
+      0,
+      99,
+      99
+     ],
+     "run_errors": 0
+    },
+    "/ufc/": {
+     "perf": 96,
+     "a11y": 100,
+     "bp": 96,
+     "seo": 100,
+     "fcp": 1740.7469999999998,
+     "lcp": 2569.866,
+     "tbt": 45,
+     "cls": 0.02261826927348137,
+     "si": 1740.7469999999998,
+     "bytes": 254187,
+     "requests": 16,
+     "console": [
+      [
+       "javascript",
+       "Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'https://inmycal.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource."
+      ],
+      [
+       "network",
+       "Failed to load resource: net::ERR_FAILED"
+      ]
+     ],
+     "failed": [],
+     "opps": [
+      [
+       "modern-image-formats",
+       450
+      ],
+      [
+       "uses-responsive-images",
+       450
+      ]
+     ],
+     "failing_bp": [
+      "errors-in-console"
+     ],
+     "failing_a11y": [],
+     "perf_all": [
+      95,
+      96,
+      98
+     ],
+     "run_errors": 0
+    }
+   }
+  }
+ },
+ "finished": "2026-11-19T08:37:26Z"
+}
