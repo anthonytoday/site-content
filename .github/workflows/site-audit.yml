@@ -1,0 +1,44 @@
+name: Site audit (temporary)
+
+# Temporary, branch-only workflow requested by the owner on 19 Nov 2026:
+# headers, TLS, DNS, Lighthouse and sitemap status checks of the owner's three
+# public sites (www.anthonytoday.com, moneywithai.net, inmycal.com).
+# Output: audit-results/<label>.json on this branch. Delete the branch when done.
+on:
+  push:
+    branches: [tmp-site-audit]
+    paths: ['.github/audit/LABEL']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: site-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Tools
+        run: |
+          which dig || (sudo apt-get update -qq && sudo apt-get install -y -qq dnsutils)
+          npx -y lighthouse@12 --version
+      - name: Audit
+        run: python3 .github/audit/audit.py results
+      - name: Commit results
+        if: always()
+        run: |
+          LABEL=$(cat .github/audit/LABEL)
+          mkdir -p audit-results
+          cp results/report.json "audit-results/${LABEL}.json"
+          git config user.name "site-audit"
+          git config user.email "site-audit@users.noreply.github.com"
+          git add audit-results
+          git commit -m "Site audit results ${LABEL}"
+          git push
