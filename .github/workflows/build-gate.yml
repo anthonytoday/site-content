@@ -72,6 +72,18 @@ jobs:
           fi
           python3 .github/scripts/check-csp-hash.py _site
 
+      # CSP sync (0061, wired into the gate 19 Nov 2026): inline script hashes vs every meta CSP,
+      # _data/csp.yml vs security/csp-header.txt, and, outside pull requests, the live Cloudflare
+      # header vs the file. The live header lives in two Cloudflare Transform Rules that are not
+      # deployed by this repo, so a csp.yml change without the Cloudflare update fails here.
+      - name: Check CSP sync (repo and live Cloudflare header)
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            python3 .github/scripts/check-csp-sync.py _site _data/csp.yml security/csp-header.txt
+          else
+            python3 .github/scripts/check-csp-sync.py _site _data/csp.yml security/csp-header.txt --live https://www.anthonytoday.com/
+          fi
+
       # Cloudflare Web Analytics beacon only on the explicit include list in
       # _data/cf_analytics.yml; never on /r/, /f/, /unsubscribe/ or other pages.
       - name: Check the analytics beacon include list
