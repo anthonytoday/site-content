@@ -9,8 +9,8 @@
    from the header file; fail if script_hashes: (when present) differs from the header file;
    fail if the header: key in csp.yml does not exactly equal the header file.
 5. Warn on header hashes that no built page uses (stale).
-6. Optional --live URL: compare live Content-Security-Policy header to the file (read-only GET).
-   Non-blocking while Cloudflare still serves Report-Only: prints WARN, does not fail the step.
+6. Optional --live URL: compare the live enforcing Content-Security-Policy header to the file
+   (read-only HEAD). A mismatch fails the step; a network error only warns.
 
 Usage:
   check-csp-sync.py _site _data/csp.yml security/csp-header.txt
@@ -129,8 +129,16 @@ def main(a):
                 if lv:
                     print("csp-sync: WARN live serves Content-Security-Policy-Report-Only (enforcing header not live yet)")
             if lv != header:
-                # Non-blocking until the enforcing header is live in Cloudflare.
-                print("csp-sync: WARN live CSP at %s != header file (non-blocking until enforcing)" % live)
+                if r.headers.get("Content-Security-Policy"):
+                    # Enforcing since Nov 2026: a stale Cloudflare rule blocked /unsubscribe/ and
+                    # /free-kit/ from 10 to 19 Nov while every repo check passed. Blocking now.
+                    fails.append(
+                        "live CSP at %s != security/csp-header.txt: set both www response-header "
+                        "Transform Rules in Cloudflare to the file's value (same change as the "
+                        "_data/csp.yml edit)" % live
+                    )
+                else:
+                    print("csp-sync: WARN live CSP at %s != header file (Report-Only)" % live)
             else:
                 print("csp-sync: live CSP at %s matches header file" % live)
         except Exception as e:
