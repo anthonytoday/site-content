@@ -1,0 +1,44 @@
+== moneywithai.net
+header: strict-transport-security: max-age=31536000; includeSubDomains; preload
+preloadable: {
+  "errors": [],
+  "warnings": [
+    {
+      "code": "redirects.http.useless_header",
+      "summary": "Unnecessary HSTS header over HTTP",
+      "message": "The HTTP page at http://moneywithai.net sends an HSTS header. This has no effect over HTTP, and should be removed."
+    }
+  ]
+}
+submit: {
+  "errors": [],
+  "warnings": [
+    {
+      "code": "redirects.http.useless_header",
+      "summary": "Unnecessary HSTS header over HTTP",
+      "message": "The HTTP page at http://moneywithai.net sends an HSTS header. This has no effect over HTTP, and should be removed."
+    }
+  ]
+}
+status: {
+  "name": "moneywithai.net",
+  "status": "pending",
+  "bulk": false,
+  "preloadedDomain": ""
+}
+== inmycal.com
+header: strict-transport-security: max-age=31536000; includeSubDomains; preload
+preloadable: {
+  "errors": [],
+  "warnings": []
+}
+submit: {
+  "errors": [],
+  "warnings": []
+}
+status: {
+  "name": "inmycal.com",
+  "status": "pending",
+  "bulk": false,
+  "preloadedDomain": ""
+}
