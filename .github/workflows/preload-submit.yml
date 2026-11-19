@@ -1,0 +1,51 @@
+name: HSTS preload submit (temporary)
+
+# Owner-approved (19 Nov 2026): submit moneywithai.net and inmycal.com to the
+# HSTS preload list once their live headers carry the preload directive and
+# hstspreload.org reports no eligibility errors. Branch-only; delete when done.
+on:
+  push:
+    branches: [tmp-site-audit]
+    paths: ['.github/preload/GO']
+
+permissions:
+  contents: write
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wait for preload headers, check eligibility, submit
+        run: |
+          set -u
+          mkdir -p preload-results
+          out=preload-results/$(cat .github/preload/GO).txt
+          for d in moneywithai.net inmycal.com; do
+            ok=0
+            for i in $(seq 1 25); do
+              h=$(curl -sSI --max-time 20 "https://$d/" | tr -d '\r' | grep -i '^strict-transport-security:' | head -1)
+              if echo "$h" | grep -qi 'preload'; then ok=1; break; fi
+              sleep 60
+            done
+            echo "== $d" >> "$out"
+            echo "header: $h" >> "$out"
+            pre=$(curl -sS --max-time 30 "https://hstspreload.org/api/v2/preloadable?domain=$d")
+            echo "preloadable: $pre" >> "$out"
+            errs=$(echo "$pre" | python3 -c 'import json,sys; print(len(json.load(sys.stdin).get("errors") or []))')
+            if [ "$ok" = 1 ] && [ "$errs" = 0 ]; then
+              sub=$(curl -sS --max-time 30 -X POST "https://hstspreload.org/api/v2/submit?domain=$d")
+              echo "submit: $sub" >> "$out"
+            else
+              echo "submit: SKIPPED (header_ok=$ok errors=$errs)" >> "$out"
+            fi
+            echo "status: $(curl -sS --max-time 30 "https://hstspreload.org/api/v2/status?domain=$d")" >> "$out"
+          done
+          cat "$out"
+          git config user.name "site-audit"
+          git config user.email "site-audit@users.noreply.github.com"
+          git add preload-results
+          git commit -m "HSTS preload results"
+          git pull --rebase origin tmp-site-audit
+          git push
