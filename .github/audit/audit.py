@@ -15,20 +15,20 @@ SITES = {
     "anthonytoday": {
         "origin": "https://www.anthonytoday.com",
         "apex": "anthonytoday.com",
-        "lh": ["/", "/notion/", "/flashcards/", "/start/"],
-        "extra_hosts": ["check.anthonytoday.com", "store.anthonytoday.com", "links.anthonytoday.com"],
+        "lh": ["/", "/notion/", "/flashcards/", "/start/", "/unsubscribe/?id=AAAAAAAAAAAAAAAAAAAAAAAA", "/free-kit/"],
+        "extra_hosts": ["check.anthonytoday.com", "store.anthonytoday.com", "links.anthonytoday.com", "anthonytoday.com"],
     },
     "moneywithai": {
         "origin": "https://moneywithai.net",
         "apex": "moneywithai.net",
         "lh": ["/", "/bots/", "/bots/account-health/", "/use-cases/"],
-        "extra_hosts": ["mirror.moneywithai.net"],
+        "extra_hosts": ["mirror.moneywithai.net", "rsend.moneywithai.net", "www.moneywithai.net"],
     },
     "inmycal": {
         "origin": "https://inmycal.com",
         "apex": "inmycal.com",
         "lh": ["/", "/football/", "/f1/", "/ufc/"],
-        "extra_hosts": ["mirror.inmycal.com"],
+        "extra_hosts": ["mirror.inmycal.com", "rsend.inmycal.com", "www.inmycal.com"],
     },
 }
 # Files that must not be served (expected 404) plus the public plumbing files (expected 200).
@@ -168,32 +168,44 @@ def hsts_preload(apex):
 
 
 def lighthouse(url, tag):
-    runs = []
+    runs, errors = [], []
     for i in range(LH_RUNS):
         path = f"/tmp/lh-{tag}-{i}.json"
-        sh(f"npx -y lighthouse@12 '{url}' --quiet --output=json --output-path={path} --only-categories=performance,accessibility,best-practices,seo --chrome-flags='--headless=new --no-sandbox --disable-gpu'", 240)
+        out = sh(f"npx -y lighthouse@12 '{url}' --quiet --output=json --output-path={path} --only-categories=performance,accessibility,best-practices,seo --chrome-flags='--headless=new --no-sandbox --disable-gpu' 2>&1", 300)
         try:
             r = json.load(open(path))
-        except Exception:
-            continue
-        a = r["audits"]
-        g = lambda k: a.get(k, {}).get("numericValue")
-        console = [(it.get("source"), (it.get("description") or "")[:220]) for it in a.get("errors-in-console", {}).get("details", {}).get("items", [])]
-        failed = [it.get("url") for it in a.get("network-requests", {}).get("details", {}).get("items", []) if (it.get("statusCode") or 0) >= 400 or it.get("statusCode") == -1]
-        runs.append({"perf": round(r["categories"]["performance"]["score"] * 100), "a11y": round(r["categories"]["accessibility"]["score"] * 100),
-                     "bp": round(r["categories"]["best-practices"]["score"] * 100), "seo": round(r["categories"]["seo"]["score"] * 100),
-                     "fcp": g("first-contentful-paint"), "lcp": g("largest-contentful-paint"), "tbt": g("total-blocking-time"), "cls": g("cumulative-layout-shift"),
-                     "si": g("speed-index"), "bytes": g("total-byte-weight"), "requests": len(a.get("network-requests", {}).get("details", {}).get("items", [])),
-                     "console": console, "failed": failed,
-                     "opps": sorted([(k, round(v.get("numericValue") or 0)) for k, v in a.items() if v.get("details", {}).get("type") == "opportunity" and (v.get("numericValue") or 0) > 50], key=lambda x: -x[1])[:6],
-                     "failing_bp": [k for k in ["csp-xss", "is-on-https", "inspector-issues", "errors-in-console", "deprecations", "third-party-cookies", "valid-source-maps", "has-hsts", "origin-isolation", "clickjacking-mitigation", "trusted-types-xss"] if a.get(k, {}).get("score") not in (1, None)],
-                     "failing_a11y": [k for k, v in a.items() if v.get("score") == 0 and k in {x["id"] for x in r["categories"]["accessibility"]["auditRefs"]}][:10]})
+            a = r["audits"]
+            D = lambda k: (a.get(k, {}).get("details") or {})
+            g = lambda k: a.get(k, {}).get("numericValue")
+            sc = lambda c: round((r["categories"][c]["score"] or 0) * 100)
+            console = [(it.get("source"), (it.get("description") or "")[:220]) for it in D("errors-in-console").get("items", [])]
+            net = D("network-requests").get("items", [])
+            failed = [it.get("url") for it in net if (it.get("statusCode") or 0) >= 400]
+            a11y_ids = {x["id"] for x in r["categories"]["accessibility"]["auditRefs"]}
+            runs.append({"perf": sc("performance"), "a11y": sc("accessibility"), "bp": sc("best-practices"), "seo": sc("seo"),
+                         "fcp": g("first-contentful-paint"), "lcp": g("largest-contentful-paint"), "tbt": g("total-blocking-time"), "cls": g("cumulative-layout-shift"),
+                         "si": g("speed-index"), "bytes": g("total-byte-weight"), "requests": len(net), "console": console, "failed": failed,
+                         "opps": sorted([(k, round(v.get("numericValue") or 0)) for k, v in a.items() if (v.get("details") or {}).get("type") == "opportunity" and (v.get("numericValue") or 0) > 50], key=lambda x: -x[1])[:6],
+                         "failing_bp": [k for k in r["categories"]["best-practices"]["auditRefs"] and [x["id"] for x in r["categories"]["best-practices"]["auditRefs"]] if a.get(k, {}).get("score") not in (1, None)],
+                         "failing_a11y": [k for k, v in a.items() if v.get("score") == 0 and k in a11y_ids][:10]})
+        except Exception as e:
+            errors.append(f"{type(e).__name__}: {str(e)[:120]} | {out[-200:]}")
     if not runs:
-        return {"error": "lighthouse failed"}
+        return {"error": "lighthouse failed", "details": errors[:3]}
     runs.sort(key=lambda x: x["perf"])
     med = runs[len(runs) // 2]
     med["perf_all"] = [x["perf"] for x in runs]
+    med["run_errors"] = len(errors)
     return med
+
+
+def observatory_tests(host):
+    try:
+        d = json.loads(urllib.request.urlopen(urllib.request.Request(f"https://observatory-api.mdn.mozilla.net/api/v2/analyze?host={host}", headers={"User-Agent": UA}), timeout=60).read())
+        tests = d.get("tests") or {}
+        return [k for k, v in tests.items() if isinstance(v, dict) and v.get("pass") is False]
+    except Exception as e:
+        return [f"error {str(e)[:100]}"]
 
 
 report = {"started": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "runner_ip_country": sh("curl -s --max-time 10 https://ipinfo.io/country").strip(), "sites": {}}
@@ -212,11 +224,12 @@ for name, s in SITES.items():
     for p in PROBES:
         out = sh(f"curl -sS -o /tmp/probe -w '%{{http_code}} %{{content_type}} %{{size_download}}' -A '{UA}' --max-time 20 '{o}{p}'", 30).strip()
         r["probes"][p] = out
-    r["timing"] = {p: timing(o + p) for p in s["lh"]}
+    r["timing"] = {p: timing(o + p) for p in s["lh"] if "?" not in p}
     r["third_party_home"] = third_party(o, "/")
     r["tls"] = tls(host)
     r["dns"] = dns(apex)
     r["observatory"] = observatory(host)
+    r["observatory_failed_tests"] = observatory_tests(host)
     r["hsts_preload"] = hsts_preload(apex)
     r["extra_hosts"] = {}
     for h in s["extra_hosts"]:
@@ -246,7 +259,10 @@ for name, s in SITES.items():
 for name, s in SITES.items():
     report["sites"][name]["lighthouse"] = {}
     for p in s["lh"]:
-        report["sites"][name]["lighthouse"][p] = lighthouse(s["origin"] + p, name + re.sub(r"\W", "_", p))
+        try:
+            report["sites"][name]["lighthouse"][p] = lighthouse(s["origin"] + p, name + re.sub(r"\W", "_", p))
+        except Exception as e:
+            report["sites"][name]["lighthouse"][p] = {"error": str(e)[:200]}
         json.dump(report, open(f"{OUT}/report.json", "w"), indent=1)
 
 report["finished"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
