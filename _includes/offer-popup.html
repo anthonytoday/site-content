@@ -1,36 +1,35 @@
-{% assign is_fr = false %}{% if page.lang == "fr" %}{% assign is_fr = true %}{% endif %}
 <div class="atop" id="atOffer" hidden aria-hidden="true">
   <div class="atop-veil" data-atop-close></div>
   <div class="atop-card" role="dialog" aria-modal="true" aria-labelledby="atOfferTitle">
-    <button type="button" class="atop-x" data-atop-close aria-label="{% if is_fr %}Fermer{% else %}Close{% endif %}">&times;</button>
+    <button type="button" class="atop-x" data-atop-close aria-label="Close">&times;</button>
 
     <div class="atop-head">
       <img class="atop-logo" src="/assets/logos/notion.webp" alt="Notion" width="34" height="34" loading="lazy">
-      <p class="atop-eyebrow"><span class="atop-dot"></span>{% if is_fr %}Notion pour les startups{% else %}Notion for startups{% endif %}</p>
+      <p class="atop-eyebrow"><span class="atop-dot"></span>Notion for startups</p>
     </div>
-    <h2 class="atop-title" id="atOfferTitle">{% if is_fr %}Essayez Notion Business{% else %}Try Notion Business{% endif %}</h2>
-    <p class="atop-sub">{% if is_fr %}Notion AI inclus. Les entreprises eligibles peuvent obtenir des mois gratuits sur le plan Business via l'offre de Notion. Adresse e-mail professionnelle requise.{% else %}Notion AI included. Eligible businesses can get free months on the Business plan through Notion's offer. Work email required.{% endif %}</p>
+    <h2 class="atop-title" id="atOfferTitle">Try Notion Business</h2>
+    <p class="atop-sub">Notion AI included. Eligible businesses can get free months on the Business plan through Notion's offer. Work email required.</p>
 
     <form class="atop-form" id="atOfferForm" novalidate>
-      <label class="atop-label" for="atOfferEmail">{% if is_fr %}Votre meilleure adresse e-mail{% else %}Your preferred email address{% endif %}</label>
+      <label class="atop-label" for="atOfferEmail">Your preferred email address</label>
       <input class="atop-input" id="atOfferEmail" type="email" name="email" autocomplete="email"
              placeholder="name@company.com" required aria-describedby="atOfferErr">
 
       <label class="atop-check">
         <input type="checkbox" id="atOfferConsent" required>
-        <span>{% if is_fr %}J'accepte de recevoir des messages d'AnthonyToday. Desinscription a tout moment.{% else %}I agree to receive messages from AnthonyToday. Unsubscribe at any time.{% endif %}</span>
+        <span>I agree to receive messages from AnthonyToday. Unsubscribe at any time.</span>
       </label>
 
       <p class="atop-err" id="atOfferErr" role="alert" hidden></p>
-      <button class="atop-btn" type="submit" id="atOfferBtn">{% if is_fr %}Obtenir mon lien Notion{% else %}Get My Notion Link{% endif %}</button>
-      <p class="atop-fine">{% if is_fr %}Voir notre <a href="/fr/privacy/">politique de confidentialite</a>.{% else %}Read our <a href="/privacy/">privacy policy</a>.{% endif %}</p>
+      <button class="atop-btn" type="submit" id="atOfferBtn">Get My Notion Link</button>
+      <p class="atop-fine">Read our <a href="/privacy/">privacy policy</a>.</p>
     </form>
 
     <div class="atop-done" id="atOfferDone" hidden>
-      <p class="atop-donetitle">{% if is_fr %}C'est pret.{% else %}You are in.{% endif %}</p>
-      <p class="atop-sub">{% if is_fr %}Cliquez ci-dessous pour verifier si votre equipe est eligible.{% else %}Click below to see if your team qualifies.{% endif %}</p>
-      <a class="atop-btn" id="atOfferLink" href="#" target="_blank" rel="noopener noreferrer nofollow sponsored">{% if is_fr %}Essayer Notion{% else %}Try Notion{% endif %}</a>
-      <p class="atop-fine">{% if is_fr %}Le lien s'ouvre sur notion.com. C'est un lien de parrainage : si vous passez par lui, je peux percevoir une commission, sans cout supplementaire pour vous.{% else %}The link opens on notion.com. It is a referral link: if you upgrade through it I may earn a commission, at no cost to you.{% endif %}</p>
+      <p class="atop-donetitle">You are in.</p>
+      <p class="atop-sub">Click below to see if your team qualifies.</p>
+      <a class="atop-btn" id="atOfferLink" href="#" target="_blank" rel="noopener noreferrer nofollow sponsored">Try Notion</a>
+      <p class="atop-fine">The link opens on notion.com. It is a referral link: if you upgrade through it I may earn a commission, at no cost to you.</p>
     </div>
   </div>
 </div>
@@ -109,12 +108,7 @@
   var link = document.getElementById("atOfferLink");
   var lastFocus = null, opened = false;
 
-  var FR = document.documentElement.lang === "fr" || /^\/fr\//.test(path);
-  var MSG = FR ? {
-    email: "Entrez une adresse e-mail valide.",
-    consent: "Cochez la case pour continuer.",
-    fail: "Une erreur est survenue. Reessayez."
-  } : {
+  var MSG = {
     email: "Enter a valid email address.",
     consent: "Tick the box to continue.",
     fail: "Something went wrong. Try again."
@@ -167,12 +161,12 @@
     if (!consent.checked) { fail(MSG.consent); consent.focus(); return; }
 
     btn.disabled = true;
-    btn.textContent = FR ? "Envoi..." : "Sending...";
+    btn.textContent = "Sending...";
 
     fetch(API, {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ email: email, consent: true, lang: FR ? "fr" : "en", page: path })
+      body: JSON.stringify({ email: email, consent: true, lang: "en", page: path })
     }).then(function(r){ return r.json(); }).then(function(j){
       if (!j || !j.ok || !j.url) throw new Error("bad");
       var okUrl = /^https:\/\/([a-z0-9-]+\.)*(notion\.so|notion\.com|anthonytoday\.com)\//i.test(j.url);
@@ -184,7 +178,7 @@
       setTimeout(function(){ link.focus(); }, 60);
     })["catch"](function(){
       btn.disabled = false;
-      btn.textContent = FR ? "Obtenir mon lien Notion" : "Get My Notion Link";
+      btn.textContent = "Get My Notion Link";
       fail(MSG.fail);
     });
   });

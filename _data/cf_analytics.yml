@@ -8,7 +8,7 @@
 # pages: EXPLICIT INCLUDE LIST, exact page.url match. A page not listed gets no
 # beacon. Only English marketing pages that carry no token, id or session in the
 # URL. Never add: /r/, /f/, /unsubscribe/, result pages, /thank-you/ (Stripe
-# return URL), redirect stubs, /fr/ pages, or any page with a meta CSP.
+# return URL), redirect stubs, or any page with a meta CSP.
 # .github/scripts/check-cf-analytics.py enforces the never-add rules on the built _site.
 token: "e7395212b953480c8979812224fb823e"
 pages:

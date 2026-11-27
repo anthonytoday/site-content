@@ -5,17 +5,10 @@
   A template can override it with an explicit `updated:` string in _data/templates.yml
   when that particular template gets a real content update.
 {%- endcomment -%}
-{%- assign L = "en" -%}{%- if page.lang == "fr" -%}{%- assign L = "fr" -%}{%- endif -%}
-{%- assign catalogue_src = include.catalogue | default: site.data.templates -%}
+{%- assign L = "en" -%}{%- assign catalogue_src = include.catalogue | default: site.data.templates -%}
 {%- assign wanted = include.id | default: page.template_id -%}
 {%- assign t = nil -%}
 {%- for x in catalogue_src -%}{%- if x.id == wanted -%}{%- assign t = x -%}{%- endif -%}{%- endfor -%}
 {%- if t.updated -%}{{ t.updated }}
 {%- else -%}
-{%- assign mm = site.time | date: "%m" -%}
-{%- if L == "fr" -%}
-{%- case mm %}{% when "01" %}Jan{% when "02" %}Fév{% when "03" %}Mars{% when "04" %}Avr{% when "05" %}Mai{% when "06" %}Juin{% when "07" %}Juil{% when "08" %}Août{% when "09" %}Sept{% when "10" %}Oct{% when "11" %}Nov{% when "12" %}Déc{% endcase %} {{ site.time | date: "%Y" }}
-{%- else -%}
-{{ site.time | date: "%b %Y" }}
-{%- endif -%}
-{%- endif -%}
+{%- assign mm = site.time | date: "%m" -%}{{ site.time | date: "%b %Y" }}{%- endif -%}

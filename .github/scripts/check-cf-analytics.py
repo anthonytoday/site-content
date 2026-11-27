@@ -17,7 +17,7 @@ root = sys.argv[2] if len(sys.argv) > 2 else '.'
 cfg = open(os.path.join(root, '_data/cf_analytics.yml'), encoding='utf-8').read()
 token = re.search(r'^token:\s*"([0-9a-f]{32})"\s*$', cfg, re.M).group(1)
 pages = re.findall(r'^\s+-\s*"([^"]+)"\s*$', cfg, re.M)
-NEVER = re.compile(r'^/(r|f|unsubscribe|thank-you|fr|go-fix-report|go|privacy|shop-preview)(/|$)|^/fr/|/(r|f|unsubscribe)/$', re.I)
+NEVER = re.compile(r'^/(r|f|unsubscribe|thank-you|go-fix-report|go|privacy|shop-preview)(/|$)|/(r|f|unsubscribe)/$', re.I)
 # Manual beacon patterns that must NOT appear in built HTML (edge injects them).
 BEACON_PATTERNS = ('static.cloudflareinsights.com', 'cloudflareinsights.com/cdn-cgi/rum', 'cloudflareinsights', 'beacon.min.js', 'data-cf-beacon')
 BEACON = re.compile(r'<script\b[^>]*cloudflareinsights[^>]*>', re.I)

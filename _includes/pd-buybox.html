@@ -4,8 +4,7 @@
   rather than in 24 separate product pages. Reads page.template_id by default, or
   the catalogue and id passed in by the caller, so a second shop reuses this file.
 {%- endcomment -%}
-{%- assign L = "en" -%}{%- if page.lang == "fr" -%}{%- assign L = "fr" -%}{%- endif -%}
-{%- assign catalogue_src = include.catalogue | default: site.data.templates -%}
+{%- assign L = "en" -%}{%- assign catalogue_src = include.catalogue | default: site.data.templates -%}
 {%- assign wanted = include.id | default: page.template_id -%}
 {%- assign t = nil -%}
 {%- for x in catalogue_src -%}{%- if x.id == wanted -%}{%- assign t = x -%}{%- endif -%}{%- endfor -%}
@@ -13,20 +12,16 @@
 {%- if t.free -%}
   {%- comment -%} Send people to the listing in the language of the page when that
       language exists on the Marketplace, otherwise the default listing. {%- endcomment -%}
-  {%- assign mk = t.marketplace -%}
-  {%- if L == "fr" and t.marketplace_i18n.fr -%}{%- assign mk = t.marketplace_i18n.fr -%}{%- endif -%}
-      <p class="pd-price">{% if L == "fr" %}Gratuit{% else %}Free{% endif %}</p>
-      <p class="pd-vat">{% if L == "fr" %}Aucun paiement, aucun email demandé. Livré via le Notion Marketplace.{% else %}No payment, no email required. Delivered through the Notion Marketplace.{% endif %}</p>
-      <a class="btn btn-block" href="{{ mk }}" target="_blank" rel="noopener">{% if L == "fr" %}Obtenir gratuitement &nbsp;&middot;&nbsp; Dupliquer maintenant{% else %}Get It Free &nbsp;&middot;&nbsp; Duplicate It Now{% endif %}</a>
-      <p class="stripe-note">{% if L == "fr" %}Ouvre la fiche sur le Notion Marketplace. Cliquez sur Dupliquer et le template arrive dans votre espace.{% else %}Opens the Notion Marketplace listing. Click Duplicate and it lands in your workspace.{% endif %}</p>
+  {%- assign mk = t.marketplace -%}<p class="pd-price">Free</p>
+      <p class="pd-vat">No payment, no email required. Delivered through the Notion Marketplace.</p>
+      <a class="btn btn-block" href="{{ mk }}" target="_blank" rel="noopener">Get It Free &nbsp;&middot;&nbsp; Duplicate It Now</a>
+      <p class="stripe-note">Opens the Notion Marketplace listing. Click Duplicate and it lands in your workspace.</p>
   {%- comment -%} Only worth showing once a second language actually exists. {%- endcomment -%}
   {%- assign has_alt = false -%}
-  {%- if t.marketplace_i18n.fr or t.marketplace_i18n.de or t.marketplace_i18n.es or t.marketplace_i18n.pt or t.marketplace_i18n.it -%}{%- assign has_alt = true -%}{%- endif -%}
+  {%- if t.marketplace_i18n.de or t.marketplace_i18n.es or t.marketplace_i18n.pt or t.marketplace_i18n.it -%}{%- assign has_alt = true -%}{%- endif -%}
   {%- if has_alt -%}
-      <p class="pd-langs"><span>{% if L == "fr" %}Aussi disponible en{% else %}Also available in{% endif %}</span>
-      {%- if t.marketplace_i18n.en %}<a href="{{ t.marketplace_i18n.en }}" target="_blank" rel="noopener">English</a>{% endif -%}
-      {%- if t.marketplace_i18n.fr %}<a href="{{ t.marketplace_i18n.fr }}" target="_blank" rel="noopener">Fran&ccedil;ais</a>{% endif -%}
-      {%- if t.marketplace_i18n.de %}<a href="{{ t.marketplace_i18n.de }}" target="_blank" rel="noopener">Deutsch</a>{% endif -%}
+      <p class="pd-langs"><span>Also available in</span>
+      {%- if t.marketplace_i18n.en %}<a href="{{ t.marketplace_i18n.en }}" target="_blank" rel="noopener">English</a>{% endif -%}{%- if t.marketplace_i18n.de %}<a href="{{ t.marketplace_i18n.de }}" target="_blank" rel="noopener">Deutsch</a>{% endif -%}
       {%- if t.marketplace_i18n.es %}<a href="{{ t.marketplace_i18n.es }}" target="_blank" rel="noopener">Espa&ntilde;ol</a>{% endif -%}
       {%- if t.marketplace_i18n.pt %}<a href="{{ t.marketplace_i18n.pt }}" target="_blank" rel="noopener">Portugu&ecirc;s</a>{% endif -%}
       {%- if t.marketplace_i18n.it %}<a href="{{ t.marketplace_i18n.it }}" target="_blank" rel="noopener">Italiano</a>{% endif -%}
@@ -40,21 +35,21 @@
     {%- assign saving = t.compare_at | minus: t.price -%}
     {%- assign pct = saving | times: 100 | divided_by: t.compare_at -%}
       <p class="pd-price">${{ t.price }} <span class="pd-was">${{ t.compare_at }}</span></p>
-      {% if t.kind %}<p class="pd-save">Save ${{ saving }}, {{ pct | round }}% off the usual price.</p>{% else %}<p class="pd-save">{% if L == "fr" %}Économie de ${{ saving }}, soit {{ pct }} % de moins qu'en achetant les templates séparément.{% else %}Save ${{ saving }}, {{ pct }}% less than buying the templates separately.{% endif %}</p>{% endif %}
+      {% if t.kind %}<p class="pd-save">Save ${{ saving }}, {{ pct | round }}% off the usual price.</p>{% else %}<p class="pd-save">Save ${{ saving }}, {{ pct }}% less than buying the templates separately.</p>{% endif %}
   {%- else -%}
       <p class="pd-price">${{ t.price }}</p>
   {%- endif -%}
-      <p class="pd-vat">{% if L == "fr" %}Paiement unique. TVA ajoutée au paiement le cas échéant.{% else %}One-time payment. VAT added at checkout where applicable.{% endif %}</p>
+      <p class="pd-vat">One-time payment. VAT added at checkout where applicable.</p>
   {%- comment -%} A paid listing with no Stripe link yet must never render an empty href.
       Fall back to the Marketplace listing, where the same template is on sale at the
       same price today, and say so plainly. Remove nothing: adding `stripe:` to the
       catalogue entry silently switches this back to native checkout. {%- endcomment -%}
   {%- if t.stripe and t.stripe != "" -%}
-      <a class="btn btn-block" href="{{ t.stripe }}" rel="noopener">{% if L == "fr" %}Acheter{% else %}Buy Now{% endif %} &nbsp;&middot;&nbsp; ${{ t.price }}</a>
-      <p class="stripe-note">{% if L == "fr" %}Paiement sécurisé par Stripe. Carte, Apple Pay, Google Pay, Link.{% else %}Secure checkout by Stripe. Card, Apple Pay, Google Pay, Link.{% endif %}</p>
+      <a class="btn btn-block" href="{{ t.stripe }}" rel="noopener">Buy Now &nbsp;&middot;&nbsp; ${{ t.price }}</a>
+      <p class="stripe-note">Secure checkout by Stripe. Card, Apple Pay, Google Pay, Link.</p>
   {%- elsif t.marketplace -%}
-      <a class="btn btn-block" href="{{ t.marketplace }}" target="_blank" rel="noopener">{% if L == "fr" %}Acheter sur le Notion Marketplace{% else %}Buy on the Notion Marketplace{% endif %} &nbsp;&middot;&nbsp; ${{ t.price }}</a>
-      <p class="stripe-note">{% if L == "fr" %}Paiement et livraison gérés par Notion. Checkout direct bientôt disponible ici.{% else %}Payment and delivery handled by Notion.{% endif %}</p>
+      <a class="btn btn-block" href="{{ t.marketplace }}" target="_blank" rel="noopener">Buy on the Notion Marketplace &nbsp;&middot;&nbsp; ${{ t.price }}</a>
+      <p class="stripe-note">Payment and delivery handled by Notion.</p>
   {%- endif -%}
 {%- endif -%}
 
@@ -63,12 +58,10 @@
 {%- if t.upsell -%}
   {%- assign u = nil -%}
   {%- for x in catalogue_src -%}{%- if x.id == t.upsell -%}{%- assign u = x -%}{%- endif -%}{%- endfor -%}
-  {%- if u -%}
-    {%- if L == "fr" -%}{%- assign uhref = u.page_fr -%}{%- else -%}{%- assign uhref = u.page -%}{%- endif -%}
-      <a class="pd-upsell" href="{{ uhref }}">
+  {%- if u -%}{%- assign uhref = u.page -%}<a class="pd-upsell" href="{{ uhref }}">
         {%- if u.cover %}<img src="{{ u.cover }}" alt="" loading="lazy"{%- assign _ud = site.data.image_dims[u.cover] -%}{%- if _ud -%}{%- assign _uwh = _ud | split: "x" -%} width="{{ _uwh[0] }}" height="{{ _uwh[1] }}"{%- endif %} decoding="async" data-remove-on-error>{% endif -%}
         <span class="pu-t">
-          <span class="pu-k">{% if L == "fr" %}Version supérieure{% else %}Upgrade{% endif %} &middot; ${{ u.price }}</span>
+          <span class="pu-k">Upgrade &middot; ${{ u.price }}</span>
           <strong>{{ t[L].upsell_hook }}</strong>
           <em>{{ t[L].upsell_body }}</em>
         </span>

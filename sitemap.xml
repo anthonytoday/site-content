@@ -6,15 +6,14 @@ permalink: /sitemap.xml
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {%- comment -%}
   Every indexable page with an explicit permalink. A page is left out when it sets
-  sitemap: false or noindex: true. English only since 13 Oct 2026: /fr/ is not built
-  and Cloudflare 301s it to English, so no hreflang alternates are listed (they pointed
+  sitemap: false or noindex: true. English only: the French pages were removed on 27 Nov 2026
+  and Cloudflare 301s their old URLs to English, so no hreflang alternates are listed (they pointed
   at redirects). No lastmod: the build date on every URL told Google nothing.
 {%- endcomment -%}
 {%- assign pages = site.pages | where_exp: "p", "p.permalink" | sort: "permalink" -%}
 {%- for p in pages -%}
 {%- if p.permalink contains ".xml" or p.permalink contains ".txt" -%}{%- continue -%}{%- endif -%}
-{%- if p.sitemap == false or p.noindex -%}{%- continue -%}{%- endif -%}
-{%- if p.lang == "fr" or p.permalink contains "/fr/" -%}{%- continue -%}{%- endif %}
+{%- if p.sitemap == false or p.noindex -%}{%- continue -%}{%- endif %}
   <url>
     <loc>{{ p.permalink | absolute_url }}</loc>
     <changefreq>{% if p.permalink == "/" %}weekly{% else %}monthly{% endif %}</changefreq>
