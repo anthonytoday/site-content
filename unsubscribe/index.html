@@ -6,7 +6,7 @@ sitemap: false
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 {% include csp-meta.html %}
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-tTPZmwmpNCgtP5B6pCpRqDV2IzwQE0t3LEBb8glRUfo='; style-src 'sha256-kLrt09yxnqwaAhQHLn4idt4m3BP/pfpZeVZQHrfWsV4='; connect-src 'self' https://xhstusuitatvuwznpvca.supabase.co; form-action 'self' https://xhstusuitatvuwznpvca.supabase.co; img-src 'self'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-aMAz7J6h3hWjmLgKalovoPlEN8z7oMQNqcVzuiABaC8='; style-src 'sha256-kLrt09yxnqwaAhQHLn4idt4m3BP/pfpZeVZQHrfWsV4='; connect-src 'self' https://xhstusuitatvuwznpvca.supabase.co; form-action 'self' https://xhstusuitatvuwznpvca.supabase.co; img-src 'self'; base-uri 'none'">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">
 <title>Unsubscribe | AnthonyToday</title>
@@ -20,17 +20,9 @@ sitemap: false
 <script>
 (function(){
   var FN='https://xhstusuitatvuwznpvca.supabase.co/functions/v1/unsub';
-  var q=new URLSearchParams(location.search), id=q.get('id')||'', fr=q.get('l')==='fr', lang=fr?'fr':'en';
+  var q=new URLSearchParams(location.search), id=q.get('id')||'', lang='en';
   var h=document.getElementById('h'), msg=document.getElementById('msg'), f=document.getElementById('f'), b=document.getElementById('b');
-  var T=fr?{
-    h:'Se désinscrire', b:'Confirmer la désinscription', busy:'Un instant...',
-    ask:function(m){return 'Ne plus recevoir ces emails à '+m+' ?';},
-    bad:"Lien invalide. Répondez « désinscription » à l'email et je vous retirerai.",
-    already:'Vous êtes déjà désinscrit(e).',
-    doneH:'Vous êtes désinscrit(e)', done:'Vous ne recevrez plus ces emails. Désolé pour le dérangement.',
-    temp:"Je n'ai pas pu enregistrer votre demande pour le moment. Réessayez plus tard ou répondez « désinscription » à l'email.",
-    def:"Pour ne plus recevoir ces emails, répondez « désinscription » à l'email, ou utilisez le bouton « Se désinscrire » de votre messagerie."
-  }:{
+  var T={
     h:'Unsubscribe', b:'Confirm unsubscribe', busy:'One moment...',
     ask:function(m){return 'Stop these emails to '+m+'?';},
     bad:'This link is not valid. Reply "unsubscribe" to the email and I will remove you.',
@@ -42,8 +34,7 @@ sitemap: false
   function say(s){msg.textContent=s;}
   function get(url,opt){var c=new AbortController(),t=setTimeout(function(){c.abort();},8000);opt.signal=c.signal;
     return fetch(url,opt).then(function(r){return r.json();}).then(function(j){clearTimeout(t);return j;},function(e){clearTimeout(t);throw e;});}
-  if(fr){document.documentElement.lang='fr';document.title='Se désinscrire | AnthonyToday';h.textContent=T.h;b.textContent=T.b;say(T.def);}
-  if(location.search)history.replaceState(null,'',location.pathname+(fr?'?l=fr':''));
+  if(location.search)history.replaceState(null,'',location.pathname);
   if(!id)return;
   if(!/^[A-Za-z0-9_-]{24}$/.test(id)){say(T.bad);return;}
   get(FN+'?id='+encodeURIComponent(id)+'&l='+lang+'&fmt=json',{cache:'no-store',credentials:'omit'}).then(function(j){

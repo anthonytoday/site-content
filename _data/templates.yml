@@ -1,4 +1,4 @@
-# Catalog for /templates/ and /fr/templates/
+# Catalog for /templates/
 #
 # status: live     -> card is clickable, price and Stripe link shown
 # status: pending  -> card renders the hatched placeholder, not clickable
@@ -13,7 +13,6 @@
   category: travel
   marketplace: https://www.notion.com/templates/best-travel-planner-lite
   page: /templates/dream-travel-planner/
-  page_fr: /fr/templates/dream-travel-planner/
   cover: /assets/templates/dream-travel-planner/cover.webp
   gallery:
   - /assets/templates/dream-travel-planner/desktop/01.webp
@@ -29,11 +28,6 @@
     blurb: Itinerary, budget, bookings and checklists for the whole trip, in one page.
     upsell_hook: Planning a bigger trip?
     upsell_body: Dream Travel Planner Ultimate adds multi-destination routing, packing systems and a full budget breakdown.
-  fr:
-    title: Dream Travel Planner
-    blurb: Itineraire, budget, reservations et checklists du voyage, sur une page.
-    upsell_hook: Un voyage plus ambitieux ?
-    upsell_body: Dream Travel Planner Ultimate ajoute les itineraires multi-destinations, les systemes de bagages et un budget detaille.
   upsell: dream-travel-planner-ultimate
   marketplace_i18n:
     en: https://www.notion.com/templates/best-travel-planner-lite
@@ -51,7 +45,6 @@
   price: 17
   marketplace: https://www.notion.com/templates/dream-travel-planner-ultimate
   page: /templates/dream-travel-planner-ultimate/
-  page_fr: /fr/templates/dream-travel-planner-ultimate/
   tags:
   - travel
   - itinerary
@@ -74,9 +67,6 @@
   en:
     title: Dream Travel Planner Ultimate
     blurb: Multi-destination routing, packing systems and a full budget breakdown.
-  fr:
-    title: Dream Travel Planner Ultimate
-    blurb: Itineraires multi-destinations, systemes de bagages et budget detaille.
   rank: 20
 
 - id: ai-teaching-prompts
@@ -85,7 +75,6 @@
   category: study
   marketplace: https://www.notion.com/templates/100-teachers-prompt
   page: /templates/ai-teaching-prompts/
-  page_fr: /fr/templates/ai-teaching-prompts/
   tags:
   - teaching
   - education
@@ -103,9 +92,6 @@
   en:
     title: 100+ AI Teaching Prompts
     blurb: Lesson plans, quizzes and parent emails, written by AI in seconds.
-  fr:
-    title: 100+ prompts IA pour enseignants
-    blurb: Plans de cours, quiz et emails aux parents, rediges par l'IA en quelques secondes.
   rank: 30
 
 - id: ultimate-business-dashboard
@@ -115,7 +101,6 @@
   price: 99
   marketplace: https://www.notion.com/templates/ultimate-business-dashboard
   page: /templates/ultimate-business-dashboard/
-  page_fr: /fr/templates/ultimate-business-dashboard/
   tags:
   - business
   - crm
@@ -139,9 +124,6 @@
   en:
     title: Ultimate Business Dashboard
     blurb: Clients, projects, invoices and pipeline in one operating system.
-  fr:
-    title: Tableau de bord d'entreprise complet
-    blurb: Clients, projets, factures et pipeline dans un seul systeme.
   rank: 40
 
 - id: business-bundle-20x
@@ -150,7 +132,6 @@
   category: business
   marketplace: https://www.notion.com/templates/business-bundle-all-in-one-20-premium
   page: /templates/business-bundle-20x/
-  page_fr: /fr/templates/business-bundle-20x/
   cover: /assets/templates/business-bundle-20x/cover.webp
   gallery:
   - /assets/templates/business-bundle-20x/desktop/01.webp
@@ -168,9 +149,6 @@
   en:
     title: All-In-One Business Bundle (20x)
     blurb: Twenty premium templates in one purchase. Over $500 cheaper than buying separately.
-  fr:
-    title: All-In-One Business Bundle (20x)
-    blurb: Vingt templates premium en un achat. Plus de 500 $ d'economie.
   rank: 50
   tags:
   - bundle
@@ -185,7 +163,6 @@
   category: real-estate
   marketplace: https://www.notion.com/templates/airbnb-manager-lite
   page: /templates/airbnb-manager-lite/
-  page_fr: /fr/templates/airbnb-manager-lite/
   cover: /assets/templates/airbnb-manager-lite/cover.webp
   gallery:
   - /assets/templates/airbnb-manager-lite/desktop/01.webp
@@ -201,11 +178,6 @@
     blurb: One property, every booking, cleaning and payout in one place.
     upsell_hook: Running more than one property?
     upsell_body: Airbnb Manager Ultimate handles unlimited listings, finances, maintenance and guests, with 8 automation buttons.
-  fr:
-    title: Airbnb Manager, gerez comme un pro (Lite)
-    blurb: Un bien, toutes les reservations, menages et revenus au meme endroit.
-    upsell_hook: Plus d'un bien a gerer ?
-    upsell_body: Airbnb Manager Ultimate gere un nombre illimite d'annonces, les finances, la maintenance et les voyageurs, avec 8 boutons d'automatisation.
   upsell: airbnb-manager-ultimate
   rank: 60
   tags:
@@ -221,7 +193,6 @@
   category: real-estate
   marketplace: https://www.notion.com/templates/airbnb-manager-ultimate
   page: /templates/airbnb-manager-ultimate/
-  page_fr: /fr/templates/airbnb-manager-ultimate/
   cover: /assets/templates/airbnb-manager-ultimate/cover.webp
   gallery:
   - /assets/templates/airbnb-manager-ultimate/desktop/01.webp
@@ -239,9 +210,6 @@
   en:
     title: Airbnb Manager Ultimate, Full System
     blurb: Unlimited listings, bookings, finances, maintenance and guests, with 8 automations.
-  fr:
-    title: Airbnb Manager Ultimate, systeme complet
-    blurb: Annonces illimitees, reservations, finances, maintenance et voyageurs, avec 8 automatisations.
   rank: 70
   tags:
   - airbnb
@@ -256,7 +224,6 @@
   category: study
   marketplace: https://www.notion.com/templates/cfa-exam-study-plan-lite
   page: /templates/cfa-exam-prep-lite/
-  page_fr: /fr/templates/cfa-exam-prep-lite/
   tags:
   - cfa
   - exam
@@ -277,11 +244,6 @@
     blurb: A working CFA study plan you can start tonight. Free.
     upsell_hook: Need all three levels?
     upsell_body: CFA Exam Prep Complete adds every level, flashcards and a practice question log.
-  fr:
-    title: CFA Exam Prep, plan d'etude (Lite)
-    blurb: Un plan d'etude CFA utilisable des ce soir. Gratuit.
-    upsell_hook: Besoin des trois niveaux ?
-    upsell_body: CFA Exam Prep Complete ajoute tous les niveaux, les fiches et le journal de questions.
   rank: 80
 
 - id: cfa-exam-prep
@@ -290,7 +252,6 @@
   category: study
   marketplace: https://www.notion.com/templates/cfa-exam-study-plan
   page: /templates/cfa-exam-prep/
-  page_fr: /fr/templates/cfa-exam-prep/
   tags:
   - cfa
   - exam
@@ -312,9 +273,6 @@
   en:
     title: CFA Exam Prep, Complete Study System
     blurb: All three levels, flashcards, practice questions and pace tracking.
-  fr:
-    title: CFA Exam Prep, systeme d'etude complet
-    blurb: Les trois niveaux, fiches, questions d'entrainement et suivi du rythme.
   rank: 90
 
 - id: cpa-exam-prep
@@ -324,7 +282,6 @@
   cover: /assets/templates/cpa-exam-prep/cover.webp
   marketplace: https://www.notion.com/templates/cpa-exam-study-plan
   page: /templates/cpa-exam-prep/
-  page_fr: /fr/templates/cpa-exam-prep/
   tags:
   - cpa
   - exam
@@ -342,9 +299,6 @@
   en:
     title: CPA Exam Prep, Complete Study System
     blurb: All six CPA sections with flashcards, practice questions and progress tracking.
-  fr:
-    title: CPA Exam Prep, systeme d'etude complet
-    blurb: Les six sections du CPA avec fiches, questions d'entrainement et suivi.
   rank: 100
 
 - id: cisa-exam-prep
@@ -353,7 +307,6 @@
   category: grc
   marketplace: https://www.notion.com/templates/cisa-exam-study-plan
   page: /templates/cisa-exam-prep/
-  page_fr: /fr/templates/cisa-exam-prep/
   tags:
   - cisa
   - audit
@@ -369,9 +322,6 @@
   en:
     title: CISA Exam, Complete Study System
     blurb: All five audit domains, flashcards and pace tracking.
-  fr:
-    title: CISA, systeme d'etude complet
-    blurb: Les cinq domaines d'audit, fiches et suivi du rythme.
   rank: 110
 
 - id: cdpse-exam-prep
@@ -380,7 +330,6 @@
   category: grc
   marketplace: https://www.notion.com/templates/cdpse-exam-study-plan
   page: /templates/cdpse-exam-prep/
-  page_fr: /fr/templates/cdpse-exam-prep/
   tags:
   - cdpse
   - privacy
@@ -398,9 +347,6 @@
   en:
     title: CDPSE Exam Prep, Pass With Confidence
     blurb: Every domain as study sessions, with flashcards and pace tracking.
-  fr:
-    title: CDPSE Exam Prep, reussir sereinement
-    blurb: Chaque domaine en sessions d'etude, avec fiches et suivi du rythme.
   rank: 120
 
 - id: cgeit-exam-prep
@@ -409,7 +355,6 @@
   category: grc
   marketplace: https://www.notion.com/templates/cgeit-exam-study-plan
   page: /templates/cgeit-exam-prep/
-  page_fr: /fr/templates/cgeit-exam-prep/
   tags:
   - cgeit
   - governance
@@ -427,9 +372,6 @@
   en:
     title: CGEIT Exam, Complete Study System
     blurb: All four governance domains, flashcards and pace tracking.
-  fr:
-    title: CGEIT, systeme d'etude complet
-    blurb: Les quatre domaines de gouvernance, fiches et suivi du rythme.
   rank: 130
 
 - id: ultimate-content-manager
@@ -439,7 +381,6 @@
   cover: /assets/templates/ultimate-content-manager/cover.webp
   marketplace_delisted: https://www.notion.com/templates/ultimate-content-manager-590
   page: /templates/ultimate-content-manager/
-  page_fr: /fr/templates/ultimate-content-manager/
   tags:
   - content
   - creators
@@ -449,9 +390,6 @@
   en:
     title: Ultimate Content Manager
     blurb: Plan, publish and track every piece of content in one Notion workspace.
-  fr:
-    title: Ultimate Content Manager
-    blurb: Planifiez, publiez et suivez chaque contenu dans un seul espace Notion.
   rank: 140
 
 - id: budget-tracker
@@ -460,7 +398,6 @@
   category: finance
   marketplace: https://www.notion.com/templates/basic-financial-tracker-780
   page: /templates/budget-tracker/
-  page_fr: /fr/templates/budget-tracker/
   cover: /assets/templates/budget-tracker/cover.webp
   mobile:
   - /assets/templates/budget-tracker/mobile/01.webp
@@ -469,11 +406,6 @@
     blurb: Income in, expenses out, and what is actually left. Nothing else.
     upsell_hook: Want the full picture?
     upsell_body: Personal Financial Planner Pro adds accounts, net worth, debt payoff and goal tracking.
-  fr:
-    title: Budget Tracker, maitrisez vos finances vite
-    blurb: Ce qui entre, ce qui sort, et ce qui reste vraiment. Rien d'autre.
-    upsell_hook: Vous voulez la vue complete ?
-    upsell_body: Personal Financial Planner Pro ajoute les comptes, le patrimoine net, le remboursement des dettes et le suivi des objectifs.
   upsell: personal-financial-planner-pro
   rank: 150
   tags:
@@ -489,7 +421,6 @@
   price: 27
   marketplace: https://www.notion.com/templates/personal-financial-planner-pro
   page: /templates/personal-financial-planner-pro/
-  page_fr: /fr/templates/personal-financial-planner-pro/
   tags:
   - finance
   - net-worth
@@ -510,9 +441,6 @@
   en:
     title: Personal Financial Planner Pro
     blurb: Accounts, net worth, debt payoff and goals in one budget system.
-  fr:
-    title: Personal Financial Planner Pro
-    blurb: Comptes, patrimoine net, dettes et objectifs dans un seul systeme.
   rank: 160
 
 - id: business-expenses-tracker
@@ -528,13 +456,9 @@
   en:
     title: Business Expenses Tracker, Tax Ready
     blurb: Categorised expenses, receipts and a year-end export your accountant accepts.
-  fr:
-    title: Suivi des depenses professionnelles, pret pour l'impot
-    blurb: Depenses categorisees, justificatifs et export de fin d'annee accepte par votre comptable.
   rank: 170
   price: 7
   page: /templates/business-expenses-tracker/
-  page_fr: /fr/templates/business-expenses-tracker/
   cover: /assets/templates/business-expenses-tracker/cover.webp
   gallery:
   - /assets/templates/business-expenses-tracker/desktop/01.webp
@@ -548,7 +472,6 @@
   category: business
   marketplace: https://www.notion.com/templates/ai-agent-research-analysis-lite
   page: /templates/ai-research-agent-lite/
-  page_fr: /fr/templates/ai-research-agent-lite/
   cover: /assets/templates/ai-research-agent-lite/cover.webp
   mobile:
   - /assets/templates/ai-research-agent-lite/mobile/01.webp
@@ -557,11 +480,6 @@
     blurb: A Notion agent that researches a topic and returns a structured analysis.
     upsell_hook: Need the full version?
     upsell_body: Top AI Research Agent pulls 100+ sources with full citations, for research you can actually publish.
-  fr:
-    title: AI Agent Research Analysis (Lite)
-    blurb: Un agent Notion qui etudie un sujet et rend une analyse structuree.
-    upsell_hook: Besoin de la version complete ?
-    upsell_body: Top AI Research Agent va chercher plus de 100 sources avec citations completes, pour une recherche publiable.
   upsell: top-ai-research-agent
   rank: 180
   tags:
@@ -577,7 +495,6 @@
   price: 45
   marketplace: https://www.notion.com/templates/top-ai-research-agent-100-sources-full-citations
   page: /templates/top-ai-research-agent/
-  page_fr: /fr/templates/top-ai-research-agent/
   tags:
   - ai
   - agent
@@ -588,9 +505,6 @@
   en:
     title: Top AI Research Agent
     blurb: 100+ sources with full citations, for research you can publish.
-  fr:
-    title: Top AI Research Agent
-    blurb: Plus de 100 sources avec citations completes, pour une recherche publiable.
   rank: 190
 
 - id: business-consultant-agent
@@ -599,7 +513,6 @@
   category: business
   marketplace: https://www.notion.com/templates/business-consultant-agent-management-consulting
   page: /templates/business-consultant-agent/
-  page_fr: /fr/templates/business-consultant-agent/
   tags:
   - ai
   - agent
@@ -612,9 +525,6 @@
   en:
     title: Business Consultant Agent
     blurb: A Notion agent that frames the problem, structures the analysis, then recommends.
-  fr:
-    title: Business Consultant Agent
-    blurb: Un agent Notion qui cadre le probleme, structure l'analyse, puis recommande.
   rank: 200
 
 - id: books-library
@@ -623,7 +533,6 @@
   category: study
   marketplace: https://www.notion.com/templates/200-best-selling-books
   page: /templates/books-library/
-  page_fr: /fr/templates/books-library/
   cover: /assets/templates/books-library/cover.webp
   gallery:
   - /assets/templates/books-library/desktop/01.webp
@@ -633,9 +542,6 @@
   en:
     title: 200+ Books Library
     blurb: 200 best-selling books, sorted so you always know what to read next.
-  fr:
-    title: 200+ livres, la bibliotheque
-    blurb: 200 best-sellers, tries pour toujours savoir quoi lire ensuite.
   rank: 210
   tags:
   - books
@@ -650,16 +556,12 @@
   category: business
   marketplace: https://www.notion.com/templates/2026-planning-full-year-overview
   page: /templates/2026-planning/
-  page_fr: /fr/templates/2026-planning/
   cover: /assets/templates/2026-planning/cover.webp
   mobile:
   - /assets/templates/2026-planning/mobile/01.webp
   en:
     title: 2026 Planning, Full Year Overview
     blurb: 'The whole year on one page: goals, quarters, months and weeks, linked.'
-  fr:
-    title: Planning 2026, vue annuelle complete
-    blurb: 'L''annee entiere sur une page : objectifs, trimestres, mois et semaines, relies.'
   marketplace_i18n:
     en: https://www.notion.com/templates/2026-planning-full-year-overview
   rank: 220
@@ -676,7 +578,6 @@
   category: study
   marketplace: https://www.notion.com/templates/cpa-exam-study-plan-lite
   page: /templates/cpa-exam-prep-lite/
-  page_fr: /fr/templates/cpa-exam-prep-lite/
   tags:
   - cpa
   - exam
@@ -696,11 +597,6 @@
     blurb: A working CPA study plan you can start tonight. Free.
     upsell_hook: Need all six sections?
     upsell_body: CPA Exam Prep Complete adds every section, flashcards and a practice question log.
-  fr:
-    title: 'CPA Exam Prep, plan d''etude (Lite)'
-    blurb: 'Un plan d''etude CPA utilisable des ce soir. Gratuit.'
-    upsell_hook: Besoin des six sections ?
-    upsell_body: CPA Exam Prep Complete ajoute toutes les sections, les fiches et le journal de questions.
   rank: 95
 
 - id: cism-exam-prep
@@ -709,7 +605,6 @@
   price: 59
   marketplace: https://www.notion.com/templates/cism-exam-study-plan
   page: /templates/cism-exam-prep/
-  page_fr: /fr/templates/cism-exam-prep/
   tags:
   - cism
   - security
@@ -728,9 +623,6 @@
   en:
     title: CISM Exam, Complete Study System
     blurb: All four management domains, flashcards and pace tracking.
-  fr:
-    title: 'CISM, systeme d''etude complet'
-    blurb: Les quatre domaines de management, fiches et suivi du rythme.
   rank: 132
 
 - id: crisc-exam-prep
@@ -739,7 +631,6 @@
   price: 59
   marketplace: https://www.notion.com/templates/crisc-exam-study-plan
   page: /templates/crisc-exam-prep/
-  page_fr: /fr/templates/crisc-exam-prep/
   tags:
   - crisc
   - risk
@@ -756,9 +647,6 @@
   en:
     title: CRISC Exam, Complete Study System
     blurb: All four risk domains, flashcards and pace tracking.
-  fr:
-    title: 'CRISC, systeme d''etude complet'
-    blurb: Les quatre domaines de risque, fiches et suivi du rythme.
   rank: 134
 
 - id: comptia-security-plus-lite
@@ -768,7 +656,6 @@
   category: grc
   marketplace: https://www.notion.com/templates/comptia-security-v7-exam-study-plan-lite
   page: /templates/comptia-security-plus-lite/
-  page_fr: /fr/templates/comptia-security-plus-lite/
   tags:
   - comptia
   - security
@@ -788,11 +675,6 @@
     blurb: A working Security+ study plan you can start tonight. Free.
     upsell_hook: Need all five domains?
     upsell_body: CompTIA Security+ Complete adds every SY0-701 domain, flashcards and a practice question log.
-  fr:
-    title: CompTIA Security+ Prep, parcours V7 (Lite)
-    blurb: 'Un plan d''etude Security+ utilisable des ce soir. Gratuit.'
-    upsell_hook: Besoin des cinq domaines ?
-    upsell_body: CompTIA Security+ Complete ajoute tous les domaines SY0-701, les fiches et le journal de questions.
   rank: 136
 
 - id: comptia-security-plus
@@ -801,7 +683,6 @@
   price: 49
   marketplace: https://www.notion.com/templates/comptia-security-v7-exam-study-plan
   page: /templates/comptia-security-plus/
-  page_fr: /fr/templates/comptia-security-plus/
   tags:
   - comptia
   - security
@@ -818,9 +699,6 @@
   en:
     title: CompTIA Security+, Pass SY0-701 Fast
     blurb: Every SY0-701 domain as study sessions, with flashcards and pace tracking.
-  fr:
-    title: CompTIA Security+, reussir SY0-701 vite
-    blurb: 'Chaque domaine SY0-701 en sessions d''etude, avec fiches et suivi du rythme.'
   rank: 138
 
 - id: creative-studio
@@ -829,7 +707,6 @@
   category: business
   marketplace: https://www.notion.com/templates/creative-studio-company-hub
   page: /templates/creative-studio/
-  page_fr: /fr/templates/creative-studio/
   tags:
   - creative
   - projects
@@ -853,11 +730,6 @@
     blurb: Projects, clients, deliverables and invoices for a studio, in one workspace.
     upsell_hook: Outgrowing a studio hub?
     upsell_body: Ultimate Business Dashboard adds pipeline, contracts, recruiting, team profiles and full finances.
-  fr:
-    title: Creative Studio, projets et clients
-    blurb: 'Projets, clients, livrables et factures d''un studio, dans un seul espace.'
-    upsell_hook: Un studio devenu trop grand ?
-    upsell_body: Ultimate Business Dashboard ajoute le pipeline, les contrats, le recrutement, les profils et les finances completes.
   rank: 205
 
 - id: personal-financial-planner
@@ -866,7 +738,6 @@
   category: finance
   marketplace: https://www.notion.com/templates/personal-financial-planner-free
   page: /templates/personal-financial-planner/
-  page_fr: /fr/templates/personal-financial-planner/
   tags:
   - finance
   - budget
@@ -890,11 +761,6 @@
     blurb: Income, expenses and what is actually left, tracked month by month.
     upsell_hook: Need the full picture?
     upsell_body: Personal Financial Planner Pro adds accounts, net worth, debt payoff and goal tracking.
-  fr:
-    title: Personal Financial Planner, maitrisez votre budget
-    blurb: Revenus, depenses et ce qui reste vraiment, mois par mois.
-    upsell_hook: Besoin de la vue complete ?
-    upsell_body: Personal Financial Planner Pro ajoute les comptes, le patrimoine net, les dettes et les objectifs.
   rank: 155
 
 - id: cisa-exam-prep-lite
@@ -903,7 +769,6 @@
   category: grc
   marketplace: https://www.notion.com/templates/free-cisa-exam-study-plan-lite
   page: /templates/cisa-exam-prep-lite/
-  page_fr: /fr/templates/cisa-exam-prep-lite/
   tags:
   - cisa
   - audit
@@ -921,11 +786,6 @@
     blurb: A working CISA study plan you can start tonight. Free.
     upsell_hook: Need all five domains?
     upsell_body: CISA Complete adds every audit domain, flashcards and a practice question log.
-  fr:
-    title: CISA Exam Prep, reussir du premier coup (Lite)
-    blurb: 'Un plan d''etude CISA utilisable des ce soir. Gratuit.'
-    upsell_hook: Besoin des cinq domaines ?
-    upsell_body: 'CISA Complete ajoute tous les domaines d''audit, les fiches et le journal de questions.'
   rank: 108
 
 - id: cism-exam-prep-lite
@@ -934,7 +794,6 @@
   category: grc
   marketplace: https://www.notion.com/templates/free-cism-exam-study-plan
   page: /templates/cism-exam-prep-lite/
-  page_fr: /fr/templates/cism-exam-prep-lite/
   tags:
   - cism
   - security
@@ -952,11 +811,6 @@
     blurb: A working CISM study plan you can start tonight. Free.
     upsell_hook: Need all four domains?
     upsell_body: CISM Complete adds every management domain, flashcards and a practice question log.
-  fr:
-    title: CISM Exam Prep, reussir du premier coup (Lite)
-    blurb: 'Un plan d''etude CISM utilisable des ce soir. Gratuit.'
-    upsell_hook: Besoin des quatre domaines ?
-    upsell_body: CISM Complete ajoute tous les domaines de management, les fiches et le journal de questions.
   rank: 131
 
 - id: crisc-exam-prep-lite
@@ -965,7 +819,6 @@
   category: grc
   marketplace: https://www.notion.com/templates/free-crisc-exam-study-plan
   page: /templates/crisc-exam-prep-lite/
-  page_fr: /fr/templates/crisc-exam-prep-lite/
   tags:
   - crisc
   - risk
@@ -983,11 +836,6 @@
     blurb: A working CRISC study plan you can start tonight. Free.
     upsell_hook: Need all four domains?
     upsell_body: CRISC Complete adds every risk domain, flashcards and a practice question log.
-  fr:
-    title: CRISC Exam Prep, reussir du premier coup (Lite)
-    blurb: 'Un plan d''etude CRISC utilisable des ce soir. Gratuit.'
-    upsell_hook: Besoin des quatre domaines ?
-    upsell_body: CRISC Complete ajoute tous les domaines de risque, les fiches et le journal de questions.
   rank: 133
 
 - id: cgeit-exam-prep-lite
@@ -996,7 +844,6 @@
   category: grc
   marketplace: https://www.notion.com/templates/free-cgeit-exam-study-plan
   page: /templates/cgeit-exam-prep-lite/
-  page_fr: /fr/templates/cgeit-exam-prep-lite/
   tags:
   - cgeit
   - governance
@@ -1014,11 +861,6 @@
     blurb: A working CGEIT study plan you can start tonight. Free.
     upsell_hook: Need all four domains?
     upsell_body: CGEIT Complete adds every governance domain, flashcards and a practice question log.
-  fr:
-    title: CGEIT Exam Prep, reussir du premier coup (Lite)
-    blurb: 'Un plan d''etude CGEIT utilisable des ce soir. Gratuit.'
-    upsell_hook: Besoin des quatre domaines ?
-    upsell_body: CGEIT Complete ajoute tous les domaines de gouvernance, les fiches et le journal de questions.
   rank: 129
 
 - id: cdpse-exam-prep-lite
@@ -1027,7 +869,6 @@
   category: grc
   marketplace: https://www.notion.com/templates/free-cdpse-exam-study-plan
   page: /templates/cdpse-exam-prep-lite/
-  page_fr: /fr/templates/cdpse-exam-prep-lite/
   tags:
   - cdpse
   - privacy
@@ -1045,11 +886,6 @@
     blurb: A working CDPSE study plan you can start tonight. Free.
     upsell_hook: Need every domain?
     upsell_body: CDPSE Complete adds every privacy domain, flashcards and a practice question log.
-  fr:
-    title: CDPSE Exam Prep, reussir du premier coup (Lite)
-    blurb: 'Un plan d''etude CDPSE utilisable des ce soir. Gratuit.'
-    upsell_hook: Besoin de tous les domaines ?
-    upsell_body: CDPSE Complete ajoute tous les domaines, les fiches et le journal de questions.
   rank: 119
 
 - id: cissp-exam-prep-lite
@@ -1058,7 +894,6 @@
   category: grc
   marketplace: https://www.notion.com/templates/free-cissp-study-plan
   page: /templates/cissp-exam-prep-lite/
-  page_fr: /fr/templates/cissp-exam-prep-lite/
   tags:
   - cissp
   - security
@@ -1083,9 +918,6 @@
     blurb: A working CISSP study plan you can start tonight. Free.
     upsell_hook: Need all eight domains?
     upsell_body: CISSP Exam Prep adds every domain, flashcards and a practice question log.
-  fr:
-    title: CISSP Exam Prep, maitriser tous les domaines (Lite)
-    blurb: 'Un plan d''etude CISSP utilisable des ce soir. Gratuit.'
   rank: 139
 
 - id: pmp-exam-prep
@@ -1094,7 +926,6 @@
   price: 59
   marketplace: https://www.notion.com/templates/pmi-pmp-exam-study-plan
   page: /templates/pmp-exam-prep/
-  page_fr: /fr/templates/pmp-exam-prep/
   tags:
   - pmp
   - pmi
@@ -1115,9 +946,6 @@
   en:
     title: PMP Exam Prep, Pass the PMP Certification
     blurb: All three PMP domains, flashcards and pace tracking.
-  fr:
-    title: PMP Exam Prep, reussir la certification PMP
-    blurb: Les trois domaines PMP, fiches et suivi du rythme.
   rank: 142
 
 - id: dental-clinic
@@ -1126,7 +954,6 @@
   price: 47
   marketplace: https://www.notion.com/templates/dental-clinic-management
   page: /templates/dental-clinic/
-  page_fr: /fr/templates/dental-clinic/
   tags:
   - dental
   - clinic
@@ -1151,9 +978,6 @@
   en:
     title: Dental Clinic Management, Ready to Use
     blurb: Patients, appointments, treatments and billing in one practice workspace.
-  fr:
-    title: 'Dental Clinic Management, pret a l''emploi'
-    blurb: Patients, rendez-vous, traitements et facturation dans un seul espace.
   rank: 207
 
 - id: dental-clinic-lite
@@ -1162,7 +986,6 @@
   category: business
   marketplace: https://www.notion.com/templates/dental-clinic-management-lite
   page: /templates/dental-clinic-lite/
-  page_fr: /fr/templates/dental-clinic-lite/
   tags:
   - dental
   - clinic
@@ -1186,11 +1009,6 @@
     blurb: Patients and appointments for a single-chair practice. Free.
     upsell_hook: Running a full practice?
     upsell_body: Dental Clinic Management adds treatments, billing, inventory and staff.
-  fr:
-    title: Dental Practice, gerez votre cabinet (Lite)
-    blurb: Patients et rendez-vous pour un cabinet a un fauteuil. Gratuit.
-    upsell_hook: Vous gerez un cabinet complet ?
-    upsell_body: 'Dental Clinic Management ajoute les traitements, la facturation, le stock et l''equipe.'
   rank: 206
 
 - id: medical-practice
@@ -1199,7 +1017,6 @@
   category: business
   marketplace: https://www.notion.com/templates/doctor-clinic-management
   page: /templates/medical-practice/
-  page_fr: /fr/templates/medical-practice/
   tags:
   - medical
   - clinic
@@ -1220,9 +1037,6 @@
   en:
     title: Medical Practice, Manage Patients Easily
     blurb: Patients, appointments and consultation notes in one workspace.
-  fr:
-    title: Medical Practice, gerez vos patients simplement
-    blurb: Patients, rendez-vous et notes de consultation dans un seul espace.
   rank: 208
 
 - id: life-os
@@ -1231,7 +1045,6 @@
   category: business
   marketplace: https://www.notion.com/templates/digital-life-planner-home-organizer
   page: /templates/life-os/
-  page_fr: /fr/templates/life-os/
   tags:
   - planner
   - home
@@ -1246,9 +1059,6 @@
   en:
     title: Life OS, Digital Planner and Home Hub
     blurb: Tasks, home, habits and plans for the whole household, in one page.
-  fr:
-    title: Life OS, planificateur et hub maison
-    blurb: Taches, maison, habitudes et projets du foyer, sur une page.
   rank: 215
 
 - id: parent-os
@@ -1257,7 +1067,6 @@
   category: business
   marketplace: https://www.notion.com/templates/parent-os-family-work-life-dashboard
   page: /templates/parent-os/
-  page_fr: /fr/templates/parent-os/
   tags:
   - family
   - parenting
@@ -1276,9 +1085,6 @@
   en:
     title: Parent OS, Family, Work and Life Dashboard
     blurb: School, activities, meals and work commitments on one dashboard.
-  fr:
-    title: Parent OS, tableau de bord famille et travail
-    blurb: Ecole, activites, repas et engagements pro sur un seul tableau.
   rank: 216
 
 - id: performance-improvement-plan
@@ -1287,7 +1093,6 @@
   category: business
   marketplace: https://www.notion.com/templates/performance-improvement-plan-business
   page: /templates/performance-improvement-plan/
-  page_fr: /fr/templates/performance-improvement-plan/
   tags:
   - hr
   - performance
@@ -1304,9 +1109,6 @@
   en:
     title: Performance Improvement Plan, Fix Team Issues
     blurb: A documented PIP with objectives, check-ins and evidence.
-  fr:
-    title: 'Performance Improvement Plan, corriger les problemes d''equipe'
-    blurb: 'Un PIP documente avec objectifs, points d''etape et preuves.'
   rank: 209
 
 - id: finance-tracker
@@ -1315,7 +1117,6 @@
   category: finance
   marketplace: https://www.notion.com/templates/finance-tracker-income-and-expenses
   page: /templates/finance-tracker/
-  page_fr: /fr/templates/finance-tracker/
   tags:
   - finance
   - income
@@ -1330,9 +1131,6 @@
   en:
     title: Finance Tracker, Income and Expenses
     blurb: Every transaction in, every transaction out, categorized.
-  fr:
-    title: Finance Tracker, revenus et depenses
-    blurb: Chaque transaction entrante et sortante, categorisee.
   rank: 172
 
 - id: daily-weekly-monthly-planners
@@ -1341,7 +1139,6 @@
   category: business
   marketplace: https://www.notion.com/templates/daily-weekly-monthly-planners-stay-on-track
   page: /templates/daily-weekly-monthly-planners/
-  page_fr: /fr/templates/daily-weekly-monthly-planners/
   tags:
   - planner
   - daily
@@ -1356,9 +1153,6 @@
   en:
     title: Daily Weekly Monthly Planners, Stay on Track
     blurb: 'Three linked horizons: today, this week, this month.'
-  fr:
-    title: Planners quotidien, hebdo et mensuel
-    blurb: 'Trois horizons relies : aujourd''hui, cette semaine, ce mois.'
   rank: 225
 
 - id: green-monthly-planner
@@ -1367,7 +1161,6 @@
   category: business
   marketplace: https://www.notion.com/templates/green-monthly-planner-focus-flow-balance-in-one-place
   page: /templates/green-monthly-planner/
-  page_fr: /fr/templates/green-monthly-planner/
   tags:
   - planner
   - monthly
@@ -1387,9 +1180,6 @@
   en:
     title: Green Monthly Planner, Focus, Flow and Balance
     blurb: A calm monthly page for focus, habits and balance.
-  fr:
-    title: Green Monthly Planner, focus, flow et equilibre
-    blurb: 'Une page mensuelle calme pour le focus, les habitudes et l''equilibre.'
   rank: 226
 
 - id: font-finder-pro
@@ -1398,7 +1188,6 @@
   category: business
   marketplace: https://www.notion.com/templates/font-finder-pro-curated-open-source-typography-hub
   page: /templates/font-finder-pro/
-  page_fr: /fr/templates/font-finder-pro/
   tags:
   - design
   - typography
@@ -1417,9 +1206,6 @@
   en:
     title: Font Finder Pro, Curated Open Source Fonts
     blurb: A searchable library of open source fonts you can actually use commercially.
-  fr:
-    title: Font Finder Pro, polices open source selectionnees
-    blurb: Une bibliotheque consultable de polices open source utilisables commercialement.
   rank: 227
 
 - id: real-estate-portfolio
@@ -1428,7 +1214,6 @@
   price: 39
   marketplace: https://www.notion.com/templates/real-estate-portfolio-management-ultimate-dashboard
   page: /templates/real-estate-portfolio/
-  page_fr: /fr/templates/real-estate-portfolio/
   cover: /assets/templates/real-estate-portfolio/cover.webp
   gallery:
     - /assets/templates/real-estate-portfolio/desktop/02.webp
@@ -1450,9 +1235,6 @@
   en:
     title: Real Estate Portfolio Manager
     blurb: Units, leases, cash flow and cap rate across a whole portfolio.
-  fr:
-    title: Gestionnaire de portefeuille immobilier
-    blurb: Lots, baux, flux de tresorerie et taux de capitalisation sur tout un portefeuille.
   rank: 235
 
 - id: security-cert-bundle-7x
@@ -1463,7 +1245,6 @@
   price: 147
   marketplace: https://www.notion.com/templates/security-certification-bundle
   page: /templates/security-cert-bundle-7x/
-  page_fr: /fr/templates/security-cert-bundle-7x/
   tags:
   - bundle
   - security
@@ -1488,9 +1269,6 @@
   en:
     title: Certifications Exam Prep Bundle (7x Premium)
     blurb: Seven complete certification study systems in one purchase.
-  fr:
-    title: Bundle Certifications (7x Premium)
-    blurb: 'Sept systemes d''etude complets en un seul achat.'
   rank: 55
 
 - id: trading-journal
@@ -1499,7 +1277,6 @@
   price: 39
   marketplace: https://www.notion.com/templates/trading-journal-like-a-pro
   page: /templates/trading-journal/
-  page_fr: /fr/templates/trading-journal/
   tags:
   - trading
   - journal
@@ -1520,9 +1297,6 @@
   en:
     title: Trading Journal Like a Pro, Get Profitable
     blurb: Every trade logged, with the reasoning, so patterns become visible.
-  fr:
-    title: Trading Journal Like a Pro, devenez rentable
-    blurb: Chaque trade consigne, avec le raisonnement, pour voir les schemas.
   rank: 175
 
 - id: student-dashboard-ultimate
@@ -1531,7 +1305,6 @@
   price: 29
   marketplace: https://www.notion.com/templates/ultimate-student-dashboard-3
   page: /templates/student-dashboard-ultimate/
-  page_fr: /fr/templates/student-dashboard-ultimate/
   tags:
   - student
   - classes
@@ -1550,9 +1323,6 @@
   en:
     title: Ultimate Student Dashboard, Organize Classes
     blurb: Classes, assignments, grades and revision in one workspace.
-  fr:
-    title: Ultimate Student Dashboard, organisez vos cours
-    blurb: Cours, devoirs, notes et revisions dans un seul espace.
   rank: 218
 
 - id: website-privacy-policy
@@ -1561,7 +1331,6 @@
   price: 9
   marketplace: https://www.notion.com/templates/website-privacy-policy-746
   page: /templates/website-privacy-policy/
-  page_fr: /fr/templates/website-privacy-policy/
   tags:
   - privacy
   - compliance
@@ -1576,9 +1345,6 @@
   en:
     title: Website Privacy Policy, Be Compliant
     blurb: A privacy policy you can fill in and publish the same day.
-  fr:
-    title: Website Privacy Policy, soyez conforme
-    blurb: Une politique de confidentialite a completer et publier le jour meme.
   rank: 212
 
 - id: annual-calendar-2026
@@ -1587,7 +1353,6 @@
   price: 7
   marketplace: https://www.notion.com/templates/2026-annual-calendar-plan-your-events
   page: /templates/annual-calendar-2026/
-  page_fr: /fr/templates/annual-calendar-2026/
   tags:
   - calendar
   - 2026
@@ -1606,9 +1371,6 @@
   en:
     title: 2026 Annual Calendar, Plan Your Events
     blurb: The whole of 2026 on one page, with every event in view.
-  fr:
-    title: Calendrier annuel 2026, planifiez vos evenements
-    blurb: 'Toute l''annee 2026 sur une page, avec chaque evenement en vue.'
   rank: 224
 
 - id: pmp-exam-prep-lite
@@ -1617,7 +1379,6 @@
   category: business
   marketplace: https://www.notion.com/templates/pmp-exam-prep-pass-first-try-lite
   page: /templates/pmp-exam-prep-lite/
-  page_fr: /fr/templates/pmp-exam-prep-lite/
   tags:
   - pmp
   - pmi
@@ -1640,11 +1401,6 @@
     blurb: A working PMP study plan you can start tonight. Free.
     upsell_hook: Need all three domains?
     upsell_body: PMP Exam Prep adds every domain, flashcards and a practice question log.
-  fr:
-    title: PMP Exam Prep, reussir du premier coup (Lite)
-    blurb: 'Un plan d''etude PMP utilisable des ce soir. Gratuit.'
-    upsell_hook: Besoin des trois domaines ?
-    upsell_body: PMP Exam Prep ajoute tous les domaines, les fiches et le journal de questions.
   rank: 141
 
 - id: simple-faq
@@ -1653,7 +1409,6 @@
   category: business
   marketplace: https://www.notion.com/templates/simple-faq
   page: /templates/simple-faq/
-  page_fr: /fr/templates/simple-faq/
   tags:
   - faq
   - support
@@ -1668,9 +1423,6 @@
   en:
     title: Simple FAQ, Professional
     blurb: A clean, searchable FAQ you can publish as a page.
-  fr:
-    title: Simple FAQ, Professional
-    blurb: Une FAQ propre et consultable, publiable en une page.
   rank: 211
 
 - id: travel-budget-tracker
@@ -1679,7 +1431,6 @@
   category: travel
   marketplace: https://www.notion.com/templates/travel-budget-tracker
   page: /templates/travel-budget-tracker/
-  page_fr: /fr/templates/travel-budget-tracker/
   tags:
   - travel
   - budget
@@ -1701,11 +1452,6 @@
     blurb: What the trip was meant to cost, and what it actually cost.
     upsell_hook: Planning the whole trip?
     upsell_body: Dream Travel Planner Ultimate adds routing, bookings, packing and the full itinerary.
-  fr:
-    title: Travel Budget Tracker
-    blurb: 'Ce que le voyage devait couter, et ce qu''il a coute.'
-    upsell_hook: Vous planifiez tout le voyage ?
-    upsell_body: Dream Travel Planner Ultimate ajoute les itineraires, reservations, bagages et le programme complet.
   rank: 25
 
 - id: student-dashboard-lite
@@ -1714,7 +1460,6 @@
   category: study
   marketplace: https://www.notion.com/templates/ultimate-student-dashboard-lite
   page: /templates/student-dashboard-lite/
-  page_fr: /fr/templates/student-dashboard-lite/
   tags:
   - student
   - classes
@@ -1732,11 +1477,6 @@
     blurb: Classes and assignments in one place. Free.
     upsell_hook: Need grades and revision too?
     upsell_body: Ultimate Student Dashboard adds grades, revision planning and resources.
-  fr:
-    title: Student Dashboard, organisez-vous vite (Lite)
-    blurb: Cours et devoirs au meme endroit. Gratuit.
-    upsell_hook: Besoin des notes et des revisions ?
-    upsell_body: Ultimate Student Dashboard ajoute les notes, les revisions et les ressources.
   rank: 217
 
 - id: student-dashboard-all-in-one
@@ -1745,7 +1485,6 @@
   category: study
   marketplace: https://www.notion.com/templates/student-dashboard-study-smarter
   page: /templates/student-dashboard-all-in-one/
-  page_fr: /fr/templates/student-dashboard-all-in-one/
   tags:
   - student
   - study
@@ -1766,9 +1505,6 @@
   en:
     title: All-in-One Student Dashboard, Study Smarter
     blurb: Notes, tasks and study sessions in one linked workspace.
-  fr:
-    title: All-in-One Student Dashboard, etudiez mieux
-    blurb: 'Notes, taches et sessions d''etude dans un espace relie.'
   rank: 219
 
 - id: student-dashboard-university
@@ -1777,7 +1513,6 @@
   category: study
   marketplace: https://www.notion.com/templates/simple-university-student-dashboard
   page: /templates/student-dashboard-university/
-  page_fr: /fr/templates/student-dashboard-university/
   tags:
   - student
   - university
@@ -1798,9 +1533,6 @@
   en:
     title: Simple University, Student Dashboard
     blurb: Modules, lectures and coursework for a university term.
-  fr:
-    title: Simple University, tableau de bord etudiant
-    blurb: 'Modules, cours magistraux et travaux d''un semestre.'
   rank: 222
 
 - id: student-planner-simple
@@ -1809,7 +1541,6 @@
   category: study
   marketplace: https://www.notion.com/templates/simple-student-planner-2025
   page: /templates/student-planner-simple/
-  page_fr: /fr/templates/student-planner-simple/
   tags:
   - student
   - planner
@@ -1826,9 +1557,6 @@
   en:
     title: Simple Student Planner 2026, Ace Your Classes
     blurb: A term planner simple enough that you keep using it.
-  fr:
-    title: Simple Student Planner 2026, reussissez vos cours
-    blurb: Un planner de semestre assez simple pour etre garde.
   rank: 221
 
 - id: workout-tracker
@@ -1837,7 +1565,6 @@
   category: business
   marketplace: https://www.notion.com/templates/workout-tracker-pro-576
   page: /templates/workout-tracker/
-  page_fr: /fr/templates/workout-tracker/
   tags:
   - fitness
   - workout
@@ -1856,9 +1583,6 @@
   en:
     title: Workout Tracking Pro, Build Muscle Fast
     blurb: Every session logged, so progressive overload is visible.
-  fr:
-    title: Workout Tracking Pro, prenez du muscle
-    blurb: Chaque seance consignee, pour voir la surcharge progressive.
   rank: 228
 
 - id: cissp-exam-prep
@@ -1867,7 +1591,6 @@
   price: 47
   marketplace: https://www.notion.com/templates/cissp-exam-prep-full
   page: /templates/cissp-exam-prep/
-  page_fr: /fr/templates/cissp-exam-prep/
   tags:
   - cissp
   - security
@@ -1888,9 +1611,6 @@
   en:
     title: CISSP Exam Prep, Master All Domains
     blurb: All eight CISSP domains, flashcards and pace tracking.
-  fr:
-    title: CISSP, maitriser tous les domaines
-    blurb: Les huit domaines CISSP, fiches et suivi du rythme.
   rank: 139.5
 - id: freelancer-small-business-starter-pack
   status: live
@@ -1898,7 +1618,6 @@
   category: business
   marketplace: https://www.notion.com/templates/freelancer-small-business-starter-pack
   page: /templates/freelancer-small-business-starter-pack/
-  page_fr: /fr/templates/freelancer-small-business-starter-pack/
   tags:
     - freelance
     - smallbusiness
@@ -1920,9 +1639,6 @@
   en:
     title: Freelancer & Small Business Starter Pack
     blurb: Clients, projects, invoices and expenses in one place, from your first client onward.
-  fr:
-    title: Pack de demarrage freelance et petite entreprise
-    blurb: Clients, projets, factures et depenses au meme endroit, des le premier client.
   rank: 236
 - id: coach-creator-starter-pack-free
   status: live
@@ -1930,7 +1646,6 @@
   category: business
   marketplace: https://www.notion.com/templates/coach-creator-starter-pack-free
   page: /templates/coach-creator-starter-pack-free/
-  page_fr: /fr/templates/coach-creator-starter-pack-free/
   tags:
     - coaching
     - creators
@@ -1952,9 +1667,6 @@
   en:
     title: The All-in-One Pack for Coaches & Creators
     blurb: Clients, sessions, content and offers in one workspace, built for a coaching or creator business.
-  fr:
-    title: Pack tout-en-un pour coachs et createurs
-    blurb: Clients, seances, contenus et offres dans un seul espace, pour une activite de coach ou de createur.
   rank: 237
 
 - id: real-estate-starter-pack-new-investors-landlords
@@ -1963,7 +1675,6 @@
   category: real-estate
   marketplace: https://www.notion.com/templates/real-estate-starter-pack-new-investors-landlords
   page: /templates/real-estate-starter-pack-new-investors-landlords/
-  page_fr: /fr/templates/real-estate-starter-pack-new-investors-landlords/
   tags:
     - real-estate
     - landlord
@@ -1983,9 +1694,6 @@
   en:
     title: Real Estate Starter Pack for Investors & Landlords
     blurb: Properties, tenants, rent and expenses tracked from your first unit.
-  fr:
-    title: Pack de demarrage immobilier pour investisseurs et bailleurs
-    blurb: Biens, locataires, loyers et depenses suivis des le premier lot.
   rank: 238
 
 - id: trading-journal-starter-pack-lite
@@ -1994,7 +1702,6 @@
   category: finance
   marketplace: https://www.notion.com/templates/trading-journal-starter-pack-lite
   page: /templates/trading-journal-starter-pack-lite/
-  page_fr: /fr/templates/trading-journal-starter-pack-lite/
   tags:
     - trading
     - journal
@@ -2012,9 +1719,6 @@
   en:
     title: Trading Journal Starter Pack (Lite)
     blurb: Log every trade, tag the setup, and see which ones actually make money.
-  fr:
-    title: Journal de trading, pack de demarrage (Lite)
-    blurb: Enregistrez chaque trade, taguez le setup, et voyez lesquels rapportent vraiment.
   rank: 239
 
 - id: event-planner-run-flawless-events
@@ -2023,7 +1727,6 @@
   category: business
   marketplace: https://www.notion.com/templates/event-planner-run-flawless-events
   page: /templates/event-planner-run-flawless-events/
-  page_fr: /fr/templates/event-planner-run-flawless-events/
   tags:
     - events
     - planning
@@ -2041,9 +1744,6 @@
   en:
     title: Event Planner, Shareable With Your Guests
     blurb: Timeline, guests, vendors and budget in one page you can share with everyone.
-  fr:
-    title: Planificateur d evenement, partageable avec vos invites
-    blurb: Deroule, invites, prestataires et budget sur une page partageable avec tous.
   rank: 240
 - id: company-home-system
   status: live
@@ -2051,7 +1751,6 @@
   category: business
   marketplace: https://www.notion.com/templates/company-home-system
   page: /templates/company-home-system/
-  page_fr: /fr/templates/company-home-system/
   tags:
     - company
     - intranet
@@ -2064,9 +1763,6 @@
   en:
     title: Company Home System
     blurb: "One home page for the company: announcements, people, documents and tools."
-  fr:
-    title: Page d accueil d entreprise
-    blurb: "Une page d accueil pour toute l entreprise : annonces, equipe, documents et outils."
   rank: 241
 - id: life-os-simple-all-in-one-dashboard
   status: live
@@ -2074,7 +1770,6 @@
   category: business
   marketplace: https://www.notion.com/templates/life-os-simple-all-in-one-dashboard
   page: /templates/life-os-simple-all-in-one-dashboard/
-  page_fr: /fr/templates/life-os-simple-all-in-one-dashboard/
   tags:
     - life
     - productivity
@@ -2090,9 +1785,6 @@
   en:
     title: "Life OS, Simple All-in-One Dashboard"
     blurb: "Tasks, notes, goals and habits on one page, without the usual complexity."
-  fr:
-    title: "Life OS, tableau de bord tout-en-un simple"
-    blurb: "Taches, notes, objectifs et habitudes sur une page, sans la complexite habituelle."
   rank: 242
 
 - id: business-framework-solo-founder-startup
@@ -2101,7 +1793,6 @@
   category: business
   marketplace: https://www.notion.com/templates/business-framework-solo-founder-startup
   page: /templates/business-framework-solo-founder-startup/
-  page_fr: /fr/templates/business-framework-solo-founder-startup/
   tags:
     - startup
     - founder
@@ -2114,9 +1805,6 @@
   en:
     title: "Business Framework for Solo Founders"
     blurb: "Strategy, offers, customers and numbers in one frame, for a company of one."
-  fr:
-    title: "Cadre business pour fondateurs solo"
-    blurb: "Strategie, offres, clients et chiffres dans un seul cadre, pour une entreprise d une personne."
   rank: 243
 
 - id: cv-in-ats-format
@@ -2125,7 +1813,6 @@
   category: study
   marketplace: https://www.notion.com/templates/cv-in-ats-format
   page: /templates/cv-in-ats-format/
-  page_fr: /fr/templates/cv-in-ats-format/
   tags:
     - cv
     - resume
@@ -2138,9 +1825,6 @@
   en:
     title: "CV in ATS Format"
     blurb: "A CV that applicant tracking systems can actually read, written in Notion."
-  fr:
-    title: "CV au format ATS"
-    blurb: "Un CV que les systemes de suivi de candidatures savent lire, redige dans Notion."
   rank: 244
 
 - id: sop-standard-operating-procedures-834
@@ -2149,7 +1833,6 @@
   category: business
   marketplace: https://www.notion.com/templates/sop-standard-operating-procedures-834
   page: /templates/sop-standard-operating-procedures-834/
-  page_fr: /fr/templates/sop-standard-operating-procedures-834/
   tags:
     - sop
     - process
@@ -2162,9 +1845,6 @@
   en:
     title: "Standard Operating Procedures Library"
     blurb: "Write a process once, and have anyone follow it the same way every time."
-  fr:
-    title: "Bibliotheque de procedures operationnelles"
-    blurb: "Redigez un processus une fois, et faites-le suivre a l identique par tous."
   rank: 245
 
 - id: business-consultant-agent-management-consulting-lite
@@ -2173,7 +1853,6 @@
   category: business
   marketplace: https://www.notion.com/templates/business-consultant-agent-management-consulting-lite
   page: /templates/business-consultant-agent-management-consulting-lite/
-  page_fr: /fr/templates/business-consultant-agent-management-consulting-lite/
   tags:
     - ai
     - agent
@@ -2186,9 +1865,6 @@
   en:
     title: "Business Consultant AI Agent (Lite)"
     blurb: "A Notion AI agent that pressure-tests your thinking like a consultant would."
-  fr:
-    title: "Agent IA consultant business (Lite)"
-    blurb: "Un agent IA Notion qui challenge votre raisonnement comme le ferait un consultant."
   rank: 246
 - id: agenda-page-make-time
   status: live
@@ -2196,7 +1872,6 @@
   category: business
   marketplace: https://www.notion.com/templates/agenda-page-make-time
   page: /templates/agenda-page-make-time/
-  page_fr: /fr/templates/agenda-page-make-time/
   tags:
     - agenda
     - planning
@@ -2206,9 +1881,6 @@
   en:
     title: "Agenda Page, Make Time"
     blurb: "A single agenda page that shows what deserves your hours this week."
-  fr:
-    title: "Page agenda, degagez du temps"
-    blurb: "Une page agenda unique qui montre ce qui merite vos heures cette semaine."
   rank: 247
 
 - id: top-tech-consultant-ai-agent
@@ -2217,7 +1889,6 @@
   category: business
   marketplace: https://www.notion.com/templates/top-tech-consultant-ai-agent
   page: /templates/top-tech-consultant-ai-agent/
-  page_fr: /fr/templates/top-tech-consultant-ai-agent/
   tags:
     - ai
     - agent
@@ -2227,9 +1898,6 @@
   en:
     title: "Top Tech Consultant AI Agent"
     blurb: "An AI agent that reviews architecture and risk the way a senior consultant would."
-  fr:
-    title: "Agent IA consultant tech senior"
-    blurb: "Un agent IA qui examine l'architecture et le risque comme un consultant senior."
   rank: 248
 
 - id: tech-consultant-ai-agent
@@ -2238,7 +1906,6 @@
   category: business
   marketplace: https://www.notion.com/templates/tech-consultant-ai-agent
   page: /templates/tech-consultant-ai-agent/
-  page_fr: /fr/templates/tech-consultant-ai-agent/
   tags:
     - ai
     - agent
@@ -2248,9 +1915,6 @@
   en:
     title: "Tech Consultant AI Agent, Starter Pack (Lite)"
     blurb: "The lighter version: an AI agent for everyday technology questions."
-  fr:
-    title: "Agent IA consultant tech, pack de demarrage (Lite)"
-    blurb: "La version legere : un agent IA pour les questions technologiques du quotidien."
   rank: 249
 
 - id: snoopy-everything-hub
@@ -2259,7 +1923,6 @@
   category: business
   marketplace: https://www.notion.com/templates/snoopy-everything-hub
   page: /templates/snoopy-everything-hub/
-  page_fr: /fr/templates/snoopy-everything-hub/
   tags:
     - personal
     - hub
@@ -2269,9 +1932,6 @@
   en:
     title: "Snoopy Everything Hub"
     blurb: "A cheerful all-in-one hub for notes, tasks, links and everything else."
-  fr:
-    title: "Snoopy, hub tout-en-un"
-    blurb: "Un hub tout-en-un joyeux pour notes, taches, liens et tout le reste."
   rank: 250
 
 - id: finance-cert-bundle-3x-premium
@@ -2282,7 +1942,6 @@
   price: 97
   marketplace: https://www.notion.com/templates/finance-cert-bundle-3x-premium
   page: /templates/finance-cert-bundle-3x-premium/
-  page_fr: /fr/templates/finance-cert-bundle-3x-premium/
   tags:
     - finance
     - cfa
@@ -2292,7 +1951,4 @@
   en:
     title: "Finance Cert Bundle (3x)"
     blurb: "Three finance certification study systems in one bundle: CFA, CPA and the Personal Financial Planner."
-  fr:
-    title: "Pack certifications finance (3x)"
-    blurb: "Trois systemes de revision finance en un pack : CFA, CPA et le Personal Financial Planner."
   rank: 251

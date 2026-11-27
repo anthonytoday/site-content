@@ -1,5 +1,4 @@
-{%- assign L = "en" -%}{%- if page.lang == "fr" -%}{%- assign L = "fr" -%}{%- endif -%}
-<div class="shop-grid" id="grid">
+{%- assign L = "en" -%}<div class="shop-grid" id="grid">
 {%- comment -%} Pinned listings lead the grid in every view, then everything else by rank.
     Filters still apply to pins: a pinned card hides when it does not match the active
     facet, exactly like the Notion marketplace. {%- endcomment -%}
@@ -10,9 +9,7 @@
 {%- assign catalogue = pins | concat: rest -%}
 {%- for t in catalogue -%}
   {%- assign c = t[L] -%}
-  {%- if t.status == "live" -%}
-    {%- if L == "fr" -%}{%- assign href = t.page_fr -%}{%- else -%}{%- assign href = t.page -%}{%- endif -%}
-  <a class="card{% if t.pinned %} is-featured{% endif %}" href="{{ href }}"
+  {%- if t.status == "live" -%}{%- assign href = t.page -%}<a class="card{% if t.pinned %} is-featured{% endif %}" href="{{ href }}"
      data-cat="{{ t.category }}"
      data-price="{% if t.free %}free{% else %}premium{% endif %}"
      data-search="{{ c.title | downcase }} {{ c.blurb | downcase }} {{ t.category }} {% for tg in t.tags %}#{{ tg }} {% endfor %}">
@@ -42,11 +39,11 @@
       <div class="card-tags">{% for tg in t.tags limit:3 %}<span class="tagpill">#{{ tg }}</span>{% endfor %}</div>
       <div class="price-row">
         {%- if t.free -%}
-        <span class="price">{% if L == "fr" %}Gratuit{% else %}Free{% endif %}</span>
+        <span class="price">Free</span>
         {%- else -%}
         <span class="price">${{ t.price }}</span>
         {%- endif -%}
-        <span class="card-cta">{% if L == "fr" %}Voir{% else %}View{% endif %} &rarr;</span>
+        <span class="card-cta">View &rarr;</span>
       </div>
     </div>
   </a>
@@ -68,12 +65,12 @@
   {%- endif -%}
     <div class="thumb">
       {%- if t.cover -%}
-      <div class="ph-art"><span class="ph-icon">&#9635;</span>{% if L == "fr" %}Visuels a venir{% else %}Artwork coming{% endif %}</div>
+      <div class="ph-art"><span class="ph-icon">&#9635;</span>Artwork coming</div>
       <img class="cover" src="{{ t.cover }}"{%- assign _ss = site.data.cover_srcset[t.cover] -%}{%- if _ss %} srcset="{{ _ss }}" sizes="(max-width:600px) 100vw, (max-width:900px) 46vw, 330px"{%- endif %} alt="{{ c.title }}" loading="lazy"{%- assign _d = site.data.image_dims[t.cover] -%}{%- if _d -%}{%- assign _wh = _d | split: "x" %} width="{{ _wh[0] }}" height="{{ _wh[1] }}"{%- endif %} decoding="async" data-remove-on-error>
       {%- else -%}
-      <div class="ph-art"><span class="ph-icon">&#9635;</span>{% if L == "fr" %}Visuels a venir{% else %}Artwork coming{% endif %}</div>
+      <div class="ph-art"><span class="ph-icon">&#9635;</span>Artwork coming</div>
       {%- endif -%}
-      <div class="badges"><span class="badge soon">{% if L == "fr" %}Bientot ici{% else %}Coming soon here{% endif %}</span></div>
+      <div class="badges"><span class="badge soon">Coming soon here</span></div>
     </div>
     <div class="card-body">
       <h3>{{ c.title }}</h3>
@@ -81,10 +78,10 @@
       <div class="card-tags">{% for tg in t.tags limit:3 %}<span class="tagpill">#{{ tg }}</span>{% endfor %}</div>
       <div class="price-row">
         {%- if ext -%}
-        <span class="price soon">{% if t.marketplace %}{% if L == "fr" %}Sur le Notion Marketplace{% else %}On the Notion Marketplace{% endif %}{% else %}{% if L == "fr" %}Sur Etsy{% else %}On Etsy{% endif %}{% endif %}</span>
-        <span class="card-cta">{% if L == "fr" %}Ouvrir{% else %}Open{% endif %} &nearr;</span>
+        <span class="price soon">{% if t.marketplace %}On the Notion Marketplace{% else %}On Etsy{% endif %}</span>
+        <span class="card-cta">Open &nearr;</span>
         {%- else -%}
-        <span class="price soon">{% if L == "fr" %}En preparation{% else %}In production{% endif %}</span>
+        <span class="price soon">In production</span>
         {%- endif -%}
       </div>
     </div>

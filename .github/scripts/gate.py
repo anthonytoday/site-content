@@ -18,7 +18,6 @@ SRC = sys.argv[2] if len(sys.argv) > 2 else "."
 LD_RE = re.compile(r'<script type="application/ld\+json">(.*?)</script>', re.S)
 STRAY_RE = re.compile(r'[a-zA-Z-]+="[^"\n]*"/\s')
 STUB_MARK = '<meta http-equiv="refresh"'
-FR_OVERRIDE = 'html[lang="fr"] h1'
 DASHES = ("\u2013", "\u2014")  # en dash, em dash: house style forbids both
 
 failures = []
@@ -79,8 +78,6 @@ for path in sorted(built):
     m = STRAY_RE.search(text)
     if m:
         failures.append("stray '/' after an attribute in %s: %r" % (rel, m.group(0)))
-    if rel.split(os.sep)[0] == "fr" and FR_OVERRIDE not in text:
-        failures.append("FR page missing the typography override: %s" % rel)
     for dash in DASHES:
         if dash in text:
             failures.append("en/em dash in %s" % rel)

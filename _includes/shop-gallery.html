@@ -1,8 +1,7 @@
 {%- comment -%} Emit width/height for a catalogue image from _data/image_dims.yml,
     so the browser knows the aspect ratio even before CSS is applied. Falls back to
     nothing if an image is not in the map, rather than guessing. {%- endcomment -%}
-{%- assign L = "en" -%}{%- if page.lang == "fr" -%}{%- assign L = "fr" -%}{%- endif -%}
-{%- assign catalogue_src = include.catalogue | default: site.data.templates -%}
+{%- assign L = "en" -%}{%- assign catalogue_src = include.catalogue | default: site.data.templates -%}
 {%- assign noun = include.noun | default: "template" -%}
 {%- assign wanted = include.id | default: page.template_id -%}
 {%- assign t = nil -%}
@@ -20,20 +19,20 @@
 
 <div class="gallery-main{% if nslides > 0 %} lb-open{% endif %}"
      {% if nslides > 0 %}data-lb-index="0" role="button" tabindex="0"
-     aria-label="{% if L == 'fr' %}Cliquer pour agrandir{% else %}Click to enlarge{% endif %}"{% endif %}>
-  <div class="ph-art"><span class="ph-icon">&#9635;</span>{% if L == "fr" %}Capture a venir{% else %}Screenshot pending{% endif %}</div>
+     aria-label="Click to enlarge"{% endif %}>
+  <div class="ph-art"><span class="ph-icon">&#9635;</span>Screenshot pending</div>
   {%- comment -%} No width/height here on purpose. Covers vary (1600x999, 1920x1199) and the
       frame already declares aspect-ratio:16/10 in CSS, which reserves the space correctly.
       The old hardcoded 1000x700 was a 1.43 ratio against 1.60 files and contradicted it. {%- endcomment -%}
   {%- if t.cover %}<img class="cover" fetchpriority="high" src="{{ t.cover }}" alt="{{ c.title }}"{%- assign _ss = site.data.cover_srcset[t.cover] -%}{%- if _ss %} srcset="{{ _ss }}" sizes="(max-width:900px) 100vw, 590px"{%- endif -%}{%- assign _d = site.data.image_dims[t.cover] -%}{%- if _d -%}{%- assign _wh = _d | split: "x" %} width="{{ _wh[0] }}" height="{{ _wh[1] }}"{%- endif %} decoding="async" data-remove-on-error>{% endif -%}
-  {%- if nslides > 0 %}<span class="lb-hint" aria-hidden="true">{% if L == "fr" %}Cliquer pour agrandir{% else %}Click to enlarge{% endif %}</span>{% endif -%}
+  {%- if nslides > 0 %}<span class="lb-hint" aria-hidden="true">Click to enlarge</span>{% endif -%}
 </div>
 
 <div class="gallery-thumbs">
   {%- assign ndesk = 0 -%}{%- if t.cover -%}{%- assign ngal = t.gallery | size -%}{%- assign ndesk = ngal | plus: 1 -%}{%- endif -%}
   {%- for s in slides limit: ndesk -%}
   <button type="button" class="gthumb lb-open{% if forloop.first %} on{% endif %}" data-lb-index="{{ forloop.index0 }}"
-          aria-label="{% if L == 'fr' %}Voir l'image{% else %}View image{% endif %} {{ forloop.index }}">
+          aria-label="View image {{ forloop.index }}">
     <img class="cover" src="{{ s }}"{% if t.kind %}{% assign _gs = site.data.cover_srcset[s] %}{% if _gs %} srcset="{{ _gs }}" sizes="90px"{% endif %}{% endif %} alt="" loading="lazy"{%- assign _d = site.data.image_dims[s] -%}{%- if _d -%}{%- assign _wh = _d | split: "x" %} width="{{ _wh[0] }}" height="{{ _wh[1] }}"{%- endif %} decoding="async" data-remove-on-error>
   </button>
   {%- endfor -%}
@@ -52,39 +51,19 @@
     {%- for m in t.mobile limit: 3 -%}
     {%- assign midx = forloop.index0 | plus: ndesk2 -%}
     <button type="button" class="phone-frame lb-open" data-lb-index="{{ midx }}"
-            aria-label="{% if L == 'fr' %}Voir la vue mobile{% else %}View mobile screenshot{% endif %} {{ forloop.index }}">
+            aria-label="View mobile screenshot {{ forloop.index }}">
       <img class="cover" src="{{ m }}"{% if t.kind %}{% assign _ms = site.data.cover_srcset[m] %}{% if _ms %} srcset="{{ _ms }}" sizes="(max-width:600px) 40vw, 150px"{% endif %}{% endif %} alt="" loading="lazy"{%- assign _d = site.data.image_dims[m] -%}{%- if _d -%}{%- assign _wh = _d | split: "x" %} width="{{ _wh[0] }}" height="{{ _wh[1] }}"{%- endif %} decoding="async" data-remove-on-error>
     </button>
     {%- endfor -%}
   {%- else -%}
-    <div class="phone-frame"><div class="ph-art"><span class="ph-icon">&#9636;</span>{% if L == "fr" %}Vue mobile{% else %}Mobile view{% endif %}</div></div>
+    <div class="phone-frame"><div class="ph-art"><span class="ph-icon">&#9636;</span>Mobile view</div></div>
   {%- endif -%}
   <div class="ps-copy"><p>
-    {%- if t.mobile -%}
-      {%- if L == "fr" -%}
-      Le template est concu pour le mobile autant que pour le bureau. Cliquez sur une image pour
-      l'agrandir et parcourir la galerie complete.
-      {%- else -%}
-      The {{ noun }} is built for phone as much as desktop. Click any image to enlarge it and browse
-      the full gallery.
-      {%- endif -%}
-    {%- else -%}
+    {%- if t.mobile -%}The {{ noun }} is built for phone as much as desktop. Click any image to enlarge it and browse
+      the full gallery.{%- else -%}
       {%- comment -%} A free listing must never be told to "buy with the 14-day refund".
           There is nothing to refund, and it reads as a bait and switch. {%- endcomment -%}
-      {%- if t.free -%}
-        {%- if L == "fr" -%}
-        D'autres captures arrivent. En attendant, la fiche complete est visible sur le Notion
-        Marketplace, ou <a href="/fr/contact/">posez-moi vos questions</a>.
-        {%- else -%}
-        {%- if t.video -%}Watch the walkthrough below. More screenshots are on the way.{%- else -%}More screenshots are on the way. In the meantime the full listing is visible on {% if t.marketplace %}the Notion Marketplace{% else %}Etsy{% endif %}, or <a href="/contact/">ask me anything</a>.{%- endif -%}
-        {%- endif -%}
-      {%- else -%}
-        {%- if L == "fr" -%}
-        D'autres captures et une video de presentation sont en cours de production.
-        {%- else -%}
-        {%- if t.video -%}Watch the walkthrough below. More screenshots are on the way.{%- elsif noun == "deck" -%}More screenshots and a walkthrough video are being produced.{%- else -%}More screenshots and a walkthrough video are being produced.{%- endif -%}
-        {%- endif -%}
-      {%- endif -%}
+      {%- if t.free -%}{%- if t.video -%}Watch the walkthrough below. More screenshots are on the way.{%- else -%}More screenshots are on the way. In the meantime the full listing is visible on {% if t.marketplace %}the Notion Marketplace{% else %}Etsy{% endif %}, or <a href="/contact/">ask me anything</a>.{%- endif -%}{%- else -%}{%- if t.video -%}Watch the walkthrough below. More screenshots are on the way.{%- elsif noun == "deck" -%}More screenshots and a walkthrough video are being produced.{%- else -%}More screenshots and a walkthrough video are being produced.{%- endif -%}{%- endif -%}
     {%- endif -%}
   </p></div>
 </div>
@@ -93,30 +72,30 @@
 {%- if t.video -%}
 <div class="vid-card">
   <a href="https://www.youtube.com/watch?v={{ t.video.id }}" target="_blank" rel="noopener"
-     aria-label="{% if L == 'fr' %}Voir la video de presentation{% else %}Watch the walkthrough video{% endif %}">
+     aria-label="Watch the walkthrough video">
     <img src="{{ t.video.thumb }}" alt="{{ t.video.title }}" loading="lazy" width="480" height="270" decoding="async" data-remove-on-error>
     <span class="vid-play" aria-hidden="true"><span>&#9654;</span></span>
   </a>
   <div class="vid-meta">
-    <b>{% if L == "fr" %}Video de presentation{% else %}Walkthrough video{% endif %}</b>
-    {{ t.video.title }}{% if L == "fr" %} &middot; sur YouTube{% else %} &middot; on YouTube{% endif %}
+    <b>Walkthrough video</b>
+    {{ t.video.title }} &middot; on YouTube
   </div>
 </div>
 {%- endif -%}
 
 {%- if nslides > 0 -%}
 <div class="lb" id="lb" hidden aria-hidden="true" role="dialog" aria-modal="true"
-     aria-label="{% if L == 'fr' %}Galerie d'images{% else %}Image gallery{% endif %}">
+     aria-label="Image gallery">
   <button type="button" class="lb-close" data-lb-close
-          aria-label="{% if L == 'fr' %}Fermer{% else %}Close{% endif %}">&times;</button>
+          aria-label="Close">&times;</button>
   <button type="button" class="lb-nav lb-prev" data-lb-prev
-          aria-label="{% if L == 'fr' %}Image precedente{% else %}Previous image{% endif %}">&#8249;</button>
+          aria-label="Previous image">&#8249;</button>
   <figure class="lb-stage">
     <img id="lb-img" src="" alt="">
     <figcaption class="lb-count"><span id="lb-now">1</span> / {{ nslides }}</figcaption>
   </figure>
   <button type="button" class="lb-nav lb-next" data-lb-next
-          aria-label="{% if L == 'fr' %}Image suivante{% else %}Next image{% endif %}">&#8250;</button>
+          aria-label="Next image">&#8250;</button>
 </div>
 
 <script type="application/json" id="lb-data">{"s":[{% for s in slides %}{{ s | jsonify }}{% unless forloop.last %},{% endunless %}{% endfor %}],"a":{{ c.title | jsonify }}}</script>

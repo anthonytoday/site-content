@@ -20,10 +20,6 @@ exclude:
   - workers/
   - i18n/
   - "**/README.md"
-  # Oct 13, 2026: English only. French pages kept for the archive, not built; Cloudflare redirects /fr/* to English.
-  - fr/
-  - redirects/cyber-grc-fr.html
-  - redirects/fractional-ciso-fr.html
   # CSP header artefact for Cloudflare paste (0061); never serve publicly.
   - security/
 
