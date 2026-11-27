@@ -3403,9 +3403,9 @@
 {
 "type": "text",
 "text": {
-"content": "Book Fix Session",
+"content": "Book a free call",
 "link": {
-"url": "https://buy.stripe.com/6oUcN7fmMgex6nxa4N1ZS0y"
+"url": "https://cal.com/anthonytoday/qualification"
 }
 },
 "annotations": {
@@ -3416,17 +3416,17 @@
 "code": false,
 "color": "default"
 },
-"plain_text": "Book Fix Session",
-"href": "https://buy.stripe.com/6oUcN7fmMgex6nxa4N1ZS0y"
+"plain_text": "Book a free call",
+"href": "https://cal.com/anthonytoday/qualification"
 }
 ],
 [
 {
 "type": "text",
 "text": {
-"content": "Start 14-Day Foundation",
+"content": "Book a free call",
 "link": {
-"url": "https://buy.stripe.com/cNiaEZ3E4bYhbHR90J1ZS0z?utm_source=security_check&utm_medium=fixlist&utm_campaign=foundation_standard"
+"url": "https://cal.com/anthonytoday/qualification"
 }
 },
 "annotations": {
@@ -3437,8 +3437,8 @@
 "code": false,
 "color": "default"
 },
-"plain_text": "Start 14-Day Foundation",
-"href": "https://buy.stripe.com/cNiaEZ3E4bYhbHR90J1ZS0z?utm_source=security_check&utm_medium=fixlist&utm_campaign=foundation_standard"
+"plain_text": "Book a free call",
+"href": "https://cal.com/anthonytoday/qualification"
 },
 {
 "type": "text",
@@ -3462,7 +3462,7 @@
 "text": {
 "content": "Founding Rate $990",
 "link": {
-"url": "https://buy.stripe.com/cNi5kF1vW5zT8vFa4N1ZS0C?utm_source=security_check&utm_medium=fixlist&utm_campaign=foundation_founding"
+"url": "https://cal.com/anthonytoday/qualification"
 }
 },
 "annotations": {
@@ -3474,7 +3474,7 @@
 "color": "default"
 },
 "plain_text": "Founding Rate $990",
-"href": "https://buy.stripe.com/cNi5kF1vW5zT8vFa4N1ZS0C?utm_source=security_check&utm_medium=fixlist&utm_campaign=foundation_founding"
+"href": "https://cal.com/anthonytoday/qualification"
 }
 ]
 ]

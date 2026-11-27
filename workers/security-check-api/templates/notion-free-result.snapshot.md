@@ -158,7 +158,7 @@ We checked how \{\{#if company\}\}\{\{company\}\}'s Notion workspace\{\{else\}\}
 </tr>
 </table>
 <callout icon="🛡️" color="blue_bg">
-	**Get your Fix List for \$39.** Delivered by email right after payment. 7-day refund on request. [Get the Fix List](https://buy.stripe.com/28E6oJfmMbYh27h4Kt1ZS0x?client_reference_id={{result_id}})
+	**Get your Fix List for \$39.** [Book a free call](https://cal.com/anthonytoday/qualification)
 </callout>
 ---
 ➡️ [Book on WhatsApp](https://wa.me/33695845150) · [Email](mailto:admin@anthonytoday.com)

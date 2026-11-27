@@ -12,7 +12,7 @@ if (NO_SUBMIT) {
   const html = await (await fetch(R_URL)).text();
   const { scopedCss } = await import(new URL("../../workers/security-check-api/src/render.js", import.meta.url).pathname);
   const body = html.slice(html.indexOf('<h1 class="pt">'), html.lastIndexOf("</body>"));
-  MOCK = { ok: true, resultId: "r000000000000000000000000", submissionId: "SC-MOCK", resultUrl: R_URL, fixlistUrl: "https://buy.stripe.com/test", held: true, emailStatus: "held",
+  MOCK = { ok: true, resultId: "r000000000000000000000000", submissionId: "SC-MOCK", resultUrl: R_URL, fixlistUrl: "https://cal.com/anthonytoday/qualification", held: true, emailStatus: "held",
     result: { total: 53, level: 3, levelName: "Defined", domains: [], flags: [], topRisks: [] }, resultHtml: '<div class="scres">' + body + "</div>", resultCss: scopedCss() };
 }
 const QS = ["q1","q2","q3","q4","q5","q6","q7","q8","q9","q10","q11","q12"];

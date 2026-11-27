@@ -173,8 +173,8 @@ Items are ordered by impact, so the first ones close your biggest risk: \{\{risk
 <tr>
 <td>**Book**</td>
 <td></td>
-<td>[Book Fix Session](https://buy.stripe.com/6oUcN7fmMgex6nxa4N1ZS0y)</td>
-<td>[Start 14-Day Foundation](https://buy.stripe.com/cNiaEZ3E4bYhbHR90J1ZS0z?utm_source=security_check&utm_medium=fixlist&utm_campaign=foundation_standard)<br>[Founding Rate \$990](https://buy.stripe.com/cNi5kF1vW5zT8vFa4N1ZS0C?utm_source=security_check&utm_medium=fixlist&utm_campaign=foundation_founding)</td>
+<td>[Book a free call](https://cal.com/anthonytoday/qualification)</td>
+<td>[Book a free call](https://cal.com/anthonytoday/qualification)<br>[Founding Rate \$990](https://cal.com/anthonytoday/qualification)</td>
 </tr>
 </table>
 ---

@@ -10,7 +10,7 @@ Your full result, with your 6-area profile and every risk we found: Open your re
 
 Quick win for today (5 minutes): {{quick_win_1}}
 
-When you want the step-by-step fix for every risk and a ready action plan, the Fix List is $39: Get your Fix List (https://buy.stripe.com/28E6oJfmMbYh27h4Kt1ZS0x?client_reference_id={{result_id}}).
+When you want help fixing these risks, book a free call: Book a free call (https://cal.com/anthonytoday/qualification).
 
 Kind regards,
 Anthony

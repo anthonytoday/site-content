@@ -34,12 +34,14 @@ export const REWRITES = [
   ["$490/mo founding rate for the first 5 clients, then $990/mo. ", COPY.fna_price + " " + COPY.monthly_cancel + " "],
 ];
 // Link swaps (exact URL, or the same URL with a query string), applied to template links before tokens are filled.
-// FNA (26 Oct 2026): the old $490/month Payment Link billed $490 forever; the launch offer checkout lives on anthonytoday.com.
-export const LINK_REWRITES = [
-  ["https://buy.stripe.com/5kQ5kF0rS5zTfY74Kt1ZS0B", "https://www.anthonytoday.com/checkout/fna-launch"],
-];
+// 27 Nov 2026 (Anthony): every paid offer behind a Stripe Payment Link is archived, so any Stripe link still in a live
+// Notion template (Fix List, Fix Session, Foundation, Consulting as a Service, FNA) goes to the free booking call.
+export const BOOKING_URL = "https://cal.com/anthonytoday/qualification";
+const STRIPE_LINK = /^https:\/\/buy\.stripe\.com\//;
+export const LINK_REWRITES = [];
 export function rewriteUrl(u) {
   if (!u) return u;
+  if (STRIPE_LINK.test(u)) return BOOKING_URL;
   for (const [a, b] of LINK_REWRITES) if (u === a || u.startsWith(a + "?")) return b + u.slice(a.length);
   return u;
 }
