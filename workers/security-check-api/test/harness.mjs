@@ -22,7 +22,7 @@ export const kv = () => { const m = new Map(), exp = new Map(); return { m, exp,
   list: async ({ prefix = "", cursor, limit = 1000 } = {}) => { const all = [...m.keys()].filter((k) => k.startsWith(prefix)).sort(); const i = cursor ? Number(cursor) : 0; const page = all.slice(i, i + limit);
     const done = i + limit >= all.length; return { keys: page.map((name) => (exp.has(name) ? { name, expiration: exp.get(name) } : { name })), list_complete: done, ...(done ? {} : { cursor: String(i + limit) }) }; } }; };
 export const baseEnv = (extra = {}) => ({ SC: kv(), ALLOWED_ORIGINS: "https://www.anthonytoday.com", STRIPE_WEBHOOK_SECRET: SECRET, SIGNING_KEY, DRY_RUN: "1", PUBLIC_BASE: "https://w.example", MAIL_FROM: "A <admin@anthonytoday.com>",
-  FIXLIST_PAYMENT_LINK: "https://buy.stripe.com/28E6oJfmMbYh27h4Kt1ZS0x", FIXLIST_PAYMENT_LINK_ID: "plink_1US9EnQ1Ll6EnCUKqtFqIhCG", ...extra });
+  FIXLIST_PAYMENT_LINK: "https://cal.com/anthonytoday/qualification", FIXLIST_PAYMENT_LINK_ID: "plink_1US9EnQ1Ll6EnCUKqtFqIhCG", ...extra });
 export const calls = [];
 globalThis.fetch = async (url, init = {}) => { calls.push({ url: String(url), body: init.body ? String(init.body) : "" }); if (/^https:\/\/api\.resend\.com\/suppressions\//.test(String(url))) return new Response("{}", { status: 404 }); return new Response(JSON.stringify({ id: "re_fake", results: [], object: "list" }), { status: 200, headers: { "Content-Type": "application/json" } }); };
 export const ctx = () => { const w = []; return { w, waitUntil: (p) => w.push(p), passThroughOnException() {} }; };

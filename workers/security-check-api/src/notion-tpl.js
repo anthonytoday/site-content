@@ -32,6 +32,7 @@ const WA = "https://wa.me/33695845150", MAILTO = "mailto:admin@anthonytoday.com"
 // Link URLs can carry tokens too ({{result_id}}, {{stripe_link}}); every Stripe Payment Link gets client_reference_id = result id.
 export function fillUrl(url, T) {
   if (!url) return url;
+  url = rewriteUrl(url); // every link, table cells included, goes through the link swap (archived Stripe links -> booking call)
   if (/\{\{stripe_link\}\}|%7B%7Bstripe_link%7D%7D/.test(url)) return T.stripe_link;
   url = url.replace(/(?:\{\{|%7B%7B)(\w+)(?:\}\}|%7D%7D)/g, (m, k) => (k in T && typeof T[k] !== "object" ? encodeURIComponent(String(T[k])) : ""));
   if (/^https:\/\/buy\.stripe\.com\//.test(url) && T.result_id && !/[?&]client_reference_id=/.test(url)) url += (url.includes("?") ? "&" : "?") + "client_reference_id=" + encodeURIComponent(T.result_id);

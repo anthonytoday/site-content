@@ -175,7 +175,7 @@ async function links(env, sub) {
   return {
     result: base + "/r/" + sub.result_id + "?t=" + t,
     fixlist_page: base + "/f/" + sub.result_id + "?t=" + (await sign(env, "f:" + sub.result_id)),
-    fixlist: env.FIXLIST_PAYMENT_LINK + "?client_reference_id=" + sub.result_id,
+    fixlist: /^https:\/\/buy\.stripe\./.test(env.FIXLIST_PAYMENT_LINK || "") ? env.FIXLIST_PAYMENT_LINK + "?client_reference_id=" + sub.result_id : env.FIXLIST_PAYMENT_LINK,
     unsub: unsubUrl(env, "preview"), // placeholder for previews; the real token is minted only when an email is built for sending (issueUnsubToken)
     maturity_base: env.MATURITY_IMG_BASE || "https://www.anthonytoday.com",
   };

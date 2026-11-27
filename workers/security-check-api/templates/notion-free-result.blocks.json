@@ -2813,7 +2813,7 @@
 {
 "type": "text",
 "text": {
-"content": "Get your Fix List for $39.",
+"content": "Want help fixing these risks?",
 "link": null
 },
 "annotations": {
@@ -2824,13 +2824,13 @@
 "code": false,
 "color": "default"
 },
-"plain_text": "Get your Fix List for $39.",
+"plain_text": "Want help fixing these risks?",
 "href": null
 },
 {
 "type": "text",
 "text": {
-"content": " Delivered by email right after payment. 7-day refund on request. ",
+"content": " ",
 "link": null
 },
 "annotations": {
@@ -2841,15 +2841,15 @@
 "code": false,
 "color": "default"
 },
-"plain_text": " Delivered by email right after payment. 7-day refund on request. ",
+"plain_text": " ",
 "href": null
 },
 {
 "type": "text",
 "text": {
-"content": "Get the Fix List",
+"content": "Book a free call",
 "link": {
-"url": "https://buy.stripe.com/28E6oJfmMbYh27h4Kt1ZS0x?client_reference_id=%7B%7Bresult_id%7D%7D"
+"url": "https://cal.com/anthonytoday/qualification"
 }
 },
 "annotations": {
@@ -2860,8 +2860,8 @@
 "code": false,
 "color": "default"
 },
-"plain_text": "Get the Fix List",
-"href": "https://buy.stripe.com/28E6oJfmMbYh27h4Kt1ZS0x?client_reference_id=%7B%7Bresult_id%7D%7D"
+"plain_text": "Book a free call",
+"href": "https://cal.com/anthonytoday/qualification"
 }
 ],
 "icon": {

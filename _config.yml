@@ -50,5 +50,5 @@ security_check_sb_origin: "https://xhstusuitatvuwznpvca.supabase.co"
 # fna_launch_url: $990/month price + LAUNCH490 code ($490/month for 3 months). Used by the FNA page launch buttons (EN; FR adds lang=fr).
 #   Empty = no "Start at $490" button. The banner text shows either way until the cutoff (_includes/fna-launch-live.html).
 # fna_standard_url: 302 to the $990/month Stripe Payment Link. Used by the FNA page "Start Now" $990 buttons.
-fna_launch_url: "https://www.anthonytoday.com/checkout/fna-launch"
-fna_standard_url: "https://www.anthonytoday.com/checkout/fna-standard"
+fna_launch_url: ""
+fna_standard_url: ""

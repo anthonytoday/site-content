@@ -1,182 +1,21 @@
 ---
-layout: default
-title: "L'architecture du système immobilier voix vers action"
-description: "Un décryptage visuel, couche par couche, de l'automatisation immobilière : du raccourci iPhone à la boucle d'exécution multi-agents, et la valeur métier produite."
+layout: null
 permalink: /fr/notion/real-estate-ops-architecture/
-lang: fr
-schema_type: "Article"
-bc_name: "Automatisation immobilière, architecture et valeur"
-bc_parent_name: "Notion Consulting"
-bc_parent_url: /fr/notion/
-css_bundle: /assets/css/b-e07b1c708e.css
-noindex: true
 sitemap: false
+noindex: true
 ---
-<style>.ps-grid .ps-card h2{font-size:18px;font-weight:600;color:var(--navy);line-height:1.4;margin-bottom:10px}@media(max-width:768px){.ps-grid .ps-card h2{font-size:18px !important;line-height:1.4 !important}}</style>
-<section class="uc-hero">
-  <span class="uc-tag">Cas d'usage, exploitation immobilière</span>
-  <h1>De la note dictée à la tâche suivie</h1>
-  <p>Un gestionnaire traverse un logement, dit à voix haute ce qui ne va pas, et continue sa visite.
-     Le temps qu'il remonte en voiture, le problème a été lu, classé, attribué et écrit dans le
-     suivi des tâches sous le bon bien. Personne n'a ouvert d'ordinateur.</p>
-  <div class="hero-actions">
-    <a href="/start/" class="uc-cta-button">Faire construire ce système</a>
-    <a href="/fr/notion/real-estate-ops/" class="uc-ghost-button">Lire l'étude de cas</a>
-  </div>
-</section>
-
-<div class="glance">
-  <div class="glance-item"><span class="glance-k">5 étapes</span><span class="glance-v">de la parole au suivi</span></div>
-  <div class="glance-item"><span class="glance-k">0 saisie</span><span class="glance-v">sur le terrain, à aucun moment</span></div>
-  <div class="glance-item"><span class="glance-k">3 agents</span><span class="glance-v">en parallèle</span></div>
-  <div class="glance-item"><span class="glance-k">2 contrôles</span><span class="glance-v">agent qualité, puis une personne</span></div>
-  <div class="glance-item"><span class="glance-k">1 boîte</span><span class="glance-v">chaque bien, chaque équipe</span></div>
-</div>
-
-<div class="ps-grid">
-  <div class="ps-card problem">
-    <span class="ps-label">Le problème</span>
-    <h2>Le rapport ne s'écrit jamais</h2>
-    <p>Les personnes les plus proches du problème ont les mains prises et pas de clavier : équipes
-       de maintenance, prestataires, personnel de remise en état. Une vanne qui lâche devient un SMS,
-       puis un souvenir, puis une seconde intervention six semaines plus tard. Sur un portefeuille,
-       il n'existe aucun registre partagé et à jour de ce qui se passe réellement dans chaque bien,
-       et le gestionnaire l'apprend en dernier.</p>
-  </div>
-  <div class="ps-card solution">
-    <span class="ps-label">La solution</span>
-    <h2>La parole devient la seule saisie</h2>
-    <p>Un geste ouvre Wispr Flow et la note dictée arrive dans une seule boîte de réception Notion.
-       L'IA lit la transcription, un routeur la confie à l'agent conçu pour ce type de travail, un
-       agent qualité vérifie la sortie contre les mots d'origine, et une personne valide avant toute
-       clôture. Le suivi des tâches se met à jour, par bien et par projet.</p>
-  </div>
-</div>
-
-<div class="section-lead">
-  <h2>Le mécanisme, de bout en bout</h2>
-  <p>Cinq étapes, du téléphone dans une main gantée à la ligne dans le suivi.</p>
-</div>
-
-<div class="arch-wrap">
-  <div class="arch-scroll">
-  <svg viewBox="0 0 920 964" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schéma d'architecture : un raccourci iPhone ouvre Wispr Flow, la note dictée arrive dans une boîte de réception Notion, le traitement la trie et l'oriente vers des agents en parallèle avec un contrôle qualité et humain, puis le suivi des tâches est mis à jour.">
-    <defs>
-      <marker id="arr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#8A94A6"/></marker>
-    </defs>
-    <style>
-      .n-title{font:600 14.5px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#051C2C}
-      .n-sub{font:400 11px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#6B7280}
-      .n-eyebrow{font:700 10px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#2251FF;letter-spacing:.07em}
-      .band-label{font:700 10.5px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#9AA3B2;letter-spacing:.12em}
-      .conn{stroke:#8A94A6;stroke-width:1.6;fill:none;marker-end:url(#arr)}
-      .band{fill:#F7F8FA;stroke:#EDEFF3;stroke-width:1}
-      .box{fill:#FFFFFF;stroke:#E1E5EC;stroke-width:1}
-      .box-gate{fill:#051C2C}
-      .t-inv{fill:#FFFFFF}
-      .s-inv{fill:#B9C6DA}
-    </style>
-    <rect class="band" x="30" y="16" width="860" height="160" rx="14"/>
-    <text class="band-label" x="48" y="40">SUR LE TÉLÉPHONE</text>
-    <rect class="box" x="90" y="58" width="300" height="92" rx="10"/>
-    <text class="n-eyebrow" x="240" y="80" text-anchor="middle">01 PARLER</text>
-    <text class="n-title" x="240" y="101" text-anchor="middle">Raccourci iPhone</text>
-    <text class="n-sub" x="240" y="119" text-anchor="middle">Back Tap ou bouton Action</text>
-    <text class="n-sub" x="240" y="134" text-anchor="middle">sans déverrouiller, sans taper</text>
-    <rect class="box" x="530" y="58" width="300" height="92" rx="10"/>
-    <text class="n-eyebrow" x="680" y="80" text-anchor="middle">02 DICTER</text>
-    <text class="n-title" x="680" y="101" text-anchor="middle">Wispr Flow</text>
-    <text class="n-sub" x="680" y="119" text-anchor="middle">la parole transcrite en direct</text>
-    <text class="n-sub" x="680" y="134" text-anchor="middle">ponctuation et nettoyage inclus</text>
-    <path class="conn" d="M390,104 L524,104"/>
-    <path class="conn" d="M680,150 C680,182 460,182 460,222"/>
-    <rect class="band" x="30" y="192" width="860" height="114" rx="14"/>
-    <text class="band-label" x="48" y="216">DANS NOTION · CAPTURE</text>
-    <rect class="box" x="250" y="226" width="420" height="66" rx="10"/>
-    <text class="n-eyebrow" x="460" y="248" text-anchor="middle">03 ARRIVER</text>
-    <text class="n-title" x="460" y="269" text-anchor="middle">Boîte de réception Notion</text>
-    <text class="n-sub" x="460" y="287" text-anchor="middle">une ligne par note : transcription, heure, bien</text>
-    <path class="conn" d="M460,292 L460,354"/>
-    <rect class="band" x="30" y="322" width="860" height="510" rx="14"/>
-    <text class="band-label" x="48" y="346">DANS NOTION · TRAITEMENT</text>
-    <rect class="box" x="280" y="358" width="360" height="66" rx="10"/>
-    <text class="n-eyebrow" x="460" y="380" text-anchor="middle">04 · TRI</text>
-    <text class="n-title" x="460" y="401" text-anchor="middle">L'IA lit la boîte</text>
-    <text class="n-sub" x="460" y="419" text-anchor="middle">ce qui s'est passé, quel bien, quelle urgence</text>
-    <path class="conn" d="M460,424 L460,446"/>
-    <rect class="box" x="370" y="446" width="180" height="52" rx="10"/>
-    <text class="n-eyebrow" x="460" y="468" text-anchor="middle">04 · ORIENTER</text>
-    <text class="n-title" x="460" y="489" text-anchor="middle">Agent routeur</text>
-    <path class="conn" d="M420,498 C380,518 250,518 178,534"/>
-    <path class="conn" d="M460,498 L460,534"/>
-    <path class="conn" d="M500,498 C540,518 670,518 742,534"/>
-    <rect class="box" x="52" y="538" width="252" height="74" rx="10"/>
-    <text class="n-eyebrow" x="178" y="560" text-anchor="middle">04 · AGIR</text>
-    <text class="n-title" x="178" y="581" text-anchor="middle">Dépannage maintenance</text>
-    <text class="n-sub" x="178" y="599" text-anchor="middle">en parallèle</text>
-    <rect class="box" x="334" y="538" width="252" height="74" rx="10"/>
-    <text class="n-eyebrow" x="460" y="560" text-anchor="middle">04 · AGIR</text>
-    <text class="n-title" x="460" y="581" text-anchor="middle">Relance prestataires</text>
-    <text class="n-sub" x="460" y="599" text-anchor="middle">en parallèle</text>
-    <rect class="box" x="616" y="538" width="252" height="74" rx="10"/>
-    <text class="n-eyebrow" x="742" y="560" text-anchor="middle">04 · AGIR</text>
-    <text class="n-title" x="742" y="581" text-anchor="middle">Communication locataires</text>
-    <text class="n-sub" x="742" y="599" text-anchor="middle">en parallèle</text>
-    <path class="conn" d="M178,612 C190,634 380,634 450,646"/>
-    <path class="conn" d="M460,612 L460,646"/>
-    <path class="conn" d="M742,612 C730,634 540,634 470,646"/>
-    <rect class="box" x="270" y="650" width="380" height="66" rx="10"/>
-    <text class="n-eyebrow" x="460" y="672" text-anchor="middle">04 · CONTRÔLE</text>
-    <text class="n-title" x="460" y="693" text-anchor="middle">Agent qualité</text>
-    <text class="n-sub" x="460" y="711" text-anchor="middle">sortie vérifiée contre la note d'origine</text>
-    <path class="conn" d="M460,716 L460,748"/>
-    <rect class="box-gate" x="280" y="752" width="360" height="66" rx="10"/>
-    <text class="n-eyebrow" x="460" y="774" text-anchor="middle" style="fill:#7FA6FF">04 · VALIDATION</text>
-    <text class="n-title t-inv" x="460" y="795" text-anchor="middle">Point de contrôle humain</text>
-    <text class="n-sub s-inv" x="460" y="813" text-anchor="middle">approuve ou rejette, jamais contourné</text>
-    <rect class="band" x="30" y="842" width="860" height="112" rx="14"/>
-    <text class="band-label" x="48" y="866">DANS NOTION · SUIVI</text>
-    <path class="conn" d="M460,818 L460,870"/>
-    <rect class="box" x="200" y="874" width="520" height="66" rx="10"/>
-    <text class="n-eyebrow" x="460" y="896" text-anchor="middle">05 SUIVI</text>
-    <text class="n-title" x="460" y="917" text-anchor="middle">Suivi des tâches mis à jour</text>
-    <text class="n-sub" x="460" y="935" text-anchor="middle">statut, responsable, échéance, bien, projet lié</text>
-  </svg>
-  </div>
-
-</div>
-
-<div class="chip-row">
-  <span class="chip">Aucune saisie sur le terrain</span>
-  <span class="chip">Wispr Flow assure la dictée</span>
-  <span class="chip">3 agents en même temps</span>
-  <span class="chip">Rien ne se clôture sans contrôle qualité et une personne</span>
-  <span class="chip">Une ligne de suivi par bien et par projet</span>
-</div>
-
-<div class="benefits-section">
-  <h2>Ce que cela vaut, selon qui l'utilise</h2>
-  <div class="who-grid">
-    <div class="benefit-card">
-      <h3>La personne qui supervise les opérations</h3>
-      <p>Le statut de chaque bien et de chaque projet depuis une seule vue, sans le demander à
-         personne. Le travail réparti vers le bon agent plutôt qu'entassé dans une seule boîte.</p>
-    </div>
-    <div class="benefit-card">
-      <h3>La personne sur le terrain</h3>
-      <p>Un problème, un retard ou une mise à jour signalé dès qu'il survient. Les mains restent
-         libres, et il n'y a rien de nouveau à apprendre au-delà de parler dans un téléphone.</p>
-    </div>
-  </div>
-</div>
-
-<div class="uc-cta">
-  <h2>Faites construire ce schéma pour votre activité</h2>
-  <p>Capture, tri, exécution en parallèle et point de contrôle humain : voici ce que donne la
-     conception d'un espace Notion une fois le flux de travail réel de votre équipe cartographié.</p>
-  <a href="/start/" class="uc-cta-button">Vérifier si nous sommes compatibles &rarr;</a>
-</div>
-
-<p style="text-align:center;font-size:14px;color:var(--text-gray);margin:0 0 40px"><a href="/fr/notion/real-estate-ops/">Lire l'étude de cas que cette architecture soutient &rarr;</a></p>
-
-{% include site-footer.html %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+{% include csp-meta.html %}
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Redirection</title>
+<link rel="canonical" href="/fr/notion/">
+<meta name="robots" content="noindex, follow">
+<meta http-equiv="refresh" content="0; url=/fr/notion/">
+</head>
+<body>
+<p>Cette page a été déplacée vers <a href="/fr/notion/">la page Notion</a>.</p>
+</body>
+</html>
